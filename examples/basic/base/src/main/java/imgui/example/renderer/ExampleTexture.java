@@ -1,14 +1,17 @@
 package imgui.example.renderer;
 
-import io.github.libfdx.graphics.Texture;
-
 public final class ExampleTexture implements AutoCloseable {
-    private final Texture texture;
     private final long id;
+    private final int width;
+    private final int height;
+    private final Runnable disposer;
+    private boolean disposed;
 
-    ExampleTexture(Texture texture, long id) {
-        this.texture = texture;
+    public ExampleTexture(long id, int width, int height, Runnable disposer) {
         this.id = id;
+        this.width = width;
+        this.height = height;
+        this.disposer = disposer;
     }
 
     public long id() {
@@ -16,20 +19,18 @@ public final class ExampleTexture implements AutoCloseable {
     }
 
     public int width() {
-        return texture.width();
+        return width;
     }
 
     public int height() {
-        return texture.height();
+        return height;
     }
 
     @Override
     public void close() {
-        if (!ImGuiShared.imgui().textures().isDisposed()) {
-            ImGuiShared.imgui().textures().remove(id);
-        }
-        if (!texture.isDisposed()) {
-            texture.dispose();
+        if (!disposed) {
+            disposed = true;
+            disposer.run();
         }
     }
 }

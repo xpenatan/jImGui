@@ -7,9 +7,9 @@
 package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeObject;
-import imgui.ImVec2;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
+import imgui.ImVec2;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;

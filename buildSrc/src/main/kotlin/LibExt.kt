@@ -2,8 +2,8 @@ import java.io.File
 import java.util.*
 
 object LibExt {
-    const val groupId = "com.github.xpenatan.xImGui"
-    const val libName = "xImGui"
+    const val groupId = "com.github.xpenatan.jImGui"
+    const val libName = "jImGui"
     var isRelease = false
     var libVersion: String = ""
         get() {
@@ -15,8 +15,15 @@ object LibExt {
     const val javaModernTarget = "17"
     const val javaFFMTarget = "25"
 
-    const val jParserVersion = "-SNAPSHOT"
+    const val jParserVersion = "1.2.3"
+    const val teaVMVersion = "0.15.0"
+    const val imguiVersion = "1.92.4-docking"
     const val libFdxVersion = "-SNAPSHOT"
+    const val gdxVersion = "1.14.2"
+    const val gdxTeaVMVersion = "-SNAPSHOT"
+    const val gdxWebGPUGroup = "com.github.xpenatan.gdx-webgpu"
+    const val gdxWebGPUVersion = "dev-SNAPSHOT"
+    const val jWebGPUVersion = "-SNAPSHOT"
 
     const val jUnitVersion = "4.12"
 

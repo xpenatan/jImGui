@@ -3,27 +3,34 @@ import java.nio.file.Paths
 import java.net.URLEncoder
 
 var libProjects = mutableSetOf(
-    project(":backends:fdx:fdx-shared-impl"),
-    project(":backends:fdx:fdx-gl-impl"),
-    project(":backends:fdx:fdx-wgpu-impl"),
-    project(":backends:fdx:fdx-vulkan-impl"),
-    project(":imgui:imgui-core"),
-    project(":imgui:imgui-jni"),
-    project(":imgui:imgui-ffm"),
-    project(":imgui:imgui-web"),
-    project(":imgui:imgui-android"),
+    project(":backends:gdx:gdx-shared-impl"),
+    project(":backends:gdx:gdx-gl-impl"),
+    project(":backends:gdx:gdx-wgpu-impl"),
+    project(":backends:fdx:fdx-impl"),
+    project(":imgui:core"),
+    project(":imgui:shared:jni"),
+    project(":imgui:shared:c"),
+    project(":imgui:desktop:jni"),
+    project(":imgui:desktop:ffm"),
+    project(":imgui:desktop:c"),
+    project(":imgui:web:wasm"),
+    project(":imgui:android:jni"),
+    project(":imgui:android:c"),
     project(":extensions:imlayout:imlayout-core"),
     project(":extensions:imlayout:imlayout-jni"),
     project(":extensions:imlayout:imlayout-ffm"),
     project(":extensions:imlayout:imlayout-web"),
+    project(":extensions:imlayout:imlayout-c"),
     project(":extensions:ImGuiColorTextEdit:textedit-core"),
     project(":extensions:ImGuiColorTextEdit:textedit-jni"),
     project(":extensions:ImGuiColorTextEdit:textedit-ffm"),
     project(":extensions:ImGuiColorTextEdit:textedit-web"),
+    project(":extensions:ImGuiColorTextEdit:textedit-c"),
     project(":extensions:imgui-node-editor:nodeeditor-core"),
     project(":extensions:imgui-node-editor:nodeeditor-jni"),
     project(":extensions:imgui-node-editor:nodeeditor-ffm"),
     project(":extensions:imgui-node-editor:nodeeditor-web"),
+    project(":extensions:imgui-node-editor:nodeeditor-c"),
 )
 
 val taskNames = gradle.startParameter.taskNames
@@ -71,7 +78,7 @@ configure(libProjects) {
                 pom {
                     name.set(LibExt.libName)
                     description.set("ImGui Java Bindings")
-                    url.set("https://github.com/xpenatan/xImGui")
+                    url.set("https://github.com/xpenatan/jImGui")
                     developers {
                         developer {
                             id.set("Xpe")
@@ -79,9 +86,9 @@ configure(libProjects) {
                         }
                     }
                     scm {
-                        connection.set("scm:git@github.com:xpenatan/xImGui.git")
-                        developerConnection.set("scm:git@github.com:xpenatan/xImGui.git")
-                        url.set("https://github.com/xpenatan/xImGui")
+                        connection.set("scm:git@github.com:xpenatan/jImGui.git")
+                        developerConnection.set("scm:git@github.com:xpenatan/jImGui.git")
+                        url.set("https://github.com/xpenatan/jImGui")
                     }
                     licenses {
                         license {

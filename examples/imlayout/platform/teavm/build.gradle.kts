@@ -16,21 +16,21 @@ val mainClassName = "imgui.example.imlayout.Build"
 
 dependencies {
     implementation(project(":examples:basic:base"))
-    implementation(project(":examples:imlayout:core"))
+    implementation(project(":examples:imlayout:fdx"))
 
     if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.xImGui:imgui-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.xImGui:imgui-web_wasm:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:imlayout-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.xImGui:imlayout-web_wasm:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:fdx-gl-impl:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imgui-web:-SNAPSHOT")
+        wasmLibraries("com.github.xpenatan.jImGui:imgui-web_wasm:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imlayout-web:-SNAPSHOT")
+        wasmLibraries("com.github.xpenatan.jImGui:imlayout-web_wasm:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:fdx-impl:-SNAPSHOT")
     }
     else {
-        implementation(project(":imgui:imgui-web"))
-        wasmLibraries(project(path = ":imgui:imgui-web", configuration = "wasmRuntimeElements"))
+        implementation(project(":imgui:web:wasm"))
+        wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
         implementation(project(":extensions:imlayout:imlayout-web"))
         wasmLibraries(project(path = ":extensions:imlayout:imlayout-web", configuration = "wasmRuntimeElements"))
-        implementation(project(":backends:fdx:fdx-gl-impl"))
+        implementation(project(":backends:fdx:fdx-impl"))
     }
 
     implementation("io.github.libfdx:backend_web:${LibExt.libFdxVersion}")

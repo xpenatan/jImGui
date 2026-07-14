@@ -1,11 +1,11 @@
-# xImGui
+# jImGui
 
-![Build](https://github.com/xpenatan/xImGui/actions/workflows/snapshot.yml/badge.svg)
+![Build](https://github.com/xpenatan/jImGui/actions/workflows/snapshot.yml/badge.svg)
 
-[![Maven Central Version](https://img.shields.io/maven-central/v/com.github.xpenatan.xImGui/imgui-core)](https://central.sonatype.com/namespace/com.github.xpenatan.xImGui)
-[![Static Badge](https://img.shields.io/badge/snapshot---SNAPSHOT-red)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/github/xpenatan/xImGui/)
+[![Maven Central Version](https://img.shields.io/maven-central/v/com.github.xpenatan.jImGui/imgui-core)](https://central.sonatype.com/namespace/com.github.xpenatan.jImGui)
+[![Static Badge](https://img.shields.io/badge/snapshot---SNAPSHOT-red)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/github/xpenatan/jImGui/)
 
-xImGui is a java binding for C++ [dear-imgui](https://github.com/ocornut/imgui). <br>
+jImGui is a java binding for C++ [dear-imgui](https://github.com/ocornut/imgui). <br>
 It uses webidl file to generate java methods with the help of [jParser](https://github.com/xpenatan/jParser). <br>
 It's meant to be small and 1-1 to C++. ImGui::Begin() is ImGui.Begin() and so on.
 
@@ -14,7 +14,7 @@ It's meant to be small and 1-1 to C++. ImGui::Begin() is ImGui.Begin() and so on
 ## Supported extensions:
 [imgui-node-editor](https://github.com/thedmd/imgui-node-editor) <br>
 [ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit/) <br>
-[ImLayout](https://github.com/xpenatan/xImGui/tree/master/extensions/imlayout) <br>
+[ImLayout](https://github.com/xpenatan/jImGui/tree/master/extensions/imlayout) <br>
 
 ### ImGui current state:
 
@@ -34,7 +34,7 @@ Note:
 
 ## Setup
 
-    xImGuiVersion = "-SNAPSHOT"
+    jImGuiVersion = "-SNAPSHOT"
 
 ```groovy
 // Add repository to Root gradle
@@ -49,44 +49,41 @@ repositories {
 ### Core module
 ```groovy
 dependencies {
-    implementation("com.github.xpenatan.xImGui:imgui-core:$project.xImGuiVersion")
-    implementation("com.github.xpenatan.xImGui:fdx-shared-impl:$project.xImGuiVersion")
-    implementation("com.github.xpenatan.xImGui:fdx-gl-impl:$project.xImGuiVersion")     // OpenGL
-    implementation("com.github.xpenatan.xImGui:fdx-wgpu-impl:$project.xImGuiVersion")   // WebGPU
-    implementation("com.github.xpenatan.xImGui:fdx-vulkan-impl:$project.xImGuiVersion") // Vulkan
+    implementation("com.github.xpenatan.jImGui:imgui-core:$project.jImGuiVersion")
+    implementation("com.github.xpenatan.jImGui:fdx-impl:$project.jImGuiVersion")
 
     // Extensions
-    implementation "com.github.xpenatan.xImGui:imlayout-core:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:textedit-core:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:nodeeditor-core:$project.xImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:imlayout-core:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:textedit-core:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:nodeeditor-core:$project.jImGuiVersion"
 }
 ```
 
 ### Desktop module
 ```groovy
 dependencies {
-    implementation("com.github.xpenatan.xImGui:imgui-jni:$project.xImGuiVersion")
-    implementation("com.github.xpenatan.xImGui:imgui-ffm:$project.xImGuiVersion")
+    implementation("com.github.xpenatan.jImGui:imgui-jni:$project.jImGuiVersion")
+    implementation("com.github.xpenatan.jImGui:imgui-ffm:$project.jImGuiVersion")
 
     // Extensions
-    implementation "com.github.xpenatan.xImGui:imlayout-jni:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:imlayout-ffm:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:textedit-jni:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:textedit-ffm:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:nodeeditor-jni:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:nodeeditor-ffm:$project.xImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:imlayout-jni:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:imlayout-ffm:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:textedit-jni:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:textedit-ffm:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:nodeeditor-jni:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:nodeeditor-ffm:$project.jImGuiVersion"
 }
 ```
 
 ### TeaVM module
 ```groovy
 dependencies {
-    implementation("com.github.xpenatan.xImGui:imgui-web:$project.xImGuiVersion")
+    implementation("com.github.xpenatan.jImGui:imgui-web:$project.jImGuiVersion")
 
     // Extensions
-    implementation "com.github.xpenatan.xImGui:imlayout-web:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:textedit-web:$project.xImGuiVersion"
-    implementation "com.github.xpenatan.xImGui:nodeeditor-web:$project.xImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:imlayout-web:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:textedit-web:$project.jImGuiVersion"
+    implementation "com.github.xpenatan.jImGui:nodeeditor-web:$project.jImGuiVersion"
 }
 ```
 

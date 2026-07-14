@@ -7,10 +7,10 @@
 package imgui.extension.nodeeditor;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import imgui.ImVec2;
 import imgui.ImDrawList;
 import imgui.ImVec4;
-import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;

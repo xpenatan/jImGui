@@ -1,0 +1,3330 @@
+
+// ############################################ Custom Classes ############################################
+
+interface ImTextureIDRef {
+    void ImTextureIDRef(optional unsigned long long value);
+    unsigned long long Get();
+};
+
+//interface ImHelper {
+//    void setClipboardTextFunction(ImGuiIO io, ClipboardTextFunction clipboardFunction);
+//    void memcpyIdx(any destination, ImDrawList drawList, long num);
+//    void memcpyVtx(any destination, ImDrawList drawList, long num);
+//    void memcpyFont32(ImFontAtlas fontAtlas, NativeByteArray pixelBuffer, long[] widthData, long[] heightData);
+//    void memcpyFont8(ImFontAtlas fontAtlas, NativeByteArray pixelBuffer, long[] widthData, long[] heightData);
+//    void updateFontName(ImFont font, [Const] DOMString name, float size_pixels);
+//    long long getTextureId(ImDrawCmd imDrawCmd);
+//    void setIniFilename(ImGuiIO io, byte[] fileName);
+//    void removeIniFilename(ImGuiIO io);
+//    long getImGuiPayloadData(ImGuiPayload payload);
+//};
+
+[NoDelete]
+interface ImTemp {
+    [BindTo="ImTextureIDRef_1"] static ImTextureIDRef ImTextureIDRef_1__0(unsigned long long textureId);
+
+    [BindTo="ImTextureRef_1"] static ImTextureRef ImTextureRef_1__0(unsigned long long textureId);
+    [BindTo="ImTextureRef_2"] static ImTextureRef ImTextureRef_2__0(unsigned long long textureId);
+    [BindTo="ImTextureRef_3"] static ImTextureRef ImTextureRef_3__0(unsigned long long textureId);
+
+    [BindTo="ImVec2_1"] static ImVec2 ImVec2_1__0();
+    [BindTo="ImVec2_1"] static ImVec2 ImVec2_1__1(float x, float y);
+    [BindTo="ImVec2_1"] static ImVec2 ImVec2_1__2([Ref] ImVec2 other);
+    [BindTo="ImVec2_2"] static ImVec2 ImVec2_2__0();
+    [BindTo="ImVec2_2"] static ImVec2 ImVec2_2__1(float x, float y);
+    [BindTo="ImVec2_2"] static ImVec2 ImVec2_2__2([Ref] ImVec2 other);
+    [BindTo="ImVec2_3"] static ImVec2 ImVec2_3__0();
+    [BindTo="ImVec2_3"] static ImVec2 ImVec2_3__1(float x, float y);
+    [BindTo="ImVec2_3"] static ImVec2 ImVec2_3__2([Ref] ImVec2 other);
+    [BindTo="ImVec2_4"] static ImVec2 ImVec2_4__0();
+    [BindTo="ImVec2_4"] static ImVec2 ImVec2_4__1(float x, float y);
+    [BindTo="ImVec2_4"] static ImVec2 ImVec2_4__2([Ref] ImVec2 other);
+
+    [BindTo="ImVec4_1"] static ImVec4 ImVec4_1__0();
+    [BindTo="ImVec4_1"] static ImVec4 ImVec4_1__1(float x, float y, float z, float w);
+    [BindTo="ImVec4_1"] static ImVec4 ImVec4_1__2([Ref] ImVec4 other);
+    [BindTo="ImVec4_2"] static ImVec4 ImVec4_2__0();
+    [BindTo="ImVec4_2"] static ImVec4 ImVec4_2__1(float x, float y, float z, float w);
+    [BindTo="ImVec4_2"] static ImVec4 ImVec4_2__2([Ref] ImVec4 other);
+    [BindTo="ImVec4_3"] static ImVec4 ImVec4_3__0();
+    [BindTo="ImVec4_3"] static ImVec4 ImVec4_3__1(float x, float y, float z, float w);
+    [BindTo="ImVec4_3"] static ImVec4 ImVec4_3__2([Ref] ImVec4 other);
+    [BindTo="ImVec4_4"] static ImVec4 ImVec4_4__0();
+    [BindTo="ImVec4_4"] static ImVec4 ImVec4_4__1(float x, float y, float z, float w);
+    [BindTo="ImVec4_4"] static ImVec4 ImVec4_4__2([Ref] ImVec4 other);
+
+    [BindTo="ImRect_1"] static ImRect ImRect_1__0();
+    [BindTo="ImRect_1"] static ImRect ImRect_1__1(float minX, float minY, float maxX, float maxY);
+    [BindTo="ImRect_1"] static ImRect ImRect_1__2([Ref] ImVec2 min, [Ref] ImVec2 max);
+    [BindTo="ImRect_2"] static ImRect ImRect_2__0();
+    [BindTo="ImRect_2"] static ImRect ImRect_2__1(float minX, float minY, float maxX, float maxY);
+    [BindTo="ImRect_2"] static ImRect ImRect_2__2([Ref] ImVec2 min, [Ref] ImVec2 max);
+    [BindTo="ImRect_3"] static ImRect ImRect_3__0();
+    [BindTo="ImRect_3"] static ImRect ImRect_3__1(float minX, float minY, float maxX, float maxY);
+    [BindTo="ImRect_3"] static ImRect ImRect_3__2([Ref] ImVec2 min, [Ref] ImVec2 max);
+    [BindTo="ImRect_4"] static ImRect ImRect_4__0();
+    [BindTo="ImRect_4"] static ImRect ImRect_4__1(float minX, float minY, float maxX, float maxY);
+    [BindTo="ImRect_4"] static ImRect ImRect_4__2([Ref] ImVec2 min, [Ref] ImVec2 max);
+};
+
+// ############################################ ImGui Wrappers Classes ############################################
+
+[NoDelete, Prefix="ImGuiWrapper::"]
+interface ImGuiInternal {
+    // Note: method overloading don't work with emscripten so we use __0, __1 and so on
+
+    // Helpers: Hashing
+    [BindTo="ImHashData_1"] static long ImHashData__0(any data, long data_size, optional long seed);
+    [BindTo="ImHashStr_1"] static long ImHashStr__0([Const] DOMString data, optional long data_size, optional long seed);
+
+    // Windows
+    static ImGuiWindow              GetCurrentWindowRead();
+    static ImGuiWindow              GetCurrentWindow();
+    static ImGuiWindow              FindWindowByID(long id);
+    static ImGuiWindow              FindWindowByName([Const] DOMString name);
+    static void                     UpdateWindowParentAndRootLinks(ImGuiWindow window, ImGuiWindowFlags flags, ImGuiWindow parent_window);
+    static void                     UpdateWindowSkipRefresh(ImGuiWindow window);
+    [Value] static ImVec2           CalcWindowNextAutoFitSize(ImGuiWindow window);
+    static boolean                  IsWindowChildOf(ImGuiWindow window, ImGuiWindow potential_parent, boolean popup_hierarchy, boolean dock_hierarchy);
+    static boolean                  IsWindowWithinBeginStackOf(ImGuiWindow window, ImGuiWindow potential_parent);
+    static boolean                  IsWindowAbove(ImGuiWindow potential_above, ImGuiWindow potential_below);
+    static boolean                  IsWindowNavFocusable(ImGuiWindow window);
+    static void                     SetWindowPos(ImGuiWindow window, [Const, Ref] ImVec2 pos, optional ImGuiCond cond);
+    static void                     SetWindowSize(ImGuiWindow window, [Const, Ref] ImVec2 size, optional ImGuiCond cond);
+    static void                     SetWindowCollapsed(ImGuiWindow window, boolean collapsed, optional ImGuiCond cond);
+    static void                     SetWindowHitTestHole(ImGuiWindow window, [Const, Ref] ImVec2 pos, [Const, Ref] ImVec2 size);
+    static void                     SetWindowHiddenAndSkipItemsForCurrentFrame(ImGuiWindow window);
+    static void                     SetWindowParentWindowForFocusRoute(ImGuiWindow window, ImGuiWindow parent_window);
+    [Value] static ImRect           WindowRectAbsToRel(ImGuiWindow window, [Const, Ref] ImRect r);
+    [Value] static ImRect           WindowRectRelToAbs(ImGuiWindow window, [Const, Ref] ImRect r);
+    [Value] static ImVec2           WindowPosAbsToRel(ImGuiWindow window, [Const, Ref] ImVec2 p);
+    [Value] static ImVec2           WindowPosRelToAbs(ImGuiWindow window, [Const, Ref] ImVec2 p);
+
+    // Windows: Display Order and Focus Order
+    static void                     FocusWindow(ImGuiWindow window, optional ImGuiFocusRequestFlags flags);
+    static void                     FocusTopMostWindowUnderOne(ImGuiWindow under_this_window, ImGuiWindow ignore_window, ImGuiViewport filter_viewport, ImGuiFocusRequestFlags flags);
+    static void                     BringWindowToFocusFront(ImGuiWindow window);
+    static void                     BringWindowToDisplayFront(ImGuiWindow window);
+    static void                     BringWindowToDisplayBack(ImGuiWindow window);
+    static void                     BringWindowToDisplayBehind(ImGuiWindow window, ImGuiWindow above_window);
+    static long                     FindWindowDisplayIndex(ImGuiWindow window);
+    static ImGuiWindow              FindBottomMostVisibleWindowWithinBeginStack(ImGuiWindow window);
+
+    // Windows: Idle, Refresh Policies [EXPERIMENTAL]
+    static void                     SetNextWindowRefreshPolicy(ImGuiWindowRefreshFlags flags);
+
+    // Fonts, drawing
+    static void                     RegisterUserTexture(ImTextureData tex);
+    static void                     UnregisterUserTexture(ImTextureData tex);
+    static void                     RegisterFontAtlas(ImFontAtlas atlas);
+    static void                     UnregisterFontAtlas(ImFontAtlas atlas);
+    static void                     SetCurrentFont(ImFont font, float font_size_before_scaling, float font_size_after_scaling);
+    static void                     UpdateCurrentFontSize(float restore_font_size_after_scaling);
+    static void                     SetFontRasterizerDensity(float rasterizer_density);
+    static float                    GetFontRasterizerDensity();
+    static float                    GetRoundedFontSize(float size);
+    static ImFont                   GetDefaultFont();
+    static void                     PushPasswordFont();
+    static void                     PopPasswordFont();
+    static ImDrawList               GetForegroundDrawList(ImGuiWindow window);
+//    static void                     AddDrawListToDrawDataEx(ImDrawData draw_data, ImVector<ImDrawList*>* out_list, ImDrawList* draw_list);
+
+    // Init
+    static void                     Initialize();
+    static void                     Shutdown();
+
+    // NewFrame
+    static void                     UpdateInputEvents(boolean trickle_fast_inputs);
+    static void                     UpdateHoveredWindowAndCaptureFlags([Const, Ref] ImVec2 mouse_pos);
+//    static void                     FindHoveredWindowEx([Const, Ref] ImVec2 pos, boolean find_first_and_in_any_viewport, ImGuiWindow** out_hovered_window, ImGuiWindow** out_hovered_window_under_moving_window);
+    static void                     StartMouseMovingWindow(ImGuiWindow window);
+    static void                     StartMouseMovingWindowOrNode(ImGuiWindow window, ImGuiDockNode node, boolean undock);
+    static void                     StopMouseMovingWindow();
+    static void                     UpdateMouseMovingWindowNewFrame();
+    static void                     UpdateMouseMovingWindowEndFrame();
+
+    // Generic context hooks
+//    ImGuiID       AddContextHook(ImGuiContext* context, const ImGuiContextHook* hook);
+//    void          RemoveContextHook(ImGuiContext* context, ImGuiID hook_to_remove);
+//    void          CallContextHooks(ImGuiContext* context, ImGuiContextHookType type);
+//
+//    // Viewports
+//    void          TranslateWindowsInViewport(ImGuiViewportP* viewport, const ImVec2& old_pos, const ImVec2& new_pos, const ImVec2& old_size, const ImVec2& new_size);
+//    void          ScaleWindowsInViewport(ImGuiViewportP* viewport, float scale);
+//    void          DestroyPlatformWindow(ImGuiViewportP* viewport);
+//    void          SetWindowViewport(ImGuiWindow* window, ImGuiViewportP* viewport);
+//    void          SetCurrentViewport(ImGuiWindow* window, ImGuiViewportP* viewport);
+//    const ImGuiPlatformMonitor*   GetViewportPlatformMonitor(ImGuiViewport* viewport);
+//    ImGuiViewportP*               FindHoveredViewportFromPlatformWindowStack(const ImVec2& mouse_platform_pos);
+//
+//    // Settings
+//    void                  MarkIniSettingsDirty();
+//    void                  MarkIniSettingsDirty(ImGuiWindow* window);
+//    void                  ClearIniSettings();
+//    void                  AddSettingsHandler(const ImGuiSettingsHandler* handler);
+//    void                  RemoveSettingsHandler(const char* type_name);
+//    ImGuiSettingsHandler* FindSettingsHandler(const char* type_name);
+//
+//    // Settings - Windows
+//    ImGuiWindowSettings*  CreateNewWindowSettings(const char* name);
+//    ImGuiWindowSettings*  FindWindowSettingsByID(ImGuiID id);
+//    ImGuiWindowSettings*  FindWindowSettingsByWindow(ImGuiWindow* window);
+//    void                  ClearWindowSettings(const char* name);
+//
+//    // Localization
+//    void          LocalizeRegisterEntries(const ImGuiLocEntry* entries, int count);
+//    const char*      LocalizeGetMsg(ImGuiLocKey key) { ImGuiContext& g = *GImGui; const char* msg = g.LocalizationTable[key]; return msg ? msg : "*Missing Text*"; }
+//
+//    // Scrolling
+//    void          SetScrollX(ImGuiWindow* window, float scroll_x);
+//    void          SetScrollY(ImGuiWindow* window, float scroll_y);
+//    void          SetScrollFromPosX(ImGuiWindow* window, float local_x, float center_x_ratio);
+//    void          SetScrollFromPosY(ImGuiWindow* window, float local_y, float center_y_ratio);
+//
+//    // Early work-in-progress API (ScrollToItem() will become public)
+//    void          ScrollToItem(ImGuiScrollFlags flags = 0);
+//    void          ScrollToRect(ImGuiWindow* window, const ImRect& rect, ImGuiScrollFlags flags = 0);
+//    ImVec2        ScrollToRectEx(ImGuiWindow* window, const ImRect& rect, ImGuiScrollFlags flags = 0);
+
+    // Basic Accessors
+    static ImGuiItemStatusFlags    GetItemStatusFlags();
+    static ImGuiItemFlags          GetItemFlags();
+    static long                    GetActiveID();
+    static long                    GetFocusID();
+    static void                    SetActiveID(long id, ImGuiWindow window);
+    static void                    SetFocusID(long id, ImGuiWindow window);
+    static void                    ClearActiveID();
+    static long                    GetHoveredID();
+    static void                    SetHoveredID(long id);
+    static void                    KeepAliveID(long id);
+//    static void          MarkItemEdited(ImGuiID id);     // Mark data associated to given item as "edited", used by IsItemDeactivatedAfterEdit() function.
+//    static void          PushOverrideID(ImGuiID id);     // Push given value as-is at the top of the ID stack (whereas PushID combines old and new hashes)
+//    static ImGuiID       GetIDWithSeed(const char* str_id_begin, const char* str_id_end, ImGuiID seed);
+//    static ImGuiID       GetIDWithSeed(int n, ImGuiID seed);
+//
+    // Basic Helpers for widget code
+    [BindTo="ItemSize"] static void ItemSize__0([Const, Ref] ImVec2 size, optional float text_baseline_y);
+    [BindTo="ItemSize"] static void ItemSize__1([Const, Ref] ImRect bb, optional float text_baseline_y);
+//    bool          ItemAdd(const ImRect& bb, ImGuiID id, const ImRect* nav_bb = NULL, ImGuiItemFlags extra_flags = 0);
+//    bool          ItemHoverable(const ImRect& bb, ImGuiID id, ImGuiItemFlags item_flags);
+//    bool          IsWindowContentHoverable(ImGuiWindow* window, ImGuiHoveredFlags flags = 0);
+//    bool          IsClippedEx(const ImRect& bb, ImGuiID id);
+//    void          SetLastItemData(ImGuiID item_id, ImGuiItemFlags item_flags, ImGuiItemStatusFlags status_flags, const ImRect& item_rect);
+//    ImVec2        CalcItemSize(ImVec2 size, float default_w, float default_h);
+//    float         CalcWrapWidthForPos(const ImVec2& pos, float wrap_pos_x);
+//    void          PushMultiItemsWidths(int components, float width_full);
+//    void          ShrinkWidths(ImGuiShrinkWidthItem* items, int count, float width_excess, float width_min);
+//    void          CalcClipRectVisibleItemsY(const ImRect& clip_rect, const ImVec2& pos, float items_height, int* out_visible_start, int* out_visible_end);
+//
+//    // Parameter stacks (shared)
+//    const ImGuiStyleVarInfo* GetStyleVarInfo(ImGuiStyleVar idx);
+//    void          BeginDisabledOverrideReenable();
+//    void          EndDisabledOverrideReenable();
+//
+//    // Logging/Capture
+//    void          LogBegin(ImGuiLogFlags flags, int auto_open_depth);         // -> BeginCapture() when we design v2 api, for now stay under the radar by using the old name.
+//    void          LogToBuffer(int auto_open_depth = -1);                      // Start logging/capturing to internal buffer
+//    void          LogRenderedText(const ImVec2* ref_pos, const char* text, const char* text_end = NULL);
+//    void          LogSetNextTextDecoration(const char* prefix, const char* suffix);
+//
+//    // Childs
+//    bool          BeginChildEx(const char* name, ImGuiID id, const ImVec2& size_arg, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags);
+//
+//    // Popups, Modals
+//    bool          BeginPopupEx(ImGuiID id, ImGuiWindowFlags extra_window_flags);
+//    bool          BeginPopupMenuEx(ImGuiID id, const char* label, ImGuiWindowFlags extra_window_flags);
+//    void          OpenPopupEx(ImGuiID id, ImGuiPopupFlags popup_flags = ImGuiPopupFlags_None);
+//    void          ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup);
+//    void          ClosePopupsOverWindow(ImGuiWindow* ref_window, bool restore_focus_to_window_under_popup);
+//    void          ClosePopupsExceptModals();
+//    bool          IsPopupOpen(ImGuiID id, ImGuiPopupFlags popup_flags);
+//    ImRect        GetPopupAllowedExtentRect(ImGuiWindow* window);
+//    ImGuiWindow*  GetTopMostPopupModal();
+//    ImGuiWindow*  GetTopMostAndVisiblePopupModal();
+//    ImGuiWindow*  FindBlockingModal(ImGuiWindow* window);
+//    ImVec2        FindBestWindowPosForPopup(ImGuiWindow* window);
+//    ImVec2        FindBestWindowPosForPopupEx(const ImVec2& ref_pos, const ImVec2& size, ImGuiDir* last_dir, const ImRect& r_outer, const ImRect& r_avoid, ImGuiPopupPositionPolicy policy);
+//
+//    // Tooltips
+//    bool          BeginTooltipEx(ImGuiTooltipFlags tooltip_flags, ImGuiWindowFlags extra_window_flags);
+//    bool          BeginTooltipHidden();
+//
+//    // Menus
+//    bool          BeginViewportSideBar(const char* name, ImGuiViewport* viewport, ImGuiDir dir, float size, ImGuiWindowFlags window_flags);
+//    bool          BeginMenuEx(const char* label, const char* icon, bool enabled = true);
+//    bool          MenuItemEx(const char* label, const char* icon, const char* shortcut = NULL, bool selected = false, bool enabled = true);
+//
+//    // Combos
+//    bool          BeginComboPopup(ImGuiID popup_id, const ImRect& bb, ImGuiComboFlags flags);
+//    bool          BeginComboPreview();
+//    void          EndComboPreview();
+//
+//    // Keyboard/Gamepad Navigation
+//    void          NavInitWindow(ImGuiWindow* window, bool force_reinit);
+//    void          NavInitRequestApplyResult();
+//    bool          NavMoveRequestButNoResultYet();
+//    void          NavMoveRequestSubmit(ImGuiDir move_dir, ImGuiDir clip_dir, ImGuiNavMoveFlags move_flags, ImGuiScrollFlags scroll_flags);
+//    void          NavMoveRequestForward(ImGuiDir move_dir, ImGuiDir clip_dir, ImGuiNavMoveFlags move_flags, ImGuiScrollFlags scroll_flags);
+//    void          NavMoveRequestResolveWithLastItem(ImGuiNavItemData* result);
+//    void          NavMoveRequestResolveWithPastTreeNode(ImGuiNavItemData* result, const ImGuiTreeNodeStackData* tree_node_data);
+//    void          NavMoveRequestCancel();
+//    void          NavMoveRequestApplyResult();
+//    void          NavMoveRequestTryWrapping(ImGuiWindow* window, ImGuiNavMoveFlags move_flags);
+//    void          NavHighlightActivated(ImGuiID id);
+//    void          NavClearPreferredPosForAxis(ImGuiAxis axis);
+//    void          SetNavCursorVisibleAfterMove();
+//    void          NavUpdateCurrentWindowIsScrollPushableX();
+//    void          SetNavWindow(ImGuiWindow* window);
+//    void          SetNavID(ImGuiID id, ImGuiNavLayer nav_layer, ImGuiID focus_scope_id, const ImRect& rect_rel);
+//    void          SetNavFocusScope(ImGuiID focus_scope_id);
+//
+//    // Focus/Activation
+//    void          FocusItem();                    // Focus last item (no selection/activation).
+//    void          ActivateItemByID(ImGuiID id);   // Activate an item by ID (button, checkbox, tree node etc.). Activation is queued and processed on the next frame when the item is encountered again. Was called 'ActivateItem()' before 1.89.7.
+//
+//    // Inputs
+//    bool             IsNamedKey(ImGuiKey key)                    { return key >= ImGuiKey_NamedKey_BEGIN && key < ImGuiKey_NamedKey_END; }
+//    bool             IsNamedKeyOrMod(ImGuiKey key)               { return (key >= ImGuiKey_NamedKey_BEGIN && key < ImGuiKey_NamedKey_END) || key == ImGuiMod_Ctrl || key == ImGuiMod_Shift || key == ImGuiMod_Alt || key == ImGuiMod_Super; }
+//    bool             IsLegacyKey(ImGuiKey key)                   { return key >= ImGuiKey_LegacyNativeKey_BEGIN && key < ImGuiKey_LegacyNativeKey_END; }
+//    bool             IsKeyboardKey(ImGuiKey key)                 { return key >= ImGuiKey_Keyboard_BEGIN && key < ImGuiKey_Keyboard_END; }
+//    bool             IsGamepadKey(ImGuiKey key)                  { return key >= ImGuiKey_Gamepad_BEGIN && key < ImGuiKey_Gamepad_END; }
+//    bool             IsMouseKey(ImGuiKey key)                    { return key >= ImGuiKey_Mouse_BEGIN && key < ImGuiKey_Mouse_END; }
+//    bool             IsAliasKey(ImGuiKey key)                    { return key >= ImGuiKey_Aliases_BEGIN && key < ImGuiKey_Aliases_END; }
+//    bool             IsLRModKey(ImGuiKey key)                    { return key >= ImGuiKey_LeftCtrl && key <= ImGuiKey_RightSuper; }
+//    ImGuiKeyChord           FixupKeyChord(ImGuiKeyChord key_chord);
+//    ImGuiKey         ConvertSingleModFlagToKey(ImGuiKey key);
+//
+//    ImGuiKeyData* GetKeyData(ImGuiContext* ctx, ImGuiKey key);
+//    ImGuiKeyData*    GetKeyData(ImGuiKey key)                                    { ImGuiContext& g = *GImGui; return GetKeyData(&g, key); }
+//    const char*   GetKeyChordName(ImGuiKeyChord key_chord);
+//    ImGuiKey         MouseButtonToKey(ImGuiMouseButton button)                   { IM_ASSERT(button >= 0 && button < ImGuiMouseButton_COUNT); return (ImGuiKey)(ImGuiKey_MouseLeft + button); }
+//    bool          IsMouseDragPastThreshold(ImGuiMouseButton button, float lock_threshold = -1.0f);
+//    ImVec2        GetKeyMagnitude2d(ImGuiKey key_left, ImGuiKey key_right, ImGuiKey key_up, ImGuiKey key_down);
+//    float         GetNavTweakPressedAmount(ImGuiAxis axis);
+//    int           CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate);
+//    void          GetTypematicRepeatRate(ImGuiInputFlags flags, float* repeat_delay, float* repeat_rate);
+//    void          TeleportMousePos(const ImVec2& pos);
+//    void          SetActiveIdUsingAllKeyboardKeys();
+//    bool             IsActiveIdUsingNavDir(ImGuiDir dir)                         { ImGuiContext& g = *GImGui; return (g.ActiveIdUsingNavDirMask & (1 << dir)) != 0; }
+//
+//    // [EXPERIMENTAL] Low-Level: Key/Input Ownership
+//    ImGuiID       GetKeyOwner(ImGuiKey key);
+//    void          SetKeyOwner(ImGuiKey key, ImGuiID owner_id, ImGuiInputFlags flags = 0);
+//    void          SetKeyOwnersForKeyChord(ImGuiKeyChord key, ImGuiID owner_id, ImGuiInputFlags flags = 0);
+//    void          SetItemKeyOwner(ImGuiKey key, ImGuiInputFlags flags);       // Set key owner to last item if it is hovered or active. Equivalent to 'if (IsItemHovered() || IsItemActive()) { SetKeyOwner(key, GetItemID());'.
+//    bool          TestKeyOwner(ImGuiKey key, ImGuiID owner_id);               // Test that key is either not owned, either owned by 'owner_id'
+//    ImGuiKeyOwnerData* GetKeyOwnerData(ImGuiContext* ctx, ImGuiKey key)          { if (key & ImGuiMod_Mask_) key = ConvertSingleModFlagToKey(key); IM_ASSERT(IsNamedKey(key)); return &ctx->KeysOwnerData[key - ImGuiKey_NamedKey_BEGIN]; }
+//
+//    // [EXPERIMENTAL] High-Level: Input Access functions w/ support for Key/Input Ownership
+//    bool          IsKeyDown(ImGuiKey key, ImGuiID owner_id);
+//    bool          IsKeyPressed(ImGuiKey key, ImGuiInputFlags flags, ImGuiID owner_id = 0);    // Important: when transitioning from old to new IsKeyPressed(): old API has "bool repeat = true", so would default to repeat. New API requiress explicit ImGuiInputFlags_Repeat.
+//    bool          IsKeyReleased(ImGuiKey key, ImGuiID owner_id);
+//    bool          IsKeyChordPressed(ImGuiKeyChord key_chord, ImGuiInputFlags flags, ImGuiID owner_id = 0);
+//    bool          IsMouseDown(ImGuiMouseButton button, ImGuiID owner_id);
+//    bool          IsMouseClicked(ImGuiMouseButton button, ImGuiInputFlags flags, ImGuiID owner_id = 0);
+//    bool          IsMouseReleased(ImGuiMouseButton button, ImGuiID owner_id);
+//    bool          IsMouseDoubleClicked(ImGuiMouseButton button, ImGuiID owner_id);
+//
+//    // Shortcut Testing & Routing
+//    bool          Shortcut(ImGuiKeyChord key_chord, ImGuiInputFlags flags, ImGuiID owner_id);
+//    bool          SetShortcutRouting(ImGuiKeyChord key_chord, ImGuiInputFlags flags, ImGuiID owner_id); // owner_id needs to be explicit and cannot be 0
+//    bool          TestShortcutRouting(ImGuiKeyChord key_chord, ImGuiID owner_id);
+//    ImGuiKeyRoutingData* GetShortcutRoutingData(ImGuiKeyChord key_chord);
+//
+//    // Docking
+//    void          DockContextInitialize(ImGuiContext* ctx);
+//    void          DockContextShutdown(ImGuiContext* ctx);
+//    void          DockContextClearNodes(ImGuiContext* ctx, ImGuiID root_id, bool clear_settings_refs); // Use root_id==0 to clear all
+//    void          DockContextRebuildNodes(ImGuiContext* ctx);
+//    void          DockContextNewFrameUpdateUndocking(ImGuiContext* ctx);
+//    void          DockContextNewFrameUpdateDocking(ImGuiContext* ctx);
+//    void          DockContextEndFrame(ImGuiContext* ctx);
+//    ImGuiID       DockContextGenNodeID(ImGuiContext* ctx);
+//    void          DockContextQueueDock(ImGuiContext* ctx, ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, float split_ratio, bool split_outer);
+//    void          DockContextQueueUndockWindow(ImGuiContext* ctx, ImGuiWindow* window);
+//    void          DockContextQueueUndockNode(ImGuiContext* ctx, ImGuiDockNode* node);
+//    void          DockContextProcessUndockWindow(ImGuiContext* ctx, ImGuiWindow* window, bool clear_persistent_docking_ref = true);
+//    void          DockContextProcessUndockNode(ImGuiContext* ctx, ImGuiDockNode* node);
+//    bool          DockContextCalcDropPosForDocking(ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload_window, ImGuiDockNode* payload_node, ImGuiDir split_dir, bool split_outer, ImVec2* out_pos);
+//    ImGuiDockNode*DockContextFindNodeByID(ImGuiContext* ctx, ImGuiID id);
+//    void          DockNodeWindowMenuHandler_Default(ImGuiContext* ctx, ImGuiDockNode* node, ImGuiTabBar* tab_bar);
+//    bool          DockNodeBeginAmendTabBar(ImGuiDockNode* node);
+//    void          DockNodeEndAmendTabBar();
+//    ImGuiDockNode*   DockNodeGetRootNode(ImGuiDockNode* node)                 { while (node->ParentNode) node = node->ParentNode; return node; }
+//    bool             DockNodeIsInHierarchyOf(ImGuiDockNode* node, ImGuiDockNode* parent) { while (node) { if (node == parent) return true; node = node->ParentNode; } return false; }
+//    int              DockNodeGetDepth(const ImGuiDockNode* node)              { int depth = 0; while (node->ParentNode) { node = node->ParentNode; depth++; } return depth; }
+//    ImGuiID          DockNodeGetWindowMenuButtonId(const ImGuiDockNode* node) { return ImHashStr("#COLLAPSE", 0, node->ID); }
+//    ImGuiDockNode*   GetWindowDockNode()                                      { ImGuiContext& g = *GImGui; return g.CurrentWindow->DockNode; }
+//    bool          GetWindowAlwaysWantOwnTabBar(ImGuiWindow* window);
+//    void          BeginDocked(ImGuiWindow* window, bool* p_open);
+//    void          BeginDockableDragDropSource(ImGuiWindow* window);
+//    void          BeginDockableDragDropTarget(ImGuiWindow* window);
+//    void          SetWindowDock(ImGuiWindow* window, ImGuiID dock_id, ImGuiCond cond);
+
+    // Docking - Builder function needs to be generally called before the node is used/submitted.
+    static void            DockBuilderDockWindow([Const] DOMString window_name, long node_id);
+    static ImGuiDockNode   DockBuilderGetNode(long node_id);
+    static ImGuiDockNode   DockBuilderGetCentralNode(long node_id);
+    static long            DockBuilderAddNode(optional long node_id, optional ImGuiDockNodeFlags flags);
+    static void            DockBuilderRemoveNode(long node_id);                 // Remove node and all its child, undock all windows
+    static void            DockBuilderRemoveNodeDockedWindows(long node_id, optional boolean clear_settings_refs);
+    static void            DockBuilderRemoveNodeChildNodes(long node_id);       // Remove all split/hierarchy. All remaining docked windows will be re-docked to the remaining root node (node_id).
+    static void            DockBuilderSetNodePos(long node_id, [Ref] ImVec2 pos);
+    static void            DockBuilderSetNodeSize(long node_id, [Ref] ImVec2 size);
+    static long            DockBuilderSplitNode(long node_id, ImGuiDir split_dir, float size_ratio_for_node_at_dir, long[] out_id_at_dir, long[] out_id_at_opposite_dir); // Create 2 child nodes in this parent node.
+    static void            DockBuilderCopyDockSpace(long src_dockspace_id, long dst_dockspace_id, ImVectorDOMString in_window_remap_pairs);
+    static void            DockBuilderCopyNode(long src_node_id, long dst_node_id, ImVectorImGuiID out_node_remap_pairs);
+    static void            DockBuilderCopyWindowSettings([Const] DOMString src_name, [Const] DOMString dst_name);
+    static void            DockBuilderFinish(long node_id);
+
+//    // [EXPERIMENTAL] Focus Scope
+//    void          PushFocusScope(ImGuiID id);
+//    void          PopFocusScope();
+//    ImGuiID          GetCurrentFocusScope() { ImGuiContext& g = *GImGui; return g.CurrentFocusScopeId; }   // Focus scope we are outputting into, set by PushFocusScope()
+
+    // Drag and Drop
+    static boolean       IsDragDropActive();
+    static boolean       BeginDragDropTargetCustom([Const, Ref] ImRect bb, long id);
+    static boolean       BeginDragDropTargetViewport(ImGuiViewport viewport, [Const] optional ImRect p_bb);
+    static void          ClearDragDrop();
+    static boolean       IsDragDropPayloadBeingAccepted();
+    static void          RenderDragDropTargetRectForItem([Const, Ref] ImRect bb);
+    static void          RenderDragDropTargetRectEx(ImDrawList draw_list, [Const, Ref] ImRect bb);
+
+//    // Typing-Select API
+//    ImGuiTypingSelectRequest* GetTypingSelectRequest(ImGuiTypingSelectFlags flags = ImGuiTypingSelectFlags_None);
+//    int           TypingSelectFindMatch(ImGuiTypingSelectRequest* req, int items_count, const char* (*get_item_name_func)(void*, int), void* user_data, int nav_item_idx);
+//    int           TypingSelectFindNextSingleCharMatch(ImGuiTypingSelectRequest* req, int items_count, const char* (*get_item_name_func)(void*, int), void* user_data, int nav_item_idx);
+//    int           TypingSelectFindBestLeadingMatch(ImGuiTypingSelectRequest* req, int items_count, const char* (*get_item_name_func)(void*, int), void* user_data);
+//
+//    // Box-Select API
+//    bool          BeginBoxSelect(const ImRect& scope_rect, ImGuiWindow* window, ImGuiID box_select_id, ImGuiMultiSelectFlags ms_flags);
+//    void          EndBoxSelect(const ImRect& scope_rect, ImGuiMultiSelectFlags ms_flags);
+//
+//    // Multi-Select API
+//    void          MultiSelectItemHeader(ImGuiID id, bool* p_selected, ImGuiButtonFlags* p_button_flags);
+//    void          MultiSelectItemFooter(ImGuiID id, bool* p_selected, bool* p_pressed);
+//    void          MultiSelectAddSetAll(ImGuiMultiSelectTempData* ms, bool selected);
+//    void          MultiSelectAddSetRange(ImGuiMultiSelectTempData* ms, bool selected, int range_dir, ImGuiSelectionUserData first_item, ImGuiSelectionUserData last_item);
+//    ImGuiBoxSelectState*     GetBoxSelectState(ImGuiID id)   { ImGuiContext& g = *GImGui; return (id != 0 && g.BoxSelectState.ID == id && g.BoxSelectState.IsActive) ? &g.BoxSelectState : NULL; }
+//    ImGuiMultiSelectState*   GetMultiSelectState(ImGuiID id) { ImGuiContext& g = *GImGui; return g.MultiSelectStorage.GetByKey(id); }
+//
+//    // Internal Columns API (this is not exposed because we will encourage transitioning to the Tables API)
+//    void          SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, const ImRect& clip_rect);
+//    void          BeginColumns(const char* str_id, int count, ImGuiOldColumnFlags flags = 0); // setup number of columns. use an identifier to distinguish multiple column sets. close with EndColumns().
+//    void          EndColumns();                                                               // close columns
+//    void          PushColumnClipRect(int column_index);
+//    void          PushColumnsBackground();
+//    void          PopColumnsBackground();
+//    ImGuiID       GetColumnsID(const char* str_id, int count);
+//    ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id);
+//    float         GetColumnOffsetFromNorm(const ImGuiOldColumns* columns, float offset_norm);
+//    float         GetColumnNormFromOffset(const ImGuiOldColumns* columns, float offset);
+//
+//    // Tables: Candidates for public API
+//    void          TableOpenContextMenu(int column_n = -1);
+//    void          TableSetColumnWidth(int column_n, float width);
+//    void          TableSetColumnSortDirection(int column_n, ImGuiSortDirection sort_direction, bool append_to_sort_specs);
+//    int           TableGetHoveredRow();       // Retrieve *PREVIOUS FRAME* hovered row. This difference with TableGetHoveredColumn() is the reason why this is not public yet.
+//    float         TableGetHeaderRowHeight();
+//    float         TableGetHeaderAngledMaxLabelWidth();
+//    void          TablePushBackgroundChannel();
+//    void          TablePopBackgroundChannel();
+//    void          TablePushColumnChannel(int column_n);
+//    void          TablePopColumnChannel();
+//    void          TableAngledHeadersRowEx(ImGuiID row_id, float angle, float max_label_width, const ImGuiTableHeaderData* data, int data_count);
+//
+    // Tables: Internals
+//    static ImGuiTable*   GetCurrentTable() { ImGuiContext& g = *GImGui; return g.CurrentTable; }
+//    static ImGuiTable*   TableFindByID(ImGuiID id);
+    static boolean         BeginTableEx([Const] DOMString name, long id, long columns_count, optional ImGuiTableFlags flags, [Const, Ref] optional ImVec2 outer_size, optional float inner_width);
+//    static void          TableBeginInitMemory(ImGuiTable* table, int columns_count);
+//    static void          TableBeginApplyRequests(ImGuiTable* table);
+//    static void          TableSetupDrawChannels(ImGuiTable* table);
+//    static void          TableUpdateLayout(ImGuiTable* table);
+//    static void          TableUpdateBorders(ImGuiTable* table);
+//    static void          TableUpdateColumnsWeightFromWidth(ImGuiTable* table);
+//    static void          TableDrawBorders(ImGuiTable* table);
+//    static void          TableDrawDefaultContextMenu(ImGuiTable* table, ImGuiTableFlags flags_for_section_to_display);
+//    static bool          TableBeginContextMenuPopup(ImGuiTable* table);
+//    static void          TableMergeDrawChannels(ImGuiTable* table);
+//    static ImGuiTableInstanceData*  TableGetInstanceData(ImGuiTable* table, int instance_no) { if (instance_no == 0) return &table->InstanceDataFirst; return &table->InstanceDataExtra[instance_no - 1]; }
+//    static ImGuiID                  TableGetInstanceID(ImGuiTable* table, int instance_no)   { return TableGetInstanceData(table, instance_no)->TableInstanceID; }
+//    static void          TableSortSpecsSanitize(ImGuiTable* table);
+//    static void          TableSortSpecsBuild(ImGuiTable* table);
+//    static ImGuiSortDirection TableGetColumnNextSortDirection(ImGuiTableColumn* column);
+//    static void          TableFixColumnSortDirection(ImGuiTable* table, ImGuiTableColumn* column);
+//    static float         TableGetColumnWidthAuto(ImGuiTable* table, ImGuiTableColumn* column);
+//    static void          TableBeginRow(ImGuiTable* table);
+//    static void          TableEndRow(ImGuiTable* table);
+//    static void          TableBeginCell(ImGuiTable* table, int column_n);
+//    static void          TableEndCell(ImGuiTable* table);
+//    static ImRect        TableGetCellBgRect(const ImGuiTable* table, int column_n);
+//    static const char*   TableGetColumnName(const ImGuiTable* table, int column_n);
+//    static ImGuiID       TableGetColumnResizeID(ImGuiTable* table, int column_n, int instance_no = 0);
+//    static float         TableCalcMaxColumnWidth(const ImGuiTable* table, int column_n);
+//    static void          TableSetColumnWidthAutoSingle(ImGuiTable* table, int column_n);
+//    static void          TableSetColumnWidthAutoAll(ImGuiTable* table);
+//    static void          TableRemove(ImGuiTable* table);
+//    static void          TableGcCompactTransientBuffers(ImGuiTable* table);
+//    static void          TableGcCompactTransientBuffers(ImGuiTableTempData* table);
+//    static void          TableGcCompactSettings();
+//
+//    // Tables: Settings
+//    void                  TableLoadSettings(ImGuiTable* table);
+//    void                  TableSaveSettings(ImGuiTable* table);
+//    void                  TableResetSettings(ImGuiTable* table);
+//    ImGuiTableSettings*   TableGetBoundSettings(ImGuiTable* table);
+//    void                  TableSettingsAddSettingsHandler();
+//    ImGuiTableSettings*   TableSettingsCreate(ImGuiID id, int columns_count);
+//    ImGuiTableSettings*   TableSettingsFindByID(ImGuiID id);
+//
+//    // Tab Bars
+//    ImGuiTabBar*  GetCurrentTabBar() { ImGuiContext& g = *GImGui; return g.CurrentTabBar; }
+//    ImGuiTabBar*  TabBarFindByID(ImGuiID id);
+//    void          TabBarRemove(ImGuiTabBar* tab_bar);
+//    bool          BeginTabBarEx(ImGuiTabBar* tab_bar, const ImRect& bb, ImGuiTabBarFlags flags);
+//    ImGuiTabItem* TabBarFindTabByID(ImGuiTabBar* tab_bar, ImGuiID tab_id);
+//    ImGuiTabItem* TabBarFindTabByOrder(ImGuiTabBar* tab_bar, int order);
+//    ImGuiTabItem* TabBarFindMostRecentlySelectedTabForActiveWindow(ImGuiTabBar* tab_bar);
+//    ImGuiTabItem* TabBarGetCurrentTab(ImGuiTabBar* tab_bar);
+//    int              TabBarGetTabOrder(ImGuiTabBar* tab_bar, ImGuiTabItem* tab) { return tab_bar->Tabs.index_from_ptr(tab); }
+//    const char*   TabBarGetTabName(ImGuiTabBar* tab_bar, ImGuiTabItem* tab);
+//    void          TabBarAddTab(ImGuiTabBar* tab_bar, ImGuiTabItemFlags tab_flags, ImGuiWindow* window);
+//    void          TabBarRemoveTab(ImGuiTabBar* tab_bar, ImGuiID tab_id);
+//    void          TabBarCloseTab(ImGuiTabBar* tab_bar, ImGuiTabItem* tab);
+//    void          TabBarQueueFocus(ImGuiTabBar* tab_bar, ImGuiTabItem* tab);
+//    void          TabBarQueueFocus(ImGuiTabBar* tab_bar, const char* tab_name);
+//    void          TabBarQueueReorder(ImGuiTabBar* tab_bar, ImGuiTabItem* tab, int offset);
+//    void          TabBarQueueReorderFromMousePos(ImGuiTabBar* tab_bar, ImGuiTabItem* tab, ImVec2 mouse_pos);
+//    bool          TabBarProcessReorder(ImGuiTabBar* tab_bar);
+//    bool          TabItemEx(ImGuiTabBar* tab_bar, const char* label, bool* p_open, ImGuiTabItemFlags flags, ImGuiWindow* docked_window);
+//    void          TabItemSpacing(const char* str_id, ImGuiTabItemFlags flags, float width);
+//    ImVec2        TabItemCalcSize(const char* label, bool has_close_button_or_unsaved_marker);
+//    ImVec2        TabItemCalcSize(ImGuiWindow* window);
+//    void          TabItemBackground(ImDrawList* draw_list, const ImRect& bb, ImGuiTabItemFlags flags, ImU32 col);
+//    void          TabItemLabelAndCloseButton(ImDrawList* draw_list, const ImRect& bb, ImGuiTabItemFlags flags, ImVec2 frame_padding, const char* label, ImGuiID tab_id, ImGuiID close_button_id, bool is_contents_visible, bool* out_just_closed, bool* out_text_clipped);
+//
+//    // Render helpers
+//    void          RenderText(ImVec2 pos, const char* text, const char* text_end = NULL, bool hide_text_after_hash = true);
+//    void          RenderTextWrapped(ImVec2 pos, const char* text, const char* text_end, float wrap_width);
+//    void          RenderTextClipped(const ImVec2& pos_min, const ImVec2& pos_max, const char* text, const char* text_end, const ImVec2* text_size_if_known, const ImVec2& align = ImVec2(0, 0), const ImRect* clip_rect = NULL);
+//    void          RenderTextClippedEx(ImDrawList* draw_list, const ImVec2& pos_min, const ImVec2& pos_max, const char* text, const char* text_end, const ImVec2* text_size_if_known, const ImVec2& align = ImVec2(0, 0), const ImRect* clip_rect = NULL);
+//    void          RenderTextEllipsis(ImDrawList* draw_list, const ImVec2& pos_min, const ImVec2& pos_max, float ellipsis_max_x, const char* text, const char* text_end, const ImVec2* text_size_if_known);
+//    void          RenderFrame(ImVec2 p_min, ImVec2 p_max, ImU32 fill_col, bool borders = true, float rounding = 0.0f);
+//    void          RenderFrameBorder(ImVec2 p_min, ImVec2 p_max, float rounding = 0.0f);
+//    void          RenderColorRectWithAlphaCheckerboard(ImDrawList* draw_list, ImVec2 p_min, ImVec2 p_max, ImU32 fill_col, float grid_step, ImVec2 grid_off, float rounding = 0.0f, ImDrawFlags flags = 0);
+//    void          RenderNavCursor(const ImRect& bb, ImGuiID id, ImGuiNavRenderCursorFlags flags = ImGuiNavRenderCursorFlags_None); // Navigation highlight
+//    const char*   FindRenderedTextEnd(const char* text, const char* text_end = NULL); // Find the optional ## from which we stop displaying text.
+//    void          RenderMouseCursor(ImVec2 pos, float scale, ImGuiMouseCursor mouse_cursor, ImU32 col_fill, ImU32 col_border, ImU32 col_shadow);
+//
+//    // Render helpers (those functions don't access any ImGui state!)
+//    void          RenderArrow(ImDrawList* draw_list, ImVec2 pos, ImU32 col, ImGuiDir dir, float scale = 1.0f);
+//    void          RenderBullet(ImDrawList* draw_list, ImVec2 pos, ImU32 col);
+//    void          RenderCheckMark(ImDrawList* draw_list, ImVec2 pos, ImU32 col, float sz);
+//    void          RenderArrowPointingAt(ImDrawList* draw_list, ImVec2 pos, ImVec2 half_sz, ImGuiDir direction, ImU32 col);
+//    void          RenderArrowDockMenu(ImDrawList* draw_list, ImVec2 p_min, float sz, ImU32 col);
+//    void          RenderRectFilledRangeH(ImDrawList* draw_list, const ImRect& rect, ImU32 col, float x_start_norm, float x_end_norm, float rounding);
+//    void          RenderRectFilledWithHole(ImDrawList* draw_list, const ImRect& outer, const ImRect& inner, ImU32 col, float rounding);
+//    ImDrawFlags   CalcRoundingFlagsForRectInRect(const ImRect& r_in, const ImRect& r_outer, float threshold);
+//
+//    // Widgets: Text
+//    void          TextEx(const char* text, const char* text_end = NULL, ImGuiTextFlags flags = 0);
+//    void          TextAligned(float align_x, float size_x, const char* fmt, ...);               // FIXME-WIP: Works but API is likely to be reworked. This is designed for 1 item on the line. (#7024)
+//    void          TextAlignedV(float align_x, float size_x, const char* fmt, va_list args);
+//
+//    // Widgets
+//    bool          ButtonEx(const char* label, const ImVec2& size_arg = ImVec2(0, 0), ImGuiButtonFlags flags = 0);
+//    bool          ArrowButtonEx(const char* str_id, ImGuiDir dir, ImVec2 size_arg, ImGuiButtonFlags flags = 0);
+//    bool          ImageButtonEx(ImGuiID id, ImTextureRef tex_ref, const ImVec2& image_size, const ImVec2& uv0, const ImVec2& uv1, const ImVec4& bg_col, const ImVec4& tint_col, ImGuiButtonFlags flags = 0);
+//    void          SeparatorEx(ImGuiSeparatorFlags flags, float thickness = 1.0f);
+//    void          SeparatorTextEx(ImGuiID id, const char* label, const char* label_end, float extra_width);
+//    bool          CheckboxFlags(const char* label, ImS64* flags, ImS64 flags_value);
+//    bool          CheckboxFlags(const char* label, ImU64* flags, ImU64 flags_value);
+//
+//    // Widgets: Window Decorations
+//    bool          CloseButton(ImGuiID id, const ImVec2& pos);
+//    bool          CollapseButton(ImGuiID id, const ImVec2& pos, ImGuiDockNode* dock_node);
+//    void          Scrollbar(ImGuiAxis axis);
+//    bool          ScrollbarEx(const ImRect& bb, ImGuiID id, ImGuiAxis axis, ImS64* p_scroll_v, ImS64 avail_v, ImS64 contents_v, ImDrawFlags draw_rounding_flags = 0);
+//    ImRect        GetWindowScrollbarRect(ImGuiWindow* window, ImGuiAxis axis);
+//    ImGuiID       GetWindowScrollbarID(ImGuiWindow* window, ImGuiAxis axis);
+//    ImGuiID       GetWindowResizeCornerID(ImGuiWindow* window, int n); // 0..3: corners
+//    ImGuiID       GetWindowResizeBorderID(ImGuiWindow* window, ImGuiDir dir);
+//
+//    // Widgets low-level behaviors
+    static boolean                 ButtonBehavior([Const, Ref] ImRect bb, long id, boolean[] out_hovered, boolean[] out_held, optional ImGuiButtonFlags ImGuiButtonFlags);
+    static boolean                 DragBehavior(long id, ImGuiDataType ImGuiDataType, any p_v, float v_speed, [Const] any p_min, [Const] any p_max, [Const] DOMString format, ImGuiSliderFlags ImGuiSliderFlags);
+    static boolean                 SliderBehavior([Const, Ref] ImRect bb, long id, ImGuiDataType ImGuiDataType, any p_v, [Const] any p_min, [Const] any p_max, [Const] DOMString format, ImGuiSliderFlags ImGuiSliderFlags, ImRect out_grab_bb);
+    static boolean                 SplitterBehavior([Const, Ref] ImRect bb, long id, ImGuiAxis axis, float[] size1, float[] size2, float min_size1, float min_size2, optional float hover_extend, optional float hover_visibility_delay, optional long bg_col);
+
+//    // Widgets: Tree Nodes
+//    bool          TreeNodeBehavior(ImGuiID id, ImGuiTreeNodeFlags flags, const char* label, const char* label_end = NULL);
+//    void          TreeNodeDrawLineToChildNode(const ImVec2& target_pos);
+//    void          TreeNodeDrawLineToTreePop(const ImGuiTreeNodeStackData* data);
+//    void          TreePushOverrideID(ImGuiID id);
+//    bool          TreeNodeGetOpen(ImGuiID storage_id);
+//    void          TreeNodeSetOpen(ImGuiID storage_id, bool open);
+//    bool          TreeNodeUpdateNextOpen(ImGuiID storage_id, ImGuiTreeNodeFlags flags);   // Return open state. Consume previous SetNextItemOpen() data, if any. May return true when logging.
+//
+//    // Data type helpers
+//    const ImGuiDataTypeInfo*  DataTypeGetInfo(ImGuiDataType data_type);
+//    int           DataTypeFormatString(char* buf, int buf_size, ImGuiDataType data_type, const void* p_data, const char* format);
+//    void          DataTypeApplyOp(ImGuiDataType data_type, int op, void* output, const void* arg_1, const void* arg_2);
+//    bool          DataTypeApplyFromText(const char* buf, ImGuiDataType data_type, void* p_data, const char* format, void* p_data_when_empty = NULL);
+//    int           DataTypeCompare(ImGuiDataType data_type, const void* arg_1, const void* arg_2);
+//    bool          DataTypeClamp(ImGuiDataType data_type, void* p_data, const void* p_min, const void* p_max);
+//    bool          DataTypeIsZero(ImGuiDataType data_type, const void* p_data);
+//
+//    // InputText
+//    bool          InputTextEx(const char* label, const char* hint, char* buf, int buf_size, const ImVec2& size_arg, ImGuiInputTextFlags flags, ImGuiInputTextCallback callback = NULL, void* user_data = NULL);
+//    void          InputTextDeactivateHook(ImGuiID id);
+//    bool          TempInputText(const ImRect& bb, ImGuiID id, const char* label, char* buf, int buf_size, ImGuiInputTextFlags flags);
+//    bool          TempInputScalar(const ImRect& bb, ImGuiID id, const char* label, ImGuiDataType data_type, void* p_data, const char* format, const void* p_clamp_min = NULL, const void* p_clamp_max = NULL);
+//    bool             TempInputIsActive(ImGuiID id)       { ImGuiContext& g = *GImGui; return (g.ActiveId == id && g.TempInputId == id); }
+//    ImGuiInputTextState* GetInputTextState(ImGuiID id)   { ImGuiContext& g = *GImGui; return (id != 0 && g.InputTextState.ID == id) ? &g.InputTextState : NULL; } // Get input text state if active
+//    void          SetNextItemRefVal(ImGuiDataType data_type, void* p_data);
+//    bool             IsItemActiveAsInputText() { ImGuiContext& g = *GImGui; return g.ActiveId != 0 && g.ActiveId == g.LastItemData.ID && g.InputTextState.ID == g.LastItemData.ID; } // This may be useful to apply workaround that a based on distinguish whenever an item is active as a text input field.
+//
+//    // Color
+//    void          ColorTooltip(const char* text, const float* col, ImGuiColorEditFlags flags);
+//    void          ColorEditOptionsPopup(const float* col, ImGuiColorEditFlags flags);
+//    void          ColorPickerOptionsPopup(const float* ref_col, ImGuiColorEditFlags flags);
+//
+//    // Plot
+//    int           PlotEx(ImGuiPlotType plot_type, const char* label, float (*values_getter)(void* data, int idx), void* data, int values_count, int values_offset, const char* overlay_text, float scale_min, float scale_max, const ImVec2& size_arg);
+//
+//    // Shade functions (write over already created vertices)
+//    void          ShadeVertsLinearColorGradientKeepAlpha(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, ImVec2 gradient_p0, ImVec2 gradient_p1, ImU32 col0, ImU32 col1);
+//    void          ShadeVertsLinearUV(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, const ImVec2& a, const ImVec2& b, const ImVec2& uv_a, const ImVec2& uv_b, bool clamp);
+//    void          ShadeVertsTransformPos(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, const ImVec2& pivot_in, float cos_a, float sin_a, const ImVec2& pivot_out);
+//
+//    // Garbage collection
+//    void          GcCompactTransientMiscBuffers();
+//    void          GcCompactTransientWindowBuffers(ImGuiWindow* window);
+//    void          GcAwakeTransientWindowBuffers(ImGuiWindow* window);
+//
+//    // Error handling, State Recovery
+//    bool          ErrorLog(const char* msg);
+//    void          ErrorRecoveryStoreState(ImGuiErrorRecoveryState* state_out);
+//    void          ErrorRecoveryTryToRecoverState(const ImGuiErrorRecoveryState* state_in);
+//    void          ErrorRecoveryTryToRecoverWindowState(const ImGuiErrorRecoveryState* state_in);
+//    void          ErrorCheckUsingSetCursorPosToExtendParentBoundaries();
+//    void          ErrorCheckEndFrameFinalizeErrorTooltip();
+//    bool          BeginErrorTooltip();
+//    void          EndErrorTooltip();
+//
+//    // Debug Tools
+//    void          DebugAllocHook(ImGuiDebugAllocInfo* info, int frame_count, void* ptr, size_t size); // size >= 0 : alloc, size = -1 : free
+//    void          DebugDrawCursorPos(ImU32 col = IM_COL32(255, 0, 0, 255));
+//    void          DebugDrawLineExtents(ImU32 col = IM_COL32(255, 0, 0, 255));
+//    void          DebugDrawItemRect(ImU32 col = IM_COL32(255, 0, 0, 255));
+//    void          DebugTextUnformattedWithLocateItem(const char* line_begin, const char* line_end);
+//    void          DebugLocateItem(ImGuiID target_id);                     // Call sparingly: only 1 at the same time!
+//    void          DebugLocateItemOnHover(ImGuiID target_id);              // Only call on reaction to a mouse Hover: because only 1 at the same time!
+//    void          DebugLocateItemResolveWithLastItem();
+//    void          DebugBreakClearData();
+//    bool          DebugBreakButton(const char* label, const char* description_of_location);
+//    void          DebugBreakButtonTooltip(bool keyboard_only, const char* description_of_location);
+//    void          ShowFontAtlas(ImFontAtlas* atlas);
+//    void          DebugHookIdInfo(ImGuiID id, ImGuiDataType data_type, const void* data_id, const void* data_id_end);
+//    void          DebugNodeColumns(ImGuiOldColumns* columns);
+//    void          DebugNodeDockNode(ImGuiDockNode* node, const char* label);
+//    void          DebugNodeDrawList(ImGuiWindow* window, ImGuiViewportP* viewport, const ImDrawList* draw_list, const char* label);
+//    void          DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawList* out_draw_list, const ImDrawList* draw_list, const ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb);
+//    void          DebugNodeFont(ImFont* font);
+//    void          DebugNodeFontGlyphesForSrcMask(ImFont* font, ImFontBaked* baked, int src_mask);
+//    void          DebugNodeFontGlyph(ImFont* font, const ImFontGlyph* glyph);
+//    void          DebugNodeTexture(ImTextureData* tex, int int_id, const ImFontAtlasRect* highlight_rect = NULL); // ID used to facilitate persisting the "current" texture.
+//    void          DebugNodeStorage(ImGuiStorage* storage, const char* label);
+//    void          DebugNodeTabBar(ImGuiTabBar* tab_bar, const char* label);
+//    void          DebugNodeTable(ImGuiTable* table);
+//    void          DebugNodeTableSettings(ImGuiTableSettings* settings);
+//    void          DebugNodeInputTextState(ImGuiInputTextState* state);
+//    void          DebugNodeTypingSelectState(ImGuiTypingSelectState* state);
+//    void          DebugNodeMultiSelectState(ImGuiMultiSelectState* state);
+//    void          DebugNodeWindow(ImGuiWindow* window, const char* label);
+//    void          DebugNodeWindowSettings(ImGuiWindowSettings* settings);
+//    void          DebugNodeWindowsList(ImVector<ImGuiWindow*>* windows, const char* label);
+//    void          DebugNodeWindowsListByBeginStackParent(ImGuiWindow** windows, int windows_size, ImGuiWindow* parent_in_begin_stack);
+//    void          DebugNodeViewport(ImGuiViewportP* viewport);
+//    void          DebugNodePlatformMonitor(ImGuiPlatformMonitor* monitor, const char* label, int idx);
+//    void          DebugRenderKeyboardPreview(ImDrawList* draw_list);
+//    void          DebugRenderViewportThumbnail(ImDrawList* draw_list, ImGuiViewportP* viewport, const ImRect& bb);
+};
+
+[NoDelete, Prefix="ImGuiWrapper::"]
+interface ImGui {
+    // Note: method overloading don't work with emscripten so we use __0, __1 and so on
+
+    // Context creation and access
+    static ImGuiContext            CreateContext(optional ImFontAtlas shared_font_atlas);
+    static void                    DestroyContext(optional ImGuiContext ctx);
+    static ImGuiContext            GetCurrentContext();
+    static void                    SetCurrentContext(ImGuiContext ctx);
+
+    // Main
+    [Ref] static ImGuiIO           GetIO();
+    [Ref] static ImGuiPlatformIO   GetPlatformIO();
+    [Ref] static ImGuiStyle        GetStyle();
+    static void                    NewFrame();
+    static void                    EndFrame();
+    static void                    Render();
+    static ImDrawData              GetDrawData();
+
+    // Demo, Debug, Information
+    static void                      ShowDemoWindow(optional boolean[] p_open);
+    static void                      ShowMetricsWindow(optional boolean[] p_open);
+    static void                      ShowDebugLogWindow(optional boolean[] p_open);
+    static void                      ShowIDStackToolWindow(optional boolean[] p_open);
+    static void                      ShowAboutWindow(optional boolean[] p_open);
+    static void                      ShowStyleEditor(optional ImGuiStyle ref);
+    static void                      ShowStyleSelector([Const] DOMString label);
+    static void                      ShowFontSelector([Const] DOMString label);
+    static void                      ShowUserGuide();
+    [Const, Value] static NativeString  GetVersion();
+
+    // Styles
+    static void                    StyleColorsDark(optional ImGuiStyle dst);
+    static void                    StyleColorsLight(optional ImGuiStyle dst);
+    static void                    StyleColorsClassic(optional ImGuiStyle dst);
+
+    // Windows
+    static boolean                 Begin([Const] DOMString name, optional boolean[] p_open, optional ImGuiWindowFlags flags);
+    static void                    End();
+
+    // Child Windows
+    [BindTo="BeginChild"] static boolean BeginChild__0([Const] DOMString str_id, [Const, Ref] optional ImVec2 size, optional ImGuiChildFlags child_flags, optional ImGuiWindowFlags window_flags);
+    [BindTo="BeginChild"] static boolean BeginChild__1(long id, [Const, Ref] optional ImVec2 size, optional ImGuiChildFlags child_flags, optional ImGuiWindowFlags window_flags);
+    static void                    EndChild();
+
+    // Windows Utilities
+    static boolean                 IsWindowAppearing();
+    static boolean                 IsWindowCollapsed();
+    static boolean                 IsWindowFocused(optional ImGuiFocusedFlags flags);
+    static boolean                 IsWindowHovered(optional ImGuiHoveredFlags flags);
+    static ImDrawList              GetWindowDrawList();
+    static float                   GetWindowDpiScale();
+    [Value] static ImVec2          GetWindowPos();
+    [Value] static ImVec2          GetWindowSize();
+    static float                   GetWindowWidth();
+    static float                   GetWindowHeight();
+    static ImGuiViewport           GetWindowViewport();
+
+    // Window manipulation
+    static void                    SetNextWindowPos([Const, Ref]ImVec2 pos, optional ImGuiCond ImGuiCond, [Const, Ref] optional ImVec2 pivot);
+    static void                    SetNextWindowSize([Const, Ref]ImVec2 size, optional ImGuiCond ImGuiCond);
+    static void                    SetNextWindowSizeConstraints([Const, Ref]ImVec2 size_min, [Const, Ref]ImVec2 size_max); //, optional CustomImGuiSizeCallback custom_callback, any custom_callback_data);
+    static void                    SetNextWindowContentSize([Const, Ref]ImVec2 size);
+    static void                    SetNextWindowCollapsed(boolean collapsed, optional ImGuiCond ImGuiCond);
+    static void                    SetNextWindowFocus();
+    static void                    SetNextWindowScroll([Const, Ref]ImVec2 scroll);
+    static void                    SetNextWindowBgAlpha(float alpha);
+    static void                    SetNextWindowViewport(long viewport_id);
+    [BindTo="SetWindowPos"] static void         SetWindowPos__0([Const, Ref]ImVec2 pos, optional ImGuiCond ImGuiCond);
+    [BindTo="SetWindowPos"] static void         SetWindowPos__1([Const] DOMString name, [Const, Ref]ImVec2 pos, optional ImGuiCond ImGuiCond);
+    [BindTo="SetWindowSize"] static void        SetWindowSize__0([Const, Ref]ImVec2 size, optional ImGuiCond ImGuiCond);
+    [BindTo="SetWindowSize"] static void        SetWindowSize__1([Const] DOMString name, [Const, Ref]ImVec2 size, optional ImGuiCond ImGuiCond);
+    [BindTo="SetWindowCollapsed"] static void   SetWindowCollapsed__0(boolean collapsed, optional ImGuiCond ImGuiCond);
+    [BindTo="SetWindowCollapsed_1"] static void SetWindowCollapsed__1([Const] DOMString name, boolean collapsed, optional ImGuiCond ImGuiCond);
+    static void                    SetWindowFocus();
+    static void                    SetWindowFocus([Const] DOMString name);
+
+    // Windows Scrolling
+    static float                   GetScrollX();
+    static float                   GetScrollY();
+    static void                    SetScrollX(float scroll_x);
+    static void                    SetScrollY(float scroll_y);
+    static float                   GetScrollMaxX();
+    static float                   GetScrollMaxY();
+    static void                    SetScrollHereX(optional float center_x_ratio);
+    static void                    SetScrollHereY(optional float center_y_ratio);
+    static void                    SetScrollFromPosX(float local_x, optional float center_x_ratio);
+    static void                    SetScrollFromPosY(float local_y, optional float center_y_ratio);
+
+    // Parameters stacks (font)
+    static void                    PushFont(ImFont font, float font_size_base_unscaled);
+    static void                    PopFont();
+    static ImFont                  GetFont();
+    static float                   GetFontSize();
+    static ImFontBaked             GetFontBaked();
+
+    // Parameters stacks (shared)
+    [BindTo="PushStyleColor"] static void   PushStyleColor__0(ImGuiCol idx, unsigned long col);
+    [BindTo="PushStyleColor"] static void   PushStyleColor__1(ImGuiCol idx, [Const, Ref] ImVec4 col);
+    static void                             PopStyleColor(optional long count);
+    [BindTo="PushStyleVar"] static void     PushStyleVar__0(ImGuiStyleVar idx, float val);
+    [BindTo="PushStyleVar"] static void     PushStyleVar__1(ImGuiStyleVar idx, [Const, Ref]ImVec2 val);
+    static void                             PushStyleVarX(ImGuiStyleVar idx, float val_x);
+    static void                             PushStyleVarY(ImGuiStyleVar idx, float val_y);
+    static void                             PopStyleVar(optional long count);
+    static void                             PushItemFlag(ImGuiItemFlags option, boolean enabled);
+    static void                             PopItemFlag();
+
+    // Parameters stacks (current window)
+    static void                    PushItemWidth(float item_width);
+    static void                    PopItemWidth();
+    static void                    SetNextItemWidth(float item_width);
+    static float                   CalcItemWidth();
+    static void                    PushTextWrapPos(optional float wrap_local_pos_x);
+    static void                    PopTextWrapPos();
+
+    // Style read access
+    [Value] static ImVec2                       GetFontTexUvWhitePixel();
+    [BindTo="GetColorU32"] static unsigned long GetColorU32__0(ImGuiCol idx, optional float alpha_mul);
+    [BindTo="GetColorU32"] static unsigned long GetColorU32__1([Const, Ref] ImVec4 col);
+    [BindTo="GetColorU32"] static unsigned long GetColorU32__2(unsigned long col, optional float alpha_mul);
+    [Const, Ref] static ImVec4                  GetStyleColorVec4(long idx);
+
+    // Layout cursor positioning
+    [Value] static ImVec2          GetCursorScreenPos();
+    static void                    SetCursorScreenPos([Const, Ref] ImVec2 pos);
+    [Value] static ImVec2          GetContentRegionAvail();
+    [Value] static ImVec2          GetCursorPos();
+    static float                   GetCursorPosX();
+    static float                   GetCursorPosY();
+    static void                    SetCursorPos([Const, Ref] ImVec2 local_pos);
+    static void                    SetCursorPosX(float local_x);
+    static void                    SetCursorPosY(float local_y);
+    [Value] static ImVec2          GetCursorStartPos();
+
+    // Other layout functions
+    static void                    Separator();
+    static void                    SameLine(optional float offset_from_start_x, optional float spacing);
+    static void                    NewLine();
+    static void                    Spacing();
+    static void                    Dummy([Const, Ref]ImVec2 size);
+    static void                    Indent(optional float indent_w);
+    static void                    Unindent(optional float indent_w);
+    static void                    BeginGroup();
+    static void                    EndGroup();
+    static void                    AlignTextToFramePadding();
+    static float                   GetTextLineHeight();
+    static float                   GetTextLineHeightWithSpacing();
+    static float                   GetFrameHeight();
+    static float                   GetFrameHeightWithSpacing();
+
+    // ID stack/scopes
+    [BindTo="PushID"] static void  PushID__0([Const] DOMString str_id);
+    [BindTo="PushID"] static void  PushID__1([Const] DOMString str_id_begin, [Const] DOMString str_id_end);
+    [BindTo="PushID"] static void  PushID__2(any int_id);
+    [BindTo="PushID"] static void  PushID__3(long int_id);
+    static void                    PopID();
+    [BindTo="GetID"] static long   GetID__0([Const] DOMString str_id);
+    [BindTo="GetID"] static long   GetID__1([Const] DOMString str_id_begin, [Const] DOMString str_id_end);
+    [BindTo="GetID"] static long   GetID__2([Const] any ptr_id);
+    [BindTo="GetID"] static long   GetID__3([Const] long int_id);
+
+    // Widgets: Text
+    static void                    TextUnformatted([Const] DOMString text, [Const] optional DOMString text_end);
+    static void                    Text([Const] DOMString fmt);
+//    static void                    TextV([Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    TextColored([Const, Ref] ImVec4 col, [Const] DOMString fmt);
+//    static void                    TextColoredV([Const, Ref] ImVec4 col, [Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    TextDisabled([Const] DOMString fmt);
+//    static void                    TextDisabledV([Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    TextWrapped([Const] DOMString fmt);
+//    static void                    TextWrappedV([Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    LabelText([Const] DOMString label, [Const] DOMString fmt);
+//    static void                    LabelTextV([Const] DOMString label, [Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    BulletText([Const] DOMString fmt);
+//    static void                    BulletTextV([Const] DOMString fmt, va_list args); // TODO not supported
+    static void                    SeparatorText([Const] DOMString label);
+
+    // Widgets: Main
+    static boolean                 Button([Const] DOMString label, [Const, Ref] optional ImVec2 size);
+    static boolean                 SmallButton([Const] DOMString label);
+    static boolean                 InvisibleButton([Const] DOMString str_id, [Const, Ref] ImVec2 size, optional ImGuiButtonFlags flags);
+    static boolean                 ArrowButton([Const] DOMString str_id, ImGuiDir dir);
+    static boolean                 Checkbox([Const] DOMString label, boolean[] v);
+    static boolean                 CheckboxFlags([Const] DOMString label, long[] flags, long flags_value);
+    [BindTo="RadioButton"] static boolean RadioButton__0([Const] DOMString label, boolean active);
+    [BindTo="RadioButton"] static boolean RadioButton__1([Const] DOMString label, long[] v, long v_button);
+    static void                    ProgressBar(float fraction, [Const, Ref] optional ImVec2 size_arg, [Const] optional DOMString overlay);
+    static void                    Bullet();
+    static boolean                 TextLink([Const] DOMString label);
+    static void                    TextLinkOpenURL([Const] DOMString label, [Const] optional DOMString url);
+
+    // Widgets: Images
+    static void                    Image([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 image_size, [Const, Ref] optional ImVec2 uv0, [Const, Ref] optional ImVec2 uv1);
+    static void                    ImageWithBg([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 image_size, [Const, Ref] optional ImVec2 uv0, [Const, Ref] optional ImVec2 uv1, [Const, Ref] optional ImVec4 bg_col, [Const, Ref] optional ImVec4 tint_col);
+    static boolean                 ImageButton([Const] DOMString str_id, [Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 image_size, [Const, Ref] optional ImVec2 uv0, [Const, Ref] optional ImVec2 uv1, [Const, Ref] optional ImVec4 bg_col, [Const, Ref] optional ImVec4 tint_col);
+
+    // Widgets: Combo Box (Dropdown)
+    static boolean                 BeginCombo([Const] DOMString label, [Const] DOMString preview_value, optional ImGuiComboFlags flags);
+    static void                    EndCombo();
+    static boolean                 Combo([Const] DOMString label, long[] current_item, [Const] DOMString items_separated_by_zeros, optional long popup_max_height_in_items);
+
+    // Widgets: Drag Sliders
+    static boolean                 DragFloat([Const] DOMString label, float[] v, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragFloat2([Const] DOMString label, float[] v, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragFloat3([Const] DOMString label, float[] v, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragFloat4([Const] DOMString label, float[] v, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragFloatRange2([Const] DOMString label, float[] v_current_min, float[] v_current_max, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, [Const] optional DOMString format_max, optional ImGuiSliderFlags flags);
+    static boolean                 DragInt([Const] DOMString label, long[] v, optional float v_speed, optional long v_min, optional long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragInt2([Const] DOMString label, long[] v, optional float v_speed, optional long v_min, optional long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragInt3([Const] DOMString label, long[] v, optional float v_speed, optional long v_min, optional long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragInt4([Const] DOMString label, long[] v, optional float v_speed, optional long v_min, optional long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragIntRange2([Const] DOMString label, long[] v_current_min, long[] v_current_max, optional float v_speed, optional long v_min, optional long v_max, [Const] optional DOMString format, [Const] optional DOMString format_max, optional ImGuiSliderFlags flags);
+    static boolean                 DragScalar([Const] DOMString label, ImGuiDataType data_type, any p_data, optional float v_speed, optional any p_min, optional any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 DragScalarN([Const] DOMString label, ImGuiDataType data_type, any p_data, long components, optional float v_speed, optional any p_min, optional any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+
+    // Widgets: Regular Sliders
+    static boolean                 SliderFloat([Const] DOMString label, float[] v, float v_min, float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderFloat2([Const] DOMString label, float[] v, float v_min, float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderFloat3([Const] DOMString label, float[] v, float v_min, float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderFloat4([Const] DOMString label, float[] v, float v_min, float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderAngle([Const] DOMString label, float[] v_rad, optional float v_degrees_min, optional float v_degrees_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderInt([Const] DOMString label, long[] v, long v_min, long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderInt2([Const] DOMString label, long[] v, long v_min, long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderInt3([Const] DOMString label, long[] v, long v_min, long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderInt4([Const] DOMString label, long[] v, long v_min, long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderScalar([Const] DOMString label, ImGuiDataType data_type, any p_data, any p_min, any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 SliderScalarN([Const] DOMString label, ImGuiDataType data_type, any p_data, long components, any p_min, any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 VSliderFloat([Const] DOMString label, [Const, Ref] ImVec2 size, float[] v, float v_min, float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 VSliderInt([Const] DOMString label, [Const, Ref] ImVec2 size, long[] v, long v_min, long v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+    static boolean                 VSliderScalar([Const] DOMString label, [Const, Ref] ImVec2 size, ImGuiDataType data_type, any p_data, any p_min, any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
+
+    // Widgets: Input with Keyboard
+    static boolean                 InputText([Const] DOMString label, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional ImGuiInputTextFlags flags);
+    static boolean                 InputTextMultiline([Const] DOMString label, byte[] buf, long buf_size, [Const, Ref] optional ImVec2 size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional any user_data);
+    static boolean                 InputTextWithHint([Const] DOMString label, [Const] DOMString hint, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional any user_data);
+    static boolean                 InputFloat([Const] DOMString label, float[] v, optional float step, optional float step_fast, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputFloat2([Const] DOMString label, float[] v, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputFloat3([Const] DOMString label, float[] v, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputFloat4([Const] DOMString label, float[] v, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputInt([Const] DOMString label, long[] v, optional long step, optional long step_fast, optional ImGuiInputTextFlags flags);
+    static boolean                 InputInt2([Const] DOMString label, long[] v, optional ImGuiInputTextFlags flags);
+    static boolean                 InputInt3([Const] DOMString label, long[] v, optional ImGuiInputTextFlags flags);
+    static boolean                 InputInt4([Const] DOMString label, long[] v, optional ImGuiInputTextFlags flags);
+    static boolean                 InputDouble([Const] DOMString label, double[] v, optional double step, optional double step_fast, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputScalar([Const] DOMString label, ImGuiDataType data_type, any p_data, optional any p_step, optional any p_step_fast, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+    static boolean                 InputScalarN([Const] DOMString label, ImGuiDataType data_type, any p_data, long components, optional any p_step, optional any p_step_fast, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
+
+    // Widgets: Color Editor/Picker
+    static boolean                 ColorEdit3([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags);
+    static boolean                 ColorEdit4([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags);
+    static boolean                 ColorPicker3([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags);
+    static boolean                 ColorPicker4([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags, [Const] optional float[] ref_col);
+    static boolean                 ColorButton([Const] DOMString desc_id, [Const, Ref] ImVec4 col, optional ImGuiColorEditFlags flags, [Const, Ref] optional ImVec2 size);
+    static void                    SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags);
+
+    // Widgets: Trees
+    [BindTo="TreeNode"] static boolean TreeNode__0([Const] DOMString label);
+    [BindTo="TreeNode"] static boolean TreeNode__1([Const] DOMString str_id, [Const] DOMString fmt);
+    [BindTo="TreeNode"] static boolean TreeNode__2([Const] any ptr_id, [Const] DOMString fmt);
+    [BindTo="TreeNodeEx"] static boolean TreeNodeEx__0([Const] DOMString label, optional ImGuiTreeNodeFlags flags);
+    [BindTo="TreeNodeEx"] static boolean TreeNodeEx__1([Const] DOMString str_id, ImGuiTreeNodeFlags flags, [Const] DOMString fmt);
+    [BindTo="TreeNodeEx"] static boolean TreeNodeEx__2([Const] any ptr_id, ImGuiTreeNodeFlags flags, [Const] DOMString fmt);
+    [BindTo="TreePush"] static void      TreePush__0([Const] DOMString str_id);
+    [BindTo="TreePush"] static void      TreePush__1(any ptr_id);
+    static void                    TreePop();
+    static float                   GetTreeNodeToLabelSpacing();
+    [BindTo="CollapsingHeader"] static boolean CollapsingHeader__0([Const] DOMString label, optional ImGuiTreeNodeFlags flags);
+    [BindTo="CollapsingHeader"] static boolean CollapsingHeader__1([Const] DOMString label, boolean[] p_visible, optional ImGuiTreeNodeFlags flags);
+    static void                    SetNextItemOpen(boolean is_open, optional ImGuiCond ImGuiCond);
+    static void                    SetNextItemStorageID(long storage_id);
+
+    // Widgets: Selectables
+    [BindTo="Selectable"] static boolean Selectable__0([Const] DOMString label, optional boolean selected, optional ImGuiSelectableFlags flags, [Const, Ref] optional ImVec2 size);
+    [BindTo="Selectable"] static boolean Selectable__1([Const] DOMString label, boolean[] p_selected, optional ImGuiSelectableFlags flags, [Const, Ref] optional ImVec2 size);
+
+    // Multi-selection system for Selectable(), Checkbox(), TreeNode() functions
+    static ImGuiMultiSelectIO      BeginMultiSelect(ImGuiMultiSelectFlags flags, optional long selection_size, optional long items_count);
+    static ImGuiMultiSelectIO      EndMultiSelect();
+    static void                    SetNextItemSelectionUserData(long selection_user_data);
+    static boolean                 IsItemToggledSelection();
+
+    // Widgets: List Boxes
+    static boolean                 BeginListBox([Const] DOMString label, [Const, Ref] optional ImVec2 size);
+    static void                    EndListBox();
+
+    // Widgets: Data Plotting
+    static void                    PlotLines([Const] DOMString label, [Const]float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
+    static void                    PlotHistogram([Const] DOMString label, [Const]float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
+
+    // Widgets: Value() Helpers.
+    [BindTo="Value"] static void Value__0([Const] DOMString prefix, boolean b);
+    [BindTo="Value"] static void Value__1([Const] DOMString prefix, long v);
+    [BindTo="Value"] static void Value__2([Const] DOMString prefix, float v, [Const] optional DOMString float_format);
+
+    // Widgets: Menus
+    static boolean                 BeginMenuBar();
+    static void                    EndMenuBar();
+    static boolean                 BeginMainMenuBar();
+    static void                    EndMainMenuBar();
+    static boolean                 BeginMenu([Const] DOMString label, optional boolean enabled);
+    static void                    EndMenu();
+    [BindTo="MenuItem"] static boolean MenuItem__0([Const] DOMString label, [Const] optional DOMString shortcut, optional boolean selected, optional boolean enabled);
+    [BindTo="MenuItem"] static boolean MenuItem__1([Const] DOMString label, [Const] DOMString shortcut, boolean[] p_selected, optional boolean enabled);
+
+    // Tooltips
+    static boolean                 BeginTooltip();
+    static void                    EndTooltip();
+    static void                    SetTooltip([Const] DOMString fmt);
+
+    // Tooltips: helpers
+    static boolean                 BeginItemTooltip();
+    static void                    SetItemTooltip([Const] DOMString fmt);
+
+    // Popups, Modals
+    static boolean                 BeginPopup([Const] DOMString str_id, optional ImGuiWindowFlags flags);
+    static boolean                 BeginPopupModal([Const] DOMString name, optional boolean[] p_open, optional ImGuiWindowFlags flags);
+    static void                    EndPopup();
+
+    // Popups: open/close functions
+    [BindTo="OpenPopup"] static void OpenPopup__0([Const] DOMString str_id, optional ImGuiPopupFlags flags);
+    [BindTo="OpenPopup"] static void OpenPopup__1(long id, optional ImGuiPopupFlags flags);
+    static void                    OpenPopupOnItemClick([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
+    static void                    CloseCurrentPopup();
+
+    // Popups: open+begin combined functions helpers
+    static boolean                 BeginPopupContextItem([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
+    static boolean                 BeginPopupContextWindow([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
+    static boolean                 BeginPopupContextVoid([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
+
+    // Popups: query functions
+    static boolean                 IsPopupOpen([Const] DOMString str_id, optional ImGuiPopupFlags flags);
+
+    // Tables
+    static boolean                 BeginTable([Const] DOMString str_id, long column, optional ImGuiTableFlags flags, [Const, Ref] optional ImVec2 outer_size, optional float inner_width);
+    static void                    EndTable();
+    static void                    TableNextRow(optional long row_flags, optional float min_row_height);
+    static boolean                 TableNextColumn();
+    static boolean                 TableSetColumnIndex(long column_n);
+
+    // Tables: Headers & Columns declaration
+    static void                    TableSetupColumn([Const] DOMString label, optional ImGuiTableColumnFlags flags, optional float init_width_or_weight, optional long user_id);
+    static void                    TableSetupScrollFreeze(long cols, long rows);
+    static void                    TableHeader([Const] DOMString label);
+    static void                    TableHeadersRow();
+    static void                    TableAngledHeadersRow();
+
+    // Tables: Sorting & Miscellaneous functions
+    static ImGuiTableSortSpecs       TableGetSortSpecs();
+    static long                      TableGetColumnCount();
+    static long                      TableGetColumnIndex();
+    static long                      TableGetRowIndex();
+    [Const, Value] static NativeString  TableGetColumnName(optional long column_n);
+    static long                      TableGetColumnFlags(optional long column_n);
+    static void                      TableSetColumnEnabled(long column_n, boolean v);
+    static long                      TableGetHoveredColumn();
+    static void                      TableSetBgColor(long target, unsigned long color, optional long column_n);
+
+    // Tab Bars, Tabs
+    static boolean                 BeginTabBar([Const] DOMString str_id, optional ImGuiTabBarFlags flags);
+    static void                    EndTabBar();
+    static boolean                 BeginTabItem([Const] DOMString label, optional boolean[] p_open, optional ImGuiTabItemFlags flags);
+    static void                    EndTabItem();
+    static boolean                 TabItemButton([Const] DOMString label, ImGuiTabItemFlags flags);
+    static void                    SetTabItemClosed([Const] DOMString tab_or_docked_window_label);
+
+    // Docking
+    static long                    DockSpace(long id, [Const, Ref] optional ImVec2 size, optional ImGuiDockNodeFlags flags, [Const] optional ImGuiWindowClass window_class);
+    static long                    DockSpaceOverViewport(optional long dockspace_id, [Const] optional ImGuiViewport viewport, optional ImGuiDockNodeFlags flags, [Const] optional ImGuiWindowClass window_class);
+    static void                    SetNextWindowDockID(long dock_id, optional ImGuiCond ImGuiCond);
+    static void                    SetNextWindowClass([Const]ImGuiWindowClass window_class);
+    static long                    GetWindowDockID();
+    static boolean                 IsWindowDocked();
+
+    // Logging/Capture
+    static void                    LogToTTY(optional long auto_open_depth);
+    static void                    LogToFile(optional long auto_open_depth, [Const] optional DOMString filename);
+    static void                    LogToClipboard(optional long auto_open_depth);
+    static void                    LogFinish();
+    static void                    LogButtons();
+    static void                    LogText([Const] DOMString fmt);
+//    static void                    LogTextV([Const] DOMString fmt, DOMString args);
+
+    // Drag and Drop
+    static boolean                 BeginDragDropSource(optional ImGuiDragDropFlags flags);
+    static boolean                 SetDragDropPayload([Const] DOMString type, any data, long size_t, optional ImGuiCond ImGuiCond);
+    static void                    EndDragDropSource();
+    static boolean                 BeginDragDropTarget();
+    [Const] static ImGuiPayload    AcceptDragDropPayload([Const] DOMString type, optional ImGuiDragDropFlags flags);
+    static void                    EndDragDropTarget();
+    [Const] static ImGuiPayload    GetDragDropPayload();
+
+    // Disabling [BETA API]
+    static void                    BeginDisabled(optional boolean disabled);
+    static void                    EndDisabled();
+
+    // Clipping
+    static void                    PushClipRect([Const, Ref]ImVec2 clip_rect_min, [Const, Ref]ImVec2 clip_rect_max, boolean intersect_with_current_clip_rect);
+    static void                    PopClipRect();
+
+    // Focus, Activation
+    static void                    SetItemDefaultFocus();
+    static void                    SetKeyboardFocusHere(optional long offset);
+
+    // Overlapping mode
+    static void                    SetNextItemAllowOverlap();
+
+    // Item/Widgets Utilities and Query Functions
+    static boolean                 IsItemHovered(optional ImGuiHoveredFlags flags);
+    static boolean                 IsItemActive();
+    static boolean                 IsItemFocused();
+    static boolean                 IsItemClicked(optional ImGuiMouseButton ImGuiMouseButton);
+    static boolean                 IsItemVisible();
+    static boolean                 IsItemEdited();
+    static boolean                 IsItemActivated();
+    static boolean                 IsItemDeactivated();
+    static boolean                 IsItemDeactivatedAfterEdit();
+    static boolean                 IsItemToggledOpen();
+    static boolean                 IsAnyItemHovered();
+    static boolean                 IsAnyItemActive();
+    static boolean                 IsAnyItemFocused();
+    static long                    GetItemID();
+    [Value] static ImVec2          GetItemRectMin();
+    [Value] static ImVec2          GetItemRectMax();
+    [Value] static ImVec2          GetItemRectSize();
+
+    // Viewports
+    static ImGuiViewport           GetMainViewport();
+
+    // Background/Foreground Draw Lists
+    static ImDrawList GetBackgroundDrawList(optional ImGuiViewport viewport);
+    static ImDrawList GetForegroundDrawList(optional ImGuiViewport viewport);
+
+    // Miscellaneous Utilities
+    [BindTo="IsRectVisible"] static boolean IsRectVisible__0([Const, Ref]ImVec2 size);
+    [BindTo="IsRectVisible"] static boolean IsRectVisible__1([Const, Ref]ImVec2 rect_min, [Const, Ref]ImVec2 rect_max);
+    static double                    GetTime();
+    static long                      GetFrameCount();
+    static ImDrawListSharedData      GetDrawListSharedData();
+    [Const, Value] static NativeString  GetStyleColorName(long idx);
+    static void                      SetStateStorage(ImGuiStorage storage);
+    static ImGuiStorage              GetStateStorage();
+
+    // Text Utilities
+    [Value] static ImVec2          CalcTextSize([Const] DOMString text, [Const] optional DOMString text_end, optional boolean hide_text_after_double_hash, optional float wrap_width);
+
+    // Color Utilities
+    [Value] static ImVec4          ColorConvertU32ToFloat4(unsigned long col);
+    static unsigned long           ColorConvertFloat4ToU32([Const, Ref]ImVec4 col);
+    static void                    ColorConvertRGBtoHSV(float r, float g, float b, float[] out_h, float[] out_s, float[] out_v); // TODO changed "out" to be a pointer
+    static void                    ColorConvertHSVtoRGB(float h, float s, float v, float[] out_r, float[] out_g, float[] out_b); // TODO changed "out" to be a pointer
+
+    // Inputs Utilities: Keyboard/Mouse/Gamepad
+    static boolean                   IsKeyDown(ImGuiKey ImGuiKey);
+    static boolean                   IsKeyPressed(ImGuiKey ImGuiKey, optional boolean repeat);
+    static boolean                   IsKeyReleased(ImGuiKey ImGuiKey);
+    static boolean                   IsKeyChordPressed(long key_chord);
+    static long                      GetKeyPressedAmount(ImGuiKey ImGuiKey, float repeat_delay, float rate);
+    [Const, Value] static NativeString  GetKeyName(ImGuiKey key);
+    static void                      SetNextFrameWantCaptureKeyboard(boolean want_capture_keyboard);
+
+    // Inputs Utilities: Shortcut Testing & Routing [BETA]
+    static boolean                 Shortcut(long key_chord, optional ImGuiInputFlags flags);
+    static void                    SetNextItemShortcut(long key_chord, optional ImGuiInputFlags flags);
+
+    // Inputs Utilities: Key/Input Ownership [BETA]
+    static void                    SetItemKeyOwner(ImGuiKey key);
+
+    // Inputs Utilities: Mouse specific
+    static boolean                 IsMouseDown(ImGuiMouseButton ImGuiMouseButton);
+    static boolean                 IsMouseClicked(ImGuiMouseButton ImGuiMouseButton, optional boolean repeat);
+    static boolean                 IsMouseReleased(ImGuiMouseButton ImGuiMouseButton);
+    static boolean                 IsMouseDoubleClicked(ImGuiMouseButton ImGuiMouseButton);
+    static boolean                 IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton, float delay);
+    static long                    GetMouseClickedCount(ImGuiMouseButton ImGuiMouseButton);
+    static boolean                 IsMouseHoveringRect([Const, Ref]ImVec2 r_min, [Const, Ref]ImVec2 r_max, optional boolean clip);
+    static boolean                 IsMousePosValid([Const] optional ImVec2 mouse_pos);
+    static boolean                 IsAnyMouseDown();
+    [Value] static ImVec2          GetMousePos();
+    [Value] static ImVec2          GetMousePosOnOpeningCurrentPopup();
+    static boolean                 IsMouseDragging(ImGuiMouseButton ImGuiMouseButton, optional float lock_threshold);
+    [Value] static ImVec2          GetMouseDragDelta(optional ImGuiMouseButton ImGuiMouseButton, optional float lock_threshold);
+    static void                    ResetMouseDragDelta(optional ImGuiMouseButton ImGuiMouseButton);
+    static long                    GetMouseCursor();
+    static void                    SetMouseCursor(long cursor_type);
+    static void                    SetNextFrameWantCaptureMouse(boolean want_capture_mouse);
+
+    // Clipboard Utilities
+    [Const, Value] static NativeString  GetClipboardText();
+    static void                      SetClipboardText([Const] DOMString text);
+
+    // Settings/.Ini Utilities
+    static void                     LoadIniSettingsFromDisk([Const] DOMString ini_filename);
+    static void                     LoadIniSettingsFromMemory([Const] DOMString ini_data, optional long long ini_size);
+    static void                     SaveIniSettingsToDisk([Const] DOMString ini_filename);
+    [Const, Value] static NativeString SaveIniSettingsToMemory();
+
+    // Debug Utilities
+    static void                    DebugTextEncoding([Const] DOMString text);
+    static void                    DebugFlashStyleColor(long idx);
+    static void                    DebugStartItemPicker();
+    static boolean                 DebugCheckVersionAndDataLayout([Const] DOMString version_str, long long sz_io, long long sz_style, long long sz_vec2, long long sz_vec4, long long sz_drawvert, long long sz_drawidx); // This is called by IMGUI_CHECKVERSION() macro.
+
+    // Memory Allocators
+//    static void                    SetAllocatorFunctions(ImGuiMemAllocFunc alloc_func, ImGuiMemFreeFunc free_func, optional any user_data); // TODO not supported
+//    static void                    GetAllocatorFunctions(ImGuiMemAllocFunc* p_alloc_func, ImGuiMemFreeFunc* p_free_func, any* p_user_data);  // TODO not supported
+    static any                     MemAlloc(long long size);
+    static void                    MemFree(any ptr);
+
+    // (Optional) Platform/OS interface for multi-viewport support
+    static void                    UpdatePlatformWindows();
+    static void                    RenderPlatformWindowsDefault(optional any platform_render_arg, optional any renderer_render_arg);
+    static void                    DestroyPlatformWindows();
+    static ImGuiViewport           FindViewportByID(long id);
+    static ImGuiViewport           FindViewportByPlatformHandle(any platform_handle);
+};
+
+
+//interface ImGuiSizeCallback {
+//
+//};
+//
+//[JSImplementation="ImGuiSizeCallback"]
+//interface CustomImGuiSizeCallback {
+//    void CustomImGuiSizeCallback();
+//};
+
+interface ImGuiInputTextCallbackData {
+//    attribute byte[] Buf;
+    attribute long BufSize;
+    attribute boolean BufDirty;
+    attribute long BufTextLen;
+    attribute ImGuiInputTextFlags Flags;
+};
+
+// ############################################ ImVector ############################################
+
+interface ImVectorImDrawListPtr {
+    [Operator="[]"] ImDrawList getData(long index);
+    long size();
+};
+
+interface ImVectorImDrawCmd {
+    [Operator="[]", Ref] ImDrawCmd getData(long index);
+    long size();
+};
+
+interface ImVectorImDrawIdx {
+    long size();
+    [Operator="[]"] unsigned short getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImDrawVert {
+    long size();
+    [Operator="[]", Ref] ImDrawVert getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorUnsignedInt {
+    [Operator="[]"] unsigned long getData(long index);
+    long size();
+    unsigned long front();
+    unsigned long back();
+};
+
+interface ImVectorImGuiWindowPtr {
+    long size();
+    [Operator="[]"] ImGuiWindow getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImGuiViewportPtr {
+    long size();
+    [Operator="[]"] ImGuiViewport getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImTextureDataPtr {
+    long size();
+    [Operator="[]"] ImTextureData getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImGuiWindowStackData {
+    long size();
+    [Operator="[]", Ref] ImGuiWindowStackData getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImTextureRect {
+    long size();
+    [Operator="[]", Ref] ImTextureRect getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImGuiStoragePair {
+    long size();
+    [Operator="[]", Ref] ImGuiStoragePair getData(long index);
+    readonly attribute any Data;
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
+};
+
+interface ImVectorImGuiID {
+    readonly attribute any Data;
+    void ImVectorImGuiID();
+    long size();
+    [Operator="[]"] long getData(long index);
+    void push_back(long v);
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
+};
+
+interface ImVectorDOMString {
+    readonly attribute any Data;
+    void ImVectorDOMString();
+    long size();
+    [Operator="[]", Const, Value] NativeString getData(long index);
+    void push_back([Const] DOMString v);
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
+};
+
+// ############################################ ImGuiInternal Structs ############################################
+
+interface ImGuiLastItemData {
+    [Value] readonly attribute ImRect Rect;
+};
+
+interface ImGuiDockNode {
+    attribute long LocalFlags;
+    attribute long SelectedTabId;
+    attribute ImGuiTabBar TabBar;
+};
+
+interface ImGuiTabBar {
+    attribute long SelectedTabId;
+    attribute long NextSelectedTabId;
+};
+
+[NoDelete]
+interface ImGuiWindowTempData {
+    [Value] readonly attribute ImVec2 CursorPos;
+    attribute long TreeDepth;
+};
+
+interface ImGuiShrinkWidthItem {
+    attribute long Index;
+    attribute float Width;
+    attribute float InitialWidth;
+};
+
+interface ImGuiTabItem {
+};
+
+interface ImGuiWindowStackData {
+};
+
+[NoDelete]
+interface ImGuiContext {
+    readonly attribute double Time;
+    readonly attribute long NavId;
+
+    // Windows state
+    [Value] readonly attribute ImVectorImGuiWindowPtr          Windows;
+    [Value] readonly attribute ImVectorImGuiWindowPtr          WindowsFocusOrder;
+    [Value] readonly attribute ImVectorImGuiWindowPtr          WindowsTempSortBuffer;
+    [Value] readonly attribute ImVectorImGuiWindowStackData    CurrentWindowStack;
+    [Value] readonly attribute ImGuiStorage            WindowsById;
+    readonly attribute long                            WindowsActiveCount;
+    readonly attribute float                           WindowsBorderHoverPadding;
+    readonly attribute long                            DebugBreakInWindow;
+    readonly attribute ImGuiWindow                     CurrentWindow;
+    readonly attribute ImGuiWindow                     HoveredWindow;
+    readonly attribute ImGuiWindow                     HoveredWindowUnderMovingWindow;
+    readonly attribute ImGuiWindow                     HoveredWindowBeforeClear;
+    readonly attribute ImGuiWindow                     MovingWindow;
+    readonly attribute ImGuiWindow                     WheelingWindow;
+    [Value] readonly attribute ImVec2                  WheelingWindowRefMousePos;
+    readonly attribute long                            WheelingWindowStartFrame;
+    readonly attribute long                            WheelingWindowScrolledFrame;
+    readonly attribute float                           WheelingWindowReleaseTimer;
+    [Value] readonly attribute ImVec2                  WheelingWindowWheelRemainder;
+    [Value] readonly attribute ImVec2                  WheelingAxisAvg;
+
+    // Item/widgets state and tracking information
+    readonly attribute long                 DebugDrawIdConflictsId;
+    readonly attribute long                 DebugHookIdInfoId;
+    readonly attribute long                 HoveredId;
+    readonly attribute long                 HoveredIdPreviousFrame;
+    readonly attribute long                 HoveredIdPreviousFrameItemCount;
+    readonly attribute float                HoveredIdTimer;
+    readonly attribute float                HoveredIdNotActiveTimer;
+    readonly attribute boolean              HoveredIdAllowOverlap;
+    readonly attribute boolean              HoveredIdIsDisabled;
+    readonly attribute boolean              ItemUnclipByLog;
+    readonly attribute long                 ActiveId;
+    readonly attribute long                 ActiveIdIsAlive;
+    readonly attribute float                ActiveIdTimer;
+    readonly attribute boolean              ActiveIdIsJustActivated;
+    readonly attribute boolean              ActiveIdAllowOverlap;
+    readonly attribute boolean              ActiveIdNoClearOnFocusLoss;
+    readonly attribute boolean              ActiveIdHasBeenPressedBefore;
+    readonly attribute boolean              ActiveIdHasBeenEditedBefore;
+    readonly attribute boolean              ActiveIdHasBeenEditedThisFrame;
+    readonly attribute boolean              ActiveIdFromShortcut;
+    readonly attribute long                 ActiveIdDisabledId;
+    readonly attribute long                 ActiveIdMouseButton;
+    [Value] readonly attribute ImVec2       ActiveIdClickOffset;
+    readonly attribute ImGuiWindow          ActiveIdWindow;
+//    readonly attribute ImGuiInputSource     ActiveIdSource;
+    readonly attribute long                 ActiveIdPreviousFrame;
+//    readonly attribute ImGuiDeactivatedItemData DeactivatedItemData;
+//    readonly attribute ImGuiDataTypeStorage     ActiveIdValueOnActivation;
+    readonly attribute long                     LastActiveId;
+    readonly attribute float                    LastActiveIdTimer;
+
+    [Value] readonly attribute ImGuiLastItemData LastItemData;
+};
+
+interface ImDrawListSharedData {
+};
+
+// ############################################ ImGui Structs ############################################
+
+interface ImVec2 {
+    attribute float x;
+    attribute float y;
+
+    void ImVec2();
+    void ImVec2(float x, float y);
+};
+
+interface ImVec4 {
+    attribute float x;
+    attribute float y;
+    attribute float z;
+    attribute float w;
+
+    void ImVec4();
+    void ImVec4(float x, float y, float z, float w);
+
+    [Operator="=", Ref] ImVec4 copy([Ref]ImVec4 value);
+};
+
+interface ImRect {
+    void ImRect();
+    void ImRect(float x1, float y1, float x2, float y2);
+    [Value] attribute ImVec2 Min;
+    [Value] attribute ImVec2 Max;
+
+    [Value, Const] ImVec2 GetCenter();
+    [Value, Const] ImVec2 GetSize();
+    float GetWidth();
+    float GetHeight();
+    float GetArea();
+//    ImVec2 GetTL() const
+//    ImVec2 GetTR() const
+//    ImVec2 GetBL() const
+//    ImVec2 GetBR() const
+};
+
+interface ImDrawCmd {
+    [Value] attribute ImVec4 ClipRect;
+    attribute long VtxOffset;
+    attribute long IdxOffset;
+    attribute long ElemCount;
+    [Value] ImTextureIDRef GetTexID();
+};
+
+interface ImDrawVert {
+    [Value] attribute ImVec2 pos;
+    [Value] attribute ImVec2 uv;
+    attribute long col;
+};
+
+interface ImDrawData {
+    readonly attribute long CmdListsCount;
+    readonly attribute long TotalIdxCount;
+    readonly attribute long TotalVtxCount;
+    readonly attribute boolean Valid;
+    readonly attribute ImVectorImTextureDataPtr Textures;
+    [Value] readonly attribute ImVectorImDrawListPtr CmdLists;
+    [Value] readonly attribute ImVec2 DisplayPos;
+    [Value] readonly attribute ImVec2 DisplaySize;
+    [Value] readonly attribute ImVec2 FramebufferScale;
+    readonly attribute ImGuiViewport OwnerViewport;
+};
+
+interface ImDrawList {
+    [Value] attribute ImVectorImDrawCmd CmdBuffer;
+    [Value] attribute ImVectorImDrawIdx IdxBuffer;
+    [Value] attribute ImVectorImDrawVert VtxBuffer;
+
+    void PushClipRect([Const, Ref] ImVec2 cr_min, [Const, Ref] ImVec2 cr_max, optional boolean intersect_with_current_clip_rect);
+    void PushClipRectFullScreen();
+    void PopClipRect();
+    void PushTextureID([Ref] ImTextureRef tex_ref);
+    void PopTextureID();
+    [Value] ImVec2 GetClipRectMin();
+    [Value] ImVec2 GetClipRectMax();
+
+    // Primitives
+    void AddLine([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, long col, optional float thickness);
+    void AddRect([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col, optional float rounding, optional ImDrawFlags flags, optional float thickness);
+    void AddRectFilled([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col, optional float rounding, optional ImDrawFlags flags);
+    void AddRectFilledMultiColor([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col_upr_left, long col_upr_right, long col_bot_right, long col_bot_left);
+    void AddQuad([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, long col, optional float thickness);
+    void AddQuadFilled([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, long col);
+    void AddTriangle([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, long col, optional float thickness);
+    void AddTriangleFilled([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, long col);
+    void AddCircle([Const, Ref] ImVec2 center, float radius, long col, optional long num_segments, optional float thickness);
+    void AddCircleFilled([Const, Ref] ImVec2 center, float radius, long col, optional long num_segments);
+    void AddNgon([Const, Ref] ImVec2 center, float radius, long col, long num_segments, optional float thickness);
+    void AddNgonFilled([Const, Ref] ImVec2 center, float radius, long col, long num_segments);
+    void AddEllipse([Const, Ref] ImVec2 center, [Const, Ref] ImVec2 radius, long col, optional float rot, optional long num_segments, optional float thickness);
+    void AddEllipseFilled([Const, Ref] ImVec2 center, [Const, Ref] ImVec2 radius, long col, optional float rot, optional long num_segments);
+    void AddText([Const, Ref] ImVec2 pos, long col, [Const] DOMString text_begin, [Const] optional DOMString text_end);
+//    void AddText([Const] ImFont font, float font_size, [Const, Ref] ImVec2 pos, unsigned long col, [Const] DOMString text_begin, [Const] optional DOMString text_end, optional float wrap_width, [Const] optional ImVec4 cpu_fine_clip_rect);
+    void AddBezierCubic([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, long col, float thickness, optional long num_segments);
+    void AddBezierQuadratic([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, long col, float thickness, optional long num_segments);
+
+    // General polygon
+//    void  AddPolyline([Const] ImVec2[] points, long num_points, long col, ImDrawFlags flags, float thickness);
+//    void  AddConvexPolyFilled([Const] ImVec2[] points, long num_points, long col);
+//    void  AddConcavePolyFilled([Const] ImVec2[] points, long num_points, long col);
+
+    // Image primitives
+    void AddImage([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, [Const, Ref] optional ImVec2 uv_min, [Const, Ref] optional ImVec2 uv_max, optional long col);
+    void AddImageQuad([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, [Const, Ref] optional ImVec2 uv1, [Const, Ref] optional ImVec2 uv2, [Const, Ref] optional ImVec2 uv3, [Const, Ref] optional ImVec2 uv4, optional long col);
+    void AddImageRounded([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, [Const, Ref] ImVec2 uv_min, [Const, Ref] ImVec2 uv_max, long col, float rounding, optional ImDrawFlags flags);
+
+    void PathClear();
+    void PathLineTo([Const, Ref] ImVec2 pos);
+    void PathLineToMergeDuplicate([Const, Ref] ImVec2 pos);
+    void PathFillConvex(long col);
+    void PathStroke(long col, optional ImDrawFlags flags, optional float thickness);
+
+    void ChannelsSplit(long count);
+    void ChannelsMerge();
+    void ChannelsSetCurrent(long n);
+};
+
+interface ImTextureRect {
+     attribute unsigned short x;
+     attribute unsigned short y;
+     attribute unsigned short w;
+     attribute unsigned short h;
+};
+
+interface ImTextureData {
+    readonly attribute long UniqueID;
+    readonly attribute ImTextureStatus Status;
+    attribute any BackendUserData;
+    attribute ImTextureFormat Format;
+    attribute long Width;
+    attribute long Height;
+    attribute long BytesPerPixel;
+//    unsigned char*      Pixels;
+    [Value] attribute ImTextureRect UsedRect;
+    [Value] attribute ImTextureRect UpdateRect;
+    [Value] attribute ImVectorImTextureRect Updates;
+    attribute long UnusedFrames;
+    attribute unsigned short RefCount;
+    attribute boolean UseColors;
+    attribute boolean WantDestroyNextFrame;
+    void Create(ImTextureFormat format, long w, long h);
+    void DestroyPixels();
+    any GetPixels();
+    any GetPixelsAt(long x, long y);
+    long GetSizeInBytes();
+    long GetPitch();
+    [Value] ImTextureRef GetTexRef();
+    [Value] ImTextureIDRef GetTexID();
+    void SetTexID([Ref] ImTextureIDRef tex_id); // Call after creating or destroying the texture. Never modify TexID directly!
+    void SetStatus(ImTextureStatus status); // Call after honoring a request. Never modify Status directly!
+};
+
+interface ImTextureRef {
+    void ImTextureRef();
+    void ImTextureRef(unsigned long long tex_id);
+    unsigned long long GetTexID();
+};
+
+interface ImFontBaked {
+//TODO add data
+};
+
+interface ImGuiIO {
+    // Configuration
+    attribute ImGuiConfigFlags ConfigFlags;
+    attribute ImGuiBackendFlags BackendFlags;
+    [Value] attribute ImVec2 DisplaySize;
+    [Value] attribute ImVec2 DisplayFramebufferScale;
+    attribute float DeltaTime;
+    attribute float IniSavingRate;
+    attribute any UserData;
+
+    // Font system
+    attribute ImFontAtlas Fonts;
+    attribute ImFont FontDefault;
+    attribute boolean FontAllowUserScaling;
+
+    // Keyboard/Gamepad Navigation options
+    attribute boolean ConfigNavSwapGamepadButtons;
+    attribute boolean ConfigNavMoveSetMousePos;
+    attribute boolean ConfigNavCaptureKeyboard;
+    attribute boolean ConfigNavEscapeClearFocusItem;
+    attribute boolean ConfigNavEscapeClearFocusWindow;
+    attribute boolean ConfigNavCursorVisibleAuto;
+    attribute boolean ConfigNavCursorVisibleAlways;
+
+    // Docking options (when ImGuiConfigFlags_DockingEnable is set)
+    attribute boolean ConfigDockingNoSplit;
+    attribute boolean ConfigDockingWithShift;
+    attribute boolean ConfigDockingAlwaysTabBar;
+    attribute boolean ConfigDockingTransparentPayload;
+
+    // Viewport options (when ImGuiConfigFlags_ViewportsEnable is set)
+    attribute boolean ConfigViewportsNoAutoMerge;
+    attribute boolean ConfigViewportsNoTaskBarIcon;
+    attribute boolean ConfigViewportsNoDecoration;
+    attribute boolean ConfigViewportsNoDefaultParent;
+    attribute boolean ConfigViewportsPlatformFocusSetsImGuiFocus;
+
+    // DPI/Scaling options
+    attribute boolean ConfigDpiScaleFonts;
+    attribute boolean ConfigDpiScaleViewports;
+
+    // Miscellaneous options
+    attribute boolean MouseDrawCursor;
+    attribute boolean ConfigMacOSXBehaviors;
+    attribute boolean ConfigInputTrickleEventQueue;
+    attribute boolean ConfigInputTextCursorBlink;
+    attribute boolean ConfigInputTextEnterKeepActive;
+    attribute boolean ConfigDragClickToInputText;
+    attribute boolean ConfigWindowsResizeFromEdges;
+    attribute boolean ConfigWindowsMoveFromTitleBarOnly;
+    attribute boolean ConfigWindowsCopyContentsWithCtrlC;
+    attribute boolean ConfigScrollbarScrollByPage;
+    attribute float ConfigMemoryCompactTimer;
+
+    // Inputs Behaviors
+    attribute float MouseDoubleClickTime;
+    attribute float MouseDoubleClickMaxDist;
+    attribute float MouseDragThreshold;
+    attribute float KeyRepeatDelay;
+    attribute float KeyRepeatRate;
+
+    // Input Functions
+    void  AddKeyEvent(ImGuiKey key, boolean down);
+    void  AddKeyAnalogEvent(ImGuiKey key, boolean down, float v);
+    void  AddMousePosEvent(float x, float y);
+    void  AddMouseButtonEvent(long button, boolean down);
+    void  AddMouseWheelEvent(float wheel_x, float wheel_y);
+    void  AddMouseSourceEvent(ImGuiMouseSource source);
+    void  AddMouseViewportEvent(long id);
+    void  AddFocusEvent(boolean focused);
+    void  AddInputCharacter(unsigned long c);
+    void  AddInputCharacterUTF16(unsigned short c);
+    void  AddInputCharactersUTF8([Const] DOMString str);
+
+    void  SetKeyEventNativeData(ImGuiKey key, long native_keycode, long native_scancode, optional long native_legacy_index);
+    void  SetAppAcceptingEvents(boolean accepting_events);
+    void  ClearEventsQueue();
+    void  ClearInputKeys();
+    void  ClearInputMouse();
+
+    // Output - Updated by NewFrame() or EndFrame()/Render()
+    attribute boolean WantCaptureMouse;
+    attribute boolean WantCaptureKeyboard;
+    attribute boolean WantTextInput;
+    attribute boolean WantSetMousePos;
+    attribute boolean WantSaveIniSettings;
+    attribute boolean NavActive;
+    attribute boolean NavVisible;
+    attribute float Framerate;
+    attribute long MetricsRenderVertices;
+    attribute long MetricsRenderIndices;
+    attribute long MetricsRenderWindows;
+    attribute long MetricsActiveWindows;
+    [Value] attribute ImVec2 MouseDelta;
+};
+
+interface ImFontAtlas {
+//    attribute any TexID;
+//
+    ImFont AddFont([Const] ImFontConfig font_cfg);
+    ImFont AddFontDefault([Const] optional ImFontConfig font_cfg);
+    ImFont AddFontFromMemoryTTF(any font_data, long font_data_size, long size_pixels, [Const] optional ImFontConfig font_cfg);
+};
+
+interface ImFontConfig {
+    void ImFontConfig();
+
+    // Data Source
+    attribute byte[] Name;
+    attribute any FontData;
+    attribute long FontDataSize;
+    attribute boolean FontDataOwnedByAtlas;
+
+    // Options
+    attribute boolean MergeMode;
+    attribute boolean PixelSnapH;
+    attribute boolean PixelSnapV;
+    attribute long OversampleH;
+    attribute long OversampleV;
+    attribute unsigned short EllipsisChar;
+    attribute float SizePixels;
+//    attribute const ImWchar*  GlyphRanges;
+//    attribute const ImWchar*  GlyphExcludeRanges;
+    [Value] attribute ImVec2 GlyphOffset;
+    attribute float GlyphMinAdvanceX;
+    attribute float GlyphMaxAdvanceX;
+    attribute float GlyphExtraAdvanceX;
+    attribute unsigned long FontNo;
+    attribute unsigned long FontLoaderFlags;
+    attribute float RasterizerMultiply;
+    attribute float RasterizerDensity;
+};
+
+interface ImFont {
+//    [Const] readonly attribute ImFontConfig ConfigData; // Dont exist
+};
+
+interface ImGuiStyle {
+    attribute float             Alpha;
+    attribute float             DisabledAlpha;
+    [Value] attribute ImVec2    WindowPadding;
+    attribute float             WindowRounding;
+    attribute float             WindowBorderSize;
+    [Value] attribute ImVec2    WindowMinSize;
+    [Value] attribute ImVec2    WindowTitleAlign;
+    attribute ImGuiDir          WindowMenuButtonPosition;
+    attribute float             ChildRounding;
+    attribute float             ChildBorderSize;
+    attribute float             PopupRounding;
+    attribute float             PopupBorderSize;
+    [Value] attribute ImVec2    FramePadding;
+    attribute float             FrameRounding;
+    attribute float             FrameBorderSize;
+    [Value] attribute ImVec2    ItemSpacing;
+    [Value] attribute ImVec2    ItemInnerSpacing;
+    [Value] attribute ImVec2    CellPadding;
+    [Value] attribute ImVec2    TouchExtraPadding;
+    attribute float             IndentSpacing;
+    attribute float             ColumnsMinSpacing;
+    attribute float             ScrollbarSize;
+    attribute float             ScrollbarRounding;
+    attribute float             GrabMinSize;
+    attribute float             GrabRounding;
+    attribute float             LogSliderDeadzone;
+    attribute float             TabRounding;
+    attribute float             TabBorderSize;
+    attribute float             TabBarBorderSize;
+    attribute ImGuiDir          ColorButtonPosition;
+    [Value] attribute ImVec2    ButtonTextAlign;
+    [Value] attribute ImVec2    SelectableTextAlign;
+    attribute float             SeparatorTextBorderSize;
+    [Value] attribute ImVec2    SeparatorTextAlign;
+    [Value] attribute ImVec2    SeparatorTextPadding;
+    [Value] attribute ImVec2    DisplayWindowPadding;
+    [Value] attribute ImVec2    DisplaySafeAreaPadding;
+    attribute float             DockingSeparatorSize;
+    attribute float             MouseCursorScale;
+    attribute boolean           AntiAliasedLines;
+    attribute boolean           AntiAliasedLinesUseTex;
+    attribute boolean           AntiAliasedFill;
+    attribute float             CurveTessellationTol;
+    attribute float             CircleTessellationMaxError;
+
+    attribute float             HoverStationaryDelay;
+    attribute float             HoverDelayShort;
+    attribute float             HoverDelayNormal;
+    attribute ImGuiHoveredFlags HoverFlagsForTooltipMouse;
+    attribute ImGuiHoveredFlags HoverFlagsForTooltipNav;
+    [Value] attribute ImVec4[]  Colors;
+
+    void ScaleAllSizes(float scale_factor);
+};
+
+interface ImGuiViewport {
+    attribute long ID;
+    attribute ImGuiViewportFlags Flags;
+    [Value] attribute ImVec2 Pos;
+    [Value] attribute ImVec2 Size;
+    [Value] attribute ImVec2 FramebufferScale;
+    [Value] attribute ImVec2 WorkPos;
+    [Value] attribute ImVec2 WorkSize;
+    attribute float DpiScale;
+    attribute long ParentViewportId;
+    attribute ImDrawData DrawData;
+    attribute any RendererUserData;
+    attribute any PlatformUserData;
+    attribute any PlatformHandle;
+    attribute any PlatformHandleRaw;
+    attribute boolean PlatformWindowCreated;
+    attribute boolean PlatformRequestMove;
+    attribute boolean PlatformRequestResize;
+    attribute boolean PlatformRequestClose;
+};
+
+interface ImGuiTableSortSpecs {
+};
+
+interface ImGuiWindowClass {
+    attribute long ClassId;
+    attribute long ParentViewportId;
+    attribute long FocusRouteParentWindowId;
+    attribute ImGuiViewportFlags ViewportFlagsOverrideSet;
+    attribute ImGuiViewportFlags ViewportFlagsOverrideClear;
+    attribute ImGuiTabItemFlags TabItemFlagsOverrideSet;
+    attribute ImGuiDockNodeFlags DockNodeFlagsOverrideSet;
+    attribute boolean DockingAlwaysTabBar;
+    attribute boolean DockingAllowUnclassed;
+
+    void ImGuiWindowClass();
+};
+
+[NoDelete]
+interface ImGuiWindow {
+    [Value] readonly attribute ImVectorUnsignedInt IDStack;
+    [Value] readonly attribute ImGuiWindowTempData DC;
+    readonly attribute long ID;
+    readonly attribute ImGuiWindowFlags Flags;
+    readonly attribute ImGuiWindowFlags FlagsPreviousFrame;
+    readonly attribute long ViewportId;
+    [Value] attribute ImVec2 ViewportPos;
+    attribute long ViewportAllowPlatformMonitorExtend;
+    [Value] attribute ImVec2 Pos;
+    [Value] attribute ImVec2 Size;
+    [Value] attribute ImVec2 SizeFull;
+    [Value] attribute ImVec2 ContentSize;
+    [Value] attribute ImVec2 ContentSizeIdeal;
+    [Value] attribute ImVec2 ContentSizeExplicit;
+    [Value] attribute ImVec2 WindowPadding;
+    attribute float WindowRounding;
+    attribute float WindowBorderSize;
+    attribute float DecoOuterSizeX1;
+    attribute float DecoOuterSizeY1;
+    attribute float DecoOuterSizeX2;
+    attribute float DecoOuterSizeY2;
+    attribute float DecoInnerSizeX1;
+    attribute float DecoInnerSizeY1;
+    attribute long NameBufLen;
+    readonly attribute long MoveId;
+    readonly attribute long TabId;
+    readonly attribute long ChildId;
+    [Value] attribute ImVec2 Scroll;
+    [Value] attribute ImVec2 ScrollMax;
+    [Value] attribute ImVec2 ScrollTarget;
+    [Value] attribute ImVec2 ScrollTargetCenterRatio;
+    [Value] attribute ImVec2 ScrollTargetEdgeSnapDist;
+    [Value] attribute ImVec2 ScrollbarSizes;
+    attribute boolean ScrollbarX;
+    attribute boolean ScrollbarY;
+    attribute boolean ViewportOwned;
+    attribute boolean Active;
+    attribute boolean WasActive;
+    attribute boolean WriteAccessed;
+    attribute boolean Collapsed;
+    attribute boolean WantCollapseToggle;
+    attribute boolean SkipItems;
+    attribute boolean Appearing;
+    attribute boolean Hidden;
+    attribute boolean IsFallbackWindow;
+    attribute boolean IsExplicitChild;
+    attribute boolean HasCloseButton;
+
+    [Value] attribute ImGuiStorage  StateStorage;
+
+    attribute ImDrawList DrawList;
+
+    attribute boolean DockIsActive;
+    attribute boolean DockNodeIsVisible;
+    attribute boolean DockTabIsVisible;
+    attribute boolean DockTabWantClose;
+    attribute ImGuiDockNode DockNode;
+    attribute ImGuiDockNode DockNodeAsHost;
+    attribute long DockId;
+
+    long GetID([Const] DOMString str);
+//    long GetID(long n); // Method overloading issue
+    long GetIDFromRectangle([Const, Ref] ImRect r_abs);
+
+    [Const, Value] ImRect Rect();
+    attribute float TitleBarHeight;
+    [Const, Value] ImRect TitleBarRect();
+    attribute float MenuBarHeight;
+    [Const, Value] ImRect MenuBarRect();
+};
+
+interface ImGuiPayload {
+    readonly attribute any Data;
+    readonly attribute long DataSize;
+
+    void Clear();
+    boolean IsDataType([Const] DOMString type);
+    boolean IsPreview();
+    boolean IsDelivery();
+};
+
+interface ImGuiStoragePair {
+    attribute any val_p;
+};
+
+interface ImGuiStorage {
+    [Value] readonly attribute ImVectorImGuiStoragePair Data;
+    void ImGuiStorage();
+    void Clear();
+    long GetInt(long key, optional long default_val);
+    void SetInt(long key, long val);
+    boolean GetBool(long key, optional boolean default_val);
+    void SetBool(long key, boolean val);
+    float GetFloat(long key, optional float default_val);
+    void SetFloat(long key, float val);
+    any GetVoidPtr(long key);
+    void SetVoidPtr(long key, any val);
+};
+
+interface ImGuiPlatformIO {
+    [Value] attribute ImVectorImTextureDataPtr Textures;
+    [Value] attribute ImVectorImGuiViewportPtr Viewports;
+
+    // TODO impl
+};
+
+interface ClipboardTextFunction {
+    static void setClipboardTextFunction(ImGuiPlatformIO io, ClipboardTextFunction clipboardFunction);
+};
+
+[JSImplementation="ClipboardTextFunction"]
+interface ClipboardTextFunctionImpl {
+    void ClipboardTextFunctionImpl();
+    void onGetClipboardText(NativeString strOut);
+    void onSetClipboardText(NativeString text);
+};
+
+interface ImGuiViewportPlatformCallbacks {
+    static void setCallbacks(ImGuiPlatformIO io, ImGuiViewportPlatformCallbacks callbacks);
+    static void clearCallbacks(ImGuiPlatformIO io);
+    static void setMainMonitor(ImGuiPlatformIO io, float mainX, float mainY, float mainWidth, float mainHeight, float workX, float workY, float workWidth, float workHeight, float dpiScale);
+    static void setMainViewportPlatformHandle(ImGuiViewport viewport, ImGuiViewportPlatformCallbacks callbacks);
+    static void clearViewportPlatformHandles(ImGuiViewport viewport);
+};
+
+[JSImplementation="ImGuiViewportPlatformCallbacks"]
+interface ImGuiViewportPlatformCallbacksImpl {
+    void ImGuiViewportPlatformCallbacksImpl();
+    void onCreateWindow(ImGuiViewport viewport);
+    void onDestroyWindow(ImGuiViewport viewport);
+    void onShowWindow(ImGuiViewport viewport);
+    void onSetWindowPos(ImGuiViewport viewport, float x, float y);
+    float onGetWindowPosX(ImGuiViewport viewport);
+    float onGetWindowPosY(ImGuiViewport viewport);
+    void onSetWindowSize(ImGuiViewport viewport, float width, float height);
+    float onGetWindowSizeX(ImGuiViewport viewport);
+    float onGetWindowSizeY(ImGuiViewport viewport);
+    float onGetWindowFramebufferScaleX(ImGuiViewport viewport);
+    float onGetWindowFramebufferScaleY(ImGuiViewport viewport);
+    void onSetWindowFocus(ImGuiViewport viewport);
+    boolean onGetWindowFocus(ImGuiViewport viewport);
+    boolean onGetWindowMinimized(ImGuiViewport viewport);
+    void onSetWindowTitle(ImGuiViewport viewport, NativeString title);
+    void onSetWindowAlpha(ImGuiViewport viewport, float alpha);
+    void onUpdateWindow(ImGuiViewport viewport);
+    void onRenderWindow(ImGuiViewport viewport);
+    void onSwapBuffers(ImGuiViewport viewport);
+    float onGetWindowDpiScale(ImGuiViewport viewport);
+    void onChangedViewport(ImGuiViewport viewport);
+    void onRendererCreateWindow(ImGuiViewport viewport);
+    void onRendererDestroyWindow(ImGuiViewport viewport);
+    void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height);
+    void onRendererRenderWindow(ImGuiViewport viewport);
+    void onRendererSwapBuffers(ImGuiViewport viewport);
+};
+
+interface ImGuiMultiSelectIO {
+    attribute boolean NavIdSelected;
+    attribute boolean RangeSrcReset;
+    attribute long ItemsCount;
+};
+
+// ############################################ ImGui Enums ############################################
+
+enum ImGuiWindowFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiWindowFlags_None",
+    "ImGuiWindowFlags_NoTitleBar",
+    "ImGuiWindowFlags_NoResize",
+    "ImGuiWindowFlags_NoMove",
+    "ImGuiWindowFlags_NoScrollbar",
+    "ImGuiWindowFlags_NoScrollWithMouse",
+    "ImGuiWindowFlags_NoCollapse",
+    "ImGuiWindowFlags_AlwaysAutoResize",
+    "ImGuiWindowFlags_NoBackground",
+    "ImGuiWindowFlags_NoSavedSettings",
+    "ImGuiWindowFlags_NoMouseInputs",
+    "ImGuiWindowFlags_MenuBar",
+    "ImGuiWindowFlags_HorizontalScrollbar",
+    "ImGuiWindowFlags_NoFocusOnAppearing",
+    "ImGuiWindowFlags_NoBringToFrontOnFocus",
+    "ImGuiWindowFlags_AlwaysVerticalScrollbar",
+    "ImGuiWindowFlags_AlwaysHorizontalScrollbar",
+    "ImGuiWindowFlags_NoNavInputs",
+    "ImGuiWindowFlags_NoNavFocus",
+    "ImGuiWindowFlags_UnsavedDocument",
+    "ImGuiWindowFlags_NoDocking",
+    "ImGuiWindowFlags_NoNav",
+    "ImGuiWindowFlags_NoDecoration",
+    "ImGuiWindowFlags_NoInputs",
+
+    // [Internal]
+    "ImGuiWindowFlags_DockNodeHost",
+    "ImGuiWindowFlags_ChildWindow",
+    "ImGuiWindowFlags_Tooltip",
+    "ImGuiWindowFlags_Popup",
+    "ImGuiWindowFlags_Modal",
+    "ImGuiWindowFlags_ChildMenu"
+};
+
+enum ImGuiChildFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiChildFlags_None",
+    "ImGuiChildFlags_Borders",
+    "ImGuiChildFlags_AlwaysUseWindowPadding",
+    "ImGuiChildFlags_ResizeX",
+    "ImGuiChildFlags_ResizeY",
+    "ImGuiChildFlags_AutoResizeX",
+    "ImGuiChildFlags_AutoResizeY",
+    "ImGuiChildFlags_AlwaysAutoResize",
+    "ImGuiChildFlags_FrameStyle",
+    "ImGuiChildFlags_NavFlattened"
+};
+
+enum ImGuiItemFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiItemFlags_None",
+    "ImGuiItemFlags_NoTabStop",
+    "ImGuiItemFlags_NoNav",
+    "ImGuiItemFlags_NoNavDefaultFocus",
+    "ImGuiItemFlags_ButtonRepeat",
+    "ImGuiItemFlags_AutoClosePopups",
+    "ImGuiItemFlags_AllowDuplicateId"
+};
+
+enum ImGuiInputTextFlags { //[-SUB_PACKAGE=enums]
+    // Basic filters (also see ImGuiInputTextFlags_CallbackCharFilter)
+    "ImGuiInputTextFlags_None",
+    "ImGuiInputTextFlags_CharsDecimal",
+    "ImGuiInputTextFlags_CharsHexadecimal",
+    "ImGuiInputTextFlags_CharsScientific",
+    "ImGuiInputTextFlags_CharsUppercase",
+    "ImGuiInputTextFlags_CharsNoBlank",
+
+    // Inputs
+    "ImGuiInputTextFlags_AllowTabInput",
+    "ImGuiInputTextFlags_EnterReturnsTrue",
+    "ImGuiInputTextFlags_EscapeClearsAll",
+    "ImGuiInputTextFlags_CtrlEnterForNewLine",
+
+    // Other options
+    "ImGuiInputTextFlags_ReadOnly",
+    "ImGuiInputTextFlags_Password",
+    "ImGuiInputTextFlags_AlwaysOverwrite",
+    "ImGuiInputTextFlags_AutoSelectAll",
+    "ImGuiInputTextFlags_ParseEmptyRefVal",
+    "ImGuiInputTextFlags_DisplayEmptyRefVal",
+    "ImGuiInputTextFlags_NoHorizontalScroll",
+    "ImGuiInputTextFlags_NoUndoRedo",
+
+    // Elide display / Alignment
+    "ImGuiInputTextFlags_ElideLeft",
+
+    // Callback features
+    "ImGuiInputTextFlags_CallbackCompletion",
+    "ImGuiInputTextFlags_CallbackHistory",
+    "ImGuiInputTextFlags_CallbackAlways",
+    "ImGuiInputTextFlags_CallbackCharFilter",
+    "ImGuiInputTextFlags_CallbackResize",
+    "ImGuiInputTextFlags_CallbackEdit",
+
+    // Multi-line Word-Wrapping [BETA]
+    "ImGuiInputTextFlags_WordWrap"
+};
+
+enum ImGuiTreeNodeFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTreeNodeFlags_None",
+    "ImGuiTreeNodeFlags_Selected",
+    "ImGuiTreeNodeFlags_Framed",
+    "ImGuiTreeNodeFlags_AllowOverlap",
+    "ImGuiTreeNodeFlags_NoTreePushOnOpen",
+    "ImGuiTreeNodeFlags_NoAutoOpenOnLog",
+    "ImGuiTreeNodeFlags_DefaultOpen",
+    "ImGuiTreeNodeFlags_OpenOnDoubleClick",
+    "ImGuiTreeNodeFlags_OpenOnArrow",
+    "ImGuiTreeNodeFlags_Leaf",
+    "ImGuiTreeNodeFlags_Bullet",
+    "ImGuiTreeNodeFlags_FramePadding",
+    "ImGuiTreeNodeFlags_SpanAvailWidth",
+    "ImGuiTreeNodeFlags_SpanFullWidth",
+    "ImGuiTreeNodeFlags_SpanLabelWidth",
+    "ImGuiTreeNodeFlags_SpanAllColumns",
+    "ImGuiTreeNodeFlags_LabelSpanAllColumns",
+    //ImGuiTreeNodeFlags_NoScrollOnOpen
+    "ImGuiTreeNodeFlags_NavLeftJumpsToParent",
+    "ImGuiTreeNodeFlags_CollapsingHeader",
+
+    // [EXPERIMENTAL] Draw lines connecting TreeNode hierarchy. Discuss in GitHub issue #2920.
+    // Default value is pulled from style.TreeLinesFlags. May be overridden in TreeNode calls.
+    "ImGuiTreeNodeFlags_DrawLinesNone",
+    "ImGuiTreeNodeFlags_DrawLinesFull",
+    "ImGuiTreeNodeFlags_DrawLinesToNodes"
+};
+
+
+enum ImGuiPopupFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiPopupFlags_None",
+    "ImGuiPopupFlags_MouseButtonLeft",
+    "ImGuiPopupFlags_MouseButtonRight",
+    "ImGuiPopupFlags_MouseButtonMiddle",
+    "ImGuiPopupFlags_MouseButtonMask_",
+    "ImGuiPopupFlags_MouseButtonDefault_",
+    "ImGuiPopupFlags_NoReopen",
+    //ImGuiPopupFlags_NoReopenAlwaysNavInit
+    "ImGuiPopupFlags_NoOpenOverExistingPopup",
+    "ImGuiPopupFlags_NoOpenOverItems",
+    "ImGuiPopupFlags_AnyPopupId",
+    "ImGuiPopupFlags_AnyPopupLevel",
+    "ImGuiPopupFlags_AnyPopup"
+};
+
+// Flags for ImGui::Selectable()
+enum ImGuiSelectableFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiSelectableFlags_None",
+    "ImGuiSelectableFlags_NoAutoClosePopups",
+    "ImGuiSelectableFlags_SpanAllColumns",
+    "ImGuiSelectableFlags_AllowDoubleClick",
+    "ImGuiSelectableFlags_Disabled",
+    "ImGuiSelectableFlags_AllowOverlap",
+    "ImGuiSelectableFlags_Highlight",
+    "ImGuiSelectableFlags_SelectOnNav"
+};
+
+// Flags for ImGui::BeginCombo()
+enum ImGuiComboFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiComboFlags_None",
+    "ImGuiComboFlags_PopupAlignLeft",
+    "ImGuiComboFlags_HeightSmall",
+    "ImGuiComboFlags_HeightRegular",
+    "ImGuiComboFlags_HeightLarge",
+    "ImGuiComboFlags_HeightLargest",
+    "ImGuiComboFlags_NoArrowButton",
+    "ImGuiComboFlags_NoPreview",
+    "ImGuiComboFlags_WidthFitPreview",
+    "ImGuiComboFlags_HeightMask_"
+};
+
+// Flags for ImGui::BeginTabBar()
+enum ImGuiTabBarFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTabBarFlags_None",
+    "ImGuiTabBarFlags_Reorderable",
+    "ImGuiTabBarFlags_AutoSelectNewTabs",
+    "ImGuiTabBarFlags_TabListPopupButton",
+    "ImGuiTabBarFlags_NoCloseWithMiddleMouseButton",
+    "ImGuiTabBarFlags_NoTabListScrollingButtons",
+    "ImGuiTabBarFlags_NoTooltip",
+    "ImGuiTabBarFlags_DrawSelectedOverline",
+
+    // Fitting/Resize policy
+    "ImGuiTabBarFlags_FittingPolicyMixed",
+    "ImGuiTabBarFlags_FittingPolicyShrink",
+    "ImGuiTabBarFlags_FittingPolicyScroll",
+    "ImGuiTabBarFlags_FittingPolicyMask_",
+    "ImGuiTabBarFlags_FittingPolicyDefault_"
+};
+
+// Flags for ImGui::BeginTabItem()
+enum ImGuiTabItemFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTabItemFlags_None",
+    "ImGuiTabItemFlags_UnsavedDocument",
+    "ImGuiTabItemFlags_SetSelected",
+    "ImGuiTabItemFlags_NoCloseWithMiddleMouseButton",
+    "ImGuiTabItemFlags_NoPushId",
+    "ImGuiTabItemFlags_NoTooltip",
+    "ImGuiTabItemFlags_NoReorder",
+    "ImGuiTabItemFlags_Leading",
+    "ImGuiTabItemFlags_Trailing",
+    "ImGuiTabItemFlags_NoAssumedClosure",
+};
+
+// Flags for ImGui::IsWindowFocused()
+enum ImGuiFocusedFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiFocusedFlags_None",
+    "ImGuiFocusedFlags_ChildWindows",
+    "ImGuiFocusedFlags_RootWindow",
+    "ImGuiFocusedFlags_AnyWindow",
+    "ImGuiFocusedFlags_NoPopupHierarchy",
+    "ImGuiFocusedFlags_DockHierarchy",
+    "ImGuiFocusedFlags_RootAndChildWindows",
+};
+
+// Flags for ImGui::IsItemHovered(), ImGui::IsWindowHovered()
+enum ImGuiHoveredFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiHoveredFlags_None",
+    "ImGuiHoveredFlags_ChildWindows",
+    "ImGuiHoveredFlags_RootWindow",
+    "ImGuiHoveredFlags_AnyWindow",
+    "ImGuiHoveredFlags_NoPopupHierarchy",
+    "ImGuiHoveredFlags_DockHierarchy",
+    "ImGuiHoveredFlags_AllowWhenBlockedByPopup",
+    //ImGuiHoveredFlags_AllowWhenBlockedByModal
+    "ImGuiHoveredFlags_AllowWhenBlockedByActiveItem",
+    "ImGuiHoveredFlags_AllowWhenOverlappedByItem",
+    "ImGuiHoveredFlags_AllowWhenOverlappedByWindow",
+    "ImGuiHoveredFlags_AllowWhenDisabled",
+    "ImGuiHoveredFlags_NoNavOverride",
+    "ImGuiHoveredFlags_AllowWhenOverlapped",
+    "ImGuiHoveredFlags_RectOnly",
+    "ImGuiHoveredFlags_RootAndChildWindows",
+
+    // Tooltips mode
+    "ImGuiHoveredFlags_ForTooltip",
+
+    // (Advanced) Mouse Hovering delays.
+    "ImGuiHoveredFlags_Stationary",
+    "ImGuiHoveredFlags_DelayNone",
+    "ImGuiHoveredFlags_DelayShort",
+    "ImGuiHoveredFlags_DelayNormal",
+    "ImGuiHoveredFlags_NoSharedDelay",
+};
+
+// Flags for ImGui::DockSpace(), shared/inherited by child nodes.
+// (Some flags can be applied to individual nodes directly)
+// FIXME-DOCK: Also see ImGuiDockNodeFlagsPrivate_ which may involve using the WIP and internal DockBuilder api.
+enum ImGuiDockNodeFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiDockNodeFlags_None",
+    "ImGuiDockNodeFlags_KeepAliveOnly",
+    //ImGuiDockNodeFlags_NoCentralNode
+    "ImGuiDockNodeFlags_NoDockingOverCentralNode",
+    "ImGuiDockNodeFlags_PassthruCentralNode",
+    "ImGuiDockNodeFlags_NoDockingSplit",
+    "ImGuiDockNodeFlags_NoResize",
+    "ImGuiDockNodeFlags_AutoHideTabBar",
+    "ImGuiDockNodeFlags_NoUndocking"
+};
+
+// Flags for ImGui::BeginDragDropSource(), ImGui::AcceptDragDropPayload()
+enum ImGuiDragDropFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiDragDropFlags_None",
+    // BeginDragDropSource() flags
+    "ImGuiDragDropFlags_SourceNoPreviewTooltip",
+    "ImGuiDragDropFlags_SourceNoDisableHover",
+    "ImGuiDragDropFlags_SourceNoHoldToOpenOthers",
+    "ImGuiDragDropFlags_SourceAllowNullID",
+    "ImGuiDragDropFlags_SourceExtern",
+    "ImGuiDragDropFlags_PayloadAutoExpire",
+    "ImGuiDragDropFlags_PayloadNoCrossContext",
+    "ImGuiDragDropFlags_PayloadNoCrossProcess",
+    // AcceptDragDropPayload() flags
+    "ImGuiDragDropFlags_AcceptBeforeDelivery",
+    "ImGuiDragDropFlags_AcceptNoDrawDefaultRect",
+    "ImGuiDragDropFlags_AcceptNoPreviewTooltip",
+    "ImGuiDragDropFlags_AcceptPeekOnly"
+};
+
+// A primary data type
+enum ImGuiDataType { //[-SUB_PACKAGE=enums]
+    "ImGuiDataType_S8",
+    "ImGuiDataType_U8",
+    "ImGuiDataType_S16",
+    "ImGuiDataType_U16",
+    "ImGuiDataType_S32",
+    "ImGuiDataType_U32",
+    "ImGuiDataType_S64",
+    "ImGuiDataType_U64",
+    "ImGuiDataType_Float",
+    "ImGuiDataType_Double",
+    "ImGuiDataType_Bool",
+    "ImGuiDataType_String"
+};
+
+// A cardinal direction
+enum ImGuiDir { //[-SUB_PACKAGE=enums]
+    "ImGuiDir_None",
+    "ImGuiDir_Left",
+    "ImGuiDir_Right",
+    "ImGuiDir_Up",
+    "ImGuiDir_Down"
+};
+
+// A sorting direction
+enum ImGuiSortDirection { //[-SUB_PACKAGE=enums]
+    "ImGuiSortDirection_None",
+    "ImGuiSortDirection_Ascending",
+    "ImGuiSortDirection_Descending"
+};
+
+// A key identifier (ImGuiKey_XXX or ImGuiMod_XXX value): can represent Keyboard, Mouse and Gamepad values.
+// All our named keys are >= 512. Keys value 0 to 511 are left unused and were legacy native/opaque key values (< 1.87).
+// Support for legacy keys was completely removed in 1.91.5.
+// Read details about the 1.87+ transition : https://github.com/ocornut/imgui/issues/4921
+// Note that "Keys" related to physical keys and are not the same concept as input "Characters", the later are submitted via io.AddInputCharacter().
+// The keyboard key enum values are named after the keys on a standard US keyboard, and on other keyboard types the keys reported may not match the keycaps.
+enum ImGuiKey { //[-SUB_PACKAGE=enums]
+    // Keyboard
+    "ImGuiKey_None",
+    "ImGuiKey_NamedKey_BEGIN",
+    "ImGuiKey_Tab",
+    "ImGuiKey_LeftArrow",
+    "ImGuiKey_RightArrow",
+    "ImGuiKey_UpArrow",
+    "ImGuiKey_DownArrow",
+    "ImGuiKey_PageUp",
+    "ImGuiKey_PageDown",
+    "ImGuiKey_Home",
+    "ImGuiKey_End",
+    "ImGuiKey_Insert",
+    "ImGuiKey_Delete",
+    "ImGuiKey_Backspace",
+    "ImGuiKey_Space",
+    "ImGuiKey_Enter",
+    "ImGuiKey_Escape",
+    "ImGuiKey_LeftCtrl",
+    "ImGuiKey_LeftShift",
+    "ImGuiKey_LeftAlt",
+    "ImGuiKey_LeftSuper",
+    "ImGuiKey_RightCtrl",
+    "ImGuiKey_RightShift",
+    "ImGuiKey_RightAlt",
+    "ImGuiKey_RightSuper",
+    "ImGuiKey_Menu",
+    "ImGuiKey_0",
+    "ImGuiKey_1",
+    "ImGuiKey_2",
+    "ImGuiKey_3",
+    "ImGuiKey_4",
+    "ImGuiKey_5",
+    "ImGuiKey_6",
+    "ImGuiKey_7",
+    "ImGuiKey_8",
+    "ImGuiKey_9",
+    "ImGuiKey_A",
+    "ImGuiKey_B",
+    "ImGuiKey_C",
+    "ImGuiKey_D",
+    "ImGuiKey_E",
+    "ImGuiKey_F",
+    "ImGuiKey_G",
+    "ImGuiKey_H",
+    "ImGuiKey_I",
+    "ImGuiKey_J",
+    "ImGuiKey_K",
+    "ImGuiKey_L",
+    "ImGuiKey_M",
+    "ImGuiKey_N",
+    "ImGuiKey_O",
+    "ImGuiKey_P",
+    "ImGuiKey_Q",
+    "ImGuiKey_R",
+    "ImGuiKey_S",
+    "ImGuiKey_T",
+    "ImGuiKey_U",
+    "ImGuiKey_V",
+    "ImGuiKey_W",
+    "ImGuiKey_X",
+    "ImGuiKey_Y",
+    "ImGuiKey_Z",
+    "ImGuiKey_F1",
+    "ImGuiKey_F2",
+    "ImGuiKey_F3",
+    "ImGuiKey_F4",
+    "ImGuiKey_F5",
+    "ImGuiKey_F6",
+    "ImGuiKey_F7",
+    "ImGuiKey_F8",
+    "ImGuiKey_F9",
+    "ImGuiKey_F10",
+    "ImGuiKey_F11",
+    "ImGuiKey_F12",
+    "ImGuiKey_F13",
+    "ImGuiKey_F14",
+    "ImGuiKey_F15",
+    "ImGuiKey_F16",
+    "ImGuiKey_F17",
+    "ImGuiKey_F18",
+    "ImGuiKey_F19",
+    "ImGuiKey_F20",
+    "ImGuiKey_F21",
+    "ImGuiKey_F22",
+    "ImGuiKey_F23",
+    "ImGuiKey_F24",
+    "ImGuiKey_Apostrophe",
+    "ImGuiKey_Comma",
+    "ImGuiKey_Minus",
+    "ImGuiKey_Period",
+    "ImGuiKey_Slash",
+    "ImGuiKey_Semicolon",
+    "ImGuiKey_Equal",
+    "ImGuiKey_LeftBracket",
+    "ImGuiKey_Backslash",
+    "ImGuiKey_RightBracket",
+    "ImGuiKey_GraveAccent",
+    "ImGuiKey_CapsLock",
+    "ImGuiKey_ScrollLock",
+    "ImGuiKey_NumLock",
+    "ImGuiKey_PrintScreen",
+    "ImGuiKey_Pause",
+    "ImGuiKey_Keypad0",
+    "ImGuiKey_Keypad1",
+    "ImGuiKey_Keypad2",
+    "ImGuiKey_Keypad3",
+    "ImGuiKey_Keypad4",
+    "ImGuiKey_Keypad5",
+    "ImGuiKey_Keypad6",
+    "ImGuiKey_Keypad7",
+    "ImGuiKey_Keypad8",
+    "ImGuiKey_Keypad9",
+    "ImGuiKey_KeypadDecimal",
+    "ImGuiKey_KeypadDivide",
+    "ImGuiKey_KeypadMultiply",
+    "ImGuiKey_KeypadSubtract",
+    "ImGuiKey_KeypadAdd",
+    "ImGuiKey_KeypadEnter",
+    "ImGuiKey_KeypadEqual",
+    "ImGuiKey_AppBack",
+    "ImGuiKey_AppForward",
+    "ImGuiKey_Oem102",
+
+    // Gamepad
+    // (analog values are 0.0f to 1.0f)
+    "ImGuiKey_GamepadStart",
+    "ImGuiKey_GamepadBack",
+    "ImGuiKey_GamepadFaceLeft",
+    "ImGuiKey_GamepadFaceRight",
+    "ImGuiKey_GamepadFaceUp",
+    "ImGuiKey_GamepadFaceDown",
+    "ImGuiKey_GamepadDpadLeft",
+    "ImGuiKey_GamepadDpadRight",
+    "ImGuiKey_GamepadDpadUp",
+    "ImGuiKey_GamepadDpadDown",
+    "ImGuiKey_GamepadL1",
+    "ImGuiKey_GamepadR1",
+    "ImGuiKey_GamepadL2",
+    "ImGuiKey_GamepadR2",
+    "ImGuiKey_GamepadL3",
+    "ImGuiKey_GamepadR3",
+    "ImGuiKey_GamepadLStickLeft",
+    "ImGuiKey_GamepadLStickRight",
+    "ImGuiKey_GamepadLStickUp",
+    "ImGuiKey_GamepadLStickDown",
+    "ImGuiKey_GamepadRStickLeft",
+    "ImGuiKey_GamepadRStickRight",
+    "ImGuiKey_GamepadRStickUp",
+    "ImGuiKey_GamepadRStickDown",
+
+    // Aliases: Mouse Buttons (auto-submitted from AddMouseButtonEvent() calls)
+    "ImGuiKey_MouseLeft",
+    "ImGuiKey_MouseRight",
+    "ImGuiKey_MouseMiddle",
+    "ImGuiKey_MouseX1",
+    "ImGuiKey_MouseX2",
+    "ImGuiKey_MouseWheelX",
+    "ImGuiKey_MouseWheelY",
+
+    // [Internal] Reserved for mod storage
+    "ImGuiKey_ReservedForModCtrl",
+    "ImGuiKey_ReservedForModShift",
+    "ImGuiKey_ReservedForModAlt",
+    "ImGuiKey_ReservedForModSuper",
+
+    // [Internal] If you need to iterate all keys (for e.g. an input mapper) you may use ImGuiKey_NamedKey_BEGIN..ImGuiKey_NamedKey_END.
+    "ImGuiKey_NamedKey_END",
+
+    // Keyboard Modifiers (explicitly submitted by backend via AddKeyEvent() calls)
+    // - Any functions taking a ImGuiKeyChord parameter can binary-or those with regular keys, e.g. Shortcut(ImGuiMod_Ctrl | ImGuiKey_S).
+    // - Those are written back into io.KeyCtrl, io.KeyShift, io.KeyAlt, io.KeySuper for convenience,
+    //   but may be accessed via standard key API such as IsKeyPressed(), IsKeyReleased(), querying duration etc.
+    // - Code polling every key (e.g. an interface to detect a key press for input mapping) might want to ignore those
+    //   and prefer using the real keys (e.g. ImGuiKey_LeftCtrl, ImGuiKey_RightCtrl instead of ImGuiMod_Ctrl).
+    // - In theory the value of keyboard modifiers should be roughly equivalent to a logical or of the equivalent left/right keys.
+    //   In practice: it's complicated; mods are often provided from different sources. Keyboard layout, IME, sticky keys and
+    //   backends tend to interfere and break that equivalence. The safer decision is to relay that ambiguity down to the end-user...
+    // - On macOS, we swap Cmd(Super) and Ctrl keys at the time of the io.AddKeyEvent() call.
+    "ImGuiMod_None",
+    "ImGuiMod_Ctrl",
+    "ImGuiMod_Shift",
+    "ImGuiMod_Alt",
+    "ImGuiMod_Super",
+    "ImGuiMod_Mask_",
+};
+
+// Flags for Shortcut(), SetNextItemShortcut(),
+enum ImGuiInputFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiInputFlags_None",
+    "ImGuiInputFlags_Repeat",
+
+    // Flags for Shortcut(), SetNextItemShortcut()
+    "ImGuiInputFlags_RouteActive",
+    "ImGuiInputFlags_RouteFocused",
+    "ImGuiInputFlags_RouteGlobal",
+    "ImGuiInputFlags_RouteAlways",
+    // - Routing options
+    "ImGuiInputFlags_RouteOverFocused",
+    "ImGuiInputFlags_RouteOverActive",
+    "ImGuiInputFlags_RouteUnlessBgFocused",
+    "ImGuiInputFlags_RouteFromRootWindow",
+
+    // Flags for SetNextItemShortcut()
+    "ImGuiInputFlags_Tooltip"
+};
+
+// Configuration flags stored in io.ConfigFlags. Set by user/application.
+enum ImGuiConfigFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiConfigFlags_None",
+    "ImGuiConfigFlags_NavEnableKeyboard",
+    "ImGuiConfigFlags_NavEnableGamepad",
+    "ImGuiConfigFlags_NoMouse",
+    "ImGuiConfigFlags_NoMouseCursorChange",
+    "ImGuiConfigFlags_NoKeyboard",
+
+    // [BETA] Docking
+    "ImGuiConfigFlags_DockingEnable",
+
+    // [BETA] Viewports
+    // When using viewports it is recommended that your default value for ImGuiCol_WindowBg is opaque (Alpha=1.0) so transition to a viewport won't be noticeable.
+    "ImGuiConfigFlags_ViewportsEnable",
+
+    // User storage (to allow your backend/engine to communicate to code that may be shared between multiple projects. Those flags are NOT used by core Dear ImGui)
+    "ImGuiConfigFlags_IsSRGB",
+    "ImGuiConfigFlags_IsTouchScreen"
+};
+
+// Backend capabilities flags stored in io.BackendFlags. Set by imgui_impl_xxx or custom backend.
+enum ImGuiBackendFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiBackendFlags_None",
+    "ImGuiBackendFlags_HasGamepad",
+    "ImGuiBackendFlags_HasMouseCursors",
+    "ImGuiBackendFlags_HasSetMousePos",
+    "ImGuiBackendFlags_RendererHasVtxOffset",
+    "ImGuiBackendFlags_RendererHasTextures",
+
+    // [BETA] Multi-Viewports
+    "ImGuiBackendFlags_RendererHasViewports",
+    "ImGuiBackendFlags_PlatformHasViewports",
+    "ImGuiBackendFlags_HasMouseHoveredViewport",
+    "ImGuiBackendFlags_HasParentViewport"
+};
+
+// Enumeration for PushStyleColor() / PopStyleColor()
+enum ImGuiCol { //[-SUB_PACKAGE=enums]
+    "ImGuiCol_Text",
+    "ImGuiCol_TextDisabled",
+    "ImGuiCol_WindowBg",
+    "ImGuiCol_ChildBg",
+    "ImGuiCol_PopupBg",
+    "ImGuiCol_Border",
+    "ImGuiCol_BorderShadow",
+    "ImGuiCol_FrameBg",
+    "ImGuiCol_FrameBgHovered",
+    "ImGuiCol_FrameBgActive",
+    "ImGuiCol_TitleBg",
+    "ImGuiCol_TitleBgActive",
+    "ImGuiCol_TitleBgCollapsed",
+    "ImGuiCol_MenuBarBg",
+    "ImGuiCol_ScrollbarBg",
+    "ImGuiCol_ScrollbarGrab",
+    "ImGuiCol_ScrollbarGrabHovered",
+    "ImGuiCol_ScrollbarGrabActive",
+    "ImGuiCol_CheckMark",
+    "ImGuiCol_SliderGrab",
+    "ImGuiCol_SliderGrabActive",
+    "ImGuiCol_Button",
+    "ImGuiCol_ButtonHovered",
+    "ImGuiCol_ButtonActive",
+    "ImGuiCol_Header",
+    "ImGuiCol_HeaderHovered",
+    "ImGuiCol_HeaderActive",
+    "ImGuiCol_Separator",
+    "ImGuiCol_SeparatorHovered",
+    "ImGuiCol_SeparatorActive",
+    "ImGuiCol_ResizeGrip",
+    "ImGuiCol_ResizeGripHovered",
+    "ImGuiCol_ResizeGripActive",
+    "ImGuiCol_InputTextCursor",
+    "ImGuiCol_TabHovered",
+    "ImGuiCol_Tab",
+    "ImGuiCol_TabSelected",
+    "ImGuiCol_TabSelectedOverline",
+    "ImGuiCol_TabDimmed",
+    "ImGuiCol_TabDimmedSelected",
+    "ImGuiCol_TabDimmedSelectedOverline",
+    "ImGuiCol_DockingPreview",
+    "ImGuiCol_DockingEmptyBg",
+    "ImGuiCol_PlotLines",
+    "ImGuiCol_PlotLinesHovered",
+    "ImGuiCol_PlotHistogram",
+    "ImGuiCol_PlotHistogramHovered",
+    "ImGuiCol_TableHeaderBg",
+    "ImGuiCol_TableBorderStrong",
+    "ImGuiCol_TableBorderLight",
+    "ImGuiCol_TableRowBg",
+    "ImGuiCol_TableRowBgAlt",
+    "ImGuiCol_TextLink",
+    "ImGuiCol_TextSelectedBg",
+    "ImGuiCol_TreeLines",
+    "ImGuiCol_DragDropTarget",
+    "ImGuiCol_UnsavedMarker",
+    "ImGuiCol_NavCursor",
+    "ImGuiCol_NavWindowingHighlight",
+    "ImGuiCol_NavWindowingDimBg",
+    "ImGuiCol_ModalWindowDimBg"
+};
+
+// Enumeration for PushStyleVar() / PopStyleVar() to temporarily modify the ImGuiStyle structure.
+enum ImGuiStyleVar { //[-SUB_PACKAGE=enums]
+    "ImGuiStyleVar_Alpha",
+    "ImGuiStyleVar_DisabledAlpha",
+    "ImGuiStyleVar_WindowPadding",
+    "ImGuiStyleVar_WindowRounding",
+    "ImGuiStyleVar_WindowBorderSize",
+    "ImGuiStyleVar_WindowMinSize",
+    "ImGuiStyleVar_WindowTitleAlign",
+    "ImGuiStyleVar_ChildRounding",
+    "ImGuiStyleVar_ChildBorderSize",
+    "ImGuiStyleVar_PopupRounding",
+    "ImGuiStyleVar_PopupBorderSize",
+    "ImGuiStyleVar_FramePadding",
+    "ImGuiStyleVar_FrameRounding",
+    "ImGuiStyleVar_FrameBorderSize",
+    "ImGuiStyleVar_ItemSpacing",
+    "ImGuiStyleVar_ItemInnerSpacing",
+    "ImGuiStyleVar_IndentSpacing",
+    "ImGuiStyleVar_CellPadding",
+    "ImGuiStyleVar_ScrollbarSize",
+    "ImGuiStyleVar_ScrollbarRounding",
+    "ImGuiStyleVar_ScrollbarPadding",
+    "ImGuiStyleVar_GrabMinSize",
+    "ImGuiStyleVar_GrabRounding",
+    "ImGuiStyleVar_ImageBorderSize",
+    "ImGuiStyleVar_TabRounding",
+    "ImGuiStyleVar_TabBorderSize",
+    "ImGuiStyleVar_TabMinWidthBase",
+    "ImGuiStyleVar_TabMinWidthShrink",
+    "ImGuiStyleVar_TabBarBorderSize",
+    "ImGuiStyleVar_TabBarOverlineSize",
+    "ImGuiStyleVar_TableAngledHeadersAngle",
+    "ImGuiStyleVar_TableAngledHeadersTextAlign",
+    "ImGuiStyleVar_TreeLinesSize",
+    "ImGuiStyleVar_TreeLinesRounding",
+    "ImGuiStyleVar_ButtonTextAlign",
+    "ImGuiStyleVar_SelectableTextAlign",
+    "ImGuiStyleVar_SeparatorTextBorderSize",
+    "ImGuiStyleVar_SeparatorTextAlign",
+    "ImGuiStyleVar_SeparatorTextPadding",
+    "ImGuiStyleVar_DockingSeparatorSize"
+};
+
+// Flags for InvisibleButton() [extended in imgui_internal.h]
+enum ImGuiButtonFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiButtonFlags_None",
+    "ImGuiButtonFlags_MouseButtonLeft",
+    "ImGuiButtonFlags_MouseButtonRight",
+    "ImGuiButtonFlags_MouseButtonMiddle",
+    "ImGuiButtonFlags_MouseButtonMask_",
+    "ImGuiButtonFlags_EnableNav"
+};
+
+// Flags for ColorEdit3() / ColorEdit4() / ColorPicker3() / ColorPicker4() / ColorButton()
+enum ImGuiColorEditFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiColorEditFlags_None",
+    "ImGuiColorEditFlags_NoAlpha",
+    "ImGuiColorEditFlags_NoPicker",
+    "ImGuiColorEditFlags_NoOptions",
+    "ImGuiColorEditFlags_NoSmallPreview",
+    "ImGuiColorEditFlags_NoInputs",
+    "ImGuiColorEditFlags_NoTooltip",
+    "ImGuiColorEditFlags_NoLabel",
+    "ImGuiColorEditFlags_NoSidePreview",
+    "ImGuiColorEditFlags_NoDragDrop",
+    "ImGuiColorEditFlags_NoBorder",
+
+    // Alpha preview
+    // - Prior to 1.91.8 (2025/01/21): alpha was made opaque in the preview by default using old name ImGuiColorEditFlags_AlphaPreview.
+    // - We now display the preview as transparent by default. You can use ImGuiColorEditFlags_AlphaOpaque to use old behavior.
+    // - The new flags may be combined better and allow finer controls.
+    "ImGuiColorEditFlags_AlphaOpaque",
+    "ImGuiColorEditFlags_AlphaNoBg",
+    "ImGuiColorEditFlags_AlphaPreviewHalf",
+
+    // User Options (right-click on widget to change some of them).
+    "ImGuiColorEditFlags_AlphaBar",
+    "ImGuiColorEditFlags_HDR",
+    "ImGuiColorEditFlags_DisplayRGB",
+    "ImGuiColorEditFlags_DisplayHSV",
+    "ImGuiColorEditFlags_DisplayHex",
+    "ImGuiColorEditFlags_Uint8",
+    "ImGuiColorEditFlags_Float",
+    "ImGuiColorEditFlags_PickerHueBar",
+    "ImGuiColorEditFlags_PickerHueWheel",
+    "ImGuiColorEditFlags_InputRGB",
+    "ImGuiColorEditFlags_InputHSV",
+
+    // Defaults Options. You can set application defaults using SetColorEditOptions(). The intent is that you probably don't want to
+    // override them in most of your calls. Let the user choose via the option menu and/or call SetColorEditOptions() once during startup.
+    "ImGuiColorEditFlags_DefaultOptions_",
+
+    // [Internal] Masks
+    "ImGuiColorEditFlags_AlphaMask_",
+    "ImGuiColorEditFlags_DisplayMask_",
+    "ImGuiColorEditFlags_DataTypeMask_",
+    "ImGuiColorEditFlags_PickerMask_",
+    "ImGuiColorEditFlags_InputMask_"
+};
+
+// Flags for DragFloat(), DragInt(), SliderFloat(), SliderInt() etc.
+// We use the same sets of flags for DragXXX() and SliderXXX() functions as the features are the same and it makes it easier to swap them.
+// (Those are per-item flags. There is shared behavior flag too: ImGuiIO: io.ConfigDragClickToInputText)
+enum ImGuiSliderFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiSliderFlags_None",
+    "ImGuiSliderFlags_Logarithmic",
+    "ImGuiSliderFlags_NoRoundToFormat",
+    "ImGuiSliderFlags_NoInput",
+    "ImGuiSliderFlags_WrapAround",
+    "ImGuiSliderFlags_ClampOnInput",
+    "ImGuiSliderFlags_ClampZeroRange",
+    "ImGuiSliderFlags_NoSpeedTweaks",
+    "ImGuiSliderFlags_AlwaysClamp",
+    "ImGuiSliderFlags_InvalidMask_"
+};
+
+// Identify a mouse button.
+enum ImGuiMouseButton { //[-SUB_PACKAGE=enums]
+    "ImGuiMouseButton_Left",
+    "ImGuiMouseButton_Right",
+    "ImGuiMouseButton_Middle"
+};
+
+// Enumeration for GetMouseCursor()
+enum ImGuiMouseCursor { //[-SUB_PACKAGE=enums]
+    "ImGuiMouseCursor_None",
+    "ImGuiMouseCursor_Arrow",
+    "ImGuiMouseCursor_TextInput",
+    "ImGuiMouseCursor_ResizeAll",
+    "ImGuiMouseCursor_ResizeNS",
+    "ImGuiMouseCursor_ResizeEW",
+    "ImGuiMouseCursor_ResizeNESW",
+    "ImGuiMouseCursor_ResizeNWSE",
+    "ImGuiMouseCursor_Hand",
+    "ImGuiMouseCursor_Wait",
+    "ImGuiMouseCursor_Progress",
+    "ImGuiMouseCursor_NotAllowed"
+};
+
+// Enumeration for AddMouseSourceEvent() actual source of Mouse Input data.
+enum ImGuiMouseSource { //[-SUB_PACKAGE=enums]
+    "ImGuiMouseSource_Mouse",
+    "ImGuiMouseSource_TouchScreen",
+    "ImGuiMouseSource_Pen"
+};
+
+// Enumeration for ImGui::SetNextWindow***(), SetWindow***(), SetNextItem***() functions
+enum ImGuiCond { //[-SUB_PACKAGE=enums]
+    "ImGuiCond_None",
+    "ImGuiCond_Always",
+    "ImGuiCond_Once",
+    "ImGuiCond_FirstUseEver",
+    "ImGuiCond_Appearing"
+};
+
+//-----------------------------------------------------------------------------
+// [SECTION] Tables API flags and structures (ImGuiTableFlags, ImGuiTableColumnFlags, ImGuiTableRowFlags, ImGuiTableBgTarget, ImGuiTableSortSpecs, ImGuiTableColumnSortSpecs)
+//-----------------------------------------------------------------------------
+
+// Flags for ImGui::BeginTable()
+enum ImGuiTableFlags { //[-SUB_PACKAGE=enums]
+    // Features
+    "ImGuiTableFlags_None",
+    "ImGuiTableFlags_Resizable",
+    "ImGuiTableFlags_Reorderable",
+    "ImGuiTableFlags_Hideable",
+    "ImGuiTableFlags_Sortable",
+    "ImGuiTableFlags_NoSavedSettings",
+    "ImGuiTableFlags_ContextMenuInBody",
+    // Decorations
+    "ImGuiTableFlags_RowBg",
+    "ImGuiTableFlags_BordersInnerH",
+    "ImGuiTableFlags_BordersOuterH",
+    "ImGuiTableFlags_BordersInnerV",
+    "ImGuiTableFlags_BordersOuterV",
+    "ImGuiTableFlags_BordersH",
+    "ImGuiTableFlags_BordersV",
+    "ImGuiTableFlags_BordersInner",
+    "ImGuiTableFlags_BordersOuter",
+    "ImGuiTableFlags_Borders",
+    "ImGuiTableFlags_NoBordersInBody",
+    "ImGuiTableFlags_NoBordersInBodyUntilResize",
+    // Sizing Policy (read above for defaults)
+    "ImGuiTableFlags_SizingFixedFit",
+    "ImGuiTableFlags_SizingFixedSame",
+    "ImGuiTableFlags_SizingStretchProp",
+    "ImGuiTableFlags_SizingStretchSame",
+    // Sizing Extra Options
+    "ImGuiTableFlags_NoHostExtendX",
+    "ImGuiTableFlags_NoHostExtendY",
+    "ImGuiTableFlags_NoKeepColumnsVisible",
+    "ImGuiTableFlags_PreciseWidths",
+    // Clipping
+    "ImGuiTableFlags_NoClip",
+    // Padding
+    "ImGuiTableFlags_PadOuterX",
+    "ImGuiTableFlags_NoPadOuterX",
+    "ImGuiTableFlags_NoPadInnerX",
+    // Scrolling
+    "ImGuiTableFlags_ScrollX",
+    "ImGuiTableFlags_ScrollY",
+    // Sorting
+    "ImGuiTableFlags_SortMulti",
+    "ImGuiTableFlags_SortTristate",
+    // Miscellaneous
+    "ImGuiTableFlags_HighlightHoveredColumn",
+
+    // [Internal] Combinations and masks
+    "ImGuiTableFlags_SizingMask_"
+};
+
+// Flags for ImGui::TableSetupColumn()
+enum ImGuiTableColumnFlags { //[-SUB_PACKAGE=enums]
+    // Input configuration flags
+    "ImGuiTableColumnFlags_None",
+    "ImGuiTableColumnFlags_Disabled",
+    "ImGuiTableColumnFlags_DefaultHide",
+    "ImGuiTableColumnFlags_DefaultSort",
+    "ImGuiTableColumnFlags_WidthStretch",
+    "ImGuiTableColumnFlags_WidthFixed",
+    "ImGuiTableColumnFlags_NoResize",
+    "ImGuiTableColumnFlags_NoReorder",
+    "ImGuiTableColumnFlags_NoHide",
+    "ImGuiTableColumnFlags_NoClip",
+    "ImGuiTableColumnFlags_NoSort",
+    "ImGuiTableColumnFlags_NoSortAscending",
+    "ImGuiTableColumnFlags_NoSortDescending",
+    "ImGuiTableColumnFlags_NoHeaderLabel",
+    "ImGuiTableColumnFlags_NoHeaderWidth",
+    "ImGuiTableColumnFlags_PreferSortAscending",
+    "ImGuiTableColumnFlags_PreferSortDescending",
+    "ImGuiTableColumnFlags_IndentEnable",
+    "ImGuiTableColumnFlags_IndentDisable",
+    "ImGuiTableColumnFlags_AngledHeader",
+
+    // Output status flags, read-only via TableGetColumnFlags()
+    "ImGuiTableColumnFlags_IsEnabled",
+    "ImGuiTableColumnFlags_IsVisible",
+    "ImGuiTableColumnFlags_IsSorted",
+    "ImGuiTableColumnFlags_IsHovered",
+
+    // [Internal] Combinations and masks
+    "ImGuiTableColumnFlags_WidthMask_",
+    "ImGuiTableColumnFlags_IndentMask_",
+    "ImGuiTableColumnFlags_StatusMask_",
+    "ImGuiTableColumnFlags_NoDirectResize_"
+};
+
+// Flags for ImGui::TableNextRow()
+enum ImGuiTableRowFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTableRowFlags_None",
+    "ImGuiTableRowFlags_Headers"
+};
+
+// Enum for ImGui::TableSetBgColor()
+enum ImGuiTableBgTarget { //[-SUB_PACKAGE=enums]
+    "ImGuiTableBgTarget_None",
+    "ImGuiTableBgTarget_RowBg0",
+    "ImGuiTableBgTarget_RowBg1",
+    "ImGuiTableBgTarget_CellBg"
+};
+
+// Flags for BeginMultiSelect()
+enum ImGuiMultiSelectFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiMultiSelectFlags_None",
+    "ImGuiMultiSelectFlags_SingleSelect",
+    "ImGuiMultiSelectFlags_NoSelectAll",
+    "ImGuiMultiSelectFlags_NoRangeSelect",
+    "ImGuiMultiSelectFlags_NoAutoSelect",
+    "ImGuiMultiSelectFlags_NoAutoClear",
+    "ImGuiMultiSelectFlags_NoAutoClearOnReselect",
+    "ImGuiMultiSelectFlags_BoxSelect1d",
+    "ImGuiMultiSelectFlags_BoxSelect2d",
+    "ImGuiMultiSelectFlags_BoxSelectNoScroll",
+    "ImGuiMultiSelectFlags_ClearOnEscape",
+    "ImGuiMultiSelectFlags_ClearOnClickVoid",
+    "ImGuiMultiSelectFlags_ScopeWindow",
+    "ImGuiMultiSelectFlags_ScopeRect",
+    "ImGuiMultiSelectFlags_SelectOnClick",
+    "ImGuiMultiSelectFlags_SelectOnClickRelease",
+    //ImGuiMultiSelectFlags_RangeSelect2d
+    "ImGuiMultiSelectFlags_NavWrapX"
+};
+
+// Selection request type
+enum ImGuiSelectionRequestType { //[-SUB_PACKAGE=enums]
+    "ImGuiSelectionRequestType_None",
+    "ImGuiSelectionRequestType_SetAll",
+    "ImGuiSelectionRequestType_SetRange"
+};
+
+enum ImTextureFormat { //[-SUB_PACKAGE=enums]
+    "ImTextureFormat_RGBA32",
+    "ImTextureFormat_Alpha8"
+};
+
+enum ImTextureStatus { //[-SUB_PACKAGE=enums]
+    "ImTextureStatus_OK",
+    "ImTextureStatus_Destroyed",
+    "ImTextureStatus_WantCreate",
+    "ImTextureStatus_WantUpdates",
+    "ImTextureStatus_WantDestroy"
+};
+
+enum ImFontAtlasFlags { //[-SUB_PACKAGE=enums]
+    "ImFontAtlasFlags_None",
+    "ImFontAtlasFlags_NoPowerOfTwoHeight",
+    "ImFontAtlasFlags_NoMouseCursors",
+    "ImFontAtlasFlags_NoBakedLines"
+};
+
+enum ImFontFlags { //[-SUB_PACKAGE=enums]
+    "ImFontFlags_None",
+    "ImFontFlags_NoLoadError",
+    "ImFontFlags_NoLoadGlyphs",
+    "ImFontFlags_LockBakedSizes"
+};
+
+enum ImGuiViewportFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiViewportFlags_None",
+    "ImGuiViewportFlags_IsPlatformWindow",
+    "ImGuiViewportFlags_IsPlatformMonitor",
+    "ImGuiViewportFlags_OwnedByApp",
+    "ImGuiViewportFlags_NoDecoration",
+    "ImGuiViewportFlags_NoTaskBarIcon",
+    "ImGuiViewportFlags_NoFocusOnAppearing",
+    "ImGuiViewportFlags_NoFocusOnClick",
+    "ImGuiViewportFlags_NoInputs",
+    "ImGuiViewportFlags_NoRendererClear",
+    "ImGuiViewportFlags_NoAutoMerge",
+    "ImGuiViewportFlags_TopMost",
+    "ImGuiViewportFlags_CanHostOtherWindows",
+
+    // Output status flags (from Platform)
+    "ImGuiViewportFlags_IsMinimized",
+    "ImGuiViewportFlags_IsFocused"
+};
+
+// ############################################ Internal Enums ############################################
+
+enum ImDrawFlags { //[-SUB_PACKAGE=enums]
+    "ImDrawFlags_None",
+    "ImDrawFlags_Closed",
+    "ImDrawFlags_RoundCornersTopLeft",
+    "ImDrawFlags_RoundCornersTopRight",
+    "ImDrawFlags_RoundCornersBottomLeft",
+    "ImDrawFlags_RoundCornersBottomRight",
+    "ImDrawFlags_RoundCornersNone",
+    "ImDrawFlags_RoundCornersTop",
+    "ImDrawFlags_RoundCornersBottom",
+    "ImDrawFlags_RoundCornersLeft",
+    "ImDrawFlags_RoundCornersRight",
+    "ImDrawFlags_RoundCornersAll",
+    "ImDrawFlags_RoundCornersDefault_",
+    "ImDrawFlags_RoundCornersMask_"
+};
+
+enum ImGuiDataTypePrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiDataType_Pointer",
+    "ImGuiDataType_ID"
+};
+
+enum ImGuiItemFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    // Controlled by user
+    "ImGuiItemFlags_Disabled",
+    "ImGuiItemFlags_ReadOnly",
+    "ImGuiItemFlags_MixedValue",
+    "ImGuiItemFlags_NoWindowHoverableCheck",
+    "ImGuiItemFlags_AllowOverlap",
+    "ImGuiItemFlags_NoNavDisableMouseHover",
+    "ImGuiItemFlags_NoMarkEdited",
+    "ImGuiItemFlags_NoFocus",
+
+    // Controlled by widget code
+    "ImGuiItemFlags_Inputable",
+    "ImGuiItemFlags_HasSelectionUserData",
+    "ImGuiItemFlags_IsMultiSelect",
+
+    "ImGuiItemFlags_Default_"
+};
+
+enum ImGuiItemStatusFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiItemStatusFlags_None",
+    "ImGuiItemStatusFlags_HoveredRect",
+    "ImGuiItemStatusFlags_HasDisplayRect",
+    "ImGuiItemStatusFlags_Edited",
+    "ImGuiItemStatusFlags_ToggledSelection",
+    "ImGuiItemStatusFlags_ToggledOpen",
+    "ImGuiItemStatusFlags_HasDeactivated",
+    "ImGuiItemStatusFlags_Deactivated",
+    "ImGuiItemStatusFlags_HoveredWindow",
+    "ImGuiItemStatusFlags_Visible",
+    "ImGuiItemStatusFlags_HasClipRect",
+    "ImGuiItemStatusFlags_HasShortcut"
+};
+
+enum ImGuiHoveredFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiHoveredFlags_DelayMask_",
+    "ImGuiHoveredFlags_AllowedMaskForIsWindowHovered" ,
+    "ImGuiHoveredFlags_AllowedMaskForIsItemHovered"
+};
+
+enum ImGuiInputTextFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiInputTextFlags_Multiline",
+    "ImGuiInputTextFlags_MergedItem",
+    "ImGuiInputTextFlags_LocalizeDecimalPoint"
+};
+
+enum ImGuiButtonFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiButtonFlags_PressedOnClick",
+    "ImGuiButtonFlags_PressedOnClickRelease",
+    "ImGuiButtonFlags_PressedOnClickReleaseAnywhere",
+    "ImGuiButtonFlags_PressedOnRelease",
+    "ImGuiButtonFlags_PressedOnDoubleClick",
+    "ImGuiButtonFlags_PressedOnDragDropHold",
+    "ImGuiButtonFlags_FlattenChildren",
+    "ImGuiButtonFlags_AllowOverlap",
+    "ImGuiButtonFlags_AlignTextBaseLine",
+    "ImGuiButtonFlags_NoKeyModsAllowed",
+    "ImGuiButtonFlags_NoHoldingActiveId",
+    "ImGuiButtonFlags_NoNavFocus",
+    "ImGuiButtonFlags_NoHoveredOnFocus",
+    "ImGuiButtonFlags_NoSetKeyOwner",
+    "ImGuiButtonFlags_NoTestKeyOwner",
+    "ImGuiButtonFlags_NoFocus",
+    "ImGuiButtonFlags_PressedOnMask_",
+    "ImGuiButtonFlags_PressedOnDefault_",
+};
+
+enum ImGuiComboFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiComboFlags_CustomPreview"
+};
+
+enum ImGuiSliderFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiSliderFlags_Vertical",
+    "ImGuiSliderFlags_ReadOnly"
+};
+
+enum ImGuiSelectableFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiSelectableFlags_NoHoldingActiveID",
+    "ImGuiSelectableFlags_SelectOnClick",
+    "ImGuiSelectableFlags_SelectOnRelease",
+    "ImGuiSelectableFlags_SpanAvailWidth",
+    "ImGuiSelectableFlags_SetNavIdOnHover",
+    "ImGuiSelectableFlags_NoPadWithHalfSpacing",
+    "ImGuiSelectableFlags_NoSetKeyOwner"
+};
+
+// Extend ImGuiTreeNodeFlags_
+enum ImGuiTreeNodeFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiTreeNodeFlags_NoNavFocus",
+    "ImGuiTreeNodeFlags_ClipLabelForTrailingButton",
+    "ImGuiTreeNodeFlags_UpsideDownArrow",
+    "ImGuiTreeNodeFlags_OpenOnMask_",
+    "ImGuiTreeNodeFlags_DrawLinesMask_"
+};
+
+enum ImGuiSeparatorFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiSeparatorFlags_None",
+    "ImGuiSeparatorFlags_Horizontal",
+    "ImGuiSeparatorFlags_Vertical",
+    "ImGuiSeparatorFlags_SpanAllColumns"
+};
+
+enum ImGuiFocusRequestFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiFocusRequestFlags_None",
+    "ImGuiFocusRequestFlags_RestoreFocusedChild",
+    "ImGuiFocusRequestFlags_UnlessBelowModal"
+};
+
+enum ImGuiTextFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTextFlags_None",
+    "ImGuiTextFlags_NoWidthForLargeClippedText"
+};
+
+enum ImGuiTooltipFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTooltipFlags_None",
+    "ImGuiTooltipFlags_OverridePrevious"
+};
+
+enum ImGuiLayoutType { //[-SUB_PACKAGE=enums]
+    "ImGuiLayoutType_Horizontal",
+    "ImGuiLayoutType_Vertical"
+};
+
+enum ImGuiLogFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiLogFlags_None",
+    "ImGuiLogFlags_OutputTTY",
+    "ImGuiLogFlags_OutputFile",
+    "ImGuiLogFlags_OutputBuffer",
+    "ImGuiLogFlags_OutputClipboard",
+    "ImGuiLogFlags_OutputMask_"
+};
+
+enum ImGuiAxis { //[-SUB_PACKAGE=enums]
+    "ImGuiAxis_None",
+    "ImGuiAxis_X",
+    "ImGuiAxis_Y"
+};
+
+enum ImGuiPlotType { //[-SUB_PACKAGE=enums]
+    "ImGuiPlotType_Lines",
+    "ImGuiPlotType_Histogram",
+};
+
+enum ImGuiWindowRefreshFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiWindowRefreshFlags_None",
+    "ImGuiWindowRefreshFlags_TryToAvoidRefresh",
+    "ImGuiWindowRefreshFlags_RefreshOnHover",
+    "ImGuiWindowRefreshFlags_RefreshOnFocus"
+};
+
+enum ImGuiNextWindowDataFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiNextWindowDataFlags_None",
+    "ImGuiNextWindowDataFlags_HasPos",
+    "ImGuiNextWindowDataFlags_HasSize",
+    "ImGuiNextWindowDataFlags_HasContentSize",
+    "ImGuiNextWindowDataFlags_HasCollapsed",
+    "ImGuiNextWindowDataFlags_HasSizeConstraint",
+    "ImGuiNextWindowDataFlags_HasFocus",
+    "ImGuiNextWindowDataFlags_HasBgAlpha",
+    "ImGuiNextWindowDataFlags_HasScroll",
+    "ImGuiNextWindowDataFlags_HasWindowFlags",
+    "ImGuiNextWindowDataFlags_HasChildFlags",
+    "ImGuiNextWindowDataFlags_HasRefreshPolicy",
+    "ImGuiNextWindowDataFlags_HasViewport",
+    "ImGuiNextWindowDataFlags_HasDock",
+    "ImGuiNextWindowDataFlags_HasWindowClass"
+};
+
+enum ImGuiNextItemDataFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiNextItemDataFlags_None",
+    "ImGuiNextItemDataFlags_HasWidth",
+    "ImGuiNextItemDataFlags_HasOpen",
+    "ImGuiNextItemDataFlags_HasShortcut",
+    "ImGuiNextItemDataFlags_HasRefVal",
+    "ImGuiNextItemDataFlags_HasStorageID"
+};
+
+enum ImGuiPopupPositionPolicy { //[-SUB_PACKAGE=enums]
+    "ImGuiPopupPositionPolicy_Default",
+    "ImGuiPopupPositionPolicy_ComboBox",
+    "ImGuiPopupPositionPolicy_Tooltip"
+};
+
+enum ImGuiInputEventType { //[-SUB_PACKAGE=enums]
+    "ImGuiInputEventType_None",
+    "ImGuiInputEventType_MousePos",
+    "ImGuiInputEventType_MouseWheel",
+    "ImGuiInputEventType_MouseButton",
+    "ImGuiInputEventType_MouseViewport",
+    "ImGuiInputEventType_Key",
+    "ImGuiInputEventType_Text",
+    "ImGuiInputEventType_Focus",
+    "ImGuiInputEventType_COUNT"
+};
+
+enum ImGuiInputSource { //[-SUB_PACKAGE=enums]
+    "ImGuiInputSource_None",
+    "ImGuiInputSource_Mouse",
+    "ImGuiInputSource_Keyboard",
+    "ImGuiInputSource_Gamepad",
+    "ImGuiInputSource_COUNT"
+};
+
+enum ImGuiInputFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiInputFlags_RepeatRateDefault",
+    "ImGuiInputFlags_RepeatRateNavMove",
+    "ImGuiInputFlags_RepeatRateNavTweak",
+    "ImGuiInputFlags_RepeatUntilRelease",
+    "ImGuiInputFlags_RepeatUntilKeyModsChange",
+    "ImGuiInputFlags_RepeatUntilKeyModsChangeFromNone",
+    "ImGuiInputFlags_RepeatUntilOtherKeyPress",
+    "ImGuiInputFlags_LockThisFrame",
+    "ImGuiInputFlags_LockUntilRelease",
+    "ImGuiInputFlags_CondHovered",
+    "ImGuiInputFlags_CondActive",
+    "ImGuiInputFlags_CondDefault_",
+    "ImGuiInputFlags_RepeatRateMask_",
+    "ImGuiInputFlags_RepeatUntilMask_",
+    "ImGuiInputFlags_RepeatMask_",
+    "ImGuiInputFlags_CondMask_",
+    "ImGuiInputFlags_RouteTypeMask_",
+    "ImGuiInputFlags_RouteOptionsMask_",
+    "ImGuiInputFlags_SupportedByIsKeyPressed",
+    "ImGuiInputFlags_SupportedByIsMouseClicked",
+    "ImGuiInputFlags_SupportedByShortcut",
+    "ImGuiInputFlags_SupportedBySetNextItemShortcut",
+    "ImGuiInputFlags_SupportedBySetKeyOwner",
+    "ImGuiInputFlags_SupportedBySetItemKeyOwner"
+};
+
+enum ImGuiActivateFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiActivateFlags_None",
+    "ImGuiActivateFlags_PreferInput",
+    "ImGuiActivateFlags_PreferTweak",
+    "ImGuiActivateFlags_TryToPreserveState",
+    "ImGuiActivateFlags_FromTabbing",
+    "ImGuiActivateFlags_FromShortcut",
+    "ImGuiActivateFlags_FromFocusApi"
+};
+
+enum ImGuiScrollFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiScrollFlags_None",
+    "ImGuiScrollFlags_KeepVisibleEdgeX",
+    "ImGuiScrollFlags_KeepVisibleEdgeY",
+    "ImGuiScrollFlags_KeepVisibleCenterX",
+    "ImGuiScrollFlags_KeepVisibleCenterY",
+    "ImGuiScrollFlags_AlwaysCenterX",
+    "ImGuiScrollFlags_AlwaysCenterY",
+    "ImGuiScrollFlags_NoScrollParent",
+    "ImGuiScrollFlags_MaskX_",
+    "ImGuiScrollFlags_MaskY_"
+};
+
+enum ImGuiNavRenderCursorFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiNavRenderCursorFlags_None",
+    "ImGuiNavRenderCursorFlags_Compact",
+    "ImGuiNavRenderCursorFlags_AlwaysDraw",
+    "ImGuiNavRenderCursorFlags_NoRounding"
+};
+
+enum ImGuiNavMoveFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiNavMoveFlags_None",
+    "ImGuiNavMoveFlags_LoopX",
+    "ImGuiNavMoveFlags_LoopY",
+    "ImGuiNavMoveFlags_WrapX",
+    "ImGuiNavMoveFlags_WrapY",
+    "ImGuiNavMoveFlags_WrapMask_",
+    "ImGuiNavMoveFlags_AllowCurrentNavId",
+    "ImGuiNavMoveFlags_AlsoScoreVisibleSet",
+    "ImGuiNavMoveFlags_ScrollToEdgeY",
+    "ImGuiNavMoveFlags_Forwarded",
+    "ImGuiNavMoveFlags_DebugNoResult",
+    "ImGuiNavMoveFlags_FocusApi",
+    "ImGuiNavMoveFlags_IsTabbing",
+    "ImGuiNavMoveFlags_IsPageMove",
+    "ImGuiNavMoveFlags_Activate",
+    "ImGuiNavMoveFlags_NoSelect",
+    "ImGuiNavMoveFlags_NoSetNavCursorVisible",
+    "ImGuiNavMoveFlags_NoClearActiveId"
+};
+
+enum ImGuiNavLayer { //[-SUB_PACKAGE=enums]
+    "ImGuiNavLayer_Main",
+    "ImGuiNavLayer_Menu",
+    "ImGuiNavLayer_COUNT"
+};
+
+enum ImGuiTypingSelectFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiTypingSelectFlags_None",
+    "ImGuiTypingSelectFlags_AllowBackspace",
+    "ImGuiTypingSelectFlags_AllowSingleCharMode"
+};
+
+enum ImGuiOldColumnFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiOldColumnFlags_None",
+    "ImGuiOldColumnFlags_NoBorder",
+    "ImGuiOldColumnFlags_NoResize",
+    "ImGuiOldColumnFlags_NoPreserveWidths",
+    "ImGuiOldColumnFlags_NoForceWithinWindow",
+    "ImGuiOldColumnFlags_GrowParentContentsSize"
+};
+
+enum ImGuiDockNodeFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiDockNodeFlags_DockSpace",
+    "ImGuiDockNodeFlags_CentralNode",
+    "ImGuiDockNodeFlags_NoTabBar",
+    "ImGuiDockNodeFlags_HiddenTabBar",
+    "ImGuiDockNodeFlags_NoWindowMenuButton",
+    "ImGuiDockNodeFlags_NoCloseButton",
+    "ImGuiDockNodeFlags_NoResizeX",
+    "ImGuiDockNodeFlags_NoResizeY",
+    "ImGuiDockNodeFlags_DockedWindowsInFocusRoute",
+    "ImGuiDockNodeFlags_NoDockingSplitOther",
+    "ImGuiDockNodeFlags_NoDockingOverMe",
+    "ImGuiDockNodeFlags_NoDockingOverOther",
+    "ImGuiDockNodeFlags_NoDockingOverEmpty",
+    "ImGuiDockNodeFlags_NoDocking",
+    "ImGuiDockNodeFlags_SharedFlagsInheritMask_",
+    "ImGuiDockNodeFlags_NoResizeFlagsMask_",
+    "ImGuiDockNodeFlags_LocalFlagsTransferMask_",
+    "ImGuiDockNodeFlags_SavedFlagsMask_"
+};
+
+enum ImGuiDataAuthority { //[-SUB_PACKAGE=enums]
+    "ImGuiDataAuthority_Auto",
+    "ImGuiDataAuthority_DockNode",
+    "ImGuiDataAuthority_Window",
+};
+
+enum ImGuiDockNodeState { //[-SUB_PACKAGE=enums]
+    "ImGuiDockNodeState_Unknown",
+    "ImGuiDockNodeState_HostWindowHiddenBecauseSingleWindow",
+    "ImGuiDockNodeState_HostWindowHiddenBecauseWindowsAreResizing",
+    "ImGuiDockNodeState_HostWindowVisible",
+};
+
+enum ImGuiWindowDockStyleCol { //[-SUB_PACKAGE=enums]
+    "ImGuiWindowDockStyleCol_Text",
+    "ImGuiWindowDockStyleCol_TabHovered",
+    "ImGuiWindowDockStyleCol_TabFocused",
+    "ImGuiWindowDockStyleCol_TabSelected",
+    "ImGuiWindowDockStyleCol_TabSelectedOverline",
+    "ImGuiWindowDockStyleCol_TabDimmed",
+    "ImGuiWindowDockStyleCol_TabDimmedSelected",
+    "ImGuiWindowDockStyleCol_TabDimmedSelectedOverline",
+    "ImGuiWindowDockStyleCol_COUNT"
+};
+
+enum ImGuiLocKey { //[-SUB_PACKAGE=enums]
+    "ImGuiLocKey_VersionStr",
+    "ImGuiLocKey_TableSizeOne",
+    "ImGuiLocKey_TableSizeAllFit",
+    "ImGuiLocKey_TableSizeAllDefault",
+    "ImGuiLocKey_TableResetOrder",
+    "ImGuiLocKey_WindowingMainMenuBar",
+    "ImGuiLocKey_WindowingPopup",
+    "ImGuiLocKey_WindowingUntitled",
+    "ImGuiLocKey_OpenLink_s",
+    "ImGuiLocKey_CopyLink",
+    "ImGuiLocKey_DockingHideTabBar",
+    "ImGuiLocKey_DockingHoldShiftToDock",
+    "ImGuiLocKey_DockingDragToUndockOrMoveNode",
+    "ImGuiLocKey_COUNT"
+};
+
+enum ImGuiDebugLogFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiDebugLogFlags_None",
+    "ImGuiDebugLogFlags_EventError",
+    "ImGuiDebugLogFlags_EventActiveId",
+    "ImGuiDebugLogFlags_EventFocus",
+    "ImGuiDebugLogFlags_EventPopup",
+    "ImGuiDebugLogFlags_EventNav",
+    "ImGuiDebugLogFlags_EventClipper",
+    "ImGuiDebugLogFlags_EventSelection",
+    "ImGuiDebugLogFlags_EventIO",
+    "ImGuiDebugLogFlags_EventFont",
+    "ImGuiDebugLogFlags_EventInputRouting",
+    "ImGuiDebugLogFlags_EventDocking",
+    "ImGuiDebugLogFlags_EventViewport",
+    "ImGuiDebugLogFlags_EventMask_",
+    "ImGuiDebugLogFlags_OutputToTTY",
+    "ImGuiDebugLogFlags_OutputToTestEngine"
+};
+
+enum ImGuiTabBarFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiTabBarFlags_DockNode",
+    "ImGuiTabBarFlags_IsFocused",
+    "ImGuiTabBarFlags_SaveSettings"
+};
+
+enum ImGuiTabItemFlagsPrivate_ { //[-SUB_PACKAGE=enums]
+    "ImGuiTabItemFlags_SectionMask_",
+    "ImGuiTabItemFlags_NoCloseButton",
+    "ImGuiTabItemFlags_Button",
+    "ImGuiTabItemFlags_Invisible",
+    "ImGuiTabItemFlags_Unsorted"
+};

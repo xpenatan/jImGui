@@ -6,9 +6,9 @@ public abstract class ImGuiRenderer {
 
     public final void render() {
         ImGuiShared.clearScreen(0.3f, 0.3f, 0.3f, 1.0f);
-        ImGuiShared.imgui().beginFrame();
+        ImGuiShared.beginFrame();
         renderImGui();
-        ImGuiShared.imgui().render();
+        ImGuiShared.render();
     }
 
     public abstract void renderImGui();

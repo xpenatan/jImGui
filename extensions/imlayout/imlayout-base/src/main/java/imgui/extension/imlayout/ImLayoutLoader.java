@@ -16,6 +16,10 @@ public class ImLayoutLoader {
         #include "ImLayoutCustom.h"
     */
 
+    /*[-TEAVM_C;-NATIVE]
+        #include "ImLayoutCustom.h"
+    */
+
     public static void init(JParserLibraryLoaderListener listener) {
         JParserLibraryLoader.load("imlayout", listener);
     }

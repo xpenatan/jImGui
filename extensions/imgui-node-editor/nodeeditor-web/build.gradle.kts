@@ -8,9 +8,14 @@ val emscriptenJS = "$projectDir/../nodeeditor-build/build/c++/libs/emscripten/no
 val emscriptenWASM = "$projectDir/../nodeeditor-build/build/c++/libs/emscripten/nodeeditor.wasm"
 
 val wasmJar = tasks.register<Jar>("wasmJar") {
+    dependsOn(":extensions:imgui-node-editor:nodeeditor-build:jParser_build_web_wasm")
     from(emscriptenJS, emscriptenWASM)
     archiveBaseName.set("${moduleName}_wasm")
     archiveClassifier.set("")
+}
+
+tasks.named("assemble") {
+    dependsOn(wasmJar)
 }
 
 val wasmRuntimeElements by configurations.creating {
@@ -28,7 +33,7 @@ java {
 }
 
 dependencies {
-    implementation(project(":imgui:imgui-web"))
+    implementation(project(":imgui:web:wasm"))
 }
 
 tasks.named("clean") {
@@ -47,14 +52,14 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            group = LibExt.groupId
+            groupId = LibExt.groupId
             version = LibExt.libVersion
             from(components["java"])
         }
 
         create<MavenPublication>("mavenWasm") {
             artifactId = "${moduleName}_wasm"
-            group = LibExt.groupId
+            groupId = LibExt.groupId
             version = LibExt.libVersion
             artifact(wasmJar)
         }

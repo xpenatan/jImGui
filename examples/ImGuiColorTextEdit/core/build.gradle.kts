@@ -3,20 +3,20 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
 }
 
 dependencies {
     implementation(project(":examples:basic:base"))
 
     if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.xImGui:imgui-core:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:textedit-core:-SNAPSHOT")
+        compileOnly("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")
+        compileOnly("com.github.xpenatan.jImGui:textedit-core:-SNAPSHOT")
     }
     else {
-        implementation(project(":imgui:imgui-core"))
-        implementation(project(":extensions:ImGuiColorTextEdit:textedit-core"))
+        compileOnly(project(":imgui:core"))
+        compileOnly(project(":extensions:ImGuiColorTextEdit:textedit-core"))
     }
 
     implementation("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")

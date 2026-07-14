@@ -10,7 +10,7 @@ java {
 }
 
 dependencies {
-    implementation(project(":imgui:imgui-core"))
+    implementation(project(":imgui:core"))
 }
 
 tasks.named("clean") {
@@ -29,7 +29,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            group = LibExt.groupId
+            groupId = LibExt.groupId
             version = LibExt.libVersion
             from(components["java"])
         }

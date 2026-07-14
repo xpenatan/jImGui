@@ -11,7 +11,7 @@ val macArmFile = "$libDir/mac/arm/ffm/libtexteditarm64.dylib"
 val macFile = "$libDir/mac/ffm/libtextedit64.dylib"
 
 dependencies {
-    implementation(project(":imgui:imgui-ffm"))
+    implementation(project(":imgui:desktop:ffm"))
 }
 
 val platforms: MutableMap<String, Jar.() -> Unit> = mutableMapOf()
@@ -58,10 +58,11 @@ val isPublishTask = taskNames.any { it.contains("publish", ignoreCase = true) }
 val includeNativesInMainJar = !(isPrepareDeployTask || isPublishTask)
 tasks.jar {
     if(includeNativesInMainJar) {
-        if(file(windowsFile).exists()) from(windowsFile)
-        if(file(linuxFile).exists()) from(linuxFile)
-        if(file(macFile).exists()) from(macFile)
-        if(file(macArmFile).exists()) from(macArmFile)
+        from(provider {
+            listOf(windowsFile, linuxFile, macFile, macArmFile)
+                .map(::file)
+                .filter(File::isFile)
+        })
     }
 }
 
@@ -91,7 +92,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            group = LibExt.groupId
+            groupId = LibExt.groupId
             version = LibExt.libVersion
             from(components["java"])
         }
@@ -99,7 +100,7 @@ publishing {
         nativeJars.forEach { (platformName, nativeJar) ->
             create<MavenPublication>("mavenNative$platformName") {
                 artifactId = "${moduleName}_${platformName}"
-                group = LibExt.groupId
+                groupId = LibExt.groupId
                 version = LibExt.libVersion
                 artifact(nativeJar) {
                     classifier = null
@@ -109,7 +110,7 @@ publishing {
 
         create<MavenPublication>("mavenNativeDesktop") {
             artifactId = "${moduleName}_desktop"
-            group = LibExt.groupId
+            groupId = LibExt.groupId
             version = LibExt.libVersion
             artifact(desktopNativeJar) {
                 classifier = null

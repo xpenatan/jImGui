@@ -3,16 +3,17 @@ package imgui.example.nodeeditor;
 import io.github.libfdx.backend.web.WebApplicationBackend;
 import io.github.libfdx.backend.web.WebApplicationConfig;
 import io.github.libfdx.graphics.gl.web.WebGLProvider;
-import io.github.libfdx.imgui.gl.FdxImGuiGl;
+import io.github.libfdx.imgui.FdxImGuiRenderers;
 
 public class Launcher {
 
     public static void main(String[] args) {
+        WebGLProvider graphicsProvider = new WebGLProvider();
         WebApplicationConfig config = new WebApplicationConfig()
                 .canvasId("canvas")
                 .title("imgui-node-editor WebGL Example")
                 .size(0, 0)
-                .graphics(new WebGLProvider());
-        new WebApplicationBackend().start(config, new ImGuiGame(FdxImGuiGl.renderer()));
+                .graphics(graphicsProvider);
+        new WebApplicationBackend().start(config, new ImGuiGame(FdxImGuiRenderers.auto(), graphicsProvider));
     }
 }

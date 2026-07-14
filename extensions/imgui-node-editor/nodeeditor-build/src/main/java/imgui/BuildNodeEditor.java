@@ -1,284 +1,137 @@
 package imgui;
 
-import com.github.xpenatan.jParser.builder.BuildMultiTarget;
-import com.github.xpenatan.jParser.builder.BuildTarget;
-import com.github.xpenatan.jParser.builder.targets.EmscriptenTarget;
-import com.github.xpenatan.jParser.builder.targets.LinuxTarget;
-import com.github.xpenatan.jParser.builder.targets.MacTarget;
-import com.github.xpenatan.jParser.builder.targets.WindowsMSVCTarget;
-import com.github.xpenatan.jParser.builder.tool.BuildToolListener;
 import com.github.xpenatan.jParser.builder.tool.BuildToolOptions;
 import com.github.xpenatan.jParser.builder.tool.BuilderTool;
+import com.github.xpenatan.jParser.builder.tool.DefaultBuildTargetConfig;
+import com.github.xpenatan.jParser.builder.tool.DefaultBuildTargetFactory;
 import com.github.xpenatan.jParser.idl.IDLReader;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.Locale;
 
-public class BuildNodeEditor {
+public final class BuildNodeEditor {
+    private static final String[] DESKTOP_TARGETS = {
+            "windows64_jni", "linux64_jni", "mac64_jni", "macArm_jni",
+            "windows64_ffm", "linux64_ffm", "mac64_ffm", "macArm_ffm",
+            "windows64_teavm_c", "linux64_teavm_c", "mac64_teavm_c", "macArm_teavm_c"
+    };
+
+    private BuildNodeEditor() {
+    }
 
     public static void main(String[] args) throws Exception {
-        String libName = "nodeeditor";
-        String modulePrefix = "nodeeditor";
-        String basePackage = "imgui.extension.nodeeditor";
-        String sourceDir =  "/build/imgui-node-editor";
+        File projectDir = new File(".").getCanonicalFile();
+        File moduleRoot = projectDir.getParentFile();
+        File imguiRoot = new File(projectDir, "../../../imgui").getCanonicalFile();
+        File imguiBuilder = new File(imguiRoot, "builder");
+        File imguiNativeBuild = new File(imguiBuilder, "build/c++");
+        File imguiSource = new File(imguiRoot, "download/build/imgui-source");
+        File imguiCustom = new File(imguiBuilder, "src/main/cpp/custom");
+        File sourceDir = new File(projectDir, "build/imgui-node-editor");
 
-        BuildToolOptions.BuildToolParams data = new BuildToolOptions.BuildToolParams();
-        data.libName = libName;
-        data.idlName = libName;
-        data.webModuleName = libName;
-        data.packageName = basePackage;
-        data.cppSourcePath = sourceDir;
-        data.modulePrefix = modulePrefix;
-        BuildToolOptions op = new BuildToolOptions(data, args);
+        BuildToolOptions.BuildToolParams params = params(moduleRoot, sourceDir);
+        BuildToolOptions options = new BuildToolOptions(params, args);
+        options.addAdditionalIDLRefPath(IDLReader.parseFile(
+                new File(imguiBuilder, "src/main/cpp/imgui.idl").getAbsolutePath()));
+        options.addAdditionalIDLRefPath(IDLReader.getRuntimeHelperFile());
 
-        String imguiPath = new File("./../../../imgui/").getCanonicalPath().replace("\\", "/");
-        op.addAdditionalIDLRefPath(IDLReader.parseFile(imguiPath + "/imgui-build/src/main/cpp/imgui.idl"));
-        op.addAdditionalIDLRefPath(IDLReader.getRuntimeHelperFile());
-        BuilderTool.build(op, new BuildToolListener() {
-            @Override
-            public void onAddTarget(BuildToolOptions op, IDLReader idlReader, ArrayList<BuildMultiTarget> targets) {
-                if(op.containsArg("web_wasm")) {
-                    targets.add(getTeaVMTarget(op, idlReader, imguiPath));
-                }
-                if(op.containsArg("windows64_jni")) {
-                    targets.add(getWindowTarget(op, imguiPath, false));
-                }
-                if(op.containsArg("linux64_jni")) {
-                    targets.add(getLinuxTarget(op, imguiPath, false));
-                }
-                if(op.containsArg("mac64_jni")) {
-                    targets.add(getMacTarget(op, false, imguiPath, false));
-                }
-                if(op.containsArg("macArm_jni")) {
-                    targets.add(getMacTarget(op, true, imguiPath, false));
-                }
-//                if(op.containsArg("android_jni")) {
-//                    targets.add(getAndroidTarget(op, imguiPath));
-//                }
-//                if(op.containsArg("ios_jni")) {
-//                    targets.add(getIOSTarget(op, imguiPath));
-//                }
+        DefaultBuildTargetConfig config = DefaultBuildTargetConfig.fromBuildToolOptions(options);
+        config.webForcedInclude = path(new File(projectDir, "src/main/cpp/custom/NodeEditorWebIncludes.h"));
+        config.globalHooks.headerDirs.add(path(imguiSource));
+        config.globalHooks.headerDirs.add(path(imguiCustom));
+        config.globalHooks.cppIncludes.add(path(sourceDir) + "/*.cpp");
+        config.globalHooks.cppExcludes.add(path(new File(sourceDir, "examples")) + "/**/*.cpp");
+        config.globalHooks.cppExcludes.add(path(new File(sourceDir, "external")) + "/**/*.cpp");
+        configureTargets(config, imguiNativeBuild);
 
-                if(op.containsArg("windows64_ffm")) {
-                    targets.add(getWindowTarget(op, imguiPath, true));
-                }
-                if(op.containsArg("linux64_ffm")) {
-                    targets.add(getLinuxTarget(op, imguiPath, true));
-                }
-                if(op.containsArg("mac64_ffm")) {
-                    targets.add(getMacTarget(op, false, imguiPath, true));
-                }
-                if(op.containsArg("macArm_ffm")) {
-                    targets.add(getMacTarget(op, true, imguiPath, true));
-                }
-            }
-        });
+        DefaultBuildTargetFactory factory = new DefaultBuildTargetFactory();
+        BuilderTool.build(options, (op, idlReader, targets) ->
+                factory.addTargets(op, idlReader, targets, config));
     }
 
-    private static BuildMultiTarget getWindowTarget(BuildToolOptions op, String imguiPath, boolean isFFM) {
-        String imguiRootBuildPath = imguiPath + "/imgui-build";
-        String imguiCustomSourcePath = imguiRootBuildPath + "/src/main/cpp/custom";
-        String imguiBuildPath = imguiRootBuildPath + "/build";
-        String imguiCppPath = imguiBuildPath + "/c++";
-        String imguiSourcePath = imguiBuildPath + "/imgui";
-        String libBuildCPPPath = op.getModuleBuildCPPPath();
-        String sourceDir = op.getSourceDir();
-
-        String api = isFFM ? "ffm" : "jni";
-
-        BuildMultiTarget multiTarget = new BuildMultiTarget();
-
-        WindowsMSVCTarget compileStaticTarget = new WindowsMSVCTarget();
-        compileStaticTarget.libDirSuffix += api;
-        compileStaticTarget.isStatic = true;
-        compileStaticTarget.cppFlags.add("-std:c++17");
-        compileStaticTarget.cppFlags.add("/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\"");
-        compileStaticTarget.headerDirs.add("-I" + imguiSourcePath);
-        compileStaticTarget.headerDirs.add("-I" + sourceDir);
-        compileStaticTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        compileStaticTarget.cppInclude.add(sourceDir + "/*.cpp");
-        multiTarget.add(compileStaticTarget);
-
-        // Compile glue code and link
-        WindowsMSVCTarget linkTarget = new WindowsMSVCTarget();
-        linkTarget.libDirSuffix += api;
-        if(isFFM) {
-            linkTarget.setupFFMGlueCode(libBuildCPPPath);
-        }
-        else {
-            linkTarget.setupJNIGlueCode(libBuildCPPPath);
-        }
-        linkTarget.cppFlags.add("-std:c++17");
-        linkTarget.cppFlags.add("/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\"");
-        linkTarget.headerDirs.add("-I" + imguiSourcePath);
-        linkTarget.headerDirs.add("-I" + sourceDir);
-        linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        linkTarget.linkerFlags.add("/WHOLEARCHIVE:" + imguiCppPath + "/libs/windows/vc/" + api + "/imgui64.lib");
-        linkTarget.linkerFlags.add("/WHOLEARCHIVE:" + libBuildCPPPath + "/libs/windows/vc/" + api + "/nodeeditor64_.lib");
-        linkTarget.linkerFlags.add("-DLL");
-        multiTarget.add(linkTarget);
-
-        return multiTarget;
+    private static BuildToolOptions.BuildToolParams params(File moduleRoot, File sourceDir) {
+        BuildToolOptions.BuildToolParams params = new BuildToolOptions.BuildToolParams();
+        params.libName = "nodeeditor";
+        params.idlName = "nodeeditor";
+        params.webModuleName = "nodeeditor";
+        params.packageName = "imgui.extension.nodeeditor";
+        params.cppSourcePath = path(sourceDir);
+        params.modulePath = path(moduleRoot);
+        params.modulePrefix = "nodeeditor";
+        params.moduleCSuffix = "c";
+        params.jniCppStandard = "c++17";
+        params.ffmCppStandard = "c++17";
+        params.webCppStandard = "c++17";
+        params.teaVMCCppStandard = "c++17";
+        return params;
     }
 
-    private static BuildMultiTarget getLinuxTarget(BuildToolOptions op, String imguiPath, boolean isFFM) {
-        String imguiRootBuildPath = imguiPath + "/imgui-build";
-        String imguiCustomSourcePath = imguiRootBuildPath + "/src/main/cpp/custom";
-        String imguiBuildPath = imguiRootBuildPath + "/build";
-        String imguiSourcePath = imguiBuildPath + "/imgui";
-        String imguiCppPath = imguiBuildPath + "/c++";
-        String libBuildCPPPath = op.getModuleBuildCPPPath();
-        String sourceDir = op.getSourceDir();
-
-        String api = isFFM ? "ffm" : "jni";
-
-        BuildMultiTarget multiTarget = new BuildMultiTarget();
-
-        LinuxTarget compileStaticTarget = new LinuxTarget();
-        compileStaticTarget.libDirSuffix += api;
-        compileStaticTarget.isStatic = true;
-        compileStaticTarget.cppFlags.add("-std=c++17");
-        compileStaticTarget.cppFlags.add("-fPIC");
-        compileStaticTarget.cppFlags.add("-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\"");
-        compileStaticTarget.headerDirs.add("-I" + imguiSourcePath);
-        compileStaticTarget.headerDirs.add("-I" + sourceDir);
-        compileStaticTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        compileStaticTarget.cppInclude.add(sourceDir + "/*.cpp");
-        multiTarget.add(compileStaticTarget);
-
-        // Compile glue code and link
-        LinuxTarget linkTarget = new LinuxTarget();
-        linkTarget.libDirSuffix += api;
-        if(isFFM) {
-            linkTarget.setupFFMGlueCode(libBuildCPPPath);
+    private static void configureTargets(DefaultBuildTargetConfig config, File imguiNativeBuild) {
+        for(String target : DESKTOP_TARGETS) {
+            DefaultBuildTargetConfig.TargetHooks hooks = config.target(target);
+            hooks.includeDefaultSources = false;
+            hooks.includeCustomSources = true;
+            hooks.compileFlags.add(imguiConfigFlag(target));
+            addImguiLibrary(hooks, target, imguiNativeBuild);
+            addPlatformLinkFlags(hooks, target);
         }
-        else {
-            linkTarget.setupJNIGlueCode(libBuildCPPPath);
-        }
-        linkTarget.cppFlags.add("-std=c++17");
-        linkTarget.cppFlags.add("-fPIC");
-        linkTarget.cppFlags.add("-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\"");
-        linkTarget.headerDirs.add("-I" + imguiSourcePath);
-        linkTarget.headerDirs.add("-I" + sourceDir);
-        linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/linux/" + api + "/libnodeeditor64_.a");
-
-        linkTarget.linkerFlags.add("-Wl,-rpath,$ORIGIN");
-        linkTarget.linkerFlags.add("-L" + imguiCppPath + "/libs/linux/" + api);
-        linkTarget.linkerFlags.add("-limgui64");
-
-        multiTarget.add(linkTarget);
-
-        return multiTarget;
+        DefaultBuildTargetConfig.TargetHooks web = config.target("web_wasm");
+        web.includeDefaultSources = false;
+        web.includeCustomSources = true;
+        web.compileFlags.add(imguiConfigFlag("web_wasm"));
+        web.linkerFlags.add("-lc++abi");
+        web.linkerFlags.add("-lc++");
+        web.linkerFlags.add("-lc");
     }
 
-    private static BuildMultiTarget getMacTarget(BuildToolOptions op, boolean isArm, String imguiPath, boolean isFFM) {
-        String imguiRootBuildPath = imguiPath + "/imgui-build";
-        String imguiCustomSourcePath = imguiRootBuildPath + "/src/main/cpp/custom";
-        String imguiBuildPath = imguiRootBuildPath + "/build";
-        String imguiSourcePath = imguiBuildPath + "/imgui";
-        String libBuildCPPPath = op.getModuleBuildCPPPath();
-        String sourceDir = op.getSourceDir();
-
-        String api = isFFM ? "ffm" : "jni";
-
-        BuildMultiTarget multiTarget = new BuildMultiTarget();
-
-        MacTarget compileStaticTarget = new MacTarget(isArm);
-        compileStaticTarget.libDirSuffix += api;
-        compileStaticTarget.isStatic = true;
-        compileStaticTarget.cppFlags.add("-std=c++17");
-        compileStaticTarget.cppFlags.add("-fPIC");
-        compileStaticTarget.headerDirs.add("-I" + imguiSourcePath);
-        compileStaticTarget.headerDirs.add("-I" + sourceDir);
-        compileStaticTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        compileStaticTarget.cppInclude.add(sourceDir + "/*.cpp");
-        multiTarget.add(compileStaticTarget);
-
-        // Compile glue code and link
-        MacTarget linkTarget = new MacTarget(isArm);
-        linkTarget.libDirSuffix += api;
-        if(isFFM) {
-            linkTarget.setupFFMGlueCode(libBuildCPPPath);
+    private static void addImguiLibrary(DefaultBuildTargetConfig.TargetHooks hooks,
+            String target, File nativeBuild) {
+        String api = api(target);
+        if(target.startsWith("windows64")) {
+            hooks.staticLinkerInputs.add(path(new File(nativeBuild, "libs/windows/vc/" + api + "/imgui64.lib")));
         }
-        else {
-            linkTarget.setupJNIGlueCode(libBuildCPPPath);
+        else if(target.startsWith("linux64")) {
+            hooks.sharedLinkerInputs.add(path(new File(nativeBuild, "libs/linux/" + api + "/libimgui64.so")));
         }
-        linkTarget.cppFlags.add("-std=c++17");
-        linkTarget.cppFlags.add("-fPIC");
-        linkTarget.cppFlags.add("-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\"");
-        linkTarget.headerDirs.add("-I" + imguiSourcePath);
-        linkTarget.headerDirs.add("-I" + sourceDir);
-        linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-
-        if(isArm) {
-            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/arm/" + api + "/libnodeeditor64_.a");
+        else if(target.startsWith("macArm")) {
+            hooks.sharedLinkerInputs.add(path(new File(nativeBuild, "libs/mac/arm/" + api + "/libimguiarm64.dylib")));
         }
-        else {
-            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/" + api + "/libnodeeditor64_.a");
+        else if(target.startsWith("mac64")) {
+            hooks.sharedLinkerInputs.add(path(new File(nativeBuild, "libs/mac/" + api + "/libimgui64.dylib")));
         }
-
-        // Use -undefined dynamic_lookup so symbols from imgui can be resolved at runtime
-        // from already-loaded libraries instead of requiring the dylib file on disk.
-        linkTarget.linkerFlags.add("-undefined");
-        linkTarget.linkerFlags.add("dynamic_lookup");
-
-        multiTarget.add(linkTarget);
-
-        return multiTarget;
     }
 
-    private static BuildMultiTarget getTeaVMTarget(BuildToolOptions op, IDLReader idlReader, String imguiPath) {
-        String imguiRootBuildPath = imguiPath + "/imgui-build";
-        String imguiCustomSourcePath = imguiRootBuildPath + "/src/main/cpp/custom";
-        String imguiBuildPath = imguiRootBuildPath + "/build";
-        String imguiSourcePath = imguiBuildPath + "/imgui";
-        String libBuildCPPPath = op.getModuleBuildCPPPath();
-        String sourceDir = op.getSourceDir();
-
-        BuildMultiTarget multiTarget = new BuildMultiTarget();
-
-        String config;
-        if(BuildTarget.isWindows()) {
-            config = "-DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\"";
+    private static void addPlatformLinkFlags(DefaultBuildTargetConfig.TargetHooks hooks, String target) {
+        if(target.startsWith("linux64")) {
+            hooks.linkerFlags.add("-Wl,-rpath,$ORIGIN");
         }
-        else {
-            config = "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\"";
+        else if(target.startsWith("mac")) {
+            hooks.linkerFlags.add("-undefined");
+            hooks.linkerFlags.add("dynamic_lookup");
         }
+    }
 
-        // Make a static library
-        EmscriptenTarget compileStaticTarget = new EmscriptenTarget();
-        compileStaticTarget.isStatic = true;
-        compileStaticTarget.cppFlags.add("-std=c++17");
-        compileStaticTarget.cppFlags.add(config);
-        compileStaticTarget.compileGlueCode = false;
-        compileStaticTarget.headerDirs.add("-I" + imguiSourcePath);
-        compileStaticTarget.headerDirs.add("-I" + sourceDir);
-        compileStaticTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        compileStaticTarget.cppInclude.add(sourceDir + "/*.cpp");
-        multiTarget.add(compileStaticTarget);
+    private static String imguiConfigFlag(String target) {
+        if(target.startsWith("windows64")) {
+            return "/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\"";
+        }
+        if(target.equals("web_wasm") && isWindowsHost()) {
+            return "-DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\"";
+        }
+        return "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\"";
+    }
 
-        // Compile glue code and link
-        EmscriptenTarget linkTarget = new EmscriptenTarget();
-        linkTarget.mainModuleName = "runtime";
-        linkTarget.idlReader = idlReader;
-        linkTarget.cppFlags.add("-std=c++17");
-        linkTarget.headerDirs.add("-I" + imguiSourcePath);
-        linkTarget.headerDirs.add("-I" + sourceDir);
-        linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.headerDirs.add("-I" + imguiCustomSourcePath);
-        linkTarget.headerDirs.add("-include" + op.getCustomSourceDir() + "NodeEditorCustom.h");
-        linkTarget.headerDirs.add("-include" + imguiCustomSourcePath + "/ImGuiCustom.h");
-        linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/emscripten/nodeeditor_.a");
-        linkTarget.linkerFlags.add("-sSIDE_MODULE=2");
-        linkTarget.linkerFlags.add("-lc++abi"); // C++ ABI (exceptions, thread_atexit, etc.)
-        linkTarget.linkerFlags.add("-lc++"); // C++ STL (std::cout, std::string, etc.)
-        linkTarget.linkerFlags.add("-lc"); // C standard library (fopen, fclose, printf, etc.)
-        multiTarget.add(linkTarget);
+    private static boolean isWindowsHost() {
+        return System.getProperty("os.name", "").toLowerCase(Locale.ROOT).contains("windows");
+    }
 
-        return multiTarget;
+    private static String api(String target) {
+        if(target.endsWith("_teavm_c")) {
+            return "teavm_c";
+        }
+        return target.endsWith("_ffm") ? "ffm" : "jni";
+    }
+
+    private static String path(File file) {
+        return file.getAbsolutePath().replace('\\', '/');
     }
 }

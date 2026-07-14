@@ -7,9 +7,9 @@
 package gen.web.imgui.extension.textedit;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
-import gen.web.imgui.ImVec2;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
+import gen.web.imgui.ImVec2;
 
 public class TextEditor extends NativeObject {
 

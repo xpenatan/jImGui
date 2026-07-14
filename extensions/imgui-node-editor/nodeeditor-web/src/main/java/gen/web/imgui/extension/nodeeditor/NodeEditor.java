@@ -7,10 +7,10 @@
 package gen.web.imgui.extension.nodeeditor;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
+import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.web.imgui.ImVec2;
 import gen.web.imgui.ImDrawList;
 import gen.web.imgui.ImVec4;
-import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
 public class NodeEditor extends NativeObject {

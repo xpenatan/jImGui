@@ -3,17 +3,15 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
 }
 
 dependencies {
     if(LibExt.useRepoLibs) {
-        api("com.github.xpenatan.xImGui:imgui-core:-SNAPSHOT")
-        api("com.github.xpenatan.xImGui:fdx-shared-impl:-SNAPSHOT")
+        compileOnlyApi("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")
     }
     else {
-        api(project(":imgui:imgui-core"))
-        api(project(":backends:fdx:fdx-shared-impl"))
+        compileOnlyApi(project(":imgui:core"))
     }
 }

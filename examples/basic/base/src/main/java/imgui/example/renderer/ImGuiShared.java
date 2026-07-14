@@ -4,52 +4,37 @@ import imgui.ImGui;
 import imgui.ImTemp;
 import imgui.ImTextureRef;
 import imgui.enums.ImGuiConfigFlags;
-import io.github.libfdx.Fdx;
-import io.github.libfdx.core.FdxException;
-import io.github.libfdx.graphics.GraphicsContext;
-import io.github.libfdx.graphics.Texture;
-import io.github.libfdx.graphics.TextureDescriptor;
-import io.github.libfdx.imgui.FdxImGui;
-import io.github.libfdx.imgui.FdxImGuiRenderer;
 
 import java.nio.ByteBuffer;
 
 public final class ImGuiShared {
-    private static Fdx fdx;
-    private static FdxImGui imgui;
+    private static ImGuiExampleBackend backend;
 
     private ImGuiShared() {
     }
 
-    public static void initialize(Fdx fdx, FdxImGuiRenderer renderer) {
-        if (ImGuiShared.imgui != null) {
+    public static void initialize(ImGuiExampleBackend backend) {
+        if (ImGuiShared.backend != null) {
             return;
         }
-        if (fdx == null) {
-            throw new FdxException("Fdx cannot be null");
+        if (backend == null) {
+            throw new IllegalArgumentException("ImGui example backend cannot be null");
         }
-        ImGuiShared.fdx = fdx;
-        ImGuiShared.imgui = FdxImGui.create(fdx, renderer);
-        ImGui.GetIO().set_ConfigFlags(ImGuiConfigFlags.DockingEnable);
+        ImGuiShared.backend = backend;
+        ImGui.GetIO().set_ConfigFlags(ImGuiConfigFlags.DockingEnable.or(ImGuiConfigFlags.ViewportsEnable));
         ImGui.StyleColorsDark();
     }
 
-    public static Fdx fdx() {
-        if (fdx == null) {
-            throw new FdxException("Example FDX context has not been initialized");
-        }
-        return fdx;
+    public static void beginFrame() {
+        backend().beginFrame();
     }
 
-    public static FdxImGui imgui() {
-        if (imgui == null) {
-            throw new FdxException("Example ImGui context has not been initialized");
-        }
-        return imgui;
+    public static void render() {
+        backend().render();
     }
 
     public static void clearScreen(float red, float green, float blue, float alpha) {
-        fdx().graphics().main().clear(red, green, blue, alpha);
+        backend().clearScreen(red, green, blue, alpha);
     }
 
     public static ExampleTexture createSolidTexture(String label, int width, int height, int red, int green, int blue,
@@ -106,11 +91,7 @@ public final class ImGuiShared {
     }
 
     public static int framesPerSecond() {
-        float delta = fdx().app().deltaTime();
-        if (delta <= 0.0f || !Float.isFinite(delta)) {
-            return 0;
-        }
-        return Math.round(1.0f / delta);
+        return backend().framesPerSecond();
     }
 
     public static int rgba(int red, int green, int blue, int alpha) {
@@ -118,18 +99,20 @@ public final class ImGuiShared {
     }
 
     public static void dispose() {
-        if (imgui != null && !imgui.isDisposed()) {
-            imgui.dispose();
+        if (backend != null) {
+            backend.dispose();
         }
-        imgui = null;
-        fdx = null;
+        backend = null;
     }
 
     private static ExampleTexture createTexture(String label, int width, int height, ByteBuffer pixels) {
-        GraphicsContext graphics = fdx().graphics().main();
-        Texture texture = graphics.device().createTexture(TextureDescriptor.rgba8(label, width, height));
-        graphics.device().writeTexture(texture, pixels);
-        long id = imgui().textures().register(texture);
-        return new ExampleTexture(texture, id);
+        return backend().createTexture(label, width, height, pixels);
+    }
+
+    private static ImGuiExampleBackend backend() {
+        if (backend == null) {
+            throw new IllegalStateException("Example ImGui backend has not been initialized");
+        }
+        return backend;
     }
 }

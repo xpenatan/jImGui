@@ -9,8 +9,8 @@ package imgui.extension.imlayout;
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.ImVec2;
 import imgui.ImRect;
-import imgui.enums.ImGuiButtonFlags;
 import com.github.xpenatan.jparser.runtime.helper.NativeBoolArray;
+import imgui.enums.ImGuiButtonFlags;
 
 public class ImLayout extends NativeObject {
 

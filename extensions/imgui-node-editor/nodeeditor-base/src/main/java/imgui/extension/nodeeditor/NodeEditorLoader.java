@@ -16,6 +16,10 @@ public class NodeEditorLoader {
         #include "NodeEditorCustom.h"
     */
 
+    /*[-TEAVM_C;-NATIVE]
+        #include "NodeEditorCustom.h"
+    */
+
     public static void init(JParserLibraryLoaderListener listener) {
         JParserLibraryLoader.load("nodeeditor", listener);
     }

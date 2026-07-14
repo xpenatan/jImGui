@@ -16,6 +16,10 @@ public class TextEditLoader {
         #include "TextEditCustom.h"
     */
 
+    /*[-TEAVM_C;-NATIVE]
+        #include "TextEditCustom.h"
+    */
+
     public static void init(JParserLibraryLoaderListener listener) {
         JParserLibraryLoader.load("textedit", listener);
     }

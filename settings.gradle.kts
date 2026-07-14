@@ -1,36 +1,88 @@
+pluginManagement {
+    val jParserPluginVersion = "-SNAPSHOT"
+
+    resolutionStrategy {
+        eachPlugin {
+            if(requested.id.id == "com.github.xpenatan.jparser") {
+                useModule("com.github.xpenatan.jParser:jparser-gradle-plugin:$jParserPluginVersion")
+            }
+        }
+    }
+
+    plugins {
+        id("com.github.xpenatan.jparser") version jParserPluginVersion
+    }
+
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+        }
+        gradlePluginPortal()
+        maven {
+            url = uri("http://teavm.org/maven/repository/")
+            isAllowInsecureProtocol = true
+        }
+    }
+}
+
+rootProject.name = "jImGui"
+
 // Core
-include(":imgui:imgui-build")
-include(":imgui:imgui-base")
-include(":imgui:imgui-core")
-include(":imgui:imgui-jni")
-include(":imgui:imgui-ffm")
-include(":imgui:imgui-web")
-include(":imgui:imgui-android")
+include(":imgui:builder")
+include(":imgui:download")
+include(":imgui:base")
+include(":imgui:core")
+include(":imgui:shared:jni")
+include(":imgui:shared:c")
+include(":imgui:desktop:jni")
+include(":imgui:desktop:ffm")
+include(":imgui:desktop:c")
+include(":imgui:web:wasm")
+include(":imgui:android:jni")
+include(":imgui:android:c")
 
 // Backend implementations
-include(":backends:fdx:fdx-shared-impl")
-include(":backends:fdx:fdx-gl-impl")
-include(":backends:fdx:fdx-wgpu-impl")
-include(":backends:fdx:fdx-vulkan-impl")
+include(":backends:gdx:gdx-shared-impl")
+include(":backends:gdx:gdx-gl-impl")
+include(":backends:gdx:gdx-gl-lwjgl3-impl")
+include(":backends:gdx:gdx-wgpu-impl")
+include(":backends:fdx:fdx-impl")
 
 // Examples
 include(":examples:basic:base")
 include(":examples:basic:core")
-include(":examples:basic:platform:desktop-gl-jni")
-include(":examples:basic:platform:desktop-gl-ffm")
-include(":examples:basic:platform:desktop-wgpu-jni")
-include(":examples:basic:platform:desktop-wgpu-ffm")
-include(":examples:basic:platform:web-gl")
-include(":examples:basic:platform:web-wgpu")
-include(":examples:basic:platform:android")
+include(":examples:basic:fdx")
+include(":examples:basic:gdx")
+include(":examples:basic:platform:desktop-fdx-jni")
+include(":examples:basic:platform:desktop-fdx-ffm")
+include(":examples:basic:platform:desktop-gdx-gl-jni")
+include(":examples:basic:platform:desktop-gdx-gl-ffm")
+include(":examples:basic:platform:desktop-gdx-gl-c")
+include(":examples:basic:platform:desktop-gdx-wgpu-jni")
+include(":examples:basic:platform:desktop-gdx-wgpu-ffm")
+include(":examples:basic:platform:web-fdx")
+include(":examples:basic:platform:web-gdx-gl")
+include(":examples:basic:platform:web-gdx-wgpu")
+include(":examples:basic:platform:android-fdx-jni")
+include(":examples:basic:platform:android-gdx-gl-jni")
+include(":examples:basic:platform:android-gdx-wgpu-jni")
 include(":examples:imlayout:core")
+include(":examples:imlayout:fdx")
 include(":examples:imlayout:platform:desktop")
+include(":examples:imlayout:platform:desktop-gdx-gl-c")
 include(":examples:imlayout:platform:teavm")
 include(":examples:ImGuiColorTextEdit:core")
+include(":examples:ImGuiColorTextEdit:fdx")
 include(":examples:ImGuiColorTextEdit:platform:desktop")
+include(":examples:ImGuiColorTextEdit:platform:desktop-gdx-gl-c")
 include(":examples:ImGuiColorTextEdit:platform:teavm")
 include(":examples:imgui-node-editor:core")
+include(":examples:imgui-node-editor:fdx")
 include(":examples:imgui-node-editor:platform:desktop")
+include(":examples:imgui-node-editor:platform:desktop-gdx-gl-c")
 include(":examples:imgui-node-editor:platform:teavm")
 
 // Extension ImLayout
@@ -40,6 +92,7 @@ include(":extensions:imlayout:imlayout-core")
 include(":extensions:imlayout:imlayout-jni")
 include(":extensions:imlayout:imlayout-ffm")
 include(":extensions:imlayout:imlayout-web")
+include(":extensions:imlayout:imlayout-c")
 
 // Extension ImGuiColorTextEdit
 include(":extensions:ImGuiColorTextEdit:textedit-build")
@@ -48,6 +101,7 @@ include(":extensions:ImGuiColorTextEdit:textedit-core")
 include(":extensions:ImGuiColorTextEdit:textedit-jni")
 include(":extensions:ImGuiColorTextEdit:textedit-ffm")
 include(":extensions:ImGuiColorTextEdit:textedit-web")
+include(":extensions:ImGuiColorTextEdit:textedit-c")
 
 // Extension imgui-node-editor
 include(":extensions:imgui-node-editor:nodeeditor-build")
@@ -56,6 +110,7 @@ include(":extensions:imgui-node-editor:nodeeditor-core")
 include(":extensions:imgui-node-editor:nodeeditor-jni")
 include(":extensions:imgui-node-editor:nodeeditor-ffm")
 include(":extensions:imgui-node-editor:nodeeditor-web")
+include(":extensions:imgui-node-editor:nodeeditor-c")
 
 //includeBuild("E:\\Dev\\Projects\\java\\jParser") {
 //    dependencySubstitution {

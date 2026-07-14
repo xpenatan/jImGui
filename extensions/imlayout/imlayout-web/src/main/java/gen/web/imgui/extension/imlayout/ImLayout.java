@@ -9,8 +9,8 @@ package gen.web.imgui.extension.imlayout;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.ImRect;
 import gen.web.imgui.ImVec2;
-import gen.web.imgui.enums.ImGuiButtonFlags;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeBoolArray;
+import gen.web.imgui.enums.ImGuiButtonFlags;
 
 public class ImLayout extends NativeObject {
 

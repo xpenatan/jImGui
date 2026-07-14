@@ -11,23 +11,23 @@ java {
 
 dependencies {
     implementation(project(":examples:basic:base"))
-    implementation(project(":examples:imlayout:core"))
+    implementation(project(":examples:imlayout:fdx"))
 
     if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.xImGui:imgui-jni:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:imgui-jni_desktop:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:imlayout-jni:-SNAPSHOT")
-        implementation("com.github.xpenatan.xImGui:imlayout-jni_desktop:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imgui-jni:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imgui-jni_desktop:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imlayout-jni:-SNAPSHOT")
+        implementation("com.github.xpenatan.jImGui:imlayout-jni_desktop:-SNAPSHOT")
     }
     else {
-        implementation(project(":imgui:imgui-jni"))
+        implementation(project(":imgui:desktop:jni"))
         implementation(project(":extensions:imlayout:imlayout-jni"))
     }
 
-    implementation(project(":backends:fdx:fdx-gl-impl"))
+    implementation(project(":backends:fdx:fdx-impl"))
     implementation("io.github.libfdx:backend_desktop:${LibExt.libFdxVersion}")
-    runtimeOnly("io.github.libfdx:backend_desktop_native:${LibExt.libFdxVersion}")
-    runtimeOnly("io.github.libfdx:gl_desktop_native:${LibExt.libFdxVersion}")
+    runtimeOnly("io.github.libfdx:fdx_desktop:${LibExt.libFdxVersion}")
+    runtimeOnly("io.github.libfdx:gl_desktop:${LibExt.libFdxVersion}")
     runtimeOnly("org.lwjgl:lwjgl-opengl:3.4.1")
     runtimeOnly("org.lwjgl:lwjgl-opengl:3.4.1:natives-linux")
     runtimeOnly("org.lwjgl:lwjgl-opengl:3.4.1:natives-macos")
