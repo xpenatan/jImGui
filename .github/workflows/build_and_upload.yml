@@ -276,9 +276,9 @@ jobs:
           java-version: 25
 
       - name: Install emscripten
-        uses: mymindstorm/setup-emsdk@v16
+        uses: emscripten-core/setup-emsdk@v16
         with:
-          version: 4.0.18
+          version: 6.0.3
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
