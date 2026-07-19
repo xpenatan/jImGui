@@ -464,6 +464,20 @@ public class ImGuiIO extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiio_set_configdockingnosplit")
     public static native void internal_native_set_ConfigDockingNoSplit(long this_addr, boolean ConfigDockingNoSplit);
 
+    public boolean get_ConfigDockingNoDockingOver() {
+        return internal_native_get_ConfigDockingNoDockingOver(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdockingnodockingover")
+    public static native boolean internal_native_get_ConfigDockingNoDockingOver(long this_addr);
+
+    public void set_ConfigDockingNoDockingOver(boolean ConfigDockingNoDockingOver) {
+        internal_native_set_ConfigDockingNoDockingOver(native_address, ConfigDockingNoDockingOver);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdockingnodockingover")
+    public static native void internal_native_set_ConfigDockingNoDockingOver(long this_addr, boolean ConfigDockingNoDockingOver);
+
     public boolean get_ConfigDockingWithShift() {
         return internal_native_get_ConfigDockingWithShift(native_address);
     }

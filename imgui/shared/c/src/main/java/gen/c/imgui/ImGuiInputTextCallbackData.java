@@ -34,6 +34,27 @@ public class ImGuiInputTextCallbackData extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiinputtextcallbackdata_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public void SetSelection(int selection_start, int selection_end) {
+        internal_native_SetSelection(native_address, selection_start, selection_end);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiinputtextcallbackdata_setselection")
+    public static native void internal_native_SetSelection(long this_addr, int selection_start, int selection_end);
+
+    public int get_ID() {
+        return internal_native_get_ID(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiinputtextcallbackdata_get_id")
+    public static native int internal_native_get_ID(long this_addr);
+
+    public boolean get_EventActivated() {
+        return internal_native_get_EventActivated(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiinputtextcallbackdata_get_eventactivated")
+    public static native boolean internal_native_get_EventActivated(long this_addr);
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }

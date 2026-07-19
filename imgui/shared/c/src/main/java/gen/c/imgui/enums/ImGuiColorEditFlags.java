@@ -22,6 +22,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     NoSidePreview(ImGuiColorEditFlags_NoSidePreview_NATIVE()),
     NoDragDrop(ImGuiColorEditFlags_NoDragDrop_NATIVE()),
     NoBorder(ImGuiColorEditFlags_NoBorder_NATIVE()),
+    NoColorMarkers(ImGuiColorEditFlags_NoColorMarkers_NATIVE()),
     AlphaOpaque(ImGuiColorEditFlags_AlphaOpaque_NATIVE()),
     AlphaNoBg(ImGuiColorEditFlags_AlphaNoBg_NATIVE()),
     AlphaPreviewHalf(ImGuiColorEditFlags_AlphaPreviewHalf_NATIVE()),
@@ -97,6 +98,9 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicoloreditflags_imguicoloreditflags_noborder_native")
     private static native int ImGuiColorEditFlags_NoBorder_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguicoloreditflags_imguicoloreditflags_nocolormarkers_native")
+    private static native int ImGuiColorEditFlags_NoColorMarkers_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicoloreditflags_imguicoloreditflags_alphaopaque_native")
     private static native int ImGuiColorEditFlags_AlphaOpaque_NATIVE();

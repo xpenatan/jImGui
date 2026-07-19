@@ -126,19 +126,47 @@ public class ImDrawList extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawlist_addline_l_l_l_i")
     public static native void internal_native_AddLine(long this_addr, long p1_addr, long p2_addr, int col);
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags, float thickness) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue(), thickness);
+    public void AddLineH(float min_x, float max_x, float y, int col, float thickness) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col, thickness);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_addrect_l_l_l_i_f_i_f")
-    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags, float thickness);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addlineh_l_f_f_f_i_f")
+    public static native void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col, float thickness);
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue());
+    public void AddLineH(float min_x, float max_x, float y, int col) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_addrect_l_l_l_i_f_i")
-    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addlineh_l_f_f_f_i")
+    public static native void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col);
+
+    public void AddLineV(float x, float min_y, float max_y, int col, float thickness) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col, thickness);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addlinev_l_f_f_f_i_f")
+    public static native void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col, float thickness);
+
+    public void AddLineV(float x, float min_y, float max_y, int col) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addlinev_l_f_f_f_i")
+    public static native void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col);
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness, ImDrawFlags flags) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness, flags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addrect_l_l_l_i_f_f_i")
+    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness, int flags);
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addrect_l_l_l_i_f_f")
+    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness);
 
     public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding) {
         internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding);
@@ -483,19 +511,19 @@ public class ImDrawList extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawlist_pathfillconvex")
     public static native void internal_native_PathFillConvex(long this_addr, int col);
 
-    public void PathStroke(int col, ImDrawFlags flags, float thickness) {
-        internal_native_PathStroke(native_address, col, flags.getValue(), thickness);
+    public void PathStroke(int col, float thickness, ImDrawFlags flags) {
+        internal_native_PathStroke(native_address, col, thickness, flags.getValue());
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathstroke_l_i_i_f")
-    public static native void internal_native_PathStroke(long this_addr, int col, int flags, float thickness);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathstroke_l_i_f_i")
+    public static native void internal_native_PathStroke(long this_addr, int col, float thickness, int flags);
 
-    public void PathStroke(int col, ImDrawFlags flags) {
-        internal_native_PathStroke(native_address, col, flags.getValue());
+    public void PathStroke(int col, float thickness) {
+        internal_native_PathStroke(native_address, col, thickness);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathstroke_l_i_i")
-    public static native void internal_native_PathStroke(long this_addr, int col, int flags);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathstroke_l_i_f")
+    public static native void internal_native_PathStroke(long this_addr, int col, float thickness);
 
     public void PathStroke(int col) {
         internal_native_PathStroke(native_address, col);

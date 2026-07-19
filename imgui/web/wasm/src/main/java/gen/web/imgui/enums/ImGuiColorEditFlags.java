@@ -22,6 +22,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     NoSidePreview(ImGuiColorEditFlags_NoSidePreview_NATIVE()),
     NoDragDrop(ImGuiColorEditFlags_NoDragDrop_NATIVE()),
     NoBorder(ImGuiColorEditFlags_NoBorder_NATIVE()),
+    NoColorMarkers(ImGuiColorEditFlags_NoColorMarkers_NATIVE()),
     AlphaOpaque(ImGuiColorEditFlags_AlphaOpaque_NATIVE()),
     AlphaNoBg(ImGuiColorEditFlags_AlphaNoBg_NATIVE()),
     AlphaPreviewHalf(ImGuiColorEditFlags_AlphaPreviewHalf_NATIVE()),
@@ -97,6 +98,9 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_NoBorder;")
     private static native int ImGuiColorEditFlags_NoBorder_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_NoColorMarkers;")
+    private static native int ImGuiColorEditFlags_NoColorMarkers_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_AlphaOpaque;")
     private static native int ImGuiColorEditFlags_AlphaOpaque_NATIVE();

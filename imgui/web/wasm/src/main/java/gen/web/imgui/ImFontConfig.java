@@ -322,4 +322,18 @@ public class ImFontConfig extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "RasterizerDensity"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_RasterizerDensity(RasterizerDensity);")
     public static native void internal_native_set_RasterizerDensity(int this_addr, float RasterizerDensity);
+
+    public float get_ExtraSizeScale() {
+        return internal_native_get_ExtraSizeScale(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);return jsObj.get_ExtraSizeScale();")
+    public static native float internal_native_get_ExtraSizeScale(int this_addr);
+
+    public void set_ExtraSizeScale(float ExtraSizeScale) {
+        internal_native_set_ExtraSizeScale(native_address, ExtraSizeScale);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ExtraSizeScale"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_ExtraSizeScale(ExtraSizeScale);")
+    public static native void internal_native_set_ExtraSizeScale(int this_addr, float ExtraSizeScale);
 }

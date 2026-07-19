@@ -15,7 +15,6 @@ import gen.web.imgui.enums.ImGuiCond;
 import gen.web.imgui.enums.ImGuiFocusRequestFlags;
 import gen.web.imgui.enums.ImGuiWindowRefreshFlags;
 import gen.web.imgui.enums.ImGuiItemStatusFlags;
-import gen.web.imgui.enums.ImGuiItemFlags;
 import gen.web.imgui.enums.ImGuiDockNodeFlags;
 import gen.web.imgui.enums.ImGuiDir;
 import gen.web.imgui.enums.ImGuiTableFlags;
@@ -583,20 +582,6 @@ public class ImGuiInternal extends NativeObject {
     @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGuiInternal.prototype.GetItemStatusFlags();return returnedJSObj;")
     public static native int internal_native_GetItemStatusFlags();
 
-    public static ImGuiItemFlags GetItemFlags() {
-        int value = internal_native_GetItemFlags();
-        ImGuiItemFlags[] values = ImGuiItemFlags.values();
-        for (int i = 0; i < values.length; i++) {
-            ImGuiItemFlags enumVal = values[i];
-            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ImGuiItemFlags.CUSTOM.setValue(value);
-    }
-
-    @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGuiInternal.prototype.GetItemFlags();return returnedJSObj;")
-    public static native int internal_native_GetItemFlags();
-
     public static int GetActiveID() {
         return internal_native_GetActiveID();
     }
@@ -861,12 +846,12 @@ public class ImGuiInternal extends NativeObject {
     @org.teavm.jso.JSBody(params = {"bb_addr"}, script = "imgui.ImGuiInternal.prototype.RenderDragDropTargetRectForItem(bb_addr);")
     public static native void internal_native_RenderDragDropTargetRectForItem(int bb_addr);
 
-    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb) {
-        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address);
+    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb, float rounding) {
+        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address, rounding);
     }
 
-    @org.teavm.jso.JSBody(params = {"draw_list_addr", "bb_addr"}, script = "imgui.ImGuiInternal.prototype.RenderDragDropTargetRectEx(draw_list_addr, bb_addr);")
-    public static native void internal_native_RenderDragDropTargetRectEx(int draw_list_addr, int bb_addr);
+    @org.teavm.jso.JSBody(params = {"draw_list_addr", "bb_addr", "rounding"}, script = "imgui.ImGuiInternal.prototype.RenderDragDropTargetRectEx(draw_list_addr, bb_addr, rounding);")
+    public static native void internal_native_RenderDragDropTargetRectEx(int draw_list_addr, int bb_addr, float rounding);
 
     public static boolean BeginTableEx(String name, int id, int columns_count, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width) {
         return internal_native_BeginTableEx(name, id, columns_count, flags.getValue(), outer_size.native_address, inner_width);

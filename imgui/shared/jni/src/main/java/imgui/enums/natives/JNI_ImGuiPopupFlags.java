@@ -18,10 +18,6 @@ final public class JNI_ImGuiPopupFlags {
 
     static native public int ImGuiPopupFlags_MouseButtonMiddle_NATIVE();
 
-    static native public int ImGuiPopupFlags_MouseButtonMask__NATIVE();
-
-    static native public int ImGuiPopupFlags_MouseButtonDefault__NATIVE();
-
     static native public int ImGuiPopupFlags_NoReopen_NATIVE();
 
     static native public int ImGuiPopupFlags_NoOpenOverExistingPopup_NATIVE();
@@ -33,4 +29,10 @@ final public class JNI_ImGuiPopupFlags {
     static native public int ImGuiPopupFlags_AnyPopupLevel_NATIVE();
 
     static native public int ImGuiPopupFlags_AnyPopup_NATIVE();
+
+    static native public int ImGuiPopupFlags_MouseButtonShift__NATIVE();
+
+    static native public int ImGuiPopupFlags_MouseButtonMask__NATIVE();
+
+    static native public int ImGuiPopupFlags_InvalidMask__NATIVE();
 }

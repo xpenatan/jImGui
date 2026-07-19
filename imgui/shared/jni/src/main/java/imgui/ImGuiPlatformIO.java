@@ -38,6 +38,22 @@ public class ImGuiPlatformIO extends NativeObject {
         imgui.natives.JNI_ImGuiPlatformIO.internal_native_deleteNative(this_addr);
     }
 
+    public void ClearPlatformHandlers() {
+        internal_native_ClearPlatformHandlers(native_address);
+    }
+
+    public static void internal_native_ClearPlatformHandlers(long this_addr) {
+        imgui.natives.JNI_ImGuiPlatformIO.internal_native_ClearPlatformHandlers(this_addr);
+    }
+
+    public void ClearRendererHandlers() {
+        internal_native_ClearRendererHandlers(native_address);
+    }
+
+    public static void internal_native_ClearRendererHandlers(long this_addr) {
+        imgui.natives.JNI_ImGuiPlatformIO.internal_native_ClearRendererHandlers(this_addr);
+    }
+
     public ImVectorImTextureDataPtr get_Textures() {
         long addr = internal_native_get_Textures_addr(native_address);
         if (addr == 0)

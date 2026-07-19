@@ -15,7 +15,6 @@ import imgui.enums.ImGuiCond;
 import imgui.enums.ImGuiFocusRequestFlags;
 import imgui.enums.ImGuiWindowRefreshFlags;
 import imgui.enums.ImGuiItemStatusFlags;
-import imgui.enums.ImGuiItemFlags;
 import imgui.enums.ImGuiDockNodeFlags;
 import imgui.enums.ImGuiDir;
 import imgui.enums.ImGuiTableFlags;
@@ -253,10 +252,6 @@ public class ImGuiInternal extends NativeObject {
         return null;
     }
 
-    public static ImGuiItemFlags GetItemFlags() {
-        return null;
-    }
-
     public static int GetActiveID() {
         return 0;
     }
@@ -379,7 +374,7 @@ public class ImGuiInternal extends NativeObject {
     public static void RenderDragDropTargetRectForItem(ImRect bb) {
     }
 
-    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb) {
+    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb, float rounding) {
     }
 
     public static boolean BeginTableEx(String name, int id, int columns_count, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width) {

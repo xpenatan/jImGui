@@ -24,7 +24,8 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
     RoundCornersRight(ImDrawFlags_RoundCornersRight_NATIVE()),
     RoundCornersAll(ImDrawFlags_RoundCornersAll_NATIVE()),
     RoundCornersDefault_(ImDrawFlags_RoundCornersDefault__NATIVE()),
-    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE());
+    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE()),
+    InvalidMask_(ImDrawFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -89,4 +90,7 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImDrawFlags_RoundCornersMask_;")
     private static native int ImDrawFlags_RoundCornersMask__NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImDrawFlags_InvalidMask_;")
+    private static native int ImDrawFlags_InvalidMask__NATIVE();
 }

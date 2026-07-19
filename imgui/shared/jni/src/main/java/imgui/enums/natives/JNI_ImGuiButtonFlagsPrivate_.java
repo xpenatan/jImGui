@@ -24,8 +24,6 @@ final public class JNI_ImGuiButtonFlagsPrivate_ {
 
     static native public int ImGuiButtonFlags_FlattenChildren_NATIVE();
 
-    static native public int ImGuiButtonFlags_AllowOverlap_NATIVE();
-
     static native public int ImGuiButtonFlags_AlignTextBaseLine_NATIVE();
 
     static native public int ImGuiButtonFlags_NoKeyModsAllowed_NATIVE();

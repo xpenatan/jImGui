@@ -20,6 +20,14 @@ public class ImFontAtlas extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_4;
 
+    private ImFont ImFont_TEMP_GEN_5;
+
+    private ImFont ImFont_TEMP_GEN_6;
+
+    private ImFont ImFont_TEMP_GEN_7;
+
+    private ImFont ImFont_TEMP_GEN_8;
+
     static public final ImFontAtlas NULL = ImFontAtlas.native_new();
 
     /**
@@ -82,14 +90,66 @@ public class ImFontAtlas extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontdefault_addr_l")
     public static native long internal_native_AddFontDefault_addr(long this_addr);
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
-        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+    public ImFont AddFontDefaultVector(ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontDefaultVector_addr(native_address, font_cfg.native_address);
         if (addr == 0)
             return ImFont.NULL;
         if (ImFont_TEMP_GEN_3 == null)
             ImFont_TEMP_GEN_3 = ImFont.native_new();
         ImFont_TEMP_GEN_3.internal_reset(addr, false);
         return ImFont_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontdefaultvector_addr_l_l")
+    public static native long internal_native_AddFontDefaultVector_addr(long this_addr, long font_cfg_addr);
+
+    public ImFont AddFontDefaultVector() {
+        long addr = internal_native_AddFontDefaultVector_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_4 == null)
+            ImFont_TEMP_GEN_4 = ImFont.native_new();
+        ImFont_TEMP_GEN_4.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_4;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontdefaultvector_addr_l")
+    public static native long internal_native_AddFontDefaultVector_addr(long this_addr);
+
+    public ImFont AddFontDefaultBitmap(ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontDefaultBitmap_addr(native_address, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_5 == null)
+            ImFont_TEMP_GEN_5 = ImFont.native_new();
+        ImFont_TEMP_GEN_5.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_5;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontdefaultbitmap_addr_l_l")
+    public static native long internal_native_AddFontDefaultBitmap_addr(long this_addr, long font_cfg_addr);
+
+    public ImFont AddFontDefaultBitmap() {
+        long addr = internal_native_AddFontDefaultBitmap_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_6 == null)
+            ImFont_TEMP_GEN_6 = ImFont.native_new();
+        ImFont_TEMP_GEN_6.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_6;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontdefaultbitmap_addr_l")
+    public static native long internal_native_AddFontDefaultBitmap_addr(long this_addr);
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_7 == null)
+            ImFont_TEMP_GEN_7 = ImFont.native_new();
+        ImFont_TEMP_GEN_7.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_7;
     }
 
     @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontfrommemoryttf_addr_l_l_i_i_l")
@@ -99,12 +159,19 @@ public class ImFontAtlas extends NativeObject {
         long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels);
         if (addr == 0)
             return ImFont.NULL;
-        if (ImFont_TEMP_GEN_4 == null)
-            ImFont_TEMP_GEN_4 = ImFont.native_new();
-        ImFont_TEMP_GEN_4.internal_reset(addr, false);
-        return ImFont_TEMP_GEN_4;
+        if (ImFont_TEMP_GEN_8 == null)
+            ImFont_TEMP_GEN_8 = ImFont.native_new();
+        ImFont_TEMP_GEN_8.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_8;
     }
 
     @org.teavm.interop.Import(name = "imgui_imfontatlas_addfontfrommemoryttf_addr_l_l_i_i")
     public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels);
+
+    public void ClearFonts() {
+        internal_native_ClearFonts(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontatlas_clearfonts")
+    public static native void internal_native_ClearFonts(long this_addr);
 }

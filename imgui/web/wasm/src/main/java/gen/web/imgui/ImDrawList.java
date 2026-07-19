@@ -126,19 +126,47 @@ public class ImDrawList extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "p1_addr", "p2_addr", "col"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddLine(p1_addr, p2_addr, col);")
     public static native void internal_native_AddLine(int this_addr, int p1_addr, int p2_addr, int col);
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags, float thickness) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue(), thickness);
+    public void AddLineH(float min_x, float max_x, float y, int col, float thickness) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col, thickness);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "p_min_addr", "p_max_addr", "col", "rounding", "flags", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddRect(p_min_addr, p_max_addr, col, rounding, flags, thickness);")
-    public static native void internal_native_AddRect(int this_addr, int p_min_addr, int p_max_addr, int col, float rounding, int flags, float thickness);
+    @org.teavm.jso.JSBody(params = {"this_addr", "min_x", "max_x", "y", "col", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddLineH(min_x, max_x, y, col, thickness);")
+    public static native void internal_native_AddLineH(int this_addr, float min_x, float max_x, float y, int col, float thickness);
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue());
+    public void AddLineH(float min_x, float max_x, float y, int col) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "p_min_addr", "p_max_addr", "col", "rounding", "flags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddRect(p_min_addr, p_max_addr, col, rounding, flags);")
-    public static native void internal_native_AddRect(int this_addr, int p_min_addr, int p_max_addr, int col, float rounding, int flags);
+    @org.teavm.jso.JSBody(params = {"this_addr", "min_x", "max_x", "y", "col"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddLineH(min_x, max_x, y, col);")
+    public static native void internal_native_AddLineH(int this_addr, float min_x, float max_x, float y, int col);
+
+    public void AddLineV(float x, float min_y, float max_y, int col, float thickness) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col, thickness);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "x", "min_y", "max_y", "col", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddLineV(x, min_y, max_y, col, thickness);")
+    public static native void internal_native_AddLineV(int this_addr, float x, float min_y, float max_y, int col, float thickness);
+
+    public void AddLineV(float x, float min_y, float max_y, int col) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "x", "min_y", "max_y", "col"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddLineV(x, min_y, max_y, col);")
+    public static native void internal_native_AddLineV(int this_addr, float x, float min_y, float max_y, int col);
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness, ImDrawFlags flags) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness, flags.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "p_min_addr", "p_max_addr", "col", "rounding", "thickness", "flags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddRect(p_min_addr, p_max_addr, col, rounding, thickness, flags);")
+    public static native void internal_native_AddRect(int this_addr, int p_min_addr, int p_max_addr, int col, float rounding, float thickness, int flags);
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "p_min_addr", "p_max_addr", "col", "rounding", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.AddRect(p_min_addr, p_max_addr, col, rounding, thickness);")
+    public static native void internal_native_AddRect(int this_addr, int p_min_addr, int p_max_addr, int col, float rounding, float thickness);
 
     public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding) {
         internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding);
@@ -483,19 +511,19 @@ public class ImDrawList extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "col"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PathFillConvex(col);")
     public static native void internal_native_PathFillConvex(int this_addr, int col);
 
-    public void PathStroke(int col, ImDrawFlags flags, float thickness) {
-        internal_native_PathStroke(native_address, col, flags.getValue(), thickness);
+    public void PathStroke(int col, float thickness, ImDrawFlags flags) {
+        internal_native_PathStroke(native_address, col, thickness, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "col", "flags", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PathStroke(col, flags, thickness);")
-    public static native void internal_native_PathStroke(int this_addr, int col, int flags, float thickness);
+    @org.teavm.jso.JSBody(params = {"this_addr", "col", "thickness", "flags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PathStroke(col, thickness, flags);")
+    public static native void internal_native_PathStroke(int this_addr, int col, float thickness, int flags);
 
-    public void PathStroke(int col, ImDrawFlags flags) {
-        internal_native_PathStroke(native_address, col, flags.getValue());
+    public void PathStroke(int col, float thickness) {
+        internal_native_PathStroke(native_address, col, thickness);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "col", "flags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PathStroke(col, flags);")
-    public static native void internal_native_PathStroke(int this_addr, int col, int flags);
+    @org.teavm.jso.JSBody(params = {"this_addr", "col", "thickness"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PathStroke(col, thickness);")
+    public static native void internal_native_PathStroke(int this_addr, int col, float thickness);
 
     public void PathStroke(int col) {
         internal_native_PathStroke(native_address, col);

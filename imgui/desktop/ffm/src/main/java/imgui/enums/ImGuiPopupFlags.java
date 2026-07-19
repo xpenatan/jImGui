@@ -22,14 +22,15 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
     MouseButtonLeft(ImGuiPopupFlags_MouseButtonLeft_NATIVE()),
     MouseButtonRight(ImGuiPopupFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiPopupFlags_MouseButtonMiddle_NATIVE()),
-    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
-    MouseButtonDefault_(ImGuiPopupFlags_MouseButtonDefault__NATIVE()),
     NoReopen(ImGuiPopupFlags_NoReopen_NATIVE()),
     NoOpenOverExistingPopup(ImGuiPopupFlags_NoOpenOverExistingPopup_NATIVE()),
     NoOpenOverItems(ImGuiPopupFlags_NoOpenOverItems_NATIVE()),
     AnyPopupId(ImGuiPopupFlags_AnyPopupId_NATIVE()),
     AnyPopupLevel(ImGuiPopupFlags_AnyPopupLevel_NATIVE()),
-    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE());
+    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE()),
+    MouseButtonShift_(ImGuiPopupFlags_MouseButtonShift__NATIVE()),
+    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
+    InvalidMask_(ImGuiPopupFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -85,22 +86,6 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
         }
     }
 
-    private static int ImGuiPopupFlags_MouseButtonMask__NATIVE() {
-        try {
-            return (int) FFMHandles.ImGuiPopupFlags_MouseButtonMask__NATIVE__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    private static int ImGuiPopupFlags_MouseButtonDefault__NATIVE() {
-        try {
-            return (int) FFMHandles.ImGuiPopupFlags_MouseButtonDefault__NATIVE__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     private static int ImGuiPopupFlags_NoReopen_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiPopupFlags_NoReopen_NATIVE__.invokeExact();
@@ -149,6 +134,30 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
         }
     }
 
+    private static int ImGuiPopupFlags_MouseButtonShift__NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiPopupFlags_MouseButtonShift__NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiPopupFlags_MouseButtonMask__NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiPopupFlags_MouseButtonMask__NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiPopupFlags_InvalidMask__NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiPopupFlags_InvalidMask__NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -158,10 +167,6 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonRight_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttonright_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonMiddle_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmiddle_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonDefault__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttondefault__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_NoReopen_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_noreopen_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
@@ -174,5 +179,11 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_AnyPopupLevel_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_anypopuplevel_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiPopupFlags_AnyPopup_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_anypopup_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonShift__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttonshift__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiPopupFlags_MouseButtonMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiPopupFlags_InvalidMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguipopupflags_imguipopupflags_invalidmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

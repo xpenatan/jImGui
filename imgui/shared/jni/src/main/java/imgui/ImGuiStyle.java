@@ -545,6 +545,22 @@ public class ImGuiStyle extends NativeObject {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_LogSliderDeadzone(this_addr, LogSliderDeadzone);
     }
 
+    public float get_ImageRounding() {
+        return internal_native_get_ImageRounding(native_address);
+    }
+
+    public static float internal_native_get_ImageRounding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_ImageRounding(this_addr);
+    }
+
+    public void set_ImageRounding(float ImageRounding) {
+        internal_native_set_ImageRounding(native_address, ImageRounding);
+    }
+
+    public static void internal_native_set_ImageRounding(long this_addr, float ImageRounding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_ImageRounding(this_addr, ImageRounding);
+    }
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -591,6 +607,70 @@ public class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_TabBarBorderSize(this_addr, TabBarBorderSize);
+    }
+
+    public float get_DragDropTargetRounding() {
+        return internal_native_get_DragDropTargetRounding(native_address);
+    }
+
+    public static float internal_native_get_DragDropTargetRounding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_DragDropTargetRounding(this_addr);
+    }
+
+    public void set_DragDropTargetRounding(float DragDropTargetRounding) {
+        internal_native_set_DragDropTargetRounding(native_address, DragDropTargetRounding);
+    }
+
+    public static void internal_native_set_DragDropTargetRounding(long this_addr, float DragDropTargetRounding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_DragDropTargetRounding(this_addr, DragDropTargetRounding);
+    }
+
+    public float get_DragDropTargetBorderSize() {
+        return internal_native_get_DragDropTargetBorderSize(native_address);
+    }
+
+    public static float internal_native_get_DragDropTargetBorderSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_DragDropTargetBorderSize(this_addr);
+    }
+
+    public void set_DragDropTargetBorderSize(float DragDropTargetBorderSize) {
+        internal_native_set_DragDropTargetBorderSize(native_address, DragDropTargetBorderSize);
+    }
+
+    public static void internal_native_set_DragDropTargetBorderSize(long this_addr, float DragDropTargetBorderSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_DragDropTargetBorderSize(this_addr, DragDropTargetBorderSize);
+    }
+
+    public float get_DragDropTargetPadding() {
+        return internal_native_get_DragDropTargetPadding(native_address);
+    }
+
+    public static float internal_native_get_DragDropTargetPadding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_DragDropTargetPadding(this_addr);
+    }
+
+    public void set_DragDropTargetPadding(float DragDropTargetPadding) {
+        internal_native_set_DragDropTargetPadding(native_address, DragDropTargetPadding);
+    }
+
+    public static void internal_native_set_DragDropTargetPadding(long this_addr, float DragDropTargetPadding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_DragDropTargetPadding(this_addr, DragDropTargetPadding);
+    }
+
+    public float get_ColorMarkerSize() {
+        return internal_native_get_ColorMarkerSize(native_address);
+    }
+
+    public static float internal_native_get_ColorMarkerSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_ColorMarkerSize(this_addr);
+    }
+
+    public void set_ColorMarkerSize(float ColorMarkerSize) {
+        internal_native_set_ColorMarkerSize(native_address, ColorMarkerSize);
+    }
+
+    public static void internal_native_set_ColorMarkerSize(long this_addr, float ColorMarkerSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_ColorMarkerSize(this_addr, ColorMarkerSize);
     }
 
     public ImGuiDir get_ColorButtonPosition() {
@@ -658,6 +738,22 @@ public class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_SelectableTextAlign(this_addr, SelectableTextAlign_addr);
+    }
+
+    public float get_SeparatorSize() {
+        return internal_native_get_SeparatorSize(native_address);
+    }
+
+    public static float internal_native_get_SeparatorSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_SeparatorSize(this_addr);
+    }
+
+    public void set_SeparatorSize(float SeparatorSize) {
+        internal_native_set_SeparatorSize(native_address, SeparatorSize);
+    }
+
+    public static void internal_native_set_SeparatorSize(long this_addr, float SeparatorSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_SeparatorSize(this_addr, SeparatorSize);
     }
 
     public float get_SeparatorTextBorderSize() {

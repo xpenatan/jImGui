@@ -22,6 +22,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     NoSidePreview(ImGuiColorEditFlags_NoSidePreview_NATIVE()),
     NoDragDrop(ImGuiColorEditFlags_NoDragDrop_NATIVE()),
     NoBorder(ImGuiColorEditFlags_NoBorder_NATIVE()),
+    NoColorMarkers(ImGuiColorEditFlags_NoColorMarkers_NATIVE()),
     AlphaOpaque(ImGuiColorEditFlags_AlphaOpaque_NATIVE()),
     AlphaNoBg(ImGuiColorEditFlags_AlphaNoBg_NATIVE()),
     AlphaPreviewHalf(ImGuiColorEditFlags_AlphaPreviewHalf_NATIVE()),
@@ -107,6 +108,10 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
 
     private static int ImGuiColorEditFlags_NoBorder_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiColorEditFlags.ImGuiColorEditFlags_NoBorder_NATIVE();
+    }
+
+    private static int ImGuiColorEditFlags_NoColorMarkers_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiColorEditFlags.ImGuiColorEditFlags_NoColorMarkers_NATIVE();
     }
 
     private static int ImGuiColorEditFlags_AlphaOpaque_NATIVE() {

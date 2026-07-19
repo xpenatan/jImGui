@@ -24,16 +24,18 @@ val buildDir = layout.buildDirectory.get().asFile
 val zippedPath = "${buildDir}/nodeeditor.zip"
 val sourcePath = "${buildDir}/nodeeditor/"
 val sourceDestination = "${buildDir}/imgui-node-editor/"
+val nodeEditorCommit = "55a7dbf4b517b5e809b372ba39153fe20bad39ad"
 
 tasks.register<Download>("download_source") {
     group = "node-editor"
     description = "Download source"
-    src("https://github.com/stephen-os/imgui-node-editor/archive/3161c85bdeb654268797b216ea9a66739e03c446.zip")
+    src("https://github.com/NogginBops/imgui-node-editor/archive/$nodeEditorCommit.zip")
     dest(File(zippedPath))
     doLast {
         unzipTo(File(sourcePath), dest)
+        delete(sourceDestination)
         copy {
-            from("$sourcePath/imgui-node-editor-3161c85bdeb654268797b216ea9a66739e03c446")
+            from("$sourcePath/imgui-node-editor-$nodeEditorCommit")
             into(sourceDestination)
         }
         delete(sourcePath)

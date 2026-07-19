@@ -37,6 +37,20 @@ public class ImGuiPlatformIO extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public void ClearPlatformHandlers() {
+        internal_native_ClearPlatformHandlers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);jsObj.ClearPlatformHandlers();")
+    public static native void internal_native_ClearPlatformHandlers(int this_addr);
+
+    public void ClearRendererHandlers() {
+        internal_native_ClearRendererHandlers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);jsObj.ClearRendererHandlers();")
+    public static native void internal_native_ClearRendererHandlers(int this_addr);
+
     public ImVectorImTextureDataPtr get_Textures() {
         int addr = internal_native_get_Textures_addr(native_address);
         if (addr == 0)

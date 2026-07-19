@@ -33,6 +33,9 @@ else {
     "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\""
 }
 val imguiMsvcUserConfigFlag = "/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
+val enableNativeTestHooks = gradle.startParameter.taskNames.any {
+    it == "test" || it.endsWith(":imgui:shared:jni:test")
+}
 
 java {
     sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
@@ -103,6 +106,12 @@ jParser {
         desktopTargets.forEach { targetName ->
             target(targetName) {
                 configureDesktopTarget(targetName.targetName)
+                if(enableNativeTestHooks && targetName.targetName.endsWith("_jni")) {
+                    compileFlag(if(targetName.targetName.startsWith("windows64"))
+                        "/DJIMGUI_ENABLE_TEST_HOOKS"
+                    else
+                        "-DJIMGUI_ENABLE_TEST_HOOKS")
+                }
             }
         }
 

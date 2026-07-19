@@ -48,6 +48,8 @@ final public class JNI_ImGuiCol {
 
     static native public int ImGuiCol_CheckMark_NATIVE();
 
+    static native public int ImGuiCol_CheckboxSelectedBg_NATIVE();
+
     static native public int ImGuiCol_SliderGrab_NATIVE();
 
     static native public int ImGuiCol_SliderGrabActive_NATIVE();
@@ -121,6 +123,8 @@ final public class JNI_ImGuiCol {
     static native public int ImGuiCol_TreeLines_NATIVE();
 
     static native public int ImGuiCol_DragDropTarget_NATIVE();
+
+    static native public int ImGuiCol_DragDropTargetBg_NATIVE();
 
     static native public int ImGuiCol_UnsavedMarker_NATIVE();
 

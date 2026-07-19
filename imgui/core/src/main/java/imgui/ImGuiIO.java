@@ -207,6 +207,13 @@ public class ImGuiIO extends NativeObject {
     public void set_ConfigDockingNoSplit(boolean ConfigDockingNoSplit) {
     }
 
+    public boolean get_ConfigDockingNoDockingOver() {
+        return false;
+    }
+
+    public void set_ConfigDockingNoDockingOver(boolean ConfigDockingNoDockingOver) {
+    }
+
     public boolean get_ConfigDockingWithShift() {
         return false;
     }

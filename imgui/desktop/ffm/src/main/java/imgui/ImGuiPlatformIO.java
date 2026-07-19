@@ -49,6 +49,30 @@ public class ImGuiPlatformIO extends NativeObject {
         }
     }
 
+    public void ClearPlatformHandlers() {
+        internal_native_ClearPlatformHandlers(native_address);
+    }
+
+    public static void internal_native_ClearPlatformHandlers(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearPlatformHandlers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearRendererHandlers() {
+        internal_native_ClearRendererHandlers(native_address);
+    }
+
+    public static void internal_native_ClearRendererHandlers(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearRendererHandlers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public ImVectorImTextureDataPtr get_Textures() {
         long addr = internal_native_get_Textures_addr(native_address);
         if (addr == 0)
@@ -112,6 +136,10 @@ public class ImGuiPlatformIO extends NativeObject {
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearPlatformHandlers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_clearplatformhandlers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearRendererHandlers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_clearrendererhandlers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_Textures_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_textures_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

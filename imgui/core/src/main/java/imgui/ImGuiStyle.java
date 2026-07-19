@@ -213,6 +213,13 @@ public class ImGuiStyle extends NativeObject {
     public void set_LogSliderDeadzone(float LogSliderDeadzone) {
     }
 
+    public float get_ImageRounding() {
+        return 0;
+    }
+
+    public void set_ImageRounding(float ImageRounding) {
+    }
+
     public float get_TabRounding() {
         return 0;
     }
@@ -234,6 +241,34 @@ public class ImGuiStyle extends NativeObject {
     public void set_TabBarBorderSize(float TabBarBorderSize) {
     }
 
+    public float get_DragDropTargetRounding() {
+        return 0;
+    }
+
+    public void set_DragDropTargetRounding(float DragDropTargetRounding) {
+    }
+
+    public float get_DragDropTargetBorderSize() {
+        return 0;
+    }
+
+    public void set_DragDropTargetBorderSize(float DragDropTargetBorderSize) {
+    }
+
+    public float get_DragDropTargetPadding() {
+        return 0;
+    }
+
+    public void set_DragDropTargetPadding(float DragDropTargetPadding) {
+    }
+
+    public float get_ColorMarkerSize() {
+        return 0;
+    }
+
+    public void set_ColorMarkerSize(float ColorMarkerSize) {
+    }
+
     public ImGuiDir get_ColorButtonPosition() {
         return null;
     }
@@ -253,6 +288,13 @@ public class ImGuiStyle extends NativeObject {
     }
 
     public void set_SelectableTextAlign(ImVec2 SelectableTextAlign) {
+    }
+
+    public float get_SeparatorSize() {
+        return 0;
+    }
+
+    public void set_SeparatorSize(float SeparatorSize) {
     }
 
     public float get_SeparatorTextBorderSize() {

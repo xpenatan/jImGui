@@ -24,7 +24,8 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
     RoundCornersRight(ImDrawFlags_RoundCornersRight_NATIVE()),
     RoundCornersAll(ImDrawFlags_RoundCornersAll_NATIVE()),
     RoundCornersDefault_(ImDrawFlags_RoundCornersDefault__NATIVE()),
-    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE());
+    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE()),
+    InvalidMask_(ImDrawFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -102,5 +103,9 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
 
     private static int ImDrawFlags_RoundCornersMask__NATIVE() {
         return imgui.enums.natives.JNI_ImDrawFlags.ImDrawFlags_RoundCornersMask__NATIVE();
+    }
+
+    private static int ImDrawFlags_InvalidMask__NATIVE() {
+        return imgui.enums.natives.JNI_ImDrawFlags.ImDrawFlags_InvalidMask__NATIVE();
     }
 }

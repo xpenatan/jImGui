@@ -15,14 +15,15 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
     MouseButtonLeft(ImGuiPopupFlags_MouseButtonLeft_NATIVE()),
     MouseButtonRight(ImGuiPopupFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiPopupFlags_MouseButtonMiddle_NATIVE()),
-    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
-    MouseButtonDefault_(ImGuiPopupFlags_MouseButtonDefault__NATIVE()),
     NoReopen(ImGuiPopupFlags_NoReopen_NATIVE()),
     NoOpenOverExistingPopup(ImGuiPopupFlags_NoOpenOverExistingPopup_NATIVE()),
     NoOpenOverItems(ImGuiPopupFlags_NoOpenOverItems_NATIVE()),
     AnyPopupId(ImGuiPopupFlags_AnyPopupId_NATIVE()),
     AnyPopupLevel(ImGuiPopupFlags_AnyPopupLevel_NATIVE()),
-    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE());
+    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE()),
+    MouseButtonShift_(ImGuiPopupFlags_MouseButtonShift__NATIVE()),
+    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
+    InvalidMask_(ImGuiPopupFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -54,10 +55,6 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
 
     private static native int ImGuiPopupFlags_MouseButtonMiddle_NATIVE();
 
-    private static native int ImGuiPopupFlags_MouseButtonMask__NATIVE();
-
-    private static native int ImGuiPopupFlags_MouseButtonDefault__NATIVE();
-
     private static native int ImGuiPopupFlags_NoReopen_NATIVE();
 
     private static native int ImGuiPopupFlags_NoOpenOverExistingPopup_NATIVE();
@@ -69,4 +66,10 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
     private static native int ImGuiPopupFlags_AnyPopupLevel_NATIVE();
 
     private static native int ImGuiPopupFlags_AnyPopup_NATIVE();
+
+    private static native int ImGuiPopupFlags_MouseButtonShift__NATIVE();
+
+    private static native int ImGuiPopupFlags_MouseButtonMask__NATIVE();
+
+    private static native int ImGuiPopupFlags_InvalidMask__NATIVE();
 }

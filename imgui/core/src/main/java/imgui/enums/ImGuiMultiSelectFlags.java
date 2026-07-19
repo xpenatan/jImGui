@@ -25,9 +25,12 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
     ClearOnClickVoid(ImGuiMultiSelectFlags_ClearOnClickVoid_NATIVE()),
     ScopeWindow(ImGuiMultiSelectFlags_ScopeWindow_NATIVE()),
     ScopeRect(ImGuiMultiSelectFlags_ScopeRect_NATIVE()),
-    SelectOnClick(ImGuiMultiSelectFlags_SelectOnClick_NATIVE()),
+    SelectOnAuto(ImGuiMultiSelectFlags_SelectOnAuto_NATIVE()),
+    SelectOnClickAlways(ImGuiMultiSelectFlags_SelectOnClickAlways_NATIVE()),
     SelectOnClickRelease(ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE()),
-    NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE());
+    NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE()),
+    NoSelectOnRightClick(ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE()),
+    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE());
 
     private int value;
 
@@ -79,9 +82,15 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
 
     private static native int ImGuiMultiSelectFlags_ScopeRect_NATIVE();
 
-    private static native int ImGuiMultiSelectFlags_SelectOnClick_NATIVE();
+    private static native int ImGuiMultiSelectFlags_SelectOnAuto_NATIVE();
+
+    private static native int ImGuiMultiSelectFlags_SelectOnClickAlways_NATIVE();
 
     private static native int ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE();
 
     private static native int ImGuiMultiSelectFlags_NavWrapX_NATIVE();
+
+    private static native int ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE();
+
+    private static native int ImGuiMultiSelectFlags_SelectOnMask__NATIVE();
 }

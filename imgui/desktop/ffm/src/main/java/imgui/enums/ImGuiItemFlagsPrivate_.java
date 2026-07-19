@@ -18,7 +18,6 @@ import java.lang.invoke.MethodHandle;
 public enum ImGuiItemFlagsPrivate_ implements NativeEnum<ImGuiItemFlagsPrivate_> {
 
     CUSTOM(0),
-    Disabled(ImGuiItemFlags_Disabled_NATIVE()),
     ReadOnly(ImGuiItemFlags_ReadOnly_NATIVE()),
     MixedValue(ImGuiItemFlags_MixedValue_NATIVE()),
     NoWindowHoverableCheck(ImGuiItemFlags_NoWindowHoverableCheck_NATIVE()),
@@ -51,14 +50,6 @@ public enum ImGuiItemFlagsPrivate_ implements NativeEnum<ImGuiItemFlagsPrivate_>
 
     public ImGuiItemFlagsPrivate_ getCustom() {
         return CUSTOM;
-    }
-
-    private static int ImGuiItemFlags_Disabled_NATIVE() {
-        try {
-            return (int) FFMHandles.ImGuiItemFlags_Disabled_NATIVE__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
     }
 
     private static int ImGuiItemFlags_ReadOnly_NATIVE() {
@@ -150,8 +141,6 @@ public enum ImGuiItemFlagsPrivate_ implements NativeEnum<ImGuiItemFlagsPrivate_>
     }
 
     private static final class FFMHandles {
-
-        static final java.lang.invoke.MethodHandle ImGuiItemFlags_Disabled_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflagsprivate__imguiitemflags_disabled_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_ReadOnly_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflagsprivate__imguiitemflags_readonly_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

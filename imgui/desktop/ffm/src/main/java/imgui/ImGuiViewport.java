@@ -7,6 +7,7 @@
 package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import imgui.enums.ImGuiViewportFlags;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
@@ -17,6 +18,8 @@ import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
 public class ImGuiViewport extends NativeObject {
+
+    private NativeString NativeString_TEMP_GEN_0;
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 
@@ -37,6 +40,8 @@ public class ImGuiViewport extends NativeObject {
     private NativeObject NativeObject_TEMP_GEN_2;
 
     private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
 
@@ -61,6 +66,24 @@ public class ImGuiViewport extends NativeObject {
     public static void internal_native_deleteNative(long this_addr) {
         try {
             FFMHandles.internal_native_deleteNative__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetDebugName() {
+        long addr = internal_native_GetDebugName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetDebugName_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetDebugName_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -409,14 +432,44 @@ public class ImGuiViewport extends NativeObject {
         }
     }
 
-    public NativeObject get_PlatformHandle() {
-        long addr = internal_native_get_PlatformHandle_addr(native_address);
+    public NativeObject get_PlatformIconData() {
+        long addr = internal_native_get_PlatformIconData_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_2 == null)
             NativeObject_TEMP_GEN_2 = NativeObject.native_new();
         NativeObject_TEMP_GEN_2.internal_reset(addr, false);
         return NativeObject_TEMP_GEN_2;
+    }
+
+    public static long internal_native_get_PlatformIconData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_PlatformIconData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    public static void internal_native_set_PlatformIconData(long this_addr, long PlatformIconData_addr) {
+        try {
+            FFMHandles.internal_native_set_PlatformIconData__JJ.invokeExact(this_addr, PlatformIconData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_PlatformHandle() {
+        long addr = internal_native_get_PlatformHandle_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
     }
 
     public static long internal_native_get_PlatformHandle_addr(long this_addr) {
@@ -443,10 +496,10 @@ public class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_PlatformHandleRaw_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
-        if (NativeObject_TEMP_GEN_3 == null)
-            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
-        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
-        return NativeObject_TEMP_GEN_3;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
     }
 
     public static long internal_native_get_PlatformHandleRaw_addr(long this_addr) {
@@ -569,6 +622,8 @@ public class ImGuiViewport extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiviewport_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_GetDebugName_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_getdebugname_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_get_ID__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_id", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ID__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_set_id", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
@@ -616,6 +671,10 @@ public class ImGuiViewport extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_PlatformUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_platformuserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_PlatformUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_set_platformuserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_PlatformIconData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_platformicondata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_PlatformIconData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_set_platformicondata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_PlatformHandle_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_platformhandle_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

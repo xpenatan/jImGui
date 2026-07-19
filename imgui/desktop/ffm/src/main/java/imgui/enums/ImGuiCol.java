@@ -37,6 +37,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     ScrollbarGrabHovered(ImGuiCol_ScrollbarGrabHovered_NATIVE()),
     ScrollbarGrabActive(ImGuiCol_ScrollbarGrabActive_NATIVE()),
     CheckMark(ImGuiCol_CheckMark_NATIVE()),
+    CheckboxSelectedBg(ImGuiCol_CheckboxSelectedBg_NATIVE()),
     SliderGrab(ImGuiCol_SliderGrab_NATIVE()),
     SliderGrabActive(ImGuiCol_SliderGrabActive_NATIVE()),
     Button(ImGuiCol_Button_NATIVE()),
@@ -74,6 +75,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     TextSelectedBg(ImGuiCol_TextSelectedBg_NATIVE()),
     TreeLines(ImGuiCol_TreeLines_NATIVE()),
     DragDropTarget(ImGuiCol_DragDropTarget_NATIVE()),
+    DragDropTargetBg(ImGuiCol_DragDropTargetBg_NATIVE()),
     UnsavedMarker(ImGuiCol_UnsavedMarker_NATIVE()),
     NavCursor(ImGuiCol_NavCursor_NATIVE()),
     NavWindowingHighlight(ImGuiCol_NavWindowingHighlight_NATIVE()),
@@ -249,6 +251,14 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     private static int ImGuiCol_CheckMark_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiCol_CheckMark_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiCol_CheckboxSelectedBg_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiCol_CheckboxSelectedBg_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -550,6 +560,14 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
         }
     }
 
+    private static int ImGuiCol_DragDropTargetBg_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiCol_DragDropTargetBg_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiCol_UnsavedMarker_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiCol_UnsavedMarker_NATIVE__.invokeExact();
@@ -630,6 +648,8 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
 
         static final java.lang.invoke.MethodHandle ImGuiCol_CheckMark_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_checkmark_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle ImGuiCol_CheckboxSelectedBg_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_checkboxselectedbg_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle ImGuiCol_SliderGrab_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_slidergrab_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiCol_SliderGrabActive_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_slidergrabactive_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -703,6 +723,8 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
         static final java.lang.invoke.MethodHandle ImGuiCol_TreeLines_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_treelines_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiCol_DragDropTarget_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_dragdroptarget_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiCol_DragDropTargetBg_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_dragdroptargetbg_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiCol_UnsavedMarker_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicol_imguicol_unsavedmarker_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

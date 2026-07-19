@@ -38,11 +38,30 @@ public class ImFontAtlas extends NativeObject {
         return null;
     }
 
+    public ImFont AddFontDefaultVector(ImFontConfig font_cfg) {
+        return null;
+    }
+
+    public ImFont AddFontDefaultVector() {
+        return null;
+    }
+
+    public ImFont AddFontDefaultBitmap(ImFontConfig font_cfg) {
+        return null;
+    }
+
+    public ImFont AddFontDefaultBitmap() {
+        return null;
+    }
+
     public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
         return null;
     }
 
     public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels) {
         return null;
+    }
+
+    public void ClearFonts() {
     }
 }

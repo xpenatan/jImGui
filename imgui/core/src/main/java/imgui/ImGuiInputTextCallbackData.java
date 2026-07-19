@@ -27,6 +27,17 @@ public class ImGuiInputTextCallbackData extends NativeObject {
         return new ImGuiInputTextCallbackData((byte) 0, (char) 0);
     }
 
+    public void SetSelection(int selection_start, int selection_end) {
+    }
+
+    public int get_ID() {
+        return 0;
+    }
+
+    public boolean get_EventActivated() {
+        return false;
+    }
+
     public int get_BufSize() {
         return 0;
     }

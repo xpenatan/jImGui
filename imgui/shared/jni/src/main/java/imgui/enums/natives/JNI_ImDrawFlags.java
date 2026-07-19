@@ -37,4 +37,6 @@ final public class JNI_ImDrawFlags {
     static native public int ImDrawFlags_RoundCornersDefault__NATIVE();
 
     static native public int ImDrawFlags_RoundCornersMask__NATIVE();
+
+    static native public int ImDrawFlags_InvalidMask__NATIVE();
 }

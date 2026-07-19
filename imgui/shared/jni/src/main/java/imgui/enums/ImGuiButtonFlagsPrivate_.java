@@ -18,7 +18,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
     PressedOnDoubleClick(ImGuiButtonFlags_PressedOnDoubleClick_NATIVE()),
     PressedOnDragDropHold(ImGuiButtonFlags_PressedOnDragDropHold_NATIVE()),
     FlattenChildren(ImGuiButtonFlags_FlattenChildren_NATIVE()),
-    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE()),
     AlignTextBaseLine(ImGuiButtonFlags_AlignTextBaseLine_NATIVE()),
     NoKeyModsAllowed(ImGuiButtonFlags_NoKeyModsAllowed_NATIVE()),
     NoHoldingActiveId(ImGuiButtonFlags_NoHoldingActiveId_NATIVE()),
@@ -78,10 +77,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
 
     private static int ImGuiButtonFlags_FlattenChildren_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiButtonFlagsPrivate_.ImGuiButtonFlags_FlattenChildren_NATIVE();
-    }
-
-    private static int ImGuiButtonFlags_AllowOverlap_NATIVE() {
-        return imgui.enums.natives.JNI_ImGuiButtonFlagsPrivate_.ImGuiButtonFlags_AllowOverlap_NATIVE();
     }
 
     private static int ImGuiButtonFlags_AlignTextBaseLine_NATIVE() {

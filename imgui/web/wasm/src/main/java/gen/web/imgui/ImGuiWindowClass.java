@@ -13,6 +13,8 @@ import gen.web.imgui.enums.ImGuiDockNodeFlags;
 
 public class ImGuiWindowClass extends NativeObject {
 
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImGuiWindowClass NULL = ImGuiWindowClass.native_new();
 
     public ImGuiWindowClass() {
@@ -197,4 +199,24 @@ public class ImGuiWindowClass extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "DockingAllowUnclassed"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiWindowClass);jsObj.set_DockingAllowUnclassed(DockingAllowUnclassed);")
     public static native void internal_native_set_DockingAllowUnclassed(int this_addr, boolean DockingAllowUnclassed);
+
+    public NativeObject get_PlatformIconData() {
+        int addr = internal_native_get_PlatformIconData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiWindowClass);return jsObj.get_PlatformIconData();")
+    public static native int internal_native_get_PlatformIconData_addr(int this_addr);
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "PlatformIconData_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiWindowClass);jsObj.set_PlatformIconData(PlatformIconData_addr);")
+    public static native void internal_native_set_PlatformIconData(int this_addr, int PlatformIconData_addr);
 }

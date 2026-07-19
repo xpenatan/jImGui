@@ -1531,6 +1531,10 @@ public class ImGui extends NativeObject {
         return 0;
     }
 
+    public static boolean TreeNodeGetOpen(int storage_id) {
+        return false;
+    }
+
     public static boolean CollapsingHeader(String label, ImGuiTreeNodeFlags flags) {
         return false;
     }
@@ -2179,6 +2183,10 @@ public class ImGui extends NativeObject {
         return 0;
     }
 
+    public static ImGuiItemFlags GetItemFlags() {
+        return null;
+    }
+
     public static ImVec2 GetItemRectMin() {
         return null;
     }
@@ -2317,7 +2325,8 @@ public class ImGui extends NativeObject {
     public static void SetNextItemShortcut(int key_chord) {
     }
 
-    public static void SetItemKeyOwner(ImGuiKey key) {
+    public static boolean SetItemKeyOwner(ImGuiKey key) {
+        return false;
     }
 
     public static boolean IsMouseDown(ImGuiMouseButton ImGuiMouseButton) {

@@ -30,6 +30,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     ScrollbarGrabHovered(ImGuiCol_ScrollbarGrabHovered_NATIVE()),
     ScrollbarGrabActive(ImGuiCol_ScrollbarGrabActive_NATIVE()),
     CheckMark(ImGuiCol_CheckMark_NATIVE()),
+    CheckboxSelectedBg(ImGuiCol_CheckboxSelectedBg_NATIVE()),
     SliderGrab(ImGuiCol_SliderGrab_NATIVE()),
     SliderGrabActive(ImGuiCol_SliderGrabActive_NATIVE()),
     Button(ImGuiCol_Button_NATIVE()),
@@ -67,6 +68,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     TextSelectedBg(ImGuiCol_TextSelectedBg_NATIVE()),
     TreeLines(ImGuiCol_TreeLines_NATIVE()),
     DragDropTarget(ImGuiCol_DragDropTarget_NATIVE()),
+    DragDropTargetBg(ImGuiCol_DragDropTargetBg_NATIVE()),
     UnsavedMarker(ImGuiCol_UnsavedMarker_NATIVE()),
     NavCursor(ImGuiCol_NavCursor_NATIVE()),
     NavWindowingHighlight(ImGuiCol_NavWindowingHighlight_NATIVE()),
@@ -169,6 +171,10 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
 
     private static int ImGuiCol_CheckMark_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiCol.ImGuiCol_CheckMark_NATIVE();
+    }
+
+    private static int ImGuiCol_CheckboxSelectedBg_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiCol.ImGuiCol_CheckboxSelectedBg_NATIVE();
     }
 
     private static int ImGuiCol_SliderGrab_NATIVE() {
@@ -317,6 +323,10 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
 
     private static int ImGuiCol_DragDropTarget_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiCol.ImGuiCol_DragDropTarget_NATIVE();
+    }
+
+    private static int ImGuiCol_DragDropTargetBg_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiCol.ImGuiCol_DragDropTargetBg_NATIVE();
     }
 
     private static int ImGuiCol_UnsavedMarker_NATIVE() {

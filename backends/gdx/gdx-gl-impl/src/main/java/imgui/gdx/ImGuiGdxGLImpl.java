@@ -18,6 +18,7 @@ import imgui.ImDrawCmd;
 import imgui.ImDrawData;
 import imgui.ImDrawList;
 import imgui.ImGui;
+import imgui.ImGuiDrawCallbacks;
 import imgui.ImGuiIO;
 import imgui.ImGuiPlatformIO;
 import imgui.ImTemp;
@@ -33,11 +34,14 @@ import imgui.ImVectorImDrawVert;
 import imgui.ImVectorImTextureDataPtr;
 import imgui.ImVectorImTextureRect;
 import imgui.enums.ImGuiBackendFlags;
+import imgui.enums.ImGuiDrawCallbackType;
 import imgui.enums.ImTextureFormat;
 import imgui.enums.ImTextureStatus;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author xpenatan
@@ -70,6 +74,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
 
     private ByteBuffer tempBuffer;
     private IntBuffer tempTextureBuffer;
+    private final IntBuffer glStateBuffer = BufferUtils.newIntBuffer(4);
 
     public ImGuiGdxGLImpl() {
         this(Gdx.files.local("imgui.ini"));
@@ -82,6 +87,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
 
         ImGuiIO io = ImGui.GetIO();
         io.set_BackendFlags(ImGuiBackendFlags.RendererHasVtxOffset.or(ImGuiBackendFlags.RendererHasTextures).or(ImGuiBackendFlags.HasMouseCursors));
+        ImGuiDrawCallbacks.InstallStandardCallbacks(ImGui.GetPlatformIO());
 
         vertexAttributes = new VertexAttributes(
                 new VertexAttribute(Usage.Position, 2, GL20.GL_FLOAT, false, "Position"),
@@ -130,8 +136,16 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         ImTextureStatus status = tex.get_Status();
         ImTextureFormat format = tex.get_Format();
         int sizeBytes = tex.GetSizeInBytes();
+        boolean uploadsPixels = status == ImTextureStatus.WantCreate || status == ImTextureStatus.WantUpdates;
+        int lastUnpackAlignment = uploadsPixels ? getInteger(GL20.GL_UNPACK_ALIGNMENT) : 0;
+        int lastUnpackRowLength = uploadsPixels && Gdx.gl30 != null
+                ? getInteger(GL30.GL_UNPACK_ROW_LENGTH)
+                : 0;
 
-        if(status == ImTextureStatus.WantCreate || status == ImTextureStatus.WantUpdates) {
+        if(uploadsPixels) {
+            if(format != ImTextureFormat.RGBA32) {
+                throw new IllegalArgumentException("Unsupported ImGui texture format: " + format);
+            }
             Gdx.gl.glPixelStorei(GL20.GL_UNPACK_ALIGNMENT, 1);
         }
 
@@ -144,7 +158,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
             int width = tex.get_Width();
             int height = tex.get_Height();
             tempTextureBuffer.put(0, 0);
-            Gdx.gl.glGetIntegerv(GL20.GL_ACTIVE_TEXTURE, tempTextureBuffer);
+            Gdx.gl.glGetIntegerv(GL20.GL_TEXTURE_BINDING_2D, tempTextureBuffer);
             int last_texture = tempTextureBuffer.get(0);
             int g_Texture = Gdx.gl.glGenTexture();
             Gdx.gl.glBindTexture(GL20.GL_TEXTURE_2D, g_Texture);
@@ -161,7 +175,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         else if(status == ImTextureStatus.WantUpdates) {
             int bytesPerPixel = tex.get_BytesPerPixel();
             tempTextureBuffer.put(0, 0);
-            Gdx.gl.glGetIntegerv(GL20.GL_ACTIVE_TEXTURE, tempTextureBuffer);
+            Gdx.gl.glGetIntegerv(GL20.GL_TEXTURE_BINDING_2D, tempTextureBuffer);
             int last_texture = tempTextureBuffer.get(0);
             ImTextureIDRef imTextureIDRef = tex.GetTexID();
             int texId = (int)imTextureIDRef.Get();
@@ -227,6 +241,13 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         }
         else if (status == ImTextureStatus.WantDestroy && tex.get_UnusedFrames() > 0) {
             destroyTexture(tex);
+        }
+
+        if(uploadsPixels) {
+            if(Gdx.gl30 != null) {
+                Gdx.gl.glPixelStorei(GL30.GL_UNPACK_ROW_LENGTH, lastUnpackRowLength);
+            }
+            Gdx.gl.glPixelStorei(GL20.GL_UNPACK_ALIGNMENT, lastUnpackAlignment);
         }
     }
 
@@ -311,9 +332,21 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
             }
         }
 
-        int totalVtxCount = drawData.get_TotalVtxCount();
-        int totalIdxCount = drawData.get_TotalIdxCount();
-
+        int last_active_texture = getInteger(GL20.GL_ACTIVE_TEXTURE);
+        Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+        int last_program = getInteger(GL20.GL_CURRENT_PROGRAM);
+        int last_texture = getInteger(GL20.GL_TEXTURE_BINDING_2D);
+        int last_array_buffer = getInteger(GL20.GL_ARRAY_BUFFER_BINDING);
+        int last_element_array_buffer = getInteger(GL20.GL_ELEMENT_ARRAY_BUFFER_BINDING);
+        int last_vertex_array = isGL30 ? getInteger(GL30.GL_VERTEX_ARRAY_BINDING) : 0;
+        int last_blend_src_rgb = getInteger(GL20.GL_BLEND_SRC_RGB);
+        int last_blend_dst_rgb = getInteger(GL20.GL_BLEND_DST_RGB);
+        int last_blend_src_alpha = getInteger(GL20.GL_BLEND_SRC_ALPHA);
+        int last_blend_dst_alpha = getInteger(GL20.GL_BLEND_DST_ALPHA);
+        int last_blend_equation_rgb = getInteger(GL20.GL_BLEND_EQUATION_RGB);
+        int last_blend_equation_alpha = getInteger(GL20.GL_BLEND_EQUATION_ALPHA);
+        int[] last_viewport = getInteger4(GL20.GL_VIEWPORT);
+        int[] last_scissor_box = getInteger4(GL20.GL_SCISSOR_BOX);
         boolean last_enable_blend = Gdx.gl.glIsEnabled(GL20.GL_BLEND);
         boolean last_enable_cull_face = Gdx.gl.glIsEnabled(GL20.GL_CULL_FACE);
         boolean last_enable_depth_test = Gdx.gl.glIsEnabled(GL20.GL_DEPTH_TEST);
@@ -323,6 +356,8 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         ImVec2 displayPos = drawData.get_DisplayPos();
 
         bind(drawData, fb_width, fb_height);
+        int selectedTextureFilter = GL20.GL_LINEAR;
+        Map<Integer, int[]> originalTextureFilters = new HashMap<>();
 
         float clip_offX = displayPos.get_x(); // (0,0) unless using multi-viewports
         float clip_offY = displayPos.get_y();
@@ -371,8 +406,27 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
             Gdx.gl.glBufferData(GL20.GL_ELEMENT_ARRAY_BUFFER, idxByteSize, indexByteBuffer, GL20.GL_STREAM_DRAW);
 
             int cmdBufferSize = cmdBuffer.size();
+            int boundVtxOffset = 0;
             for(int j = 0; j < cmdBufferSize; j++) {
                 ImDrawCmd drawCmd = cmdBuffer.getData(j);
+                ImGuiDrawCallbackType callbackType = ImGuiDrawCallbacks.GetType(drawCmd);
+                if(callbackType != ImGuiDrawCallbackType.None) {
+                    if(callbackType == ImGuiDrawCallbackType.ResetRenderState) {
+                        setupRenderState(drawData, fb_width, fb_height);
+                        selectedTextureFilter = GL20.GL_LINEAR;
+                        boundVtxOffset = 0;
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.SetSamplerLinear) {
+                        selectedTextureFilter = GL20.GL_LINEAR;
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.SetSamplerNearest) {
+                        selectedTextureFilter = GL20.GL_NEAREST;
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.User) {
+                        ImGuiDrawCallbacks.InvokeUserCallback(drawList, drawCmd);
+                    }
+                    continue;
+                }
                 ImVec4 clipRect = drawCmd.get_ClipRect();
                 float clipRectX = clipRect.get_x();
                 float clipRectY = clipRect.get_y();
@@ -394,11 +448,39 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
                 ImTextureIDRef imTextureIDRef = drawCmd.GetTexID();
                 int texId = (int)imTextureIDRef.Get();
                 Gdx.gl.glBindTexture(GL20.GL_TEXTURE_2D, texId);
+                rememberTextureFilter(texId, originalTextureFilters);
+                Gdx.gl.glTexParameteri(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MIN_FILTER, selectedTextureFilter);
+                Gdx.gl.glTexParameteri(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MAG_FILTER, selectedTextureFilter);
+                if(vtxOffset != boundVtxOffset) {
+                    bindVertexAttributes(vtxOffset * VTX_BUFFER_SIZE);
+                    boundVtxOffset = vtxOffset;
+                }
                 Gdx.gl.glDrawElements(GL20.GL_TRIANGLES, elemCount, GL20.GL_UNSIGNED_SHORT, indices);
             }
         }
 
         unbind();
+
+        for(Map.Entry<Integer, int[]> entry : originalTextureFilters.entrySet()) {
+            Gdx.gl.glBindTexture(GL20.GL_TEXTURE_2D, entry.getKey());
+            int[] filters = entry.getValue();
+            Gdx.gl.glTexParameteri(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MIN_FILTER, filters[0]);
+            Gdx.gl.glTexParameteri(GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_MAG_FILTER, filters[1]);
+        }
+        if(last_program == 0 || Gdx.gl.glIsProgram(last_program)) {
+            Gdx.gl.glUseProgram(last_program);
+        }
+        Gdx.gl.glBindTexture(GL20.GL_TEXTURE_2D, last_texture);
+        Gdx.gl.glActiveTexture(last_active_texture);
+        if(isGL30) {
+            Gdx.gl30.glBindVertexArray(last_vertex_array);
+        }
+        Gdx.gl.glBindBuffer(GL20.GL_ARRAY_BUFFER, last_array_buffer);
+        if(!isGL30) {
+            Gdx.gl.glBindBuffer(GL20.GL_ELEMENT_ARRAY_BUFFER, last_element_array_buffer);
+        }
+        Gdx.gl.glBlendEquationSeparate(last_blend_equation_rgb, last_blend_equation_alpha);
+        Gdx.gl.glBlendFuncSeparate(last_blend_src_rgb, last_blend_dst_rgb, last_blend_src_alpha, last_blend_dst_alpha);
 
         if(last_enable_blend) {
             Gdx.gl.glEnable(GL20.GL_BLEND);
@@ -430,9 +512,21 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         else {
             Gdx.gl.glDisable(GL20.GL_SCISSOR_TEST);
         }
+        Gdx.gl.glViewport(last_viewport[0], last_viewport[1], last_viewport[2], last_viewport[3]);
+        Gdx.gl.glScissor(last_scissor_box[0], last_scissor_box[1], last_scissor_box[2], last_scissor_box[3]);
     }
 
     private void bind(ImDrawData drawData, int fb_width, int fb_height) {
+        if(isGL30) {
+            Gdx.gl30.glGenVertexArrays(1, tmpHandle);
+            vaoHandle = tmpHandle.get(0);
+            Gdx.gl30.glBindVertexArray(vaoHandle);
+        }
+        setupRenderState(drawData, fb_width, fb_height);
+    }
+
+    private void setupRenderState(ImDrawData drawData, int fb_width, int fb_height) {
+        Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendEquation(GL20.GL_FUNC_ADD);
         Gdx.gl.glBlendFuncSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
@@ -440,6 +534,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         Gdx.gl.glDisable(GL20.GL_DEPTH_TEST);
         Gdx.gl.glDisable(GL20.GL_STENCIL_TEST);
         Gdx.gl.glEnable(GL20.GL_SCISSOR_TEST);
+        Gdx.gl.glViewport(0, 0, fb_width, fb_height);
 
         ImVec2 displayPos = drawData.get_DisplayPos();
         ImVec2 displaySize = drawData.get_DisplaySize();
@@ -474,14 +569,15 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         shader.setUniformMatrix("ProjMtx", matrix);
 
         if(isGL30) {
-            Gdx.gl30.glGenVertexArrays(1, tmpHandle);
-            vaoHandle = tmpHandle.get();
             Gdx.gl30.glBindVertexArray(vaoHandle);
         }
 
         Gdx.gl.glBindBuffer(GL20.GL_ARRAY_BUFFER, VboHandle);
         Gdx.gl.glBindBuffer(GL20.GL_ELEMENT_ARRAY_BUFFER, ElementsHandle);
-        // bind vertices/indices
+        bindVertexAttributes(0);
+    }
+
+    private void bindVertexAttributes(int vertexOffset) {
         final int numAttributes = vertexAttributes.size();
         for(int i = 0; i < numAttributes; i++) {
             final VertexAttribute attribute = vertexAttributes.get(i);
@@ -489,7 +585,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
             if(location < 0) continue;
             shader.enableVertexAttribute(location);
             shader.setVertexAttribute(location, attribute.numComponents, attribute.type, attribute.normalized,
-                    vertexAttributes.vertexSize, attribute.offset);
+                    vertexAttributes.vertexSize, vertexOffset + attribute.offset);
         }
     }
 
@@ -506,11 +602,40 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         Gdx.gl.glFlush();
 
         if(isGL30) {
+            Gdx.gl30.glBindVertexArray(0);
             tmpHandle.clear();
             tmpHandle.put(vaoHandle);
             tmpHandle.flip();
             Gdx.gl30.glDeleteVertexArrays(1, tmpHandle);
+            vaoHandle = -1;
         }
+    }
+
+    private int getInteger(int parameter) {
+        glStateBuffer.clear();
+        Gdx.gl.glGetIntegerv(parameter, glStateBuffer);
+        return glStateBuffer.get(0);
+    }
+
+    private int[] getInteger4(int parameter) {
+        glStateBuffer.clear();
+        Gdx.gl.glGetIntegerv(parameter, glStateBuffer);
+        return new int[] { glStateBuffer.get(0), glStateBuffer.get(1), glStateBuffer.get(2), glStateBuffer.get(3) };
+    }
+
+    private void rememberTextureFilter(int textureId, Map<Integer, int[]> originalTextureFilters) {
+        if(originalTextureFilters.containsKey(textureId)) {
+            return;
+        }
+        int minFilter = getTextureParameter(GL20.GL_TEXTURE_MIN_FILTER);
+        int magFilter = getTextureParameter(GL20.GL_TEXTURE_MAG_FILTER);
+        originalTextureFilters.put(textureId, new int[] { minFilter, magFilter });
+    }
+
+    private int getTextureParameter(int parameter) {
+        glStateBuffer.clear();
+        Gdx.gl.glGetTexParameteriv(GL20.GL_TEXTURE_2D, parameter, glStateBuffer);
+        return glStateBuffer.get(0);
     }
 
     private void deleteTexture() {
@@ -530,6 +655,7 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
 
     @Override
     public void dispose() {
+        ImGuiDrawCallbacks.ClearStandardCallbacks(ImGui.GetPlatformIO());
         super.dispose();
         deleteTexture();
         BufferUtils.disposeUnsafeByteBuffer(tempBuffer);
@@ -546,6 +672,13 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         Gdx.gl.glBindBuffer(GL20.GL_ELEMENT_ARRAY_BUFFER, 0);
         Gdx.gl.glDeleteBuffer(ElementsHandle);
         ElementsHandle = 0;
+        Gdx.gl.glBindBuffer(GL20.GL_ARRAY_BUFFER, 0);
+        Gdx.gl.glDeleteBuffer(VboHandle);
+        VboHandle = 0;
+        if(shader != null) {
+            shader.dispose();
+            shader = null;
+        }
     }
 
     public void saveImGuiData(FileHandle path) {

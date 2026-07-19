@@ -15,14 +15,15 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
     MouseButtonLeft(ImGuiPopupFlags_MouseButtonLeft_NATIVE()),
     MouseButtonRight(ImGuiPopupFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiPopupFlags_MouseButtonMiddle_NATIVE()),
-    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
-    MouseButtonDefault_(ImGuiPopupFlags_MouseButtonDefault__NATIVE()),
     NoReopen(ImGuiPopupFlags_NoReopen_NATIVE()),
     NoOpenOverExistingPopup(ImGuiPopupFlags_NoOpenOverExistingPopup_NATIVE()),
     NoOpenOverItems(ImGuiPopupFlags_NoOpenOverItems_NATIVE()),
     AnyPopupId(ImGuiPopupFlags_AnyPopupId_NATIVE()),
     AnyPopupLevel(ImGuiPopupFlags_AnyPopupLevel_NATIVE()),
-    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE());
+    AnyPopup(ImGuiPopupFlags_AnyPopup_NATIVE()),
+    MouseButtonShift_(ImGuiPopupFlags_MouseButtonShift__NATIVE()),
+    MouseButtonMask_(ImGuiPopupFlags_MouseButtonMask__NATIVE()),
+    InvalidMask_(ImGuiPopupFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -58,12 +59,6 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
     @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmiddle_native")
     private static native int ImGuiPopupFlags_MouseButtonMiddle_NATIVE();
 
-    @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmask__native")
-    private static native int ImGuiPopupFlags_MouseButtonMask__NATIVE();
-
-    @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_mousebuttondefault__native")
-    private static native int ImGuiPopupFlags_MouseButtonDefault__NATIVE();
-
     @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_noreopen_native")
     private static native int ImGuiPopupFlags_NoReopen_NATIVE();
 
@@ -81,4 +76,13 @@ public enum ImGuiPopupFlags implements NativeEnum<ImGuiPopupFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_anypopup_native")
     private static native int ImGuiPopupFlags_AnyPopup_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_mousebuttonshift__native")
+    private static native int ImGuiPopupFlags_MouseButtonShift__NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_mousebuttonmask__native")
+    private static native int ImGuiPopupFlags_MouseButtonMask__NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguipopupflags_imguipopupflags_invalidmask__native")
+    private static native int ImGuiPopupFlags_InvalidMask__NATIVE();
 }

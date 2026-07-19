@@ -32,9 +32,17 @@ final public class JNI_ImDrawList {
 
     public static native void internal_native_AddLine(long this_addr, long p1_addr, long p2_addr, int col);
 
-    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags, float thickness);
+    public static native void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col, float thickness);
 
-    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags);
+    public static native void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col);
+
+    public static native void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col, float thickness);
+
+    public static native void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col);
+
+    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness, int flags);
+
+    public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness);
 
     public static native void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding);
 
@@ -134,9 +142,9 @@ final public class JNI_ImDrawList {
 
     public static native void internal_native_PathFillConvex(long this_addr, int col);
 
-    public static native void internal_native_PathStroke(long this_addr, int col, int flags, float thickness);
+    public static native void internal_native_PathStroke(long this_addr, int col, float thickness, int flags);
 
-    public static native void internal_native_PathStroke(long this_addr, int col, int flags);
+    public static native void internal_native_PathStroke(long this_addr, int col, float thickness);
 
     public static native void internal_native_PathStroke(long this_addr, int col);
 

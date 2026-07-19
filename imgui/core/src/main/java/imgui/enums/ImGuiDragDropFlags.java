@@ -23,6 +23,7 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
     AcceptBeforeDelivery(ImGuiDragDropFlags_AcceptBeforeDelivery_NATIVE()),
     AcceptNoDrawDefaultRect(ImGuiDragDropFlags_AcceptNoDrawDefaultRect_NATIVE()),
     AcceptNoPreviewTooltip(ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE()),
+    AcceptDrawAsHovered(ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE()),
     AcceptPeekOnly(ImGuiDragDropFlags_AcceptPeekOnly_NATIVE());
 
     private int value;
@@ -70,6 +71,8 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
     private static native int ImGuiDragDropFlags_AcceptNoDrawDefaultRect_NATIVE();
 
     private static native int ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE();
+
+    private static native int ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE();
 
     private static native int ImGuiDragDropFlags_AcceptPeekOnly_NATIVE();
 }

@@ -152,7 +152,6 @@ public:
 
     // Basic Accessors
     static ImGuiItemStatusFlags GetItemStatusFlags() { return im::GetItemStatusFlags(); }
-    static ImGuiItemFlags   GetItemFlags() { return im::GetItemFlags(); }
     static ImGuiID          GetActiveID() { return im::GetActiveID(); }
     static ImGuiID          GetFocusID() { return im::GetFocusID(); }
     static void          SetActiveID(ImGuiID id, ImGuiWindow* window) { im::SetActiveID(id, window); }
@@ -353,7 +352,7 @@ public:
     static void          ClearDragDrop() { im::ClearDragDrop(); }
     static bool          IsDragDropPayloadBeingAccepted() { return im::IsDragDropPayloadBeingAccepted(); }
     static void          RenderDragDropTargetRectForItem(const ImRect& bb) { return im::RenderDragDropTargetRectForItem(bb); }
-    static void          RenderDragDropTargetRectEx(ImDrawList* draw_list, const ImRect& bb) { return im::RenderDragDropTargetRectEx(draw_list, bb); }
+    static void          RenderDragDropTargetRectEx(ImDrawList* draw_list, const ImRect& bb, float rounding) { return im::RenderDragDropTargetRectEx(draw_list, bb, rounding); }
 //
 //    // Typing-Select API
 //    ImGuiTypingSelectRequest* GetTypingSelectRequest(ImGuiTypingSelectFlags flags = ImGuiTypingSelectFlags_None);
@@ -898,6 +897,7 @@ public:
     static void          TreePush(const void* ptr_id) { im::TreePush(ptr_id); }
     static void          TreePop() { im::TreePop(); }
     static float         GetTreeNodeToLabelSpacing() { return im::GetTreeNodeToLabelSpacing(); }
+    static bool          TreeNodeGetOpen(ImGuiID storage_id) { return im::TreeNodeGetOpen(storage_id); }
     static bool          CollapsingHeader(const char* label, ImGuiTreeNodeFlags flags = 0) { return im::CollapsingHeader(label, flags); }
     static bool          CollapsingHeader(const char* label, bool* p_visible, ImGuiTreeNodeFlags flags = 0) { return im::CollapsingHeader(label, p_visible, flags); }
     static void          SetNextItemOpen(bool is_open, ImGuiCond cond = 0) { im::SetNextItemOpen(is_open, cond); }
@@ -964,13 +964,13 @@ public:
     // Popups: open/close functions
     static void          OpenPopup(const char* str_id, ImGuiPopupFlags popup_flags = 0) { im::OpenPopup(str_id, popup_flags); }
     static void          OpenPopup(ImGuiID id, ImGuiPopupFlags popup_flags = 0) { im::OpenPopup(id, popup_flags); }
-    static void          OpenPopupOnItemClick(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 1) { im::OpenPopupOnItemClick(str_id, popup_flags); }
+    static void          OpenPopupOnItemClick(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { im::OpenPopupOnItemClick(str_id, popup_flags); }
     static void          CloseCurrentPopup() { im::CloseCurrentPopup(); }
 
     // Popups: open+begin combined functions helpers
-    static bool          BeginPopupContextItem(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 1) { return im::BeginPopupContextItem(str_id, popup_flags); }
-    static bool          BeginPopupContextWindow(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 1) { return im::BeginPopupContextWindow(str_id, popup_flags); }
-    static bool          BeginPopupContextVoid(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 1) { return im::BeginPopupContextVoid(str_id, popup_flags); }
+    static bool          BeginPopupContextItem(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { return im::BeginPopupContextItem(str_id, popup_flags); }
+    static bool          BeginPopupContextWindow(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { return im::BeginPopupContextWindow(str_id, popup_flags); }
+    static bool          BeginPopupContextVoid(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { return im::BeginPopupContextVoid(str_id, popup_flags); }
 
     // Popups: query functions
     static bool          IsPopupOpen(const char* str_id, ImGuiPopupFlags flags = 0) { return im::IsPopupOpen(str_id, flags); }
@@ -1077,6 +1077,7 @@ public:
     static bool          IsAnyItemActive() { return im::IsAnyItemActive(); }
     static bool          IsAnyItemFocused() { return im::IsAnyItemFocused(); }
     static ImGuiID       GetItemID() { return im::GetItemID(); }
+    static ImGuiItemFlags GetItemFlags() { return im::GetItemFlags(); }
     static ImVec2        GetItemRectMin() { return im::GetItemRectMin(); }
     static ImVec2        GetItemRectMax() { return im::GetItemRectMax(); }
     static ImVec2        GetItemRectSize() { return im::GetItemRectSize(); }
@@ -1121,7 +1122,7 @@ public:
     static void          SetNextItemShortcut(ImGuiKeyChord key_chord, ImGuiInputFlags flags = 0) { im::SetNextItemShortcut(key_chord, flags); }
 
     // Inputs Utilities: Key/Input Ownership [BETA]
-    static void          SetItemKeyOwner(ImGuiKey key) { im::SetItemKeyOwner(key); }
+    static bool          SetItemKeyOwner(ImGuiKey key) { return im::SetItemKeyOwner(key); }
 
     // Inputs Utilities: Mouse
     static bool          IsMouseDown(ImGuiMouseButton button) { return im::IsMouseDown(button); }
@@ -1173,6 +1174,126 @@ public:
 };
 
 } // END ImGuiWrapper
+
+enum ImGuiDrawCallbackType {
+    ImGuiDrawCallbackType_None,
+    ImGuiDrawCallbackType_ResetRenderState,
+    ImGuiDrawCallbackType_SetSamplerLinear,
+    ImGuiDrawCallbackType_SetSamplerNearest,
+    ImGuiDrawCallbackType_User
+};
+
+class ImGuiDrawCallbacks
+{
+    private:
+        // Keep marker bodies observably distinct. Linkers may fold identical empty
+        // functions, which would make callback identity comparisons ambiguous.
+        static void resetRenderState(const ImDrawList*, const ImDrawCmd*) {
+            volatile int marker = 0;
+            (void)marker;
+        }
+        static void setSamplerLinear(const ImDrawList*, const ImDrawCmd*) {
+            volatile int marker = 1;
+            (void)marker;
+        }
+        static void setSamplerNearest(const ImDrawList*, const ImDrawCmd*) {
+            volatile int marker = 2;
+            (void)marker;
+        }
+
+        static ImDrawCallback callbackForType(ImGuiPlatformIO* platform_io, ImGuiDrawCallbackType type) {
+            if (platform_io == nullptr)
+                return nullptr;
+            switch (type) {
+                case ImGuiDrawCallbackType_ResetRenderState:
+                    return platform_io->DrawCallback_ResetRenderState;
+                case ImGuiDrawCallbackType_SetSamplerLinear:
+                    return platform_io->DrawCallback_SetSamplerLinear;
+                case ImGuiDrawCallbackType_SetSamplerNearest:
+                    return platform_io->DrawCallback_SetSamplerNearest;
+                default:
+                    return nullptr;
+            }
+        }
+
+    public:
+        static void InstallStandardCallbacks(ImGuiPlatformIO* platform_io) {
+            if (platform_io == nullptr)
+                return;
+            platform_io->DrawCallback_ResetRenderState = resetRenderState;
+            platform_io->DrawCallback_SetSamplerLinear = setSamplerLinear;
+            platform_io->DrawCallback_SetSamplerNearest = setSamplerNearest;
+        }
+
+        static void ClearStandardCallbacks(ImGuiPlatformIO* platform_io) {
+            if (platform_io == nullptr)
+                return;
+            if (platform_io->DrawCallback_ResetRenderState == resetRenderState)
+                platform_io->DrawCallback_ResetRenderState = nullptr;
+            if (platform_io->DrawCallback_SetSamplerLinear == setSamplerLinear)
+                platform_io->DrawCallback_SetSamplerLinear = nullptr;
+            if (platform_io->DrawCallback_SetSamplerNearest == setSamplerNearest)
+                platform_io->DrawCallback_SetSamplerNearest = nullptr;
+        }
+
+        static ImGuiDrawCallbackType GetType(const ImDrawCmd* draw_cmd) {
+            if (draw_cmd == nullptr || draw_cmd->UserCallback == nullptr)
+                return ImGuiDrawCallbackType_None;
+            if (draw_cmd->UserCallback == resetRenderState)
+                return ImGuiDrawCallbackType_ResetRenderState;
+            if (draw_cmd->UserCallback == setSamplerLinear)
+                return ImGuiDrawCallbackType_SetSamplerLinear;
+            if (draw_cmd->UserCallback == setSamplerNearest)
+                return ImGuiDrawCallbackType_SetSamplerNearest;
+            return ImGuiDrawCallbackType_User;
+        }
+
+        static bool AddStandardCallback(ImDrawList* draw_list, ImGuiDrawCallbackType type) {
+            if (draw_list == nullptr || ImGui::GetCurrentContext() == nullptr)
+                return false;
+            ImGuiPlatformIO& platform_io = ImGui::GetPlatformIO();
+            ImDrawCallback callback = callbackForType(&platform_io, type);
+            if (callback == nullptr)
+                return false;
+            draw_list->AddCallback(callback);
+            return true;
+        }
+
+        static void InvokeUserCallback(const ImDrawList* parent_list, const ImDrawCmd* draw_cmd) {
+            if (parent_list == nullptr || draw_cmd == nullptr || GetType(draw_cmd) != ImGuiDrawCallbackType_User)
+                return;
+            draw_cmd->UserCallback(parent_list, draw_cmd);
+        }
+};
+
+#if defined(JIMGUI_ENABLE_TEST_HOOKS) && defined(_JAVASOFT_JNI_H_)
+namespace {
+    static int ImGuiDrawCallbackTestCount = 0;
+
+    static void ImGuiDrawCallbackTestProbe(const ImDrawList*, const ImDrawCmd*) {
+        ++ImGuiDrawCallbackTestCount;
+    }
+}
+
+extern "C" JNIEXPORT jboolean JNICALL Java_imgui_DrawCallbackIntegrationTest_addNativeUserCallback(
+        JNIEnv*, jclass, jlong draw_list_addr) {
+    ImDrawList* draw_list = reinterpret_cast<ImDrawList*>(draw_list_addr);
+    if (draw_list == nullptr)
+        return JNI_FALSE;
+    draw_list->AddCallback(ImGuiDrawCallbackTestProbe);
+    return JNI_TRUE;
+}
+
+extern "C" JNIEXPORT void JNICALL Java_imgui_DrawCallbackIntegrationTest_resetNativeUserCallbackCount(
+        JNIEnv*, jclass) {
+    ImGuiDrawCallbackTestCount = 0;
+}
+
+extern "C" JNIEXPORT jint JNICALL Java_imgui_DrawCallbackIntegrationTest_getNativeUserCallbackCount(
+        JNIEnv*, jclass) {
+    return ImGuiDrawCallbackTestCount;
+}
+#endif
 
 class ClipboardTextFunction
 {

@@ -34,6 +34,27 @@ public class ImGuiInputTextCallbackData extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiInputTextCallbackData);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public void SetSelection(int selection_start, int selection_end) {
+        internal_native_SetSelection(native_address, selection_start, selection_end);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "selection_start", "selection_end"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiInputTextCallbackData);jsObj.SetSelection(selection_start, selection_end);")
+    public static native void internal_native_SetSelection(int this_addr, int selection_start, int selection_end);
+
+    public int get_ID() {
+        return internal_native_get_ID(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiInputTextCallbackData);return jsObj.get_ID();")
+    public static native int internal_native_get_ID(int this_addr);
+
+    public boolean get_EventActivated() {
+        return internal_native_get_EventActivated(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiInputTextCallbackData);return jsObj.get_EventActivated();")
+    public static native boolean internal_native_get_EventActivated(int this_addr);
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }

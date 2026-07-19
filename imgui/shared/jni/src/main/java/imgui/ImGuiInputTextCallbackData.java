@@ -35,6 +35,30 @@ public class ImGuiInputTextCallbackData extends NativeObject {
         imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_deleteNative(this_addr);
     }
 
+    public void SetSelection(int selection_start, int selection_end) {
+        internal_native_SetSelection(native_address, selection_start, selection_end);
+    }
+
+    public static void internal_native_SetSelection(long this_addr, int selection_start, int selection_end) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_SetSelection(this_addr, selection_start, selection_end);
+    }
+
+    public int get_ID() {
+        return internal_native_get_ID(native_address);
+    }
+
+    public static int internal_native_get_ID(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_ID(this_addr);
+    }
+
+    public boolean get_EventActivated() {
+        return internal_native_get_EventActivated(native_address);
+    }
+
+    public static boolean internal_native_get_EventActivated(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_EventActivated(this_addr);
+    }
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }

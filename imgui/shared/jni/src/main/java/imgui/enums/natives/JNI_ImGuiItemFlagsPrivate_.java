@@ -10,8 +10,6 @@ import imgui.enums.*;
 
 final public class JNI_ImGuiItemFlagsPrivate_ {
 
-    static native public int ImGuiItemFlags_Disabled_NATIVE();
-
     static native public int ImGuiItemFlags_ReadOnly_NATIVE();
 
     static native public int ImGuiItemFlags_MixedValue_NATIVE();

@@ -32,6 +32,8 @@ final public class JNI_ImGuiColorEditFlags {
 
     static native public int ImGuiColorEditFlags_NoBorder_NATIVE();
 
+    static native public int ImGuiColorEditFlags_NoColorMarkers_NATIVE();
+
     static native public int ImGuiColorEditFlags_AlphaOpaque_NATIVE();
 
     static native public int ImGuiColorEditFlags_AlphaNoBg_NATIVE();

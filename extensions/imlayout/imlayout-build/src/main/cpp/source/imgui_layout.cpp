@@ -162,7 +162,7 @@ static void popLayout() {
 void ImLayout::DrawBoundingBox_1(float x1, float y1, float x2, float y2, int r, int g, int b, int a, bool clipping) {
     ImDrawList* drawList = clipping ? ImGui::GetWindowDrawList() : ImGui::GetForegroundDrawList();
     int color = IM_COL32(r, g, b, a);
-    drawList->AddRect(ImVec2(x1, y1), ImVec2(x2, y2), color, 0, 0, 1.0);
+    drawList->AddRect(ImVec2(x1, y1), ImVec2(x2, y2), color, 0, 1.0f, 0);
 }
 
 void ImLayout::DrawBoundingBox_2(const ImVec2& min, const ImVec2& max, int r, int g, int b, int a, bool clipping) {
@@ -835,7 +835,7 @@ void ImLayout::EndCollapseLayout()
     ImVec2 borderPosition = rootLayout->position;
     ImVec2 borderSize = rootLayout->getAbsoluteSize();
 
-    drawList->AddRect(borderPosition, borderSize, borderColor, borderRound, roundingCorners, 1.0f);
+    drawList->AddRect(borderPosition, borderSize, borderColor, borderRound, 1.0f, roundingCorners);
 }
 
 void ImLayout::BeginAlign_1(ImGuiID id, float sizeX, float sizeY, float alignX, float alignY, float offsetX, float offsetY, const ImGuiLayoutOptions& options) {

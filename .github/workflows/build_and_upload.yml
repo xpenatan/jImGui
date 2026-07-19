@@ -51,34 +51,42 @@ jobs:
         run: ./gradlew download_all_sources
 
       - name: Build JNI project
-        run: ./gradlew :imgui:imgui-build:build_project_windows64_jni
+        run: ./gradlew :imgui:builder:jParser_build_windows64_jni
 
       - name: Build FFM project
-        run: ./gradlew :imgui:imgui-build:build_project_windows64_ffm
+        run: ./gradlew :imgui:builder:jParser_build_windows64_ffm
 
       - name: Build JNI ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_windows64_jni
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_windows64_jni
 
       - name: Build FFM ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_windows64_ffm
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_windows64_ffm
 
       - name: Build JNI ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_windows64_jni
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_windows64_jni
 
       - name: Build FFM ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_windows64_ffm
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_windows64_ffm
 
       - name: Build JNI imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_windows64_jni
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_windows64_jni
 
       - name: Build FFM imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_windows64_ffm
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_windows64_ffm
+
+      - name: Build TeaVM-C libraries
+        run: >-
+          ./gradlew
+          :imgui:builder:jParser_build_windows64_teavm_c
+          :extensions:imlayout:imlayout-build:jParser_build_windows64_teavm_c
+          :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_windows64_teavm_c
+          :extensions:imgui-node-editor:nodeeditor-build:jParser_build_windows64_teavm_c
 
       - name: Upload ImGui natives
         uses: actions/upload-artifact@v7
         with:
           name: windows-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
           if-no-files-found: error
 
       - name: Upload ImLayout natives
@@ -128,34 +136,42 @@ jobs:
         run: ./gradlew download_all_sources
 
       - name: Build JNI project
-        run: ./gradlew :imgui:imgui-build:build_project_linux64_jni
+        run: ./gradlew :imgui:builder:jParser_build_linux64_jni
 
       - name: Build FFM project
-        run: ./gradlew :imgui:imgui-build:build_project_linux64_ffm
+        run: ./gradlew :imgui:builder:jParser_build_linux64_ffm
 
       - name: Build JNI ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_linux64_jni
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_linux64_jni
 
       - name: Build FFM ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_linux64_ffm
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_linux64_ffm
 
       - name: Build JNI ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_linux64_jni
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_linux64_jni
 
       - name: Build FFM ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_linux64_ffm
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_linux64_ffm
 
       - name: Build JNI imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_linux64_jni
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_linux64_jni
 
       - name: Build FFM imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_linux64_ffm
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_linux64_ffm
+
+      - name: Build TeaVM-C libraries
+        run: >-
+          ./gradlew
+          :imgui:builder:jParser_build_linux64_teavm_c
+          :extensions:imlayout:imlayout-build:jParser_build_linux64_teavm_c
+          :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_linux64_teavm_c
+          :extensions:imgui-node-editor:nodeeditor-build:jParser_build_linux64_teavm_c
 
       - name: Upload ImGui natives
         uses: actions/upload-artifact@v7
         with:
           name: linux-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
           if-no-files-found: error
 
       - name: Upload ImLayout natives
@@ -205,34 +221,46 @@ jobs:
         run: ./gradlew download_all_sources
 
       - name: Build JNI project
-        run: ./gradlew :imgui:imgui-build:build_project_mac64_jni :imgui:imgui-build:build_project_macArm_jni
+        run: ./gradlew :imgui:builder:jParser_build_mac64_jni :imgui:builder:jParser_build_macArm_jni
 
       - name: Build FFM project
-        run: ./gradlew :imgui:imgui-build:build_project_mac64_ffm :imgui:imgui-build:build_project_macArm_ffm
+        run: ./gradlew :imgui:builder:jParser_build_mac64_ffm :imgui:builder:jParser_build_macArm_ffm
 
       - name: Build JNI ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_mac64_jni :extensions:imlayout:imlayout-build:build_project_macArm_jni
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_mac64_jni :extensions:imlayout:imlayout-build:jParser_build_macArm_jni
 
       - name: Build FFM ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_mac64_ffm :extensions:imlayout:imlayout-build:build_project_macArm_ffm
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_mac64_ffm :extensions:imlayout:imlayout-build:jParser_build_macArm_ffm
 
       - name: Build JNI ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_mac64_jni :extensions:ImGuiColorTextEdit:textedit-build:build_project_macArm_jni
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_mac64_jni :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_macArm_jni
 
       - name: Build FFM ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_mac64_ffm :extensions:ImGuiColorTextEdit:textedit-build:build_project_macArm_ffm
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_mac64_ffm :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_macArm_ffm
 
       - name: Build JNI imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_mac64_jni :extensions:imgui-node-editor:nodeeditor-build:build_project_macArm_jni
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_mac64_jni :extensions:imgui-node-editor:nodeeditor-build:jParser_build_macArm_jni
 
       - name: Build FFM imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_mac64_ffm :extensions:imgui-node-editor:nodeeditor-build:build_project_macArm_ffm
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_mac64_ffm :extensions:imgui-node-editor:nodeeditor-build:jParser_build_macArm_ffm
+
+      - name: Build TeaVM-C libraries
+        run: >-
+          ./gradlew
+          :imgui:builder:jParser_build_mac64_teavm_c
+          :imgui:builder:jParser_build_macArm_teavm_c
+          :extensions:imlayout:imlayout-build:jParser_build_mac64_teavm_c
+          :extensions:imlayout:imlayout-build:jParser_build_macArm_teavm_c
+          :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_mac64_teavm_c
+          :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_macArm_teavm_c
+          :extensions:imgui-node-editor:nodeeditor-build:jParser_build_mac64_teavm_c
+          :extensions:imgui-node-editor:nodeeditor-build:jParser_build_macArm_teavm_c
 
       - name: Upload ImGui natives
         uses: actions/upload-artifact@v7
         with:
           name: mac-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
           if-no-files-found: error
 
       - name: Upload ImLayout natives
@@ -287,22 +315,22 @@ jobs:
         run: ./gradlew download_all_sources
 
       - name: Build project
-        run: ./gradlew :imgui:imgui-build:build_project_web_wasm
+        run: ./gradlew :imgui:builder:jParser_build_web_wasm
 
       - name: Build ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project_web_wasm
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_build_web_wasm
 
       - name: Build ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project_web_wasm
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_build_web_wasm
 
       - name: Build imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project_web_wasm
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_build_web_wasm
 
       - name: Upload ImGui natives
         uses: actions/upload-artifact@v7
         with:
           name: teavm-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
           if-no-files-found: error
 
       - name: Upload ImLayout natives
@@ -358,8 +386,13 @@ jobs:
       - name: Download sources
         run: ./gradlew download_all_sources
 
-      - name: Build project
-        run: ./gradlew :imgui:imgui-build:build_project_android_jni
+      - name: Build Android JNI project
+        run: ./gradlew :imgui:builder:jParser_build_android_jni
+        env:
+          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Build Android TeaVM-C project
+        run: ./gradlew :imgui:builder:jParser_build_android_teavm_c
         env:
           NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
@@ -367,7 +400,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: android-natives
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
           if-no-files-found: error
 
   upload_natives:
@@ -404,73 +437,73 @@ jobs:
       - name: Delete generated Classes
         run: ./gradlew clean
 
-      - name: Download mac ImGui natives
+      - name: Download Windows ImGui natives
         uses: actions/download-artifact@v8
         with:
           name: windows-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
 
-      - name: Download mac ImLayout natives
+      - name: Download Windows ImLayout natives
         uses: actions/download-artifact@v8
         with:
           name: windows-natives-imlayout
           path: ./extensions/imlayout/imlayout-build/build/c++/libs/
 
-      - name: Download mac ImGuiColorTextEdit natives
+      - name: Download Windows ImGuiColorTextEdit natives
         uses: actions/download-artifact@v8
         with:
           name: windows-natives-textedit
           path: ./extensions/ImGuiColorTextEdit/textedit-build/build/c++/libs/
 
-      - name: Download mac imgui-node-editor natives
+      - name: Download Windows imgui-node-editor natives
         uses: actions/download-artifact@v8
         with:
           name: windows-natives-nodeeditor
           path: ./extensions/imgui-node-editor/nodeeditor-build/build/c++/libs/
 
-      - name: Download mac ImGui natives
+      - name: Download Linux ImGui natives
         uses: actions/download-artifact@v8
         with:
           name: linux-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
 
-      - name: Download mac ImLayout natives
+      - name: Download Linux ImLayout natives
         uses: actions/download-artifact@v8
         with:
           name: linux-natives-imlayout
           path: ./extensions/imlayout/imlayout-build/build/c++/libs/
 
-      - name: Download mac ImGuiColorTextEdit natives
+      - name: Download Linux ImGuiColorTextEdit natives
         uses: actions/download-artifact@v8
         with:
           name: linux-natives-textedit
           path: ./extensions/ImGuiColorTextEdit/textedit-build/build/c++/libs/
 
-      - name: Download mac imgui-node-editor natives
+      - name: Download Linux imgui-node-editor natives
         uses: actions/download-artifact@v8
         with:
           name: linux-natives-nodeeditor
           path: ./extensions/imgui-node-editor/nodeeditor-build/build/c++/libs/
 
-      - name: Download mac ImGui natives
+      - name: Download macOS ImGui natives
         uses: actions/download-artifact@v8
         with:
           name: mac-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
 
-      - name: Download mac ImLayout natives
+      - name: Download macOS ImLayout natives
         uses: actions/download-artifact@v8
         with:
           name: mac-natives-imlayout
           path: ./extensions/imlayout/imlayout-build/build/c++/libs/
 
-      - name: Download mac ImGuiColorTextEdit natives
+      - name: Download macOS ImGuiColorTextEdit natives
         uses: actions/download-artifact@v8
         with:
           name: mac-natives-textedit
           path: ./extensions/ImGuiColorTextEdit/textedit-build/build/c++/libs/
 
-      - name: Download mac imgui-node-editor natives
+      - name: Download macOS imgui-node-editor natives
         uses: actions/download-artifact@v8
         with:
           name: mac-natives-nodeeditor
@@ -480,7 +513,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: teavm-natives-imgui
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
 
       - name: Download teavm ImLayout natives
         uses: actions/download-artifact@v8
@@ -504,19 +537,19 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: android-natives
-          path: ./imgui/imgui-build/build/c++/libs/
+          path: ./imgui/builder/build/c++/libs/
 
       - name: Generate ImGui classes
-        run: ./gradlew :imgui:imgui-build:build_project
+        run: ./gradlew :imgui:builder:jParser_generate
 
       - name: Generate ImLayout library
-        run: ./gradlew :extensions:imlayout:imlayout-build:build_project
+        run: ./gradlew :extensions:imlayout:imlayout-build:jParser_generate
 
       - name: Generate ImGuiColorTextEdit library
-        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:build_project
+        run: ./gradlew :extensions:ImGuiColorTextEdit:textedit-build:jParser_generate
 
       - name: Generate imgui-node-editor library
-        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:build_project
+        run: ./gradlew :extensions:imgui-node-editor:nodeeditor-build:jParser_generate
 
       - name: Configure Git
         run: |

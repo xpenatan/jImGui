@@ -30,6 +30,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     ScrollbarGrabHovered(ImGuiCol_ScrollbarGrabHovered_NATIVE()),
     ScrollbarGrabActive(ImGuiCol_ScrollbarGrabActive_NATIVE()),
     CheckMark(ImGuiCol_CheckMark_NATIVE()),
+    CheckboxSelectedBg(ImGuiCol_CheckboxSelectedBg_NATIVE()),
     SliderGrab(ImGuiCol_SliderGrab_NATIVE()),
     SliderGrabActive(ImGuiCol_SliderGrabActive_NATIVE()),
     Button(ImGuiCol_Button_NATIVE()),
@@ -67,6 +68,7 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
     TextSelectedBg(ImGuiCol_TextSelectedBg_NATIVE()),
     TreeLines(ImGuiCol_TreeLines_NATIVE()),
     DragDropTarget(ImGuiCol_DragDropTarget_NATIVE()),
+    DragDropTargetBg(ImGuiCol_DragDropTargetBg_NATIVE()),
     UnsavedMarker(ImGuiCol_UnsavedMarker_NATIVE()),
     NavCursor(ImGuiCol_NavCursor_NATIVE()),
     NavWindowingHighlight(ImGuiCol_NavWindowingHighlight_NATIVE()),
@@ -151,6 +153,9 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_checkmark_native")
     private static native int ImGuiCol_CheckMark_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_checkboxselectedbg_native")
+    private static native int ImGuiCol_CheckboxSelectedBg_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_slidergrab_native")
     private static native int ImGuiCol_SliderGrab_NATIVE();
@@ -262,6 +267,9 @@ public enum ImGuiCol implements NativeEnum<ImGuiCol> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_dragdroptarget_native")
     private static native int ImGuiCol_DragDropTarget_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_dragdroptargetbg_native")
+    private static native int ImGuiCol_DragDropTargetBg_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguicol_imguicol_unsavedmarker_native")
     private static native int ImGuiCol_UnsavedMarker_NATIVE();

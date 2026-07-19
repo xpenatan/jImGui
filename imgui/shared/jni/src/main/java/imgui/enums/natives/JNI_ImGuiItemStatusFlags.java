@@ -33,4 +33,6 @@ final public class JNI_ImGuiItemStatusFlags {
     static native public int ImGuiItemStatusFlags_HasClipRect_NATIVE();
 
     static native public int ImGuiItemStatusFlags_HasShortcut_NATIVE();
+
+    static native public int ImGuiItemStatusFlags_EditedInternal_NATIVE();
 }

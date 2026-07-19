@@ -94,4 +94,11 @@ public class ImGuiWindowClass extends NativeObject {
 
     public void set_DockingAllowUnclassed(boolean DockingAllowUnclassed) {
     }
+
+    public NativeObject get_PlatformIconData() {
+        return null;
+    }
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+    }
 }

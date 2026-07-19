@@ -23,7 +23,8 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
     MouseButtonRight(ImGuiButtonFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiButtonFlags_MouseButtonMiddle_NATIVE()),
     MouseButtonMask_(ImGuiButtonFlags_MouseButtonMask__NATIVE()),
-    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE());
+    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE()),
+    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE());
 
     private int value;
 
@@ -95,6 +96,14 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
         }
     }
 
+    private static int ImGuiButtonFlags_AllowOverlap_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiButtonFlags_AllowOverlap_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflags_imguibuttonflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -108,5 +117,7 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_MouseButtonMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflags_imguibuttonflags_mousebuttonmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_EnableNav_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflags_imguibuttonflags_enablenav_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiButtonFlags_AllowOverlap_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflags_imguibuttonflags_allowoverlap_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -16,7 +16,8 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
     HasOpen(ImGuiNextItemDataFlags_HasOpen_NATIVE()),
     HasShortcut(ImGuiNextItemDataFlags_HasShortcut_NATIVE()),
     HasRefVal(ImGuiNextItemDataFlags_HasRefVal_NATIVE()),
-    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE());
+    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE()),
+    HasColorMarker(ImGuiNextItemDataFlags_HasColorMarker_NATIVE());
 
     private int value;
 
@@ -62,5 +63,9 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
 
     private static int ImGuiNextItemDataFlags_HasStorageID_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiNextItemDataFlags.ImGuiNextItemDataFlags_HasStorageID_NATIVE();
+    }
+
+    private static int ImGuiNextItemDataFlags_HasColorMarker_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiNextItemDataFlags.ImGuiNextItemDataFlags_HasColorMarker_NATIVE();
     }
 }

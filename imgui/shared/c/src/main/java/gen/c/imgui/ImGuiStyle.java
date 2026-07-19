@@ -491,6 +491,20 @@ public class ImGuiStyle extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_logsliderdeadzone")
     public static native void internal_native_set_LogSliderDeadzone(long this_addr, float LogSliderDeadzone);
 
+    public float get_ImageRounding() {
+        return internal_native_get_ImageRounding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_imagerounding")
+    public static native float internal_native_get_ImageRounding(long this_addr);
+
+    public void set_ImageRounding(float ImageRounding) {
+        internal_native_set_ImageRounding(native_address, ImageRounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_imagerounding")
+    public static native void internal_native_set_ImageRounding(long this_addr, float ImageRounding);
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -532,6 +546,62 @@ public class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabbarbordersize")
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
+
+    public float get_DragDropTargetRounding() {
+        return internal_native_get_DragDropTargetRounding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_dragdroptargetrounding")
+    public static native float internal_native_get_DragDropTargetRounding(long this_addr);
+
+    public void set_DragDropTargetRounding(float DragDropTargetRounding) {
+        internal_native_set_DragDropTargetRounding(native_address, DragDropTargetRounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_dragdroptargetrounding")
+    public static native void internal_native_set_DragDropTargetRounding(long this_addr, float DragDropTargetRounding);
+
+    public float get_DragDropTargetBorderSize() {
+        return internal_native_get_DragDropTargetBorderSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_dragdroptargetbordersize")
+    public static native float internal_native_get_DragDropTargetBorderSize(long this_addr);
+
+    public void set_DragDropTargetBorderSize(float DragDropTargetBorderSize) {
+        internal_native_set_DragDropTargetBorderSize(native_address, DragDropTargetBorderSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_dragdroptargetbordersize")
+    public static native void internal_native_set_DragDropTargetBorderSize(long this_addr, float DragDropTargetBorderSize);
+
+    public float get_DragDropTargetPadding() {
+        return internal_native_get_DragDropTargetPadding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_dragdroptargetpadding")
+    public static native float internal_native_get_DragDropTargetPadding(long this_addr);
+
+    public void set_DragDropTargetPadding(float DragDropTargetPadding) {
+        internal_native_set_DragDropTargetPadding(native_address, DragDropTargetPadding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_dragdroptargetpadding")
+    public static native void internal_native_set_DragDropTargetPadding(long this_addr, float DragDropTargetPadding);
+
+    public float get_ColorMarkerSize() {
+        return internal_native_get_ColorMarkerSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_colormarkersize")
+    public static native float internal_native_get_ColorMarkerSize(long this_addr);
+
+    public void set_ColorMarkerSize(float ColorMarkerSize) {
+        internal_native_set_ColorMarkerSize(native_address, ColorMarkerSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_colormarkersize")
+    public static native void internal_native_set_ColorMarkerSize(long this_addr, float ColorMarkerSize);
 
     public ImGuiDir get_ColorButtonPosition() {
         int value = internal_native_get_ColorButtonPosition(native_address);
@@ -593,6 +663,20 @@ public class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_selectabletextalign")
     public static native void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr);
+
+    public float get_SeparatorSize() {
+        return internal_native_get_SeparatorSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_separatorsize")
+    public static native float internal_native_get_SeparatorSize(long this_addr);
+
+    public void set_SeparatorSize(float SeparatorSize) {
+        internal_native_set_SeparatorSize(native_address, SeparatorSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_separatorsize")
+    public static native void internal_native_set_SeparatorSize(long this_addr, float SeparatorSize);
 
     public float get_SeparatorTextBorderSize() {
         return internal_native_get_SeparatorTextBorderSize(native_address);

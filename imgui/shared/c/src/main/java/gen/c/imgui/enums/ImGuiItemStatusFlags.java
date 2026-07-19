@@ -22,7 +22,8 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
     HoveredWindow(ImGuiItemStatusFlags_HoveredWindow_NATIVE()),
     Visible(ImGuiItemStatusFlags_Visible_NATIVE()),
     HasClipRect(ImGuiItemStatusFlags_HasClipRect_NATIVE()),
-    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE());
+    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE()),
+    EditedInternal(ImGuiItemStatusFlags_EditedInternal_NATIVE());
 
     private int value;
 
@@ -81,4 +82,7 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiitemstatusflags_imguiitemstatusflags_hasshortcut_native")
     private static native int ImGuiItemStatusFlags_HasShortcut_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguiitemstatusflags_imguiitemstatusflags_editedinternal_native")
+    private static native int ImGuiItemStatusFlags_EditedInternal_NATIVE();
 }

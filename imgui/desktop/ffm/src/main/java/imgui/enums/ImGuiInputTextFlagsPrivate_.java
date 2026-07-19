@@ -17,7 +17,7 @@ import java.lang.invoke.MethodHandle;
 
 public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlagsPrivate_> {
 
-    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), MergedItem(ImGuiInputTextFlags_MergedItem_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
+    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), TempInput(ImGuiInputTextFlags_TempInput_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
 
     private int value;
 
@@ -49,9 +49,9 @@ public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlag
         }
     }
 
-    private static int ImGuiInputTextFlags_MergedItem_NATIVE() {
+    private static int ImGuiInputTextFlags_TempInput_NATIVE() {
         try {
-            return (int) FFMHandles.ImGuiInputTextFlags_MergedItem_NATIVE__.invokeExact();
+            return (int) FFMHandles.ImGuiInputTextFlags_TempInput_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -69,7 +69,7 @@ public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlag
 
         static final java.lang.invoke.MethodHandle ImGuiInputTextFlags_Multiline_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_multiline_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ImGuiInputTextFlags_MergedItem_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_mergeditem_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ImGuiInputTextFlags_TempInput_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_tempinput_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_localizedecimalpoint_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }

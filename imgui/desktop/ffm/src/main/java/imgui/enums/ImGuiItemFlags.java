@@ -24,7 +24,8 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
     NoNavDefaultFocus(ImGuiItemFlags_NoNavDefaultFocus_NATIVE()),
     ButtonRepeat(ImGuiItemFlags_ButtonRepeat_NATIVE()),
     AutoClosePopups(ImGuiItemFlags_AutoClosePopups_NATIVE()),
-    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE());
+    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE()),
+    Disabled(ImGuiItemFlags_Disabled_NATIVE());
 
     private int value;
 
@@ -104,6 +105,14 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
         }
     }
 
+    private static int ImGuiItemFlags_Disabled_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiItemFlags_Disabled_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -119,5 +128,7 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_AutoClosePopups_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_autoclosepopups_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_AllowDuplicateId_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_allowduplicateid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiItemFlags_Disabled_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_disabled_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

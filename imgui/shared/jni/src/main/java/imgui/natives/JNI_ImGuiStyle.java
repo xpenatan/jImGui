@@ -118,6 +118,10 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_LogSliderDeadzone(long this_addr, float LogSliderDeadzone);
 
+    public static native float internal_native_get_ImageRounding(long this_addr);
+
+    public static native void internal_native_set_ImageRounding(long this_addr, float ImageRounding);
+
     public static native float internal_native_get_TabRounding(long this_addr);
 
     public static native void internal_native_set_TabRounding(long this_addr, float TabRounding);
@@ -130,6 +134,22 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
 
+    public static native float internal_native_get_DragDropTargetRounding(long this_addr);
+
+    public static native void internal_native_set_DragDropTargetRounding(long this_addr, float DragDropTargetRounding);
+
+    public static native float internal_native_get_DragDropTargetBorderSize(long this_addr);
+
+    public static native void internal_native_set_DragDropTargetBorderSize(long this_addr, float DragDropTargetBorderSize);
+
+    public static native float internal_native_get_DragDropTargetPadding(long this_addr);
+
+    public static native void internal_native_set_DragDropTargetPadding(long this_addr, float DragDropTargetPadding);
+
+    public static native float internal_native_get_ColorMarkerSize(long this_addr);
+
+    public static native void internal_native_set_ColorMarkerSize(long this_addr, float ColorMarkerSize);
+
     public static native int internal_native_get_ColorButtonPosition(long this_addr);
 
     public static native void internal_native_set_ColorButtonPosition(long this_addr, int ColorButtonPosition);
@@ -141,6 +161,10 @@ final public class JNI_ImGuiStyle {
     public static native long internal_native_get_SelectableTextAlign_addr(long this_addr);
 
     public static native void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr);
+
+    public static native float internal_native_get_SeparatorSize(long this_addr);
+
+    public static native void internal_native_set_SeparatorSize(long this_addr, float SeparatorSize);
 
     public static native float internal_native_get_SeparatorTextBorderSize(long this_addr);
 

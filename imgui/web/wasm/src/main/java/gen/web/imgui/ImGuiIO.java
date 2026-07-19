@@ -464,6 +464,20 @@ public class ImGuiIO extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ConfigDockingNoSplit"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigDockingNoSplit(ConfigDockingNoSplit);")
     public static native void internal_native_set_ConfigDockingNoSplit(int this_addr, boolean ConfigDockingNoSplit);
 
+    public boolean get_ConfigDockingNoDockingOver() {
+        return internal_native_get_ConfigDockingNoDockingOver(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);return jsObj.get_ConfigDockingNoDockingOver();")
+    public static native boolean internal_native_get_ConfigDockingNoDockingOver(int this_addr);
+
+    public void set_ConfigDockingNoDockingOver(boolean ConfigDockingNoDockingOver) {
+        internal_native_set_ConfigDockingNoDockingOver(native_address, ConfigDockingNoDockingOver);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ConfigDockingNoDockingOver"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigDockingNoDockingOver(ConfigDockingNoDockingOver);")
+    public static native void internal_native_set_ConfigDockingNoDockingOver(int this_addr, boolean ConfigDockingNoDockingOver);
+
     public boolean get_ConfigDockingWithShift() {
         return internal_native_get_ConfigDockingWithShift(native_address);
     }

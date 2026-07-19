@@ -362,4 +362,20 @@ public class ImFontConfig extends NativeObject {
     public static void internal_native_set_RasterizerDensity(long this_addr, float RasterizerDensity) {
         imgui.natives.JNI_ImFontConfig.internal_native_set_RasterizerDensity(this_addr, RasterizerDensity);
     }
+
+    public float get_ExtraSizeScale() {
+        return internal_native_get_ExtraSizeScale(native_address);
+    }
+
+    public static float internal_native_get_ExtraSizeScale(long this_addr) {
+        return imgui.natives.JNI_ImFontConfig.internal_native_get_ExtraSizeScale(this_addr);
+    }
+
+    public void set_ExtraSizeScale(float ExtraSizeScale) {
+        internal_native_set_ExtraSizeScale(native_address, ExtraSizeScale);
+    }
+
+    public static void internal_native_set_ExtraSizeScale(long this_addr, float ExtraSizeScale) {
+        imgui.natives.JNI_ImFontConfig.internal_native_set_ExtraSizeScale(this_addr, ExtraSizeScale);
+    }
 }

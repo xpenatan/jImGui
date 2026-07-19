@@ -19,6 +19,7 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
     ClampOnInput(ImGuiSliderFlags_ClampOnInput_NATIVE()),
     ClampZeroRange(ImGuiSliderFlags_ClampZeroRange_NATIVE()),
     NoSpeedTweaks(ImGuiSliderFlags_NoSpeedTweaks_NATIVE()),
+    ColorMarkers(ImGuiSliderFlags_ColorMarkers_NATIVE()),
     AlwaysClamp(ImGuiSliderFlags_AlwaysClamp_NATIVE()),
     InvalidMask_(ImGuiSliderFlags_InvalidMask__NATIVE());
 
@@ -74,6 +75,10 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
 
     private static int ImGuiSliderFlags_NoSpeedTweaks_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiSliderFlags.ImGuiSliderFlags_NoSpeedTweaks_NATIVE();
+    }
+
+    private static int ImGuiSliderFlags_ColorMarkers_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiSliderFlags.ImGuiSliderFlags_ColorMarkers_NATIVE();
     }
 
     private static int ImGuiSliderFlags_AlwaysClamp_NATIVE() {

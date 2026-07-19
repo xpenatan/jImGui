@@ -3510,6 +3510,14 @@ public class ImGui extends NativeObject {
         return imgui.natives.JNI_ImGui.internal_native_GetTreeNodeToLabelSpacing();
     }
 
+    public static boolean TreeNodeGetOpen(int storage_id) {
+        return internal_native_TreeNodeGetOpen(storage_id);
+    }
+
+    public static boolean internal_native_TreeNodeGetOpen(int storage_id) {
+        return imgui.natives.JNI_ImGui.internal_native_TreeNodeGetOpen(storage_id);
+    }
+
     public static boolean CollapsingHeader(String label, ImGuiTreeNodeFlags flags) {
         return internal_native_CollapsingHeader__0(label, flags.getValue());
     }
@@ -5026,6 +5034,21 @@ public class ImGui extends NativeObject {
         return imgui.natives.JNI_ImGui.internal_native_GetItemID();
     }
 
+    public static ImGuiItemFlags GetItemFlags() {
+        int value = internal_native_GetItemFlags();
+        ImGuiItemFlags[] values = ImGuiItemFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiItemFlags enumVal = values[i];
+            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiItemFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetItemFlags() {
+        return imgui.natives.JNI_ImGui.internal_native_GetItemFlags();
+    }
+
     public static ImVec2 GetItemRectMin() {
         long addr = internal_native_GetItemRectMin_addr();
         if (addr == 0)
@@ -5416,12 +5439,12 @@ public class ImGui extends NativeObject {
         imgui.natives.JNI_ImGui.internal_native_SetNextItemShortcut(key_chord);
     }
 
-    public static void SetItemKeyOwner(ImGuiKey key) {
-        internal_native_SetItemKeyOwner(key.getValue());
+    public static boolean SetItemKeyOwner(ImGuiKey key) {
+        return internal_native_SetItemKeyOwner(key.getValue());
     }
 
-    public static void internal_native_SetItemKeyOwner(int key) {
-        imgui.natives.JNI_ImGui.internal_native_SetItemKeyOwner(key);
+    public static boolean internal_native_SetItemKeyOwner(int key) {
+        return imgui.natives.JNI_ImGui.internal_native_SetItemKeyOwner(key);
     }
 
     public static boolean IsMouseDown(ImGuiMouseButton ImGuiMouseButton) {

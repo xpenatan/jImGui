@@ -31,7 +31,8 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
     RoundCornersRight(ImDrawFlags_RoundCornersRight_NATIVE()),
     RoundCornersAll(ImDrawFlags_RoundCornersAll_NATIVE()),
     RoundCornersDefault_(ImDrawFlags_RoundCornersDefault__NATIVE()),
-    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE());
+    RoundCornersMask_(ImDrawFlags_RoundCornersMask__NATIVE()),
+    InvalidMask_(ImDrawFlags_InvalidMask__NATIVE());
 
     private int value;
 
@@ -167,6 +168,14 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
         }
     }
 
+    private static int ImDrawFlags_InvalidMask__NATIVE() {
+        try {
+            return (int) FFMHandles.ImDrawFlags_InvalidMask__NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImDrawFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imdrawflags_imdrawflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -196,5 +205,7 @@ public enum ImDrawFlags implements NativeEnum<ImDrawFlags> {
         static final java.lang.invoke.MethodHandle ImDrawFlags_RoundCornersDefault__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imdrawflags_imdrawflags_roundcornersdefault__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImDrawFlags_RoundCornersMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imdrawflags_imdrawflags_roundcornersmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImDrawFlags_InvalidMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imdrawflags_imdrawflags_invalidmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

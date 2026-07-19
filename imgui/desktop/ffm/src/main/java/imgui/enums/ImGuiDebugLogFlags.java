@@ -33,6 +33,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventViewport(ImGuiDebugLogFlags_EventViewport_NATIVE()),
     EventMask_(ImGuiDebugLogFlags_EventMask__NATIVE()),
     OutputToTTY(ImGuiDebugLogFlags_OutputToTTY_NATIVE()),
+    OutputToDebugger(ImGuiDebugLogFlags_OutputToDebugger_NATIVE()),
     OutputToTestEngine(ImGuiDebugLogFlags_OutputToTestEngine_NATIVE());
 
     private int value;
@@ -177,6 +178,14 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
         }
     }
 
+    private static int ImGuiDebugLogFlags_OutputToDebugger_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiDebugLogFlags_OutputToDebugger_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiDebugLogFlags_OutputToTestEngine_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiDebugLogFlags_OutputToTestEngine_NATIVE__.invokeExact();
@@ -216,6 +225,8 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
         static final java.lang.invoke.MethodHandle ImGuiDebugLogFlags_EventMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidebuglogflags_imguidebuglogflags_eventmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiDebugLogFlags_OutputToTTY_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtotty_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiDebugLogFlags_OutputToDebugger_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtodebugger_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiDebugLogFlags_OutputToTestEngine_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtotestengine_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }

@@ -23,6 +23,7 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
     AcceptBeforeDelivery(ImGuiDragDropFlags_AcceptBeforeDelivery_NATIVE()),
     AcceptNoDrawDefaultRect(ImGuiDragDropFlags_AcceptNoDrawDefaultRect_NATIVE()),
     AcceptNoPreviewTooltip(ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE()),
+    AcceptDrawAsHovered(ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE()),
     AcceptPeekOnly(ImGuiDragDropFlags_AcceptPeekOnly_NATIVE());
 
     private int value;
@@ -82,6 +83,9 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidragdropflags_imguidragdropflags_acceptnopreviewtooltip_native")
     private static native int ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguidragdropflags_imguidragdropflags_acceptdrawashovered_native")
+    private static native int ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidragdropflags_imguidragdropflags_acceptpeekonly_native")
     private static native int ImGuiDragDropFlags_AcceptPeekOnly_NATIVE();

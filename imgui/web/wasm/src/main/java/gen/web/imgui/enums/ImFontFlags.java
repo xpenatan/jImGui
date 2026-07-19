@@ -10,7 +10,12 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum ImFontFlags implements NativeEnum<ImFontFlags> {
 
-    CUSTOM(0), None(ImFontFlags_None_NATIVE()), NoLoadError(ImFontFlags_NoLoadError_NATIVE()), NoLoadGlyphs(ImFontFlags_NoLoadGlyphs_NATIVE()), LockBakedSizes(ImFontFlags_LockBakedSizes_NATIVE());
+    CUSTOM(0),
+    None(ImFontFlags_None_NATIVE()),
+    NoLoadError(ImFontFlags_NoLoadError_NATIVE()),
+    NoLoadGlyphs(ImFontFlags_NoLoadGlyphs_NATIVE()),
+    LockBakedSizes(ImFontFlags_LockBakedSizes_NATIVE()),
+    ImplicitRefSize(ImFontFlags_ImplicitRefSize_NATIVE());
 
     private int value;
 
@@ -45,4 +50,7 @@ public enum ImFontFlags implements NativeEnum<ImFontFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImFontFlags_LockBakedSizes;")
     private static native int ImFontFlags_LockBakedSizes_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImFontFlags_ImplicitRefSize;")
+    private static native int ImFontFlags_ImplicitRefSize_NATIVE();
 }

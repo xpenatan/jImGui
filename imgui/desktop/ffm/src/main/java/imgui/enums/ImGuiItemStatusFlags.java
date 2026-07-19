@@ -29,7 +29,8 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
     HoveredWindow(ImGuiItemStatusFlags_HoveredWindow_NATIVE()),
     Visible(ImGuiItemStatusFlags_Visible_NATIVE()),
     HasClipRect(ImGuiItemStatusFlags_HasClipRect_NATIVE()),
-    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE());
+    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE()),
+    EditedInternal(ImGuiItemStatusFlags_EditedInternal_NATIVE());
 
     private int value;
 
@@ -149,6 +150,14 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
         }
     }
 
+    private static int ImGuiItemStatusFlags_EditedInternal_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiItemStatusFlags_EditedInternal_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiItemStatusFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemstatusflags_imguiitemstatusflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -174,5 +183,7 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
         static final java.lang.invoke.MethodHandle ImGuiItemStatusFlags_HasClipRect_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemstatusflags_imguiitemstatusflags_hascliprect_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiItemStatusFlags_HasShortcut_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemstatusflags_imguiitemstatusflags_hasshortcut_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiItemStatusFlags_EditedInternal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemstatusflags_imguiitemstatusflags_editedinternal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

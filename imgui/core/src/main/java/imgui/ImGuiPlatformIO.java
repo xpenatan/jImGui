@@ -26,6 +26,12 @@ public class ImGuiPlatformIO extends NativeObject {
         return new ImGuiPlatformIO((byte) 0, (char) 0);
     }
 
+    public void ClearPlatformHandlers() {
+    }
+
+    public void ClearRendererHandlers() {
+    }
+
     public ImVectorImTextureDataPtr get_Textures() {
         return null;
     }

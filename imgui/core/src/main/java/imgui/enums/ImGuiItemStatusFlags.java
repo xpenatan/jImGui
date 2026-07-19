@@ -22,7 +22,8 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
     HoveredWindow(ImGuiItemStatusFlags_HoveredWindow_NATIVE()),
     Visible(ImGuiItemStatusFlags_Visible_NATIVE()),
     HasClipRect(ImGuiItemStatusFlags_HasClipRect_NATIVE()),
-    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE());
+    HasShortcut(ImGuiItemStatusFlags_HasShortcut_NATIVE()),
+    EditedInternal(ImGuiItemStatusFlags_EditedInternal_NATIVE());
 
     private int value;
 
@@ -69,4 +70,6 @@ public enum ImGuiItemStatusFlags implements NativeEnum<ImGuiItemStatusFlags> {
     private static native int ImGuiItemStatusFlags_HasClipRect_NATIVE();
 
     private static native int ImGuiItemStatusFlags_HasShortcut_NATIVE();
+
+    private static native int ImGuiItemStatusFlags_EditedInternal_NATIVE();
 }

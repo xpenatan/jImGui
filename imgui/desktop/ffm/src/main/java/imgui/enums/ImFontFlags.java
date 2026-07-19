@@ -17,7 +17,12 @@ import java.lang.invoke.MethodHandle;
 
 public enum ImFontFlags implements NativeEnum<ImFontFlags> {
 
-    CUSTOM(0), None(ImFontFlags_None_NATIVE()), NoLoadError(ImFontFlags_NoLoadError_NATIVE()), NoLoadGlyphs(ImFontFlags_NoLoadGlyphs_NATIVE()), LockBakedSizes(ImFontFlags_LockBakedSizes_NATIVE());
+    CUSTOM(0),
+    None(ImFontFlags_None_NATIVE()),
+    NoLoadError(ImFontFlags_NoLoadError_NATIVE()),
+    NoLoadGlyphs(ImFontFlags_NoLoadGlyphs_NATIVE()),
+    LockBakedSizes(ImFontFlags_LockBakedSizes_NATIVE()),
+    ImplicitRefSize(ImFontFlags_ImplicitRefSize_NATIVE());
 
     private int value;
 
@@ -73,6 +78,14 @@ public enum ImFontFlags implements NativeEnum<ImFontFlags> {
         }
     }
 
+    private static int ImFontFlags_ImplicitRefSize_NATIVE() {
+        try {
+            return (int) FFMHandles.ImFontFlags_ImplicitRefSize_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImFontFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imfontflags_imfontflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -82,5 +95,7 @@ public enum ImFontFlags implements NativeEnum<ImFontFlags> {
         static final java.lang.invoke.MethodHandle ImFontFlags_NoLoadGlyphs_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imfontflags_imfontflags_noloadglyphs_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImFontFlags_LockBakedSizes_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imfontflags_imfontflags_lockbakedsizes_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImFontFlags_ImplicitRefSize_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imfontflags_imfontflags_implicitrefsize_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

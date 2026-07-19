@@ -18,7 +18,17 @@ final public class JNI_ImFontAtlas {
 
     public static native long internal_native_AddFontDefault_addr(long this_addr);
 
+    public static native long internal_native_AddFontDefaultVector_addr(long this_addr, long font_cfg_addr);
+
+    public static native long internal_native_AddFontDefaultVector_addr(long this_addr);
+
+    public static native long internal_native_AddFontDefaultBitmap_addr(long this_addr, long font_cfg_addr);
+
+    public static native long internal_native_AddFontDefaultBitmap_addr(long this_addr);
+
     public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels, long font_cfg_addr);
 
     public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels);
+
+    public static native void internal_native_ClearFonts(long this_addr);
 }

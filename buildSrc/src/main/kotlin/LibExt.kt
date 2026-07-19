@@ -15,9 +15,11 @@ object LibExt {
     const val javaModernTarget = "17"
     const val javaFFMTarget = "25"
 
-    const val jParserVersion = "1.2.4"
+    const val jParserVersion = "-SNAPSHOT"
     const val teaVMVersion = "0.15.0"
-    const val imguiVersion = "1.92.4-docking"
+    const val imguiVersion = "1.92.8-docking"
+    const val imguiTagObject = "572f249ce1975f98ad9f8aabce512ffa12a52d6c"
+    const val imguiSourceCommit = "b61e56346a92cfcaf1f43a545ca37b0b32239654"
     const val libFdxVersion = "-SNAPSHOT"
     const val gdxVersion = "1.14.2"
     const val gdxTeaVMVersion = "1.6.0"

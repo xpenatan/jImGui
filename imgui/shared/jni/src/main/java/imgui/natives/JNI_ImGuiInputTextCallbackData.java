@@ -12,6 +12,12 @@ final public class JNI_ImGuiInputTextCallbackData {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native void internal_native_SetSelection(long this_addr, int selection_start, int selection_end);
+
+    public static native int internal_native_get_ID(long this_addr);
+
+    public static native boolean internal_native_get_EventActivated(long this_addr);
+
     public static native int internal_native_get_BufSize(long this_addr);
 
     public static native void internal_native_set_BufSize(long this_addr, int BufSize);

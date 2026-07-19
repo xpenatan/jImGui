@@ -161,4 +161,11 @@ public class ImFontConfig extends NativeObject {
 
     public void set_RasterizerDensity(float RasterizerDensity) {
     }
+
+    public float get_ExtraSizeScale() {
+        return 0;
+    }
+
+    public void set_ExtraSizeScale(float ExtraSizeScale) {
+    }
 }

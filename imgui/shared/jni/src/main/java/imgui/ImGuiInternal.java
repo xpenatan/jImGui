@@ -15,7 +15,6 @@ import imgui.enums.ImGuiCond;
 import imgui.enums.ImGuiFocusRequestFlags;
 import imgui.enums.ImGuiWindowRefreshFlags;
 import imgui.enums.ImGuiItemStatusFlags;
-import imgui.enums.ImGuiItemFlags;
 import imgui.enums.ImGuiDockNodeFlags;
 import imgui.enums.ImGuiDir;
 import imgui.enums.ImGuiTableFlags;
@@ -645,21 +644,6 @@ public class ImGuiInternal extends NativeObject {
         return imgui.natives.JNI_ImGuiInternal.internal_native_GetItemStatusFlags();
     }
 
-    public static ImGuiItemFlags GetItemFlags() {
-        int value = internal_native_GetItemFlags();
-        ImGuiItemFlags[] values = ImGuiItemFlags.values();
-        for (int i = 0; i < values.length; i++) {
-            ImGuiItemFlags enumVal = values[i];
-            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ImGuiItemFlags.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetItemFlags() {
-        return imgui.natives.JNI_ImGuiInternal.internal_native_GetItemFlags();
-    }
-
     public static int GetActiveID() {
         return internal_native_GetActiveID();
     }
@@ -960,12 +944,12 @@ public class ImGuiInternal extends NativeObject {
         imgui.natives.JNI_ImGuiInternal.internal_native_RenderDragDropTargetRectForItem(bb_addr);
     }
 
-    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb) {
-        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address);
+    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb, float rounding) {
+        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address, rounding);
     }
 
-    public static void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr) {
-        imgui.natives.JNI_ImGuiInternal.internal_native_RenderDragDropTargetRectEx(draw_list_addr, bb_addr);
+    public static void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr, float rounding) {
+        imgui.natives.JNI_ImGuiInternal.internal_native_RenderDragDropTargetRectEx(draw_list_addr, bb_addr, rounding);
     }
 
     public static boolean BeginTableEx(String name, int id, int columns_count, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width) {

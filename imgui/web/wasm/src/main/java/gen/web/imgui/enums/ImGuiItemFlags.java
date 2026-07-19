@@ -17,7 +17,8 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
     NoNavDefaultFocus(ImGuiItemFlags_NoNavDefaultFocus_NATIVE()),
     ButtonRepeat(ImGuiItemFlags_ButtonRepeat_NATIVE()),
     AutoClosePopups(ImGuiItemFlags_AutoClosePopups_NATIVE()),
-    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE());
+    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE()),
+    Disabled(ImGuiItemFlags_Disabled_NATIVE());
 
     private int value;
 
@@ -61,4 +62,7 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiItemFlags_AllowDuplicateId;")
     private static native int ImGuiItemFlags_AllowDuplicateId_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiItemFlags_Disabled;")
+    private static native int ImGuiItemFlags_Disabled_NATIVE();
 }

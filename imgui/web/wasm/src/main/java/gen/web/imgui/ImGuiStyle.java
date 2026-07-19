@@ -491,6 +491,20 @@ public class ImGuiStyle extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "LogSliderDeadzone"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_LogSliderDeadzone(LogSliderDeadzone);")
     public static native void internal_native_set_LogSliderDeadzone(int this_addr, float LogSliderDeadzone);
 
+    public float get_ImageRounding() {
+        return internal_native_get_ImageRounding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_ImageRounding();")
+    public static native float internal_native_get_ImageRounding(int this_addr);
+
+    public void set_ImageRounding(float ImageRounding) {
+        internal_native_set_ImageRounding(native_address, ImageRounding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ImageRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ImageRounding(ImageRounding);")
+    public static native void internal_native_set_ImageRounding(int this_addr, float ImageRounding);
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -532,6 +546,62 @@ public class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "TabBarBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabBarBorderSize(TabBarBorderSize);")
     public static native void internal_native_set_TabBarBorderSize(int this_addr, float TabBarBorderSize);
+
+    public float get_DragDropTargetRounding() {
+        return internal_native_get_DragDropTargetRounding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_DragDropTargetRounding();")
+    public static native float internal_native_get_DragDropTargetRounding(int this_addr);
+
+    public void set_DragDropTargetRounding(float DragDropTargetRounding) {
+        internal_native_set_DragDropTargetRounding(native_address, DragDropTargetRounding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "DragDropTargetRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_DragDropTargetRounding(DragDropTargetRounding);")
+    public static native void internal_native_set_DragDropTargetRounding(int this_addr, float DragDropTargetRounding);
+
+    public float get_DragDropTargetBorderSize() {
+        return internal_native_get_DragDropTargetBorderSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_DragDropTargetBorderSize();")
+    public static native float internal_native_get_DragDropTargetBorderSize(int this_addr);
+
+    public void set_DragDropTargetBorderSize(float DragDropTargetBorderSize) {
+        internal_native_set_DragDropTargetBorderSize(native_address, DragDropTargetBorderSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "DragDropTargetBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_DragDropTargetBorderSize(DragDropTargetBorderSize);")
+    public static native void internal_native_set_DragDropTargetBorderSize(int this_addr, float DragDropTargetBorderSize);
+
+    public float get_DragDropTargetPadding() {
+        return internal_native_get_DragDropTargetPadding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_DragDropTargetPadding();")
+    public static native float internal_native_get_DragDropTargetPadding(int this_addr);
+
+    public void set_DragDropTargetPadding(float DragDropTargetPadding) {
+        internal_native_set_DragDropTargetPadding(native_address, DragDropTargetPadding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "DragDropTargetPadding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_DragDropTargetPadding(DragDropTargetPadding);")
+    public static native void internal_native_set_DragDropTargetPadding(int this_addr, float DragDropTargetPadding);
+
+    public float get_ColorMarkerSize() {
+        return internal_native_get_ColorMarkerSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_ColorMarkerSize();")
+    public static native float internal_native_get_ColorMarkerSize(int this_addr);
+
+    public void set_ColorMarkerSize(float ColorMarkerSize) {
+        internal_native_set_ColorMarkerSize(native_address, ColorMarkerSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ColorMarkerSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ColorMarkerSize(ColorMarkerSize);")
+    public static native void internal_native_set_ColorMarkerSize(int this_addr, float ColorMarkerSize);
 
     public ImGuiDir get_ColorButtonPosition() {
         int value = internal_native_get_ColorButtonPosition(native_address);
@@ -593,6 +663,20 @@ public class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "SelectableTextAlign_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_SelectableTextAlign(SelectableTextAlign_addr);")
     public static native void internal_native_set_SelectableTextAlign(int this_addr, int SelectableTextAlign_addr);
+
+    public float get_SeparatorSize() {
+        return internal_native_get_SeparatorSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_SeparatorSize();")
+    public static native float internal_native_get_SeparatorSize(int this_addr);
+
+    public void set_SeparatorSize(float SeparatorSize) {
+        internal_native_set_SeparatorSize(native_address, SeparatorSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "SeparatorSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_SeparatorSize(SeparatorSize);")
+    public static native void internal_native_set_SeparatorSize(int this_addr, float SeparatorSize);
 
     public float get_SeparatorTextBorderSize() {
         return internal_native_get_SeparatorTextBorderSize(native_address);

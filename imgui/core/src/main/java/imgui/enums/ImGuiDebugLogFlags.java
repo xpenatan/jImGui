@@ -26,6 +26,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventViewport(ImGuiDebugLogFlags_EventViewport_NATIVE()),
     EventMask_(ImGuiDebugLogFlags_EventMask__NATIVE()),
     OutputToTTY(ImGuiDebugLogFlags_OutputToTTY_NATIVE()),
+    OutputToDebugger(ImGuiDebugLogFlags_OutputToDebugger_NATIVE()),
     OutputToTestEngine(ImGuiDebugLogFlags_OutputToTestEngine_NATIVE());
 
     private int value;
@@ -79,6 +80,8 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     private static native int ImGuiDebugLogFlags_EventMask__NATIVE();
 
     private static native int ImGuiDebugLogFlags_OutputToTTY_NATIVE();
+
+    private static native int ImGuiDebugLogFlags_OutputToDebugger_NATIVE();
 
     private static native int ImGuiDebugLogFlags_OutputToTestEngine_NATIVE();
 }

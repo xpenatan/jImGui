@@ -26,6 +26,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventViewport(ImGuiDebugLogFlags_EventViewport_NATIVE()),
     EventMask_(ImGuiDebugLogFlags_EventMask__NATIVE()),
     OutputToTTY(ImGuiDebugLogFlags_OutputToTTY_NATIVE()),
+    OutputToDebugger(ImGuiDebugLogFlags_OutputToDebugger_NATIVE()),
     OutputToTestEngine(ImGuiDebugLogFlags_OutputToTestEngine_NATIVE());
 
     private int value;
@@ -94,6 +95,9 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtotty_native")
     private static native int ImGuiDebugLogFlags_OutputToTTY_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtodebugger_native")
+    private static native int ImGuiDebugLogFlags_OutputToDebugger_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_outputtotestengine_native")
     private static native int ImGuiDebugLogFlags_OutputToTestEngine_NATIVE();

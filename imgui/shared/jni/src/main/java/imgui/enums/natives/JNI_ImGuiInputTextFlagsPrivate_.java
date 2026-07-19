@@ -12,7 +12,7 @@ final public class JNI_ImGuiInputTextFlagsPrivate_ {
 
     static native public int ImGuiInputTextFlags_Multiline_NATIVE();
 
-    static native public int ImGuiInputTextFlags_MergedItem_NATIVE();
+    static native public int ImGuiInputTextFlags_TempInput_NATIVE();
 
     static native public int ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE();
 }

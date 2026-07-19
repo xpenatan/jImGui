@@ -26,6 +26,7 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
     TabDimmed(ImGuiWindowDockStyleCol_TabDimmed_NATIVE()),
     TabDimmedSelected(ImGuiWindowDockStyleCol_TabDimmedSelected_NATIVE()),
     TabDimmedSelectedOverline(ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE()),
+    UnsavedMarker(ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE()),
     COUNT(ImGuiWindowDockStyleCol_COUNT_NATIVE());
 
     private int value;
@@ -114,6 +115,14 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
         }
     }
 
+    private static int ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiWindowDockStyleCol_COUNT_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiWindowDockStyleCol_COUNT_NATIVE__.invokeExact();
@@ -139,6 +148,8 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
         static final java.lang.invoke.MethodHandle ImGuiWindowDockStyleCol_TabDimmedSelected_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_tabdimmedselected_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_tabdimmedselectedoverline_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_unsavedmarker_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiWindowDockStyleCol_COUNT_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_count_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }

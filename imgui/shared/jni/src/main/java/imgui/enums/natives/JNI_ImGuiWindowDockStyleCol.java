@@ -26,5 +26,7 @@ final public class JNI_ImGuiWindowDockStyleCol {
 
     static native public int ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE();
 
+    static native public int ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE();
+
     static native public int ImGuiWindowDockStyleCol_COUNT_NATIVE();
 }

@@ -16,7 +16,8 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
     MouseButtonRight(ImGuiButtonFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiButtonFlags_MouseButtonMiddle_NATIVE()),
     MouseButtonMask_(ImGuiButtonFlags_MouseButtonMask__NATIVE()),
-    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE());
+    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE()),
+    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE());
 
     private int value;
 
@@ -57,4 +58,7 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguibuttonflags_imguibuttonflags_enablenav_native")
     private static native int ImGuiButtonFlags_EnableNav_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguibuttonflags_imguibuttonflags_allowoverlap_native")
+    private static native int ImGuiButtonFlags_AllowOverlap_NATIVE();
 }

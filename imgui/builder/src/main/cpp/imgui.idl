@@ -6,6 +6,15 @@ interface ImTextureIDRef {
     unsigned long long Get();
 };
 
+[NoDelete]
+interface ImGuiDrawCallbacks {
+    static void InstallStandardCallbacks(ImGuiPlatformIO platform_io);
+    static void ClearStandardCallbacks(ImGuiPlatformIO platform_io);
+    static ImGuiDrawCallbackType GetType([Const] ImDrawCmd draw_cmd);
+    static boolean AddStandardCallback(ImDrawList draw_list, ImGuiDrawCallbackType type);
+    static void InvokeUserCallback([Const] ImDrawList parent_list, [Const] ImDrawCmd draw_cmd);
+};
+
 //interface ImHelper {
 //    void setClipboardTextFunction(ImGuiIO io, ClipboardTextFunction clipboardFunction);
 //    void memcpyIdx(any destination, ImDrawList drawList, long num);
@@ -188,7 +197,6 @@ interface ImGuiInternal {
 
     // Basic Accessors
     static ImGuiItemStatusFlags    GetItemStatusFlags();
-    static ImGuiItemFlags          GetItemFlags();
     static long                    GetActiveID();
     static long                    GetFocusID();
     static void                    SetActiveID(long id, ImGuiWindow window);
@@ -389,7 +397,7 @@ interface ImGuiInternal {
     static void          ClearDragDrop();
     static boolean       IsDragDropPayloadBeingAccepted();
     static void          RenderDragDropTargetRectForItem([Const, Ref] ImRect bb);
-    static void          RenderDragDropTargetRectEx(ImDrawList draw_list, [Const, Ref] ImRect bb);
+    static void          RenderDragDropTargetRectEx(ImDrawList draw_list, [Const, Ref] ImRect bb, float rounding);
 
 //    // Typing-Select API
 //    ImGuiTypingSelectRequest* GetTypingSelectRequest(ImGuiTypingSelectFlags flags = ImGuiTypingSelectFlags_None);
@@ -920,6 +928,7 @@ interface ImGui {
     [BindTo="TreePush"] static void      TreePush__1(any ptr_id);
     static void                    TreePop();
     static float                   GetTreeNodeToLabelSpacing();
+    static boolean                 TreeNodeGetOpen(long storage_id);
     [BindTo="CollapsingHeader"] static boolean CollapsingHeader__0([Const] DOMString label, optional ImGuiTreeNodeFlags flags);
     [BindTo="CollapsingHeader"] static boolean CollapsingHeader__1([Const] DOMString label, boolean[] p_visible, optional ImGuiTreeNodeFlags flags);
     static void                    SetNextItemOpen(boolean is_open, optional ImGuiCond ImGuiCond);
@@ -1075,6 +1084,7 @@ interface ImGui {
     static boolean                 IsAnyItemActive();
     static boolean                 IsAnyItemFocused();
     static long                    GetItemID();
+    static ImGuiItemFlags          GetItemFlags();
     [Value] static ImVec2          GetItemRectMin();
     [Value] static ImVec2          GetItemRectMax();
     [Value] static ImVec2          GetItemRectSize();
@@ -1119,7 +1129,7 @@ interface ImGui {
     static void                    SetNextItemShortcut(long key_chord, optional ImGuiInputFlags flags);
 
     // Inputs Utilities: Key/Input Ownership [BETA]
-    static void                    SetItemKeyOwner(ImGuiKey key);
+    static boolean                 SetItemKeyOwner(ImGuiKey key);
 
     // Inputs Utilities: Mouse specific
     static boolean                 IsMouseDown(ImGuiMouseButton ImGuiMouseButton);
@@ -1182,10 +1192,13 @@ interface ImGui {
 
 interface ImGuiInputTextCallbackData {
 //    attribute byte[] Buf;
+    readonly attribute long ID;
+    readonly attribute boolean EventActivated;
     attribute long BufSize;
     attribute boolean BufDirty;
     attribute long BufTextLen;
     attribute ImGuiInputTextFlags Flags;
+    void SetSelection(long selection_start, long selection_end);
 };
 
 // ############################################ ImVector ############################################
@@ -1461,7 +1474,9 @@ interface ImDrawList {
 
     // Primitives
     void AddLine([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, long col, optional float thickness);
-    void AddRect([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col, optional float rounding, optional ImDrawFlags flags, optional float thickness);
+    void AddLineH(float min_x, float max_x, float y, long col, optional float thickness);
+    void AddLineV(float x, float min_y, float max_y, long col, optional float thickness);
+    void AddRect([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col, optional float rounding, optional float thickness, optional ImDrawFlags flags);
     void AddRectFilled([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col, optional float rounding, optional ImDrawFlags flags);
     void AddRectFilledMultiColor([Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, long col_upr_left, long col_upr_right, long col_bot_right, long col_bot_left);
     void AddQuad([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, long col, optional float thickness);
@@ -1493,7 +1508,7 @@ interface ImDrawList {
     void PathLineTo([Const, Ref] ImVec2 pos);
     void PathLineToMergeDuplicate([Const, Ref] ImVec2 pos);
     void PathFillConvex(long col);
-    void PathStroke(long col, optional ImDrawFlags flags, optional float thickness);
+    void PathStroke(long col, optional float thickness, optional ImDrawFlags flags);
 
     void ChannelsSplit(long count);
     void ChannelsMerge();
@@ -1571,6 +1586,7 @@ interface ImGuiIO {
 
     // Docking options (when ImGuiConfigFlags_DockingEnable is set)
     attribute boolean ConfigDockingNoSplit;
+    attribute boolean ConfigDockingNoDockingOver;
     attribute boolean ConfigDockingWithShift;
     attribute boolean ConfigDockingAlwaysTabBar;
     attribute boolean ConfigDockingTransparentPayload;
@@ -1646,7 +1662,10 @@ interface ImFontAtlas {
 //
     ImFont AddFont([Const] ImFontConfig font_cfg);
     ImFont AddFontDefault([Const] optional ImFontConfig font_cfg);
+    ImFont AddFontDefaultVector([Const] optional ImFontConfig font_cfg);
+    ImFont AddFontDefaultBitmap([Const] optional ImFontConfig font_cfg);
     ImFont AddFontFromMemoryTTF(any font_data, long font_data_size, long size_pixels, [Const] optional ImFontConfig font_cfg);
+    void ClearFonts();
 };
 
 interface ImFontConfig {
@@ -1676,6 +1695,7 @@ interface ImFontConfig {
     attribute unsigned long FontLoaderFlags;
     attribute float RasterizerMultiply;
     attribute float RasterizerDensity;
+    attribute float ExtraSizeScale;
 };
 
 interface ImFont {
@@ -1709,12 +1729,18 @@ interface ImGuiStyle {
     attribute float             GrabMinSize;
     attribute float             GrabRounding;
     attribute float             LogSliderDeadzone;
+    attribute float             ImageRounding;
     attribute float             TabRounding;
     attribute float             TabBorderSize;
     attribute float             TabBarBorderSize;
+    attribute float             DragDropTargetRounding;
+    attribute float             DragDropTargetBorderSize;
+    attribute float             DragDropTargetPadding;
+    attribute float             ColorMarkerSize;
     attribute ImGuiDir          ColorButtonPosition;
     [Value] attribute ImVec2    ButtonTextAlign;
     [Value] attribute ImVec2    SelectableTextAlign;
+    attribute float             SeparatorSize;
     attribute float             SeparatorTextBorderSize;
     [Value] attribute ImVec2    SeparatorTextAlign;
     [Value] attribute ImVec2    SeparatorTextPadding;
@@ -1751,12 +1777,14 @@ interface ImGuiViewport {
     attribute ImDrawData DrawData;
     attribute any RendererUserData;
     attribute any PlatformUserData;
+    attribute any PlatformIconData;
     attribute any PlatformHandle;
     attribute any PlatformHandleRaw;
     attribute boolean PlatformWindowCreated;
     attribute boolean PlatformRequestMove;
     attribute boolean PlatformRequestResize;
     attribute boolean PlatformRequestClose;
+    [Const, Value] NativeString GetDebugName();
 };
 
 interface ImGuiTableSortSpecs {
@@ -1772,6 +1800,7 @@ interface ImGuiWindowClass {
     attribute ImGuiDockNodeFlags DockNodeFlagsOverrideSet;
     attribute boolean DockingAlwaysTabBar;
     attribute boolean DockingAllowUnclassed;
+    attribute any PlatformIconData;
 
     void ImGuiWindowClass();
 };
@@ -1881,6 +1910,9 @@ interface ImGuiPlatformIO {
     [Value] attribute ImVectorImTextureDataPtr Textures;
     [Value] attribute ImVectorImGuiViewportPtr Viewports;
 
+    void ClearPlatformHandlers();
+    void ClearRendererHandlers();
+
     // TODO impl
 };
 
@@ -1942,6 +1974,14 @@ interface ImGuiMultiSelectIO {
 
 // ############################################ ImGui Enums ############################################
 
+enum ImGuiDrawCallbackType { //[-SUB_PACKAGE=enums]
+    "ImGuiDrawCallbackType_None",
+    "ImGuiDrawCallbackType_ResetRenderState",
+    "ImGuiDrawCallbackType_SetSamplerLinear",
+    "ImGuiDrawCallbackType_SetSamplerNearest",
+    "ImGuiDrawCallbackType_User"
+};
+
 enum ImGuiWindowFlags { //[-SUB_PACKAGE=enums]
     "ImGuiWindowFlags_None",
     "ImGuiWindowFlags_NoTitleBar",
@@ -1997,7 +2037,8 @@ enum ImGuiItemFlags { //[-SUB_PACKAGE=enums]
     "ImGuiItemFlags_NoNavDefaultFocus",
     "ImGuiItemFlags_ButtonRepeat",
     "ImGuiItemFlags_AutoClosePopups",
-    "ImGuiItemFlags_AllowDuplicateId"
+    "ImGuiItemFlags_AllowDuplicateId",
+    "ImGuiItemFlags_Disabled"
 };
 
 enum ImGuiInputTextFlags { //[-SUB_PACKAGE=enums]
@@ -2075,15 +2116,16 @@ enum ImGuiPopupFlags { //[-SUB_PACKAGE=enums]
     "ImGuiPopupFlags_MouseButtonLeft",
     "ImGuiPopupFlags_MouseButtonRight",
     "ImGuiPopupFlags_MouseButtonMiddle",
-    "ImGuiPopupFlags_MouseButtonMask_",
-    "ImGuiPopupFlags_MouseButtonDefault_",
     "ImGuiPopupFlags_NoReopen",
     //ImGuiPopupFlags_NoReopenAlwaysNavInit
     "ImGuiPopupFlags_NoOpenOverExistingPopup",
     "ImGuiPopupFlags_NoOpenOverItems",
     "ImGuiPopupFlags_AnyPopupId",
     "ImGuiPopupFlags_AnyPopupLevel",
-    "ImGuiPopupFlags_AnyPopup"
+    "ImGuiPopupFlags_AnyPopup",
+    "ImGuiPopupFlags_MouseButtonShift_",
+    "ImGuiPopupFlags_MouseButtonMask_",
+    "ImGuiPopupFlags_InvalidMask_"
 };
 
 // Flags for ImGui::Selectable()
@@ -2217,6 +2259,7 @@ enum ImGuiDragDropFlags { //[-SUB_PACKAGE=enums]
     "ImGuiDragDropFlags_AcceptBeforeDelivery",
     "ImGuiDragDropFlags_AcceptNoDrawDefaultRect",
     "ImGuiDragDropFlags_AcceptNoPreviewTooltip",
+    "ImGuiDragDropFlags_AcceptDrawAsHovered",
     "ImGuiDragDropFlags_AcceptPeekOnly"
 };
 
@@ -2524,6 +2567,7 @@ enum ImGuiCol { //[-SUB_PACKAGE=enums]
     "ImGuiCol_ScrollbarGrabHovered",
     "ImGuiCol_ScrollbarGrabActive",
     "ImGuiCol_CheckMark",
+    "ImGuiCol_CheckboxSelectedBg",
     "ImGuiCol_SliderGrab",
     "ImGuiCol_SliderGrabActive",
     "ImGuiCol_Button",
@@ -2561,6 +2605,7 @@ enum ImGuiCol { //[-SUB_PACKAGE=enums]
     "ImGuiCol_TextSelectedBg",
     "ImGuiCol_TreeLines",
     "ImGuiCol_DragDropTarget",
+    "ImGuiCol_DragDropTargetBg",
     "ImGuiCol_UnsavedMarker",
     "ImGuiCol_NavCursor",
     "ImGuiCol_NavWindowingHighlight",
@@ -2593,6 +2638,7 @@ enum ImGuiStyleVar { //[-SUB_PACKAGE=enums]
     "ImGuiStyleVar_ScrollbarPadding",
     "ImGuiStyleVar_GrabMinSize",
     "ImGuiStyleVar_GrabRounding",
+    "ImGuiStyleVar_ImageRounding",
     "ImGuiStyleVar_ImageBorderSize",
     "ImGuiStyleVar_TabRounding",
     "ImGuiStyleVar_TabBorderSize",
@@ -2604,8 +2650,10 @@ enum ImGuiStyleVar { //[-SUB_PACKAGE=enums]
     "ImGuiStyleVar_TableAngledHeadersTextAlign",
     "ImGuiStyleVar_TreeLinesSize",
     "ImGuiStyleVar_TreeLinesRounding",
+    "ImGuiStyleVar_DragDropTargetRounding",
     "ImGuiStyleVar_ButtonTextAlign",
     "ImGuiStyleVar_SelectableTextAlign",
+    "ImGuiStyleVar_SeparatorSize",
     "ImGuiStyleVar_SeparatorTextBorderSize",
     "ImGuiStyleVar_SeparatorTextAlign",
     "ImGuiStyleVar_SeparatorTextPadding",
@@ -2619,7 +2667,8 @@ enum ImGuiButtonFlags { //[-SUB_PACKAGE=enums]
     "ImGuiButtonFlags_MouseButtonRight",
     "ImGuiButtonFlags_MouseButtonMiddle",
     "ImGuiButtonFlags_MouseButtonMask_",
-    "ImGuiButtonFlags_EnableNav"
+    "ImGuiButtonFlags_EnableNav",
+    "ImGuiButtonFlags_AllowOverlap"
 };
 
 // Flags for ColorEdit3() / ColorEdit4() / ColorPicker3() / ColorPicker4() / ColorButton()
@@ -2635,6 +2684,7 @@ enum ImGuiColorEditFlags { //[-SUB_PACKAGE=enums]
     "ImGuiColorEditFlags_NoSidePreview",
     "ImGuiColorEditFlags_NoDragDrop",
     "ImGuiColorEditFlags_NoBorder",
+    "ImGuiColorEditFlags_NoColorMarkers",
 
     // Alpha preview
     // - Prior to 1.91.8 (2025/01/21): alpha was made opaque in the preview by default using old name ImGuiColorEditFlags_AlphaPreview.
@@ -2681,6 +2731,7 @@ enum ImGuiSliderFlags { //[-SUB_PACKAGE=enums]
     "ImGuiSliderFlags_ClampOnInput",
     "ImGuiSliderFlags_ClampZeroRange",
     "ImGuiSliderFlags_NoSpeedTweaks",
+    "ImGuiSliderFlags_ColorMarkers",
     "ImGuiSliderFlags_AlwaysClamp",
     "ImGuiSliderFlags_InvalidMask_"
 };
@@ -2847,10 +2898,13 @@ enum ImGuiMultiSelectFlags { //[-SUB_PACKAGE=enums]
     "ImGuiMultiSelectFlags_ClearOnClickVoid",
     "ImGuiMultiSelectFlags_ScopeWindow",
     "ImGuiMultiSelectFlags_ScopeRect",
-    "ImGuiMultiSelectFlags_SelectOnClick",
+    "ImGuiMultiSelectFlags_SelectOnAuto",
+    "ImGuiMultiSelectFlags_SelectOnClickAlways",
     "ImGuiMultiSelectFlags_SelectOnClickRelease",
     //ImGuiMultiSelectFlags_RangeSelect2d
-    "ImGuiMultiSelectFlags_NavWrapX"
+    "ImGuiMultiSelectFlags_NavWrapX",
+    "ImGuiMultiSelectFlags_NoSelectOnRightClick",
+    "ImGuiMultiSelectFlags_SelectOnMask_"
 };
 
 // Selection request type
@@ -2884,7 +2938,8 @@ enum ImFontFlags { //[-SUB_PACKAGE=enums]
     "ImFontFlags_None",
     "ImFontFlags_NoLoadError",
     "ImFontFlags_NoLoadGlyphs",
-    "ImFontFlags_LockBakedSizes"
+    "ImFontFlags_LockBakedSizes",
+    "ImFontFlags_ImplicitRefSize"
 };
 
 enum ImGuiViewportFlags { //[-SUB_PACKAGE=enums]
@@ -2923,7 +2978,8 @@ enum ImDrawFlags { //[-SUB_PACKAGE=enums]
     "ImDrawFlags_RoundCornersRight",
     "ImDrawFlags_RoundCornersAll",
     "ImDrawFlags_RoundCornersDefault_",
-    "ImDrawFlags_RoundCornersMask_"
+    "ImDrawFlags_RoundCornersMask_",
+    "ImDrawFlags_InvalidMask_"
 };
 
 enum ImGuiDataTypePrivate_ { //[-SUB_PACKAGE=enums]
@@ -2933,7 +2989,6 @@ enum ImGuiDataTypePrivate_ { //[-SUB_PACKAGE=enums]
 
 enum ImGuiItemFlagsPrivate_ { //[-SUB_PACKAGE=enums]
     // Controlled by user
-    "ImGuiItemFlags_Disabled",
     "ImGuiItemFlags_ReadOnly",
     "ImGuiItemFlags_MixedValue",
     "ImGuiItemFlags_NoWindowHoverableCheck",
@@ -2962,7 +3017,8 @@ enum ImGuiItemStatusFlags { //[-SUB_PACKAGE=enums]
     "ImGuiItemStatusFlags_HoveredWindow",
     "ImGuiItemStatusFlags_Visible",
     "ImGuiItemStatusFlags_HasClipRect",
-    "ImGuiItemStatusFlags_HasShortcut"
+    "ImGuiItemStatusFlags_HasShortcut",
+    "ImGuiItemStatusFlags_EditedInternal"
 };
 
 enum ImGuiHoveredFlagsPrivate_ { //[-SUB_PACKAGE=enums]
@@ -2973,7 +3029,7 @@ enum ImGuiHoveredFlagsPrivate_ { //[-SUB_PACKAGE=enums]
 
 enum ImGuiInputTextFlagsPrivate_ { //[-SUB_PACKAGE=enums]
     "ImGuiInputTextFlags_Multiline",
-    "ImGuiInputTextFlags_MergedItem",
+    "ImGuiInputTextFlags_TempInput",
     "ImGuiInputTextFlags_LocalizeDecimalPoint"
 };
 
@@ -2985,7 +3041,6 @@ enum ImGuiButtonFlagsPrivate_ { //[-SUB_PACKAGE=enums]
     "ImGuiButtonFlags_PressedOnDoubleClick",
     "ImGuiButtonFlags_PressedOnDragDropHold",
     "ImGuiButtonFlags_FlattenChildren",
-    "ImGuiButtonFlags_AllowOverlap",
     "ImGuiButtonFlags_AlignTextBaseLine",
     "ImGuiButtonFlags_NoKeyModsAllowed",
     "ImGuiButtonFlags_NoHoldingActiveId",
@@ -3105,7 +3160,8 @@ enum ImGuiNextItemDataFlags { //[-SUB_PACKAGE=enums]
     "ImGuiNextItemDataFlags_HasOpen",
     "ImGuiNextItemDataFlags_HasShortcut",
     "ImGuiNextItemDataFlags_HasRefVal",
-    "ImGuiNextItemDataFlags_HasStorageID"
+    "ImGuiNextItemDataFlags_HasStorageID",
+    "ImGuiNextItemDataFlags_HasColorMarker"
 };
 
 enum ImGuiPopupPositionPolicy { //[-SUB_PACKAGE=enums]
@@ -3276,6 +3332,7 @@ enum ImGuiWindowDockStyleCol { //[-SUB_PACKAGE=enums]
     "ImGuiWindowDockStyleCol_TabDimmed",
     "ImGuiWindowDockStyleCol_TabDimmedSelected",
     "ImGuiWindowDockStyleCol_TabDimmedSelectedOverline",
+    "ImGuiWindowDockStyleCol_UnsavedMarker",
     "ImGuiWindowDockStyleCol_COUNT"
 };
 
@@ -3312,7 +3369,13 @@ enum ImGuiDebugLogFlags { //[-SUB_PACKAGE=enums]
     "ImGuiDebugLogFlags_EventViewport",
     "ImGuiDebugLogFlags_EventMask_",
     "ImGuiDebugLogFlags_OutputToTTY",
+    "ImGuiDebugLogFlags_OutputToDebugger",
     "ImGuiDebugLogFlags_OutputToTestEngine"
+};
+
+enum ImGuiWindowBgClickFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiWindowBgClickFlags_None",
+    "ImGuiWindowBgClickFlags_Move"
 };
 
 enum ImGuiTabBarFlagsPrivate_ { //[-SUB_PACKAGE=enums]

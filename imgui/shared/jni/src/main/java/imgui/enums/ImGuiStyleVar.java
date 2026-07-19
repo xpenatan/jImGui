@@ -34,6 +34,7 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     ScrollbarPadding(ImGuiStyleVar_ScrollbarPadding_NATIVE()),
     GrabMinSize(ImGuiStyleVar_GrabMinSize_NATIVE()),
     GrabRounding(ImGuiStyleVar_GrabRounding_NATIVE()),
+    ImageRounding(ImGuiStyleVar_ImageRounding_NATIVE()),
     ImageBorderSize(ImGuiStyleVar_ImageBorderSize_NATIVE()),
     TabRounding(ImGuiStyleVar_TabRounding_NATIVE()),
     TabBorderSize(ImGuiStyleVar_TabBorderSize_NATIVE()),
@@ -45,8 +46,10 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     TableAngledHeadersTextAlign(ImGuiStyleVar_TableAngledHeadersTextAlign_NATIVE()),
     TreeLinesSize(ImGuiStyleVar_TreeLinesSize_NATIVE()),
     TreeLinesRounding(ImGuiStyleVar_TreeLinesRounding_NATIVE()),
+    DragDropTargetRounding(ImGuiStyleVar_DragDropTargetRounding_NATIVE()),
     ButtonTextAlign(ImGuiStyleVar_ButtonTextAlign_NATIVE()),
     SelectableTextAlign(ImGuiStyleVar_SelectableTextAlign_NATIVE()),
+    SeparatorSize(ImGuiStyleVar_SeparatorSize_NATIVE()),
     SeparatorTextBorderSize(ImGuiStyleVar_SeparatorTextBorderSize_NATIVE()),
     SeparatorTextAlign(ImGuiStyleVar_SeparatorTextAlign_NATIVE()),
     SeparatorTextPadding(ImGuiStyleVar_SeparatorTextPadding_NATIVE()),
@@ -166,6 +169,10 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_GrabRounding_NATIVE();
     }
 
+    private static int ImGuiStyleVar_ImageRounding_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_ImageRounding_NATIVE();
+    }
+
     private static int ImGuiStyleVar_ImageBorderSize_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_ImageBorderSize_NATIVE();
     }
@@ -210,12 +217,20 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_TreeLinesRounding_NATIVE();
     }
 
+    private static int ImGuiStyleVar_DragDropTargetRounding_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_DragDropTargetRounding_NATIVE();
+    }
+
     private static int ImGuiStyleVar_ButtonTextAlign_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_ButtonTextAlign_NATIVE();
     }
 
     private static int ImGuiStyleVar_SelectableTextAlign_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_SelectableTextAlign_NATIVE();
+    }
+
+    private static int ImGuiStyleVar_SeparatorSize_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiStyleVar.ImGuiStyleVar_SeparatorSize_NATIVE();
     }
 
     private static int ImGuiStyleVar_SeparatorTextBorderSize_NATIVE() {

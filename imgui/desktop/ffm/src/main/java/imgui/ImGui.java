@@ -5125,6 +5125,18 @@ public class ImGui extends NativeObject {
         }
     }
 
+    public static boolean TreeNodeGetOpen(int storage_id) {
+        return internal_native_TreeNodeGetOpen(storage_id);
+    }
+
+    public static boolean internal_native_TreeNodeGetOpen(int storage_id) {
+        try {
+            return (boolean) FFMHandles.internal_native_TreeNodeGetOpen__I.invokeExact(storage_id);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static boolean CollapsingHeader(String label, ImGuiTreeNodeFlags flags) {
         return internal_native_CollapsingHeader__0(label, flags.getValue());
     }
@@ -7369,6 +7381,25 @@ public class ImGui extends NativeObject {
         }
     }
 
+    public static ImGuiItemFlags GetItemFlags() {
+        int value = internal_native_GetItemFlags();
+        ImGuiItemFlags[] values = ImGuiItemFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiItemFlags enumVal = values[i];
+            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiItemFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetItemFlags() {
+        try {
+            return (int) FFMHandles.internal_native_GetItemFlags__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static ImVec2 GetItemRectMin() {
         long addr = internal_native_GetItemRectMin_addr();
         if (addr == 0)
@@ -7903,13 +7934,13 @@ public class ImGui extends NativeObject {
         }
     }
 
-    public static void SetItemKeyOwner(ImGuiKey key) {
-        internal_native_SetItemKeyOwner(key.getValue());
+    public static boolean SetItemKeyOwner(ImGuiKey key) {
+        return internal_native_SetItemKeyOwner(key.getValue());
     }
 
-    public static void internal_native_SetItemKeyOwner(int key) {
+    public static boolean internal_native_SetItemKeyOwner(int key) {
         try {
-            FFMHandles.internal_native_SetItemKeyOwner__I.invokeExact(key);
+            return (boolean) FFMHandles.internal_native_SetItemKeyOwner__I.invokeExact(key);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -9309,6 +9340,8 @@ public class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetTreeNodeToLabelSpacing__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_gettreenodetolabelspacing", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT));
 
+        static final java.lang.invoke.MethodHandle internal_native_TreeNodeGetOpen__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_treenodegetopen", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle internal_native_CollapsingHeader__0__Ljava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_collapsingheader__0_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_CollapsingHeader__0__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_collapsingheader__0_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
@@ -9673,6 +9706,8 @@ public class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetItemID__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getitemid", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle internal_native_GetItemFlags__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getitemflags", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle internal_native_GetItemRectMin_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getitemrectmin_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetItemRectMax_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getitemrectmax_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
@@ -9745,7 +9780,7 @@ public class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_SetNextItemShortcut__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextitemshortcut_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetItemKeyOwner__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setitemkeyowner", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_SetItemKeyOwner__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setitemkeyowner", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_IsMouseDown__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismousedown", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
 

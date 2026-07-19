@@ -89,4 +89,8 @@ final public class JNI_ImFontConfig {
     public static native float internal_native_get_RasterizerDensity(long this_addr);
 
     public static native void internal_native_set_RasterizerDensity(long this_addr, float RasterizerDensity);
+
+    public static native float internal_native_get_ExtraSizeScale(long this_addr);
+
+    public static native void internal_native_set_ExtraSizeScale(long this_addr, float ExtraSizeScale);
 }

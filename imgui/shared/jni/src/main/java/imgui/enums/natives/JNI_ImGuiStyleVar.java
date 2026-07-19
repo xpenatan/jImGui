@@ -56,6 +56,8 @@ final public class JNI_ImGuiStyleVar {
 
     static native public int ImGuiStyleVar_GrabRounding_NATIVE();
 
+    static native public int ImGuiStyleVar_ImageRounding_NATIVE();
+
     static native public int ImGuiStyleVar_ImageBorderSize_NATIVE();
 
     static native public int ImGuiStyleVar_TabRounding_NATIVE();
@@ -78,9 +80,13 @@ final public class JNI_ImGuiStyleVar {
 
     static native public int ImGuiStyleVar_TreeLinesRounding_NATIVE();
 
+    static native public int ImGuiStyleVar_DragDropTargetRounding_NATIVE();
+
     static native public int ImGuiStyleVar_ButtonTextAlign_NATIVE();
 
     static native public int ImGuiStyleVar_SelectableTextAlign_NATIVE();
+
+    static native public int ImGuiStyleVar_SeparatorSize_NATIVE();
 
     static native public int ImGuiStyleVar_SeparatorTextBorderSize_NATIVE();
 

@@ -7,9 +7,12 @@
 package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
+import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.web.imgui.enums.ImGuiViewportFlags;
 
 public class ImGuiViewport extends NativeObject {
+
+    private NativeString NativeString_TEMP_GEN_0;
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 
@@ -30,6 +33,8 @@ public class ImGuiViewport extends NativeObject {
     private NativeObject NativeObject_TEMP_GEN_2;
 
     private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
 
@@ -53,6 +58,19 @@ public class ImGuiViewport extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
+
+    public NativeString GetDebugName() {
+        int addr = internal_native_GetDebugName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);var returnedJSObj = jsObj.GetDebugName();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_GetDebugName_addr(int this_addr);
 
     public int get_ID() {
         return internal_native_get_ID(native_address);
@@ -277,14 +295,34 @@ public class ImGuiViewport extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "PlatformUserData_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);jsObj.set_PlatformUserData(PlatformUserData_addr);")
     public static native void internal_native_set_PlatformUserData(int this_addr, int PlatformUserData_addr);
 
-    public NativeObject get_PlatformHandle() {
-        int addr = internal_native_get_PlatformHandle_addr(native_address);
+    public NativeObject get_PlatformIconData() {
+        int addr = internal_native_get_PlatformIconData_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_2 == null)
             NativeObject_TEMP_GEN_2 = NativeObject.native_new();
         NativeObject_TEMP_GEN_2.internal_reset(addr, false);
         return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);return jsObj.get_PlatformIconData();")
+    public static native int internal_native_get_PlatformIconData_addr(int this_addr);
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "PlatformIconData_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);jsObj.set_PlatformIconData(PlatformIconData_addr);")
+    public static native void internal_native_set_PlatformIconData(int this_addr, int PlatformIconData_addr);
+
+    public NativeObject get_PlatformHandle() {
+        int addr = internal_native_get_PlatformHandle_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);return jsObj.get_PlatformHandle();")
@@ -301,10 +339,10 @@ public class ImGuiViewport extends NativeObject {
         int addr = internal_native_get_PlatformHandleRaw_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
-        if (NativeObject_TEMP_GEN_3 == null)
-            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
-        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
-        return NativeObject_TEMP_GEN_3;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiViewport);return jsObj.get_PlatformHandleRaw();")

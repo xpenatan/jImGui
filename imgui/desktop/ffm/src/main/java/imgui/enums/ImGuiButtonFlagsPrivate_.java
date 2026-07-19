@@ -25,7 +25,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
     PressedOnDoubleClick(ImGuiButtonFlags_PressedOnDoubleClick_NATIVE()),
     PressedOnDragDropHold(ImGuiButtonFlags_PressedOnDragDropHold_NATIVE()),
     FlattenChildren(ImGuiButtonFlags_FlattenChildren_NATIVE()),
-    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE()),
     AlignTextBaseLine(ImGuiButtonFlags_AlignTextBaseLine_NATIVE()),
     NoKeyModsAllowed(ImGuiButtonFlags_NoKeyModsAllowed_NATIVE()),
     NoHoldingActiveId(ImGuiButtonFlags_NoHoldingActiveId_NATIVE()),
@@ -110,14 +109,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
     private static int ImGuiButtonFlags_FlattenChildren_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiButtonFlags_FlattenChildren_NATIVE__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    private static int ImGuiButtonFlags_AllowOverlap_NATIVE() {
-        try {
-            return (int) FFMHandles.ImGuiButtonFlags_AllowOverlap_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -218,8 +209,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_PressedOnDragDropHold_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflagsprivate__imguibuttonflags_pressedondragdrophold_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_FlattenChildren_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflagsprivate__imguibuttonflags_flattenchildren_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle ImGuiButtonFlags_AllowOverlap_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflagsprivate__imguibuttonflags_allowoverlap_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiButtonFlags_AlignTextBaseLine_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguibuttonflagsprivate__imguibuttonflags_aligntextbaseline_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

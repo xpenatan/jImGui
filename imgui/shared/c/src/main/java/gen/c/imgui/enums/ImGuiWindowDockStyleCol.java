@@ -19,6 +19,7 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
     TabDimmed(ImGuiWindowDockStyleCol_TabDimmed_NATIVE()),
     TabDimmedSelected(ImGuiWindowDockStyleCol_TabDimmedSelected_NATIVE()),
     TabDimmedSelectedOverline(ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE()),
+    UnsavedMarker(ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE()),
     COUNT(ImGuiWindowDockStyleCol_COUNT_NATIVE());
 
     private int value;
@@ -66,6 +67,9 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_tabdimmedselectedoverline_native")
     private static native int ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_unsavedmarker_native")
+    private static native int ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiwindowdockstylecol_imguiwindowdockstylecol_count_native")
     private static native int ImGuiWindowDockStyleCol_COUNT_NATIVE();

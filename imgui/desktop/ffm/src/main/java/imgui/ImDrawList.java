@@ -188,25 +188,73 @@ public class ImDrawList extends NativeObject {
         }
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags, float thickness) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue(), thickness);
+    public void AddLineH(float min_x, float max_x, float y, int col, float thickness) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col, thickness);
     }
 
-    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags, float thickness) {
+    public static void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col, float thickness) {
         try {
-            FFMHandles.internal_native_AddRect__JJJIFIF.invokeExact(this_addr, p_min_addr, p_max_addr, col, rounding, flags, thickness);
+            FFMHandles.internal_native_AddLineH__JFFFIF.invokeExact(this_addr, min_x, max_x, y, col, thickness);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue());
+    public void AddLineH(float min_x, float max_x, float y, int col) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col);
     }
 
-    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags) {
+    public static void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col) {
         try {
-            FFMHandles.internal_native_AddRect__JJJIFI.invokeExact(this_addr, p_min_addr, p_max_addr, col, rounding, flags);
+            FFMHandles.internal_native_AddLineH__JFFFI.invokeExact(this_addr, min_x, max_x, y, col);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col, float thickness) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col, thickness);
+    }
+
+    public static void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col, float thickness) {
+        try {
+            FFMHandles.internal_native_AddLineV__JFFFIF.invokeExact(this_addr, x, min_y, max_y, col, thickness);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col);
+    }
+
+    public static void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col) {
+        try {
+            FFMHandles.internal_native_AddLineV__JFFFI.invokeExact(this_addr, x, min_y, max_y, col);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness, ImDrawFlags flags) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness, flags.getValue());
+    }
+
+    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness, int flags) {
+        try {
+            FFMHandles.internal_native_AddRect__JJJIFFI.invokeExact(this_addr, p_min_addr, p_max_addr, col, rounding, thickness, flags);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness);
+    }
+
+    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness) {
+        try {
+            FFMHandles.internal_native_AddRect__JJJIFF.invokeExact(this_addr, p_min_addr, p_max_addr, col, rounding, thickness);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -800,25 +848,25 @@ public class ImDrawList extends NativeObject {
         }
     }
 
-    public void PathStroke(int col, ImDrawFlags flags, float thickness) {
-        internal_native_PathStroke(native_address, col, flags.getValue(), thickness);
+    public void PathStroke(int col, float thickness, ImDrawFlags flags) {
+        internal_native_PathStroke(native_address, col, thickness, flags.getValue());
     }
 
-    public static void internal_native_PathStroke(long this_addr, int col, int flags, float thickness) {
+    public static void internal_native_PathStroke(long this_addr, int col, float thickness, int flags) {
         try {
-            FFMHandles.internal_native_PathStroke__JIIF.invokeExact(this_addr, col, flags, thickness);
+            FFMHandles.internal_native_PathStroke__JIFI.invokeExact(this_addr, col, thickness, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void PathStroke(int col, ImDrawFlags flags) {
-        internal_native_PathStroke(native_address, col, flags.getValue());
+    public void PathStroke(int col, float thickness) {
+        internal_native_PathStroke(native_address, col, thickness);
     }
 
-    public static void internal_native_PathStroke(long this_addr, int col, int flags) {
+    public static void internal_native_PathStroke(long this_addr, int col, float thickness) {
         try {
-            FFMHandles.internal_native_PathStroke__JII.invokeExact(this_addr, col, flags);
+            FFMHandles.internal_native_PathStroke__JIF.invokeExact(this_addr, col, thickness);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -986,9 +1034,17 @@ public class ImDrawList extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_AddLine__JJJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addline_l_l_l_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_AddRect__JJJIFIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addrect_l_l_l_i_f_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_AddLineH__JFFFIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addlineh_l_f_f_f_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_AddRect__JJJIFI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addrect_l_l_l_i_f_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_AddLineH__JFFFI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addlineh_l_f_f_f_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddLineV__JFFFIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addlinev_l_f_f_f_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddLineV__JFFFI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addlinev_l_f_f_f_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddRect__JJJIFFI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addrect_l_l_l_i_f_f_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddRect__JJJIFF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addrect_l_l_l_i_f_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_AddRect__JJJIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_addrect_l_l_l_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
 
@@ -1088,9 +1144,9 @@ public class ImDrawList extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_PathFillConvex__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathfillconvex", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PathStroke__JIIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathstroke_l_i_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_PathStroke__JIFI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathstroke_l_i_f_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PathStroke__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathstroke_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PathStroke__JIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathstroke_l_i_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_PathStroke__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pathstroke_l_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 

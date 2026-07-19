@@ -23,4 +23,6 @@ final public class JNI_ImGuiItemFlags {
     static native public int ImGuiItemFlags_AutoClosePopups_NATIVE();
 
     static native public int ImGuiItemFlags_AllowDuplicateId_NATIVE();
+
+    static native public int ImGuiItemFlags_Disabled_NATIVE();
 }

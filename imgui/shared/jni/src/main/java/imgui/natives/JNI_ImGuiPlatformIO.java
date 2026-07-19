@@ -12,6 +12,10 @@ final public class JNI_ImGuiPlatformIO {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native void internal_native_ClearPlatformHandlers(long this_addr);
+
+    public static native void internal_native_ClearRendererHandlers(long this_addr);
+
     public static native long internal_native_get_Textures_addr(long this_addr);
 
     public static native void internal_native_set_Textures(long this_addr, long Textures_addr);

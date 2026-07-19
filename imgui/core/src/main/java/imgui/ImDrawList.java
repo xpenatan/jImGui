@@ -59,10 +59,22 @@ public class ImDrawList extends NativeObject {
     public void AddLine(ImVec2 p1, ImVec2 p2, int col) {
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags, float thickness) {
+    public void AddLineH(float min_x, float max_x, float y, int col, float thickness) {
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags) {
+    public void AddLineH(float min_x, float max_x, float y, int col) {
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col, float thickness) {
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col) {
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness, ImDrawFlags flags) {
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness) {
     }
 
     public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding) {
@@ -212,10 +224,10 @@ public class ImDrawList extends NativeObject {
     public void PathFillConvex(int col) {
     }
 
-    public void PathStroke(int col, ImDrawFlags flags, float thickness) {
+    public void PathStroke(int col, float thickness, ImDrawFlags flags) {
     }
 
-    public void PathStroke(int col, ImDrawFlags flags) {
+    public void PathStroke(int col, float thickness) {
     }
 
     public void PathStroke(int col) {

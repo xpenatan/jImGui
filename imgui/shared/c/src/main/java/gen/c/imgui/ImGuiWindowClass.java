@@ -13,6 +13,8 @@ import gen.c.imgui.enums.ImGuiDockNodeFlags;
 
 public class ImGuiWindowClass extends NativeObject {
 
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImGuiWindowClass NULL = ImGuiWindowClass.native_new();
 
     public ImGuiWindowClass() {
@@ -197,4 +199,24 @@ public class ImGuiWindowClass extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiwindowclass_set_dockingallowunclassed")
     public static native void internal_native_set_DockingAllowUnclassed(long this_addr, boolean DockingAllowUnclassed);
+
+    public NativeObject get_PlatformIconData() {
+        long addr = internal_native_get_PlatformIconData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiwindowclass_get_platformicondata_addr")
+    public static native long internal_native_get_PlatformIconData_addr(long this_addr);
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiwindowclass_set_platformicondata")
+    public static native void internal_native_set_PlatformIconData(long this_addr, long PlatformIconData_addr);
 }

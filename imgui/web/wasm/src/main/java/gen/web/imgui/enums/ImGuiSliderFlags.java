@@ -19,6 +19,7 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
     ClampOnInput(ImGuiSliderFlags_ClampOnInput_NATIVE()),
     ClampZeroRange(ImGuiSliderFlags_ClampZeroRange_NATIVE()),
     NoSpeedTweaks(ImGuiSliderFlags_NoSpeedTweaks_NATIVE()),
+    ColorMarkers(ImGuiSliderFlags_ColorMarkers_NATIVE()),
     AlwaysClamp(ImGuiSliderFlags_AlwaysClamp_NATIVE()),
     InvalidMask_(ImGuiSliderFlags_InvalidMask__NATIVE());
 
@@ -67,6 +68,9 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiSliderFlags_NoSpeedTweaks;")
     private static native int ImGuiSliderFlags_NoSpeedTweaks_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiSliderFlags_ColorMarkers;")
+    private static native int ImGuiSliderFlags_ColorMarkers_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiSliderFlags_AlwaysClamp;")
     private static native int ImGuiSliderFlags_AlwaysClamp_NATIVE();

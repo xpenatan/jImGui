@@ -16,7 +16,8 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
     HasOpen(ImGuiNextItemDataFlags_HasOpen_NATIVE()),
     HasShortcut(ImGuiNextItemDataFlags_HasShortcut_NATIVE()),
     HasRefVal(ImGuiNextItemDataFlags_HasRefVal_NATIVE()),
-    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE());
+    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE()),
+    HasColorMarker(ImGuiNextItemDataFlags_HasColorMarker_NATIVE());
 
     private int value;
 
@@ -57,4 +58,7 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiNextItemDataFlags_HasStorageID;")
     private static native int ImGuiNextItemDataFlags_HasStorageID_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiNextItemDataFlags_HasColorMarker;")
+    private static native int ImGuiNextItemDataFlags_HasColorMarker_NATIVE();
 }

@@ -530,6 +530,30 @@ public class ImFontConfig extends NativeObject {
         }
     }
 
+    public float get_ExtraSizeScale() {
+        return internal_native_get_ExtraSizeScale(native_address);
+    }
+
+    public static float internal_native_get_ExtraSizeScale(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_ExtraSizeScale__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ExtraSizeScale(float ExtraSizeScale) {
+        internal_native_set_ExtraSizeScale(native_address, ExtraSizeScale);
+    }
+
+    public static void internal_native_set_ExtraSizeScale(long this_addr, float ExtraSizeScale) {
+        try {
+            FFMHandles.internal_native_set_ExtraSizeScale__JF.invokeExact(this_addr, ExtraSizeScale);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
@@ -611,5 +635,9 @@ public class ImFontConfig extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_RasterizerDensity__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_rasterizerdensity", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_RasterizerDensity__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_rasterizerdensity", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ExtraSizeScale__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_extrasizescale", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ExtraSizeScale__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_extrasizescale", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
     }
 }

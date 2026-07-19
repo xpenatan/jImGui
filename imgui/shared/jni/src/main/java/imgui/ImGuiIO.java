@@ -518,6 +518,22 @@ public class ImGuiIO extends NativeObject {
         imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDockingNoSplit(this_addr, ConfigDockingNoSplit);
     }
 
+    public boolean get_ConfigDockingNoDockingOver() {
+        return internal_native_get_ConfigDockingNoDockingOver(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDockingNoDockingOver(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDockingNoDockingOver(this_addr);
+    }
+
+    public void set_ConfigDockingNoDockingOver(boolean ConfigDockingNoDockingOver) {
+        internal_native_set_ConfigDockingNoDockingOver(native_address, ConfigDockingNoDockingOver);
+    }
+
+    public static void internal_native_set_ConfigDockingNoDockingOver(long this_addr, boolean ConfigDockingNoDockingOver) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDockingNoDockingOver(this_addr, ConfigDockingNoDockingOver);
+    }
+
     public boolean get_ConfigDockingWithShift() {
         return internal_native_get_ConfigDockingWithShift(native_address);
     }

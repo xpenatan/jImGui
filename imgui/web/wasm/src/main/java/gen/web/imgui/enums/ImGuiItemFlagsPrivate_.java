@@ -11,7 +11,6 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 public enum ImGuiItemFlagsPrivate_ implements NativeEnum<ImGuiItemFlagsPrivate_> {
 
     CUSTOM(0),
-    Disabled(ImGuiItemFlags_Disabled_NATIVE()),
     ReadOnly(ImGuiItemFlags_ReadOnly_NATIVE()),
     MixedValue(ImGuiItemFlags_MixedValue_NATIVE()),
     NoWindowHoverableCheck(ImGuiItemFlags_NoWindowHoverableCheck_NATIVE()),
@@ -45,9 +44,6 @@ public enum ImGuiItemFlagsPrivate_ implements NativeEnum<ImGuiItemFlagsPrivate_>
     public ImGuiItemFlagsPrivate_ getCustom() {
         return CUSTOM;
     }
-
-    @org.teavm.jso.JSBody(script = "return imgui.ImGuiItemFlags_Disabled;")
-    private static native int ImGuiItemFlags_Disabled_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiItemFlags_ReadOnly;")
     private static native int ImGuiItemFlags_ReadOnly_NATIVE();

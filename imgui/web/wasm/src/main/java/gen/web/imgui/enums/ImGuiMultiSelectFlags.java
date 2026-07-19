@@ -25,9 +25,12 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
     ClearOnClickVoid(ImGuiMultiSelectFlags_ClearOnClickVoid_NATIVE()),
     ScopeWindow(ImGuiMultiSelectFlags_ScopeWindow_NATIVE()),
     ScopeRect(ImGuiMultiSelectFlags_ScopeRect_NATIVE()),
-    SelectOnClick(ImGuiMultiSelectFlags_SelectOnClick_NATIVE()),
+    SelectOnAuto(ImGuiMultiSelectFlags_SelectOnAuto_NATIVE()),
+    SelectOnClickAlways(ImGuiMultiSelectFlags_SelectOnClickAlways_NATIVE()),
     SelectOnClickRelease(ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE()),
-    NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE());
+    NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE()),
+    NoSelectOnRightClick(ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE()),
+    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE());
 
     private int value;
 
@@ -93,12 +96,21 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_ScopeRect;")
     private static native int ImGuiMultiSelectFlags_ScopeRect_NATIVE();
 
-    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnClick;")
-    private static native int ImGuiMultiSelectFlags_SelectOnClick_NATIVE();
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnAuto;")
+    private static native int ImGuiMultiSelectFlags_SelectOnAuto_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnClickAlways;")
+    private static native int ImGuiMultiSelectFlags_SelectOnClickAlways_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnClickRelease;")
     private static native int ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_NavWrapX;")
     private static native int ImGuiMultiSelectFlags_NavWrapX_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_NoSelectOnRightClick;")
+    private static native int ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnMask_;")
+    private static native int ImGuiMultiSelectFlags_SelectOnMask__NATIVE();
 }

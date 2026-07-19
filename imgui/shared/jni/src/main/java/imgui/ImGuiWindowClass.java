@@ -13,6 +13,8 @@ import imgui.enums.ImGuiDockNodeFlags;
 
 public class ImGuiWindowClass extends NativeObject {
 
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImGuiWindowClass NULL = ImGuiWindowClass.native_new();
 
     public ImGuiWindowClass() {
@@ -216,5 +218,27 @@ public class ImGuiWindowClass extends NativeObject {
 
     public static void internal_native_set_DockingAllowUnclassed(long this_addr, boolean DockingAllowUnclassed) {
         imgui.natives.JNI_ImGuiWindowClass.internal_native_set_DockingAllowUnclassed(this_addr, DockingAllowUnclassed);
+    }
+
+    public NativeObject get_PlatformIconData() {
+        long addr = internal_native_get_PlatformIconData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_PlatformIconData_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiWindowClass.internal_native_get_PlatformIconData_addr(this_addr);
+    }
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    public static void internal_native_set_PlatformIconData(long this_addr, long PlatformIconData_addr) {
+        imgui.natives.JNI_ImGuiWindowClass.internal_native_set_PlatformIconData(this_addr, PlatformIconData_addr);
     }
 }

@@ -26,6 +26,8 @@ final public class JNI_ImGuiSliderFlags {
 
     static native public int ImGuiSliderFlags_NoSpeedTweaks_NATIVE();
 
+    static native public int ImGuiSliderFlags_ColorMarkers_NATIVE();
+
     static native public int ImGuiSliderFlags_AlwaysClamp_NATIVE();
 
     static native public int ImGuiSliderFlags_InvalidMask__NATIVE();

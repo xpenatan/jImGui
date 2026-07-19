@@ -49,4 +49,8 @@ final public class JNI_ImGuiWindowClass {
     public static native boolean internal_native_get_DockingAllowUnclassed(long this_addr);
 
     public static native void internal_native_set_DockingAllowUnclassed(long this_addr, boolean DockingAllowUnclassed);
+
+    public static native long internal_native_get_PlatformIconData_addr(long this_addr);
+
+    public static native void internal_native_set_PlatformIconData(long this_addr, long PlatformIconData_addr);
 }

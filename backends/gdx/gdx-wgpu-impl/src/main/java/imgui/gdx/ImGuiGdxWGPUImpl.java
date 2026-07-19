@@ -93,6 +93,7 @@ import imgui.ImDrawCmd;
 import imgui.ImDrawData;
 import imgui.ImDrawList;
 import imgui.ImGui;
+import imgui.ImGuiDrawCallbacks;
 import imgui.ImGuiIO;
 import imgui.ImGuiPlatformIO;
 import imgui.ImTextureData;
@@ -104,6 +105,7 @@ import imgui.ImVectorImDrawIdx;
 import imgui.ImVectorImDrawListPtr;
 import imgui.ImVectorImDrawVert;
 import imgui.ImVectorImTextureDataPtr;
+import imgui.enums.ImGuiDrawCallbackType;
 import imgui.enums.ImTextureStatus;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -127,9 +129,11 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
     private WGPUPipelineLayout pipelineLayout;
     private WGPUBindGroupLayout commonBindGroupLayout;
     private WGPUBindGroupLayout imageBindGroupLayout;
-    private WGPUSampler sampler;
+    private WGPUSampler linearSampler;
+    private WGPUSampler nearestSampler;
     private WGPUBuffer uniformBuffer;
-    private WGPUBindGroup commonBindGroup;
+    private WGPUBindGroup linearCommonBindGroup;
+    private WGPUBindGroup nearestCommonBindGroup;
     private WGPUBuffer vertexBuffer;
     private WGPUBuffer indexBuffer;
     private int vertexBufferSizeBytes = 0;
@@ -177,6 +181,7 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
 
         ImGuiIO io = ImGui.GetIO();
         io.set_BackendFlags(ImGuiBackendFlags.RendererHasTextures.or(ImGuiBackendFlags.HasMouseCursors));
+        ImGuiDrawCallbacks.InstallStandardCallbacks(ImGui.GetPlatformIO());
 
         if(imgui != null) {
             boolean exists = imgui.exists();
@@ -340,18 +345,8 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
         device.createRenderPipeline(graphics_pipeline_desc, pipeline);
 //        pipeline.setLabel("Pipeline");
 
-        // Sampler
-        WGPUSamplerDescriptor samplerDesc = WGPUSamplerDescriptor.obtain();
-        samplerDesc.setMinFilter(WGPUFilterMode.Linear);
-        samplerDesc.setMagFilter(WGPUFilterMode.Linear);
-        samplerDesc.setMipmapFilter(WGPUMipmapFilterMode.Linear);
-        samplerDesc.setAddressModeU(WGPUAddressMode.ClampToEdge);
-        samplerDesc.setAddressModeV(WGPUAddressMode.ClampToEdge);
-        samplerDesc.setAddressModeW(WGPUAddressMode.ClampToEdge);
-        samplerDesc.setMaxAnisotropy(1);
-        sampler = new WGPUSampler();
-        device.createSampler(samplerDesc, sampler);
-//        sampler.setLabel("Sampler");
+        linearSampler = createSampler(WGPUFilterMode.Linear, WGPUMipmapFilterMode.Linear);
+        nearestSampler = createSampler(WGPUFilterMode.Nearest, WGPUMipmapFilterMode.Nearest);
 
         int gammaSize = 2;
         int orthoProjSize = 16;
@@ -365,7 +360,27 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
         uniformBuffer = device.createBuffer(uniformDesc);
 //        uniformBuffer.setLabel("Uniform Buffer");
 
-        // Uniform bind group
+        linearCommonBindGroup = createCommonBindGroup(linearSampler, uniformAlign);
+        nearestCommonBindGroup = createCommonBindGroup(nearestSampler, uniformAlign);
+
+        renderPass = new WGPURenderPassEncoder();
+    }
+
+    private WGPUSampler createSampler(WGPUFilterMode filter, WGPUMipmapFilterMode mipmapFilter) {
+        WGPUSamplerDescriptor samplerDesc = WGPUSamplerDescriptor.obtain();
+        samplerDesc.setMinFilter(filter);
+        samplerDesc.setMagFilter(filter);
+        samplerDesc.setMipmapFilter(mipmapFilter);
+        samplerDesc.setAddressModeU(WGPUAddressMode.ClampToEdge);
+        samplerDesc.setAddressModeV(WGPUAddressMode.ClampToEdge);
+        samplerDesc.setAddressModeW(WGPUAddressMode.ClampToEdge);
+        samplerDesc.setMaxAnisotropy(1);
+        WGPUSampler result = new WGPUSampler();
+        device.createSampler(samplerDesc, result);
+        return result;
+    }
+
+    private WGPUBindGroup createCommonBindGroup(WGPUSampler sampler, int uniformAlign) {
         WGPUVectorBindGroupEntry common_bg_entries = WGPUVectorBindGroupEntry.obtain();
 
         WGPUBindGroupEntry uniformEntry = WGPUBindGroupEntry.obtain();
@@ -378,7 +393,7 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
 
         WGPUBindGroupEntry sampleEntry = WGPUBindGroupEntry.obtain();
         sampleEntry.setBinding(1);
-        uniformEntry.setSize(0);
+        sampleEntry.setSize(0);
         sampleEntry.setSampler(sampler);
         sampleEntry.setBuffer(WGPUBuffer.NULL);
         sampleEntry.setTextureView(WGPUTextureView.NULL);
@@ -388,11 +403,9 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
         common_bg_descriptor.setLabel("common_bg_descriptor");
         common_bg_descriptor.setLayout(commonBindGroupLayout);
         common_bg_descriptor.setEntries(common_bg_entries);
-        commonBindGroup = new WGPUBindGroup();
-        device.createBindGroup(common_bg_descriptor, commonBindGroup);
-//        commonBindGroup.setLabel("Uniform Bind Group");
-
-        renderPass = new WGPURenderPassEncoder();
+        WGPUBindGroup result = new WGPUBindGroup();
+        device.createBindGroup(common_bg_descriptor, result);
+        return result;
     }
 
     private void createBindGroupLayout() {
@@ -485,6 +498,7 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
 
     @Override
     public void dispose() {
+        ImGuiDrawCallbacks.ClearStandardCallbacks(ImGui.GetPlatformIO());
         super.dispose();
         deleteTexture();
         if(vertexByteBuffer != null) {
@@ -506,12 +520,16 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
         commonBindGroupLayout.dispose();
         imageBindGroupLayout.release();
         imageBindGroupLayout.dispose();
-        sampler.release();
-        sampler.dispose();
+        linearSampler.release();
+        linearSampler.dispose();
+        nearestSampler.release();
+        nearestSampler.dispose();
         uniformBuffer.release();
         uniformBuffer.dispose();
-        commonBindGroup.release();
-        commonBindGroup.dispose();
+        linearCommonBindGroup.release();
+        linearCommonBindGroup.dispose();
+        nearestCommonBindGroup.release();
+        nearestCommonBindGroup.dispose();
         if (vertexBuffer != null) {
             vertexBuffer.release();
             vertexBuffer.dispose();
@@ -723,6 +741,22 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
             int cmdBufferSize = cmdBuffer.size();
             for (int cmd_i = 0; cmd_i < cmdBufferSize; cmd_i++) {
                 ImDrawCmd pcmd = cmdBuffer.getData(cmd_i);
+                ImGuiDrawCallbackType callbackType = ImGuiDrawCallbacks.GetType(pcmd);
+                if(callbackType != ImGuiDrawCallbackType.None) {
+                    if(callbackType == ImGuiDrawCallbackType.ResetRenderState) {
+                        setupRenderState(displayX, displayY, displaySizeX, displaySizeY, frameScaleX, frameScaleY);
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.SetSamplerLinear) {
+                        renderPass.setBindGroup(0, linearCommonBindGroup);
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.SetSamplerNearest) {
+                        renderPass.setBindGroup(0, nearestCommonBindGroup);
+                    }
+                    else if(callbackType == ImGuiDrawCallbackType.User) {
+                        ImGuiDrawCallbacks.InvokeUserCallback(draw_list, pcmd);
+                    }
+                    continue;
+                }
                 ImVec4 clipRect = pcmd.get_ClipRect();
 
                 ImTextureIDRef imTextureIDRef = pcmd.GetTexID();
@@ -794,13 +828,14 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
             size.setHeight(height);
             size.setDepthOrArrayLayers(1);
             tex_desc.setSampleCount(1);
-            tex_desc.setFormat(renderFormat);
+            // ImTextureData pixels are RGBA8 regardless of the swap-chain format.
+            tex_desc.setFormat(WGPUTextureFormat.RGBA8Unorm);
             tex_desc.setMipLevelCount(1);
             tex_desc.setUsage(WGPUTextureUsage.CopyDst.or(WGPUTextureUsage.TextureBinding));
             device.createTexture(tex_desc, texture);
 
             WGPUTextureViewDescriptor tex_view_desc = WGPUTextureViewDescriptor.obtain();
-            tex_view_desc.setFormat(renderFormat);
+            tex_view_desc.setFormat(WGPUTextureFormat.RGBA8Unorm);
             tex_view_desc.setDimension(WGPUTextureViewDimension._2D);
             tex_view_desc.setBaseMipLevel(0);
             tex_view_desc.setMipLevelCount(1);
@@ -928,7 +963,7 @@ public class ImGuiGdxWGPUImpl extends ImGuiGdxImpl {
         renderPass.setVertexBuffer(0, vertexBuffer, 0, vertexBufferSizeBytes);
         renderPass.setIndexBuffer(indexBuffer, WGPUIndexFormat.Uint16, 0, indexBufferSizeBytes);
         renderPass.setPipeline(pipeline);
-        renderPass.setBindGroup(0, commonBindGroup);
+        renderPass.setBindGroup(0, linearCommonBindGroup);
 
         // Setup blend factor
         WGPUColor color = WGPUColor.obtain();

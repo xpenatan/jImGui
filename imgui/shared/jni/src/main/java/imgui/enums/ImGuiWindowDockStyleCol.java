@@ -19,6 +19,7 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
     TabDimmed(ImGuiWindowDockStyleCol_TabDimmed_NATIVE()),
     TabDimmedSelected(ImGuiWindowDockStyleCol_TabDimmedSelected_NATIVE()),
     TabDimmedSelectedOverline(ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE()),
+    UnsavedMarker(ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE()),
     COUNT(ImGuiWindowDockStyleCol_COUNT_NATIVE());
 
     private int value;
@@ -73,6 +74,10 @@ public enum ImGuiWindowDockStyleCol implements NativeEnum<ImGuiWindowDockStyleCo
 
     private static int ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiWindowDockStyleCol.ImGuiWindowDockStyleCol_TabDimmedSelectedOverline_NATIVE();
+    }
+
+    private static int ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiWindowDockStyleCol.ImGuiWindowDockStyleCol_UnsavedMarker_NATIVE();
     }
 
     private static int ImGuiWindowDockStyleCol_COUNT_NATIVE() {

@@ -40,5 +40,7 @@ final public class JNI_ImGuiDebugLogFlags {
 
     static native public int ImGuiDebugLogFlags_OutputToTTY_NATIVE();
 
+    static native public int ImGuiDebugLogFlags_OutputToDebugger_NATIVE();
+
     static native public int ImGuiDebugLogFlags_OutputToTestEngine_NATIVE();
 }

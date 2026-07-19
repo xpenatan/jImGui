@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlagsPrivate_> {
 
-    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), MergedItem(ImGuiInputTextFlags_MergedItem_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
+    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), TempInput(ImGuiInputTextFlags_TempInput_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
 
     private int value;
 
@@ -37,8 +37,8 @@ public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlag
     @org.teavm.interop.Import(name = "imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_multiline_native")
     private static native int ImGuiInputTextFlags_Multiline_NATIVE();
 
-    @org.teavm.interop.Import(name = "imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_mergeditem_native")
-    private static native int ImGuiInputTextFlags_MergedItem_NATIVE();
+    @org.teavm.interop.Import(name = "imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_tempinput_native")
+    private static native int ImGuiInputTextFlags_TempInput_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiinputtextflagsprivate__imguiinputtextflags_localizedecimalpoint_native")
     private static native int ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE();

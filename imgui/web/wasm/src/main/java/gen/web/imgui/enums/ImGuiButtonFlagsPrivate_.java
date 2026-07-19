@@ -18,7 +18,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
     PressedOnDoubleClick(ImGuiButtonFlags_PressedOnDoubleClick_NATIVE()),
     PressedOnDragDropHold(ImGuiButtonFlags_PressedOnDragDropHold_NATIVE()),
     FlattenChildren(ImGuiButtonFlags_FlattenChildren_NATIVE()),
-    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE()),
     AlignTextBaseLine(ImGuiButtonFlags_AlignTextBaseLine_NATIVE()),
     NoKeyModsAllowed(ImGuiButtonFlags_NoKeyModsAllowed_NATIVE()),
     NoHoldingActiveId(ImGuiButtonFlags_NoHoldingActiveId_NATIVE()),
@@ -72,9 +71,6 @@ public enum ImGuiButtonFlagsPrivate_ implements NativeEnum<ImGuiButtonFlagsPriva
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiButtonFlags_FlattenChildren;")
     private static native int ImGuiButtonFlags_FlattenChildren_NATIVE();
-
-    @org.teavm.jso.JSBody(script = "return imgui.ImGuiButtonFlags_AllowOverlap;")
-    private static native int ImGuiButtonFlags_AllowOverlap_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiButtonFlags_AlignTextBaseLine;")
     private static native int ImGuiButtonFlags_AlignTextBaseLine_NATIVE();

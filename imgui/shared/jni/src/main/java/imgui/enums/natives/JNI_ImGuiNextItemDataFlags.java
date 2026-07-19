@@ -21,4 +21,6 @@ final public class JNI_ImGuiNextItemDataFlags {
     static native public int ImGuiNextItemDataFlags_HasRefVal_NATIVE();
 
     static native public int ImGuiNextItemDataFlags_HasStorageID_NATIVE();
+
+    static native public int ImGuiNextItemDataFlags_HasColorMarker_NATIVE();
 }

@@ -741,6 +741,30 @@ public class ImGuiIO extends NativeObject {
         }
     }
 
+    public boolean get_ConfigDockingNoDockingOver() {
+        return internal_native_get_ConfigDockingNoDockingOver(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDockingNoDockingOver(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDockingNoDockingOver__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDockingNoDockingOver(boolean ConfigDockingNoDockingOver) {
+        internal_native_set_ConfigDockingNoDockingOver(native_address, ConfigDockingNoDockingOver);
+    }
+
+    public static void internal_native_set_ConfigDockingNoDockingOver(long this_addr, boolean ConfigDockingNoDockingOver) {
+        try {
+            FFMHandles.internal_native_set_ConfigDockingNoDockingOver__JZ.invokeExact(this_addr, ConfigDockingNoDockingOver);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_ConfigDockingWithShift() {
         return internal_native_get_ConfigDockingWithShift(native_address);
     }
@@ -1792,6 +1816,10 @@ public class ImGuiIO extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_ConfigDockingNoSplit__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdockingnosplit", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ConfigDockingNoSplit__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdockingnosplit", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDockingNoDockingOver__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdockingnodockingover", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDockingNoDockingOver__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdockingnodockingover", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_get_ConfigDockingWithShift__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdockingwithshift", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 

@@ -26,6 +26,7 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
     ClampOnInput(ImGuiSliderFlags_ClampOnInput_NATIVE()),
     ClampZeroRange(ImGuiSliderFlags_ClampZeroRange_NATIVE()),
     NoSpeedTweaks(ImGuiSliderFlags_NoSpeedTweaks_NATIVE()),
+    ColorMarkers(ImGuiSliderFlags_ColorMarkers_NATIVE()),
     AlwaysClamp(ImGuiSliderFlags_AlwaysClamp_NATIVE()),
     InvalidMask_(ImGuiSliderFlags_InvalidMask__NATIVE());
 
@@ -115,6 +116,14 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
         }
     }
 
+    private static int ImGuiSliderFlags_ColorMarkers_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiSliderFlags_ColorMarkers_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiSliderFlags_AlwaysClamp_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiSliderFlags_AlwaysClamp_NATIVE__.invokeExact();
@@ -148,6 +157,8 @@ public enum ImGuiSliderFlags implements NativeEnum<ImGuiSliderFlags> {
         static final java.lang.invoke.MethodHandle ImGuiSliderFlags_ClampZeroRange_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguisliderflags_imguisliderflags_clampzerorange_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiSliderFlags_NoSpeedTweaks_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguisliderflags_imguisliderflags_nospeedtweaks_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiSliderFlags_ColorMarkers_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguisliderflags_imguisliderflags_colormarkers_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiSliderFlags_AlwaysClamp_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguisliderflags_imguisliderflags_alwaysclamp_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

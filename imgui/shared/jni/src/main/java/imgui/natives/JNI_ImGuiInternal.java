@@ -134,8 +134,6 @@ final public class JNI_ImGuiInternal {
 
     public static native int internal_native_GetItemStatusFlags();
 
-    public static native int internal_native_GetItemFlags();
-
     public static native int internal_native_GetActiveID();
 
     public static native int internal_native_GetFocusID();
@@ -208,7 +206,7 @@ final public class JNI_ImGuiInternal {
 
     public static native void internal_native_RenderDragDropTargetRectForItem(long bb_addr);
 
-    public static native void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr);
+    public static native void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr, float rounding);
 
     public static native boolean internal_native_BeginTableEx(String name, int id, int columns_count, int flags, long outer_size_addr, float inner_width);
 

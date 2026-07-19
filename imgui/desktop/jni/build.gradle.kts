@@ -18,10 +18,11 @@ val macFile = "$nativeRoot/mac/jni/libimgui64.dylib"
 dependencies {
     api(project(":imgui:shared:jni"))
 
-    api("com.github.xpenatan.jParser:runtime-jni_windows_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-jni_linux_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-jni_mac_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-jni_mac_arm64:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-desktop-jni:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-desktop-jni_windows_x64:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-desktop-jni_linux_x64:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-desktop-jni_mac_x64:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-desktop-jni_mac_arm64:${LibExt.jParserVersion}")
 }
 
 val platforms: MutableMap<String, Jar.() -> Unit> = mutableMapOf()

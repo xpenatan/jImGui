@@ -17,4 +17,6 @@ final public class JNI_ImFontFlags {
     static native public int ImFontFlags_NoLoadGlyphs_NATIVE();
 
     static native public int ImFontFlags_LockBakedSizes_NATIVE();
+
+    static native public int ImFontFlags_ImplicitRefSize_NATIVE();
 }

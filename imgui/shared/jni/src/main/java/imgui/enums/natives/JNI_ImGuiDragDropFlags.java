@@ -34,5 +34,7 @@ final public class JNI_ImGuiDragDropFlags {
 
     static native public int ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE();
 
+    static native public int ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE();
+
     static native public int ImGuiDragDropFlags_AcceptPeekOnly_NATIVE();
 }

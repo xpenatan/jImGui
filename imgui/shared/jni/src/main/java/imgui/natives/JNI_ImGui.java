@@ -814,6 +814,8 @@ final public class JNI_ImGui {
 
     public static native float internal_native_GetTreeNodeToLabelSpacing();
 
+    public static native boolean internal_native_TreeNodeGetOpen(int storage_id);
+
     public static native boolean internal_native_CollapsingHeader__0(String label, int flags);
 
     public static native boolean internal_native_CollapsingHeader__0(String label);
@@ -1178,6 +1180,8 @@ final public class JNI_ImGui {
 
     public static native int internal_native_GetItemID();
 
+    public static native int internal_native_GetItemFlags();
+
     public static native long internal_native_GetItemRectMin_addr();
 
     public static native long internal_native_GetItemRectMax_addr();
@@ -1250,7 +1254,7 @@ final public class JNI_ImGui {
 
     public static native void internal_native_SetNextItemShortcut(int key_chord);
 
-    public static native void internal_native_SetItemKeyOwner(int key);
+    public static native boolean internal_native_SetItemKeyOwner(int key);
 
     public static native boolean internal_native_IsMouseDown(int ImGuiMouseButton);
 

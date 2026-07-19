@@ -322,4 +322,18 @@ public class ImFontConfig extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imfontconfig_set_rasterizerdensity")
     public static native void internal_native_set_RasterizerDensity(long this_addr, float RasterizerDensity);
+
+    public float get_ExtraSizeScale() {
+        return internal_native_get_ExtraSizeScale(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_get_extrasizescale")
+    public static native float internal_native_get_ExtraSizeScale(long this_addr);
+
+    public void set_ExtraSizeScale(float ExtraSizeScale) {
+        internal_native_set_ExtraSizeScale(native_address, ExtraSizeScale);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_set_extrasizescale")
+    public static native void internal_native_set_ExtraSizeScale(long this_addr, float ExtraSizeScale);
 }

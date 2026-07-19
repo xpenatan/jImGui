@@ -15,7 +15,6 @@ import imgui.enums.ImGuiCond;
 import imgui.enums.ImGuiFocusRequestFlags;
 import imgui.enums.ImGuiWindowRefreshFlags;
 import imgui.enums.ImGuiItemStatusFlags;
-import imgui.enums.ImGuiItemFlags;
 import imgui.enums.ImGuiDockNodeFlags;
 import imgui.enums.ImGuiDir;
 import imgui.enums.ImGuiTableFlags;
@@ -900,25 +899,6 @@ public class ImGuiInternal extends NativeObject {
         }
     }
 
-    public static ImGuiItemFlags GetItemFlags() {
-        int value = internal_native_GetItemFlags();
-        ImGuiItemFlags[] values = ImGuiItemFlags.values();
-        for (int i = 0; i < values.length; i++) {
-            ImGuiItemFlags enumVal = values[i];
-            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ImGuiItemFlags.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetItemFlags() {
-        try {
-            return (int) FFMHandles.internal_native_GetItemFlags__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     public static int GetActiveID() {
         return internal_native_GetActiveID();
     }
@@ -1363,13 +1343,13 @@ public class ImGuiInternal extends NativeObject {
         }
     }
 
-    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb) {
-        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address);
+    public static void RenderDragDropTargetRectEx(ImDrawList draw_list, ImRect bb, float rounding) {
+        internal_native_RenderDragDropTargetRectEx(draw_list.native_address, bb.native_address, rounding);
     }
 
-    public static void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr) {
+    public static void internal_native_RenderDragDropTargetRectEx(long draw_list_addr, long bb_addr, float rounding) {
         try {
-            FFMHandles.internal_native_RenderDragDropTargetRectEx__JJ.invokeExact(draw_list_addr, bb_addr);
+            FFMHandles.internal_native_RenderDragDropTargetRectEx__JJF.invokeExact(draw_list_addr, bb_addr, rounding);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1645,8 +1625,6 @@ public class ImGuiInternal extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetItemStatusFlags__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_getitemstatusflags", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetItemFlags__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_getitemflags", FunctionDescriptor.of(ValueLayout.JAVA_INT));
-
         static final java.lang.invoke.MethodHandle internal_native_GetActiveID__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_getactiveid", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_GetFocusID__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_getfocusid", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -1719,7 +1697,7 @@ public class ImGuiInternal extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_RenderDragDropTargetRectForItem__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_renderdragdroptargetrectforitem", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_RenderDragDropTargetRectEx__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_renderdragdroptargetrectex", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_RenderDragDropTargetRectEx__JJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_renderdragdroptargetrectex", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_BeginTableEx__Ljava_lang_String_2IIIJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinternal_begintableex_str_i_i_i_l_f", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 

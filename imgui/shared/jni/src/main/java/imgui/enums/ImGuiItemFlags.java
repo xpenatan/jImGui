@@ -17,7 +17,8 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
     NoNavDefaultFocus(ImGuiItemFlags_NoNavDefaultFocus_NATIVE()),
     ButtonRepeat(ImGuiItemFlags_ButtonRepeat_NATIVE()),
     AutoClosePopups(ImGuiItemFlags_AutoClosePopups_NATIVE()),
-    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE());
+    AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE()),
+    Disabled(ImGuiItemFlags_Disabled_NATIVE());
 
     private int value;
 
@@ -67,5 +68,9 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
 
     private static int ImGuiItemFlags_AllowDuplicateId_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiItemFlags.ImGuiItemFlags_AllowDuplicateId_NATIVE();
+    }
+
+    private static int ImGuiItemFlags_Disabled_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiItemFlags.ImGuiItemFlags_Disabled_NATIVE();
     }
 }

@@ -3108,6 +3108,13 @@ public class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_gettreenodetolabelspacing")
     public static native float internal_native_GetTreeNodeToLabelSpacing();
 
+    public static boolean TreeNodeGetOpen(int storage_id) {
+        return internal_native_TreeNodeGetOpen(storage_id);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_treenodegetopen")
+    public static native boolean internal_native_TreeNodeGetOpen(int storage_id);
+
     public static boolean CollapsingHeader(String label, ImGuiTreeNodeFlags flags) {
         return internal_native_CollapsingHeader__0(label, flags.getValue());
     }
@@ -4442,6 +4449,20 @@ public class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_getitemid")
     public static native int internal_native_GetItemID();
 
+    public static ImGuiItemFlags GetItemFlags() {
+        int value = internal_native_GetItemFlags();
+        ImGuiItemFlags[] values = ImGuiItemFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiItemFlags enumVal = values[i];
+            if (enumVal != ImGuiItemFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiItemFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_getitemflags")
+    public static native int internal_native_GetItemFlags();
+
     public static ImVec2 GetItemRectMin() {
         long addr = internal_native_GetItemRectMin_addr();
         if (addr == 0)
@@ -4796,12 +4817,12 @@ public class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_setnextitemshortcut_i")
     public static native void internal_native_SetNextItemShortcut(int key_chord);
 
-    public static void SetItemKeyOwner(ImGuiKey key) {
-        internal_native_SetItemKeyOwner(key.getValue());
+    public static boolean SetItemKeyOwner(ImGuiKey key) {
+        return internal_native_SetItemKeyOwner(key.getValue());
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_setitemkeyowner")
-    public static native void internal_native_SetItemKeyOwner(int key);
+    public static native boolean internal_native_SetItemKeyOwner(int key);
 
     public static boolean IsMouseDown(ImGuiMouseButton ImGuiMouseButton) {
         return internal_native_IsMouseDown(ImGuiMouseButton.getValue());

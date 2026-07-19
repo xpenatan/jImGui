@@ -20,6 +20,14 @@ public class ImFontAtlas extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_4;
 
+    private ImFont ImFont_TEMP_GEN_5;
+
+    private ImFont ImFont_TEMP_GEN_6;
+
+    private ImFont ImFont_TEMP_GEN_7;
+
+    private ImFont ImFont_TEMP_GEN_8;
+
     static public final ImFontAtlas NULL = ImFontAtlas.native_new();
 
     /**
@@ -82,14 +90,66 @@ public class ImFontAtlas extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontDefault();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
     public static native int internal_native_AddFontDefault_addr(int this_addr);
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
-        int addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+    public ImFont AddFontDefaultVector(ImFontConfig font_cfg) {
+        int addr = internal_native_AddFontDefaultVector_addr(native_address, font_cfg.native_address);
         if (addr == 0)
             return ImFont.NULL;
         if (ImFont_TEMP_GEN_3 == null)
             ImFont_TEMP_GEN_3 = ImFont.native_new();
         ImFont_TEMP_GEN_3.internal_reset(addr, false);
         return ImFont_TEMP_GEN_3;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "font_cfg_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontDefaultVector(font_cfg_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_AddFontDefaultVector_addr(int this_addr, int font_cfg_addr);
+
+    public ImFont AddFontDefaultVector() {
+        int addr = internal_native_AddFontDefaultVector_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_4 == null)
+            ImFont_TEMP_GEN_4 = ImFont.native_new();
+        ImFont_TEMP_GEN_4.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_4;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontDefaultVector();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_AddFontDefaultVector_addr(int this_addr);
+
+    public ImFont AddFontDefaultBitmap(ImFontConfig font_cfg) {
+        int addr = internal_native_AddFontDefaultBitmap_addr(native_address, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_5 == null)
+            ImFont_TEMP_GEN_5 = ImFont.native_new();
+        ImFont_TEMP_GEN_5.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_5;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "font_cfg_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontDefaultBitmap(font_cfg_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_AddFontDefaultBitmap_addr(int this_addr, int font_cfg_addr);
+
+    public ImFont AddFontDefaultBitmap() {
+        int addr = internal_native_AddFontDefaultBitmap_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_6 == null)
+            ImFont_TEMP_GEN_6 = ImFont.native_new();
+        ImFont_TEMP_GEN_6.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_6;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontDefaultBitmap();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_AddFontDefaultBitmap_addr(int this_addr);
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
+        int addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_7 == null)
+            ImFont_TEMP_GEN_7 = ImFont.native_new();
+        ImFont_TEMP_GEN_7.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_7;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "font_data_addr", "font_data_size", "size_pixels", "font_cfg_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontFromMemoryTTF(font_data_addr, font_data_size, size_pixels, font_cfg_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -99,12 +159,19 @@ public class ImFontAtlas extends NativeObject {
         int addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels);
         if (addr == 0)
             return ImFont.NULL;
-        if (ImFont_TEMP_GEN_4 == null)
-            ImFont_TEMP_GEN_4 = ImFont.native_new();
-        ImFont_TEMP_GEN_4.internal_reset(addr, false);
-        return ImFont_TEMP_GEN_4;
+        if (ImFont_TEMP_GEN_8 == null)
+            ImFont_TEMP_GEN_8 = ImFont.native_new();
+        ImFont_TEMP_GEN_8.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_8;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "font_data_addr", "font_data_size", "size_pixels"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);var returnedJSObj = jsObj.AddFontFromMemoryTTF(font_data_addr, font_data_size, size_pixels);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
     public static native int internal_native_AddFontFromMemoryTTF_addr(int this_addr, int font_data_addr, int font_data_size, int size_pixels);
+
+    public void ClearFonts() {
+        internal_native_ClearFonts(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontAtlas);jsObj.ClearFonts();")
+    public static native void internal_native_ClearFonts(int this_addr);
 }

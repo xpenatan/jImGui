@@ -23,7 +23,8 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
     HasOpen(ImGuiNextItemDataFlags_HasOpen_NATIVE()),
     HasShortcut(ImGuiNextItemDataFlags_HasShortcut_NATIVE()),
     HasRefVal(ImGuiNextItemDataFlags_HasRefVal_NATIVE()),
-    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE());
+    HasStorageID(ImGuiNextItemDataFlags_HasStorageID_NATIVE()),
+    HasColorMarker(ImGuiNextItemDataFlags_HasColorMarker_NATIVE());
 
     private int value;
 
@@ -95,6 +96,14 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
         }
     }
 
+    private static int ImGuiNextItemDataFlags_HasColorMarker_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiNextItemDataFlags_HasColorMarker_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiNextItemDataFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinextitemdataflags_imguinextitemdataflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -108,5 +117,7 @@ public enum ImGuiNextItemDataFlags implements NativeEnum<ImGuiNextItemDataFlags>
         static final java.lang.invoke.MethodHandle ImGuiNextItemDataFlags_HasRefVal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinextitemdataflags_imguinextitemdataflags_hasrefval_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiNextItemDataFlags_HasStorageID_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinextitemdataflags_imguinextitemdataflags_hasstorageid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiNextItemDataFlags_HasColorMarker_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinextitemdataflags_imguinextitemdataflags_hascolormarker_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

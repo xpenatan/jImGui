@@ -7,9 +7,12 @@
 package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.c.imgui.enums.ImGuiViewportFlags;
 
 public class ImGuiViewport extends NativeObject {
+
+    private NativeString NativeString_TEMP_GEN_0;
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 
@@ -30,6 +33,8 @@ public class ImGuiViewport extends NativeObject {
     private NativeObject NativeObject_TEMP_GEN_2;
 
     private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
 
@@ -53,6 +58,19 @@ public class ImGuiViewport extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiviewport_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
+
+    public NativeString GetDebugName() {
+        long addr = internal_native_GetDebugName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiviewport_getdebugname_addr")
+    public static native long internal_native_GetDebugName_addr(long this_addr);
 
     public int get_ID() {
         return internal_native_get_ID(native_address);
@@ -277,14 +295,34 @@ public class ImGuiViewport extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiviewport_set_platformuserdata")
     public static native void internal_native_set_PlatformUserData(long this_addr, long PlatformUserData_addr);
 
-    public NativeObject get_PlatformHandle() {
-        long addr = internal_native_get_PlatformHandle_addr(native_address);
+    public NativeObject get_PlatformIconData() {
+        long addr = internal_native_get_PlatformIconData_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_2 == null)
             NativeObject_TEMP_GEN_2 = NativeObject.native_new();
         NativeObject_TEMP_GEN_2.internal_reset(addr, false);
         return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiviewport_get_platformicondata_addr")
+    public static native long internal_native_get_PlatformIconData_addr(long this_addr);
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
+        internal_native_set_PlatformIconData(native_address, PlatformIconData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiviewport_set_platformicondata")
+    public static native void internal_native_set_PlatformIconData(long this_addr, long PlatformIconData_addr);
+
+    public NativeObject get_PlatformHandle() {
+        long addr = internal_native_get_PlatformHandle_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguiviewport_get_platformhandle_addr")
@@ -301,10 +339,10 @@ public class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_PlatformHandleRaw_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
-        if (NativeObject_TEMP_GEN_3 == null)
-            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
-        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
-        return NativeObject_TEMP_GEN_3;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguiviewport_get_platformhandleraw_addr")

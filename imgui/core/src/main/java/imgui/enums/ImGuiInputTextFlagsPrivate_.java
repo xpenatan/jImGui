@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlagsPrivate_> {
 
-    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), MergedItem(ImGuiInputTextFlags_MergedItem_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
+    CUSTOM(0), Multiline(ImGuiInputTextFlags_Multiline_NATIVE()), TempInput(ImGuiInputTextFlags_TempInput_NATIVE()), LocalizeDecimalPoint(ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE());
 
     private int value;
 
@@ -36,7 +36,7 @@ public enum ImGuiInputTextFlagsPrivate_ implements NativeEnum<ImGuiInputTextFlag
 
     private static native int ImGuiInputTextFlags_Multiline_NATIVE();
 
-    private static native int ImGuiInputTextFlags_MergedItem_NATIVE();
+    private static native int ImGuiInputTextFlags_TempInput_NATIVE();
 
     private static native int ImGuiInputTextFlags_LocalizeDecimalPoint_NATIVE();
 }

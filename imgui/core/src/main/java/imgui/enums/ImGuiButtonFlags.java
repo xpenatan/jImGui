@@ -16,7 +16,8 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
     MouseButtonRight(ImGuiButtonFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiButtonFlags_MouseButtonMiddle_NATIVE()),
     MouseButtonMask_(ImGuiButtonFlags_MouseButtonMask__NATIVE()),
-    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE());
+    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE()),
+    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE());
 
     private int value;
 
@@ -51,4 +52,6 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
     private static native int ImGuiButtonFlags_MouseButtonMask__NATIVE();
 
     private static native int ImGuiButtonFlags_EnableNav_NATIVE();
+
+    private static native int ImGuiButtonFlags_AllowOverlap_NATIVE();
 }

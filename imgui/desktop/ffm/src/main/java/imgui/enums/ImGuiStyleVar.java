@@ -41,6 +41,7 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     ScrollbarPadding(ImGuiStyleVar_ScrollbarPadding_NATIVE()),
     GrabMinSize(ImGuiStyleVar_GrabMinSize_NATIVE()),
     GrabRounding(ImGuiStyleVar_GrabRounding_NATIVE()),
+    ImageRounding(ImGuiStyleVar_ImageRounding_NATIVE()),
     ImageBorderSize(ImGuiStyleVar_ImageBorderSize_NATIVE()),
     TabRounding(ImGuiStyleVar_TabRounding_NATIVE()),
     TabBorderSize(ImGuiStyleVar_TabBorderSize_NATIVE()),
@@ -52,8 +53,10 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     TableAngledHeadersTextAlign(ImGuiStyleVar_TableAngledHeadersTextAlign_NATIVE()),
     TreeLinesSize(ImGuiStyleVar_TreeLinesSize_NATIVE()),
     TreeLinesRounding(ImGuiStyleVar_TreeLinesRounding_NATIVE()),
+    DragDropTargetRounding(ImGuiStyleVar_DragDropTargetRounding_NATIVE()),
     ButtonTextAlign(ImGuiStyleVar_ButtonTextAlign_NATIVE()),
     SelectableTextAlign(ImGuiStyleVar_SelectableTextAlign_NATIVE()),
+    SeparatorSize(ImGuiStyleVar_SeparatorSize_NATIVE()),
     SeparatorTextBorderSize(ImGuiStyleVar_SeparatorTextBorderSize_NATIVE()),
     SeparatorTextAlign(ImGuiStyleVar_SeparatorTextAlign_NATIVE()),
     SeparatorTextPadding(ImGuiStyleVar_SeparatorTextPadding_NATIVE()),
@@ -265,6 +268,14 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         }
     }
 
+    private static int ImGuiStyleVar_ImageRounding_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiStyleVar_ImageRounding_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiStyleVar_ImageBorderSize_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiStyleVar_ImageBorderSize_NATIVE__.invokeExact();
@@ -353,6 +364,14 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         }
     }
 
+    private static int ImGuiStyleVar_DragDropTargetRounding_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiStyleVar_DragDropTargetRounding_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiStyleVar_ButtonTextAlign_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiStyleVar_ButtonTextAlign_NATIVE__.invokeExact();
@@ -364,6 +383,14 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     private static int ImGuiStyleVar_SelectableTextAlign_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiStyleVar_SelectableTextAlign_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiStyleVar_SeparatorSize_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiStyleVar_SeparatorSize_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -449,6 +476,8 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_GrabRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_grabrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle ImGuiStyleVar_ImageRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_imagerounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_ImageBorderSize_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_imagebordersize_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_TabRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_tabrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -471,9 +500,13 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_TreeLinesRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_treelinesrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle ImGuiStyleVar_DragDropTargetRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_dragdroptargetrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_ButtonTextAlign_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_buttontextalign_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_SelectableTextAlign_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_selectabletextalign_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiStyleVar_SeparatorSize_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_separatorsize_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_SeparatorTextBorderSize_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_separatortextbordersize_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

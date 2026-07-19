@@ -30,6 +30,7 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
     AcceptBeforeDelivery(ImGuiDragDropFlags_AcceptBeforeDelivery_NATIVE()),
     AcceptNoDrawDefaultRect(ImGuiDragDropFlags_AcceptNoDrawDefaultRect_NATIVE()),
     AcceptNoPreviewTooltip(ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE()),
+    AcceptDrawAsHovered(ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE()),
     AcceptPeekOnly(ImGuiDragDropFlags_AcceptPeekOnly_NATIVE());
 
     private int value;
@@ -150,6 +151,14 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
         }
     }
 
+    private static int ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiDragDropFlags_AcceptPeekOnly_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiDragDropFlags_AcceptPeekOnly_NATIVE__.invokeExact();
@@ -183,6 +192,8 @@ public enum ImGuiDragDropFlags implements NativeEnum<ImGuiDragDropFlags> {
         static final java.lang.invoke.MethodHandle ImGuiDragDropFlags_AcceptNoDrawDefaultRect_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidragdropflags_imguidragdropflags_acceptnodrawdefaultrect_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiDragDropFlags_AcceptNoPreviewTooltip_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidragdropflags_imguidragdropflags_acceptnopreviewtooltip_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiDragDropFlags_AcceptDrawAsHovered_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidragdropflags_imguidragdropflags_acceptdrawashovered_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiDragDropFlags_AcceptPeekOnly_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguidragdropflags_imguidragdropflags_acceptpeekonly_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }

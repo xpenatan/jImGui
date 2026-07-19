@@ -137,20 +137,52 @@ public class ImDrawList extends NativeObject {
         imgui.natives.JNI_ImDrawList.internal_native_AddLine(this_addr, p1_addr, p2_addr, col);
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags, float thickness) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue(), thickness);
+    public void AddLineH(float min_x, float max_x, float y, int col, float thickness) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col, thickness);
     }
 
-    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags, float thickness) {
-        imgui.natives.JNI_ImDrawList.internal_native_AddRect(this_addr, p_min_addr, p_max_addr, col, rounding, flags, thickness);
+    public static void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col, float thickness) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddLineH(this_addr, min_x, max_x, y, col, thickness);
     }
 
-    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, ImDrawFlags flags) {
-        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, flags.getValue());
+    public void AddLineH(float min_x, float max_x, float y, int col) {
+        internal_native_AddLineH(native_address, min_x, max_x, y, col);
     }
 
-    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, int flags) {
-        imgui.natives.JNI_ImDrawList.internal_native_AddRect(this_addr, p_min_addr, p_max_addr, col, rounding, flags);
+    public static void internal_native_AddLineH(long this_addr, float min_x, float max_x, float y, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddLineH(this_addr, min_x, max_x, y, col);
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col, float thickness) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col, thickness);
+    }
+
+    public static void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col, float thickness) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddLineV(this_addr, x, min_y, max_y, col, thickness);
+    }
+
+    public void AddLineV(float x, float min_y, float max_y, int col) {
+        internal_native_AddLineV(native_address, x, min_y, max_y, col);
+    }
+
+    public static void internal_native_AddLineV(long this_addr, float x, float min_y, float max_y, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddLineV(this_addr, x, min_y, max_y, col);
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness, ImDrawFlags flags) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness, flags.getValue());
+    }
+
+    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness, int flags) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddRect(this_addr, p_min_addr, p_max_addr, col, rounding, thickness, flags);
+    }
+
+    public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding, float thickness) {
+        internal_native_AddRect(native_address, p_min.native_address, p_max.native_address, col, rounding, thickness);
+    }
+
+    public static void internal_native_AddRect(long this_addr, long p_min_addr, long p_max_addr, int col, float rounding, float thickness) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddRect(this_addr, p_min_addr, p_max_addr, col, rounding, thickness);
     }
 
     public void AddRect(ImVec2 p_min, ImVec2 p_max, int col, float rounding) {
@@ -545,20 +577,20 @@ public class ImDrawList extends NativeObject {
         imgui.natives.JNI_ImDrawList.internal_native_PathFillConvex(this_addr, col);
     }
 
-    public void PathStroke(int col, ImDrawFlags flags, float thickness) {
-        internal_native_PathStroke(native_address, col, flags.getValue(), thickness);
+    public void PathStroke(int col, float thickness, ImDrawFlags flags) {
+        internal_native_PathStroke(native_address, col, thickness, flags.getValue());
     }
 
-    public static void internal_native_PathStroke(long this_addr, int col, int flags, float thickness) {
-        imgui.natives.JNI_ImDrawList.internal_native_PathStroke(this_addr, col, flags, thickness);
+    public static void internal_native_PathStroke(long this_addr, int col, float thickness, int flags) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathStroke(this_addr, col, thickness, flags);
     }
 
-    public void PathStroke(int col, ImDrawFlags flags) {
-        internal_native_PathStroke(native_address, col, flags.getValue());
+    public void PathStroke(int col, float thickness) {
+        internal_native_PathStroke(native_address, col, thickness);
     }
 
-    public static void internal_native_PathStroke(long this_addr, int col, int flags) {
-        imgui.natives.JNI_ImDrawList.internal_native_PathStroke(this_addr, col, flags);
+    public static void internal_native_PathStroke(long this_addr, int col, float thickness) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathStroke(this_addr, col, thickness);
     }
 
     public void PathStroke(int col) {

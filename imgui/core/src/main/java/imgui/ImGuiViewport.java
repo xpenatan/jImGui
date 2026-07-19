@@ -7,6 +7,7 @@
 package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import imgui.enums.ImGuiViewportFlags;
 
 public class ImGuiViewport extends NativeObject {
@@ -25,6 +26,10 @@ public class ImGuiViewport extends NativeObject {
      */
     public static ImGuiViewport native_new() {
         return new ImGuiViewport((byte) 0, (char) 0);
+    }
+
+    public NativeString GetDebugName() {
+        return null;
     }
 
     public int get_ID() {
@@ -109,6 +114,13 @@ public class ImGuiViewport extends NativeObject {
     }
 
     public void set_PlatformUserData(NativeObject PlatformUserData) {
+    }
+
+    public NativeObject get_PlatformIconData() {
+        return null;
+    }
+
+    public void set_PlatformIconData(NativeObject PlatformIconData) {
     }
 
     public NativeObject get_PlatformHandle() {

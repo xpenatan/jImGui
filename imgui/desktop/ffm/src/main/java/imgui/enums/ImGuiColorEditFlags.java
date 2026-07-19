@@ -29,6 +29,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     NoSidePreview(ImGuiColorEditFlags_NoSidePreview_NATIVE()),
     NoDragDrop(ImGuiColorEditFlags_NoDragDrop_NATIVE()),
     NoBorder(ImGuiColorEditFlags_NoBorder_NATIVE()),
+    NoColorMarkers(ImGuiColorEditFlags_NoColorMarkers_NATIVE()),
     AlphaOpaque(ImGuiColorEditFlags_AlphaOpaque_NATIVE()),
     AlphaNoBg(ImGuiColorEditFlags_AlphaNoBg_NATIVE()),
     AlphaPreviewHalf(ImGuiColorEditFlags_AlphaPreviewHalf_NATIVE()),
@@ -155,6 +156,14 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     private static int ImGuiColorEditFlags_NoBorder_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiColorEditFlags_NoBorder_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiColorEditFlags_NoColorMarkers_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiColorEditFlags_NoColorMarkers_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -343,6 +352,8 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_NoDragDrop_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_nodragdrop_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_NoBorder_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_noborder_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_NoColorMarkers_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_nocolormarkers_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_AlphaOpaque_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_alphaopaque_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

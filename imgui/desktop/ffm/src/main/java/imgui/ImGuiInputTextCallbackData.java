@@ -46,6 +46,42 @@ public class ImGuiInputTextCallbackData extends NativeObject {
         }
     }
 
+    public void SetSelection(int selection_start, int selection_end) {
+        internal_native_SetSelection(native_address, selection_start, selection_end);
+    }
+
+    public static void internal_native_SetSelection(long this_addr, int selection_start, int selection_end) {
+        try {
+            FFMHandles.internal_native_SetSelection__JII.invokeExact(this_addr, selection_start, selection_end);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_ID() {
+        return internal_native_get_ID(native_address);
+    }
+
+    public static int internal_native_get_ID(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_ID__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_EventActivated() {
+        return internal_native_get_EventActivated(native_address);
+    }
+
+    public static boolean internal_native_get_EventActivated(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_EventActivated__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }
@@ -152,6 +188,12 @@ public class ImGuiInputTextCallbackData extends NativeObject {
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetSelection__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_setselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ID__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_id", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_EventActivated__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_eventactivated", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_BufSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_bufsize", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 

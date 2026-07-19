@@ -21,4 +21,6 @@ final public class JNI_ImGuiButtonFlags {
     static native public int ImGuiButtonFlags_MouseButtonMask__NATIVE();
 
     static native public int ImGuiButtonFlags_EnableNav_NATIVE();
+
+    static native public int ImGuiButtonFlags_AllowOverlap_NATIVE();
 }

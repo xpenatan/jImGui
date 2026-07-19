@@ -38,9 +38,15 @@ final public class JNI_ImGuiMultiSelectFlags {
 
     static native public int ImGuiMultiSelectFlags_ScopeRect_NATIVE();
 
-    static native public int ImGuiMultiSelectFlags_SelectOnClick_NATIVE();
+    static native public int ImGuiMultiSelectFlags_SelectOnAuto_NATIVE();
+
+    static native public int ImGuiMultiSelectFlags_SelectOnClickAlways_NATIVE();
 
     static native public int ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE();
 
     static native public int ImGuiMultiSelectFlags_NavWrapX_NATIVE();
+
+    static native public int ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE();
+
+    static native public int ImGuiMultiSelectFlags_SelectOnMask__NATIVE();
 }

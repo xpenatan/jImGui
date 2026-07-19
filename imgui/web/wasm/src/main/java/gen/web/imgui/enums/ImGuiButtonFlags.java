@@ -16,7 +16,8 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
     MouseButtonRight(ImGuiButtonFlags_MouseButtonRight_NATIVE()),
     MouseButtonMiddle(ImGuiButtonFlags_MouseButtonMiddle_NATIVE()),
     MouseButtonMask_(ImGuiButtonFlags_MouseButtonMask__NATIVE()),
-    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE());
+    EnableNav(ImGuiButtonFlags_EnableNav_NATIVE()),
+    AllowOverlap(ImGuiButtonFlags_AllowOverlap_NATIVE());
 
     private int value;
 
@@ -57,4 +58,7 @@ public enum ImGuiButtonFlags implements NativeEnum<ImGuiButtonFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiButtonFlags_EnableNav;")
     private static native int ImGuiButtonFlags_EnableNav_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiButtonFlags_AllowOverlap;")
+    private static native int ImGuiButtonFlags_AllowOverlap_NATIVE();
 }

@@ -118,6 +118,10 @@ final public class JNI_ImGuiIO {
 
     public static native void internal_native_set_ConfigDockingNoSplit(long this_addr, boolean ConfigDockingNoSplit);
 
+    public static native boolean internal_native_get_ConfigDockingNoDockingOver(long this_addr);
+
+    public static native void internal_native_set_ConfigDockingNoDockingOver(long this_addr, boolean ConfigDockingNoDockingOver);
+
     public static native boolean internal_native_get_ConfigDockingWithShift(long this_addr);
 
     public static native void internal_native_set_ConfigDockingWithShift(long this_addr, boolean ConfigDockingWithShift);
