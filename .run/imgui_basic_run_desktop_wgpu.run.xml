@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="imgui_basic_desktop_wgpu_jni_run" type="GradleRunConfiguration" factoryName="Gradle" folderName="ImGui-Demos" singleton="false">
+  <configuration default="false" name="imgui_basic_jni_gdx_desktop_wgpu_run" type="GradleRunConfiguration" factoryName="Gradle" folderName="ImGui-Demos" singleton="false">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/examples/basic/platform/desktop-wgpu-jni" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/examples/basic/gdx/platform/desktop/wgpu-jni" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="" />
       <option name="taskDescriptions">
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="imgui_basic_desktop_wgpu_jni_run" />
+          <option value="imgui_basic_jni_gdx_desktop_wgpu_run" />
         </list>
       </option>
       <option name="vmOptions" />

@@ -8,7 +8,7 @@ java {
 }
 
 dependencies {
-    implementation(project(":examples:basic:base"))
+    implementation(project(":examples:shared"))
 
     if(LibExt.useRepoLibs) {
         compileOnly("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")

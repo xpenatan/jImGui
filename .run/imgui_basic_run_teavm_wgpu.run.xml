@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="imgui_basic_web_wgpu_run" type="GradleRunConfiguration" factoryName="Gradle" folderName="ImGui-Demos">
+  <configuration default="false" name="imgui_basic_wasm_gdx_web_wgpu_run" type="GradleRunConfiguration" factoryName="Gradle" folderName="ImGui-Demos">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/examples/basic/platform/web-wgpu" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/examples/basic/gdx/platform/web/wgpu" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="" />
       <option name="taskDescriptions">
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="imgui_basic_web_wgpu_run" />
+          <option value="imgui_basic_wasm_gdx_web_wgpu_run" />
         </list>
       </option>
       <option name="vmOptions" />

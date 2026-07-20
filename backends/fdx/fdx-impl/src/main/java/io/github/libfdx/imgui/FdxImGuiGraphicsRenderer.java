@@ -509,13 +509,15 @@ public class FdxImGuiGraphicsRenderer implements FdxImGuiRenderer, FdxImGuiViewp
                 || "gles".equals(providerId)
                 || "webgl".equals(providerId)
                 || "wgpu".equals(providerId)
-                || "vulkan".equals(providerId);
+                || "vulkan".equals(providerId)
+                || "d3d12".equals(providerId);
     }
 
     private static boolean supportsBaseVertex(String providerId) {
         return "gl".equals(providerId)
                 || "wgpu".equals(providerId)
-                || "vulkan".equals(providerId);
+                || "vulkan".equals(providerId)
+                || "d3d12".equals(providerId);
     }
 
     @Override
