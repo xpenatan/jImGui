@@ -22,7 +22,7 @@ object LibExt {
     const val imguiSourceCommit = "b61e56346a92cfcaf1f43a545ca37b0b32239654"
     const val libFdxVersion = "-SNAPSHOT"
     const val gdxVersion = "1.14.2"
-    const val gdxTeaVMVersion = "1.6.0"
+    const val gdxTeaVMVersion = "-SNAPSHOT"
     const val gdxWebGPUGroup = "com.github.xpenatan.gdx-webgpu"
     const val gdxWebGPUVersion = "dev-SNAPSHOT"
     const val jWebGPUVersion = "-SNAPSHOT"
