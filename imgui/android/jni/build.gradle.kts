@@ -36,10 +36,6 @@ dependencies {
     api("com.github.xpenatan.jParser:runtime-android_arm64_v8a:${LibExt.jParserVersion}")
 }
 
-tasks.named("preBuild") {
-    dependsOn(":imgui:builder:jParser_build_android_jni")
-}
-
 tasks.named("clean") {
     doFirst {
         val srcPath = "$projectDir/src/main/java"
@@ -52,8 +48,6 @@ tasks.named("clean") {
 //    publications {
 //        create<MavenPublication>("maven") {
 //            artifactId = moduleName
-//            groupId = LibExt.groupId
-//            version = LibExt.libVersion
 //            afterEvaluate {
 //                artifact(tasks.named("bundleReleaseAar"))
 //            }

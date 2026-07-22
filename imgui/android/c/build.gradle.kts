@@ -9,7 +9,6 @@ val stagedJniLibsDir = layout.buildDirectory.dir("generated/cJniLibs")
 val androidAbis = listOf("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
 
 val stageCJniLibs by tasks.registering(Copy::class) {
-    dependsOn(":imgui:builder:jParser_build_android_teavm_c")
     androidAbis.forEach { abi ->
         from("$cLibsDir/$abi/teavm_c") {
             include("*.so")
@@ -69,8 +68,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
         }
     }
 }

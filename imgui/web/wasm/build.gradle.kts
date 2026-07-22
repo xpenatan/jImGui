@@ -8,8 +8,9 @@ val emscriptenJS = "$projectDir/../../builder/build/c++/libs/emscripten/imgui.js
 val emscriptenWASM = "$projectDir/../../builder/build/c++/libs/emscripten/imgui.wasm"
 
 val wasmJar = tasks.register<Jar>("wasmJar") {
-    dependsOn(":imgui:builder:jParser_build_web_wasm")
-    from(emscriptenJS, emscriptenWASM)
+    from(provider {
+        listOf(emscriptenJS, emscriptenWASM).map(::file).filter { it.exists() }
+    })
     archiveBaseName.set("${moduleName}_wasm")
     archiveClassifier.set("")
 }
@@ -59,15 +60,11 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
         }
 
         create<MavenPublication>("mavenWasm") {
             artifactId = "${moduleName}_wasm"
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             artifact(wasmJar)
         }
     }

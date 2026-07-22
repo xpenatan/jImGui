@@ -53,7 +53,7 @@ val taskNames = gradle.startParameter.taskNames
 fun isTaskRequested(taskName: String): Boolean {
     return taskNames.any { it == taskName || it.endsWith(":$taskName") }
 }
-val isPrepareDeployTask = isTaskRequested("prepareReleaseDeploy") || isTaskRequested("prepareSnapshotDeploy")
+val isPrepareDeployTask = isTaskRequested("prepareRelease") || isTaskRequested("prepareSnapshot")
 val isPublishTask = taskNames.any { it.contains("publish", ignoreCase = true) }
 val includeNativesInMainJar = !(isPrepareDeployTask || isPublishTask)
 tasks.jar {
@@ -92,8 +92,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
         }
 
@@ -101,8 +99,6 @@ publishing {
             val platformArtifact = platformName.replace("-", "_")
             create<MavenPublication>("mavenNative$platformArtifact") {
                 artifactId = "${moduleName}_${platformArtifact}"
-                groupId = LibExt.groupId
-                version = LibExt.libVersion
                 artifact(nativeJar) {
                     classifier = null
                 }
@@ -111,8 +107,6 @@ publishing {
 
         create<MavenPublication>("mavenNativeDesktop") {
             artifactId = "${moduleName}_desktop"
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             artifact(desktopNativeJar) {
                 classifier = null
             }
