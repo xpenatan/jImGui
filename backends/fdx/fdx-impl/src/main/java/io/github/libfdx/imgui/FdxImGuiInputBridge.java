@@ -78,7 +78,7 @@ final class FdxImGuiInputBridge extends InputAdapter {
     @Override
     public boolean scrolled(PointerEvent event) {
         ImGuiIO io = beginPointer(event.type(), event.x(), event.y());
-        io.AddMouseWheelEvent(event.scrollX(), event.scrollY());
+        io.AddMouseWheelEvent(event.scrollX(), -event.scrollY());
         return io.get_WantCaptureMouse();
     }
 

@@ -173,7 +173,7 @@ public class ImGuiGdxInput extends InputAdapter {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         ImGuiIO io = ImGui.GetIO();
-        io.AddMouseWheelEvent(amountX, -amountY);
+        io.AddMouseWheelEvent(-amountX, -amountY);
         if(io.get_WantCaptureMouse())
             return true;
         return false;
