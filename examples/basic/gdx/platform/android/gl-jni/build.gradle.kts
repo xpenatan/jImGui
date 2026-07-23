@@ -45,8 +45,8 @@ android {
 
     sourceSets {
         named("main") {
-            assets.srcDirs(project.file("../../../../../assets"))
-            jniLibs.srcDirs(stagedGdxJniLibsDir)
+            assets.directories.add(project.file("../../../../../assets").absolutePath)
+            jniLibs.directories.add(stagedGdxJniLibsDir.get().asFile.absolutePath)
         }
     }
 
@@ -90,13 +90,17 @@ tasks.register("imgui_basic_jni_gdx_android_gl_build") {
     dependsOn("assembleDebug")
 }
 
+val adbExecutable = androidComponents.sdkComponents.adb
+
 tasks.register<Exec>("imgui_basic_jni_gdx_android_gl_run") {
     group = "example-android"
     description = "Install and run the libGDX Android OpenGL ES JNI basic example"
     dependsOn("installDebug")
-    commandLine(
-        android.adbExecutable.absolutePath,
-        "shell", "am", "start", "-n",
-        "imgui.example.basic.gdx.gl/imgui.example.basic.gdx.gl.android.GdxAndroidGlActivity"
-    )
+    doFirst {
+        commandLine(
+            adbExecutable.get().asFile.absolutePath,
+            "shell", "am", "start", "-n",
+            "imgui.example.basic.gdx.gl/imgui.example.basic.gdx.gl.android.GdxAndroidGlActivity"
+        )
+    }
 }

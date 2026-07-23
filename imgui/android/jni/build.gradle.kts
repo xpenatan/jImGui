@@ -14,7 +14,7 @@ android {
 
     sourceSets {
         named("main") {
-            jniLibs.srcDirs("$projectDir/../../builder/build/c++/libs/android")
+            jniLibs.directories.add("$projectDir/../../builder/build/c++/libs/android")
         }
     }
     compileOptions {

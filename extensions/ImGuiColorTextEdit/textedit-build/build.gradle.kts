@@ -1,5 +1,4 @@
 import de.undercouch.gradle.tasks.download.Download
-import org.gradle.kotlin.dsl.support.unzipTo
 import java.io.File
 
 plugins {
@@ -33,7 +32,10 @@ tasks.register<Download>("download_textedit_source") {
     src("https://github.com/santaclose/ImGuiColorTextEdit/archive/$textEditCommit.zip")
     dest(File(zippedPath))
     doLast {
-        unzipTo(File(sourcePath), dest)
+        copy {
+            from(zipTree(dest))
+            into(sourcePath)
+        }
         copy {
             from("$sourcePath/ImGuiColorTextEdit-$textEditCommit")
             into(sourceDestination)
@@ -49,7 +51,10 @@ tasks.register<Download>("download_vendor_source") {
     src("https://github.com/boostorg/regex/archive/$boostRegexCommit.zip")
     dest(File(zippedVendorPath))
     doLast {
-        unzipTo(File(sourceVendorPath), dest)
+        copy {
+            from(zipTree(dest))
+            into(sourceVendorPath)
+        }
         copy {
             from("$sourceVendorPath/regex-$boostRegexCommit/")
             into(sourceVendorDestination)

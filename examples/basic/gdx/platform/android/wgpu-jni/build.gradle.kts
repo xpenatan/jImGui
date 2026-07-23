@@ -45,8 +45,8 @@ android {
 
     sourceSets {
         named("main") {
-            assets.srcDirs(project.file("../../../../../assets"))
-            jniLibs.srcDirs(stagedGdxJniLibsDir)
+            assets.directories.add(project.file("../../../../../assets").absolutePath)
+            jniLibs.directories.add(stagedGdxJniLibsDir.get().asFile.absolutePath)
         }
     }
 
@@ -90,13 +90,17 @@ tasks.register("imgui_basic_jni_gdx_android_wgpu_build") {
     dependsOn("assembleDebug")
 }
 
+val adbExecutable = androidComponents.sdkComponents.adb
+
 tasks.register<Exec>("imgui_basic_jni_gdx_android_wgpu_run") {
     group = "example-android"
     description = "Install and run the libGDX Android WGPU JNI basic example"
     dependsOn("installDebug")
-    commandLine(
-        android.adbExecutable.absolutePath,
-        "shell", "am", "start", "-n",
-        "imgui.example.basic.gdx.wgpu/imgui.example.basic.gdx.wgpu.android.GdxAndroidWgpuActivity"
-    )
+    doFirst {
+        commandLine(
+            adbExecutable.get().asFile.absolutePath,
+            "shell", "am", "start", "-n",
+            "imgui.example.basic.gdx.wgpu/imgui.example.basic.gdx.wgpu.android.GdxAndroidWgpuActivity"
+        )
+    }
 }

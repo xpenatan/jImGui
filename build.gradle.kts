@@ -78,7 +78,7 @@ easyPublishing {
     signingKey.set(providers.environmentVariable("SIGNING_KEY"))
     signingPassword.set(providers.environmentVariable("SIGNING_PASSWORD"))
 
-    pomName.set("jImGui")
+    pomName.set(libs.versions.jImGuiName)
     pomDescription.set("ImGui Java Bindings")
     projectUrl.set("https://github.com/xpenatan/jImGui")
 

@@ -27,7 +27,7 @@ android {
 
     sourceSets {
         named("main") {
-            jniLibs.srcDirs(stagedJniLibsDir)
+            jniLibs.directories.add(stagedJniLibsDir.get().asFile.absolutePath)
         }
     }
 

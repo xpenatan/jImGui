@@ -28,11 +28,6 @@ dependencies {
     implementation(libs.libFdxBackendDesktop)
     runtimeOnly(libs.libFdxFdxDesktop)
     runtimeOnly(libs.libFdxGlDesktop)
-    runtimeOnly(libs.lwjglOpenGl)
-    runtimeOnly(variantOf(libs.lwjglOpenGl) { classifier("natives-linux") })
-    runtimeOnly(variantOf(libs.lwjglOpenGl) { classifier("natives-macos") })
-    runtimeOnly(variantOf(libs.lwjglOpenGl) { classifier("natives-macos-arm64") })
-    runtimeOnly(variantOf(libs.lwjglOpenGl) { classifier("natives-windows") })
 }
 
 val mainClassName = "imgui.example.nodeeditor.Main"

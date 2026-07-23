@@ -1,5 +1,4 @@
 import de.undercouch.gradle.tasks.download.Download
-import org.gradle.kotlin.dsl.support.unzipTo
 import java.io.File
 
 plugins {
@@ -29,7 +28,10 @@ tasks.register<Download>("download_source") {
     src("https://github.com/NogginBops/imgui-node-editor/archive/$nodeEditorCommit.zip")
     dest(File(zippedPath))
     doLast {
-        unzipTo(File(sourcePath), dest)
+        copy {
+            from(zipTree(dest))
+            into(sourcePath)
+        }
         delete(sourceDestination)
         copy {
             from("$sourcePath/imgui-node-editor-$nodeEditorCommit")

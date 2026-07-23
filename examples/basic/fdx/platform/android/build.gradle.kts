@@ -15,7 +15,7 @@ android {
 
     sourceSets {
         named("main") {
-            assets.srcDirs(project.file("../../../../assets"))
+            assets.directories.add(project.file("../../../../assets").absolutePath)
         }
     }
 
@@ -68,16 +68,20 @@ tasks.register("imgui_basic_jni_fdx_android_build") {
     dependsOn("assembleDebug")
 }
 
+val adbExecutable = androidComponents.sdkComponents.adb
+
 fun registerAndroidRunTask(name: String, activity: String, graphics: String) {
     tasks.register<Exec>(name) {
         group = "example-android"
         description = "Install and run the libfdx Android $graphics JNI basic example"
         dependsOn("installDebug")
-        commandLine(
-            android.adbExecutable.absolutePath,
-            "shell", "am", "start", "-n",
-            "imgui.example.basic.fdx/$activity"
-        )
+        doFirst {
+            commandLine(
+                adbExecutable.get().asFile.absolutePath,
+                "shell", "am", "start", "-n",
+                "imgui.example.basic.fdx/$activity"
+            )
+        }
     }
 }
 

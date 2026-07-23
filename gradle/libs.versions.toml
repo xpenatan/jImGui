@@ -1,5 +1,6 @@
 [versions]
 jImGuiGroup = "com.github.xpenatan.jImGui"
+jImGuiName = "jImGui"
 jImGuiRelease = "1.92.8.0"
 jImGuiSnapshot = "-SNAPSHOT"
 
@@ -19,7 +20,6 @@ gdxTeaVM = "-SNAPSHOT"
 gdxWebGPU = "dev-SNAPSHOT"
 jWebGPU = "0.3.3"
 junit = "4.12"
-lwjgl = "3.4.1"
 desugar = "2.0.3"
 
 easyPublishing = "0.1.0"
@@ -117,7 +117,6 @@ jWebGpuDesktopJniWgpuMacX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-des
 jWebGpuDesktopJniWgpuMacArm64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_mac_arm64", version.ref = "jWebGPU" }
 
 junit = { module = "junit:junit", version.ref = "junit" }
-lwjglOpenGl = { module = "org.lwjgl:lwjgl-opengl", version.ref = "lwjgl" }
 androidDesugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 
 jImGuiFdxImpl = { module = "com.github.xpenatan.jImGui:fdx-impl", version.ref = "jImGuiSnapshot" }
