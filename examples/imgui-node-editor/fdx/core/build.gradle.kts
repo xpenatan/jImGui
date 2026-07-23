@@ -3,8 +3,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {

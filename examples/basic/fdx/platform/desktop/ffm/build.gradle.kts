@@ -5,8 +5,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 fun currentDesktopPlatform(): String {
@@ -25,23 +25,27 @@ dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:fdx:core"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-ffm:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-ffm_windows_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-ffm_linux_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-ffm_mac_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-ffm_mac_arm64:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.bundles.jImGuiFFMArtifacts)
     }
     else {
         implementation(project(":imgui:desktop:ffm"))
     }
 
-    implementation("io.github.libfdx:backend_desktop:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:wgpu_desktop_ffm:${LibExt.libFdxVersion}")
-    runtimeOnly("com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_${currentDesktopPlatform()}:-SNAPSHOT")
-    runtimeOnly("io.github.libfdx:fdx_desktop:${LibExt.libFdxVersion}")
-    runtimeOnly("io.github.libfdx:gl_desktop:${LibExt.libFdxVersion}")
-    runtimeOnly("io.github.libfdx:vulkan_desktop:${LibExt.libFdxVersion}")
+    implementation(libs.libFdxBackendDesktop)
+    implementation(libs.libFdxWgpuDesktopFFM)
+    runtimeOnly(
+        when(currentDesktopPlatform()) {
+            "windows_x64" -> libs.jWebGpuDesktopFFMWgpuWindowsX64
+            "linux_x64" -> libs.jWebGpuDesktopFFMWgpuLinuxX64
+            "mac_x64" -> libs.jWebGpuDesktopFFMWgpuMacX64
+            "mac_arm64" -> libs.jWebGpuDesktopFFMWgpuMacArm64
+            else -> throw GradleException("Unsupported desktop platform")
+        }
+    )
+    runtimeOnly(libs.libFdxFdxDesktop)
+    runtimeOnly(libs.libFdxGlDesktop)
+    runtimeOnly(libs.libFdxVulkanDesktop)
 }
 
 val mainClassName = "imgui.example.basic.Main"

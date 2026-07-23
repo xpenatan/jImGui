@@ -29,13 +29,7 @@ artifacts {
 }
 
 dependencies {
-    api("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-web:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-web_wasm:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-web:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-web:${LibExt.jParserVersion}")
+    api(libs.bundles.jParserWebArtifacts)
 }
 
 tasks.named("clean") {
@@ -47,8 +41,8 @@ tasks.named("clean") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
 }
 
 java {

@@ -1,16 +1,14 @@
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.androidApplication)
 }
-
-group = "imgui.example.basic.fdx.android"
 
 android {
     namespace = "imgui.example.basic.fdx.android"
-    compileSdk = 36
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "imgui.example.basic.fdx"
-        minSdk = 29
+        minSdk = libs.versions.androidMinSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
     }
@@ -28,21 +26,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
-        targetCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
     }
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    coreLibraryDesugaring(libs.androidDesugar)
 
     configurations.configureEach {
         exclude(module = "imgui-core")
         exclude(group = "com.github.xpenatan.jParser", module = "runtime-core")
     }
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-android:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.jImGuiImguiAndroid)
     }
     else {
         implementation(project(":imgui:android:jni"))
@@ -58,10 +56,10 @@ dependencies {
         exclude(module = "core")
     }
     implementation(project(":backends:fdx:fdx-impl"))
-    implementation("io.github.libfdx:backend_android:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:fdx_android:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:vulkan_android_jni:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:wgpu_android_jni:${LibExt.libFdxVersion}")
+    implementation(libs.libFdxBackendAndroid)
+    implementation(libs.libFdxFdxAndroid)
+    implementation(libs.libFdxVulkanAndroidJni)
+    implementation(libs.libFdxWgpuAndroidJni)
 }
 
 tasks.register("imgui_basic_jni_fdx_android_build") {

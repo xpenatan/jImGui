@@ -8,7 +8,7 @@ import java.io.File
 
 plugins {
     id("java-library")
-    id("com.github.xpenatan.jparser")
+    alias(libs.plugins.jParserPlugin)
 }
 
 fun File.normalizedPath(): String {
@@ -38,8 +38,8 @@ val enableNativeTestHooks = gradle.startParameter.taskNames.any {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
 }
 
 fun ListProperty<String>.imguiUserConfigFlag(msvc: Boolean) {

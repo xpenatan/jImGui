@@ -10,10 +10,10 @@ val wasmLibraries by configurations.creating {
 dependencies {
     implementation(project(":examples:basic:fdx:core"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.jImGui:imgui-web_wasm:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:fdx-impl:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.jImGuiImguiWeb)
+        wasmLibraries(libs.jImGuiImguiWebWasm)
+        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
@@ -21,14 +21,14 @@ dependencies {
         implementation(project(":backends:fdx:fdx-impl"))
     }
 
-    implementation("io.github.libfdx:backend_web:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:gl_web:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:wgpu_web:${LibExt.libFdxVersion}")
+    implementation(libs.libFdxBackendWeb)
+    implementation(libs.libFdxGlWeb)
+    implementation(libs.libFdxWgpuWeb)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 fun registerFdxWebTask(name: String, graphics: String? = null) {

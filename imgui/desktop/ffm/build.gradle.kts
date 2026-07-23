@@ -11,13 +11,7 @@ val macArmFile = "$nativeRoot/mac/arm/ffm/libimguiarm64.dylib"
 val macFile = "$nativeRoot/mac/ffm/libimgui64.dylib"
 
 dependencies {
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-ffm:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-ffm_windows_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-ffm_linux_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-ffm_mac_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-ffm_mac_arm64:${LibExt.jParserVersion}")
+    api(libs.bundles.jParserDesktopFFMArtifacts)
 }
 
 val platforms: MutableMap<String, Jar.() -> Unit> = mutableMapOf()
@@ -85,8 +79,8 @@ tasks.named("clean") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 java {

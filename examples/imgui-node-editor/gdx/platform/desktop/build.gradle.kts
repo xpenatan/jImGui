@@ -15,13 +15,13 @@ val nativeRuntimeClasspath by configurations.creating {
 }
 
 dependencies {
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
+    implementation(libs.gdxCore)
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":examples:imgui-node-editor:core"))
     implementation(project(":backends:gdx:gdx-gl-impl"))
     implementation(project(imguiRuntimeProject))
     implementation(project(extensionRuntimeProject))
-    implementation("com.github.xpenatan.gdx-teavm:backend-glfw:${LibExt.gdxTeaVMVersion}")
+    implementation(libs.gdxTeaVMBackendGlfw)
 
     compileOnly(project(":imgui:core"))
     compileOnly(project(":extensions:imgui-node-editor:nodeeditor-core"))
@@ -29,8 +29,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
 }
 
 fun currentHostExtensionCBuildTask(): String? {

@@ -8,8 +8,8 @@ val wasmLibraries by configurations.creating {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 val mainClassName = "imgui.example.textedit.Build"
@@ -18,12 +18,12 @@ dependencies {
     implementation(project(":examples:shared"))
     implementation(project(":examples:ImGuiColorTextEdit:fdx:core"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.jImGui:imgui-web_wasm:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:textedit-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.jImGui:textedit-web_wasm:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:fdx-impl:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.jImGuiImguiWeb)
+        wasmLibraries(libs.jImGuiImguiWebWasm)
+        implementation(libs.jImGuiTextEditWeb)
+        wasmLibraries(libs.jImGuiTextEditWebWasm)
+        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
@@ -33,8 +33,8 @@ dependencies {
         implementation(project(":backends:fdx:fdx-impl"))
     }
 
-    implementation("io.github.libfdx:backend_web:${LibExt.libFdxVersion}")
-    implementation("io.github.libfdx:gl_web:${LibExt.libFdxVersion}")
+    implementation(libs.libFdxBackendWeb)
+    implementation(libs.libFdxGlWeb)
 }
 
 tasks.register<JavaExec>("textedit_web_run") {

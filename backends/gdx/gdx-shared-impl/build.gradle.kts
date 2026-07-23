@@ -4,16 +4,13 @@ plugins {
 }
 
 val moduleName = "gdx-shared-impl"
-val javaVersion = JavaVersion.toVersion(LibExt.javaMainTarget)
-
-group = LibExt.groupId
-version = LibExt.libVersion
+val javaVersion = JavaVersion.toVersion(libs.versions.javaMain.get())
 
 dependencies {
-    api("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
+    api(libs.gdxCore)
     compileOnlyApi(project(":imgui:core"))
 
-    testImplementation("junit:junit:${LibExt.jUnitVersion}")
+    testImplementation(libs.junit)
 }
 
 java {

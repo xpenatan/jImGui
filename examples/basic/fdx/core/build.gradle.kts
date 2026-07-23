@@ -3,17 +3,17 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
     api(project(":examples:shared"))
     api(project(":examples:basic:core"))
 
-    if(LibExt.useRepoLibs) {
-        compileOnlyApi("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")
-        api("com.github.xpenatan.jImGui:fdx-impl:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        compileOnlyApi(libs.jImGuiImguiCore)
+        api(libs.jImGuiFdxImpl)
     }
     else {
         compileOnlyApi(project(":imgui:core"))

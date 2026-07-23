@@ -4,14 +4,11 @@ plugins {
 }
 
 val moduleName = "gdx-gl-lwjgl3-impl"
-val javaVersion = JavaVersion.toVersion(LibExt.javaMainTarget)
-
-group = LibExt.groupId
-version = LibExt.libVersion
+val javaVersion = JavaVersion.toVersion(libs.versions.javaMain.get())
 
 dependencies {
     api(project(":backends:gdx:gdx-gl-impl"))
-    api("com.badlogicgames.gdx:gdx-backend-lwjgl3:${LibExt.gdxVersion}")
+    api(libs.gdxBackendLwjgl3)
     compileOnly(project(":imgui:core"))
 }
 

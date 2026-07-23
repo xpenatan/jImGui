@@ -3,17 +3,16 @@ plugins {
 }
 
 val moduleName = "imgui-shared-jni"
-group = "${LibExt.groupId}.shared"
 
 base {
     archivesName.set(moduleName)
 }
 
 dependencies {
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-jni:${LibExt.jParserVersion}")
-    testImplementation("junit:junit:${LibExt.jUnitVersion}")
+    api(libs.jParserApiCore)
+    api(libs.jParserLoaderCore)
+    api(libs.jParserRuntimeJni)
+    testImplementation(libs.junit)
 }
 
 val hostNativeTest = run {
@@ -58,8 +57,8 @@ tasks.named("clean") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
 }
 
 java {

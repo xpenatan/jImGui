@@ -5,11 +5,11 @@ plugins {
 val moduleName = "imgui-core"
 
 dependencies {
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
+    api(libs.jParserLoaderCore)
+    api(libs.jParserApiCore)
+    api(libs.jParserRuntimeCore)
 
-    testImplementation("junit:junit:${LibExt.jUnitVersion}")
+    testImplementation(libs.junit)
 }
 
 tasks.named("clean") {
@@ -20,8 +20,8 @@ tasks.named("clean") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
 }
 
 java {

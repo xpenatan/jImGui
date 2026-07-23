@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "imgui-jni"
-group = "${LibExt.groupId}.desktop"
 
 base {
     archivesName.set(moduleName)
@@ -18,11 +17,7 @@ val macFile = "$nativeRoot/mac/jni/libimgui64.dylib"
 dependencies {
     api(project(":imgui:shared:jni"))
 
-    api("com.github.xpenatan.jParser:runtime-desktop-jni:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-jni_windows_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-jni_linux_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-jni_mac_x64:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-desktop-jni_mac_arm64:${LibExt.jParserVersion}")
+    api(libs.bundles.jParserDesktopJniArtifacts)
 }
 
 val platforms: MutableMap<String, Jar.() -> Unit> = mutableMapOf()
@@ -83,8 +78,8 @@ artifacts {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
 }
 
 java {

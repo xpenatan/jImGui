@@ -1,8 +1,6 @@
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.androidApplication)
 }
-
-group = "imgui.example.basic.gdx.wgpu.android"
 
 val gdxNativeClassifiers = linkedMapOf(
     "armeabi-v7a" to "natives-armeabi-v7a",
@@ -35,12 +33,12 @@ val stageGdxJniLibs by tasks.registering(Copy::class) {
 
 android {
     namespace = "imgui.example.basic.gdx.wgpu.android"
-    compileSdk = 36
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "imgui.example.basic.gdx.wgpu"
-        minSdk = 29
-        targetSdk = 36
+        minSdk = libs.versions.androidMinSdk.get().toInt()
+        targetSdk = libs.versions.androidTargetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
     }
@@ -60,8 +58,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
-        targetCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
     }
 }
 
@@ -70,12 +68,12 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-wgpu-impl"))
     implementation(project(":imgui:android:jni"))
-    implementation("${LibExt.gdxWebGPUGroup}:backend-android:${LibExt.gdxWebGPUVersion}")
+    implementation(libs.gdxWebGPUBackendAndroid)
 
-    gdxNativeClassifiers.forEach { (abi, classifier) ->
+    gdxNativeClassifiers.forEach { (abi, nativeClassifier) ->
         add(
             gdxNativeConfigurations.getValue(abi).name,
-            "com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:$classifier"
+            variantOf(libs.gdxPlatform) { classifier(nativeClassifier) }
         )
     }
 }

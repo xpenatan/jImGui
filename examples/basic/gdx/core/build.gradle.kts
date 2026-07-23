@@ -3,16 +3,16 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
 }
 
 dependencies {
     api(project(":examples:shared"))
     api(project(":backends:gdx:gdx-shared-impl"))
 
-    if(LibExt.useRepoLibs) {
-        compileOnlyApi("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        compileOnlyApi(libs.jImGuiImguiCore)
     }
     else {
         compileOnlyApi(project(":imgui:core"))

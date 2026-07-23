@@ -5,8 +5,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 fun currentDesktopPlatform(): String {
@@ -26,20 +26,24 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-wgpu-impl"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-jni:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_windows_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_linux_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_mac_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_mac_arm64:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.bundles.jImGuiJniArtifacts)
     }
     else {
         implementation(project(":imgui:desktop:jni"))
     }
 
-    implementation("${LibExt.gdxWebGPUGroup}:backend-desktop-jni:${LibExt.gdxWebGPUVersion}")
-    runtimeOnly("com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_${currentDesktopPlatform()}:${LibExt.jWebGPUVersion}")
-    implementation("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-desktop")
+    implementation(libs.gdxWebGPUBackendDesktopJni)
+    runtimeOnly(
+        when(currentDesktopPlatform()) {
+            "windows_x64" -> libs.jWebGpuDesktopJniWgpuWindowsX64
+            "linux_x64" -> libs.jWebGpuDesktopJniWgpuLinuxX64
+            "mac_x64" -> libs.jWebGpuDesktopJniWgpuMacX64
+            "mac_arm64" -> libs.jWebGpuDesktopJniWgpuMacArm64
+            else -> throw GradleException("Unsupported desktop platform")
+        }
+    )
+    implementation(variantOf(libs.gdxPlatform) { classifier("natives-desktop") })
 }
 
 tasks.register<JavaExec>("imgui_basic_jni_gdx_desktop_wgpu_run") {

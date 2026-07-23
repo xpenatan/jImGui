@@ -8,8 +8,8 @@ val wasmLibraries by configurations.creating {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
@@ -17,20 +17,20 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-wgpu-impl"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.jImGui:imgui-web_wasm:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.jImGuiImguiWeb)
+        wasmLibraries(libs.jImGuiImguiWebWasm)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
     }
 
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}")
-    implementation("${LibExt.gdxWebGPUGroup}:backend-teavm:${LibExt.gdxWebGPUVersion}")
-    implementation("com.github.xpenatan.jWebGPU:webgpu-core:${LibExt.jWebGPUVersion}")
-    implementation("com.github.xpenatan.jWebGPU:webgpu-web:${LibExt.jWebGPUVersion}")
-    implementation("com.github.xpenatan.jWebGPU:webgpu-web_wasm:${LibExt.jWebGPUVersion}")
+    implementation(libs.gdxTeaVMBackendWeb)
+    implementation(libs.gdxWebGPUBackendTeaVM)
+    implementation(libs.jWebGpuCore)
+    implementation(libs.jWebGpuWeb)
+    implementation(libs.jWebGpuWebWasm)
 }
 
 tasks.register<JavaExec>("imgui_basic_wasm_gdx_web_wgpu_run") {

@@ -10,18 +10,23 @@ plugins {
 val buildDirFile = layout.buildDirectory.get().asFile
 val imguiSourceRoot = buildDirFile.resolve("imgui-source")
 val imguiArchiveFile = buildDirFile.resolve("tmp/imgui-source.zip")
+val imguiVersion = libs.versions.dearImgui.get()
+val imguiTagObject = libs.versions.dearImguiTagObject.get()
+val imguiSourceCommit = libs.versions.dearImguiSourceCommit.get()
+val imguiVersionNumber = libs.versions.dearImguiVersionNumber.get()
+val imguiBaseVersion = imguiVersion.substringBefore("-")
 
 tasks.register("imgui_download_source") {
     group = "imgui"
-    description = "Download Dear ImGui ${LibExt.imguiVersion} source into the build directory."
-    inputs.property("imguiVersion", LibExt.imguiVersion)
-    inputs.property("imguiTagObject", LibExt.imguiTagObject)
-    inputs.property("imguiSourceCommit", LibExt.imguiSourceCommit)
+    description = "Download Dear ImGui $imguiVersion source into the build directory."
+    inputs.property("imguiVersion", imguiVersion)
+    inputs.property("imguiTagObject", imguiTagObject)
+    inputs.property("imguiSourceCommit", imguiSourceCommit)
     outputs.dir(imguiSourceRoot)
 
     doLast {
         // Use the immutable annotated-tag object rather than the movable tag name.
-        val url = "https://github.com/ocornut/imgui/archive/${LibExt.imguiTagObject}.zip"
+        val url = "https://github.com/ocornut/imgui/archive/$imguiTagObject.zip"
         println("URL: $url")
         delete(imguiSourceRoot)
         imguiArchiveFile.parentFile.mkdirs()
@@ -48,19 +53,19 @@ tasks.register("imgui_download_source") {
         val imguiHeader = imguiSourceRoot.resolve("imgui.h")
         val internalHeader = imguiSourceRoot.resolve("imgui_internal.h")
         check(imguiHeader.isFile && internalHeader.isFile) {
-            "Dear ImGui archive ${LibExt.imguiVersion} did not contain the expected headers"
+            "Dear ImGui archive $imguiVersion did not contain the expected headers"
         }
         val imguiHeaderText = imguiHeader.readText()
-        check(Regex("""(?m)^#define\s+IMGUI_VERSION_NUM\s+19280\s*$""").containsMatchIn(imguiHeaderText)) {
-            "Expected Dear ImGui 1.92.8 headers for ${LibExt.imguiVersion}"
+        check(Regex("""(?m)^#define\s+IMGUI_VERSION_NUM\s+$imguiVersionNumber\s*$""").containsMatchIn(imguiHeaderText)) {
+            "Expected Dear ImGui $imguiBaseVersion headers for $imguiVersion"
         }
         check(Regex("""(?m)^#define\s+IMGUI_HAS_DOCK(?:\s|$)""").containsMatchIn(imguiHeaderText)) {
-            "Expected docking support in Dear ImGui ${LibExt.imguiVersion}"
+            "Expected docking support in Dear ImGui $imguiVersion"
         }
         imguiSourceRoot.resolve("jimgui-upstream.txt").writeText(
-            "tag=v${LibExt.imguiVersion}\n" +
-                "tagObject=${LibExt.imguiTagObject}\n" +
-                "commit=${LibExt.imguiSourceCommit}\n" +
+            "tag=v$imguiVersion\n" +
+                "tagObject=$imguiTagObject\n" +
+                "commit=$imguiSourceCommit\n" +
                 "source=$url\n"
         )
     }

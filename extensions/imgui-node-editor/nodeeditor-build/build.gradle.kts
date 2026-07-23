@@ -4,27 +4,24 @@ import java.io.File
 
 plugins {
     id("java-library")
-    id("de.undercouch.download") version("5.5.0")
+    alias(libs.plugins.downloadPlugin)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
     implementation(project(":imgui:core"))
-    implementation("com.github.xpenatan.jParser:gen-build-tool:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:gen-build:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:gen-idl:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
+    implementation(libs.bundles.jParserGeneratorArtifacts)
 }
 
 val buildDir = layout.buildDirectory.get().asFile
 val zippedPath = "${buildDir}/nodeeditor.zip"
 val sourcePath = "${buildDir}/nodeeditor/"
 val sourceDestination = "${buildDir}/imgui-node-editor/"
-val nodeEditorCommit = "55a7dbf4b517b5e809b372ba39153fe20bad39ad"
+val nodeEditorCommit = libs.versions.nodeEditorSourceCommit.get()
 
 tasks.register<Download>("download_source") {
     group = "node-editor"

@@ -13,19 +13,19 @@ val imguiRuntimeClasspath by configurations.creating {
 }
 
 dependencies {
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
+    implementation(libs.gdxCore)
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-impl"))
     implementation(project(imguiRuntimeProject))
-    implementation("com.github.xpenatan.gdx-teavm:backend-glfw:${LibExt.gdxTeaVMVersion}")
+    implementation(libs.gdxTeaVMBackendGlfw)
 
     imguiRuntimeClasspath(project(imguiRuntimeProject))
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
 }
 
 fun currentHostImGuiCBuildTask(): String? {

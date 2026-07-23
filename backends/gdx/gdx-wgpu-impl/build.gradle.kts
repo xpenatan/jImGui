@@ -4,15 +4,12 @@ plugins {
 }
 
 val moduleName = "gdx-wgpu-impl"
-val javaVersion = JavaVersion.toVersion(LibExt.javaMainTarget)
-
-group = LibExt.groupId
-version = LibExt.libVersion
+val javaVersion = JavaVersion.toVersion(libs.versions.javaMain.get())
 
 dependencies {
     api(project(":backends:gdx:gdx-shared-impl"))
     compileOnly(project(":imgui:core"))
-    api("${LibExt.gdxWebGPUGroup}:gdx-webgpu:${LibExt.gdxWebGPUVersion}")
+    api(libs.gdxWebGPUCore)
 }
 
 java {

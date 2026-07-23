@@ -8,8 +8,8 @@ val wasmLibraries by configurations.creating {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
@@ -17,16 +17,16 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-impl"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-web:-SNAPSHOT")
-        wasmLibraries("com.github.xpenatan.jImGui:imgui-web_wasm:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.jImGuiImguiWeb)
+        wasmLibraries(libs.jImGuiImguiWebWasm)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
     }
 
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}")
+    implementation(libs.gdxTeaVMBackendWeb)
 }
 
 tasks.register<JavaExec>("imgui_basic_wasm_gdx_web_gl_run") {

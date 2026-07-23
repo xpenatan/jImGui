@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "imgui-c"
-group = "${LibExt.groupId}.desktop"
 val nativeResourceRoot = "external_cpp/jparser/imgui/native"
 val nativeRoot = file("$projectDir/../../builder/build/c++/libs")
 
@@ -35,15 +34,15 @@ tasks.named<Jar>("jar") {
 
 dependencies {
     api(project(":imgui:shared:c"))
-    implementation("com.github.xpenatan.jParser:runtime-desktop-c_windows_x64:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:runtime-desktop-c_linux_x64:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:runtime-desktop-c_mac_x64:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:runtime-desktop-c_mac_arm64:${LibExt.jParserVersion}")
+    implementation(libs.jParserRuntimeDesktopCWindowsX64)
+    implementation(libs.jParserRuntimeDesktopCLinuxX64)
+    implementation(libs.jParserRuntimeDesktopCMacX64)
+    implementation(libs.jParserRuntimeDesktopCMacArm64)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
     withJavadocJar()
     withSourcesJar()
 }

@@ -3,19 +3,19 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWeb.get())
 }
 
 dependencies {
     implementation(project(":examples:shared"))
 
-    if(LibExt.useRepoLibs) {
-        compileOnly("com.github.xpenatan.jImGui:imgui-core:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        compileOnly(libs.jImGuiImguiCore)
     }
     else {
         compileOnly(project(":imgui:core"))
     }
 
-    implementation("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+    implementation(libs.jParserLoaderCore)
 }

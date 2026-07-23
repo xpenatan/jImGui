@@ -1,9 +1,8 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.androidLibrary)
 }
 
 val moduleName = "imgui-android-c"
-group = "${LibExt.groupId}.android"
 val cLibsDir = "$projectDir/../../builder/build/c++/libs/android"
 val stagedJniLibsDir = layout.buildDirectory.dir("generated/cJniLibs")
 val androidAbis = listOf("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
@@ -20,10 +19,10 @@ val stageCJniLibs by tasks.registering(Copy::class) {
 
 android {
     namespace = "imgui.android.c"
-    compileSdk = 36
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = 29
+        minSdk = libs.versions.androidMinSdk.get().toInt()
     }
 
     sourceSets {
@@ -33,8 +32,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
-        targetCompatibility = JavaVersion.toVersion(LibExt.javaModernTarget)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaModern.get())
     }
 
     buildTypes {
@@ -57,11 +56,11 @@ tasks.matching { task ->
 
 dependencies {
     api(project(":imgui:shared:c"))
-    api("com.github.xpenatan.jParser:runtime-android-c:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-android-c_x86:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-android-c_x86_64:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-android-c_armeabi_v7a:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-android-c_arm64_v8a:${LibExt.jParserVersion}")
+    api(libs.jParserRuntimeAndroidC)
+    runtimeOnly(libs.jParserRuntimeAndroidCX86)
+    runtimeOnly(libs.jParserRuntimeAndroidCX8664)
+    runtimeOnly(libs.jParserRuntimeAndroidCArmeabiV7a)
+    runtimeOnly(libs.jParserRuntimeAndroidCArm64V8a)
 }
 
 publishing {

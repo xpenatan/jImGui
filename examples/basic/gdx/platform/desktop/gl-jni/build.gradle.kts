@@ -5,8 +5,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
@@ -14,19 +14,15 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-lwjgl3-impl"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jImGui:imgui-jni:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_windows_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_linux_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_mac_x64:-SNAPSHOT")
-        implementation("com.github.xpenatan.jImGui:imgui-jni_mac_arm64:-SNAPSHOT")
+    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+        implementation(libs.bundles.jImGuiJniArtifacts)
     }
     else {
         implementation(project(":imgui:desktop:jni"))
     }
 
-    implementation("com.badlogicgames.gdx:gdx-backend-lwjgl3:${LibExt.gdxVersion}")
-    implementation("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-desktop")
+    implementation(libs.gdxBackendLwjgl3)
+    implementation(variantOf(libs.gdxPlatform) { classifier("natives-desktop") })
 }
 
 tasks.register<JavaExec>("imgui_basic_jni_gdx_desktop_gl_run") {

@@ -1,0 +1,171 @@
+[versions]
+jImGuiGroup = "com.github.xpenatan.jImGui"
+jImGuiRelease = "1.92.8.0"
+jImGuiSnapshot = "-SNAPSHOT"
+
+javaMain = "1.8"
+javaWeb = "17"
+javaModern = "17"
+javaFFM = "25"
+
+androidCompileSdk = "36"
+androidMinSdk = "29"
+androidTargetSdk = "36"
+
+jParser = "-SNAPSHOT"
+libFdx = "-SNAPSHOT"
+gdx = "1.14.2"
+gdxTeaVM = "-SNAPSHOT"
+gdxWebGPU = "dev-SNAPSHOT"
+jWebGPU = "0.3.3"
+junit = "4.12"
+lwjgl = "3.4.1"
+desugar = "2.0.3"
+
+easyPublishing = "0.1.0"
+androidGradlePlugin = "9.1.1"
+downloadPlugin = "5.5.0"
+
+dearImgui = "1.92.8-docking"
+dearImguiTagObject = "572f249ce1975f98ad9f8aabce512ffa12a52d6c"
+dearImguiSourceCommit = "b61e56346a92cfcaf1f43a545ca37b0b32239654"
+dearImguiVersionNumber = "19280"
+nodeEditorSourceCommit = "55a7dbf4b517b5e809b372ba39153fe20bad39ad"
+textEditSourceCommit = "264bee49ddc3c789b05d928d09c628649458da47"
+boostRegexSourceCommit = "4cbcd3078e6ae10d05124379623a1bf03fcb9350"
+
+[libraries]
+jParserApiCore = { module = "com.github.xpenatan.jParser:api-core", version.ref = "jParser" }
+jParserApiWeb = { module = "com.github.xpenatan.jParser:api-web", version.ref = "jParser" }
+jParserGenBuild = { module = "com.github.xpenatan.jParser:gen-build", version.ref = "jParser" }
+jParserGenBuildTool = { module = "com.github.xpenatan.jParser:gen-build-tool", version.ref = "jParser" }
+jParserGenIdl = { module = "com.github.xpenatan.jParser:gen-idl", version.ref = "jParser" }
+jParserLoaderCore = { module = "com.github.xpenatan.jParser:loader-core", version.ref = "jParser" }
+jParserLoaderWeb = { module = "com.github.xpenatan.jParser:loader-web", version.ref = "jParser" }
+jParserRuntimeAndroid = { module = "com.github.xpenatan.jParser:runtime-android", version.ref = "jParser" }
+jParserRuntimeAndroidArm64V8a = { module = "com.github.xpenatan.jParser:runtime-android_arm64_v8a", version.ref = "jParser" }
+jParserRuntimeAndroidArmeabiV7a = { module = "com.github.xpenatan.jParser:runtime-android_armeabi_v7a", version.ref = "jParser" }
+jParserRuntimeAndroidX86 = { module = "com.github.xpenatan.jParser:runtime-android_x86", version.ref = "jParser" }
+jParserRuntimeAndroidX8664 = { module = "com.github.xpenatan.jParser:runtime-android_x86_64", version.ref = "jParser" }
+jParserRuntimeAndroidC = { module = "com.github.xpenatan.jParser:runtime-android-c", version.ref = "jParser" }
+jParserRuntimeAndroidCArm64V8a = { module = "com.github.xpenatan.jParser:runtime-android-c_arm64_v8a", version.ref = "jParser" }
+jParserRuntimeAndroidCArmeabiV7a = { module = "com.github.xpenatan.jParser:runtime-android-c_armeabi_v7a", version.ref = "jParser" }
+jParserRuntimeAndroidCX86 = { module = "com.github.xpenatan.jParser:runtime-android-c_x86", version.ref = "jParser" }
+jParserRuntimeAndroidCX8664 = { module = "com.github.xpenatan.jParser:runtime-android-c_x86_64", version.ref = "jParser" }
+jParserRuntimeBase = { module = "com.github.xpenatan.jParser:runtime-base", version.ref = "jParser" }
+jParserRuntimeC = { module = "com.github.xpenatan.jParser:runtime-c", version.ref = "jParser" }
+jParserRuntimeCore = { module = "com.github.xpenatan.jParser:runtime-core", version.ref = "jParser" }
+jParserRuntimeDesktopCLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_linux_x64", version.ref = "jParser" }
+jParserRuntimeDesktopCMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_mac_arm64", version.ref = "jParser" }
+jParserRuntimeDesktopCMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_mac_x64", version.ref = "jParser" }
+jParserRuntimeDesktopCWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_windows_x64", version.ref = "jParser" }
+jParserRuntimeDesktopFFM = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm", version.ref = "jParser" }
+jParserRuntimeDesktopFFMLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_linux_x64", version.ref = "jParser" }
+jParserRuntimeDesktopFFMMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_arm64", version.ref = "jParser" }
+jParserRuntimeDesktopFFMMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_x64", version.ref = "jParser" }
+jParserRuntimeDesktopFFMWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_windows_x64", version.ref = "jParser" }
+jParserRuntimeDesktopJni = { module = "com.github.xpenatan.jParser:runtime-desktop-jni", version.ref = "jParser" }
+jParserRuntimeDesktopJniLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_linux_x64", version.ref = "jParser" }
+jParserRuntimeDesktopJniMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_mac_arm64", version.ref = "jParser" }
+jParserRuntimeDesktopJniMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_mac_x64", version.ref = "jParser" }
+jParserRuntimeDesktopJniWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_windows_x64", version.ref = "jParser" }
+jParserRuntimeJni = { module = "com.github.xpenatan.jParser:runtime-jni", version.ref = "jParser" }
+jParserRuntimeWeb = { module = "com.github.xpenatan.jParser:runtime-web", version.ref = "jParser" }
+jParserRuntimeWebWasm = { module = "com.github.xpenatan.jParser:runtime-web_wasm", version.ref = "jParser" }
+
+libFdxFdx = { module = "io.github.libfdx:fdx", version.ref = "libFdx" }
+libFdxApplication = { module = "io.github.libfdx:application", version.ref = "libFdx" }
+libFdxDisplay = { module = "io.github.libfdx:display", version.ref = "libFdx" }
+libFdxInput = { module = "io.github.libfdx:input", version.ref = "libFdx" }
+libFdxGraphics = { module = "io.github.libfdx:graphics", version.ref = "libFdx" }
+libFdxBackendAndroid = { module = "io.github.libfdx:backend_android", version.ref = "libFdx" }
+libFdxBackendDesktop = { module = "io.github.libfdx:backend_desktop", version.ref = "libFdx" }
+libFdxBackendWeb = { module = "io.github.libfdx:backend_web", version.ref = "libFdx" }
+libFdxFdxAndroid = { module = "io.github.libfdx:fdx_android", version.ref = "libFdx" }
+libFdxFdxDesktop = { module = "io.github.libfdx:fdx_desktop", version.ref = "libFdx" }
+libFdxGlDesktop = { module = "io.github.libfdx:gl_desktop", version.ref = "libFdx" }
+libFdxGlWeb = { module = "io.github.libfdx:gl_web", version.ref = "libFdx" }
+libFdxVulkanAndroidJni = { module = "io.github.libfdx:vulkan_android_jni", version.ref = "libFdx" }
+libFdxVulkanDesktop = { module = "io.github.libfdx:vulkan_desktop", version.ref = "libFdx" }
+libFdxWgpuAndroidJni = { module = "io.github.libfdx:wgpu_android_jni", version.ref = "libFdx" }
+libFdxWgpuDesktopFFM = { module = "io.github.libfdx:wgpu_desktop_ffm", version.ref = "libFdx" }
+libFdxWgpuDesktopJni = { module = "io.github.libfdx:wgpu_desktop_jni", version.ref = "libFdx" }
+libFdxWgpuWeb = { module = "io.github.libfdx:wgpu_web", version.ref = "libFdx" }
+
+gdxCore = { module = "com.badlogicgames.gdx:gdx", version.ref = "gdx" }
+gdxBackendAndroid = { module = "com.badlogicgames.gdx:gdx-backend-android", version.ref = "gdx" }
+gdxBackendLwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdx" }
+gdxPlatform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdx" }
+gdxTeaVMBackendGlfw = { module = "com.github.xpenatan.gdx-teavm:backend-glfw", version.ref = "gdxTeaVM" }
+gdxTeaVMBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", version.ref = "gdxTeaVM" }
+gdxWebGPUCore = { module = "com.github.xpenatan.gdx-webgpu:gdx-webgpu", version.ref = "gdxWebGPU" }
+gdxWebGPUBackendAndroid = { module = "com.github.xpenatan.gdx-webgpu:backend-android", version.ref = "gdxWebGPU" }
+gdxWebGPUBackendDesktopFFM = { module = "com.github.xpenatan.gdx-webgpu:backend-desktop-ffm", version.ref = "gdxWebGPU" }
+gdxWebGPUBackendDesktopJni = { module = "com.github.xpenatan.gdx-webgpu:backend-desktop-jni", version.ref = "gdxWebGPU" }
+gdxWebGPUBackendTeaVM = { module = "com.github.xpenatan.gdx-webgpu:backend-teavm", version.ref = "gdxWebGPU" }
+
+jWebGpuCore = { module = "com.github.xpenatan.jWebGPU:webgpu-core", version.ref = "jWebGPU" }
+jWebGpuWeb = { module = "com.github.xpenatan.jWebGPU:webgpu-web", version.ref = "jWebGPU" }
+jWebGpuWebWasm = { module = "com.github.xpenatan.jWebGPU:webgpu-web_wasm", version.ref = "jWebGPU" }
+jWebGpuDesktopFFMWgpuWindowsX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_windows_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopFFMWgpuLinuxX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_linux_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopFFMWgpuMacX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_mac_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopFFMWgpuMacArm64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_mac_arm64", version.ref = "jWebGPU" }
+jWebGpuDesktopJniWgpuWindowsX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_windows_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopJniWgpuLinuxX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_linux_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopJniWgpuMacX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_mac_x64", version.ref = "jWebGPU" }
+jWebGpuDesktopJniWgpuMacArm64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni-wgpu_mac_arm64", version.ref = "jWebGPU" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+lwjglOpenGl = { module = "org.lwjgl:lwjgl-opengl", version.ref = "lwjgl" }
+androidDesugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
+
+jImGuiFdxImpl = { module = "com.github.xpenatan.jImGui:fdx-impl", version.ref = "jImGuiSnapshot" }
+jImGuiImguiAndroid = { module = "com.github.xpenatan.jImGui:imgui-android", version.ref = "jImGuiSnapshot" }
+jImGuiImguiCore = { module = "com.github.xpenatan.jImGui:imgui-core", version.ref = "jImGuiSnapshot" }
+jImGuiImguiFFM = { module = "com.github.xpenatan.jImGui:imgui-ffm", version.ref = "jImGuiSnapshot" }
+jImGuiImguiFFMLinuxX64 = { module = "com.github.xpenatan.jImGui:imgui-ffm_linux_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiFFMMacArm64 = { module = "com.github.xpenatan.jImGui:imgui-ffm_mac_arm64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiFFMMacX64 = { module = "com.github.xpenatan.jImGui:imgui-ffm_mac_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiFFMWindowsX64 = { module = "com.github.xpenatan.jImGui:imgui-ffm_windows_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJni = { module = "com.github.xpenatan.jImGui:imgui-jni", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJniDesktop = { module = "com.github.xpenatan.jImGui:imgui-jni_desktop", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJniLinuxX64 = { module = "com.github.xpenatan.jImGui:imgui-jni_linux_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJniMacArm64 = { module = "com.github.xpenatan.jImGui:imgui-jni_mac_arm64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJniMacX64 = { module = "com.github.xpenatan.jImGui:imgui-jni_mac_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiJniWindowsX64 = { module = "com.github.xpenatan.jImGui:imgui-jni_windows_x64", version.ref = "jImGuiSnapshot" }
+jImGuiImguiWeb = { module = "com.github.xpenatan.jImGui:imgui-web", version.ref = "jImGuiSnapshot" }
+jImGuiImguiWebWasm = { module = "com.github.xpenatan.jImGui:imgui-web_wasm", version.ref = "jImGuiSnapshot" }
+jImGuiImlayoutCore = { module = "com.github.xpenatan.jImGui:imlayout-core", version.ref = "jImGuiSnapshot" }
+jImGuiImlayoutJni = { module = "com.github.xpenatan.jImGui:imlayout-jni", version.ref = "jImGuiSnapshot" }
+jImGuiImlayoutJniDesktop = { module = "com.github.xpenatan.jImGui:imlayout-jni_desktop", version.ref = "jImGuiSnapshot" }
+jImGuiImlayoutWeb = { module = "com.github.xpenatan.jImGui:imlayout-web", version.ref = "jImGuiSnapshot" }
+jImGuiImlayoutWebWasm = { module = "com.github.xpenatan.jImGui:imlayout-web_wasm", version.ref = "jImGuiSnapshot" }
+jImGuiNodeEditorCore = { module = "com.github.xpenatan.jImGui:nodeeditor-core", version.ref = "jImGuiSnapshot" }
+jImGuiNodeEditorJni = { module = "com.github.xpenatan.jImGui:nodeeditor-jni", version.ref = "jImGuiSnapshot" }
+jImGuiNodeEditorJniDesktop = { module = "com.github.xpenatan.jImGui:nodeeditor-jni_desktop", version.ref = "jImGuiSnapshot" }
+jImGuiNodeEditorWeb = { module = "com.github.xpenatan.jImGui:nodeeditor-web", version.ref = "jImGuiSnapshot" }
+jImGuiNodeEditorWebWasm = { module = "com.github.xpenatan.jImGui:nodeeditor-web_wasm", version.ref = "jImGuiSnapshot" }
+jImGuiTextEditCore = { module = "com.github.xpenatan.jImGui:textedit-core", version.ref = "jImGuiSnapshot" }
+jImGuiTextEditJni = { module = "com.github.xpenatan.jImGui:textedit-jni", version.ref = "jImGuiSnapshot" }
+jImGuiTextEditJniDesktop = { module = "com.github.xpenatan.jImGui:textedit-jni_desktop", version.ref = "jImGuiSnapshot" }
+jImGuiTextEditWeb = { module = "com.github.xpenatan.jImGui:textedit-web", version.ref = "jImGuiSnapshot" }
+jImGuiTextEditWebWasm = { module = "com.github.xpenatan.jImGui:textedit-web_wasm", version.ref = "jImGuiSnapshot" }
+
+[bundles]
+jParserBaseArtifacts = ["jParserRuntimeBase", "jParserLoaderCore", "jParserApiCore", "jParserRuntimeCore"]
+jParserWebArtifacts = ["jParserRuntimeCore", "jParserRuntimeWeb", "jParserRuntimeWebWasm", "jParserLoaderCore", "jParserLoaderWeb", "jParserApiCore", "jParserApiWeb"]
+jParserAndroidJniArtifacts = ["jParserApiCore", "jParserLoaderCore", "jParserRuntimeJni", "jParserRuntimeAndroid", "jParserRuntimeAndroidX86", "jParserRuntimeAndroidX8664", "jParserRuntimeAndroidArmeabiV7a", "jParserRuntimeAndroidArm64V8a"]
+jParserDesktopJniArtifacts = ["jParserRuntimeDesktopJni", "jParserRuntimeDesktopJniWindowsX64", "jParserRuntimeDesktopJniLinuxX64", "jParserRuntimeDesktopJniMacX64", "jParserRuntimeDesktopJniMacArm64"]
+jParserDesktopFFMArtifacts = ["jParserApiCore", "jParserLoaderCore", "jParserRuntimeDesktopFFM", "jParserRuntimeDesktopFFMWindowsX64", "jParserRuntimeDesktopFFMLinuxX64", "jParserRuntimeDesktopFFMMacX64", "jParserRuntimeDesktopFFMMacArm64"]
+jParserGeneratorArtifacts = ["jParserGenBuildTool", "jParserGenBuild", "jParserGenIdl", "jParserRuntimeCore"]
+libFdxCoreArtifacts = ["libFdxFdx", "libFdxApplication", "libFdxDisplay", "libFdxInput", "libFdxGraphics"]
+jImGuiJniArtifacts = ["jImGuiImguiJni", "jImGuiImguiJniWindowsX64", "jImGuiImguiJniLinuxX64", "jImGuiImguiJniMacX64", "jImGuiImguiJniMacArm64"]
+jImGuiFFMArtifacts = ["jImGuiImguiFFM", "jImGuiImguiFFMWindowsX64", "jImGuiImguiFFMLinuxX64", "jImGuiImguiFFMMacX64", "jImGuiImguiFFMMacArm64"]
+
+[plugins]
+easyPublishing = { id = "com.github.xpenatan.easy-publishing", version.ref = "easyPublishing" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+downloadPlugin = { id = "de.undercouch.download", version.ref = "downloadPlugin" }
+jParserPlugin = { id = "com.github.xpenatan.jparser", version.ref = "jParser" }

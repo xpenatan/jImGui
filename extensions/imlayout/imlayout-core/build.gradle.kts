@@ -5,13 +5,13 @@ plugins {
 val moduleName = "imlayout-core"
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
 }
 
 dependencies {
     implementation(project(":imgui:core"))
-    implementation("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+    implementation(libs.jParserLoaderCore)
 }
 
 tasks.named("clean") {

@@ -1,23 +1,6 @@
 plugins {
     id("java")
-    id("com.github.xpenatan.easy-publishing") version "0.1.0"
-    id("org.jetbrains.kotlin.android") version "2.2.21" apply false
-}
-
-LibExt.isRelease = rootProject.extra["easyPublishing.releaseRequested"] as Boolean
-
-buildscript {
-    repositories {
-        mavenCentral()
-        google()
-    }
-
-    val kotlinVersion = "2.1.10"
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.12.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    }
+    alias(libs.plugins.easyPublishing)
 }
 
 allprojects  {
@@ -39,20 +22,14 @@ allprojects  {
         resolutionStrategy.cacheChangingModulesFor(0, "seconds")
         resolutionStrategy.eachDependency {
             if(requested.group == "com.github.xpenatan.jParser") {
-                useVersion(LibExt.jParserVersion)
+                useVersion(libs.versions.jParser.get())
                 because("jImGui builds against one jParser version across runtime, generator, and plugin artifacts")
             }
             else if(requested.group == "com.github.xpenatan.jWebGPU") {
-                useVersion(LibExt.jWebGPUVersion)
+                useVersion(libs.versions.jWebGPU.get())
                 because("GDX and FDX WebGPU backends must use one generated jWebGPU API")
             }
         }
-//        resolutionStrategy {
-//            force("com.github.xpenatan.jWebGPU:webgpu-core:-SNAPSHOT")
-//            force("com.github.xpenatan.jWebGPU:webgpu-jni:-SNAPSHOT")
-//            force("com.github.xpenatan.jWebGPU:webgpu-ffm:-SNAPSHOT")
-//            force("com.github.xpenatan.jWebGPU:webgpu-web:-SNAPSHOT")
-//        }
     }
 }
 
@@ -90,9 +67,9 @@ val publishingModules = listOf(
 easyPublishing {
     modules(publishingModules)
 
-    groupId.set(LibExt.groupId)
-    releaseVersion.set(providers.gradleProperty("version"))
-    snapshotVersion.set("-SNAPSHOT")
+    groupId.set(libs.versions.jImGuiGroup)
+    releaseVersion.set(libs.versions.jImGuiRelease)
+    snapshotVersion.set(libs.versions.jImGuiSnapshot)
 
     snapshotRepositoryUrl.set("https://central.sonatype.com/repository/maven-snapshots/")
     releaseRepositoryUrl.set("https://central.sonatype.com")
@@ -101,7 +78,7 @@ easyPublishing {
     signingKey.set(providers.environmentVariable("SIGNING_KEY"))
     signingPassword.set(providers.environmentVariable("SIGNING_PASSWORD"))
 
-    pomName.set(LibExt.libName)
+    pomName.set("jImGui")
     pomDescription.set("ImGui Java Bindings")
     projectUrl.set("https://github.com/xpenatan/jImGui")
 

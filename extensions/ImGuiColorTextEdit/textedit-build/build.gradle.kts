@@ -4,20 +4,17 @@ import java.io.File
 
 plugins {
     id("java-library")
-    id("de.undercouch.download") version("5.5.0")
+    alias(libs.plugins.downloadPlugin)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
 dependencies {
     implementation(project(":imgui:core"))
-    implementation("com.github.xpenatan.jParser:gen-build-tool:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:gen-build:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:gen-idl:${LibExt.jParserVersion}")
-    implementation("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
+    implementation(libs.bundles.jParserGeneratorArtifacts)
 }
 
 val buildDir = layout.buildDirectory.get().asFile
@@ -27,16 +24,18 @@ val sourceDestination = "${buildDir}/ImGuiColorTextEdit/"
 val zippedVendorPath = "${buildDir}/regex.zip"
 val sourceVendorPath = "${buildDir}/regex/"
 val sourceVendorDestination = "${buildDir}/ImGuiColorTextEdit/vendor/regex"
+val textEditCommit = libs.versions.textEditSourceCommit.get()
+val boostRegexCommit = libs.versions.boostRegexSourceCommit.get()
 
 tasks.register<Download>("download_textedit_source") {
     group = "textedit"
     description = "Download source"
-    src("https://github.com/santaclose/ImGuiColorTextEdit/archive/264bee49ddc3c789b05d928d09c628649458da47.zip")
+    src("https://github.com/santaclose/ImGuiColorTextEdit/archive/$textEditCommit.zip")
     dest(File(zippedPath))
     doLast {
         unzipTo(File(sourcePath), dest)
         copy {
-            from("$sourcePath/ImGuiColorTextEdit-264bee49ddc3c789b05d928d09c628649458da47")
+            from("$sourcePath/ImGuiColorTextEdit-$textEditCommit")
             into(sourceDestination)
         }
         delete(sourcePath)
@@ -47,12 +46,12 @@ tasks.register<Download>("download_textedit_source") {
 tasks.register<Download>("download_vendor_source") {
     group = "textedit"
     description = "Download source"
-    src("https://github.com/boostorg/regex/archive/4cbcd3078e6ae10d05124379623a1bf03fcb9350.zip")
+    src("https://github.com/boostorg/regex/archive/$boostRegexCommit.zip")
     dest(File(zippedVendorPath))
     doLast {
         unzipTo(File(sourceVendorPath), dest)
         copy {
-            from("$sourceVendorPath/regex-4cbcd3078e6ae10d05124379623a1bf03fcb9350/")
+            from("$sourceVendorPath/regex-$boostRegexCommit/")
             into(sourceVendorDestination)
         }
         delete(sourceVendorPath)
