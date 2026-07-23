@@ -27,7 +27,7 @@ allprojects  {
             }
             else if(requested.group == "com.github.xpenatan.jWebGPU") {
                 useVersion(libs.versions.jWebGPU.get())
-                because("GDX and FDX WebGPU backends must use one generated jWebGPU API")
+                because("The FDX WebGPU backend must use one generated jWebGPU API")
             }
         }
     }
@@ -36,7 +36,6 @@ allprojects  {
 val publishingModules = listOf(
     ":backends:gdx:gdx-shared-impl",
     ":backends:gdx:gdx-gl-impl",
-    ":backends:gdx:gdx-wgpu-impl",
     ":backends:fdx:fdx-impl",
     ":imgui:core",
     ":imgui:shared:jni",

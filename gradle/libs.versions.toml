@@ -17,7 +17,6 @@ jParser = "-SNAPSHOT"
 libFdx = "-SNAPSHOT"
 gdx = "1.14.2"
 gdxTeaVM = "-SNAPSHOT"
-gdxWebGPU = "dev-SNAPSHOT"
 jWebGPU = "0.3.3"
 junit = "4.12"
 desugar = "2.0.3"
@@ -98,11 +97,6 @@ gdxBackendLwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", versio
 gdxPlatform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdx" }
 gdxTeaVMBackendGlfw = { module = "com.github.xpenatan.gdx-teavm:backend-glfw", version.ref = "gdxTeaVM" }
 gdxTeaVMBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", version.ref = "gdxTeaVM" }
-gdxWebGPUCore = { module = "com.github.xpenatan.gdx-webgpu:gdx-webgpu", version.ref = "gdxWebGPU" }
-gdxWebGPUBackendAndroid = { module = "com.github.xpenatan.gdx-webgpu:backend-android", version.ref = "gdxWebGPU" }
-gdxWebGPUBackendDesktopFFM = { module = "com.github.xpenatan.gdx-webgpu:backend-desktop-ffm", version.ref = "gdxWebGPU" }
-gdxWebGPUBackendDesktopJni = { module = "com.github.xpenatan.gdx-webgpu:backend-desktop-jni", version.ref = "gdxWebGPU" }
-gdxWebGPUBackendTeaVM = { module = "com.github.xpenatan.gdx-webgpu:backend-teavm", version.ref = "gdxWebGPU" }
 
 jWebGpuCore = { module = "com.github.xpenatan.jWebGPU:webgpu-core", version.ref = "jWebGPU" }
 jWebGpuWeb = { module = "com.github.xpenatan.jWebGPU:webgpu-web", version.ref = "jWebGPU" }
