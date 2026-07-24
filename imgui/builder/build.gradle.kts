@@ -1,9 +1,6 @@
-import com.github.xpenatan.jParser.builder.targets.AndroidTarget
-import com.github.xpenatan.jParser.gradle.JParserTargets
-import com.github.xpenatan.jParser.gradle.JParserTargetHooks
 import com.github.xpenatan.jParser.idl.IDLClassOrEnum
 import com.github.xpenatan.jParser.idl.IDLRenaming
-import org.gradle.api.provider.ListProperty
+import com.github.xpenatan.jParser.gradle.JParserTargets
 import java.io.File
 
 plugins {
@@ -11,17 +8,14 @@ plugins {
     alias(libs.plugins.jParserPlugin)
 }
 
-fun File.normalizedPath(): String {
-    return absolutePath.replace('\\', '/')
-}
-
 val downloadBuildDir = file("../download/build")
 val imguiSourceRoot = File(downloadBuildDir, "imgui-source")
-val imguiSourcePattern = "${imguiSourceRoot.normalizedPath()}/*.cpp"
+val imguiSourcePath = imguiSourceRoot.invariantSeparatorsPath
+val imguiSourcePattern = "$imguiSourcePath/*.cpp"
 val imguiSourceExcludes = listOf(
-    "${imguiSourceRoot.normalizedPath()}/backends/*.cpp",
-    "${imguiSourceRoot.normalizedPath()}/examples/**/*.cpp",
-    "${imguiSourceRoot.normalizedPath()}/misc/**/*.cpp"
+    "$imguiSourcePath/backends/*.cpp",
+    "$imguiSourcePath/examples/**/*.cpp",
+    "$imguiSourcePath/misc/**/*.cpp"
 )
 val imguiCustomSourceDir = file("src/main/cpp/custom")
 val imguiCustomHeader = file("src/main/cpp/custom/ImGuiCustom.h")
@@ -33,31 +27,6 @@ else {
     "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\""
 }
 val imguiMsvcUserConfigFlag = "/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
-val enableNativeTestHooks = gradle.startParameter.taskNames.any {
-    it == "test" || it.endsWith(":imgui:shared:jni:test")
-}
-
-java {
-    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
-    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
-}
-
-fun ListProperty<String>.imguiUserConfigFlag(msvc: Boolean) {
-    add(if(msvc) imguiMsvcUserConfigFlag else imguiNativeUserConfigFlag)
-}
-
-fun JParserTargetHooks.configureDesktopTarget(targetName: String) {
-    val windows = targetName.startsWith("windows64")
-    compileFlags.imguiUserConfigFlag(windows)
-    if(windows) {
-        compileFlag("/DIMGUI_EXPORTS")
-        includeCustomSources.set(true)
-    }
-    else if(targetName.startsWith("linux64")) {
-        linkerFlag("-Wl,-soname,libimgui64.so")
-    }
-}
-
 val desktopTargets = listOf(
     JParserTargets.WINDOWS64_JNI,
     JParserTargets.LINUX64_JNI,
@@ -72,6 +41,14 @@ val desktopTargets = listOf(
     JParserTargets.MAC64_TEAVM_C,
     JParserTargets.MAC_ARM_TEAVM_C
 )
+val enableNativeTestHooks = gradle.startParameter.taskNames.any {
+    it == "test" || it.endsWith(":imgui:shared:jni:test")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+}
 
 jParser {
     libName.set("imgui")
@@ -105,12 +82,17 @@ jParser {
 
         desktopTargets.forEach { targetName ->
             target(targetName) {
-                configureDesktopTarget(targetName.targetName)
-                if(enableNativeTestHooks && targetName.targetName.endsWith("_jni")) {
-                    compileFlag(if(targetName.targetName.startsWith("windows64"))
-                        "/DJIMGUI_ENABLE_TEST_HOOKS"
-                    else
-                        "-DJIMGUI_ENABLE_TEST_HOOKS")
+                val windows = name.startsWith("windows64")
+                compileFlag(if(windows) imguiMsvcUserConfigFlag else imguiNativeUserConfigFlag)
+                if(windows) {
+                    compileFlag("/DIMGUI_EXPORTS")
+                    includeCustomSources.set(true)
+                }
+                else if(name.startsWith("linux64")) {
+                    linkerFlag("-Wl,-soname,libimgui64.so")
+                }
+                if(enableNativeTestHooks && name.endsWith("_jni")) {
+                    compileFlag(if(windows) "/DJIMGUI_ENABLE_TEST_HOOKS" else "-DJIMGUI_ENABLE_TEST_HOOKS")
                 }
             }
         }
@@ -129,10 +111,6 @@ jParser {
             compileFlag("-DIMGUI_DISABLE_FILE_FUNCTIONS")
             compileFlag("-DIMGUI_DEFINE_MATH_OPERATORS")
             linkerFlag("-Wl,-z,max-page-size=16384")
-            androidTarget(AndroidTarget.Target.x86) {}
-            androidTarget(AndroidTarget.Target.x86_64) {}
-            androidTarget(AndroidTarget.Target.armeabi_v7a) {}
-            androidTarget(AndroidTarget.Target.arm64_v8a) {}
         }
 
         target(JParserTargets.ANDROID_TEAVM_C) {
@@ -140,10 +118,6 @@ jParser {
             compileFlag("-DIMGUI_DISABLE_FILE_FUNCTIONS")
             compileFlag("-DIMGUI_DEFINE_MATH_OPERATORS")
             linkerFlag("-Wl,-z,max-page-size=16384")
-            androidTarget(AndroidTarget.Target.x86) {}
-            androidTarget(AndroidTarget.Target.x86_64) {}
-            androidTarget(AndroidTarget.Target.armeabi_v7a) {}
-            androidTarget(AndroidTarget.Target.arm64_v8a) {}
         }
     }
 
@@ -170,8 +144,4 @@ jParser {
             return newName ?: enumName
         }
     })
-}
-
-tasks.matching { it.name.startsWith("jParser_build_") }.configureEach {
-    mustRunAfter("jParser_generate")
 }

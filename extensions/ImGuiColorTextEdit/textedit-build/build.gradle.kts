@@ -1,4 +1,3 @@
-import com.github.xpenatan.jParser.gradle.JParserBuildTask
 import com.github.xpenatan.jParser.gradle.JParserTargetHooks
 import com.github.xpenatan.jParser.gradle.JParserTargets
 import de.undercouch.gradle.tasks.download.Download
@@ -8,10 +7,6 @@ plugins {
     id("java-library")
     alias(libs.plugins.downloadPlugin)
     alias(libs.plugins.jParserPlugin)
-}
-
-fun File.normalizedPath(): String {
-    return absolutePath.replace('\\', '/')
 }
 
 val buildDir = layout.buildDirectory.get().asFile
@@ -69,12 +64,6 @@ tasks.register("download_source") {
     tasks.findByName("download_vendor_source")?.mustRunAfter("download_textedit_source")
 }
 
-val imguiRoot = file("../../../imgui")
-val imguiBuilderDir = File(imguiRoot, "builder")
-val imguiIDL = File(imguiBuilderDir, "src/main/cpp/imgui.idl")
-val imguiCustomSourceDir = File(imguiBuilderDir, "src/main/cpp/custom")
-val imguiNativeBuildDir = File(imguiBuilderDir, "build/c++")
-val imguiSourceRoot = File(imguiRoot, "download/build/imgui-source")
 val textEditSourceDir = file(sourceDestination)
 val regexIncludeDir = File(textEditSourceDir, "vendor/regex/include")
 val isWindowsHost = System.getProperty("os.name").startsWith("Windows", ignoreCase = true)
@@ -84,7 +73,6 @@ val imguiNativeUserConfigFlag = if(isWindowsHost) {
 else {
     "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\""
 }
-
 val desktopTargets = listOf(
     JParserTargets.WINDOWS64_JNI,
     JParserTargets.LINUX64_JNI,
@@ -111,44 +99,9 @@ fun JParserTargetHooks.configureDesktopTarget(targetName: String) {
     }
 }
 
-fun JParserTargetHooks.linkImgui(targetName: String) {
-    val api = if(targetName.endsWith("_teavm_c")) {
-        "teavm_c"
-    }
-    else if(targetName.endsWith("_ffm")) {
-        "ffm"
-    }
-    else {
-        "jni"
-    }
-
-    if(targetName.startsWith("windows64")) {
-        staticLinkerInput(File(imguiNativeBuildDir, "libs/windows/vc/$api/imgui64.lib"))
-    }
-    else if(targetName.startsWith("linux64")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/linux/$api/libimgui64.so"))
-    }
-    else if(targetName.startsWith("macArm")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/mac/arm/$api/libimguiarm64.dylib"))
-    }
-    else if(targetName.startsWith("mac64")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/mac/$api/libimgui64.dylib"))
-    }
-}
-
 java {
     sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
     targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
-}
-
-// Let jParser discover the real packages of referenced ImGui types, including imgui.enums.
-val jParserReferenceClasspath = configurations.create("jParserReferenceClasspath") {
-    isCanBeConsumed = false
-    isCanBeResolved = true
-}
-
-dependencies {
-    add(jParserReferenceClasspath.name, project(":imgui:core"))
 }
 
 jParser {
@@ -166,33 +119,23 @@ jParser {
     webForcedInclude(file("src/main/cpp/custom/TextEditWebIncludes.h"))
 
     dependency("imgui") {
-        idlRefPath(imguiIDL)
-        referenceProjectPath.set(":imgui:builder")
-        native {
-            headerDir(imguiSourceRoot)
-            headerDir(imguiCustomSourceDir)
-            desktopTargets.forEach { targetName ->
-                target(targetName) {
-                    linkImgui(targetName.targetName)
-                }
-            }
-        }
+        referenceProject(":imgui:builder")
     }
 
     native {
         dependsOn("download_source")
         headerDir(textEditSourceDir)
         headerDir(regexIncludeDir)
-        cppInclude("${textEditSourceDir.normalizedPath()}/ImGuiDebugPanel.cpp")
-        cppInclude("${textEditSourceDir.normalizedPath()}/LanguageDefinitions.cpp")
-        cppInclude("${textEditSourceDir.normalizedPath()}/TextEditor.cpp")
-        cppInclude("${textEditSourceDir.normalizedPath()}/UnitTests.cpp")
-        cppInclude("${textEditSourceDir.normalizedPath()}/vendor/regex/src/*.cpp")
-        cppExclude("${textEditSourceDir.normalizedPath()}/vendor/regex/build/**/*.cpp")
-        cppExclude("${textEditSourceDir.normalizedPath()}/vendor/regex/example/**/*.cpp")
-        cppExclude("${textEditSourceDir.normalizedPath()}/vendor/regex/performance/**/*.cpp")
-        cppExclude("${textEditSourceDir.normalizedPath()}/vendor/regex/test/**/*.cpp")
-        cppExclude("${textEditSourceDir.normalizedPath()}/vendor/regex/tools/**/*.cpp")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/ImGuiDebugPanel.cpp")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/LanguageDefinitions.cpp")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/TextEditor.cpp")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/UnitTests.cpp")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/src/*.cpp")
+        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/build/**/*.cpp")
+        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/example/**/*.cpp")
+        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/performance/**/*.cpp")
+        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/test/**/*.cpp")
+        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/tools/**/*.cpp")
         compileFlag("-includecmath")
         includeDefaultSources.set(false)
         includeCustomSources.set(true)
@@ -208,29 +151,6 @@ jParser {
             linkerFlag("-lc++abi")
             linkerFlag("-lc++")
             linkerFlag("-lc")
-        }
-    }
-}
-
-tasks.matching { it.name.startsWith("jParser_build_") }.configureEach {
-    mustRunAfter("jParser_generate")
-}
-
-tasks.withType<JParserBuildTask>().configureEach {
-    dependsOn(jParserReferenceClasspath)
-    doFirst {
-        val classPath = System.getProperty("java.class.path", "")
-        val classPathEntries = classPath.split(File.pathSeparator).toMutableSet()
-        val referenceEntries = jParserReferenceClasspath.files
-            .map(File::getAbsolutePath)
-            .filterNot(classPathEntries::contains)
-        if(referenceEntries.isNotEmpty()) {
-            System.setProperty(
-                "java.class.path",
-                listOf(classPath, referenceEntries.joinToString(File.pathSeparator))
-                    .filter(String::isNotEmpty)
-                    .joinToString(File.pathSeparator)
-            )
         }
     }
 }

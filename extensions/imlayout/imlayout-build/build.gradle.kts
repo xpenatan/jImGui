@@ -1,23 +1,11 @@
-import com.github.xpenatan.jParser.gradle.JParserBuildTask
 import com.github.xpenatan.jParser.gradle.JParserTargetHooks
 import com.github.xpenatan.jParser.gradle.JParserTargets
-import java.io.File
 
 plugins {
     id("java-library")
     alias(libs.plugins.jParserPlugin)
 }
 
-fun File.normalizedPath(): String {
-    return absolutePath.replace('\\', '/')
-}
-
-val imguiRoot = file("../../../imgui")
-val imguiBuilderDir = File(imguiRoot, "builder")
-val imguiIDL = File(imguiBuilderDir, "src/main/cpp/imgui.idl")
-val imguiCustomSourceDir = File(imguiBuilderDir, "src/main/cpp/custom")
-val imguiNativeBuildDir = File(imguiBuilderDir, "build/c++")
-val imguiSourceRoot = File(imguiRoot, "download/build/imgui-source")
 val sourceDir = file("src/main/cpp/source")
 val isWindowsHost = System.getProperty("os.name").startsWith("Windows", ignoreCase = true)
 val imguiNativeUserConfigFlag = if(isWindowsHost) {
@@ -27,7 +15,6 @@ else {
     "-DIMGUI_USER_CONFIG=\"ImGuiCustomConfig.h\""
 }
 val imguiMsvcUserConfigFlag = "/DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
-
 val desktopTargets = listOf(
     JParserTargets.WINDOWS64_JNI,
     JParserTargets.LINUX64_JNI,
@@ -60,44 +47,9 @@ fun JParserTargetHooks.configureDesktopTarget(targetName: String) {
     }
 }
 
-fun JParserTargetHooks.linkImgui(targetName: String) {
-    val api = if(targetName.endsWith("_teavm_c")) {
-        "teavm_c"
-    }
-    else if(targetName.endsWith("_ffm")) {
-        "ffm"
-    }
-    else {
-        "jni"
-    }
-
-    if(targetName.startsWith("windows64")) {
-        staticLinkerInput(File(imguiNativeBuildDir, "libs/windows/vc/$api/imgui64.lib"))
-    }
-    else if(targetName.startsWith("linux64")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/linux/$api/libimgui64.so"))
-    }
-    else if(targetName.startsWith("macArm")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/mac/arm/$api/libimguiarm64.dylib"))
-    }
-    else if(targetName.startsWith("mac64")) {
-        sharedLinkerInput(File(imguiNativeBuildDir, "libs/mac/$api/libimgui64.dylib"))
-    }
-}
-
 java {
     sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
     targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
-}
-
-// Let jParser discover the real packages of referenced ImGui types, including imgui.enums.
-val jParserReferenceClasspath = configurations.create("jParserReferenceClasspath") {
-    isCanBeConsumed = false
-    isCanBeResolved = true
-}
-
-dependencies {
-    add(jParserReferenceClasspath.name, project(":imgui:core"))
 }
 
 jParser {
@@ -114,21 +66,11 @@ jParser {
     webForcedInclude(file("src/main/cpp/custom/ImLayoutWebIncludes.h"))
 
     dependency("imgui") {
-        idlRefPath(imguiIDL)
-        referenceProjectPath.set(":imgui:builder")
-        native {
-            headerDir(imguiSourceRoot)
-            headerDir(imguiCustomSourceDir)
-            desktopTargets.forEach { targetName ->
-                target(targetName) {
-                    linkImgui(targetName.targetName)
-                }
-            }
-        }
+        referenceProject(":imgui:builder")
     }
 
     native {
-        cppInclude("${sourceDir.normalizedPath()}/*.cpp")
+        cppInclude("${sourceDir.invariantSeparatorsPath}/*.cpp")
         includeDefaultSources.set(false)
         includeCustomSources.set(true)
 
@@ -143,29 +85,6 @@ jParser {
             linkerFlag("-lc++abi")
             linkerFlag("-lc++")
             linkerFlag("-lc")
-        }
-    }
-}
-
-tasks.matching { it.name.startsWith("jParser_build_") }.configureEach {
-    mustRunAfter("jParser_generate")
-}
-
-tasks.withType<JParserBuildTask>().configureEach {
-    dependsOn(jParserReferenceClasspath)
-    doFirst {
-        val classPath = System.getProperty("java.class.path", "")
-        val classPathEntries = classPath.split(File.pathSeparator).toMutableSet()
-        val referenceEntries = jParserReferenceClasspath.files
-            .map(File::getAbsolutePath)
-            .filterNot(classPathEntries::contains)
-        if(referenceEntries.isNotEmpty()) {
-            System.setProperty(
-                "java.class.path",
-                listOf(classPath, referenceEntries.joinToString(File.pathSeparator))
-                    .filter(String::isNotEmpty)
-                    .joinToString(File.pathSeparator)
-            )
         }
     }
 }
