@@ -36,9 +36,6 @@ boostRegexSourceCommit = "4cbcd3078e6ae10d05124379623a1bf03fcb9350"
 [libraries]
 jParserApiCore = { module = "com.github.xpenatan.jParser:api-core", version.ref = "jParser" }
 jParserApiWeb = { module = "com.github.xpenatan.jParser:api-web", version.ref = "jParser" }
-jParserGenBuild = { module = "com.github.xpenatan.jParser:gen-build", version.ref = "jParser" }
-jParserGenBuildTool = { module = "com.github.xpenatan.jParser:gen-build-tool", version.ref = "jParser" }
-jParserGenIdl = { module = "com.github.xpenatan.jParser:gen-idl", version.ref = "jParser" }
 jParserLoaderCore = { module = "com.github.xpenatan.jParser:loader-core", version.ref = "jParser" }
 jParserLoaderWeb = { module = "com.github.xpenatan.jParser:loader-web", version.ref = "jParser" }
 jParserRuntimeAndroid = { module = "com.github.xpenatan.jParser:runtime-android", version.ref = "jParser" }
@@ -148,7 +145,6 @@ jParserWebArtifacts = ["jParserRuntimeCore", "jParserRuntimeWeb", "jParserRuntim
 jParserAndroidJniArtifacts = ["jParserApiCore", "jParserLoaderCore", "jParserRuntimeJni", "jParserRuntimeAndroid", "jParserRuntimeAndroidX86", "jParserRuntimeAndroidX8664", "jParserRuntimeAndroidArmeabiV7a", "jParserRuntimeAndroidArm64V8a"]
 jParserDesktopJniArtifacts = ["jParserRuntimeDesktopJni", "jParserRuntimeDesktopJniWindowsX64", "jParserRuntimeDesktopJniLinuxX64", "jParserRuntimeDesktopJniMacX64", "jParserRuntimeDesktopJniMacArm64"]
 jParserDesktopFFMArtifacts = ["jParserApiCore", "jParserLoaderCore", "jParserRuntimeDesktopFFM", "jParserRuntimeDesktopFFMWindowsX64", "jParserRuntimeDesktopFFMLinuxX64", "jParserRuntimeDesktopFFMMacX64", "jParserRuntimeDesktopFFMMacArm64"]
-jParserGeneratorArtifacts = ["jParserGenBuildTool", "jParserGenBuild", "jParserGenIdl", "jParserRuntimeCore"]
 libFdxCoreArtifacts = ["libFdxFdx", "libFdxApplication", "libFdxDisplay", "libFdxInput", "libFdxGraphics"]
 jImGuiJniArtifacts = ["jImGuiImguiJni", "jImGuiImguiJniWindowsX64", "jImGuiImguiJniLinuxX64", "jImGuiImguiJniMacX64", "jImGuiImguiJniMacArm64"]
 jImGuiFFMArtifacts = ["jImGuiImguiFFM", "jImGuiImguiFFMWindowsX64", "jImGuiImguiFFMLinuxX64", "jImGuiImguiFFMMacX64", "jImGuiImguiFFMMacArm64"]
