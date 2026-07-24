@@ -98,9 +98,6 @@ gdxPlatform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gd
 gdxTeaVMBackendGlfw = { module = "com.github.xpenatan.gdx-teavm:backend-glfw", version.ref = "gdxTeaVM" }
 gdxTeaVMBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", version.ref = "gdxTeaVM" }
 
-jWebGpuCore = { module = "com.github.xpenatan.jWebGPU:webgpu-core", version.ref = "jWebGPU" }
-jWebGpuWeb = { module = "com.github.xpenatan.jWebGPU:webgpu-web", version.ref = "jWebGPU" }
-jWebGpuWebWasm = { module = "com.github.xpenatan.jWebGPU:webgpu-web_wasm", version.ref = "jWebGPU" }
 jWebGpuDesktopFFMWgpuWindowsX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_windows_x64", version.ref = "jWebGPU" }
 jWebGpuDesktopFFMWgpuLinuxX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_linux_x64", version.ref = "jWebGPU" }
 jWebGpuDesktopFFMWgpuMacX64 = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm-wgpu_mac_x64", version.ref = "jWebGPU" }
