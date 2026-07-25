@@ -18,7 +18,7 @@ libfdx = "-SNAPSHOT"
 libgdx = "1.14.2"
 gdxTeaVM = "-SNAPSHOT"
 jWebGPU = "0.3.3"
-easyPublishing = "0.1.1"
+easyPublishing = "0.1.2"
 
 junit = "4.12"
 desugar = "2.0.3"
@@ -154,4 +154,4 @@ easyPublishing = { id = "com.github.xpenatan.easy-publishing", version.ref = "ea
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 downloadPlugin = { id = "de.undercouch.download", version.ref = "downloadPlugin" }
-jParserPlugin = { id = "com.github.xpenatan.jparser", version.ref = "jParser" }
+jParserPlugin = { id = "com.github.xpenatan.jParser", version.ref = "jParser" }
