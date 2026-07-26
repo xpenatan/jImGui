@@ -133,6 +133,30 @@ public final class ImGuiPlatformIO extends NativeObject {
         }
     }
 
+    public int get_Platform_SessionDate() {
+        return internal_native_get_Platform_SessionDate(native_address);
+    }
+
+    public static int internal_native_get_Platform_SessionDate(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_Platform_SessionDate__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Platform_SessionDate(int Platform_SessionDate) {
+        internal_native_set_Platform_SessionDate(native_address, Platform_SessionDate);
+    }
+
+    public static void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate) {
+        try {
+            FFMHandles.internal_native_set_Platform_SessionDate__JI.invokeExact(this_addr, Platform_SessionDate);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
@@ -148,5 +172,9 @@ public final class ImGuiPlatformIO extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_Viewports_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_viewports_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_Viewports__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_viewports", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Platform_SessionDate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_sessiondate", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Platform_SessionDate__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_sessiondate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
     }
 }

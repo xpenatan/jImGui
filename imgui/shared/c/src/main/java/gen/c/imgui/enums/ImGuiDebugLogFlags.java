@@ -19,6 +19,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventNav(ImGuiDebugLogFlags_EventNav_NATIVE()),
     EventClipper(ImGuiDebugLogFlags_EventClipper_NATIVE()),
     EventSelection(ImGuiDebugLogFlags_EventSelection_NATIVE()),
+    EventTable(ImGuiDebugLogFlags_EventTable_NATIVE()),
     EventIO(ImGuiDebugLogFlags_EventIO_NATIVE()),
     EventFont(ImGuiDebugLogFlags_EventFont_NATIVE()),
     EventInputRouting(ImGuiDebugLogFlags_EventInputRouting_NATIVE()),
@@ -74,6 +75,9 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_eventselection_native")
     private static native int ImGuiDebugLogFlags_EventSelection_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_eventtable_native")
+    private static native int ImGuiDebugLogFlags_EventTable_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguidebuglogflags_imguidebuglogflags_eventio_native")
     private static native int ImGuiDebugLogFlags_EventIO_NATIVE();

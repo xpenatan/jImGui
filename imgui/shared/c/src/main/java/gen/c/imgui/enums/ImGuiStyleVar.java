@@ -46,6 +46,8 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     TableAngledHeadersTextAlign(ImGuiStyleVar_TableAngledHeadersTextAlign_NATIVE()),
     TreeLinesSize(ImGuiStyleVar_TreeLinesSize_NATIVE()),
     TreeLinesRounding(ImGuiStyleVar_TreeLinesRounding_NATIVE()),
+    MenuItemRounding(ImGuiStyleVar_MenuItemRounding_NATIVE()),
+    SelectableRounding(ImGuiStyleVar_SelectableRounding_NATIVE()),
     DragDropTargetRounding(ImGuiStyleVar_DragDropTargetRounding_NATIVE()),
     ButtonTextAlign(ImGuiStyleVar_ButtonTextAlign_NATIVE()),
     SelectableTextAlign(ImGuiStyleVar_SelectableTextAlign_NATIVE()),
@@ -181,6 +183,12 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguistylevar_imguistylevar_treelinesrounding_native")
     private static native int ImGuiStyleVar_TreeLinesRounding_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguistylevar_imguistylevar_menuitemrounding_native")
+    private static native int ImGuiStyleVar_MenuItemRounding_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguistylevar_imguistylevar_selectablerounding_native")
+    private static native int ImGuiStyleVar_SelectableRounding_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguistylevar_imguistylevar_dragdroptargetrounding_native")
     private static native int ImGuiStyleVar_DragDropTargetRounding_NATIVE();

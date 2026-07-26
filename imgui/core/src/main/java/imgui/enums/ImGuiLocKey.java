@@ -15,7 +15,9 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
     TableSizeOne(ImGuiLocKey_TableSizeOne_NATIVE()),
     TableSizeAllFit(ImGuiLocKey_TableSizeAllFit_NATIVE()),
     TableSizeAllDefault(ImGuiLocKey_TableSizeAllDefault_NATIVE()),
+    TableReset(ImGuiLocKey_TableReset_NATIVE()),
     TableResetOrder(ImGuiLocKey_TableResetOrder_NATIVE()),
+    TableResetVisibility(ImGuiLocKey_TableResetVisibility_NATIVE()),
     WindowingMainMenuBar(ImGuiLocKey_WindowingMainMenuBar_NATIVE()),
     WindowingPopup(ImGuiLocKey_WindowingPopup_NATIVE()),
     WindowingUntitled(ImGuiLocKey_WindowingUntitled_NATIVE()),
@@ -56,7 +58,11 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
 
     private static native int ImGuiLocKey_TableSizeAllDefault_NATIVE();
 
+    private static native int ImGuiLocKey_TableReset_NATIVE();
+
     private static native int ImGuiLocKey_TableResetOrder_NATIVE();
+
+    private static native int ImGuiLocKey_TableResetVisibility_NATIVE();
 
     private static native int ImGuiLocKey_WindowingMainMenuBar_NATIVE();
 

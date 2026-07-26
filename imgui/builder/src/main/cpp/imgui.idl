@@ -915,8 +915,6 @@ interface ImGui {
     static boolean                 ColorPicker3([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags);
     static boolean                 ColorPicker4([Const] DOMString label, float[] col, optional ImGuiColorEditFlags flags, [Const] optional float[] ref_col);
     static boolean                 ColorButton([Const] DOMString desc_id, [Const, Ref] ImVec4 col, optional ImGuiColorEditFlags flags, [Const, Ref] optional ImVec2 size);
-    static void                    SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags);
-
     // Widgets: Trees
     [BindTo="TreeNode"] static boolean TreeNode__0([Const] DOMString label);
     [BindTo="TreeNode"] static boolean TreeNode__1([Const] DOMString str_id, [Const] DOMString fmt);
@@ -982,9 +980,9 @@ interface ImGui {
     static void                    EndPopup();
 
     // Popups: open/close functions
-    [BindTo="OpenPopup"] static void OpenPopup__0([Const] DOMString str_id, optional ImGuiPopupFlags flags);
-    [BindTo="OpenPopup"] static void OpenPopup__1(long id, optional ImGuiPopupFlags flags);
-    static void                    OpenPopupOnItemClick([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
+    [BindTo="OpenPopup"] static boolean OpenPopup__0([Const] DOMString str_id, optional ImGuiPopupFlags flags);
+    [BindTo="OpenPopup"] static boolean OpenPopup__1(long id, optional ImGuiPopupFlags flags);
+    static boolean                 OpenPopupOnItemClick([Const] optional DOMString str_id, optional ImGuiPopupFlags flags);
     static void                    CloseCurrentPopup();
 
     // Popups: open+begin combined functions helpers
@@ -1003,7 +1001,7 @@ interface ImGui {
     static boolean                 TableSetColumnIndex(long column_n);
 
     // Tables: Headers & Columns declaration
-    static void                    TableSetupColumn([Const] DOMString label, optional ImGuiTableColumnFlags flags, optional float init_width_or_weight, optional long user_id);
+    static void                    TableSetupColumn([Const] DOMString label, optional ImGuiTableColumnFlags flags, optional float init_width_or_weight, optional long user_data);
     static void                    TableSetupScrollFreeze(long cols, long rows);
     static void                    TableHeader([Const] DOMString label);
     static void                    TableHeadersRow();
@@ -1088,6 +1086,7 @@ interface ImGui {
     [Value] static ImVec2          GetItemRectMin();
     [Value] static ImVec2          GetItemRectMax();
     [Value] static ImVec2          GetItemRectSize();
+    static long                    GetItemClickedCountWithSingleClickDelay(optional ImGuiMouseButton mouse_button, optional float delay);
 
     // Viewports
     static ImGuiViewport           GetMainViewport();
@@ -1136,7 +1135,7 @@ interface ImGui {
     static boolean                 IsMouseClicked(ImGuiMouseButton ImGuiMouseButton, optional boolean repeat);
     static boolean                 IsMouseReleased(ImGuiMouseButton ImGuiMouseButton);
     static boolean                 IsMouseDoubleClicked(ImGuiMouseButton ImGuiMouseButton);
-    static boolean                 IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton, float delay);
+    static boolean                 IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton, optional float delay);
     static long                    GetMouseClickedCount(ImGuiMouseButton ImGuiMouseButton);
     static boolean                 IsMouseHoveringRect([Const, Ref]ImVec2 r_min, [Const, Ref]ImVec2 r_max, optional boolean clip);
     static boolean                 IsMousePosValid([Const] optional ImVec2 mouse_pos);
@@ -1447,7 +1446,7 @@ interface ImDrawVert {
 };
 
 interface ImDrawData {
-    readonly attribute long CmdListsCount;
+    readonly attribute long FrameCount;
     readonly attribute long TotalIdxCount;
     readonly attribute long TotalVtxCount;
     readonly attribute boolean Valid;
@@ -1463,6 +1462,7 @@ interface ImDrawList {
     [Value] attribute ImVectorImDrawCmd CmdBuffer;
     [Value] attribute ImVectorImDrawIdx IdxBuffer;
     [Value] attribute ImVectorImDrawVert VtxBuffer;
+    attribute ImDrawListFlags Flags;
 
     void PushClipRect([Const, Ref] ImVec2 cr_min, [Const, Ref] ImVec2 cr_max, optional boolean intersect_with_current_clip_rect);
     void PushClipRectFullScreen();
@@ -1526,6 +1526,7 @@ interface ImTextureData {
     readonly attribute long UniqueID;
     readonly attribute ImTextureStatus Status;
     attribute any BackendUserData;
+    readonly attribute any QueueUserData;
     attribute ImTextureFormat Format;
     attribute long Width;
     attribute long Height;
@@ -1608,16 +1609,20 @@ interface ImGuiIO {
     attribute boolean ConfigInputTrickleEventQueue;
     attribute boolean ConfigInputTextCursorBlink;
     attribute boolean ConfigInputTextEnterKeepActive;
+    attribute ImGuiColorEditFlags ConfigColorEditFlags;
     attribute boolean ConfigDragClickToInputText;
     attribute boolean ConfigWindowsResizeFromEdges;
     attribute boolean ConfigWindowsMoveFromTitleBarOnly;
     attribute boolean ConfigWindowsCopyContentsWithCtrlC;
     attribute boolean ConfigScrollbarScrollByPage;
     attribute float ConfigMemoryCompactTimer;
+    attribute boolean ConfigIniSettingsSaveLastUsedDate;
+    attribute long ConfigIniSettingsAutoDiscardMonths;
 
     // Inputs Behaviors
     attribute float MouseDoubleClickTime;
     attribute float MouseDoubleClickMaxDist;
+    attribute float MouseSingleClickDelay;
     attribute float MouseDragThreshold;
     attribute float KeyRepeatDelay;
     attribute float KeyRepeatRate;
@@ -1733,6 +1738,8 @@ interface ImGuiStyle {
     attribute float             TabRounding;
     attribute float             TabBorderSize;
     attribute float             TabBarBorderSize;
+    attribute float             MenuItemRounding;
+    attribute float             SelectableRounding;
     attribute float             DragDropTargetRounding;
     attribute float             DragDropTargetBorderSize;
     attribute float             DragDropTargetPadding;
@@ -1740,6 +1747,7 @@ interface ImGuiStyle {
     attribute ImGuiDir          ColorButtonPosition;
     [Value] attribute ImVec2    ButtonTextAlign;
     [Value] attribute ImVec2    SelectableTextAlign;
+    attribute float             InputTextCursorSize;
     attribute float             SeparatorSize;
     attribute float             SeparatorTextBorderSize;
     [Value] attribute ImVec2    SeparatorTextAlign;
@@ -1909,6 +1917,7 @@ interface ImGuiStorage {
 interface ImGuiPlatformIO {
     [Value] attribute ImVectorImTextureDataPtr Textures;
     [Value] attribute ImVectorImGuiViewportPtr Viewports;
+    attribute long Platform_SessionDate;
 
     void ClearPlatformHandlers();
     void ClearRendererHandlers();
@@ -2038,6 +2047,9 @@ enum ImGuiItemFlags { //[-SUB_PACKAGE=enums]
     "ImGuiItemFlags_ButtonRepeat",
     "ImGuiItemFlags_AutoClosePopups",
     "ImGuiItemFlags_AllowDuplicateId",
+    "ImGuiItemFlags_LiveEditOnInputText",
+    "ImGuiItemFlags_LiveEditOnInputScalar",
+    "ImGuiItemFlags_LiveEditOnInput",
     "ImGuiItemFlags_Disabled"
 };
 
@@ -2650,6 +2662,8 @@ enum ImGuiStyleVar { //[-SUB_PACKAGE=enums]
     "ImGuiStyleVar_TableAngledHeadersTextAlign",
     "ImGuiStyleVar_TreeLinesSize",
     "ImGuiStyleVar_TreeLinesRounding",
+    "ImGuiStyleVar_MenuItemRounding",
+    "ImGuiStyleVar_SelectableRounding",
     "ImGuiStyleVar_DragDropTargetRounding",
     "ImGuiStyleVar_ButtonTextAlign",
     "ImGuiStyleVar_SelectableTextAlign",
@@ -2704,11 +2718,13 @@ enum ImGuiColorEditFlags { //[-SUB_PACKAGE=enums]
     "ImGuiColorEditFlags_Float",
     "ImGuiColorEditFlags_PickerHueBar",
     "ImGuiColorEditFlags_PickerHueWheel",
+    "ImGuiColorEditFlags_PickerNoRotate",
     "ImGuiColorEditFlags_InputRGB",
     "ImGuiColorEditFlags_InputHSV",
 
-    // Defaults Options. You can set application defaults using SetColorEditOptions(). The intent is that you probably don't want to
-    // override them in most of your calls. Let the user choose via the option menu and/or call SetColorEditOptions() once during startup.
+    // Defaults Options copied to io.ConfigColorEditFlags during initialization.
+    // The intent is that you probably don't want to override them in most of your calls.
+    // Let the user choose via the option menu and/or modify io.ConfigColorEditFlags directly during startup if you want.
     "ImGuiColorEditFlags_DefaultOptions_",
 
     // [Internal] Masks
@@ -2904,7 +2920,8 @@ enum ImGuiMultiSelectFlags { //[-SUB_PACKAGE=enums]
     //ImGuiMultiSelectFlags_RangeSelect2d
     "ImGuiMultiSelectFlags_NavWrapX",
     "ImGuiMultiSelectFlags_NoSelectOnRightClick",
-    "ImGuiMultiSelectFlags_SelectOnMask_"
+    "ImGuiMultiSelectFlags_SelectOnMask_",
+    "ImGuiMultiSelectFlags_CheckboxMode_"
 };
 
 // Selection request type
@@ -2980,6 +2997,15 @@ enum ImDrawFlags { //[-SUB_PACKAGE=enums]
     "ImDrawFlags_RoundCornersDefault_",
     "ImDrawFlags_RoundCornersMask_",
     "ImDrawFlags_InvalidMask_"
+};
+
+enum ImDrawListFlags { //[-SUB_PACKAGE=enums]
+    "ImDrawListFlags_None",
+    "ImDrawListFlags_AntiAliasedLines",
+    "ImDrawListFlags_AntiAliasedLinesUseTex",
+    "ImDrawListFlags_AntiAliasedFill",
+    "ImDrawListFlags_AllowVtxOffset",
+    "ImDrawListFlags_TextNoPixelSnap"
 };
 
 enum ImGuiDataTypePrivate_ { //[-SUB_PACKAGE=enums]
@@ -3341,7 +3367,9 @@ enum ImGuiLocKey { //[-SUB_PACKAGE=enums]
     "ImGuiLocKey_TableSizeOne",
     "ImGuiLocKey_TableSizeAllFit",
     "ImGuiLocKey_TableSizeAllDefault",
+    "ImGuiLocKey_TableReset",
     "ImGuiLocKey_TableResetOrder",
+    "ImGuiLocKey_TableResetVisibility",
     "ImGuiLocKey_WindowingMainMenuBar",
     "ImGuiLocKey_WindowingPopup",
     "ImGuiLocKey_WindowingUntitled",
@@ -3362,6 +3390,7 @@ enum ImGuiDebugLogFlags { //[-SUB_PACKAGE=enums]
     "ImGuiDebugLogFlags_EventNav",
     "ImGuiDebugLogFlags_EventClipper",
     "ImGuiDebugLogFlags_EventSelection",
+    "ImGuiDebugLogFlags_EventTable",
     "ImGuiDebugLogFlags_EventIO",
     "ImGuiDebugLogFlags_EventFont",
     "ImGuiDebugLogFlags_EventInputRouting",

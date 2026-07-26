@@ -38,12 +38,12 @@ public final class ImDrawData extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawdata_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
-    public int get_CmdListsCount() {
-        return internal_native_get_CmdListsCount(native_address);
+    public int get_FrameCount() {
+        return internal_native_get_FrameCount(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawdata_get_cmdlistscount")
-    public static native int internal_native_get_CmdListsCount(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_get_framecount")
+    public static native int internal_native_get_FrameCount(long this_addr);
 
     public int get_TotalIdxCount() {
         return internal_native_get_TotalIdxCount(native_address);

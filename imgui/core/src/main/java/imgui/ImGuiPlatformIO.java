@@ -45,4 +45,11 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     public void set_Viewports(ImVectorImGuiViewportPtr Viewports) {
     }
+
+    public int get_Platform_SessionDate() {
+        return 0;
+    }
+
+    public void set_Platform_SessionDate(int Platform_SessionDate) {
+    }
 }

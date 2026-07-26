@@ -39,12 +39,12 @@ public final class ImDrawData extends NativeObject {
         imgui.natives.JNI_ImDrawData.internal_native_deleteNative(this_addr);
     }
 
-    public int get_CmdListsCount() {
-        return internal_native_get_CmdListsCount(native_address);
+    public int get_FrameCount() {
+        return internal_native_get_FrameCount(native_address);
     }
 
-    public static int internal_native_get_CmdListsCount(long this_addr) {
-        return imgui.natives.JNI_ImDrawData.internal_native_get_CmdListsCount(this_addr);
+    public static int internal_native_get_FrameCount(long this_addr) {
+        return imgui.natives.JNI_ImDrawData.internal_native_get_FrameCount(this_addr);
     }
 
     public int get_TotalIdxCount() {

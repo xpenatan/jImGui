@@ -11,6 +11,7 @@ import gen.c.imgui.enums.ImGuiKey;
 import gen.c.imgui.enums.ImGuiMouseSource;
 import gen.c.imgui.enums.ImGuiConfigFlags;
 import gen.c.imgui.enums.ImGuiBackendFlags;
+import gen.c.imgui.enums.ImGuiColorEditFlags;
 
 public final class ImGuiIO extends NativeObject {
 
@@ -688,6 +689,27 @@ public final class ImGuiIO extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiio_set_configinputtextenterkeepactive")
     public static native void internal_native_set_ConfigInputTextEnterKeepActive(long this_addr, boolean ConfigInputTextEnterKeepActive);
 
+    public ImGuiColorEditFlags get_ConfigColorEditFlags() {
+        int value = internal_native_get_ConfigColorEditFlags(native_address);
+        ImGuiColorEditFlags[] values = ImGuiColorEditFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiColorEditFlags enumVal = values[i];
+            if (enumVal != ImGuiColorEditFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiColorEditFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configcoloreditflags")
+    public static native int internal_native_get_ConfigColorEditFlags(long this_addr);
+
+    public void set_ConfigColorEditFlags(ImGuiColorEditFlags ConfigColorEditFlags) {
+        internal_native_set_ConfigColorEditFlags(native_address, ConfigColorEditFlags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configcoloreditflags")
+    public static native void internal_native_set_ConfigColorEditFlags(long this_addr, int ConfigColorEditFlags);
+
     public boolean get_ConfigDragClickToInputText() {
         return internal_native_get_ConfigDragClickToInputText(native_address);
     }
@@ -772,6 +794,34 @@ public final class ImGuiIO extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiio_set_configmemorycompacttimer")
     public static native void internal_native_set_ConfigMemoryCompactTimer(long this_addr, float ConfigMemoryCompactTimer);
 
+    public boolean get_ConfigIniSettingsSaveLastUsedDate() {
+        return internal_native_get_ConfigIniSettingsSaveLastUsedDate(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configinisettingssavelastuseddate")
+    public static native boolean internal_native_get_ConfigIniSettingsSaveLastUsedDate(long this_addr);
+
+    public void set_ConfigIniSettingsSaveLastUsedDate(boolean ConfigIniSettingsSaveLastUsedDate) {
+        internal_native_set_ConfigIniSettingsSaveLastUsedDate(native_address, ConfigIniSettingsSaveLastUsedDate);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configinisettingssavelastuseddate")
+    public static native void internal_native_set_ConfigIniSettingsSaveLastUsedDate(long this_addr, boolean ConfigIniSettingsSaveLastUsedDate);
+
+    public int get_ConfigIniSettingsAutoDiscardMonths() {
+        return internal_native_get_ConfigIniSettingsAutoDiscardMonths(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configinisettingsautodiscardmonths")
+    public static native int internal_native_get_ConfigIniSettingsAutoDiscardMonths(long this_addr);
+
+    public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+        internal_native_set_ConfigIniSettingsAutoDiscardMonths(native_address, ConfigIniSettingsAutoDiscardMonths);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configinisettingsautodiscardmonths")
+    public static native void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths);
+
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);
     }
@@ -799,6 +849,20 @@ public final class ImGuiIO extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiio_set_mousedoubleclickmaxdist")
     public static native void internal_native_set_MouseDoubleClickMaxDist(long this_addr, float MouseDoubleClickMaxDist);
+
+    public float get_MouseSingleClickDelay() {
+        return internal_native_get_MouseSingleClickDelay(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_mousesingleclickdelay")
+    public static native float internal_native_get_MouseSingleClickDelay(long this_addr);
+
+    public void set_MouseSingleClickDelay(float MouseSingleClickDelay) {
+        internal_native_set_MouseSingleClickDelay(native_address, MouseSingleClickDelay);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_mousesingleclickdelay")
+    public static native void internal_native_set_MouseSingleClickDelay(long this_addr, float MouseSingleClickDelay);
 
     public float get_MouseDragThreshold() {
         return internal_native_get_MouseDragThreshold(native_address);

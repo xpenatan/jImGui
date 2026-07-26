@@ -12,7 +12,7 @@ final public class JNI_ImDrawData {
 
     public static native void internal_native_deleteNative(long this_addr);
 
-    public static native int internal_native_get_CmdListsCount(long this_addr);
+    public static native int internal_native_get_FrameCount(long this_addr);
 
     public static native int internal_native_get_TotalIdxCount(long this_addr);
 

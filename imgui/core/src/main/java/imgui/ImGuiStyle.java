@@ -241,6 +241,20 @@ public final class ImGuiStyle extends NativeObject {
     public void set_TabBarBorderSize(float TabBarBorderSize) {
     }
 
+    public float get_MenuItemRounding() {
+        return 0;
+    }
+
+    public void set_MenuItemRounding(float MenuItemRounding) {
+    }
+
+    public float get_SelectableRounding() {
+        return 0;
+    }
+
+    public void set_SelectableRounding(float SelectableRounding) {
+    }
+
     public float get_DragDropTargetRounding() {
         return 0;
     }
@@ -288,6 +302,13 @@ public final class ImGuiStyle extends NativeObject {
     }
 
     public void set_SelectableTextAlign(ImVec2 SelectableTextAlign) {
+    }
+
+    public float get_InputTextCursorSize() {
+        return 0;
+    }
+
+    public void set_InputTextCursorSize(float InputTextCursorSize) {
     }
 
     public float get_SeparatorSize() {

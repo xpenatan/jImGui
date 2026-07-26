@@ -30,7 +30,8 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
     SelectOnClickRelease(ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE()),
     NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE()),
     NoSelectOnRightClick(ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE()),
-    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE());
+    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE()),
+    CheckboxMode_(ImGuiMultiSelectFlags_CheckboxMode__NATIVE());
 
     private int value;
 
@@ -113,4 +114,7 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_SelectOnMask_;")
     private static native int ImGuiMultiSelectFlags_SelectOnMask__NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiMultiSelectFlags_CheckboxMode_;")
+    private static native int ImGuiMultiSelectFlags_CheckboxMode__NATIVE();
 }

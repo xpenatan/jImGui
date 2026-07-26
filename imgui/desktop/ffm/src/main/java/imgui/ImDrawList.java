@@ -8,6 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImDrawFlags;
+import imgui.enums.ImDrawListFlags;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -1010,6 +1011,37 @@ public final class ImDrawList extends NativeObject {
         }
     }
 
+    public ImDrawListFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImDrawListFlags[] values = ImDrawListFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImDrawListFlags enumVal = values[i];
+            if (enumVal != ImDrawListFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImDrawListFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_Flags(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_Flags__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Flags(ImDrawListFlags Flags) {
+        internal_native_set_Flags(native_address, Flags.getValue());
+    }
+
+    public static void internal_native_set_Flags(long this_addr, int Flags) {
+        try {
+            FFMHandles.internal_native_set_Flags__JI.invokeExact(this_addr, Flags);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
@@ -1167,5 +1199,9 @@ public final class ImDrawList extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_VtxBuffer_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawlist_get_vtxbuffer_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_VtxBuffer__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawlist_set_vtxbuffer", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Flags__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawlist_get_flags", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Flags__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawlist_set_flags", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
     }
 }

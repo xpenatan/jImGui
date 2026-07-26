@@ -22,6 +22,8 @@ public final class ImTextureData extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_2;
 
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImTextureRect ImTextureRect_TEMP_GEN_0;
 
     private ImTextureRect ImTextureRect_TEMP_GEN_1;
@@ -199,6 +201,20 @@ public final class ImTextureData extends NativeObject {
 
     public static void internal_native_set_BackendUserData(long this_addr, long BackendUserData_addr) {
         imgui.natives.JNI_ImTextureData.internal_native_set_BackendUserData(this_addr, BackendUserData_addr);
+    }
+
+    public NativeObject get_QueueUserData() {
+        long addr = internal_native_get_QueueUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_get_QueueUserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImTextureData.internal_native_get_QueueUserData_addr(this_addr);
     }
 
     public ImTextureFormat get_Format() {

@@ -40,6 +40,8 @@ final public class JNI_ImTextureData {
 
     public static native void internal_native_set_BackendUserData(long this_addr, long BackendUserData_addr);
 
+    public static native long internal_native_get_QueueUserData_addr(long this_addr);
+
     public static native int internal_native_get_Format(long this_addr);
 
     public static native void internal_native_set_Format(long this_addr, int Format);

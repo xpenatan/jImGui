@@ -18,6 +18,9 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
     ButtonRepeat(ImGuiItemFlags_ButtonRepeat_NATIVE()),
     AutoClosePopups(ImGuiItemFlags_AutoClosePopups_NATIVE()),
     AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE()),
+    LiveEditOnInputText(ImGuiItemFlags_LiveEditOnInputText_NATIVE()),
+    LiveEditOnInputScalar(ImGuiItemFlags_LiveEditOnInputScalar_NATIVE()),
+    LiveEditOnInput(ImGuiItemFlags_LiveEditOnInput_NATIVE()),
     Disabled(ImGuiItemFlags_Disabled_NATIVE());
 
     private int value;
@@ -62,6 +65,15 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiitemflags_imguiitemflags_allowduplicateid_native")
     private static native int ImGuiItemFlags_AllowDuplicateId_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguiitemflags_imguiitemflags_liveeditoninputtext_native")
+    private static native int ImGuiItemFlags_LiveEditOnInputText_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguiitemflags_imguiitemflags_liveeditoninputscalar_native")
+    private static native int ImGuiItemFlags_LiveEditOnInputScalar_NATIVE();
+
+    @org.teavm.interop.Import(name = "imgui_enums_imguiitemflags_imguiitemflags_liveeditoninput_native")
+    private static native int ImGuiItemFlags_LiveEditOnInput_NATIVE();
 
     @org.teavm.interop.Import(name = "imgui_enums_imguiitemflags_imguiitemflags_disabled_native")
     private static native int ImGuiItemFlags_Disabled_NATIVE();

@@ -11,6 +11,7 @@ import imgui.enums.ImGuiKey;
 import imgui.enums.ImGuiMouseSource;
 import imgui.enums.ImGuiConfigFlags;
 import imgui.enums.ImGuiBackendFlags;
+import imgui.enums.ImGuiColorEditFlags;
 
 public final class ImGuiIO extends NativeObject {
 
@@ -319,6 +320,13 @@ public final class ImGuiIO extends NativeObject {
     public void set_ConfigInputTextEnterKeepActive(boolean ConfigInputTextEnterKeepActive) {
     }
 
+    public ImGuiColorEditFlags get_ConfigColorEditFlags() {
+        return null;
+    }
+
+    public void set_ConfigColorEditFlags(ImGuiColorEditFlags ConfigColorEditFlags) {
+    }
+
     public boolean get_ConfigDragClickToInputText() {
         return false;
     }
@@ -361,6 +369,20 @@ public final class ImGuiIO extends NativeObject {
     public void set_ConfigMemoryCompactTimer(float ConfigMemoryCompactTimer) {
     }
 
+    public boolean get_ConfigIniSettingsSaveLastUsedDate() {
+        return false;
+    }
+
+    public void set_ConfigIniSettingsSaveLastUsedDate(boolean ConfigIniSettingsSaveLastUsedDate) {
+    }
+
+    public int get_ConfigIniSettingsAutoDiscardMonths() {
+        return 0;
+    }
+
+    public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+    }
+
     public float get_MouseDoubleClickTime() {
         return 0;
     }
@@ -373,6 +395,13 @@ public final class ImGuiIO extends NativeObject {
     }
 
     public void set_MouseDoubleClickMaxDist(float MouseDoubleClickMaxDist) {
+    }
+
+    public float get_MouseSingleClickDelay() {
+        return 0;
+    }
+
+    public void set_MouseSingleClickDelay(float MouseSingleClickDelay) {
     }
 
     public float get_MouseDragThreshold() {

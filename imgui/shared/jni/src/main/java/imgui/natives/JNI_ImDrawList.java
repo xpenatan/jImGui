@@ -165,4 +165,8 @@ final public class JNI_ImDrawList {
     public static native long internal_native_get_VtxBuffer_addr(long this_addr);
 
     public static native void internal_native_set_VtxBuffer(long this_addr, long VtxBuffer_addr);
+
+    public static native int internal_native_get_Flags(long this_addr);
+
+    public static native void internal_native_set_Flags(long this_addr, int Flags);
 }

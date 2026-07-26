@@ -18,7 +18,11 @@ final public class JNI_ImGuiLocKey {
 
     static native public int ImGuiLocKey_TableSizeAllDefault_NATIVE();
 
+    static native public int ImGuiLocKey_TableReset_NATIVE();
+
     static native public int ImGuiLocKey_TableResetOrder_NATIVE();
+
+    static native public int ImGuiLocKey_TableResetVisibility_NATIVE();
 
     static native public int ImGuiLocKey_WindowingMainMenuBar_NATIVE();
 

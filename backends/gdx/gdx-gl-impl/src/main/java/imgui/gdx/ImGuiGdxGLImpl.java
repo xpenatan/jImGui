@@ -304,7 +304,8 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
     }
 
     private void renderDrawData(ImDrawData drawData) {
-        int cmdListsCount = drawData.get_CmdListsCount();
+        ImVectorImDrawListPtr cmdLists = drawData.get_CmdLists();
+        int cmdListsCount = cmdLists.size();
         if(cmdListsCount <= 0) {
             return;
         }
@@ -364,7 +365,6 @@ public class ImGuiGdxGLImpl extends ImGuiGdxImpl {
         float clip_scaleX = frameScaleX; // (1,1) unless using retina display which are often (2,2)
         float clip_scaleY = frameScaleY;
 
-        ImVectorImDrawListPtr cmdLists = drawData.get_CmdLists();
         for(int i = 0; i < cmdListsCount; i++) {
             ImDrawList drawList = cmdLists.getData(i);
             ImVectorImDrawCmd cmdBuffer = drawList.get_CmdBuffer();

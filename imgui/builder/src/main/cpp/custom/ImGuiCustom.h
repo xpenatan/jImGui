@@ -880,8 +880,6 @@ public:
     static bool          ColorPicker3(const char* label, float col[3], ImGuiColorEditFlags flags = 0) { return im::ColorPicker3(label, col, flags); }
     static bool          ColorPicker4(const char* label, float col[4], ImGuiColorEditFlags flags = 0, const float* ref_col = NULL) { return im::ColorPicker4(label, col, flags); }
     static bool          ColorButton(const char* desc_id, const ImVec4& col, ImGuiColorEditFlags flags = 0, const ImVec2& size = ImVec2(0, 0)) { return im::ColorButton(desc_id, col, flags); }
-    static void          SetColorEditOptions(ImGuiColorEditFlags flags) { im::SetColorEditOptions(flags); }
-
     // Widgets: Trees
     static bool          TreeNode(const char* label) { return im::TreeNode(label); }
     static bool          TreeNode(const char* str_id, const char* fmt) { return im::TreeNode(str_id, fmt); }
@@ -962,9 +960,9 @@ public:
     static void          EndPopup() { im::EndPopup(); }
 
     // Popups: open/close functions
-    static void          OpenPopup(const char* str_id, ImGuiPopupFlags popup_flags = 0) { im::OpenPopup(str_id, popup_flags); }
-    static void          OpenPopup(ImGuiID id, ImGuiPopupFlags popup_flags = 0) { im::OpenPopup(id, popup_flags); }
-    static void          OpenPopupOnItemClick(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { im::OpenPopupOnItemClick(str_id, popup_flags); }
+    static bool          OpenPopup(const char* str_id, ImGuiPopupFlags popup_flags = 0) { return im::OpenPopup(str_id, popup_flags); }
+    static bool          OpenPopup(ImGuiID id, ImGuiPopupFlags popup_flags = 0) { return im::OpenPopup(id, popup_flags); }
+    static bool          OpenPopupOnItemClick(const char* str_id = NULL, ImGuiPopupFlags popup_flags = 0) { return im::OpenPopupOnItemClick(str_id, popup_flags); }
     static void          CloseCurrentPopup() { im::CloseCurrentPopup(); }
 
     // Popups: open+begin combined functions helpers
@@ -983,7 +981,7 @@ public:
     static bool          TableSetColumnIndex(int column_n) { return im::TableSetColumnIndex(column_n); }
 
     // Tables: Headers & Columns declaration
-    static void          TableSetupColumn(const char* label, ImGuiTableColumnFlags flags = 0, float init_width_or_weight = 0.0f, ImGuiID user_id = 0) { im::TableSetupColumn(label, flags, init_width_or_weight, user_id); }
+    static void          TableSetupColumn(const char* label, ImGuiTableColumnFlags flags = 0, float init_width_or_weight = 0.0f, ImGuiID user_data = 0) { im::TableSetupColumn(label, flags, init_width_or_weight, user_data); }
     static void          TableSetupScrollFreeze(int cols, int rows) { im::TableSetupScrollFreeze(cols, rows); }
     static void          TableHeader(const char* label) { im::TableHeader(label); }
     static void          TableHeadersRow() { im::TableHeadersRow(); }
@@ -1081,6 +1079,7 @@ public:
     static ImVec2        GetItemRectMin() { return im::GetItemRectMin(); }
     static ImVec2        GetItemRectMax() { return im::GetItemRectMax(); }
     static ImVec2        GetItemRectSize() { return im::GetItemRectSize(); }
+    static int           GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button = 0, float delay = -1.0f) { return im::GetItemClickedCountWithSingleClickDelay(mouse_button, delay); }
 
     // Viewports
     static ImGuiViewport* GetMainViewport() { return im::GetMainViewport(); }
@@ -1129,7 +1128,7 @@ public:
     static bool          IsMouseClicked(ImGuiMouseButton button, bool repeat = false) { return im::IsMouseClicked(button, repeat); }
     static bool          IsMouseReleased(ImGuiMouseButton button) { return im::IsMouseReleased(button); }
     static bool          IsMouseDoubleClicked(ImGuiMouseButton button) { return im::IsMouseDoubleClicked(button); }
-    static bool          IsMouseReleasedWithDelay(ImGuiMouseButton button, float delay) { return im::IsMouseReleasedWithDelay(button, delay); }
+    static bool          IsMouseReleasedWithDelay(ImGuiMouseButton button, float delay = -1.0f) { return im::IsMouseReleasedWithDelay(button, delay); }
     static int           GetMouseClickedCount(ImGuiMouseButton button) { return im::GetMouseClickedCount(button); }
     static bool          IsMouseHoveringRect(const ImVec2& r_min, const ImVec2& r_max, bool clip = true) { return im::IsMouseHoveringRect(r_min, r_max, clip); }
     static bool          IsMousePosValid(const ImVec2* mouse_pos = NULL) { return im::IsMousePosValid(mouse_pos); }

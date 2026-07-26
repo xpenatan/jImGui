@@ -19,6 +19,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventNav(ImGuiDebugLogFlags_EventNav_NATIVE()),
     EventClipper(ImGuiDebugLogFlags_EventClipper_NATIVE()),
     EventSelection(ImGuiDebugLogFlags_EventSelection_NATIVE()),
+    EventTable(ImGuiDebugLogFlags_EventTable_NATIVE()),
     EventIO(ImGuiDebugLogFlags_EventIO_NATIVE()),
     EventFont(ImGuiDebugLogFlags_EventFont_NATIVE()),
     EventInputRouting(ImGuiDebugLogFlags_EventInputRouting_NATIVE()),
@@ -74,6 +75,9 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiDebugLogFlags_EventSelection;")
     private static native int ImGuiDebugLogFlags_EventSelection_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiDebugLogFlags_EventTable;")
+    private static native int ImGuiDebugLogFlags_EventTable_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiDebugLogFlags_EventIO;")
     private static native int ImGuiDebugLogFlags_EventIO_NATIVE();

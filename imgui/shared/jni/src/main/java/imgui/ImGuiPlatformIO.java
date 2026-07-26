@@ -97,4 +97,20 @@ public final class ImGuiPlatformIO extends NativeObject {
     public static void internal_native_set_Viewports(long this_addr, long Viewports_addr) {
         imgui.natives.JNI_ImGuiPlatformIO.internal_native_set_Viewports(this_addr, Viewports_addr);
     }
+
+    public int get_Platform_SessionDate() {
+        return internal_native_get_Platform_SessionDate(native_address);
+    }
+
+    public static int internal_native_get_Platform_SessionDate(long this_addr) {
+        return imgui.natives.JNI_ImGuiPlatformIO.internal_native_get_Platform_SessionDate(this_addr);
+    }
+
+    public void set_Platform_SessionDate(int Platform_SessionDate) {
+        internal_native_set_Platform_SessionDate(native_address, Platform_SessionDate);
+    }
+
+    public static void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate) {
+        imgui.natives.JNI_ImGuiPlatformIO.internal_native_set_Platform_SessionDate(this_addr, Platform_SessionDate);
+    }
 }

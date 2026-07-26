@@ -26,6 +26,8 @@ final public class JNI_ImGuiDebugLogFlags {
 
     static native public int ImGuiDebugLogFlags_EventSelection_NATIVE();
 
+    static native public int ImGuiDebugLogFlags_EventTable_NATIVE();
+
     static native public int ImGuiDebugLogFlags_EventIO_NATIVE();
 
     static native public int ImGuiDebugLogFlags_EventFont_NATIVE();

@@ -53,6 +53,8 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     TableAngledHeadersTextAlign(ImGuiStyleVar_TableAngledHeadersTextAlign_NATIVE()),
     TreeLinesSize(ImGuiStyleVar_TreeLinesSize_NATIVE()),
     TreeLinesRounding(ImGuiStyleVar_TreeLinesRounding_NATIVE()),
+    MenuItemRounding(ImGuiStyleVar_MenuItemRounding_NATIVE()),
+    SelectableRounding(ImGuiStyleVar_SelectableRounding_NATIVE()),
     DragDropTargetRounding(ImGuiStyleVar_DragDropTargetRounding_NATIVE()),
     ButtonTextAlign(ImGuiStyleVar_ButtonTextAlign_NATIVE()),
     SelectableTextAlign(ImGuiStyleVar_SelectableTextAlign_NATIVE()),
@@ -364,6 +366,22 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         }
     }
 
+    private static int ImGuiStyleVar_MenuItemRounding_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiStyleVar_MenuItemRounding_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiStyleVar_SelectableRounding_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiStyleVar_SelectableRounding_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiStyleVar_DragDropTargetRounding_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiStyleVar_DragDropTargetRounding_NATIVE__.invokeExact();
@@ -499,6 +517,10 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_TreeLinesSize_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_treelinessize_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_TreeLinesRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_treelinesrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiStyleVar_MenuItemRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_menuitemrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiStyleVar_SelectableRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_selectablerounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiStyleVar_DragDropTargetRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguistylevar_imguistylevar_dragdroptargetrounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

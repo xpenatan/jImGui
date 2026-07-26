@@ -864,6 +864,54 @@ public final class ImGuiStyle extends NativeObject {
         }
     }
 
+    public float get_MenuItemRounding() {
+        return internal_native_get_MenuItemRounding(native_address);
+    }
+
+    public static float internal_native_get_MenuItemRounding(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_MenuItemRounding__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_MenuItemRounding(float MenuItemRounding) {
+        internal_native_set_MenuItemRounding(native_address, MenuItemRounding);
+    }
+
+    public static void internal_native_set_MenuItemRounding(long this_addr, float MenuItemRounding) {
+        try {
+            FFMHandles.internal_native_set_MenuItemRounding__JF.invokeExact(this_addr, MenuItemRounding);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_SelectableRounding() {
+        return internal_native_get_SelectableRounding(native_address);
+    }
+
+    public static float internal_native_get_SelectableRounding(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_SelectableRounding__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_SelectableRounding(float SelectableRounding) {
+        internal_native_set_SelectableRounding(native_address, SelectableRounding);
+    }
+
+    public static void internal_native_set_SelectableRounding(long this_addr, float SelectableRounding) {
+        try {
+            FFMHandles.internal_native_set_SelectableRounding__JF.invokeExact(this_addr, SelectableRounding);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public float get_DragDropTargetRounding() {
         return internal_native_get_DragDropTargetRounding(native_address);
     }
@@ -1046,6 +1094,30 @@ public final class ImGuiStyle extends NativeObject {
     public static void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr) {
         try {
             FFMHandles.internal_native_set_SelectableTextAlign__JJ.invokeExact(this_addr, SelectableTextAlign_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_InputTextCursorSize() {
+        return internal_native_get_InputTextCursorSize(native_address);
+    }
+
+    public static float internal_native_get_InputTextCursorSize(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_InputTextCursorSize__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_InputTextCursorSize(float InputTextCursorSize) {
+        internal_native_set_InputTextCursorSize(native_address, InputTextCursorSize);
+    }
+
+    public static void internal_native_set_InputTextCursorSize(long this_addr, float InputTextCursorSize) {
+        try {
+            FFMHandles.internal_native_set_InputTextCursorSize__JF.invokeExact(this_addr, InputTextCursorSize);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1677,6 +1749,14 @@ public final class ImGuiStyle extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_set_TabBarBorderSize__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_tabbarbordersize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
+        static final java.lang.invoke.MethodHandle internal_native_get_MenuItemRounding__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_menuitemrounding", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_MenuItemRounding__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_menuitemrounding", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_SelectableRounding__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_selectablerounding", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_SelectableRounding__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_selectablerounding", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
         static final java.lang.invoke.MethodHandle internal_native_get_DragDropTargetRounding__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_dragdroptargetrounding", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_DragDropTargetRounding__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_dragdroptargetrounding", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
@@ -1704,6 +1784,10 @@ public final class ImGuiStyle extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_SelectableTextAlign_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_selectabletextalign_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_SelectableTextAlign__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_selectabletextalign", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_InputTextCursorSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_inputtextcursorsize", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_InputTextCursorSize__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_set_inputtextcursorsize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_get_SeparatorSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistyle_get_separatorsize", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 

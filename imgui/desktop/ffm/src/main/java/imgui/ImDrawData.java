@@ -50,13 +50,13 @@ public final class ImDrawData extends NativeObject {
         }
     }
 
-    public int get_CmdListsCount() {
-        return internal_native_get_CmdListsCount(native_address);
+    public int get_FrameCount() {
+        return internal_native_get_FrameCount(native_address);
     }
 
-    public static int internal_native_get_CmdListsCount(long this_addr) {
+    public static int internal_native_get_FrameCount(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_get_CmdListsCount__J.invokeExact(this_addr);
+            return (int) FFMHandles.internal_native_get_FrameCount__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -210,7 +210,7 @@ public final class ImDrawData extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_CmdListsCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawdata_get_cmdlistscount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_FrameCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawdata_get_framecount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_TotalIdxCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawdata_get_totalidxcount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 

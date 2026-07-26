@@ -38,12 +38,12 @@ public final class ImDrawData extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
-    public int get_CmdListsCount() {
-        return internal_native_get_CmdListsCount(native_address);
+    public int get_FrameCount() {
+        return internal_native_get_FrameCount(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);return jsObj.get_CmdListsCount();")
-    public static native int internal_native_get_CmdListsCount(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);return jsObj.get_FrameCount();")
+    public static native int internal_native_get_FrameCount(int this_addr);
 
     public int get_TotalIdxCount() {
         return internal_native_get_TotalIdxCount(native_address);

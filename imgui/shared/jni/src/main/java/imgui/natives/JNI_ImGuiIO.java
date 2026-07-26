@@ -182,6 +182,10 @@ final public class JNI_ImGuiIO {
 
     public static native void internal_native_set_ConfigInputTextEnterKeepActive(long this_addr, boolean ConfigInputTextEnterKeepActive);
 
+    public static native int internal_native_get_ConfigColorEditFlags(long this_addr);
+
+    public static native void internal_native_set_ConfigColorEditFlags(long this_addr, int ConfigColorEditFlags);
+
     public static native boolean internal_native_get_ConfigDragClickToInputText(long this_addr);
 
     public static native void internal_native_set_ConfigDragClickToInputText(long this_addr, boolean ConfigDragClickToInputText);
@@ -206,6 +210,14 @@ final public class JNI_ImGuiIO {
 
     public static native void internal_native_set_ConfigMemoryCompactTimer(long this_addr, float ConfigMemoryCompactTimer);
 
+    public static native boolean internal_native_get_ConfigIniSettingsSaveLastUsedDate(long this_addr);
+
+    public static native void internal_native_set_ConfigIniSettingsSaveLastUsedDate(long this_addr, boolean ConfigIniSettingsSaveLastUsedDate);
+
+    public static native int internal_native_get_ConfigIniSettingsAutoDiscardMonths(long this_addr);
+
+    public static native void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths);
+
     public static native float internal_native_get_MouseDoubleClickTime(long this_addr);
 
     public static native void internal_native_set_MouseDoubleClickTime(long this_addr, float MouseDoubleClickTime);
@@ -213,6 +225,10 @@ final public class JNI_ImGuiIO {
     public static native float internal_native_get_MouseDoubleClickMaxDist(long this_addr);
 
     public static native void internal_native_set_MouseDoubleClickMaxDist(long this_addr, float MouseDoubleClickMaxDist);
+
+    public static native float internal_native_get_MouseSingleClickDelay(long this_addr);
+
+    public static native void internal_native_set_MouseSingleClickDelay(long this_addr, float MouseSingleClickDelay);
 
     public static native float internal_native_get_MouseDragThreshold(long this_addr);
 

@@ -4981,18 +4981,6 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags) {
-        internal_native_SetColorEditOptions(ImGuiColorEditFlags.getValue());
-    }
-
-    public static void internal_native_SetColorEditOptions(int ImGuiColorEditFlags) {
-        try {
-            FFMHandles.internal_native_SetColorEditOptions__I.invokeExact(ImGuiColorEditFlags);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     public static boolean TreeNode(String label) {
         return internal_native_TreeNode__0(label);
     }
@@ -5941,85 +5929,85 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void OpenPopup(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__0(str_id, flags.getValue());
+    public static boolean OpenPopup(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__0(str_id, flags.getValue());
     }
 
-    public static void internal_native_OpenPopup__0(String str_id, int flags) {
+    public static boolean internal_native_OpenPopup__0(String str_id, int flags) {
         try {
-            FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopup(String str_id) {
-        internal_native_OpenPopup__0(str_id);
+    public static boolean OpenPopup(String str_id) {
+        return internal_native_OpenPopup__0(str_id);
     }
 
-    public static void internal_native_OpenPopup__0(String str_id) {
+    public static boolean internal_native_OpenPopup__0(String str_id) {
         try {
-            FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopup(int id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__1(id, flags.getValue());
+    public static boolean OpenPopup(int id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__1(id, flags.getValue());
     }
 
-    public static void internal_native_OpenPopup__1(int id, int flags) {
+    public static boolean internal_native_OpenPopup__1(int id, int flags) {
         try {
-            FFMHandles.internal_native_OpenPopup__1__II.invokeExact(id, flags);
+            return (boolean) FFMHandles.internal_native_OpenPopup__1__II.invokeExact(id, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopup(int id) {
-        internal_native_OpenPopup__1(id);
+    public static boolean OpenPopup(int id) {
+        return internal_native_OpenPopup__1(id);
     }
 
-    public static void internal_native_OpenPopup__1(int id) {
+    public static boolean internal_native_OpenPopup__1(int id) {
         try {
-            FFMHandles.internal_native_OpenPopup__1__I.invokeExact(id);
+            return (boolean) FFMHandles.internal_native_OpenPopup__1__I.invokeExact(id);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
+    public static boolean OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
     }
 
-    public static void internal_native_OpenPopupOnItemClick(String str_id, int flags) {
+    public static boolean internal_native_OpenPopupOnItemClick(String str_id, int flags) {
         try {
-            FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopupOnItemClick(String str_id) {
-        internal_native_OpenPopupOnItemClick(str_id);
+    public static boolean OpenPopupOnItemClick(String str_id) {
+        return internal_native_OpenPopupOnItemClick(str_id);
     }
 
-    public static void internal_native_OpenPopupOnItemClick(String str_id) {
+    public static boolean internal_native_OpenPopupOnItemClick(String str_id) {
         try {
-            FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void OpenPopupOnItemClick() {
-        internal_native_OpenPopupOnItemClick();
+    public static boolean OpenPopupOnItemClick() {
+        return internal_native_OpenPopupOnItemClick();
     }
 
-    public static void internal_native_OpenPopupOnItemClick() {
+    public static boolean internal_native_OpenPopupOnItemClick() {
         try {
-            FFMHandles.internal_native_OpenPopupOnItemClick__.invokeExact();
+            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6289,13 +6277,13 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_id) {
-        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_id);
+    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_data) {
+        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_data);
     }
 
-    public static void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_id) {
+    public static void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_data) {
         try {
-            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags, init_width_or_weight, user_id);
+            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags, init_width_or_weight, user_data);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7454,6 +7442,42 @@ public final class ImGui extends NativeObject {
         }
     }
 
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button, float delay) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue(), delay);
+    }
+
+    public static int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button, float delay) {
+        try {
+            return (int) FFMHandles.internal_native_GetItemClickedCountWithSingleClickDelay__IF.invokeExact(mouse_button, delay);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue());
+    }
+
+    public static int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button) {
+        try {
+            return (int) FFMHandles.internal_native_GetItemClickedCountWithSingleClickDelay__I.invokeExact(mouse_button);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static int GetItemClickedCountWithSingleClickDelay() {
+        return internal_native_GetItemClickedCountWithSingleClickDelay();
+    }
+
+    public static int internal_native_GetItemClickedCountWithSingleClickDelay() {
+        try {
+            return (int) FFMHandles.internal_native_GetItemClickedCountWithSingleClickDelay__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static ImGuiViewport GetMainViewport() {
         long addr = internal_native_GetMainViewport_addr();
         if (addr == 0)
@@ -8013,6 +8037,18 @@ public final class ImGui extends NativeObject {
     public static boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton, float delay) {
         try {
             return (boolean) FFMHandles.internal_native_IsMouseReleasedWithDelay__IF.invokeExact(ImGuiMouseButton, delay);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton) {
+        return internal_native_IsMouseReleasedWithDelay(ImGuiMouseButton.getValue());
+    }
+
+    public static boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsMouseReleasedWithDelay__I.invokeExact(ImGuiMouseButton);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -9316,8 +9352,6 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_ColorButton__Ljava_lang_String_2J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_colorbutton_str_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetColorEditOptions__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setcoloreditoptions", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
-
         static final java.lang.invoke.MethodHandle internal_native_TreeNode__0__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_treenode__0", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
         static final java.lang.invoke.MethodHandle internal_native_TreeNode__1__Ljava_lang_String_2Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_treenode__1", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS));
@@ -9472,19 +9506,19 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_EndPopup__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_endpopup", FunctionDescriptor.ofVoid());
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__0__Ljava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__0_str_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__0__Ljava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__0_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__0__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__0_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__0__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__0_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__1__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__1_i_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__1__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__1_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__1__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__1_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopup__1__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopup__1_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_str_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
-        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_v", FunctionDescriptor.ofVoid());
+        static final java.lang.invoke.MethodHandle internal_native_OpenPopupOnItemClick__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_openpopuponitemclick_v", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_CloseCurrentPopup__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_closecurrentpopup", FunctionDescriptor.ofVoid());
 
@@ -9714,6 +9748,12 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetItemRectSize_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getitemrectsize_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_GetItemClickedCountWithSingleClickDelay__IF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getitemclickedcountwithsingleclickdelay_i_f", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetItemClickedCountWithSingleClickDelay__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getitemclickedcountwithsingleclickdelay_i", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetItemClickedCountWithSingleClickDelay__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getitemclickedcountwithsingleclickdelay_v", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle internal_native_GetMainViewport_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getmainviewport_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetBackgroundDrawList_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getbackgrounddrawlist_addr_l", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
@@ -9792,7 +9832,9 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_IsMouseDoubleClicked__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismousedoubleclicked", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_IsMouseReleasedWithDelay__IF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismousereleasedwithdelay", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_IsMouseReleasedWithDelay__IF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismousereleasedwithdelay_i_f", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsMouseReleasedWithDelay__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismousereleasedwithdelay_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_GetMouseClickedCount__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getmouseclickedcount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 

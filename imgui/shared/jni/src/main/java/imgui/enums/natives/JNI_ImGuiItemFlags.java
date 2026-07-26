@@ -24,5 +24,11 @@ final public class JNI_ImGuiItemFlags {
 
     static native public int ImGuiItemFlags_AllowDuplicateId_NATIVE();
 
+    static native public int ImGuiItemFlags_LiveEditOnInputText_NATIVE();
+
+    static native public int ImGuiItemFlags_LiveEditOnInputScalar_NATIVE();
+
+    static native public int ImGuiItemFlags_LiveEditOnInput_NATIVE();
+
     static native public int ImGuiItemFlags_Disabled_NATIVE();
 }

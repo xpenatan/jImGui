@@ -8,6 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImDrawFlags;
+import imgui.enums.ImDrawListFlags;
 
 public final class ImDrawList extends NativeObject {
 
@@ -261,5 +262,12 @@ public final class ImDrawList extends NativeObject {
     }
 
     public void set_VtxBuffer(ImVectorImDrawVert VtxBuffer) {
+    }
+
+    public ImDrawListFlags get_Flags() {
+        return null;
+    }
+
+    public void set_Flags(ImDrawListFlags Flags) {
     }
 }

@@ -19,7 +19,7 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
-    public int get_CmdListsCount() {
+    public int get_FrameCount() {
         return 0;
     }
 

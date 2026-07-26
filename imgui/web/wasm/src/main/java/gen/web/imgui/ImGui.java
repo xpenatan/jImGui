@@ -3024,13 +3024,6 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(params = {"desc_id", "col_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.ColorButton(desc_id, col_addr);return returnedJSObj;")
     public static native boolean internal_native_ColorButton(String desc_id, int col_addr);
 
-    public static void SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags) {
-        internal_native_SetColorEditOptions(ImGuiColorEditFlags.getValue());
-    }
-
-    @org.teavm.jso.JSBody(params = {"ImGuiColorEditFlags"}, script = "imgui.ImGui.prototype.SetColorEditOptions(ImGuiColorEditFlags);")
-    public static native void internal_native_SetColorEditOptions(int ImGuiColorEditFlags);
-
     public static boolean TreeNode(String label) {
         return internal_native_TreeNode__0(label);
     }
@@ -3594,54 +3587,54 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(script = "imgui.ImGui.prototype.EndPopup();")
     public static native void internal_native_EndPopup();
 
-    public static void OpenPopup(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__0(str_id, flags.getValue());
+    public static boolean OpenPopup(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__0(str_id, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"str_id", "flags"}, script = "imgui.ImGui.prototype.OpenPopup__0(str_id, flags);")
-    public static native void internal_native_OpenPopup__0(String str_id, int flags);
+    @org.teavm.jso.JSBody(params = {"str_id", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopup__0(str_id, flags);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopup__0(String str_id, int flags);
 
-    public static void OpenPopup(String str_id) {
-        internal_native_OpenPopup__0(str_id);
+    public static boolean OpenPopup(String str_id) {
+        return internal_native_OpenPopup__0(str_id);
     }
 
-    @org.teavm.jso.JSBody(params = {"str_id"}, script = "imgui.ImGui.prototype.OpenPopup__0(str_id);")
-    public static native void internal_native_OpenPopup__0(String str_id);
+    @org.teavm.jso.JSBody(params = {"str_id"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopup__0(str_id);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopup__0(String str_id);
 
-    public static void OpenPopup(int id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__1(id, flags.getValue());
+    public static boolean OpenPopup(int id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__1(id, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"id", "flags"}, script = "imgui.ImGui.prototype.OpenPopup__1(id, flags);")
-    public static native void internal_native_OpenPopup__1(int id, int flags);
+    @org.teavm.jso.JSBody(params = {"id", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopup__1(id, flags);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopup__1(int id, int flags);
 
-    public static void OpenPopup(int id) {
-        internal_native_OpenPopup__1(id);
+    public static boolean OpenPopup(int id) {
+        return internal_native_OpenPopup__1(id);
     }
 
-    @org.teavm.jso.JSBody(params = {"id"}, script = "imgui.ImGui.prototype.OpenPopup__1(id);")
-    public static native void internal_native_OpenPopup__1(int id);
+    @org.teavm.jso.JSBody(params = {"id"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopup__1(id);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopup__1(int id);
 
-    public static void OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
+    public static boolean OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"str_id", "flags"}, script = "imgui.ImGui.prototype.OpenPopupOnItemClick(str_id, flags);")
-    public static native void internal_native_OpenPopupOnItemClick(String str_id, int flags);
+    @org.teavm.jso.JSBody(params = {"str_id", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopupOnItemClick(str_id, flags);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id, int flags);
 
-    public static void OpenPopupOnItemClick(String str_id) {
-        internal_native_OpenPopupOnItemClick(str_id);
+    public static boolean OpenPopupOnItemClick(String str_id) {
+        return internal_native_OpenPopupOnItemClick(str_id);
     }
 
-    @org.teavm.jso.JSBody(params = {"str_id"}, script = "imgui.ImGui.prototype.OpenPopupOnItemClick(str_id);")
-    public static native void internal_native_OpenPopupOnItemClick(String str_id);
+    @org.teavm.jso.JSBody(params = {"str_id"}, script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopupOnItemClick(str_id);return returnedJSObj;")
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id);
 
-    public static void OpenPopupOnItemClick() {
-        internal_native_OpenPopupOnItemClick();
+    public static boolean OpenPopupOnItemClick() {
+        return internal_native_OpenPopupOnItemClick();
     }
 
-    @org.teavm.jso.JSBody(script = "imgui.ImGui.prototype.OpenPopupOnItemClick();")
-    public static native void internal_native_OpenPopupOnItemClick();
+    @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGui.prototype.OpenPopupOnItemClick();return returnedJSObj;")
+    public static native boolean internal_native_OpenPopupOnItemClick();
 
     public static void CloseCurrentPopup() {
         internal_native_CloseCurrentPopup();
@@ -3797,12 +3790,12 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(params = {"column_n"}, script = "var returnedJSObj = imgui.ImGui.prototype.TableSetColumnIndex(column_n);return returnedJSObj;")
     public static native boolean internal_native_TableSetColumnIndex(int column_n);
 
-    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_id) {
-        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_id);
+    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_data) {
+        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_data);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "flags", "init_width_or_weight", "user_id"}, script = "imgui.ImGui.prototype.TableSetupColumn(label, flags, init_width_or_weight, user_id);")
-    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_id);
+    @org.teavm.jso.JSBody(params = {"label", "flags", "init_width_or_weight", "user_data"}, script = "imgui.ImGui.prototype.TableSetupColumn(label, flags, init_width_or_weight, user_data);")
+    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_data);
 
     public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight) {
         internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight);
@@ -4502,6 +4495,27 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGui.prototype.GetItemRectSize();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
     public static native int internal_native_GetItemRectSize_addr();
 
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button, float delay) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue(), delay);
+    }
+
+    @org.teavm.jso.JSBody(params = {"mouse_button", "delay"}, script = "var returnedJSObj = imgui.ImGui.prototype.GetItemClickedCountWithSingleClickDelay(mouse_button, delay);return returnedJSObj;")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button, float delay);
+
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"mouse_button"}, script = "var returnedJSObj = imgui.ImGui.prototype.GetItemClickedCountWithSingleClickDelay(mouse_button);return returnedJSObj;")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button);
+
+    public static int GetItemClickedCountWithSingleClickDelay() {
+        return internal_native_GetItemClickedCountWithSingleClickDelay();
+    }
+
+    @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGui.prototype.GetItemClickedCountWithSingleClickDelay();return returnedJSObj;")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay();
+
     public static ImGuiViewport GetMainViewport() {
         int addr = internal_native_GetMainViewport_addr();
         if (addr == 0)
@@ -4865,6 +4879,13 @@ public final class ImGui extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"ImGuiMouseButton", "delay"}, script = "var returnedJSObj = imgui.ImGui.prototype.IsMouseReleasedWithDelay(ImGuiMouseButton, delay);return returnedJSObj;")
     public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton, float delay);
+
+    public static boolean IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton) {
+        return internal_native_IsMouseReleasedWithDelay(ImGuiMouseButton.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"ImGuiMouseButton"}, script = "var returnedJSObj = imgui.ImGui.prototype.IsMouseReleasedWithDelay(ImGuiMouseButton);return returnedJSObj;")
+    public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton);
 
     public static int GetMouseClickedCount(ImGuiMouseButton ImGuiMouseButton) {
         return internal_native_GetMouseClickedCount(ImGuiMouseButton.getValue());

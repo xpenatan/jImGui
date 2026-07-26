@@ -11,6 +11,7 @@ import gen.web.imgui.enums.ImGuiKey;
 import gen.web.imgui.enums.ImGuiMouseSource;
 import gen.web.imgui.enums.ImGuiConfigFlags;
 import gen.web.imgui.enums.ImGuiBackendFlags;
+import gen.web.imgui.enums.ImGuiColorEditFlags;
 
 public final class ImGuiIO extends NativeObject {
 
@@ -688,6 +689,27 @@ public final class ImGuiIO extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ConfigInputTextEnterKeepActive"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigInputTextEnterKeepActive(ConfigInputTextEnterKeepActive);")
     public static native void internal_native_set_ConfigInputTextEnterKeepActive(int this_addr, boolean ConfigInputTextEnterKeepActive);
 
+    public ImGuiColorEditFlags get_ConfigColorEditFlags() {
+        int value = internal_native_get_ConfigColorEditFlags(native_address);
+        ImGuiColorEditFlags[] values = ImGuiColorEditFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiColorEditFlags enumVal = values[i];
+            if (enumVal != ImGuiColorEditFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiColorEditFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);return jsObj.get_ConfigColorEditFlags();")
+    public static native int internal_native_get_ConfigColorEditFlags(int this_addr);
+
+    public void set_ConfigColorEditFlags(ImGuiColorEditFlags ConfigColorEditFlags) {
+        internal_native_set_ConfigColorEditFlags(native_address, ConfigColorEditFlags.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ConfigColorEditFlags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigColorEditFlags(ConfigColorEditFlags);")
+    public static native void internal_native_set_ConfigColorEditFlags(int this_addr, int ConfigColorEditFlags);
+
     public boolean get_ConfigDragClickToInputText() {
         return internal_native_get_ConfigDragClickToInputText(native_address);
     }
@@ -772,6 +794,34 @@ public final class ImGuiIO extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ConfigMemoryCompactTimer"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigMemoryCompactTimer(ConfigMemoryCompactTimer);")
     public static native void internal_native_set_ConfigMemoryCompactTimer(int this_addr, float ConfigMemoryCompactTimer);
 
+    public boolean get_ConfigIniSettingsSaveLastUsedDate() {
+        return internal_native_get_ConfigIniSettingsSaveLastUsedDate(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);return jsObj.get_ConfigIniSettingsSaveLastUsedDate();")
+    public static native boolean internal_native_get_ConfigIniSettingsSaveLastUsedDate(int this_addr);
+
+    public void set_ConfigIniSettingsSaveLastUsedDate(boolean ConfigIniSettingsSaveLastUsedDate) {
+        internal_native_set_ConfigIniSettingsSaveLastUsedDate(native_address, ConfigIniSettingsSaveLastUsedDate);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ConfigIniSettingsSaveLastUsedDate"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigIniSettingsSaveLastUsedDate(ConfigIniSettingsSaveLastUsedDate);")
+    public static native void internal_native_set_ConfigIniSettingsSaveLastUsedDate(int this_addr, boolean ConfigIniSettingsSaveLastUsedDate);
+
+    public int get_ConfigIniSettingsAutoDiscardMonths() {
+        return internal_native_get_ConfigIniSettingsAutoDiscardMonths(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);return jsObj.get_ConfigIniSettingsAutoDiscardMonths();")
+    public static native int internal_native_get_ConfigIniSettingsAutoDiscardMonths(int this_addr);
+
+    public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+        internal_native_set_ConfigIniSettingsAutoDiscardMonths(native_address, ConfigIniSettingsAutoDiscardMonths);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ConfigIniSettingsAutoDiscardMonths"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_ConfigIniSettingsAutoDiscardMonths(ConfigIniSettingsAutoDiscardMonths);")
+    public static native void internal_native_set_ConfigIniSettingsAutoDiscardMonths(int this_addr, int ConfigIniSettingsAutoDiscardMonths);
+
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);
     }
@@ -799,6 +849,20 @@ public final class ImGuiIO extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "MouseDoubleClickMaxDist"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_MouseDoubleClickMaxDist(MouseDoubleClickMaxDist);")
     public static native void internal_native_set_MouseDoubleClickMaxDist(int this_addr, float MouseDoubleClickMaxDist);
+
+    public float get_MouseSingleClickDelay() {
+        return internal_native_get_MouseSingleClickDelay(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);return jsObj.get_MouseSingleClickDelay();")
+    public static native float internal_native_get_MouseSingleClickDelay(int this_addr);
+
+    public void set_MouseSingleClickDelay(float MouseSingleClickDelay) {
+        internal_native_set_MouseSingleClickDelay(native_address, MouseSingleClickDelay);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "MouseSingleClickDelay"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiIO);jsObj.set_MouseSingleClickDelay(MouseSingleClickDelay);")
+    public static native void internal_native_set_MouseSingleClickDelay(int this_addr, float MouseSingleClickDelay);
 
     public float get_MouseDragThreshold() {
         return internal_native_get_MouseDragThreshold(native_address);

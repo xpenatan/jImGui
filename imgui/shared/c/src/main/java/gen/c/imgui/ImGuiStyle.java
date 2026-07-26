@@ -547,6 +547,34 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabbarbordersize")
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
 
+    public float get_MenuItemRounding() {
+        return internal_native_get_MenuItemRounding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_menuitemrounding")
+    public static native float internal_native_get_MenuItemRounding(long this_addr);
+
+    public void set_MenuItemRounding(float MenuItemRounding) {
+        internal_native_set_MenuItemRounding(native_address, MenuItemRounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_menuitemrounding")
+    public static native void internal_native_set_MenuItemRounding(long this_addr, float MenuItemRounding);
+
+    public float get_SelectableRounding() {
+        return internal_native_get_SelectableRounding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_selectablerounding")
+    public static native float internal_native_get_SelectableRounding(long this_addr);
+
+    public void set_SelectableRounding(float SelectableRounding) {
+        internal_native_set_SelectableRounding(native_address, SelectableRounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_selectablerounding")
+    public static native void internal_native_set_SelectableRounding(long this_addr, float SelectableRounding);
+
     public float get_DragDropTargetRounding() {
         return internal_native_get_DragDropTargetRounding(native_address);
     }
@@ -663,6 +691,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_selectabletextalign")
     public static native void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr);
+
+    public float get_InputTextCursorSize() {
+        return internal_native_get_InputTextCursorSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_inputtextcursorsize")
+    public static native float internal_native_get_InputTextCursorSize(long this_addr);
+
+    public void set_InputTextCursorSize(float InputTextCursorSize) {
+        internal_native_set_InputTextCursorSize(native_address, InputTextCursorSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_inputtextcursorsize")
+    public static native void internal_native_set_InputTextCursorSize(long this_addr, float InputTextCursorSize);
 
     public float get_SeparatorSize() {
         return internal_native_get_SeparatorSize(native_address);

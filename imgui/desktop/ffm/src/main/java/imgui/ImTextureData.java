@@ -29,6 +29,8 @@ public final class ImTextureData extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_2;
 
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImTextureRect ImTextureRect_TEMP_GEN_0;
 
     private ImTextureRect ImTextureRect_TEMP_GEN_1;
@@ -263,6 +265,24 @@ public final class ImTextureData extends NativeObject {
     public static void internal_native_set_BackendUserData(long this_addr, long BackendUserData_addr) {
         try {
             FFMHandles.internal_native_set_BackendUserData__JJ.invokeExact(this_addr, BackendUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_QueueUserData() {
+        long addr = internal_native_get_QueueUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_get_QueueUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_QueueUserData_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -588,6 +608,8 @@ public final class ImTextureData extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_BackendUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imtexturedata_get_backenduserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_BackendUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imtexturedata_set_backenduserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_QueueUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imtexturedata_get_queueuserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_Format__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imtexturedata_get_format", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 

@@ -79,6 +79,10 @@ public final class ImTextureData extends NativeObject {
     public void set_BackendUserData(NativeObject BackendUserData) {
     }
 
+    public NativeObject get_QueueUserData() {
+        return null;
+    }
+
     public ImTextureFormat get_Format() {
         return null;
     }

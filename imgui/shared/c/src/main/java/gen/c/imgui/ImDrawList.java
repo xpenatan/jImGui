@@ -8,6 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.imgui.enums.ImDrawFlags;
+import gen.c.imgui.enums.ImDrawListFlags;
 
 public final class ImDrawList extends NativeObject {
 
@@ -612,4 +613,25 @@ public final class ImDrawList extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imdrawlist_set_vtxbuffer")
     public static native void internal_native_set_VtxBuffer(long this_addr, long VtxBuffer_addr);
+
+    public ImDrawListFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImDrawListFlags[] values = ImDrawListFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImDrawListFlags enumVal = values[i];
+            if (enumVal != ImDrawListFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImDrawListFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_get_flags")
+    public static native int internal_native_get_Flags(long this_addr);
+
+    public void set_Flags(ImDrawListFlags Flags) {
+        internal_native_set_Flags(native_address, Flags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_set_flags")
+    public static native void internal_native_set_Flags(long this_addr, int Flags);
 }

@@ -19,6 +19,7 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     EventNav(ImGuiDebugLogFlags_EventNav_NATIVE()),
     EventClipper(ImGuiDebugLogFlags_EventClipper_NATIVE()),
     EventSelection(ImGuiDebugLogFlags_EventSelection_NATIVE()),
+    EventTable(ImGuiDebugLogFlags_EventTable_NATIVE()),
     EventIO(ImGuiDebugLogFlags_EventIO_NATIVE()),
     EventFont(ImGuiDebugLogFlags_EventFont_NATIVE()),
     EventInputRouting(ImGuiDebugLogFlags_EventInputRouting_NATIVE()),
@@ -66,6 +67,8 @@ public enum ImGuiDebugLogFlags implements NativeEnum<ImGuiDebugLogFlags> {
     private static native int ImGuiDebugLogFlags_EventClipper_NATIVE();
 
     private static native int ImGuiDebugLogFlags_EventSelection_NATIVE();
+
+    private static native int ImGuiDebugLogFlags_EventTable_NATIVE();
 
     private static native int ImGuiDebugLogFlags_EventIO_NATIVE();
 

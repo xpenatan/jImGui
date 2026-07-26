@@ -11,6 +11,7 @@ import imgui.enums.ImGuiKey;
 import imgui.enums.ImGuiMouseSource;
 import imgui.enums.ImGuiConfigFlags;
 import imgui.enums.ImGuiBackendFlags;
+import imgui.enums.ImGuiColorEditFlags;
 
 public final class ImGuiIO extends NativeObject {
 
@@ -774,6 +775,29 @@ public final class ImGuiIO extends NativeObject {
         imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigInputTextEnterKeepActive(this_addr, ConfigInputTextEnterKeepActive);
     }
 
+    public ImGuiColorEditFlags get_ConfigColorEditFlags() {
+        int value = internal_native_get_ConfigColorEditFlags(native_address);
+        ImGuiColorEditFlags[] values = ImGuiColorEditFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiColorEditFlags enumVal = values[i];
+            if (enumVal != ImGuiColorEditFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiColorEditFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_ConfigColorEditFlags(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigColorEditFlags(this_addr);
+    }
+
+    public void set_ConfigColorEditFlags(ImGuiColorEditFlags ConfigColorEditFlags) {
+        internal_native_set_ConfigColorEditFlags(native_address, ConfigColorEditFlags.getValue());
+    }
+
+    public static void internal_native_set_ConfigColorEditFlags(long this_addr, int ConfigColorEditFlags) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigColorEditFlags(this_addr, ConfigColorEditFlags);
+    }
+
     public boolean get_ConfigDragClickToInputText() {
         return internal_native_get_ConfigDragClickToInputText(native_address);
     }
@@ -870,6 +894,38 @@ public final class ImGuiIO extends NativeObject {
         imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigMemoryCompactTimer(this_addr, ConfigMemoryCompactTimer);
     }
 
+    public boolean get_ConfigIniSettingsSaveLastUsedDate() {
+        return internal_native_get_ConfigIniSettingsSaveLastUsedDate(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigIniSettingsSaveLastUsedDate(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigIniSettingsSaveLastUsedDate(this_addr);
+    }
+
+    public void set_ConfigIniSettingsSaveLastUsedDate(boolean ConfigIniSettingsSaveLastUsedDate) {
+        internal_native_set_ConfigIniSettingsSaveLastUsedDate(native_address, ConfigIniSettingsSaveLastUsedDate);
+    }
+
+    public static void internal_native_set_ConfigIniSettingsSaveLastUsedDate(long this_addr, boolean ConfigIniSettingsSaveLastUsedDate) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigIniSettingsSaveLastUsedDate(this_addr, ConfigIniSettingsSaveLastUsedDate);
+    }
+
+    public int get_ConfigIniSettingsAutoDiscardMonths() {
+        return internal_native_get_ConfigIniSettingsAutoDiscardMonths(native_address);
+    }
+
+    public static int internal_native_get_ConfigIniSettingsAutoDiscardMonths(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigIniSettingsAutoDiscardMonths(this_addr);
+    }
+
+    public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+        internal_native_set_ConfigIniSettingsAutoDiscardMonths(native_address, ConfigIniSettingsAutoDiscardMonths);
+    }
+
+    public static void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigIniSettingsAutoDiscardMonths(this_addr, ConfigIniSettingsAutoDiscardMonths);
+    }
+
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);
     }
@@ -900,6 +956,22 @@ public final class ImGuiIO extends NativeObject {
 
     public static void internal_native_set_MouseDoubleClickMaxDist(long this_addr, float MouseDoubleClickMaxDist) {
         imgui.natives.JNI_ImGuiIO.internal_native_set_MouseDoubleClickMaxDist(this_addr, MouseDoubleClickMaxDist);
+    }
+
+    public float get_MouseSingleClickDelay() {
+        return internal_native_get_MouseSingleClickDelay(native_address);
+    }
+
+    public static float internal_native_get_MouseSingleClickDelay(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_MouseSingleClickDelay(this_addr);
+    }
+
+    public void set_MouseSingleClickDelay(float MouseSingleClickDelay) {
+        internal_native_set_MouseSingleClickDelay(native_address, MouseSingleClickDelay);
+    }
+
+    public static void internal_native_set_MouseSingleClickDelay(long this_addr, float MouseSingleClickDelay) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_MouseSingleClickDelay(this_addr, MouseSingleClickDelay);
     }
 
     public float get_MouseDragThreshold() {

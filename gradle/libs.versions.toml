@@ -1,7 +1,7 @@
 [versions]
 jImGuiGroup = "com.github.xpenatan.jImGui"
 jImGuiName = "jImGui"
-jImGuiRelease = "1.92.8.0"
+jImGuiRelease = "1.92.9.0"
 jImGuiSnapshot = "-SNAPSHOT"
 
 javaMain = "1.8"
@@ -25,10 +25,10 @@ desugar = "2.0.3"
 androidGradlePlugin = "9.1.1"
 downloadPlugin = "5.5.0"
 
-dearImgui = "1.92.8-docking"
-dearImguiTagObject = "572f249ce1975f98ad9f8aabce512ffa12a52d6c"
-dearImguiSourceCommit = "b61e56346a92cfcaf1f43a545ca37b0b32239654"
-dearImguiVersionNumber = "19280"
+dearImgui = "1.92.9-docking"
+dearImguiTagObject = "719fe4f6438f5ace0218c9f4f061ddfec97e56bb"
+dearImguiSourceCommit = "9b4eb24cee2071e61dc1f9ef3e5228097cdde720"
+dearImguiVersionNumber = "19290"
 nodeEditorSourceCommit = "55a7dbf4b517b5e809b372ba39153fe20bad39ad"
 textEditSourceCommit = "264bee49ddc3c789b05d928d09c628649458da47"
 boostRegexSourceCommit = "4cbcd3078e6ae10d05124379623a1bf03fcb9350"

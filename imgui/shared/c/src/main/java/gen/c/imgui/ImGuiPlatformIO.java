@@ -90,4 +90,18 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_viewports")
     public static native void internal_native_set_Viewports(long this_addr, long Viewports_addr);
+
+    public int get_Platform_SessionDate() {
+        return internal_native_get_Platform_SessionDate(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_platform_sessiondate")
+    public static native int internal_native_get_Platform_SessionDate(long this_addr);
+
+    public void set_Platform_SessionDate(int Platform_SessionDate) {
+        internal_native_set_Platform_SessionDate(native_address, Platform_SessionDate);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_sessiondate")
+    public static native void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate);
 }

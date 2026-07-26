@@ -609,6 +609,38 @@ public final class ImGuiStyle extends NativeObject {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_TabBarBorderSize(this_addr, TabBarBorderSize);
     }
 
+    public float get_MenuItemRounding() {
+        return internal_native_get_MenuItemRounding(native_address);
+    }
+
+    public static float internal_native_get_MenuItemRounding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_MenuItemRounding(this_addr);
+    }
+
+    public void set_MenuItemRounding(float MenuItemRounding) {
+        internal_native_set_MenuItemRounding(native_address, MenuItemRounding);
+    }
+
+    public static void internal_native_set_MenuItemRounding(long this_addr, float MenuItemRounding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_MenuItemRounding(this_addr, MenuItemRounding);
+    }
+
+    public float get_SelectableRounding() {
+        return internal_native_get_SelectableRounding(native_address);
+    }
+
+    public static float internal_native_get_SelectableRounding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_SelectableRounding(this_addr);
+    }
+
+    public void set_SelectableRounding(float SelectableRounding) {
+        internal_native_set_SelectableRounding(native_address, SelectableRounding);
+    }
+
+    public static void internal_native_set_SelectableRounding(long this_addr, float SelectableRounding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_SelectableRounding(this_addr, SelectableRounding);
+    }
+
     public float get_DragDropTargetRounding() {
         return internal_native_get_DragDropTargetRounding(native_address);
     }
@@ -738,6 +770,22 @@ public final class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_SelectableTextAlign(this_addr, SelectableTextAlign_addr);
+    }
+
+    public float get_InputTextCursorSize() {
+        return internal_native_get_InputTextCursorSize(native_address);
+    }
+
+    public static float internal_native_get_InputTextCursorSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_InputTextCursorSize(this_addr);
+    }
+
+    public void set_InputTextCursorSize(float InputTextCursorSize) {
+        internal_native_set_InputTextCursorSize(native_address, InputTextCursorSize);
+    }
+
+    public static void internal_native_set_InputTextCursorSize(long this_addr, float InputTextCursorSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_InputTextCursorSize(this_addr, InputTextCursorSize);
     }
 
     public float get_SeparatorSize() {

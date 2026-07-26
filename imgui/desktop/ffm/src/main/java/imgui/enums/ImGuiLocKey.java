@@ -22,7 +22,9 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
     TableSizeOne(ImGuiLocKey_TableSizeOne_NATIVE()),
     TableSizeAllFit(ImGuiLocKey_TableSizeAllFit_NATIVE()),
     TableSizeAllDefault(ImGuiLocKey_TableSizeAllDefault_NATIVE()),
+    TableReset(ImGuiLocKey_TableReset_NATIVE()),
     TableResetOrder(ImGuiLocKey_TableResetOrder_NATIVE()),
+    TableResetVisibility(ImGuiLocKey_TableResetVisibility_NATIVE()),
     WindowingMainMenuBar(ImGuiLocKey_WindowingMainMenuBar_NATIVE()),
     WindowingPopup(ImGuiLocKey_WindowingPopup_NATIVE()),
     WindowingUntitled(ImGuiLocKey_WindowingUntitled_NATIVE()),
@@ -87,9 +89,25 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
         }
     }
 
+    private static int ImGuiLocKey_TableReset_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiLocKey_TableReset_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiLocKey_TableResetOrder_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiLocKey_TableResetOrder_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiLocKey_TableResetVisibility_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiLocKey_TableResetVisibility_NATIVE__.invokeExact();
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -177,7 +195,11 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
 
         static final java.lang.invoke.MethodHandle ImGuiLocKey_TableSizeAllDefault_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguilockey_imguilockey_tablesizealldefault_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle ImGuiLocKey_TableReset_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguilockey_imguilockey_tablereset_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle ImGuiLocKey_TableResetOrder_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguilockey_imguilockey_tableresetorder_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiLocKey_TableResetVisibility_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguilockey_imguilockey_tableresetvisibility_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiLocKey_WindowingMainMenuBar_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguilockey_imguilockey_windowingmainmenubar_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

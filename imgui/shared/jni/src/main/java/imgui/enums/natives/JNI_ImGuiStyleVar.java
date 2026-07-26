@@ -80,6 +80,10 @@ final public class JNI_ImGuiStyleVar {
 
     static native public int ImGuiStyleVar_TreeLinesRounding_NATIVE();
 
+    static native public int ImGuiStyleVar_MenuItemRounding_NATIVE();
+
+    static native public int ImGuiStyleVar_SelectableRounding_NATIVE();
+
     static native public int ImGuiStyleVar_DragDropTargetRounding_NATIVE();
 
     static native public int ImGuiStyleVar_ButtonTextAlign_NATIVE();

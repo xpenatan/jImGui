@@ -8,6 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImDrawFlags;
+import gen.web.imgui.enums.ImDrawListFlags;
 
 public final class ImDrawList extends NativeObject {
 
@@ -612,4 +613,25 @@ public final class ImDrawList extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "VtxBuffer_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.set_VtxBuffer(VtxBuffer_addr);")
     public static native void internal_native_set_VtxBuffer(int this_addr, int VtxBuffer_addr);
+
+    public ImDrawListFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImDrawListFlags[] values = ImDrawListFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImDrawListFlags enumVal = values[i];
+            if (enumVal != ImDrawListFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImDrawListFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);return jsObj.get_Flags();")
+    public static native int internal_native_get_Flags(int this_addr);
+
+    public void set_Flags(ImDrawListFlags Flags) {
+        internal_native_set_Flags(native_address, Flags.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "Flags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.set_Flags(Flags);")
+    public static native void internal_native_set_Flags(int this_addr, int Flags);
 }

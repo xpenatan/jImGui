@@ -134,6 +134,14 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
 
+    public static native float internal_native_get_MenuItemRounding(long this_addr);
+
+    public static native void internal_native_set_MenuItemRounding(long this_addr, float MenuItemRounding);
+
+    public static native float internal_native_get_SelectableRounding(long this_addr);
+
+    public static native void internal_native_set_SelectableRounding(long this_addr, float SelectableRounding);
+
     public static native float internal_native_get_DragDropTargetRounding(long this_addr);
 
     public static native void internal_native_set_DragDropTargetRounding(long this_addr, float DragDropTargetRounding);
@@ -161,6 +169,10 @@ final public class JNI_ImGuiStyle {
     public static native long internal_native_get_SelectableTextAlign_addr(long this_addr);
 
     public static native void internal_native_set_SelectableTextAlign(long this_addr, long SelectableTextAlign_addr);
+
+    public static native float internal_native_get_InputTextCursorSize(long this_addr);
+
+    public static native void internal_native_set_InputTextCursorSize(long this_addr, float InputTextCursorSize);
 
     public static native float internal_native_get_SeparatorSize(long this_addr);
 

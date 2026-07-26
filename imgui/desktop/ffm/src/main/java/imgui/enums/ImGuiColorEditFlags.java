@@ -42,6 +42,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     Float(ImGuiColorEditFlags_Float_NATIVE()),
     PickerHueBar(ImGuiColorEditFlags_PickerHueBar_NATIVE()),
     PickerHueWheel(ImGuiColorEditFlags_PickerHueWheel_NATIVE()),
+    PickerNoRotate(ImGuiColorEditFlags_PickerNoRotate_NATIVE()),
     InputRGB(ImGuiColorEditFlags_InputRGB_NATIVE()),
     InputHSV(ImGuiColorEditFlags_InputHSV_NATIVE()),
     DefaultOptions_(ImGuiColorEditFlags_DefaultOptions__NATIVE()),
@@ -265,6 +266,14 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
         }
     }
 
+    private static int ImGuiColorEditFlags_PickerNoRotate_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiColorEditFlags_PickerNoRotate_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiColorEditFlags_InputRGB_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiColorEditFlags_InputRGB_NATIVE__.invokeExact();
@@ -378,6 +387,8 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_PickerHueBar_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_pickerhuebar_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_PickerHueWheel_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_pickerhuewheel_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_PickerNoRotate_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_pickernorotate_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiColorEditFlags_InputRGB_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguicoloreditflags_imguicoloreditflags_inputrgb_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 

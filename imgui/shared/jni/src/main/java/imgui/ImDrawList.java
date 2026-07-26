@@ -8,6 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImDrawFlags;
+import imgui.enums.ImDrawListFlags;
 
 public final class ImDrawList extends NativeObject {
 
@@ -689,5 +690,28 @@ public final class ImDrawList extends NativeObject {
 
     public static void internal_native_set_VtxBuffer(long this_addr, long VtxBuffer_addr) {
         imgui.natives.JNI_ImDrawList.internal_native_set_VtxBuffer(this_addr, VtxBuffer_addr);
+    }
+
+    public ImDrawListFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImDrawListFlags[] values = ImDrawListFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImDrawListFlags enumVal = values[i];
+            if (enumVal != ImDrawListFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImDrawListFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_Flags(long this_addr) {
+        return imgui.natives.JNI_ImDrawList.internal_native_get_Flags(this_addr);
+    }
+
+    public void set_Flags(ImDrawListFlags Flags) {
+        internal_native_set_Flags(native_address, Flags.getValue());
+    }
+
+    public static void internal_native_set_Flags(long this_addr, int Flags) {
+        imgui.natives.JNI_ImDrawList.internal_native_set_Flags(this_addr, Flags);
     }
 }

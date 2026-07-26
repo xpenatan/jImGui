@@ -3024,13 +3024,6 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_colorbutton_str_l")
     public static native boolean internal_native_ColorButton(String desc_id, long col_addr);
 
-    public static void SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags) {
-        internal_native_SetColorEditOptions(ImGuiColorEditFlags.getValue());
-    }
-
-    @org.teavm.interop.Import(name = "imgui_imgui_setcoloreditoptions")
-    public static native void internal_native_SetColorEditOptions(int ImGuiColorEditFlags);
-
     public static boolean TreeNode(String label) {
         return internal_native_TreeNode__0(label);
     }
@@ -3594,54 +3587,54 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_endpopup")
     public static native void internal_native_EndPopup();
 
-    public static void OpenPopup(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__0(str_id, flags.getValue());
+    public static boolean OpenPopup(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__0(str_id, flags.getValue());
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopup__0_str_i")
-    public static native void internal_native_OpenPopup__0(String str_id, int flags);
+    public static native boolean internal_native_OpenPopup__0(String str_id, int flags);
 
-    public static void OpenPopup(String str_id) {
-        internal_native_OpenPopup__0(str_id);
+    public static boolean OpenPopup(String str_id) {
+        return internal_native_OpenPopup__0(str_id);
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopup__0_str")
-    public static native void internal_native_OpenPopup__0(String str_id);
+    public static native boolean internal_native_OpenPopup__0(String str_id);
 
-    public static void OpenPopup(int id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopup__1(id, flags.getValue());
+    public static boolean OpenPopup(int id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopup__1(id, flags.getValue());
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopup__1_i_i")
-    public static native void internal_native_OpenPopup__1(int id, int flags);
+    public static native boolean internal_native_OpenPopup__1(int id, int flags);
 
-    public static void OpenPopup(int id) {
-        internal_native_OpenPopup__1(id);
+    public static boolean OpenPopup(int id) {
+        return internal_native_OpenPopup__1(id);
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopup__1_i")
-    public static native void internal_native_OpenPopup__1(int id);
+    public static native boolean internal_native_OpenPopup__1(int id);
 
-    public static void OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
-        internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
+    public static boolean OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
+        return internal_native_OpenPopupOnItemClick(str_id, flags.getValue());
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopuponitemclick_str_i")
-    public static native void internal_native_OpenPopupOnItemClick(String str_id, int flags);
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id, int flags);
 
-    public static void OpenPopupOnItemClick(String str_id) {
-        internal_native_OpenPopupOnItemClick(str_id);
+    public static boolean OpenPopupOnItemClick(String str_id) {
+        return internal_native_OpenPopupOnItemClick(str_id);
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopuponitemclick_str")
-    public static native void internal_native_OpenPopupOnItemClick(String str_id);
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id);
 
-    public static void OpenPopupOnItemClick() {
-        internal_native_OpenPopupOnItemClick();
+    public static boolean OpenPopupOnItemClick() {
+        return internal_native_OpenPopupOnItemClick();
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_openpopuponitemclick_v")
-    public static native void internal_native_OpenPopupOnItemClick();
+    public static native boolean internal_native_OpenPopupOnItemClick();
 
     public static void CloseCurrentPopup() {
         internal_native_CloseCurrentPopup();
@@ -3797,12 +3790,12 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_tablesetcolumnindex")
     public static native boolean internal_native_TableSetColumnIndex(int column_n);
 
-    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_id) {
-        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_id);
+    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_data) {
+        internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight, user_data);
     }
 
     @org.teavm.interop.Import(name = "imgui_imgui_tablesetupcolumn_str_i_f_i")
-    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_id);
+    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_data);
 
     public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight) {
         internal_native_TableSetupColumn(label, flags.getValue(), init_width_or_weight);
@@ -4502,6 +4495,27 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_getitemrectsize_addr")
     public static native long internal_native_GetItemRectSize_addr();
 
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button, float delay) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue(), delay);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_getitemclickedcountwithsingleclickdelay_i_f")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button, float delay);
+
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button) {
+        return internal_native_GetItemClickedCountWithSingleClickDelay(mouse_button.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_getitemclickedcountwithsingleclickdelay_i")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button);
+
+    public static int GetItemClickedCountWithSingleClickDelay() {
+        return internal_native_GetItemClickedCountWithSingleClickDelay();
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_getitemclickedcountwithsingleclickdelay_v")
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay();
+
     public static ImGuiViewport GetMainViewport() {
         long addr = internal_native_GetMainViewport_addr();
         if (addr == 0)
@@ -4863,8 +4877,15 @@ public final class ImGui extends NativeObject {
         return internal_native_IsMouseReleasedWithDelay(ImGuiMouseButton.getValue(), delay);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_ismousereleasedwithdelay")
+    @org.teavm.interop.Import(name = "imgui_imgui_ismousereleasedwithdelay_i_f")
     public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton, float delay);
+
+    public static boolean IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton) {
+        return internal_native_IsMouseReleasedWithDelay(ImGuiMouseButton.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_ismousereleasedwithdelay_i")
+    public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton);
 
     public static int GetMouseClickedCount(ImGuiMouseButton ImGuiMouseButton) {
         return internal_native_GetMouseClickedCount(ImGuiMouseButton.getValue());

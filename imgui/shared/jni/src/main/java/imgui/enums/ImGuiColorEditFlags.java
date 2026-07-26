@@ -35,6 +35,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     Float(ImGuiColorEditFlags_Float_NATIVE()),
     PickerHueBar(ImGuiColorEditFlags_PickerHueBar_NATIVE()),
     PickerHueWheel(ImGuiColorEditFlags_PickerHueWheel_NATIVE()),
+    PickerNoRotate(ImGuiColorEditFlags_PickerNoRotate_NATIVE()),
     InputRGB(ImGuiColorEditFlags_InputRGB_NATIVE()),
     InputHSV(ImGuiColorEditFlags_InputHSV_NATIVE()),
     DefaultOptions_(ImGuiColorEditFlags_DefaultOptions__NATIVE()),
@@ -160,6 +161,10 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
 
     private static int ImGuiColorEditFlags_PickerHueWheel_NATIVE() {
         return imgui.enums.natives.JNI_ImGuiColorEditFlags.ImGuiColorEditFlags_PickerHueWheel_NATIVE();
+    }
+
+    private static int ImGuiColorEditFlags_PickerNoRotate_NATIVE() {
+        return imgui.enums.natives.JNI_ImGuiColorEditFlags.ImGuiColorEditFlags_PickerNoRotate_NATIVE();
     }
 
     private static int ImGuiColorEditFlags_InputRGB_NATIVE() {

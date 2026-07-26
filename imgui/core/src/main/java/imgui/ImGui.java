@@ -1487,9 +1487,6 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
-    public static void SetColorEditOptions(ImGuiColorEditFlags ImGuiColorEditFlags) {
-    }
-
     public static boolean TreeNode(String label) {
         return false;
     }
@@ -1765,25 +1762,32 @@ public final class ImGui extends NativeObject {
     public static void EndPopup() {
     }
 
-    public static void OpenPopup(String str_id, ImGuiPopupFlags flags) {
+    public static boolean OpenPopup(String str_id, ImGuiPopupFlags flags) {
+        return false;
     }
 
-    public static void OpenPopup(String str_id) {
+    public static boolean OpenPopup(String str_id) {
+        return false;
     }
 
-    public static void OpenPopup(int id, ImGuiPopupFlags flags) {
+    public static boolean OpenPopup(int id, ImGuiPopupFlags flags) {
+        return false;
     }
 
-    public static void OpenPopup(int id) {
+    public static boolean OpenPopup(int id) {
+        return false;
     }
 
-    public static void OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
+    public static boolean OpenPopupOnItemClick(String str_id, ImGuiPopupFlags flags) {
+        return false;
     }
 
-    public static void OpenPopupOnItemClick(String str_id) {
+    public static boolean OpenPopupOnItemClick(String str_id) {
+        return false;
     }
 
-    public static void OpenPopupOnItemClick() {
+    public static boolean OpenPopupOnItemClick() {
+        return false;
     }
 
     public static void CloseCurrentPopup() {
@@ -1869,7 +1873,7 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
-    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_id) {
+    public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight, int user_data) {
     }
 
     public static void TableSetupColumn(String label, ImGuiTableColumnFlags flags, float init_width_or_weight) {
@@ -2199,6 +2203,18 @@ public final class ImGui extends NativeObject {
         return null;
     }
 
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button, float delay) {
+        return 0;
+    }
+
+    public static int GetItemClickedCountWithSingleClickDelay(ImGuiMouseButton mouse_button) {
+        return 0;
+    }
+
+    public static int GetItemClickedCountWithSingleClickDelay() {
+        return 0;
+    }
+
     public static ImGuiViewport GetMainViewport() {
         return null;
     }
@@ -2350,6 +2366,10 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton, float delay) {
+        return false;
+    }
+
+    public static boolean IsMouseReleasedWithDelay(ImGuiMouseButton ImGuiMouseButton) {
         return false;
     }
 

@@ -46,6 +46,8 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     TableAngledHeadersTextAlign(ImGuiStyleVar_TableAngledHeadersTextAlign_NATIVE()),
     TreeLinesSize(ImGuiStyleVar_TreeLinesSize_NATIVE()),
     TreeLinesRounding(ImGuiStyleVar_TreeLinesRounding_NATIVE()),
+    MenuItemRounding(ImGuiStyleVar_MenuItemRounding_NATIVE()),
+    SelectableRounding(ImGuiStyleVar_SelectableRounding_NATIVE()),
     DragDropTargetRounding(ImGuiStyleVar_DragDropTargetRounding_NATIVE()),
     ButtonTextAlign(ImGuiStyleVar_ButtonTextAlign_NATIVE()),
     SelectableTextAlign(ImGuiStyleVar_SelectableTextAlign_NATIVE()),
@@ -146,6 +148,10 @@ public enum ImGuiStyleVar implements NativeEnum<ImGuiStyleVar> {
     private static native int ImGuiStyleVar_TreeLinesSize_NATIVE();
 
     private static native int ImGuiStyleVar_TreeLinesRounding_NATIVE();
+
+    private static native int ImGuiStyleVar_MenuItemRounding_NATIVE();
+
+    private static native int ImGuiStyleVar_SelectableRounding_NATIVE();
 
     private static native int ImGuiStyleVar_DragDropTargetRounding_NATIVE();
 

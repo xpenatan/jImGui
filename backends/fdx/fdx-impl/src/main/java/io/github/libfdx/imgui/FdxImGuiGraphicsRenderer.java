@@ -479,7 +479,7 @@ public class FdxImGuiGraphicsRenderer implements FdxImGuiRenderer, FdxImGuiViewp
             return;
         }
         updateTextures(drawData.get_Textures());
-        if (!drawData.get_Valid() || drawData.get_CmdListsCount() <= 0 || drawData.get_TotalVtxCount() <= 0
+        if (!drawData.get_Valid() || drawData.get_CmdLists().size() <= 0 || drawData.get_TotalVtxCount() <= 0
                 || drawData.get_TotalIdxCount() <= 0) {
             return;
         }
@@ -531,7 +531,7 @@ public class FdxImGuiGraphicsRenderer implements FdxImGuiRenderer, FdxImGuiViewp
         ImVectorImDrawListPtr commandLists = drawData.get_CmdLists();
         int vertexStart = 0;
         int indexStart = 0;
-        for (int listIndex = 0; listIndex < drawData.get_CmdListsCount(); listIndex++) {
+        for (int listIndex = 0; listIndex < commandLists.size(); listIndex++) {
             ImDrawList commandList = commandLists.getData(listIndex);
             ImVectorImDrawCmd commands = commandList.get_CmdBuffer();
             for (int commandIndex = 0; commandIndex < commands.size(); commandIndex++) {
@@ -611,7 +611,7 @@ public class FdxImGuiGraphicsRenderer implements FdxImGuiRenderer, FdxImGuiViewp
         int vertexOffset = 0;
         int indexOffset = 0;
         int vertexStart = 0;
-        for (int listIndex = 0; listIndex < drawData.get_CmdListsCount(); listIndex++) {
+        for (int listIndex = 0; listIndex < commandLists.size(); listIndex++) {
             ImDrawList commandList = commandLists.getData(listIndex);
             ImVectorImDrawVert vertices = commandList.get_VtxBuffer();
             ImVectorImDrawIdx indices = commandList.get_IdxBuffer();

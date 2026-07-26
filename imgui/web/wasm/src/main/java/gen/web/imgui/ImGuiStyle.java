@@ -547,6 +547,34 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "TabBarBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabBarBorderSize(TabBarBorderSize);")
     public static native void internal_native_set_TabBarBorderSize(int this_addr, float TabBarBorderSize);
 
+    public float get_MenuItemRounding() {
+        return internal_native_get_MenuItemRounding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_MenuItemRounding();")
+    public static native float internal_native_get_MenuItemRounding(int this_addr);
+
+    public void set_MenuItemRounding(float MenuItemRounding) {
+        internal_native_set_MenuItemRounding(native_address, MenuItemRounding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "MenuItemRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_MenuItemRounding(MenuItemRounding);")
+    public static native void internal_native_set_MenuItemRounding(int this_addr, float MenuItemRounding);
+
+    public float get_SelectableRounding() {
+        return internal_native_get_SelectableRounding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_SelectableRounding();")
+    public static native float internal_native_get_SelectableRounding(int this_addr);
+
+    public void set_SelectableRounding(float SelectableRounding) {
+        internal_native_set_SelectableRounding(native_address, SelectableRounding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "SelectableRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_SelectableRounding(SelectableRounding);")
+    public static native void internal_native_set_SelectableRounding(int this_addr, float SelectableRounding);
+
     public float get_DragDropTargetRounding() {
         return internal_native_get_DragDropTargetRounding(native_address);
     }
@@ -663,6 +691,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "SelectableTextAlign_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_SelectableTextAlign(SelectableTextAlign_addr);")
     public static native void internal_native_set_SelectableTextAlign(int this_addr, int SelectableTextAlign_addr);
+
+    public float get_InputTextCursorSize() {
+        return internal_native_get_InputTextCursorSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_InputTextCursorSize();")
+    public static native float internal_native_get_InputTextCursorSize(int this_addr);
+
+    public void set_InputTextCursorSize(float InputTextCursorSize) {
+        internal_native_set_InputTextCursorSize(native_address, InputTextCursorSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "InputTextCursorSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_InputTextCursorSize(InputTextCursorSize);")
+    public static native void internal_native_set_InputTextCursorSize(int this_addr, float InputTextCursorSize);
 
     public float get_SeparatorSize() {
         return internal_native_get_SeparatorSize(native_address);

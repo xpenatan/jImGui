@@ -22,6 +22,8 @@ public final class ImTextureData extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_2;
 
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImTextureRect ImTextureRect_TEMP_GEN_0;
 
     private ImTextureRect ImTextureRect_TEMP_GEN_1;
@@ -185,6 +187,19 @@ public final class ImTextureData extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imtexturedata_set_backenduserdata")
     public static native void internal_native_set_BackendUserData(long this_addr, long BackendUserData_addr);
+
+    public NativeObject get_QueueUserData() {
+        long addr = internal_native_get_QueueUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imtexturedata_get_queueuserdata_addr")
+    public static native long internal_native_get_QueueUserData_addr(long this_addr);
 
     public ImTextureFormat get_Format() {
         int value = internal_native_get_Format(native_address);

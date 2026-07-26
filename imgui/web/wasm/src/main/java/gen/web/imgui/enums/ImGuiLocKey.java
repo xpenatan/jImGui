@@ -15,7 +15,9 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
     TableSizeOne(ImGuiLocKey_TableSizeOne_NATIVE()),
     TableSizeAllFit(ImGuiLocKey_TableSizeAllFit_NATIVE()),
     TableSizeAllDefault(ImGuiLocKey_TableSizeAllDefault_NATIVE()),
+    TableReset(ImGuiLocKey_TableReset_NATIVE()),
     TableResetOrder(ImGuiLocKey_TableResetOrder_NATIVE()),
+    TableResetVisibility(ImGuiLocKey_TableResetVisibility_NATIVE()),
     WindowingMainMenuBar(ImGuiLocKey_WindowingMainMenuBar_NATIVE()),
     WindowingPopup(ImGuiLocKey_WindowingPopup_NATIVE()),
     WindowingUntitled(ImGuiLocKey_WindowingUntitled_NATIVE()),
@@ -60,8 +62,14 @@ public enum ImGuiLocKey implements NativeEnum<ImGuiLocKey> {
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiLocKey_TableSizeAllDefault;")
     private static native int ImGuiLocKey_TableSizeAllDefault_NATIVE();
 
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiLocKey_TableReset;")
+    private static native int ImGuiLocKey_TableReset_NATIVE();
+
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiLocKey_TableResetOrder;")
     private static native int ImGuiLocKey_TableResetOrder_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiLocKey_TableResetVisibility;")
+    private static native int ImGuiLocKey_TableResetVisibility_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiLocKey_WindowingMainMenuBar;")
     private static native int ImGuiLocKey_WindowingMainMenuBar_NATIVE();

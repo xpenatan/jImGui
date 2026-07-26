@@ -790,8 +790,6 @@ final public class JNI_ImGui {
 
     public static native boolean internal_native_ColorButton(String desc_id, long col_addr);
 
-    public static native void internal_native_SetColorEditOptions(int ImGuiColorEditFlags);
-
     public static native boolean internal_native_TreeNode__0(String label);
 
     public static native boolean internal_native_TreeNode__1(String str_id, String fmt);
@@ -946,19 +944,19 @@ final public class JNI_ImGui {
 
     public static native void internal_native_EndPopup();
 
-    public static native void internal_native_OpenPopup__0(String str_id, int flags);
+    public static native boolean internal_native_OpenPopup__0(String str_id, int flags);
 
-    public static native void internal_native_OpenPopup__0(String str_id);
+    public static native boolean internal_native_OpenPopup__0(String str_id);
 
-    public static native void internal_native_OpenPopup__1(int id, int flags);
+    public static native boolean internal_native_OpenPopup__1(int id, int flags);
 
-    public static native void internal_native_OpenPopup__1(int id);
+    public static native boolean internal_native_OpenPopup__1(int id);
 
-    public static native void internal_native_OpenPopupOnItemClick(String str_id, int flags);
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id, int flags);
 
-    public static native void internal_native_OpenPopupOnItemClick(String str_id);
+    public static native boolean internal_native_OpenPopupOnItemClick(String str_id);
 
-    public static native void internal_native_OpenPopupOnItemClick();
+    public static native boolean internal_native_OpenPopupOnItemClick();
 
     public static native void internal_native_CloseCurrentPopup();
 
@@ -1004,7 +1002,7 @@ final public class JNI_ImGui {
 
     public static native boolean internal_native_TableSetColumnIndex(int column_n);
 
-    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_id);
+    public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_data);
 
     public static native void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight);
 
@@ -1188,6 +1186,12 @@ final public class JNI_ImGui {
 
     public static native long internal_native_GetItemRectSize_addr();
 
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button, float delay);
+
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay(int mouse_button);
+
+    public static native int internal_native_GetItemClickedCountWithSingleClickDelay();
+
     public static native long internal_native_GetMainViewport_addr();
 
     public static native long internal_native_GetBackgroundDrawList_addr(long viewport_addr);
@@ -1267,6 +1271,8 @@ final public class JNI_ImGui {
     public static native boolean internal_native_IsMouseDoubleClicked(int ImGuiMouseButton);
 
     public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton, float delay);
+
+    public static native boolean internal_native_IsMouseReleasedWithDelay(int ImGuiMouseButton);
 
     public static native int internal_native_GetMouseClickedCount(int ImGuiMouseButton);
 

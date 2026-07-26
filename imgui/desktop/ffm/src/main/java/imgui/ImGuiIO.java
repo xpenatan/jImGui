@@ -11,6 +11,7 @@ import imgui.enums.ImGuiKey;
 import imgui.enums.ImGuiMouseSource;
 import imgui.enums.ImGuiConfigFlags;
 import imgui.enums.ImGuiBackendFlags;
+import imgui.enums.ImGuiColorEditFlags;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -1125,6 +1126,37 @@ public final class ImGuiIO extends NativeObject {
         }
     }
 
+    public ImGuiColorEditFlags get_ConfigColorEditFlags() {
+        int value = internal_native_get_ConfigColorEditFlags(native_address);
+        ImGuiColorEditFlags[] values = ImGuiColorEditFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiColorEditFlags enumVal = values[i];
+            if (enumVal != ImGuiColorEditFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiColorEditFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_ConfigColorEditFlags(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_ConfigColorEditFlags__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigColorEditFlags(ImGuiColorEditFlags ConfigColorEditFlags) {
+        internal_native_set_ConfigColorEditFlags(native_address, ConfigColorEditFlags.getValue());
+    }
+
+    public static void internal_native_set_ConfigColorEditFlags(long this_addr, int ConfigColorEditFlags) {
+        try {
+            FFMHandles.internal_native_set_ConfigColorEditFlags__JI.invokeExact(this_addr, ConfigColorEditFlags);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_ConfigDragClickToInputText() {
         return internal_native_get_ConfigDragClickToInputText(native_address);
     }
@@ -1269,6 +1301,54 @@ public final class ImGuiIO extends NativeObject {
         }
     }
 
+    public boolean get_ConfigIniSettingsSaveLastUsedDate() {
+        return internal_native_get_ConfigIniSettingsSaveLastUsedDate(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigIniSettingsSaveLastUsedDate(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigIniSettingsSaveLastUsedDate__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigIniSettingsSaveLastUsedDate(boolean ConfigIniSettingsSaveLastUsedDate) {
+        internal_native_set_ConfigIniSettingsSaveLastUsedDate(native_address, ConfigIniSettingsSaveLastUsedDate);
+    }
+
+    public static void internal_native_set_ConfigIniSettingsSaveLastUsedDate(long this_addr, boolean ConfigIniSettingsSaveLastUsedDate) {
+        try {
+            FFMHandles.internal_native_set_ConfigIniSettingsSaveLastUsedDate__JZ.invokeExact(this_addr, ConfigIniSettingsSaveLastUsedDate);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_ConfigIniSettingsAutoDiscardMonths() {
+        return internal_native_get_ConfigIniSettingsAutoDiscardMonths(native_address);
+    }
+
+    public static int internal_native_get_ConfigIniSettingsAutoDiscardMonths(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_ConfigIniSettingsAutoDiscardMonths__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+        internal_native_set_ConfigIniSettingsAutoDiscardMonths(native_address, ConfigIniSettingsAutoDiscardMonths);
+    }
+
+    public static void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths) {
+        try {
+            FFMHandles.internal_native_set_ConfigIniSettingsAutoDiscardMonths__JI.invokeExact(this_addr, ConfigIniSettingsAutoDiscardMonths);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);
     }
@@ -1312,6 +1392,30 @@ public final class ImGuiIO extends NativeObject {
     public static void internal_native_set_MouseDoubleClickMaxDist(long this_addr, float MouseDoubleClickMaxDist) {
         try {
             FFMHandles.internal_native_set_MouseDoubleClickMaxDist__JF.invokeExact(this_addr, MouseDoubleClickMaxDist);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_MouseSingleClickDelay() {
+        return internal_native_get_MouseSingleClickDelay(native_address);
+    }
+
+    public static float internal_native_get_MouseSingleClickDelay(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_MouseSingleClickDelay__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_MouseSingleClickDelay(float MouseSingleClickDelay) {
+        internal_native_set_MouseSingleClickDelay(native_address, MouseSingleClickDelay);
+    }
+
+    public static void internal_native_set_MouseSingleClickDelay(long this_addr, float MouseSingleClickDelay) {
+        try {
+            FFMHandles.internal_native_set_MouseSingleClickDelay__JF.invokeExact(this_addr, MouseSingleClickDelay);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1881,6 +1985,10 @@ public final class ImGuiIO extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_set_ConfigInputTextEnterKeepActive__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configinputtextenterkeepactive", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigColorEditFlags__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configcoloreditflags", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigColorEditFlags__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configcoloreditflags", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle internal_native_get_ConfigDragClickToInputText__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdragclicktoinputtext", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ConfigDragClickToInputText__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdragclicktoinputtext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
@@ -1905,6 +2013,14 @@ public final class ImGuiIO extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_set_ConfigMemoryCompactTimer__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configmemorycompacttimer", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigIniSettingsSaveLastUsedDate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configinisettingssavelastuseddate", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigIniSettingsSaveLastUsedDate__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configinisettingssavelastuseddate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigIniSettingsAutoDiscardMonths__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configinisettingsautodiscardmonths", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigIniSettingsAutoDiscardMonths__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configinisettingsautodiscardmonths", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
         static final java.lang.invoke.MethodHandle internal_native_get_MouseDoubleClickTime__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_mousedoubleclicktime", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_MouseDoubleClickTime__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_mousedoubleclicktime", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
@@ -1912,6 +2028,10 @@ public final class ImGuiIO extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_MouseDoubleClickMaxDist__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_mousedoubleclickmaxdist", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_MouseDoubleClickMaxDist__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_mousedoubleclickmaxdist", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_MouseSingleClickDelay__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_mousesingleclickdelay", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_MouseSingleClickDelay__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_mousesingleclickdelay", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_get_MouseDragThreshold__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_mousedragthreshold", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 

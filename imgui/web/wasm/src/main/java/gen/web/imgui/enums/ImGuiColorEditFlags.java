@@ -35,6 +35,7 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
     Float(ImGuiColorEditFlags_Float_NATIVE()),
     PickerHueBar(ImGuiColorEditFlags_PickerHueBar_NATIVE()),
     PickerHueWheel(ImGuiColorEditFlags_PickerHueWheel_NATIVE()),
+    PickerNoRotate(ImGuiColorEditFlags_PickerNoRotate_NATIVE()),
     InputRGB(ImGuiColorEditFlags_InputRGB_NATIVE()),
     InputHSV(ImGuiColorEditFlags_InputHSV_NATIVE()),
     DefaultOptions_(ImGuiColorEditFlags_DefaultOptions__NATIVE()),
@@ -137,6 +138,9 @@ public enum ImGuiColorEditFlags implements NativeEnum<ImGuiColorEditFlags> {
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_PickerHueWheel;")
     private static native int ImGuiColorEditFlags_PickerHueWheel_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_PickerNoRotate;")
+    private static native int ImGuiColorEditFlags_PickerNoRotate_NATIVE();
 
     @org.teavm.jso.JSBody(script = "return imgui.ImGuiColorEditFlags_InputRGB;")
     private static native int ImGuiColorEditFlags_InputRGB_NATIVE();

@@ -58,6 +58,8 @@ final public class JNI_ImGuiColorEditFlags {
 
     static native public int ImGuiColorEditFlags_PickerHueWheel_NATIVE();
 
+    static native public int ImGuiColorEditFlags_PickerNoRotate_NATIVE();
+
     static native public int ImGuiColorEditFlags_InputRGB_NATIVE();
 
     static native public int ImGuiColorEditFlags_InputHSV_NATIVE();

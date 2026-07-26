@@ -49,4 +49,6 @@ final public class JNI_ImGuiMultiSelectFlags {
     static native public int ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE();
 
     static native public int ImGuiMultiSelectFlags_SelectOnMask__NATIVE();
+
+    static native public int ImGuiMultiSelectFlags_CheckboxMode__NATIVE();
 }

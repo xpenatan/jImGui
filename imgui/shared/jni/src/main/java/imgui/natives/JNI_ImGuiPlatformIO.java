@@ -23,4 +23,8 @@ final public class JNI_ImGuiPlatformIO {
     public static native long internal_native_get_Viewports_addr(long this_addr);
 
     public static native void internal_native_set_Viewports(long this_addr, long Viewports_addr);
+
+    public static native int internal_native_get_Platform_SessionDate(long this_addr);
+
+    public static native void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate);
 }

@@ -25,6 +25,9 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
     ButtonRepeat(ImGuiItemFlags_ButtonRepeat_NATIVE()),
     AutoClosePopups(ImGuiItemFlags_AutoClosePopups_NATIVE()),
     AllowDuplicateId(ImGuiItemFlags_AllowDuplicateId_NATIVE()),
+    LiveEditOnInputText(ImGuiItemFlags_LiveEditOnInputText_NATIVE()),
+    LiveEditOnInputScalar(ImGuiItemFlags_LiveEditOnInputScalar_NATIVE()),
+    LiveEditOnInput(ImGuiItemFlags_LiveEditOnInput_NATIVE()),
     Disabled(ImGuiItemFlags_Disabled_NATIVE());
 
     private int value;
@@ -105,6 +108,30 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
         }
     }
 
+    private static int ImGuiItemFlags_LiveEditOnInputText_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiItemFlags_LiveEditOnInputText_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiItemFlags_LiveEditOnInputScalar_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiItemFlags_LiveEditOnInputScalar_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static int ImGuiItemFlags_LiveEditOnInput_NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiItemFlags_LiveEditOnInput_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static int ImGuiItemFlags_Disabled_NATIVE() {
         try {
             return (int) FFMHandles.ImGuiItemFlags_Disabled_NATIVE__.invokeExact();
@@ -128,6 +155,12 @@ public enum ImGuiItemFlags implements NativeEnum<ImGuiItemFlags> {
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_AutoClosePopups_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_autoclosepopups_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_AllowDuplicateId_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_allowduplicateid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiItemFlags_LiveEditOnInputText_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_liveeditoninputtext_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiItemFlags_LiveEditOnInputScalar_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_liveeditoninputscalar_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiItemFlags_LiveEditOnInput_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_liveeditoninput_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiItemFlags_Disabled_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguiitemflags_imguiitemflags_disabled_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }

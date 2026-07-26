@@ -37,7 +37,8 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
     SelectOnClickRelease(ImGuiMultiSelectFlags_SelectOnClickRelease_NATIVE()),
     NavWrapX(ImGuiMultiSelectFlags_NavWrapX_NATIVE()),
     NoSelectOnRightClick(ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE()),
-    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE());
+    SelectOnMask_(ImGuiMultiSelectFlags_SelectOnMask__NATIVE()),
+    CheckboxMode_(ImGuiMultiSelectFlags_CheckboxMode__NATIVE());
 
     private int value;
 
@@ -221,6 +222,14 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
         }
     }
 
+    private static int ImGuiMultiSelectFlags_CheckboxMode__NATIVE() {
+        try {
+            return (int) FFMHandles.ImGuiMultiSelectFlags_CheckboxMode__NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiMultiSelectFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguimultiselectflags_imguimultiselectflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -262,5 +271,7 @@ public enum ImGuiMultiSelectFlags implements NativeEnum<ImGuiMultiSelectFlags> {
         static final java.lang.invoke.MethodHandle ImGuiMultiSelectFlags_NoSelectOnRightClick_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguimultiselectflags_imguimultiselectflags_noselectonrightclick_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiMultiSelectFlags_SelectOnMask__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguimultiselectflags_imguimultiselectflags_selectonmask__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ImGuiMultiSelectFlags_CheckboxMode__NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguimultiselectflags_imguimultiselectflags_checkboxmode__native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

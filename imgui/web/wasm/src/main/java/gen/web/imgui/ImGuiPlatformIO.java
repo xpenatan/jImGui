@@ -90,4 +90,18 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "Viewports_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);jsObj.set_Viewports(Viewports_addr);")
     public static native void internal_native_set_Viewports(int this_addr, int Viewports_addr);
+
+    public int get_Platform_SessionDate() {
+        return internal_native_get_Platform_SessionDate(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);return jsObj.get_Platform_SessionDate();")
+    public static native int internal_native_get_Platform_SessionDate(int this_addr);
+
+    public void set_Platform_SessionDate(int Platform_SessionDate) {
+        internal_native_set_Platform_SessionDate(native_address, Platform_SessionDate);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "Platform_SessionDate"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiPlatformIO);jsObj.set_Platform_SessionDate(Platform_SessionDate);")
+    public static native void internal_native_set_Platform_SessionDate(int this_addr, int Platform_SessionDate);
 }
