@@ -3,6 +3,8 @@ jImGuiGroup = "com.github.xpenatan.jImGui"
 jImGuiName = "jImGui"
 jImGuiRelease = "1.92.9.0"
 jImGuiSnapshot = "-SNAPSHOT"
+useRepoLibs = "true"
+repoLibVersion = "-SNAPSHOT"
 
 javaMain = "1.8"
 javaWeb = "17"

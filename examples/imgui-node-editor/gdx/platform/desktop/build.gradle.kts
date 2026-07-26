@@ -2,6 +2,7 @@ plugins {
     id("java")
 }
 
+val useRepoLibs = rootProject.extra["examplesUseRepoLibs"] as Boolean
 val imguiRuntimeProject = ":imgui:desktop:c"
 val imguiSharedProject = ":imgui:shared:c"
 val extensionRuntimeProject = ":extensions:imgui-node-editor:nodeeditor-c"
@@ -60,15 +61,17 @@ val prepareTeaVMCBuildRoot = tasks.register("prepareTeaVMCBuildRoot") {
 
 fun Task.configureRuntimeInputs() {
     dependsOn("classes", prepareTeaVMCBuildRoot)
-    currentHostExtensionCBuildTask()?.let { nativeBuildTask ->
-        dependsOn(nativeBuildTask)
-        listOf(imguiSharedProject, imguiRuntimeProject, extensionRuntimeProject).forEach { projectPath ->
-            project(projectPath).tasks.matching { it.name == "processResources" || it.name == "jar" }.configureEach {
-                mustRunAfter(nativeBuildTask)
+    if(!useRepoLibs) {
+        currentHostExtensionCBuildTask()?.let { nativeBuildTask ->
+            dependsOn(nativeBuildTask)
+            listOf(imguiSharedProject, imguiRuntimeProject, extensionRuntimeProject).forEach { projectPath ->
+                project(projectPath).tasks.matching { it.name == "processResources" || it.name == "jar" }.configureEach {
+                    mustRunAfter(nativeBuildTask)
+                }
             }
         }
+        dependsOn("$imguiRuntimeProject:jar", "$extensionRuntimeProject:jar")
     }
-    dependsOn("$imguiRuntimeProject:jar", "$extensionRuntimeProject:jar")
     inputs.files(nativeRuntimeClasspath)
 }
 

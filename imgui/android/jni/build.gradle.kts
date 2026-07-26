@@ -17,9 +17,21 @@ android {
             jniLibs.directories.add("$projectDir/../../builder/build/c++/libs/android")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
         targetCompatibility = JavaVersion.toVersion(libs.versions.javaMain.get())
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    publishing {
+        singleVariant("release")
     }
 }
 
@@ -35,14 +47,18 @@ tasks.named("clean") {
     }
 }
 
-// TODO Uncomment when android is ready
-//publishing {
-//    publications {
-//        create<MavenPublication>("maven") {
-//            artifactId = moduleName
-//            afterEvaluate {
-//                artifact(tasks.named("bundleReleaseAar"))
-//            }
-//        }
-//    }
-//}
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = moduleName
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications.named<MavenPublication>("maven") {
+            from(components["release"])
+        }
+    }
+}

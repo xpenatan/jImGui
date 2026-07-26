@@ -87,6 +87,20 @@ dependencies {
 }
 ```
 
+## Running examples with Maven artifacts
+
+Examples use the local jImGui projects by default. To run them with published
+artifacts instead, update these entries in `gradle/libs.versions.toml`:
+
+```toml
+[versions]
+useRepoLibs = "true"
+repoLibVersion = "-SNAPSHOT"
+```
+
+`repoLibVersion` is used directly as the Maven artifact version. Set it to
+`-SNAPSHOT`, a release such as `1.92.9.0`, or any other published version.
+
 ## Build source
 
 * Requirements: Java 11, mingw64 and emscripten
