@@ -12,7 +12,7 @@ import imgui.enums.ImGuiMouseSource;
 import imgui.enums.ImGuiConfigFlags;
 import imgui.enums.ImGuiBackendFlags;
 
-public class ImGuiIO extends NativeObject {
+public final class ImGuiIO extends NativeObject {
 
     static public final ImGuiIO NULL = ImGuiIO.native_new();
 

@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImVec2 extends NativeObject {
+public final class ImVec2 extends NativeObject {
 
     static public final ImVec2 NULL = ImVec2.native_new();
 

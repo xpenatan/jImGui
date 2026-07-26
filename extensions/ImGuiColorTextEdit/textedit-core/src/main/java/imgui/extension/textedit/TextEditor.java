@@ -11,7 +11,7 @@ import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import imgui.ImVec2;
 
-public class TextEditor extends NativeObject {
+public final class TextEditor extends NativeObject {
 
     static public final TextEditor NULL = TextEditor.native_new();
 

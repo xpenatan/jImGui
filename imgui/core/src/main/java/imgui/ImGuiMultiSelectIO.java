@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiMultiSelectIO extends NativeObject {
+public final class ImGuiMultiSelectIO extends NativeObject {
 
     static public final ImGuiMultiSelectIO NULL = ImGuiMultiSelectIO.native_new();
 

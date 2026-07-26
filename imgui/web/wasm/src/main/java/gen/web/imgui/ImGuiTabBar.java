@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiTabBar extends NativeObject {
+public final class ImGuiTabBar extends NativeObject {
 
     static public final ImGuiTabBar NULL = ImGuiTabBar.native_new();
 

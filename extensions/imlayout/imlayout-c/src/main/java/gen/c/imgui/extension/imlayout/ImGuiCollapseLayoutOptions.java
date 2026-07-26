@@ -6,7 +6,7 @@
 
 package gen.c.imgui.extension.imlayout;
 
-public class ImGuiCollapseLayoutOptions extends ImGuiLayoutOptions {
+public final class ImGuiCollapseLayoutOptions extends ImGuiLayoutOptions {
 
     static public final ImGuiCollapseLayoutOptions NULL = ImGuiCollapseLayoutOptions.native_new();
 

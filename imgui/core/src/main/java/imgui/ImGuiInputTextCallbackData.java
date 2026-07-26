@@ -9,7 +9,7 @@ package imgui;
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiInputTextFlags;
 
-public class ImGuiInputTextCallbackData extends NativeObject {
+public final class ImGuiInputTextCallbackData extends NativeObject {
 
     static public final ImGuiInputTextCallbackData NULL = ImGuiInputTextCallbackData.native_new();
 

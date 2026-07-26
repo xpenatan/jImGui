@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImTextureIDRef extends NativeObject {
+public final class ImTextureIDRef extends NativeObject {
 
     static public final ImTextureIDRef NULL = ImTextureIDRef.native_new();
 

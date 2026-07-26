@@ -17,7 +17,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiStyle extends NativeObject {
+public final class ImGuiStyle extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

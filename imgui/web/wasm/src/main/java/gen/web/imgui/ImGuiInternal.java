@@ -23,7 +23,7 @@ import gen.web.imgui.enums.ImGuiDataType;
 import gen.web.imgui.enums.ImGuiSliderFlags;
 import gen.web.imgui.enums.ImGuiAxis;
 
-public class ImGuiInternal extends NativeObject {
+public final class ImGuiInternal extends NativeObject {
 
     static private ImGuiWindow ImGuiWindow_TEMP_STATIC_GEN_0;
 

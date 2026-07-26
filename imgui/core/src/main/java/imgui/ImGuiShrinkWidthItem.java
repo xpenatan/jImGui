@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiShrinkWidthItem extends NativeObject {
+public final class ImGuiShrinkWidthItem extends NativeObject {
 
     static public final ImGuiShrinkWidthItem NULL = ImGuiShrinkWidthItem.native_new();
 

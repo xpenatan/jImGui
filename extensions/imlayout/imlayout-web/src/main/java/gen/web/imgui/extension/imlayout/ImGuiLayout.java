@@ -9,7 +9,7 @@ package gen.web.imgui.extension.imlayout;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.ImVec2;
 
-public class ImGuiLayout extends NativeObject {
+public final class ImGuiLayout extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImTextureRect extends NativeObject {
+public final class ImVectorImTextureRect extends NativeObject {
 
     static public final ImVectorImTextureRect NULL = ImVectorImTextureRect.native_new();
 

@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class EditorContext extends NativeObject {
+public final class EditorContext extends NativeObject {
 
     static public final EditorContext NULL = EditorContext.native_new();
 

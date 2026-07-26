@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiMultiSelectIO extends NativeObject {
+public final class ImGuiMultiSelectIO extends NativeObject {
 
     static public final ImGuiMultiSelectIO NULL = ImGuiMultiSelectIO.native_new();
 

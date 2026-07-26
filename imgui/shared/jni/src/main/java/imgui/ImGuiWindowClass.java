@@ -11,7 +11,7 @@ import imgui.enums.ImGuiViewportFlags;
 import imgui.enums.ImGuiTabItemFlags;
 import imgui.enums.ImGuiDockNodeFlags;
 
-public class ImGuiWindowClass extends NativeObject {
+public final class ImGuiWindowClass extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 

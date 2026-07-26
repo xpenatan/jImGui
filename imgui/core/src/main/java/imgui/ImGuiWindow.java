@@ -9,7 +9,7 @@ package imgui;
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiWindowFlags;
 
-public class ImGuiWindow extends NativeObject {
+public final class ImGuiWindow extends NativeObject {
 
     static public final ImGuiWindow NULL = ImGuiWindow.native_new();
 

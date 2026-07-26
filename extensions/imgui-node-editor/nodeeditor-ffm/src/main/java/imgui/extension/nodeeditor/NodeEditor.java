@@ -20,7 +20,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class NodeEditor extends NativeObject {
+public final class NodeEditor extends NativeObject {
 
     static private EditorContext EditorContext_TEMP_STATIC_GEN_0;
 

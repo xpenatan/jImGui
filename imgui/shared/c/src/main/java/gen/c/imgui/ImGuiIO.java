@@ -12,7 +12,7 @@ import gen.c.imgui.enums.ImGuiMouseSource;
 import gen.c.imgui.enums.ImGuiConfigFlags;
 import gen.c.imgui.enums.ImGuiBackendFlags;
 
-public class ImGuiIO extends NativeObject {
+public final class ImGuiIO extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImRect extends NativeObject {
+public final class ImRect extends NativeObject {
 
     static public final ImRect NULL = ImRect.native_new();
 

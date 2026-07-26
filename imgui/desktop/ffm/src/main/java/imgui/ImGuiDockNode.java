@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiDockNode extends NativeObject {
+public final class ImGuiDockNode extends NativeObject {
 
     private ImGuiTabBar ImGuiTabBar_TEMP_GEN_0;
 

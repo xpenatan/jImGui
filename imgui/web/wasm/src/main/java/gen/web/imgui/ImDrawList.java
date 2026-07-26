@@ -9,7 +9,7 @@ package gen.web.imgui;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImDrawFlags;
 
-public class ImDrawList extends NativeObject {
+public final class ImDrawList extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

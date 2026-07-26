@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImVectorImDrawListPtr extends NativeObject {
+public final class ImVectorImDrawListPtr extends NativeObject {
 
     private ImDrawList ImDrawList_TEMP_GEN_0;
 

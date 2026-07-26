@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImFont extends NativeObject {
+public final class ImFont extends NativeObject {
 
     static public final ImFont NULL = ImFont.native_new();
 

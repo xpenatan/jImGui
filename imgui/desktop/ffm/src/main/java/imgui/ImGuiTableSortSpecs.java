@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiTableSortSpecs extends NativeObject {
+public final class ImGuiTableSortSpecs extends NativeObject {
 
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
 

@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImTextureRect extends NativeObject {
+public final class ImTextureRect extends NativeObject {
 
     static public final ImTextureRect NULL = ImTextureRect.native_new();
 

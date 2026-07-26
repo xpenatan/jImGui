@@ -9,7 +9,7 @@ package gen.web.imgui;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImGuiWindowFlags;
 
-public class ImGuiWindow extends NativeObject {
+public final class ImGuiWindow extends NativeObject {
 
     private ImRect ImRect_TEMP_GEN_0;
 

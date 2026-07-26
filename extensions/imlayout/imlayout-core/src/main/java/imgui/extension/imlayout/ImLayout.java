@@ -12,7 +12,7 @@ import imgui.ImRect;
 import com.github.xpenatan.jparser.runtime.helper.NativeBoolArray;
 import imgui.enums.ImGuiButtonFlags;
 
-public class ImLayout extends NativeObject {
+public final class ImLayout extends NativeObject {
 
     public static final int WRAP_PARENT = get_WRAP_PARENT();
 

@@ -14,7 +14,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiCollapseLayoutOptions extends ImGuiLayoutOptions {
+public final class ImGuiCollapseLayoutOptions extends ImGuiLayoutOptions {
 
     static public final ImGuiCollapseLayoutOptions NULL = ImGuiCollapseLayoutOptions.native_new();
 

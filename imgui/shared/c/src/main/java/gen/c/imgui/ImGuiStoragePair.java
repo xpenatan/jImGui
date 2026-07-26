@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiStoragePair extends NativeObject {
+public final class ImGuiStoragePair extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 

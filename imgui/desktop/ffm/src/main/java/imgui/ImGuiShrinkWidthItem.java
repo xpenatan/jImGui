@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiShrinkWidthItem extends NativeObject {
+public final class ImGuiShrinkWidthItem extends NativeObject {
 
     static public final ImGuiShrinkWidthItem NULL = ImGuiShrinkWidthItem.native_new();
 

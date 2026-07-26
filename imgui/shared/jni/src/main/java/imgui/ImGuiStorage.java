@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiStorage extends NativeObject {
+public final class ImGuiStorage extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 

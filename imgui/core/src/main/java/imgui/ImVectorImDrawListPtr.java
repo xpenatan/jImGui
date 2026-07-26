@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImDrawListPtr extends NativeObject {
+public final class ImVectorImDrawListPtr extends NativeObject {
 
     static public final ImVectorImDrawListPtr NULL = ImVectorImDrawListPtr.native_new();
 

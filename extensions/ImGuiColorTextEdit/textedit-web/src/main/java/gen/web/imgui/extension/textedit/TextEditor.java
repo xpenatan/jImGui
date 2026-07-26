@@ -11,7 +11,7 @@ import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import gen.web.imgui.ImVec2;
 
-public class TextEditor extends NativeObject {
+public final class TextEditor extends NativeObject {
 
     private NativeString NativeString_TEMP_GEN_0;
 

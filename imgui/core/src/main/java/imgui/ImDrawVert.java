@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImDrawVert extends NativeObject {
+public final class ImDrawVert extends NativeObject {
 
     static public final ImDrawVert NULL = ImDrawVert.native_new();
 

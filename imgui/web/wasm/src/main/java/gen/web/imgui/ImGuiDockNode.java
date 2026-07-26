@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiDockNode extends NativeObject {
+public final class ImGuiDockNode extends NativeObject {
 
     private ImGuiTabBar ImGuiTabBar_TEMP_GEN_0;
 

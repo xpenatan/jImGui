@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImGuiWindowStackData extends NativeObject {
+public final class ImVectorImGuiWindowStackData extends NativeObject {
 
     private ImGuiWindowStackData ImGuiWindowStackData_TEMP_GEN_0;
 

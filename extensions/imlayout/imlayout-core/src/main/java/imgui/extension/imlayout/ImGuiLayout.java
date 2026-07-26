@@ -9,7 +9,7 @@ package imgui.extension.imlayout;
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.ImVec2;
 
-public class ImGuiLayout extends NativeObject {
+public final class ImGuiLayout extends NativeObject {
 
     static public final ImGuiLayout NULL = ImGuiLayout.native_new();
 

@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImTextureRef extends NativeObject {
+public final class ImTextureRef extends NativeObject {
 
     static public final ImTextureRef NULL = ImTextureRef.native_new();
 

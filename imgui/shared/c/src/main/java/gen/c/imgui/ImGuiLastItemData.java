@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiLastItemData extends NativeObject {
+public final class ImGuiLastItemData extends NativeObject {
 
     private ImRect ImRect_TEMP_GEN_0;
 

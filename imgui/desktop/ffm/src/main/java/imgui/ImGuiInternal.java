@@ -30,7 +30,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiInternal extends NativeObject {
+public final class ImGuiInternal extends NativeObject {
 
     static private ImGuiWindow ImGuiWindow_TEMP_STATIC_GEN_0;
 

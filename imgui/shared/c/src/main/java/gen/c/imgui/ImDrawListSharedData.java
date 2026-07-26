@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImDrawListSharedData extends NativeObject {
+public final class ImDrawListSharedData extends NativeObject {
 
     static public final ImDrawListSharedData NULL = ImDrawListSharedData.native_new();
 

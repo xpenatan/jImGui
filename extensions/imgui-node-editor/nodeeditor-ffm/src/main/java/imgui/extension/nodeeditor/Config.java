@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class Config extends NativeObject {
+public final class Config extends NativeObject {
 
     static public final Config NULL = Config.native_new();
 

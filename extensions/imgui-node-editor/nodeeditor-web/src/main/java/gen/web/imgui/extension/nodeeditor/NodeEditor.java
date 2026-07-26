@@ -13,7 +13,7 @@ import gen.web.imgui.ImDrawList;
 import gen.web.imgui.ImVec4;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
-public class NodeEditor extends NativeObject {
+public final class NodeEditor extends NativeObject {
 
     static private EditorContext EditorContext_TEMP_STATIC_GEN_0;
 

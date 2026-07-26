@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiWindowStackData extends NativeObject {
+public final class ImGuiWindowStackData extends NativeObject {
 
     static public final ImGuiWindowStackData NULL = ImGuiWindowStackData.native_new();
 

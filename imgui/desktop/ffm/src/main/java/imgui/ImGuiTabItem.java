@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiTabItem extends NativeObject {
+public final class ImGuiTabItem extends NativeObject {
 
     static public final ImGuiTabItem NULL = ImGuiTabItem.native_new();
 

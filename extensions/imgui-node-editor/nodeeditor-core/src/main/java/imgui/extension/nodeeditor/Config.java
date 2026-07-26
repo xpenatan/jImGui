@@ -8,7 +8,7 @@ package imgui.extension.nodeeditor;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Config extends NativeObject {
+public final class Config extends NativeObject {
 
     static public final Config NULL = Config.native_new();
 

@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiTabItem extends NativeObject {
+public final class ImGuiTabItem extends NativeObject {
 
     static public final ImGuiTabItem NULL = ImGuiTabItem.native_new();
 

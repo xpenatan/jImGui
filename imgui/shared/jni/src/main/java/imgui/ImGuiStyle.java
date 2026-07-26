@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiDir;
 import imgui.enums.ImGuiHoveredFlags;
 
-public class ImGuiStyle extends NativeObject {
+public final class ImGuiStyle extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

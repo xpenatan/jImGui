@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiTableSortSpecs extends NativeObject {
+public final class ImGuiTableSortSpecs extends NativeObject {
 
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
 

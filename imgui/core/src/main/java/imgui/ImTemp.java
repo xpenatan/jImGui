@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImTemp extends NativeObject {
+public final class ImTemp extends NativeObject {
 
     static public final ImTemp NULL = ImTemp.native_new();
 

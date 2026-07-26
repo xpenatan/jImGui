@@ -16,7 +16,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiInputTextCallbackData extends NativeObject {
+public final class ImGuiInputTextCallbackData extends NativeObject {
 
     static public final ImGuiInputTextCallbackData NULL = ImGuiInputTextCallbackData.native_new();
 

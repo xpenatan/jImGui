@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImFontAtlas extends NativeObject {
+public final class ImFontAtlas extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_0;
 

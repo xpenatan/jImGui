@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImDrawVert extends NativeObject {
+public final class ImVectorImDrawVert extends NativeObject {
 
     private ImDrawVert ImDrawVert_TEMP_GEN_0;
 

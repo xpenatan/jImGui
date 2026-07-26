@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImVectorImTextureRect extends NativeObject {
+public final class ImVectorImTextureRect extends NativeObject {
 
     private ImTextureRect ImTextureRect_TEMP_GEN_0;
 

@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImDrawCmd extends NativeObject {
+public final class ImDrawCmd extends NativeObject {
 
     private ImTextureIDRef ImTextureIDRef_TEMP_GEN_0;
 

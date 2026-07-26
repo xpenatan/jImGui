@@ -9,7 +9,7 @@ package gen.web.imgui;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImGuiDrawCallbackType;
 
-public class ImGuiDrawCallbacks extends NativeObject {
+public final class ImGuiDrawCallbacks extends NativeObject {
 
     static public final ImGuiDrawCallbacks NULL = ImGuiDrawCallbacks.native_new();
 

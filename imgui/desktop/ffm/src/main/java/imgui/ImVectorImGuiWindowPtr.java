@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImVectorImGuiWindowPtr extends NativeObject {
+public final class ImVectorImGuiWindowPtr extends NativeObject {
 
     private ImGuiWindow ImGuiWindow_TEMP_GEN_0;
 

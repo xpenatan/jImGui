@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImTextureFormat;
 import imgui.enums.ImTextureStatus;
 
-public class ImTextureData extends NativeObject {
+public final class ImTextureData extends NativeObject {
 
     static public final ImTextureData NULL = ImTextureData.native_new();
 

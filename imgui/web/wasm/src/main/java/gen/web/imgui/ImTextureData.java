@@ -10,7 +10,7 @@ import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImTextureFormat;
 import gen.web.imgui.enums.ImTextureStatus;
 
-public class ImTextureData extends NativeObject {
+public final class ImTextureData extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 

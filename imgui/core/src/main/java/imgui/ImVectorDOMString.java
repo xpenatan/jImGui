@@ -9,7 +9,7 @@ package imgui;
 import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
 
-public class ImVectorDOMString extends NativeObject {
+public final class ImVectorDOMString extends NativeObject {
 
     static public final ImVectorDOMString NULL = ImVectorDOMString.native_new();
 

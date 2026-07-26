@@ -16,7 +16,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGuiDrawCallbacks extends NativeObject {
+public final class ImGuiDrawCallbacks extends NativeObject {
 
     static public final ImGuiDrawCallbacks NULL = ImGuiDrawCallbacks.native_new();
 

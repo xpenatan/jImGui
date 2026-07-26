@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImFontBaked extends NativeObject {
+public final class ImFontBaked extends NativeObject {
 
     static public final ImFontBaked NULL = ImFontBaked.native_new();
 

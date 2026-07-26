@@ -12,7 +12,7 @@ import gen.web.imgui.ImVec2;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeBoolArray;
 import gen.web.imgui.enums.ImGuiButtonFlags;
 
-public class ImLayout extends NativeObject {
+public final class ImLayout extends NativeObject {
 
     static private ImGuiLayout ImGuiLayout_TEMP_STATIC_GEN_0;
 

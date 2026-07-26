@@ -8,7 +8,7 @@ package imgui.extension.nodeeditor;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class EditorContext extends NativeObject {
+public final class EditorContext extends NativeObject {
 
     static public final EditorContext NULL = EditorContext.native_new();
 

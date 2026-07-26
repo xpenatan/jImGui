@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class Style extends NativeObject {
+public final class Style extends NativeObject {
 
     static public final Style NULL = Style.native_new();
 

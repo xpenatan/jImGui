@@ -49,7 +49,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImGui extends NativeObject {
+public final class ImGui extends NativeObject {
 
     static private ImGuiContext ImGuiContext_TEMP_STATIC_GEN_0;
 

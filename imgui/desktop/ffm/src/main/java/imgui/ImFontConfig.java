@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImFontConfig extends NativeObject {
+public final class ImFontConfig extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 

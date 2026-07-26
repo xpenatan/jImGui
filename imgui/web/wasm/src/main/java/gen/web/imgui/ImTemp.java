@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImTemp extends NativeObject {
+public final class ImTemp extends NativeObject {
 
     static private ImTextureIDRef ImTextureIDRef_TEMP_STATIC_GEN_0;
 

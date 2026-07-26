@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImDrawCmd extends NativeObject {
+public final class ImVectorImDrawCmd extends NativeObject {
 
     private ImDrawCmd ImDrawCmd_TEMP_GEN_0;
 

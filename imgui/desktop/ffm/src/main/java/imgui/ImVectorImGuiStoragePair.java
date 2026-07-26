@@ -15,7 +15,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImVectorImGuiStoragePair extends NativeObject {
+public final class ImVectorImGuiStoragePair extends NativeObject {
 
     private ImGuiStoragePair ImGuiStoragePair_TEMP_GEN_0;
 

@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImDrawCmd extends NativeObject {
+public final class ImDrawCmd extends NativeObject {
 
     private ImTextureIDRef ImTextureIDRef_TEMP_GEN_0;
 

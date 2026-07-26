@@ -8,7 +8,7 @@ package gen.web.imgui.extension.nodeeditor;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class Style extends NativeObject {
+public final class Style extends NativeObject {
 
     static public final Style NULL = Style.native_new();
 

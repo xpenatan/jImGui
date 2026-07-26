@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVec4 extends NativeObject {
+public final class ImVec4 extends NativeObject {
 
     static public final ImVec4 NULL = ImVec4.native_new();
 

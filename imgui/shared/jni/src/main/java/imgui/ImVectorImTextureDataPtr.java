@@ -8,7 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImTextureDataPtr extends NativeObject {
+public final class ImVectorImTextureDataPtr extends NativeObject {
 
     private ImTextureData ImTextureData_TEMP_GEN_0;
 

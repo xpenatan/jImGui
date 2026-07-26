@@ -19,7 +19,7 @@ import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
-public class ImLayout extends NativeObject {
+public final class ImLayout extends NativeObject {
 
     static private ImGuiLayout ImGuiLayout_TEMP_STATIC_GEN_0;
 

@@ -8,7 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorUnsignedInt extends NativeObject {
+public final class ImVectorUnsignedInt extends NativeObject {
 
     static public final ImVectorUnsignedInt NULL = ImVectorUnsignedInt.native_new();
 

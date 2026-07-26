@@ -42,7 +42,7 @@ import imgui.enums.ImGuiMouseButton;
 import imgui.enums.ImGuiKey;
 import imgui.enums.ImGuiInputFlags;
 
-public class ImGui extends NativeObject {
+public final class ImGui extends NativeObject {
 
     static private ImGuiContext ImGuiContext_TEMP_STATIC_GEN_0;
 

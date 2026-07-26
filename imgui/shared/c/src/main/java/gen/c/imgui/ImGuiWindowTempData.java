@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImGuiWindowTempData extends NativeObject {
+public final class ImGuiWindowTempData extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_0;
 

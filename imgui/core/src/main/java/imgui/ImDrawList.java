@@ -9,7 +9,7 @@ package imgui;
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImDrawFlags;
 
-public class ImDrawList extends NativeObject {
+public final class ImDrawList extends NativeObject {
 
     static public final ImDrawList NULL = ImDrawList.native_new();
 

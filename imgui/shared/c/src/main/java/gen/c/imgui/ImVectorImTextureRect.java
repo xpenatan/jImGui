@@ -8,7 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ImVectorImTextureRect extends NativeObject {
+public final class ImVectorImTextureRect extends NativeObject {
 
     private ImTextureRect ImTextureRect_TEMP_GEN_0;
 

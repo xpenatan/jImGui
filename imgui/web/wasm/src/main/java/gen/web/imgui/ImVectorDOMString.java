@@ -9,7 +9,7 @@ package gen.web.imgui;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
 
-public class ImVectorDOMString extends NativeObject {
+public final class ImVectorDOMString extends NativeObject {
 
     private NativeString NativeString_TEMP_GEN_0;
 

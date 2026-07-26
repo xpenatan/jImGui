@@ -13,7 +13,7 @@ import imgui.ImVec2;
 import imgui.ImDrawList;
 import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
-public class NodeEditor extends NativeObject {
+public final class NodeEditor extends NativeObject {
 
     static public final NodeEditor NULL = NodeEditor.native_new();
 

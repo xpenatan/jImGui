@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
 import imgui.enums.ImGuiViewportFlags;
 
-public class ImGuiViewport extends NativeObject {
+public final class ImGuiViewport extends NativeObject {
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
 
