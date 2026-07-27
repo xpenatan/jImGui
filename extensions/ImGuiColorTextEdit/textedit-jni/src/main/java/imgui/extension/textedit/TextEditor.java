@@ -8,14 +8,30 @@ package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
-import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import imgui.ImVec2;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
 public final class TextEditor extends NativeObject {
 
     private NativeString NativeString_TEMP_GEN_0;
 
     private NativeString NativeString_TEMP_GEN_1;
+
+    private NativeString NativeString_TEMP_GEN_2;
+
+    private NativeString NativeString_TEMP_GEN_3;
+
+    private NativeString NativeString_TEMP_GEN_4;
+
+    private NativeString NativeString_TEMP_GEN_5;
+
+    private NativeString NativeString_TEMP_GEN_6;
+
+    private NativeString NativeString_TEMP_GEN_7;
+
+    private NativeString NativeString_TEMP_GEN_8;
+
+    private NativeString NativeString_TEMP_GEN_9;
 
     static public final TextEditor NULL = TextEditor.native_new();
 
@@ -50,176 +66,44 @@ public final class TextEditor extends NativeObject {
         imgui.extension.textedit.natives.JNI_TextEditor.internal_native_deleteNative(this_addr);
     }
 
-    public void SetReadOnlyEnabled(boolean aValue) {
-        internal_native_SetReadOnlyEnabled(native_address, aValue);
+    public void SetTabSize(long value) {
+        internal_native_SetTabSize(native_address, value);
     }
 
-    public static void internal_native_SetReadOnlyEnabled(long this_addr, boolean aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetReadOnlyEnabled(this_addr, aValue);
+    public static void internal_native_SetTabSize(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetTabSize(this_addr, value);
     }
 
-    public boolean IsReadOnlyEnabled() {
-        return internal_native_IsReadOnlyEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsReadOnlyEnabled(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsReadOnlyEnabled(this_addr);
-    }
-
-    public void SetAutoIndentEnabled(boolean aValue) {
-        internal_native_SetAutoIndentEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetAutoIndentEnabled(long this_addr, boolean aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoIndentEnabled(this_addr, aValue);
-    }
-
-    public boolean IsAutoIndentEnabled() {
-        return internal_native_IsAutoIndentEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsAutoIndentEnabled(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoIndentEnabled(this_addr);
-    }
-
-    public void SetShowWhitespacesEnabled(boolean aValue) {
-        internal_native_SetShowWhitespacesEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowWhitespacesEnabled(this_addr, aValue);
-    }
-
-    public boolean IsShowWhitespacesEnabled() {
-        return internal_native_IsShowWhitespacesEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShowWhitespacesEnabled(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowWhitespacesEnabled(this_addr);
-    }
-
-    public void SetShowLineNumbersEnabled(boolean aValue) {
-        internal_native_SetShowLineNumbersEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowLineNumbersEnabled(this_addr, aValue);
-    }
-
-    public boolean IsShowLineNumbersEnabled() {
-        return internal_native_IsShowLineNumbersEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShowLineNumbersEnabled(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowLineNumbersEnabled(this_addr);
-    }
-
-    public void SetShortTabsEnabled(boolean aValue) {
-        internal_native_SetShortTabsEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShortTabsEnabled(long this_addr, boolean aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShortTabsEnabled(this_addr, aValue);
-    }
-
-    public boolean IsShortTabsEnabled() {
-        return internal_native_IsShortTabsEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShortTabsEnabled(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShortTabsEnabled(this_addr);
-    }
-
-    public int GetLineCount() {
-        return internal_native_GetLineCount(native_address);
-    }
-
-    public static int internal_native_GetLineCount(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineCount(this_addr);
-    }
-
-    public void SetPalette(PaletteId aValue) {
-        internal_native_SetPalette(native_address, aValue.getValue());
-    }
-
-    public static void internal_native_SetPalette(long this_addr, int aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetPalette(this_addr, aValue);
-    }
-
-    public PaletteId GetPalette() {
-        int value = internal_native_GetPalette(native_address);
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetPalette(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetPalette(this_addr);
-    }
-
-    public void SetLanguageDefinition(LanguageDefinitionId aValue) {
-        internal_native_SetLanguageDefinition(native_address, aValue.getValue());
-    }
-
-    public static void internal_native_SetLanguageDefinition(long this_addr, int aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLanguageDefinition(this_addr, aValue);
-    }
-
-    public LanguageDefinitionId GetLanguageDefinition() {
-        int value = internal_native_GetLanguageDefinition(native_address);
-        LanguageDefinitionId[] values = LanguageDefinitionId.values();
-        for (int i = 0; i < values.length; i++) {
-            LanguageDefinitionId enumVal = values[i];
-            if (enumVal != LanguageDefinitionId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return LanguageDefinitionId.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetLanguageDefinition(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLanguageDefinition(this_addr);
-    }
-
-    public NativeString GetLanguageDefinitionName() {
-        long addr = internal_native_GetLanguageDefinitionName_addr(native_address);
-        if (addr == 0)
-            return NativeString.NULL;
-        if (NativeString_TEMP_GEN_0 == null)
-            NativeString_TEMP_GEN_0 = NativeString.native_new();
-        NativeString_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_0;
-    }
-
-    public static long internal_native_GetLanguageDefinitionName_addr(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLanguageDefinitionName_addr(this_addr);
-    }
-
-    public void SetTabSize(int aValue) {
-        internal_native_SetTabSize(native_address, aValue);
-    }
-
-    public static void internal_native_SetTabSize(long this_addr, int aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetTabSize(this_addr, aValue);
-    }
-
-    public int GetTabSize() {
+    public long GetTabSize() {
         return internal_native_GetTabSize(native_address);
     }
 
-    public static int internal_native_GetTabSize(long this_addr) {
+    public static long internal_native_GetTabSize(long this_addr) {
         return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTabSize(this_addr);
     }
 
-    public void SetLineSpacing(float aValue) {
-        internal_native_SetLineSpacing(native_address, aValue);
+    public void SetInsertSpacesOnTabs(boolean value) {
+        internal_native_SetInsertSpacesOnTabs(native_address, value);
     }
 
-    public static void internal_native_SetLineSpacing(long this_addr, float aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLineSpacing(this_addr, aValue);
+    public static void internal_native_SetInsertSpacesOnTabs(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetInsertSpacesOnTabs(this_addr, value);
+    }
+
+    public boolean IsInsertSpacesOnTabs() {
+        return internal_native_IsInsertSpacesOnTabs(native_address);
+    }
+
+    public static boolean internal_native_IsInsertSpacesOnTabs(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsInsertSpacesOnTabs(this_addr);
+    }
+
+    public void SetLineSpacing(float value) {
+        internal_native_SetLineSpacing(native_address, value);
+    }
+
+    public static void internal_native_SetLineSpacing(long this_addr, float value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLineSpacing(this_addr, value);
     }
 
     public float GetLineSpacing() {
@@ -230,163 +114,468 @@ public final class TextEditor extends NativeObject {
         return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineSpacing(this_addr);
     }
 
-    public static void SetDefaultPalette(PaletteId aValue) {
-        internal_native_SetDefaultPalette(aValue.getValue());
+    public void SetWordWrapEnabled(boolean value) {
+        internal_native_SetWordWrapEnabled(native_address, value);
     }
 
-    public static void internal_native_SetDefaultPalette(int aValue) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetDefaultPalette(aValue);
+    public static void internal_native_SetWordWrapEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetWordWrapEnabled(this_addr, value);
     }
 
-    public static PaletteId GetDefaultPalette() {
-        int value = internal_native_GetDefaultPalette();
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
+    public boolean IsWordWrapEnabled() {
+        return internal_native_IsWordWrapEnabled(native_address);
     }
 
-    public static int internal_native_GetDefaultPalette() {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetDefaultPalette();
+    public static boolean internal_native_IsWordWrapEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsWordWrapEnabled(this_addr);
     }
 
-    public void SelectAll() {
-        internal_native_SelectAll(native_address);
+    public void SetReadOnlyEnabled(boolean value) {
+        internal_native_SetReadOnlyEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectAll(long this_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAll(this_addr);
+    public static void internal_native_SetReadOnlyEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetReadOnlyEnabled(this_addr, value);
     }
 
-    public void SelectLine(int aLine) {
-        internal_native_SelectLine(native_address, aLine);
+    public boolean IsReadOnlyEnabled() {
+        return internal_native_IsReadOnlyEnabled(native_address);
     }
 
-    public static void internal_native_SelectLine(long this_addr, int aLine) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectLine(this_addr, aLine);
+    public static boolean internal_native_IsReadOnlyEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsReadOnlyEnabled(this_addr);
     }
 
-    public void SelectRegion(int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
-        internal_native_SelectRegion(native_address, aStartLine, aStartChar, aEndLine, aEndChar);
+    public void SetCaretsVisible(boolean value) {
+        internal_native_SetCaretsVisible(native_address, value);
     }
 
-    public static void internal_native_SelectRegion(long this_addr, int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectRegion(this_addr, aStartLine, aStartChar, aEndLine, aEndChar);
+    public static void internal_native_SetCaretsVisible(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetCaretsVisible(this_addr, value);
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsCaretsVisible() {
+        return internal_native_IsCaretsVisible(native_address);
     }
 
-    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectNextOccurrenceOf(this_addr, aText, aTextSize, aCaseSensitive);
+    public static boolean internal_native_IsCaretsVisible(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsCaretsVisible(this_addr);
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize);
+    public void SetAutoIndentEnabled(boolean value) {
+        internal_native_SetAutoIndentEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectNextOccurrenceOf(this_addr, aText, aTextSize);
+    public static void internal_native_SetAutoIndentEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoIndentEnabled(this_addr, value);
     }
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsAutoIndentEnabled() {
+        return internal_native_IsAutoIndentEnabled(native_address);
     }
 
-    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrencesOf(this_addr, aText, aTextSize, aCaseSensitive);
+    public static boolean internal_native_IsAutoIndentEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoIndentEnabled(this_addr);
     }
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize);
+    public void SetShowWhitespacesEnabled(boolean value) {
+        internal_native_SetShowWhitespacesEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrencesOf(this_addr, aText, aTextSize);
+    public static void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowWhitespacesEnabled(this_addr, value);
     }
 
-    public boolean AnyCursorHasSelection() {
-        return internal_native_AnyCursorHasSelection(native_address);
+    public boolean IsShowWhitespacesEnabled() {
+        return internal_native_IsShowWhitespacesEnabled(native_address);
     }
 
-    public static boolean internal_native_AnyCursorHasSelection(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AnyCursorHasSelection(this_addr);
+    public static boolean internal_native_IsShowWhitespacesEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowWhitespacesEnabled(this_addr);
     }
 
-    public boolean AllCursorsHaveSelection() {
-        return internal_native_AllCursorsHaveSelection(native_address);
+    public void SetShowSpacesEnabled(boolean value) {
+        internal_native_SetShowSpacesEnabled(native_address, value);
     }
 
-    public static boolean internal_native_AllCursorsHaveSelection(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AllCursorsHaveSelection(this_addr);
+    public static void internal_native_SetShowSpacesEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowSpacesEnabled(this_addr, value);
     }
 
-    public void ClearExtraCursors() {
-        internal_native_ClearExtraCursors(native_address);
+    public boolean IsShowSpacesEnabled() {
+        return internal_native_IsShowSpacesEnabled(native_address);
     }
 
-    public static void internal_native_ClearExtraCursors(long this_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearExtraCursors(this_addr);
+    public static boolean internal_native_IsShowSpacesEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowSpacesEnabled(this_addr);
     }
 
-    public void ClearSelections() {
-        internal_native_ClearSelections(native_address);
+    public void SetShowTabsEnabled(boolean value) {
+        internal_native_SetShowTabsEnabled(native_address, value);
     }
 
-    public static void internal_native_ClearSelections(long this_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearSelections(this_addr);
+    public static void internal_native_SetShowTabsEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowTabsEnabled(this_addr, value);
     }
 
-    public void SetCursorPosition(int aLine, int aCharIndex) {
-        internal_native_SetCursorPosition(native_address, aLine, aCharIndex);
+    public boolean IsShowTabsEnabled() {
+        return internal_native_IsShowTabsEnabled(native_address);
     }
 
-    public static void internal_native_SetCursorPosition(long this_addr, int aLine, int aCharIndex) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetCursorPosition(this_addr, aLine, aCharIndex);
+    public static boolean internal_native_IsShowTabsEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowTabsEnabled(this_addr);
     }
 
-    public void GetCursorPosition(NativeIntArray outLine, NativeIntArray outColumn) {
-        internal_native_GetCursorPosition(native_address, outLine.native_void_address, outColumn.native_void_address);
+    public void SetShowLineNumbersEnabled(boolean value) {
+        internal_native_SetShowLineNumbersEnabled(native_address, value);
     }
 
-    public static void internal_native_GetCursorPosition(long this_addr, long outLine_addr, long outColumn_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCursorPosition(this_addr, outLine_addr, outColumn_addr);
+    public static void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowLineNumbersEnabled(this_addr, value);
     }
 
-    public int GetFirstVisibleLine() {
-        return internal_native_GetFirstVisibleLine(native_address);
+    public boolean IsShowLineNumbersEnabled() {
+        return internal_native_IsShowLineNumbersEnabled(native_address);
     }
 
-    public static int internal_native_GetFirstVisibleLine(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetFirstVisibleLine(this_addr);
+    public static boolean internal_native_IsShowLineNumbersEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowLineNumbersEnabled(this_addr);
     }
 
-    public int GetLastVisibleLine() {
-        return internal_native_GetLastVisibleLine(native_address);
+    public void SetShowMiniMapEnabled(boolean value) {
+        internal_native_SetShowMiniMapEnabled(native_address, value);
     }
 
-    public static int internal_native_GetLastVisibleLine(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLastVisibleLine(this_addr);
+    public static void internal_native_SetShowMiniMapEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowMiniMapEnabled(this_addr, value);
     }
 
-    public void SetViewAtLine(int aLine, SetViewAtLineMode aMode) {
-        internal_native_SetViewAtLine(native_address, aLine, aMode.getValue());
+    public boolean IsShowMiniMapEnabled() {
+        return internal_native_IsShowMiniMapEnabled(native_address);
     }
 
-    public static void internal_native_SetViewAtLine(long this_addr, int aLine, int aMode) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetViewAtLine(this_addr, aLine, aMode);
+    public static boolean internal_native_IsShowMiniMapEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowMiniMapEnabled(this_addr);
     }
 
-    public void Copy() {
-        internal_native_Copy(native_address);
+    public void SetMiniMapColumns(long value) {
+        internal_native_SetMiniMapColumns(native_address, value);
     }
 
-    public static void internal_native_Copy(long this_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Copy(this_addr);
+    public static void internal_native_SetMiniMapColumns(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetMiniMapColumns(this_addr, value);
+    }
+
+    public long GetMiniMapColumns() {
+        return internal_native_GetMiniMapColumns(native_address);
+    }
+
+    public static long internal_native_GetMiniMapColumns(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetMiniMapColumns(this_addr);
+    }
+
+    public void SetShowScrollbarMiniMapEnabled(boolean value) {
+        internal_native_SetShowScrollbarMiniMapEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetShowScrollbarMiniMapEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowScrollbarMiniMapEnabled(this_addr, value);
+    }
+
+    public boolean IsShowScrollbarMiniMapEnabled() {
+        return internal_native_IsShowScrollbarMiniMapEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsShowScrollbarMiniMapEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowScrollbarMiniMapEnabled(this_addr);
+    }
+
+    public void SetShowPanScrollIndicatorEnabled(boolean value) {
+        internal_native_SetShowPanScrollIndicatorEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetShowPanScrollIndicatorEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowPanScrollIndicatorEnabled(this_addr, value);
+    }
+
+    public boolean IsShowPanScrollIndicatorEnabled() {
+        return internal_native_IsShowPanScrollIndicatorEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsShowPanScrollIndicatorEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowPanScrollIndicatorEnabled(this_addr);
+    }
+
+    public void SetShowMatchingBrackets(boolean value) {
+        internal_native_SetShowMatchingBrackets(native_address, value);
+    }
+
+    public static void internal_native_SetShowMatchingBrackets(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetShowMatchingBrackets(this_addr, value);
+    }
+
+    public boolean IsShowingMatchingBrackets() {
+        return internal_native_IsShowingMatchingBrackets(native_address);
+    }
+
+    public static boolean internal_native_IsShowingMatchingBrackets(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsShowingMatchingBrackets(this_addr);
+    }
+
+    public void SetCompletePairedGlyphs(boolean value) {
+        internal_native_SetCompletePairedGlyphs(native_address, value);
+    }
+
+    public static void internal_native_SetCompletePairedGlyphs(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetCompletePairedGlyphs(this_addr, value);
+    }
+
+    public boolean IsCompletingPairedGlyphs() {
+        return internal_native_IsCompletingPairedGlyphs(native_address);
+    }
+
+    public static boolean internal_native_IsCompletingPairedGlyphs(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsCompletingPairedGlyphs(this_addr);
+    }
+
+    public void SetLineFoldingEnabled(boolean value) {
+        internal_native_SetLineFoldingEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetLineFoldingEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLineFoldingEnabled(this_addr, value);
+    }
+
+    public boolean IsLineFoldingEnabled() {
+        return internal_native_IsLineFoldingEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsLineFoldingEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsLineFoldingEnabled(this_addr);
+    }
+
+    public void SetOverwriteEnabled(boolean value) {
+        internal_native_SetOverwriteEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetOverwriteEnabled(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetOverwriteEnabled(this_addr, value);
+    }
+
+    public boolean IsOverwriteEnabled() {
+        return internal_native_IsOverwriteEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsOverwriteEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsOverwriteEnabled(this_addr);
+    }
+
+    public void SetMiddleMousePanMode() {
+        internal_native_SetMiddleMousePanMode(native_address);
+    }
+
+    public static void internal_native_SetMiddleMousePanMode(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetMiddleMousePanMode(this_addr);
+    }
+
+    public void SetMiddleMouseScrollMode() {
+        internal_native_SetMiddleMouseScrollMode(native_address);
+    }
+
+    public static void internal_native_SetMiddleMouseScrollMode(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetMiddleMouseScrollMode(this_addr);
+    }
+
+    public boolean IsMiddleMousePanMode() {
+        return internal_native_IsMiddleMousePanMode(native_address);
+    }
+
+    public static boolean internal_native_IsMiddleMousePanMode(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsMiddleMousePanMode(this_addr);
+    }
+
+    public void SetLineNumberLeftMargin(long value) {
+        internal_native_SetLineNumberLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetLineNumberLeftMargin(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLineNumberLeftMargin(this_addr, value);
+    }
+
+    public long GetLineNumberLeftMargin() {
+        return internal_native_GetLineNumberLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetLineNumberLeftMargin(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineNumberLeftMargin(this_addr);
+    }
+
+    public void SetDecorationLeftMargin(long value) {
+        internal_native_SetDecorationLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetDecorationLeftMargin(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetDecorationLeftMargin(this_addr, value);
+    }
+
+    public long GetDecorationLeftMargin() {
+        return internal_native_GetDecorationLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetDecorationLeftMargin(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetDecorationLeftMargin(this_addr);
+    }
+
+    public void SetTextLeftMargin(long value) {
+        internal_native_SetTextLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetTextLeftMargin(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetTextLeftMargin(this_addr, value);
+    }
+
+    public long GetTextLeftMargin() {
+        return internal_native_GetTextLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetTextLeftMargin(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTextLeftMargin(this_addr);
+    }
+
+    public void SetText(String text) {
+        internal_native_SetText(native_address, text);
+    }
+
+    public static void internal_native_SetText(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetText(this_addr, text);
+    }
+
+    public NativeString GetText() {
+        long addr = internal_native_GetText_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetText_addr(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetText_addr(this_addr);
+    }
+
+    public NativeString GetCursorText(long cursor) {
+        long addr = internal_native_GetCursorText_addr(native_address, cursor);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_1 == null)
+            NativeString_TEMP_GEN_1 = NativeString.native_new();
+        NativeString_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetCursorText_addr(long this_addr, long cursor) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCursorText_addr(this_addr, cursor);
+    }
+
+    public NativeString GetLineText(long line) {
+        long addr = internal_native_GetLineText_addr(native_address, line);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_2 == null)
+            NativeString_TEMP_GEN_2 = NativeString.native_new();
+        NativeString_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_2;
+    }
+
+    public static long internal_native_GetLineText_addr(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineText_addr(this_addr, line);
+    }
+
+    public NativeString GetSectionText(long startLine, long startIndex, long endLine, long endIndex) {
+        long addr = internal_native_GetSectionText_addr(native_address, startLine, startIndex, endLine, endIndex);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_3 == null)
+            NativeString_TEMP_GEN_3 = NativeString.native_new();
+        NativeString_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_3;
+    }
+
+    public static long internal_native_GetSectionText_addr(long this_addr, long startLine, long startIndex, long endLine, long endIndex) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetSectionText_addr(this_addr, startLine, startIndex, endLine, endIndex);
+    }
+
+    public void ReplaceSectionText(long startLine, long startIndex, long endLine, long endIndex, String text) {
+        internal_native_ReplaceSectionText(native_address, startLine, startIndex, endLine, endIndex, text);
+    }
+
+    public static void internal_native_ReplaceSectionText(long this_addr, long startLine, long startIndex, long endLine, long endIndex, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ReplaceSectionText(this_addr, startLine, startIndex, endLine, endIndex, text);
+    }
+
+    public void ClearText() {
+        internal_native_ClearText(native_address);
+    }
+
+    public static void internal_native_ClearText(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearText(this_addr);
+    }
+
+    public boolean IsEmpty() {
+        return internal_native_IsEmpty(native_address);
+    }
+
+    public static boolean internal_native_IsEmpty(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsEmpty(this_addr);
+    }
+
+    public long GetLineCount() {
+        return internal_native_GetLineCount(native_address);
+    }
+
+    public static long internal_native_GetLineCount(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineCount(this_addr);
+    }
+
+    public void Render(String title, ImVec2 size, int childFlags, int windowFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags, windowFlags);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, title, size_addr, childFlags, windowFlags);
+    }
+
+    public void Render(String title, ImVec2 size, int childFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, title, size_addr, childFlags);
+    }
+
+    public void Render(String title, ImVec2 size) {
+        internal_native_Render(native_address, title, size.native_address);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, title, size_addr);
+    }
+
+    public void Render(String title) {
+        internal_native_Render(native_address, title);
+    }
+
+    public static void internal_native_Render(long this_addr, String title) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, title);
+    }
+
+    public void SetFocus() {
+        internal_native_SetFocus(native_address);
+    }
+
+    public static void internal_native_SetFocus(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetFocus(this_addr);
     }
 
     public void Cut() {
@@ -397,6 +586,14 @@ public final class TextEditor extends NativeObject {
         imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Cut(this_addr);
     }
 
+    public void Copy() {
+        internal_native_Copy(native_address);
+    }
+
+    public static void internal_native_Copy(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Copy(this_addr);
+    }
+
     public void Paste() {
         internal_native_Paste(native_address);
     }
@@ -405,28 +602,12 @@ public final class TextEditor extends NativeObject {
         imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Paste(this_addr);
     }
 
-    public void Undo(int aSteps) {
-        internal_native_Undo(native_address, aSteps);
-    }
-
-    public static void internal_native_Undo(long this_addr, int aSteps) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Undo(this_addr, aSteps);
-    }
-
     public void Undo() {
         internal_native_Undo(native_address);
     }
 
     public static void internal_native_Undo(long this_addr) {
         imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Undo(this_addr);
-    }
-
-    public void Redo(int aSteps) {
-        internal_native_Redo(native_address, aSteps);
-    }
-
-    public static void internal_native_Redo(long this_addr, int aSteps) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Redo(this_addr, aSteps);
     }
 
     public void Redo() {
@@ -453,65 +634,1181 @@ public final class TextEditor extends NativeObject {
         return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_CanRedo(this_addr);
     }
 
-    public int GetUndoIndex() {
+    public long GetUndoIndex() {
         return internal_native_GetUndoIndex(native_address);
     }
 
-    public static int internal_native_GetUndoIndex(long this_addr) {
+    public static long internal_native_GetUndoIndex(long this_addr) {
         return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetUndoIndex(this_addr);
     }
 
-    public void SetText(String aText) {
-        internal_native_SetText(native_address, aText);
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
     }
 
-    public static void internal_native_SetText(long this_addr, String aText) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetText(this_addr, aText);
+    public static void internal_native_SelectAll(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAll(this_addr);
     }
 
-    public NativeString GetText() {
-        long addr = internal_native_GetText_addr(native_address);
+    public void SelectLine(long line) {
+        internal_native_SelectLine(native_address, line);
+    }
+
+    public static void internal_native_SelectLine(long this_addr, long line) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectLine(this_addr, line);
+    }
+
+    public void SelectLines(long start, long end) {
+        internal_native_SelectLines(native_address, start, end);
+    }
+
+    public static void internal_native_SelectLines(long this_addr, long start, long end) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectLines(this_addr, start, end);
+    }
+
+    public void SelectRegion(long startLine, long startIndex, long endLine, long endIndex) {
+        internal_native_SelectRegion(native_address, startLine, startIndex, endLine, endIndex);
+    }
+
+    public static void internal_native_SelectRegion(long this_addr, long startLine, long startIndex, long endLine, long endIndex) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectRegion(this_addr, startLine, startIndex, endLine, endIndex);
+    }
+
+    public void SelectToBrackets(boolean includeBrackets) {
+        internal_native_SelectToBrackets(native_address, includeBrackets);
+    }
+
+    public static void internal_native_SelectToBrackets(long this_addr, boolean includeBrackets) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectToBrackets(this_addr, includeBrackets);
+    }
+
+    public void SelectToBrackets() {
+        internal_native_SelectToBrackets(native_address);
+    }
+
+    public static void internal_native_SelectToBrackets(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectToBrackets(this_addr);
+    }
+
+    public void GrowSelections() {
+        internal_native_GrowSelections(native_address);
+    }
+
+    public static void internal_native_GrowSelections(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GrowSelections(this_addr);
+    }
+
+    public void ShrinkSelections() {
+        internal_native_ShrinkSelections(native_address);
+    }
+
+    public static void internal_native_ShrinkSelections(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ShrinkSelections(this_addr);
+    }
+
+    public void AddNextOccurrence() {
+        internal_native_AddNextOccurrence(native_address);
+    }
+
+    public static void internal_native_AddNextOccurrence(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AddNextOccurrence(this_addr);
+    }
+
+    public void SelectAllOccurrences() {
+        internal_native_SelectAllOccurrences(native_address);
+    }
+
+    public static void internal_native_SelectAllOccurrences(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrences(this_addr);
+    }
+
+    public boolean AnyCursorHasSelection() {
+        return internal_native_AnyCursorHasSelection(native_address);
+    }
+
+    public static boolean internal_native_AnyCursorHasSelection(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AnyCursorHasSelection(this_addr);
+    }
+
+    public boolean AllCursorsHaveSelection() {
+        return internal_native_AllCursorsHaveSelection(native_address);
+    }
+
+    public static boolean internal_native_AllCursorsHaveSelection(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AllCursorsHaveSelection(this_addr);
+    }
+
+    public boolean CurrentCursorHasSelection() {
+        return internal_native_CurrentCursorHasSelection(native_address);
+    }
+
+    public static boolean internal_native_CurrentCursorHasSelection(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_CurrentCursorHasSelection(this_addr);
+    }
+
+    public void ClearCursors() {
+        internal_native_ClearCursors(native_address);
+    }
+
+    public static void internal_native_ClearCursors(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearCursors(this_addr);
+    }
+
+    public long GetNumberOfCursors() {
+        return internal_native_GetNumberOfCursors(native_address);
+    }
+
+    public static long internal_native_GetNumberOfCursors(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetNumberOfCursors(this_addr);
+    }
+
+    public void GetCursorPosition(long cursor, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCursorPosition(native_address, cursor, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCursorPosition(long this_addr, long cursor, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCursorPosition(this_addr, cursor, outLine_addr, outIndex_addr);
+    }
+
+    public void GetMainCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetMainCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetMainCursorPosition(long this_addr, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetMainCursorPosition(this_addr, outLine_addr, outIndex_addr);
+    }
+
+    public void GetCurrentCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCurrentCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCurrentCursorPosition(long this_addr, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCurrentCursorPosition(this_addr, outLine_addr, outIndex_addr);
+    }
+
+    public void GetCursorSelection(long cursor, NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCursorSelection(native_address, cursor, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCursorSelection(long this_addr, long cursor, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCursorSelection(this_addr, cursor, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+    }
+
+    public void GetMainCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetMainCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetMainCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetMainCursorSelection(this_addr, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+    }
+
+    public void GetCurrentCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCurrentCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCurrentCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetCurrentCursorSelection(this_addr, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+    }
+
+    public boolean IsMousePosOverGlyph(ImVec2 mousePos) {
+        return internal_native_IsMousePosOverGlyph(native_address, mousePos.native_address);
+    }
+
+    public static boolean internal_native_IsMousePosOverGlyph(long this_addr, long mousePos_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsMousePosOverGlyph(this_addr, mousePos_addr);
+    }
+
+    public void GetDocPosAtMousePos(ImVec2 mousePos, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetDocPosAtMousePos(native_address, mousePos.native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetDocPosAtMousePos(long this_addr, long mousePos_addr, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetDocPosAtMousePos(this_addr, mousePos_addr, outLine_addr, outIndex_addr);
+    }
+
+    public NativeString GetWordAtMousePos(ImVec2 mousePos) {
+        long addr = internal_native_GetWordAtMousePos_addr(native_address, mousePos.native_address);
         if (addr == 0)
             return NativeString.NULL;
-        if (NativeString_TEMP_GEN_1 == null)
-            NativeString_TEMP_GEN_1 = NativeString.native_new();
-        NativeString_TEMP_GEN_1.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_1;
+        if (NativeString_TEMP_GEN_4 == null)
+            NativeString_TEMP_GEN_4 = NativeString.native_new();
+        NativeString_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_4;
     }
 
-    public static long internal_native_GetText_addr(long this_addr) {
-        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetText_addr(this_addr);
+    public static long internal_native_GetWordAtMousePos_addr(long this_addr, long mousePos_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetWordAtMousePos_addr(this_addr, mousePos_addr);
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize, boolean aBorder) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address, aBorder);
+    public void ScrollToLine(long line, TextEditorScroll alignment) {
+        internal_native_ScrollToLine(native_address, line, alignment.getValue());
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr, boolean aBorder) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, aTitle, aParentIsFocused, aSize_addr, aBorder);
+    public static void internal_native_ScrollToLine(long this_addr, long line, int alignment) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ScrollToLine(this_addr, line, alignment);
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address);
+    public long GetFirstVisibleRow() {
+        return internal_native_GetFirstVisibleRow(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, aTitle, aParentIsFocused, aSize_addr);
+    public static long internal_native_GetFirstVisibleRow(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetFirstVisibleRow(this_addr);
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused);
+    public long GetLastVisibleRow() {
+        return internal_native_GetLastVisibleRow(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, aTitle, aParentIsFocused);
+    public static long internal_native_GetLastVisibleRow(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLastVisibleRow(this_addr);
     }
 
-    public void Render(String aTitle) {
-        internal_native_Render(native_address, aTitle);
+    public long GetFirstVisibleColumn() {
+        return internal_native_GetFirstVisibleColumn(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle) {
-        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_Render(this_addr, aTitle);
+    public static long internal_native_GetFirstVisibleColumn(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetFirstVisibleColumn(this_addr);
+    }
+
+    public long GetLastVisibleColumn() {
+        return internal_native_GetLastVisibleColumn(native_address);
+    }
+
+    public static long internal_native_GetLastVisibleColumn(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLastVisibleColumn(this_addr);
+    }
+
+    public void SetCursor(long line, long index) {
+        internal_native_SetCursor(native_address, line, index);
+    }
+
+    public static void internal_native_SetCursor(long this_addr, long line, long index) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetCursor(this_addr, line, index);
+    }
+
+    public float GetLineHeight() {
+        return internal_native_GetLineHeight(native_address);
+    }
+
+    public static float internal_native_GetLineHeight(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLineHeight(this_addr);
+    }
+
+    public float GetGlyphWidth() {
+        return internal_native_GetGlyphWidth(native_address);
+    }
+
+    public static float internal_native_GetGlyphWidth(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetGlyphWidth(this_addr);
+    }
+
+    public void DocPos2VisPos(long line, long index, NativeLongArray outRow, NativeLongArray outColumn) {
+        internal_native_DocPos2VisPos(native_address, line, index, outRow.native_void_address, outColumn.native_void_address);
+    }
+
+    public static void internal_native_DocPos2VisPos(long this_addr, long line, long index, long outRow_addr, long outColumn_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_DocPos2VisPos(this_addr, line, index, outRow_addr, outColumn_addr);
+    }
+
+    public void VisPos2DocPos(long row, long column, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_VisPos2DocPos(native_address, row, column, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_VisPos2DocPos(long this_addr, long row, long column, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_VisPos2DocPos(this_addr, row, column, outLine_addr, outIndex_addr);
+    }
+
+    public boolean IsDocPosVisible(long line, long index) {
+        return internal_native_IsDocPosVisible(native_address, line, index);
+    }
+
+    public static boolean internal_native_IsDocPosVisible(long this_addr, long line, long index) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsDocPosVisible(this_addr, line, index);
+    }
+
+    public boolean IsVisPosOverGlyph(long row, long column) {
+        return internal_native_IsVisPosOverGlyph(native_address, row, column);
+    }
+
+    public static boolean internal_native_IsVisPosOverGlyph(long this_addr, long row, long column) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsVisPosOverGlyph(this_addr, row, column);
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectFirstOccurrenceOf(this_addr, text, caseSensitive, wholeWord);
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectFirstOccurrenceOf(this_addr, text, caseSensitive);
+    }
+
+    public void SelectFirstOccurrenceOf(String text) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectFirstOccurrenceOf(this_addr, text);
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectNextOccurrenceOf(this_addr, text, caseSensitive, wholeWord);
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectNextOccurrenceOf(this_addr, text, caseSensitive);
+    }
+
+    public void SelectNextOccurrenceOf(String text) {
+        internal_native_SelectNextOccurrenceOf(native_address, text);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectNextOccurrenceOf(this_addr, text);
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrencesOf(this_addr, text, caseSensitive, wholeWord);
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrencesOf(this_addr, text, caseSensitive);
+    }
+
+    public void SelectAllOccurrencesOf(String text) {
+        internal_native_SelectAllOccurrencesOf(native_address, text);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectAllOccurrencesOf(this_addr, text);
+    }
+
+    public void ReplaceTextInCurrentCursor(String text) {
+        internal_native_ReplaceTextInCurrentCursor(native_address, text);
+    }
+
+    public static void internal_native_ReplaceTextInCurrentCursor(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ReplaceTextInCurrentCursor(this_addr, text);
+    }
+
+    public void ReplaceTextInAllCursors(String text) {
+        internal_native_ReplaceTextInAllCursors(native_address, text);
+    }
+
+    public static void internal_native_ReplaceTextInAllCursors(long this_addr, String text) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ReplaceTextInAllCursors(this_addr, text);
+    }
+
+    public void OpenFindReplaceWindow() {
+        internal_native_OpenFindReplaceWindow(native_address);
+    }
+
+    public static void internal_native_OpenFindReplaceWindow(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_OpenFindReplaceWindow(this_addr);
+    }
+
+    public void CloseFindReplaceWindow() {
+        internal_native_CloseFindReplaceWindow(native_address);
+    }
+
+    public static void internal_native_CloseFindReplaceWindow(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_CloseFindReplaceWindow(this_addr);
+    }
+
+    public void SetFindButtonLabel(String label) {
+        internal_native_SetFindButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetFindButtonLabel(long this_addr, String label) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetFindButtonLabel(this_addr, label);
+    }
+
+    public void SetFindAllButtonLabel(String label) {
+        internal_native_SetFindAllButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetFindAllButtonLabel(long this_addr, String label) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetFindAllButtonLabel(this_addr, label);
+    }
+
+    public void SetReplaceButtonLabel(String label) {
+        internal_native_SetReplaceButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetReplaceButtonLabel(long this_addr, String label) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetReplaceButtonLabel(this_addr, label);
+    }
+
+    public void SetReplaceAllButtonLabel(String label) {
+        internal_native_SetReplaceAllButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetReplaceAllButtonLabel(long this_addr, String label) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetReplaceAllButtonLabel(this_addr, label);
+    }
+
+    public boolean HasFindString() {
+        return internal_native_HasFindString(native_address);
+    }
+
+    public static boolean internal_native_HasFindString(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasFindString(this_addr);
+    }
+
+    public void FindNext() {
+        internal_native_FindNext(native_address);
+    }
+
+    public static void internal_native_FindNext(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_FindNext(this_addr);
+    }
+
+    public void FindAll() {
+        internal_native_FindAll(native_address);
+    }
+
+    public static void internal_native_FindAll(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_FindAll(this_addr);
+    }
+
+    public void AddMarker(long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        internal_native_AddMarker(native_address, line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);
+    }
+
+    public static void internal_native_AddMarker(long this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AddMarker(this_addr, line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);
+    }
+
+    public void ClearMarkers() {
+        internal_native_ClearMarkers(native_address);
+    }
+
+    public static void internal_native_ClearMarkers(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearMarkers(this_addr);
+    }
+
+    public boolean HasMarkers() {
+        return internal_native_HasMarkers(native_address);
+    }
+
+    public static boolean internal_native_HasMarkers(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasMarkers(this_addr);
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled, int delay) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled, delay);
+    }
+
+    public static void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled, int delay) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetChangeTrackingEnabled(this_addr, enabled, delay);
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetChangeTrackingEnabled(this_addr, enabled);
+    }
+
+    public boolean HasPendingChange() {
+        return internal_native_HasPendingChange(native_address);
+    }
+
+    public static boolean internal_native_HasPendingChange(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasPendingChange(this_addr);
+    }
+
+    public void ClearPendingChange() {
+        internal_native_ClearPendingChange(native_address);
+    }
+
+    public static void internal_native_ClearPendingChange(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearPendingChange(this_addr);
+    }
+
+    public void SetTransactionTrackingEnabled(boolean enabled) {
+        internal_native_SetTransactionTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetTransactionTrackingEnabled(long this_addr, boolean enabled) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetTransactionTrackingEnabled(this_addr, enabled);
+    }
+
+    public long GetTransactionChangeCount() {
+        return internal_native_GetTransactionChangeCount(native_address);
+    }
+
+    public static long internal_native_GetTransactionChangeCount(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTransactionChangeCount(this_addr);
+    }
+
+    public void ClearTransactionChanges() {
+        internal_native_ClearTransactionChanges(native_address);
+    }
+
+    public static void internal_native_ClearTransactionChanges(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearTransactionChanges(this_addr);
+    }
+
+    public boolean IsTransactionChangeInsert(long index) {
+        return internal_native_IsTransactionChangeInsert(native_address, index);
+    }
+
+    public static boolean internal_native_IsTransactionChangeInsert(long this_addr, long index) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsTransactionChangeInsert(this_addr, index);
+    }
+
+    public void GetTransactionChangeStart(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeStart(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    public static void internal_native_GetTransactionChangeStart(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTransactionChangeStart(this_addr, index, outLine_addr, outGlyphIndex_addr);
+    }
+
+    public void GetTransactionChangeEnd(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeEnd(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    public static void internal_native_GetTransactionChangeEnd(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTransactionChangeEnd(this_addr, index, outLine_addr, outGlyphIndex_addr);
+    }
+
+    public NativeString GetTransactionChangeText(long index) {
+        long addr = internal_native_GetTransactionChangeText_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_5 == null)
+            NativeString_TEMP_GEN_5 = NativeString.native_new();
+        NativeString_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_5;
+    }
+
+    public static long internal_native_GetTransactionChangeText_addr(long this_addr, long index) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetTransactionChangeText_addr(this_addr, index);
+    }
+
+    public void SetUserData(long line, long data) {
+        internal_native_SetUserData(native_address, line, data);
+    }
+
+    public static void internal_native_SetUserData(long this_addr, long line, long data) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetUserData(this_addr, line, data);
+    }
+
+    public long GetUserData(long line) {
+        return internal_native_GetUserData(native_address, line);
+    }
+
+    public static long internal_native_GetUserData(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetUserData(this_addr, line);
+    }
+
+    public void FoldAroundLine(long line) {
+        internal_native_FoldAroundLine(native_address, line);
+    }
+
+    public static void internal_native_FoldAroundLine(long this_addr, long line) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_FoldAroundLine(this_addr, line);
+    }
+
+    public void UnfoldAroundLine(long line) {
+        internal_native_UnfoldAroundLine(native_address, line);
+    }
+
+    public static void internal_native_UnfoldAroundLine(long this_addr, long line) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_UnfoldAroundLine(this_addr, line);
+    }
+
+    public void ToggleAtLine(long line) {
+        internal_native_ToggleAtLine(native_address, line);
+    }
+
+    public static void internal_native_ToggleAtLine(long this_addr, long line) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ToggleAtLine(this_addr, line);
+    }
+
+    public void UnfoldAll() {
+        internal_native_UnfoldAll(native_address);
+    }
+
+    public static void internal_native_UnfoldAll(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_UnfoldAll(this_addr);
+    }
+
+    public boolean IsLineFoldable(long line) {
+        return internal_native_IsLineFoldable(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineFoldable(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsLineFoldable(this_addr, line);
+    }
+
+    public boolean IsLineFolded(long line) {
+        return internal_native_IsLineFolded(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineFolded(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsLineFolded(this_addr, line);
+    }
+
+    public boolean IsLineVisible(long line) {
+        return internal_native_IsLineVisible(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineVisible(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsLineVisible(this_addr, line);
+    }
+
+    public boolean IsLineHidden(long line) {
+        return internal_native_IsLineHidden(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineHidden(long this_addr, long line) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsLineHidden(this_addr, line);
+    }
+
+    public void IndentLines() {
+        internal_native_IndentLines(native_address);
+    }
+
+    public static void internal_native_IndentLines(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IndentLines(this_addr);
+    }
+
+    public void DeindentLines() {
+        internal_native_DeindentLines(native_address);
+    }
+
+    public static void internal_native_DeindentLines(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_DeindentLines(this_addr);
+    }
+
+    public void MoveUpLines() {
+        internal_native_MoveUpLines(native_address);
+    }
+
+    public static void internal_native_MoveUpLines(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_MoveUpLines(this_addr);
+    }
+
+    public void MoveDownLines() {
+        internal_native_MoveDownLines(native_address);
+    }
+
+    public static void internal_native_MoveDownLines(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_MoveDownLines(this_addr);
+    }
+
+    public void ToggleComments() {
+        internal_native_ToggleComments(native_address);
+    }
+
+    public static void internal_native_ToggleComments(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ToggleComments(this_addr);
+    }
+
+    public void SelectionToLowerCase() {
+        internal_native_SelectionToLowerCase(native_address);
+    }
+
+    public static void internal_native_SelectionToLowerCase(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectionToLowerCase(this_addr);
+    }
+
+    public void SelectionToUpperCase() {
+        internal_native_SelectionToUpperCase(native_address);
+    }
+
+    public static void internal_native_SelectionToUpperCase(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SelectionToUpperCase(this_addr);
+    }
+
+    public void StripTrailingWhitespaces() {
+        internal_native_StripTrailingWhitespaces(native_address);
+    }
+
+    public static void internal_native_StripTrailingWhitespaces(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_StripTrailingWhitespaces(this_addr);
+    }
+
+    public void TabsToSpaces() {
+        internal_native_TabsToSpaces(native_address);
+    }
+
+    public static void internal_native_TabsToSpaces(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_TabsToSpaces(this_addr);
+    }
+
+    public void SpacesToTabs() {
+        internal_native_SpacesToTabs(native_address);
+    }
+
+    public static void internal_native_SpacesToTabs(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SpacesToTabs(this_addr);
+    }
+
+    public void SetPalette(TextEditorPalette palette) {
+        internal_native_SetPalette(native_address, palette.getValue());
+    }
+
+    public static void internal_native_SetPalette(long this_addr, int palette) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetPalette(this_addr, palette);
+    }
+
+    public void SetPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetPaletteColor(native_address, color.getValue(), value);
+    }
+
+    public static void internal_native_SetPaletteColor(long this_addr, int color, int value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetPaletteColor(this_addr, color, value);
+    }
+
+    public int GetPaletteColor(TextEditorColor color) {
+        return internal_native_GetPaletteColor(native_address, color.getValue());
+    }
+
+    public static int internal_native_GetPaletteColor(long this_addr, int color) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetPaletteColor(this_addr, color);
+    }
+
+    public static void SetDefaultPalette(TextEditorPalette palette) {
+        internal_native_SetDefaultPalette(palette.getValue());
+    }
+
+    public static void internal_native_SetDefaultPalette(int palette) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetDefaultPalette(palette);
+    }
+
+    public static void SetDefaultPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetDefaultPaletteColor(color.getValue(), value);
+    }
+
+    public static void internal_native_SetDefaultPaletteColor(int color, int value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetDefaultPaletteColor(color, value);
+    }
+
+    public static int GetDefaultPaletteColor(TextEditorColor color) {
+        return internal_native_GetDefaultPaletteColor(color.getValue());
+    }
+
+    public static int internal_native_GetDefaultPaletteColor(int color) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetDefaultPaletteColor(color);
+    }
+
+    public void SetLanguage(TextEditorLanguage language) {
+        internal_native_SetLanguage(native_address, language.getValue());
+    }
+
+    public static void internal_native_SetLanguage(long this_addr, int language) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLanguage(this_addr, language);
+    }
+
+    public TextEditorLanguage GetLanguage() {
+        int value = internal_native_GetLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetLanguage(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLanguage(this_addr);
+    }
+
+    public boolean HasLanguage() {
+        return internal_native_HasLanguage(native_address);
+    }
+
+    public static boolean internal_native_HasLanguage(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasLanguage(this_addr);
+    }
+
+    public NativeString GetLanguageName() {
+        long addr = internal_native_GetLanguageName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_6 == null)
+            NativeString_TEMP_GEN_6 = NativeString.native_new();
+        NativeString_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_6;
+    }
+
+    public static long internal_native_GetLanguageName_addr(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetLanguageName_addr(this_addr);
+    }
+
+    public void SetLanguageChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetLanguageChangeTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetLanguageChangeTrackingEnabled(long this_addr, boolean enabled) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLanguageChangeTrackingEnabled(this_addr, enabled);
+    }
+
+    public boolean HasPendingLanguageChange() {
+        return internal_native_HasPendingLanguageChange(native_address);
+    }
+
+    public static boolean internal_native_HasPendingLanguageChange(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasPendingLanguageChange(this_addr);
+    }
+
+    public void ClearPendingLanguageChange() {
+        internal_native_ClearPendingLanguageChange(native_address);
+    }
+
+    public static void internal_native_ClearPendingLanguageChange(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearPendingLanguageChange(this_addr);
+    }
+
+    public void CollectIdentifiers() {
+        internal_native_CollectIdentifiers(native_address);
+    }
+
+    public static void internal_native_CollectIdentifiers(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_CollectIdentifiers(this_addr);
+    }
+
+    public long GetIdentifierCount() {
+        return internal_native_GetIdentifierCount(native_address);
+    }
+
+    public static long internal_native_GetIdentifierCount(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetIdentifierCount(this_addr);
+    }
+
+    public NativeString GetIdentifier(long index) {
+        long addr = internal_native_GetIdentifier_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_7 == null)
+            NativeString_TEMP_GEN_7 = NativeString.native_new();
+        NativeString_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_7;
+    }
+
+    public static long internal_native_GetIdentifier_addr(long this_addr, long index) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetIdentifier_addr(this_addr, index);
+    }
+
+    public void SetAutoCompleteEnabled(boolean enabled) {
+        internal_native_SetAutoCompleteEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetAutoCompleteEnabled(long this_addr, boolean enabled) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteEnabled(this_addr, enabled);
+    }
+
+    public boolean IsAutoCompleteEnabled() {
+        return internal_native_IsAutoCompleteEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteEnabled(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteEnabled(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerOnTyping(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnTyping(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerOnTyping(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerOnTyping(this_addr, value);
+    }
+
+    public boolean IsAutoCompleteTriggerOnTyping() {
+        return internal_native_IsAutoCompleteTriggerOnTyping(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerOnTyping(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteTriggerOnTyping(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerOnShortcut(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnShortcut(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerOnShortcut(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerOnShortcut(this_addr, value);
+    }
+
+    public boolean IsAutoCompleteTriggerOnShortcut() {
+        return internal_native_IsAutoCompleteTriggerOnShortcut(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerOnShortcut(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteTriggerOnShortcut(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerInComments(boolean value) {
+        internal_native_SetAutoCompleteTriggerInComments(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerInComments(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerInComments(this_addr, value);
+    }
+
+    public boolean IsAutoCompleteTriggerInComments() {
+        return internal_native_IsAutoCompleteTriggerInComments(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerInComments(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteTriggerInComments(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerInStrings(boolean value) {
+        internal_native_SetAutoCompleteTriggerInStrings(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerInStrings(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerInStrings(this_addr, value);
+    }
+
+    public boolean IsAutoCompleteTriggerInStrings() {
+        return internal_native_IsAutoCompleteTriggerInStrings(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerInStrings(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteTriggerInStrings(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerShortcut(int value) {
+        internal_native_SetAutoCompleteTriggerShortcut(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerShortcut(long this_addr, int value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerShortcut(this_addr, value);
+    }
+
+    public int GetAutoCompleteTriggerShortcut() {
+        return internal_native_GetAutoCompleteTriggerShortcut(native_address);
+    }
+
+    public static int internal_native_GetAutoCompleteTriggerShortcut(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteTriggerShortcut(this_addr);
+    }
+
+    public void SetAutoInsertSingleSuggestions(boolean value) {
+        internal_native_SetAutoInsertSingleSuggestions(native_address, value);
+    }
+
+    public static void internal_native_SetAutoInsertSingleSuggestions(long this_addr, boolean value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoInsertSingleSuggestions(this_addr, value);
+    }
+
+    public boolean IsAutoInsertSingleSuggestions() {
+        return internal_native_IsAutoInsertSingleSuggestions(native_address);
+    }
+
+    public static boolean internal_native_IsAutoInsertSingleSuggestions(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoInsertSingleSuggestions(this_addr);
+    }
+
+    public void SetAutoCompleteTriggerDelay(int milliseconds) {
+        internal_native_SetAutoCompleteTriggerDelay(native_address, milliseconds);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerDelay(long this_addr, int milliseconds) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetAutoCompleteTriggerDelay(this_addr, milliseconds);
+    }
+
+    public int GetAutoCompleteTriggerDelay() {
+        return internal_native_GetAutoCompleteTriggerDelay(native_address);
+    }
+
+    public static int internal_native_GetAutoCompleteTriggerDelay(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteTriggerDelay(this_addr);
+    }
+
+    public void SetNoSuggestionsLabel(String label) {
+        internal_native_SetNoSuggestionsLabel(native_address, label);
+    }
+
+    public static void internal_native_SetNoSuggestionsLabel(long this_addr, String label) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetNoSuggestionsLabel(this_addr, label);
+    }
+
+    public NativeString GetNoSuggestionsLabel() {
+        long addr = internal_native_GetNoSuggestionsLabel_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_8 == null)
+            NativeString_TEMP_GEN_8 = NativeString.native_new();
+        NativeString_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_8;
+    }
+
+    public static long internal_native_GetNoSuggestionsLabel_addr(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetNoSuggestionsLabel_addr(this_addr);
+    }
+
+    public void SetSuggestionWidth(long value) {
+        internal_native_SetSuggestionWidth(native_address, value);
+    }
+
+    public static void internal_native_SetSuggestionWidth(long this_addr, long value) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetSuggestionWidth(this_addr, value);
+    }
+
+    public long GetSuggestionWidth() {
+        return internal_native_GetSuggestionWidth(native_address);
+    }
+
+    public static long internal_native_GetSuggestionWidth(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetSuggestionWidth(this_addr);
+    }
+
+    public boolean HasPendingAutoCompleteRequest() {
+        return internal_native_HasPendingAutoCompleteRequest(native_address);
+    }
+
+    public static boolean internal_native_HasPendingAutoCompleteRequest(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_HasPendingAutoCompleteRequest(this_addr);
+    }
+
+    public void ClearPendingAutoCompleteRequest() {
+        internal_native_ClearPendingAutoCompleteRequest(native_address);
+    }
+
+    public static void internal_native_ClearPendingAutoCompleteRequest(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearPendingAutoCompleteRequest(this_addr);
+    }
+
+    public NativeString GetAutoCompleteSearchTerm() {
+        long addr = internal_native_GetAutoCompleteSearchTerm_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_9 == null)
+            NativeString_TEMP_GEN_9 = NativeString.native_new();
+        NativeString_TEMP_GEN_9.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_9;
+    }
+
+    public static long internal_native_GetAutoCompleteSearchTerm_addr(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteSearchTerm_addr(this_addr);
+    }
+
+    public void GetAutoCompleteSearchTermStart(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermStart(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetAutoCompleteSearchTermStart(long this_addr, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteSearchTermStart(this_addr, outLine_addr, outIndex_addr);
+    }
+
+    public void GetAutoCompleteSearchTermEnd(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermEnd(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetAutoCompleteSearchTermEnd(long this_addr, long outLine_addr, long outIndex_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteSearchTermEnd(this_addr, outLine_addr, outIndex_addr);
+    }
+
+    public boolean IsAutoCompleteInIdentifier() {
+        return internal_native_IsAutoCompleteInIdentifier(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInIdentifier(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteInIdentifier(this_addr);
+    }
+
+    public boolean IsAutoCompleteInNumber() {
+        return internal_native_IsAutoCompleteInNumber(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInNumber(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteInNumber(this_addr);
+    }
+
+    public boolean IsAutoCompleteInComment() {
+        return internal_native_IsAutoCompleteInComment(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInComment(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteInComment(this_addr);
+    }
+
+    public boolean IsAutoCompleteInString() {
+        return internal_native_IsAutoCompleteInString(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInString(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_IsAutoCompleteInString(this_addr);
+    }
+
+    public TextEditorLanguage GetAutoCompleteLanguage() {
+        int value = internal_native_GetAutoCompleteLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetAutoCompleteLanguage(long this_addr) {
+        return imgui.extension.textedit.natives.JNI_TextEditor.internal_native_GetAutoCompleteLanguage(this_addr);
+    }
+
+    public void ClearAutoCompleteSuggestions() {
+        internal_native_ClearAutoCompleteSuggestions(native_address);
+    }
+
+    public static void internal_native_ClearAutoCompleteSuggestions(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_ClearAutoCompleteSuggestions(this_addr);
+    }
+
+    public void AddAutoCompleteSuggestion(String suggestion) {
+        internal_native_AddAutoCompleteSuggestion(native_address, suggestion);
+    }
+
+    public static void internal_native_AddAutoCompleteSuggestion(long this_addr, String suggestion) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_AddAutoCompleteSuggestion(this_addr, suggestion);
+    }
+
+    public void SubmitAutoCompleteSuggestions() {
+        internal_native_SubmitAutoCompleteSuggestions(native_address);
+    }
+
+    public static void internal_native_SubmitAutoCompleteSuggestions(long this_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SubmitAutoCompleteSuggestions(this_addr);
+    }
+
+    public void SetLineBreakConfig(TextEditorLineBreakConfig config) {
+        internal_native_SetLineBreakConfig(native_address, config.native_address);
+    }
+
+    public static void internal_native_SetLineBreakConfig(long this_addr, long config_addr) {
+        imgui.extension.textedit.natives.JNI_TextEditor.internal_native_SetLineBreakConfig(this_addr, config_addr);
     }
 }

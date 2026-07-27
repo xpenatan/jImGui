@@ -8,8 +8,8 @@ package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
-import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import imgui.ImVec2;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -23,6 +23,22 @@ public final class TextEditor extends NativeObject {
     private NativeString NativeString_TEMP_GEN_0;
 
     private NativeString NativeString_TEMP_GEN_1;
+
+    private NativeString NativeString_TEMP_GEN_2;
+
+    private NativeString NativeString_TEMP_GEN_3;
+
+    private NativeString NativeString_TEMP_GEN_4;
+
+    private NativeString NativeString_TEMP_GEN_5;
+
+    private NativeString NativeString_TEMP_GEN_6;
+
+    private NativeString NativeString_TEMP_GEN_7;
+
+    private NativeString NativeString_TEMP_GEN_8;
+
+    private NativeString NativeString_TEMP_GEN_9;
 
     static public final TextEditor NULL = TextEditor.native_new();
 
@@ -65,249 +81,61 @@ public final class TextEditor extends NativeObject {
         }
     }
 
-    public void SetReadOnlyEnabled(boolean aValue) {
-        internal_native_SetReadOnlyEnabled(native_address, aValue);
+    public void SetTabSize(long value) {
+        internal_native_SetTabSize(native_address, value);
     }
 
-    public static void internal_native_SetReadOnlyEnabled(long this_addr, boolean aValue) {
+    public static void internal_native_SetTabSize(long this_addr, long value) {
         try {
-            FFMHandles.internal_native_SetReadOnlyEnabled__JZ.invokeExact(this_addr, aValue);
+            FFMHandles.internal_native_SetTabSize__JJ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public boolean IsReadOnlyEnabled() {
-        return internal_native_IsReadOnlyEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsReadOnlyEnabled(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsReadOnlyEnabled__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetAutoIndentEnabled(boolean aValue) {
-        internal_native_SetAutoIndentEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetAutoIndentEnabled(long this_addr, boolean aValue) {
-        try {
-            FFMHandles.internal_native_SetAutoIndentEnabled__JZ.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public boolean IsAutoIndentEnabled() {
-        return internal_native_IsAutoIndentEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsAutoIndentEnabled(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsAutoIndentEnabled__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetShowWhitespacesEnabled(boolean aValue) {
-        internal_native_SetShowWhitespacesEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean aValue) {
-        try {
-            FFMHandles.internal_native_SetShowWhitespacesEnabled__JZ.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public boolean IsShowWhitespacesEnabled() {
-        return internal_native_IsShowWhitespacesEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShowWhitespacesEnabled(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsShowWhitespacesEnabled__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetShowLineNumbersEnabled(boolean aValue) {
-        internal_native_SetShowLineNumbersEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean aValue) {
-        try {
-            FFMHandles.internal_native_SetShowLineNumbersEnabled__JZ.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public boolean IsShowLineNumbersEnabled() {
-        return internal_native_IsShowLineNumbersEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShowLineNumbersEnabled(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsShowLineNumbersEnabled__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetShortTabsEnabled(boolean aValue) {
-        internal_native_SetShortTabsEnabled(native_address, aValue);
-    }
-
-    public static void internal_native_SetShortTabsEnabled(long this_addr, boolean aValue) {
-        try {
-            FFMHandles.internal_native_SetShortTabsEnabled__JZ.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public boolean IsShortTabsEnabled() {
-        return internal_native_IsShortTabsEnabled(native_address);
-    }
-
-    public static boolean internal_native_IsShortTabsEnabled(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsShortTabsEnabled__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public int GetLineCount() {
-        return internal_native_GetLineCount(native_address);
-    }
-
-    public static int internal_native_GetLineCount(long this_addr) {
-        try {
-            return (int) FFMHandles.internal_native_GetLineCount__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetPalette(PaletteId aValue) {
-        internal_native_SetPalette(native_address, aValue.getValue());
-    }
-
-    public static void internal_native_SetPalette(long this_addr, int aValue) {
-        try {
-            FFMHandles.internal_native_SetPalette__JI.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public PaletteId GetPalette() {
-        int value = internal_native_GetPalette(native_address);
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetPalette(long this_addr) {
-        try {
-            return (int) FFMHandles.internal_native_GetPalette__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetLanguageDefinition(LanguageDefinitionId aValue) {
-        internal_native_SetLanguageDefinition(native_address, aValue.getValue());
-    }
-
-    public static void internal_native_SetLanguageDefinition(long this_addr, int aValue) {
-        try {
-            FFMHandles.internal_native_SetLanguageDefinition__JI.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public LanguageDefinitionId GetLanguageDefinition() {
-        int value = internal_native_GetLanguageDefinition(native_address);
-        LanguageDefinitionId[] values = LanguageDefinitionId.values();
-        for (int i = 0; i < values.length; i++) {
-            LanguageDefinitionId enumVal = values[i];
-            if (enumVal != LanguageDefinitionId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return LanguageDefinitionId.CUSTOM.setValue(value);
-    }
-
-    public static int internal_native_GetLanguageDefinition(long this_addr) {
-        try {
-            return (int) FFMHandles.internal_native_GetLanguageDefinition__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public NativeString GetLanguageDefinitionName() {
-        long addr = internal_native_GetLanguageDefinitionName_addr(native_address);
-        if (addr == 0)
-            return NativeString.NULL;
-        if (NativeString_TEMP_GEN_0 == null)
-            NativeString_TEMP_GEN_0 = NativeString.native_new();
-        NativeString_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_0;
-    }
-
-    public static long internal_native_GetLanguageDefinitionName_addr(long this_addr) {
-        try {
-            return (long) FFMHandles.internal_native_GetLanguageDefinitionName_addr__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void SetTabSize(int aValue) {
-        internal_native_SetTabSize(native_address, aValue);
-    }
-
-    public static void internal_native_SetTabSize(long this_addr, int aValue) {
-        try {
-            FFMHandles.internal_native_SetTabSize__JI.invokeExact(this_addr, aValue);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public int GetTabSize() {
+    public long GetTabSize() {
         return internal_native_GetTabSize(native_address);
     }
 
-    public static int internal_native_GetTabSize(long this_addr) {
+    public static long internal_native_GetTabSize(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_GetTabSize__J.invokeExact(this_addr);
+            return (long) FFMHandles.internal_native_GetTabSize__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SetLineSpacing(float aValue) {
-        internal_native_SetLineSpacing(native_address, aValue);
+    public void SetInsertSpacesOnTabs(boolean value) {
+        internal_native_SetInsertSpacesOnTabs(native_address, value);
     }
 
-    public static void internal_native_SetLineSpacing(long this_addr, float aValue) {
+    public static void internal_native_SetInsertSpacesOnTabs(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SetLineSpacing__JF.invokeExact(this_addr, aValue);
+            FFMHandles.internal_native_SetInsertSpacesOnTabs__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsInsertSpacesOnTabs() {
+        return internal_native_IsInsertSpacesOnTabs(native_address);
+    }
+
+    public static boolean internal_native_IsInsertSpacesOnTabs(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsInsertSpacesOnTabs__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLineSpacing(float value) {
+        internal_native_SetLineSpacing(native_address, value);
+    }
+
+    public static void internal_native_SetLineSpacing(long this_addr, float value) {
+        try {
+            FFMHandles.internal_native_SetLineSpacing__JF.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -325,236 +153,685 @@ public final class TextEditor extends NativeObject {
         }
     }
 
-    public static void SetDefaultPalette(PaletteId aValue) {
-        internal_native_SetDefaultPalette(aValue.getValue());
+    public void SetWordWrapEnabled(boolean value) {
+        internal_native_SetWordWrapEnabled(native_address, value);
     }
 
-    public static void internal_native_SetDefaultPalette(int aValue) {
+    public static void internal_native_SetWordWrapEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SetDefaultPalette__I.invokeExact(aValue);
+            FFMHandles.internal_native_SetWordWrapEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static PaletteId GetDefaultPalette() {
-        int value = internal_native_GetDefaultPalette();
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
+    public boolean IsWordWrapEnabled() {
+        return internal_native_IsWordWrapEnabled(native_address);
     }
 
-    public static int internal_native_GetDefaultPalette() {
+    public static boolean internal_native_IsWordWrapEnabled(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_GetDefaultPalette__.invokeExact();
+            return (boolean) FFMHandles.internal_native_IsWordWrapEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectAll() {
-        internal_native_SelectAll(native_address);
+    public void SetReadOnlyEnabled(boolean value) {
+        internal_native_SetReadOnlyEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectAll(long this_addr) {
+    public static void internal_native_SetReadOnlyEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SelectAll__J.invokeExact(this_addr);
+            FFMHandles.internal_native_SetReadOnlyEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectLine(int aLine) {
-        internal_native_SelectLine(native_address, aLine);
+    public boolean IsReadOnlyEnabled() {
+        return internal_native_IsReadOnlyEnabled(native_address);
     }
 
-    public static void internal_native_SelectLine(long this_addr, int aLine) {
+    public static boolean internal_native_IsReadOnlyEnabled(long this_addr) {
         try {
-            FFMHandles.internal_native_SelectLine__JI.invokeExact(this_addr, aLine);
+            return (boolean) FFMHandles.internal_native_IsReadOnlyEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectRegion(int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
-        internal_native_SelectRegion(native_address, aStartLine, aStartChar, aEndLine, aEndChar);
+    public void SetCaretsVisible(boolean value) {
+        internal_native_SetCaretsVisible(native_address, value);
     }
 
-    public static void internal_native_SelectRegion(long this_addr, int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
+    public static void internal_native_SetCaretsVisible(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SelectRegion__JIIII.invokeExact(this_addr, aStartLine, aStartChar, aEndLine, aEndChar);
+            FFMHandles.internal_native_SetCaretsVisible__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsCaretsVisible() {
+        return internal_native_IsCaretsVisible(native_address);
     }
 
-    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive) {
+    public static boolean internal_native_IsCaretsVisible(long this_addr) {
         try {
-            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2IZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aText), aTextSize, aCaseSensitive);
+            return (boolean) FFMHandles.internal_native_IsCaretsVisible__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize);
+    public void SetAutoIndentEnabled(boolean value) {
+        internal_native_SetAutoIndentEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize) {
+    public static void internal_native_SetAutoIndentEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2I.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aText), aTextSize);
+            FFMHandles.internal_native_SetAutoIndentEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsAutoIndentEnabled() {
+        return internal_native_IsAutoIndentEnabled(native_address);
     }
 
-    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive) {
+    public static boolean internal_native_IsAutoIndentEnabled(long this_addr) {
         try {
-            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2IZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aText), aTextSize, aCaseSensitive);
+            return (boolean) FFMHandles.internal_native_IsAutoIndentEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize);
+    public void SetShowWhitespacesEnabled(boolean value) {
+        internal_native_SetShowWhitespacesEnabled(native_address, value);
     }
 
-    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize) {
+    public static void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2I.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aText), aTextSize);
+            FFMHandles.internal_native_SetShowWhitespacesEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public boolean AnyCursorHasSelection() {
-        return internal_native_AnyCursorHasSelection(native_address);
+    public boolean IsShowWhitespacesEnabled() {
+        return internal_native_IsShowWhitespacesEnabled(native_address);
     }
 
-    public static boolean internal_native_AnyCursorHasSelection(long this_addr) {
+    public static boolean internal_native_IsShowWhitespacesEnabled(long this_addr) {
         try {
-            return (boolean) FFMHandles.internal_native_AnyCursorHasSelection__J.invokeExact(this_addr);
+            return (boolean) FFMHandles.internal_native_IsShowWhitespacesEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public boolean AllCursorsHaveSelection() {
-        return internal_native_AllCursorsHaveSelection(native_address);
+    public void SetShowSpacesEnabled(boolean value) {
+        internal_native_SetShowSpacesEnabled(native_address, value);
     }
 
-    public static boolean internal_native_AllCursorsHaveSelection(long this_addr) {
+    public static void internal_native_SetShowSpacesEnabled(long this_addr, boolean value) {
         try {
-            return (boolean) FFMHandles.internal_native_AllCursorsHaveSelection__J.invokeExact(this_addr);
+            FFMHandles.internal_native_SetShowSpacesEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void ClearExtraCursors() {
-        internal_native_ClearExtraCursors(native_address);
+    public boolean IsShowSpacesEnabled() {
+        return internal_native_IsShowSpacesEnabled(native_address);
     }
 
-    public static void internal_native_ClearExtraCursors(long this_addr) {
+    public static boolean internal_native_IsShowSpacesEnabled(long this_addr) {
         try {
-            FFMHandles.internal_native_ClearExtraCursors__J.invokeExact(this_addr);
+            return (boolean) FFMHandles.internal_native_IsShowSpacesEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void ClearSelections() {
-        internal_native_ClearSelections(native_address);
+    public void SetShowTabsEnabled(boolean value) {
+        internal_native_SetShowTabsEnabled(native_address, value);
     }
 
-    public static void internal_native_ClearSelections(long this_addr) {
+    public static void internal_native_SetShowTabsEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_ClearSelections__J.invokeExact(this_addr);
+            FFMHandles.internal_native_SetShowTabsEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SetCursorPosition(int aLine, int aCharIndex) {
-        internal_native_SetCursorPosition(native_address, aLine, aCharIndex);
+    public boolean IsShowTabsEnabled() {
+        return internal_native_IsShowTabsEnabled(native_address);
     }
 
-    public static void internal_native_SetCursorPosition(long this_addr, int aLine, int aCharIndex) {
+    public static boolean internal_native_IsShowTabsEnabled(long this_addr) {
         try {
-            FFMHandles.internal_native_SetCursorPosition__JII.invokeExact(this_addr, aLine, aCharIndex);
+            return (boolean) FFMHandles.internal_native_IsShowTabsEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void GetCursorPosition(NativeIntArray outLine, NativeIntArray outColumn) {
-        internal_native_GetCursorPosition(native_address, outLine.native_void_address, outColumn.native_void_address);
+    public void SetShowLineNumbersEnabled(boolean value) {
+        internal_native_SetShowLineNumbersEnabled(native_address, value);
     }
 
-    public static void internal_native_GetCursorPosition(long this_addr, long outLine_addr, long outColumn_addr) {
+    public static void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean value) {
         try {
-            FFMHandles.internal_native_GetCursorPosition__JJJ.invokeExact(this_addr, outLine_addr, outColumn_addr);
+            FFMHandles.internal_native_SetShowLineNumbersEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public int GetFirstVisibleLine() {
-        return internal_native_GetFirstVisibleLine(native_address);
+    public boolean IsShowLineNumbersEnabled() {
+        return internal_native_IsShowLineNumbersEnabled(native_address);
     }
 
-    public static int internal_native_GetFirstVisibleLine(long this_addr) {
+    public static boolean internal_native_IsShowLineNumbersEnabled(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_GetFirstVisibleLine__J.invokeExact(this_addr);
+            return (boolean) FFMHandles.internal_native_IsShowLineNumbersEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public int GetLastVisibleLine() {
-        return internal_native_GetLastVisibleLine(native_address);
+    public void SetShowMiniMapEnabled(boolean value) {
+        internal_native_SetShowMiniMapEnabled(native_address, value);
     }
 
-    public static int internal_native_GetLastVisibleLine(long this_addr) {
+    public static void internal_native_SetShowMiniMapEnabled(long this_addr, boolean value) {
         try {
-            return (int) FFMHandles.internal_native_GetLastVisibleLine__J.invokeExact(this_addr);
+            FFMHandles.internal_native_SetShowMiniMapEnabled__JZ.invokeExact(this_addr, value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SetViewAtLine(int aLine, SetViewAtLineMode aMode) {
-        internal_native_SetViewAtLine(native_address, aLine, aMode.getValue());
+    public boolean IsShowMiniMapEnabled() {
+        return internal_native_IsShowMiniMapEnabled(native_address);
     }
 
-    public static void internal_native_SetViewAtLine(long this_addr, int aLine, int aMode) {
+    public static boolean internal_native_IsShowMiniMapEnabled(long this_addr) {
         try {
-            FFMHandles.internal_native_SetViewAtLine__JII.invokeExact(this_addr, aLine, aMode);
+            return (boolean) FFMHandles.internal_native_IsShowMiniMapEnabled__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void Copy() {
-        internal_native_Copy(native_address);
+    public void SetMiniMapColumns(long value) {
+        internal_native_SetMiniMapColumns(native_address, value);
     }
 
-    public static void internal_native_Copy(long this_addr) {
+    public static void internal_native_SetMiniMapColumns(long this_addr, long value) {
         try {
-            FFMHandles.internal_native_Copy__J.invokeExact(this_addr);
+            FFMHandles.internal_native_SetMiniMapColumns__JJ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetMiniMapColumns() {
+        return internal_native_GetMiniMapColumns(native_address);
+    }
+
+    public static long internal_native_GetMiniMapColumns(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetMiniMapColumns__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetShowScrollbarMiniMapEnabled(boolean value) {
+        internal_native_SetShowScrollbarMiniMapEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetShowScrollbarMiniMapEnabled(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetShowScrollbarMiniMapEnabled__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsShowScrollbarMiniMapEnabled() {
+        return internal_native_IsShowScrollbarMiniMapEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsShowScrollbarMiniMapEnabled(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsShowScrollbarMiniMapEnabled__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetShowPanScrollIndicatorEnabled(boolean value) {
+        internal_native_SetShowPanScrollIndicatorEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetShowPanScrollIndicatorEnabled(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetShowPanScrollIndicatorEnabled__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsShowPanScrollIndicatorEnabled() {
+        return internal_native_IsShowPanScrollIndicatorEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsShowPanScrollIndicatorEnabled(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsShowPanScrollIndicatorEnabled__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetShowMatchingBrackets(boolean value) {
+        internal_native_SetShowMatchingBrackets(native_address, value);
+    }
+
+    public static void internal_native_SetShowMatchingBrackets(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetShowMatchingBrackets__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsShowingMatchingBrackets() {
+        return internal_native_IsShowingMatchingBrackets(native_address);
+    }
+
+    public static boolean internal_native_IsShowingMatchingBrackets(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsShowingMatchingBrackets__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetCompletePairedGlyphs(boolean value) {
+        internal_native_SetCompletePairedGlyphs(native_address, value);
+    }
+
+    public static void internal_native_SetCompletePairedGlyphs(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetCompletePairedGlyphs__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsCompletingPairedGlyphs() {
+        return internal_native_IsCompletingPairedGlyphs(native_address);
+    }
+
+    public static boolean internal_native_IsCompletingPairedGlyphs(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsCompletingPairedGlyphs__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLineFoldingEnabled(boolean value) {
+        internal_native_SetLineFoldingEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetLineFoldingEnabled(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetLineFoldingEnabled__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLineFoldingEnabled() {
+        return internal_native_IsLineFoldingEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsLineFoldingEnabled(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLineFoldingEnabled__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetOverwriteEnabled(boolean value) {
+        internal_native_SetOverwriteEnabled(native_address, value);
+    }
+
+    public static void internal_native_SetOverwriteEnabled(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetOverwriteEnabled__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsOverwriteEnabled() {
+        return internal_native_IsOverwriteEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsOverwriteEnabled(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsOverwriteEnabled__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetMiddleMousePanMode() {
+        internal_native_SetMiddleMousePanMode(native_address);
+    }
+
+    public static void internal_native_SetMiddleMousePanMode(long this_addr) {
+        try {
+            FFMHandles.internal_native_SetMiddleMousePanMode__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetMiddleMouseScrollMode() {
+        internal_native_SetMiddleMouseScrollMode(native_address);
+    }
+
+    public static void internal_native_SetMiddleMouseScrollMode(long this_addr) {
+        try {
+            FFMHandles.internal_native_SetMiddleMouseScrollMode__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsMiddleMousePanMode() {
+        return internal_native_IsMiddleMousePanMode(native_address);
+    }
+
+    public static boolean internal_native_IsMiddleMousePanMode(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsMiddleMousePanMode__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLineNumberLeftMargin(long value) {
+        internal_native_SetLineNumberLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetLineNumberLeftMargin(long this_addr, long value) {
+        try {
+            FFMHandles.internal_native_SetLineNumberLeftMargin__JJ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetLineNumberLeftMargin() {
+        return internal_native_GetLineNumberLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetLineNumberLeftMargin(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLineNumberLeftMargin__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetDecorationLeftMargin(long value) {
+        internal_native_SetDecorationLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetDecorationLeftMargin(long this_addr, long value) {
+        try {
+            FFMHandles.internal_native_SetDecorationLeftMargin__JJ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetDecorationLeftMargin() {
+        return internal_native_GetDecorationLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetDecorationLeftMargin(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetDecorationLeftMargin__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetTextLeftMargin(long value) {
+        internal_native_SetTextLeftMargin(native_address, value);
+    }
+
+    public static void internal_native_SetTextLeftMargin(long this_addr, long value) {
+        try {
+            FFMHandles.internal_native_SetTextLeftMargin__JJ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetTextLeftMargin() {
+        return internal_native_GetTextLeftMargin(native_address);
+    }
+
+    public static long internal_native_GetTextLeftMargin(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetTextLeftMargin__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetText(String text) {
+        internal_native_SetText(native_address, text);
+    }
+
+    public static void internal_native_SetText(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_SetText__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetText() {
+        long addr = internal_native_GetText_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetText_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetText_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetCursorText(long cursor) {
+        long addr = internal_native_GetCursorText_addr(native_address, cursor);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_1 == null)
+            NativeString_TEMP_GEN_1 = NativeString.native_new();
+        NativeString_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetCursorText_addr(long this_addr, long cursor) {
+        try {
+            return (long) FFMHandles.internal_native_GetCursorText_addr__JJ.invokeExact(this_addr, cursor);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetLineText(long line) {
+        long addr = internal_native_GetLineText_addr(native_address, line);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_2 == null)
+            NativeString_TEMP_GEN_2 = NativeString.native_new();
+        NativeString_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_2;
+    }
+
+    public static long internal_native_GetLineText_addr(long this_addr, long line) {
+        try {
+            return (long) FFMHandles.internal_native_GetLineText_addr__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetSectionText(long startLine, long startIndex, long endLine, long endIndex) {
+        long addr = internal_native_GetSectionText_addr(native_address, startLine, startIndex, endLine, endIndex);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_3 == null)
+            NativeString_TEMP_GEN_3 = NativeString.native_new();
+        NativeString_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_3;
+    }
+
+    public static long internal_native_GetSectionText_addr(long this_addr, long startLine, long startIndex, long endLine, long endIndex) {
+        try {
+            return (long) FFMHandles.internal_native_GetSectionText_addr__JJJJJ.invokeExact(this_addr, startLine, startIndex, endLine, endIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ReplaceSectionText(long startLine, long startIndex, long endLine, long endIndex, String text) {
+        internal_native_ReplaceSectionText(native_address, startLine, startIndex, endLine, endIndex, text);
+    }
+
+    public static void internal_native_ReplaceSectionText(long this_addr, long startLine, long startIndex, long endLine, long endIndex, String text) {
+        try {
+            FFMHandles.internal_native_ReplaceSectionText__JJJJJLjava_lang_String_2.invokeExact(this_addr, startLine, startIndex, endLine, endIndex, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearText() {
+        internal_native_ClearText(native_address);
+    }
+
+    public static void internal_native_ClearText(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearText__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsEmpty() {
+        return internal_native_IsEmpty(native_address);
+    }
+
+    public static boolean internal_native_IsEmpty(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsEmpty__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetLineCount() {
+        return internal_native_GetLineCount(native_address);
+    }
+
+    public static long internal_native_GetLineCount(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLineCount__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void Render(String title, ImVec2 size, int childFlags, int windowFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags, windowFlags);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags) {
+        try {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JII.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags, windowFlags);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void Render(String title, ImVec2 size, int childFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags) {
+        try {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JI.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void Render(String title, ImVec2 size) {
+        internal_native_Render(native_address, title, size.native_address);
+    }
+
+    public static void internal_native_Render(long this_addr, String title, long size_addr) {
+        try {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2J.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void Render(String title) {
+        internal_native_Render(native_address, title);
+    }
+
+    public static void internal_native_Render(long this_addr, String title) {
+        try {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetFocus() {
+        internal_native_SetFocus(native_address);
+    }
+
+    public static void internal_native_SetFocus(long this_addr) {
+        try {
+            FFMHandles.internal_native_SetFocus__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -572,6 +849,18 @@ public final class TextEditor extends NativeObject {
         }
     }
 
+    public void Copy() {
+        internal_native_Copy(native_address);
+    }
+
+    public static void internal_native_Copy(long this_addr) {
+        try {
+            FFMHandles.internal_native_Copy__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void Paste() {
         internal_native_Paste(native_address);
     }
@@ -584,18 +873,6 @@ public final class TextEditor extends NativeObject {
         }
     }
 
-    public void Undo(int aSteps) {
-        internal_native_Undo(native_address, aSteps);
-    }
-
-    public static void internal_native_Undo(long this_addr, int aSteps) {
-        try {
-            FFMHandles.internal_native_Undo__JI.invokeExact(this_addr, aSteps);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     public void Undo() {
         internal_native_Undo(native_address);
     }
@@ -603,18 +880,6 @@ public final class TextEditor extends NativeObject {
     public static void internal_native_Undo(long this_addr) {
         try {
             FFMHandles.internal_native_Undo__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void Redo(int aSteps) {
-        internal_native_Redo(native_address, aSteps);
-    }
-
-    public static void internal_native_Redo(long this_addr, int aSteps) {
-        try {
-            FFMHandles.internal_native_Redo__JI.invokeExact(this_addr, aSteps);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -656,91 +921,1743 @@ public final class TextEditor extends NativeObject {
         }
     }
 
-    public int GetUndoIndex() {
+    public long GetUndoIndex() {
         return internal_native_GetUndoIndex(native_address);
     }
 
-    public static int internal_native_GetUndoIndex(long this_addr) {
+    public static long internal_native_GetUndoIndex(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_GetUndoIndex__J.invokeExact(this_addr);
+            return (long) FFMHandles.internal_native_GetUndoIndex__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void SetText(String aText) {
-        internal_native_SetText(native_address, aText);
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
     }
 
-    public static void internal_native_SetText(long this_addr, String aText) {
+    public static void internal_native_SelectAll(long this_addr) {
         try {
-            FFMHandles.internal_native_SetText__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aText));
+            FFMHandles.internal_native_SelectAll__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public NativeString GetText() {
-        long addr = internal_native_GetText_addr(native_address);
+    public void SelectLine(long line) {
+        internal_native_SelectLine(native_address, line);
+    }
+
+    public static void internal_native_SelectLine(long this_addr, long line) {
+        try {
+            FFMHandles.internal_native_SelectLine__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectLines(long start, long end) {
+        internal_native_SelectLines(native_address, start, end);
+    }
+
+    public static void internal_native_SelectLines(long this_addr, long start, long end) {
+        try {
+            FFMHandles.internal_native_SelectLines__JJJ.invokeExact(this_addr, start, end);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectRegion(long startLine, long startIndex, long endLine, long endIndex) {
+        internal_native_SelectRegion(native_address, startLine, startIndex, endLine, endIndex);
+    }
+
+    public static void internal_native_SelectRegion(long this_addr, long startLine, long startIndex, long endLine, long endIndex) {
+        try {
+            FFMHandles.internal_native_SelectRegion__JJJJJ.invokeExact(this_addr, startLine, startIndex, endLine, endIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectToBrackets(boolean includeBrackets) {
+        internal_native_SelectToBrackets(native_address, includeBrackets);
+    }
+
+    public static void internal_native_SelectToBrackets(long this_addr, boolean includeBrackets) {
+        try {
+            FFMHandles.internal_native_SelectToBrackets__JZ.invokeExact(this_addr, includeBrackets);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectToBrackets() {
+        internal_native_SelectToBrackets(native_address);
+    }
+
+    public static void internal_native_SelectToBrackets(long this_addr) {
+        try {
+            FFMHandles.internal_native_SelectToBrackets__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GrowSelections() {
+        internal_native_GrowSelections(native_address);
+    }
+
+    public static void internal_native_GrowSelections(long this_addr) {
+        try {
+            FFMHandles.internal_native_GrowSelections__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ShrinkSelections() {
+        internal_native_ShrinkSelections(native_address);
+    }
+
+    public static void internal_native_ShrinkSelections(long this_addr) {
+        try {
+            FFMHandles.internal_native_ShrinkSelections__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddNextOccurrence() {
+        internal_native_AddNextOccurrence(native_address);
+    }
+
+    public static void internal_native_AddNextOccurrence(long this_addr) {
+        try {
+            FFMHandles.internal_native_AddNextOccurrence__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectAllOccurrences() {
+        internal_native_SelectAllOccurrences(native_address);
+    }
+
+    public static void internal_native_SelectAllOccurrences(long this_addr) {
+        try {
+            FFMHandles.internal_native_SelectAllOccurrences__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean AnyCursorHasSelection() {
+        return internal_native_AnyCursorHasSelection(native_address);
+    }
+
+    public static boolean internal_native_AnyCursorHasSelection(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_AnyCursorHasSelection__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean AllCursorsHaveSelection() {
+        return internal_native_AllCursorsHaveSelection(native_address);
+    }
+
+    public static boolean internal_native_AllCursorsHaveSelection(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_AllCursorsHaveSelection__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean CurrentCursorHasSelection() {
+        return internal_native_CurrentCursorHasSelection(native_address);
+    }
+
+    public static boolean internal_native_CurrentCursorHasSelection(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_CurrentCursorHasSelection__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearCursors() {
+        internal_native_ClearCursors(native_address);
+    }
+
+    public static void internal_native_ClearCursors(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearCursors__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetNumberOfCursors() {
+        return internal_native_GetNumberOfCursors(native_address);
+    }
+
+    public static long internal_native_GetNumberOfCursors(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetNumberOfCursors__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetCursorPosition(long cursor, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCursorPosition(native_address, cursor, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCursorPosition(long this_addr, long cursor, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetCursorPosition__JJJJ.invokeExact(this_addr, cursor, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetMainCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetMainCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetMainCursorPosition(long this_addr, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetMainCursorPosition__JJJ.invokeExact(this_addr, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetCurrentCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCurrentCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCurrentCursorPosition(long this_addr, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetCurrentCursorPosition__JJJ.invokeExact(this_addr, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetCursorSelection(long cursor, NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCursorSelection(native_address, cursor, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCursorSelection(long this_addr, long cursor, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetCursorSelection__JJJJJJ.invokeExact(this_addr, cursor, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetMainCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetMainCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetMainCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetMainCursorSelection__JJJJJ.invokeExact(this_addr, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetCurrentCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCurrentCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    public static void internal_native_GetCurrentCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetCurrentCursorSelection__JJJJJ.invokeExact(this_addr, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsMousePosOverGlyph(ImVec2 mousePos) {
+        return internal_native_IsMousePosOverGlyph(native_address, mousePos.native_address);
+    }
+
+    public static boolean internal_native_IsMousePosOverGlyph(long this_addr, long mousePos_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsMousePosOverGlyph__JJ.invokeExact(this_addr, mousePos_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetDocPosAtMousePos(ImVec2 mousePos, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetDocPosAtMousePos(native_address, mousePos.native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetDocPosAtMousePos(long this_addr, long mousePos_addr, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetDocPosAtMousePos__JJJJ.invokeExact(this_addr, mousePos_addr, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetWordAtMousePos(ImVec2 mousePos) {
+        long addr = internal_native_GetWordAtMousePos_addr(native_address, mousePos.native_address);
         if (addr == 0)
             return NativeString.NULL;
-        if (NativeString_TEMP_GEN_1 == null)
-            NativeString_TEMP_GEN_1 = NativeString.native_new();
-        NativeString_TEMP_GEN_1.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_1;
+        if (NativeString_TEMP_GEN_4 == null)
+            NativeString_TEMP_GEN_4 = NativeString.native_new();
+        NativeString_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_4;
     }
 
-    public static long internal_native_GetText_addr(long this_addr) {
+    public static long internal_native_GetWordAtMousePos_addr(long this_addr, long mousePos_addr) {
         try {
-            return (long) FFMHandles.internal_native_GetText_addr__J.invokeExact(this_addr);
+            return (long) FFMHandles.internal_native_GetWordAtMousePos_addr__JJ.invokeExact(this_addr, mousePos_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize, boolean aBorder) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address, aBorder);
+    public void ScrollToLine(long line, TextEditorScroll alignment) {
+        internal_native_ScrollToLine(native_address, line, alignment.getValue());
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr, boolean aBorder) {
+    public static void internal_native_ScrollToLine(long this_addr, long line, int alignment) {
         try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2ZJZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aTitle), aParentIsFocused, aSize_addr, aBorder);
+            FFMHandles.internal_native_ScrollToLine__JJI.invokeExact(this_addr, line, alignment);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address);
+    public long GetFirstVisibleRow() {
+        return internal_native_GetFirstVisibleRow(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr) {
+    public static long internal_native_GetFirstVisibleRow(long this_addr) {
         try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2ZJ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aTitle), aParentIsFocused, aSize_addr);
+            return (long) FFMHandles.internal_native_GetFirstVisibleRow__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused);
+    public long GetLastVisibleRow() {
+        return internal_native_GetLastVisibleRow(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused) {
+    public static long internal_native_GetLastVisibleRow(long this_addr) {
         try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aTitle), aParentIsFocused);
+            return (long) FFMHandles.internal_native_GetLastVisibleRow__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void Render(String aTitle) {
-        internal_native_Render(native_address, aTitle);
+    public long GetFirstVisibleColumn() {
+        return internal_native_GetFirstVisibleColumn(native_address);
     }
 
-    public static void internal_native_Render(long this_addr, String aTitle) {
+    public static long internal_native_GetFirstVisibleColumn(long this_addr) {
         try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(aTitle));
+            return (long) FFMHandles.internal_native_GetFirstVisibleColumn__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetLastVisibleColumn() {
+        return internal_native_GetLastVisibleColumn(native_address);
+    }
+
+    public static long internal_native_GetLastVisibleColumn(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLastVisibleColumn__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetCursor(long line, long index) {
+        internal_native_SetCursor(native_address, line, index);
+    }
+
+    public static void internal_native_SetCursor(long this_addr, long line, long index) {
+        try {
+            FFMHandles.internal_native_SetCursor__JJJ.invokeExact(this_addr, line, index);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float GetLineHeight() {
+        return internal_native_GetLineHeight(native_address);
+    }
+
+    public static float internal_native_GetLineHeight(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetLineHeight__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float GetGlyphWidth() {
+        return internal_native_GetGlyphWidth(native_address);
+    }
+
+    public static float internal_native_GetGlyphWidth(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetGlyphWidth__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DocPos2VisPos(long line, long index, NativeLongArray outRow, NativeLongArray outColumn) {
+        internal_native_DocPos2VisPos(native_address, line, index, outRow.native_void_address, outColumn.native_void_address);
+    }
+
+    public static void internal_native_DocPos2VisPos(long this_addr, long line, long index, long outRow_addr, long outColumn_addr) {
+        try {
+            FFMHandles.internal_native_DocPos2VisPos__JJJJJ.invokeExact(this_addr, line, index, outRow_addr, outColumn_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void VisPos2DocPos(long row, long column, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_VisPos2DocPos(native_address, row, column, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_VisPos2DocPos(long this_addr, long row, long column, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_VisPos2DocPos__JJJJJ.invokeExact(this_addr, row, column, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsDocPosVisible(long line, long index) {
+        return internal_native_IsDocPosVisible(native_address, line, index);
+    }
+
+    public static boolean internal_native_IsDocPosVisible(long this_addr, long line, long index) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsDocPosVisible__JJJ.invokeExact(this_addr, line, index);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsVisPosOverGlyph(long row, long column) {
+        return internal_native_IsVisPosOverGlyph(native_address, row, column);
+    }
+
+    public static boolean internal_native_IsVisPosOverGlyph(long this_addr, long row, long column) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsVisPosOverGlyph__JJJ.invokeExact(this_addr, row, column);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        try {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
+        try {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectFirstOccurrenceOf(String text) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text);
+    }
+
+    public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        try {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
+        try {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectNextOccurrenceOf(String text) {
+        internal_native_SelectNextOccurrenceOf(native_address, text);
+    }
+
+    public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
+        try {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive) {
+        try {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectAllOccurrencesOf(String text) {
+        internal_native_SelectAllOccurrencesOf(native_address, text);
+    }
+
+    public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ReplaceTextInCurrentCursor(String text) {
+        internal_native_ReplaceTextInCurrentCursor(native_address, text);
+    }
+
+    public static void internal_native_ReplaceTextInCurrentCursor(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_ReplaceTextInCurrentCursor__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ReplaceTextInAllCursors(String text) {
+        internal_native_ReplaceTextInAllCursors(native_address, text);
+    }
+
+    public static void internal_native_ReplaceTextInAllCursors(long this_addr, String text) {
+        try {
+            FFMHandles.internal_native_ReplaceTextInAllCursors__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void OpenFindReplaceWindow() {
+        internal_native_OpenFindReplaceWindow(native_address);
+    }
+
+    public static void internal_native_OpenFindReplaceWindow(long this_addr) {
+        try {
+            FFMHandles.internal_native_OpenFindReplaceWindow__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void CloseFindReplaceWindow() {
+        internal_native_CloseFindReplaceWindow(native_address);
+    }
+
+    public static void internal_native_CloseFindReplaceWindow(long this_addr) {
+        try {
+            FFMHandles.internal_native_CloseFindReplaceWindow__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetFindButtonLabel(String label) {
+        internal_native_SetFindButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetFindButtonLabel(long this_addr, String label) {
+        try {
+            FFMHandles.internal_native_SetFindButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetFindAllButtonLabel(String label) {
+        internal_native_SetFindAllButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetFindAllButtonLabel(long this_addr, String label) {
+        try {
+            FFMHandles.internal_native_SetFindAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetReplaceButtonLabel(String label) {
+        internal_native_SetReplaceButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetReplaceButtonLabel(long this_addr, String label) {
+        try {
+            FFMHandles.internal_native_SetReplaceButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetReplaceAllButtonLabel(String label) {
+        internal_native_SetReplaceAllButtonLabel(native_address, label);
+    }
+
+    public static void internal_native_SetReplaceAllButtonLabel(long this_addr, String label) {
+        try {
+            FFMHandles.internal_native_SetReplaceAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasFindString() {
+        return internal_native_HasFindString(native_address);
+    }
+
+    public static boolean internal_native_HasFindString(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasFindString__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void FindNext() {
+        internal_native_FindNext(native_address);
+    }
+
+    public static void internal_native_FindNext(long this_addr) {
+        try {
+            FFMHandles.internal_native_FindNext__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void FindAll() {
+        internal_native_FindAll(native_address);
+    }
+
+    public static void internal_native_FindAll(long this_addr) {
+        try {
+            FFMHandles.internal_native_FindAll__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddMarker(long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        internal_native_AddMarker(native_address, line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);
+    }
+
+    public static void internal_native_AddMarker(long this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        try {
+            FFMHandles.internal_native_AddMarker__JJIILjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, line, lineNumberColor, textColor, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(lineNumberTooltip), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(textTooltip));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearMarkers() {
+        internal_native_ClearMarkers(native_address);
+    }
+
+    public static void internal_native_ClearMarkers(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearMarkers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasMarkers() {
+        return internal_native_HasMarkers(native_address);
+    }
+
+    public static boolean internal_native_HasMarkers(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasMarkers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled, int delay) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled, delay);
+    }
+
+    public static void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled, int delay) {
+        try {
+            FFMHandles.internal_native_SetChangeTrackingEnabled__JZI.invokeExact(this_addr, enabled, delay);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled) {
+        try {
+            FFMHandles.internal_native_SetChangeTrackingEnabled__JZ.invokeExact(this_addr, enabled);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasPendingChange() {
+        return internal_native_HasPendingChange(native_address);
+    }
+
+    public static boolean internal_native_HasPendingChange(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasPendingChange__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearPendingChange() {
+        internal_native_ClearPendingChange(native_address);
+    }
+
+    public static void internal_native_ClearPendingChange(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearPendingChange__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetTransactionTrackingEnabled(boolean enabled) {
+        internal_native_SetTransactionTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetTransactionTrackingEnabled(long this_addr, boolean enabled) {
+        try {
+            FFMHandles.internal_native_SetTransactionTrackingEnabled__JZ.invokeExact(this_addr, enabled);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetTransactionChangeCount() {
+        return internal_native_GetTransactionChangeCount(native_address);
+    }
+
+    public static long internal_native_GetTransactionChangeCount(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetTransactionChangeCount__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearTransactionChanges() {
+        internal_native_ClearTransactionChanges(native_address);
+    }
+
+    public static void internal_native_ClearTransactionChanges(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearTransactionChanges__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsTransactionChangeInsert(long index) {
+        return internal_native_IsTransactionChangeInsert(native_address, index);
+    }
+
+    public static boolean internal_native_IsTransactionChangeInsert(long this_addr, long index) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsTransactionChangeInsert__JJ.invokeExact(this_addr, index);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetTransactionChangeStart(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeStart(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    public static void internal_native_GetTransactionChangeStart(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetTransactionChangeStart__JJJJ.invokeExact(this_addr, index, outLine_addr, outGlyphIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetTransactionChangeEnd(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeEnd(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    public static void internal_native_GetTransactionChangeEnd(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetTransactionChangeEnd__JJJJ.invokeExact(this_addr, index, outLine_addr, outGlyphIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetTransactionChangeText(long index) {
+        long addr = internal_native_GetTransactionChangeText_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_5 == null)
+            NativeString_TEMP_GEN_5 = NativeString.native_new();
+        NativeString_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_5;
+    }
+
+    public static long internal_native_GetTransactionChangeText_addr(long this_addr, long index) {
+        try {
+            return (long) FFMHandles.internal_native_GetTransactionChangeText_addr__JJ.invokeExact(this_addr, index);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetUserData(long line, long data) {
+        internal_native_SetUserData(native_address, line, data);
+    }
+
+    public static void internal_native_SetUserData(long this_addr, long line, long data) {
+        try {
+            FFMHandles.internal_native_SetUserData__JJJ.invokeExact(this_addr, line, data);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetUserData(long line) {
+        return internal_native_GetUserData(native_address, line);
+    }
+
+    public static long internal_native_GetUserData(long this_addr, long line) {
+        try {
+            return (long) FFMHandles.internal_native_GetUserData__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void FoldAroundLine(long line) {
+        internal_native_FoldAroundLine(native_address, line);
+    }
+
+    public static void internal_native_FoldAroundLine(long this_addr, long line) {
+        try {
+            FFMHandles.internal_native_FoldAroundLine__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void UnfoldAroundLine(long line) {
+        internal_native_UnfoldAroundLine(native_address, line);
+    }
+
+    public static void internal_native_UnfoldAroundLine(long this_addr, long line) {
+        try {
+            FFMHandles.internal_native_UnfoldAroundLine__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ToggleAtLine(long line) {
+        internal_native_ToggleAtLine(native_address, line);
+    }
+
+    public static void internal_native_ToggleAtLine(long this_addr, long line) {
+        try {
+            FFMHandles.internal_native_ToggleAtLine__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void UnfoldAll() {
+        internal_native_UnfoldAll(native_address);
+    }
+
+    public static void internal_native_UnfoldAll(long this_addr) {
+        try {
+            FFMHandles.internal_native_UnfoldAll__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLineFoldable(long line) {
+        return internal_native_IsLineFoldable(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineFoldable(long this_addr, long line) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLineFoldable__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLineFolded(long line) {
+        return internal_native_IsLineFolded(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineFolded(long this_addr, long line) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLineFolded__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLineVisible(long line) {
+        return internal_native_IsLineVisible(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineVisible(long this_addr, long line) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLineVisible__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLineHidden(long line) {
+        return internal_native_IsLineHidden(native_address, line);
+    }
+
+    public static boolean internal_native_IsLineHidden(long this_addr, long line) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLineHidden__JJ.invokeExact(this_addr, line);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void IndentLines() {
+        internal_native_IndentLines(native_address);
+    }
+
+    public static void internal_native_IndentLines(long this_addr) {
+        try {
+            FFMHandles.internal_native_IndentLines__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DeindentLines() {
+        internal_native_DeindentLines(native_address);
+    }
+
+    public static void internal_native_DeindentLines(long this_addr) {
+        try {
+            FFMHandles.internal_native_DeindentLines__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void MoveUpLines() {
+        internal_native_MoveUpLines(native_address);
+    }
+
+    public static void internal_native_MoveUpLines(long this_addr) {
+        try {
+            FFMHandles.internal_native_MoveUpLines__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void MoveDownLines() {
+        internal_native_MoveDownLines(native_address);
+    }
+
+    public static void internal_native_MoveDownLines(long this_addr) {
+        try {
+            FFMHandles.internal_native_MoveDownLines__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ToggleComments() {
+        internal_native_ToggleComments(native_address);
+    }
+
+    public static void internal_native_ToggleComments(long this_addr) {
+        try {
+            FFMHandles.internal_native_ToggleComments__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectionToLowerCase() {
+        internal_native_SelectionToLowerCase(native_address);
+    }
+
+    public static void internal_native_SelectionToLowerCase(long this_addr) {
+        try {
+            FFMHandles.internal_native_SelectionToLowerCase__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectionToUpperCase() {
+        internal_native_SelectionToUpperCase(native_address);
+    }
+
+    public static void internal_native_SelectionToUpperCase(long this_addr) {
+        try {
+            FFMHandles.internal_native_SelectionToUpperCase__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void StripTrailingWhitespaces() {
+        internal_native_StripTrailingWhitespaces(native_address);
+    }
+
+    public static void internal_native_StripTrailingWhitespaces(long this_addr) {
+        try {
+            FFMHandles.internal_native_StripTrailingWhitespaces__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void TabsToSpaces() {
+        internal_native_TabsToSpaces(native_address);
+    }
+
+    public static void internal_native_TabsToSpaces(long this_addr) {
+        try {
+            FFMHandles.internal_native_TabsToSpaces__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SpacesToTabs() {
+        internal_native_SpacesToTabs(native_address);
+    }
+
+    public static void internal_native_SpacesToTabs(long this_addr) {
+        try {
+            FFMHandles.internal_native_SpacesToTabs__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetPalette(TextEditorPalette palette) {
+        internal_native_SetPalette(native_address, palette.getValue());
+    }
+
+    public static void internal_native_SetPalette(long this_addr, int palette) {
+        try {
+            FFMHandles.internal_native_SetPalette__JI.invokeExact(this_addr, palette);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetPaletteColor(native_address, color.getValue(), value);
+    }
+
+    public static void internal_native_SetPaletteColor(long this_addr, int color, int value) {
+        try {
+            FFMHandles.internal_native_SetPaletteColor__JII.invokeExact(this_addr, color, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int GetPaletteColor(TextEditorColor color) {
+        return internal_native_GetPaletteColor(native_address, color.getValue());
+    }
+
+    public static int internal_native_GetPaletteColor(long this_addr, int color) {
+        try {
+            return (int) FFMHandles.internal_native_GetPaletteColor__JI.invokeExact(this_addr, color);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void SetDefaultPalette(TextEditorPalette palette) {
+        internal_native_SetDefaultPalette(palette.getValue());
+    }
+
+    public static void internal_native_SetDefaultPalette(int palette) {
+        try {
+            FFMHandles.internal_native_SetDefaultPalette__I.invokeExact(palette);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void SetDefaultPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetDefaultPaletteColor(color.getValue(), value);
+    }
+
+    public static void internal_native_SetDefaultPaletteColor(int color, int value) {
+        try {
+            FFMHandles.internal_native_SetDefaultPaletteColor__II.invokeExact(color, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static int GetDefaultPaletteColor(TextEditorColor color) {
+        return internal_native_GetDefaultPaletteColor(color.getValue());
+    }
+
+    public static int internal_native_GetDefaultPaletteColor(int color) {
+        try {
+            return (int) FFMHandles.internal_native_GetDefaultPaletteColor__I.invokeExact(color);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLanguage(TextEditorLanguage language) {
+        internal_native_SetLanguage(native_address, language.getValue());
+    }
+
+    public static void internal_native_SetLanguage(long this_addr, int language) {
+        try {
+            FFMHandles.internal_native_SetLanguage__JI.invokeExact(this_addr, language);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public TextEditorLanguage GetLanguage() {
+        int value = internal_native_GetLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetLanguage(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_GetLanguage__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasLanguage() {
+        return internal_native_HasLanguage(native_address);
+    }
+
+    public static boolean internal_native_HasLanguage(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasLanguage__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetLanguageName() {
+        long addr = internal_native_GetLanguageName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_6 == null)
+            NativeString_TEMP_GEN_6 = NativeString.native_new();
+        NativeString_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_6;
+    }
+
+    public static long internal_native_GetLanguageName_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLanguageName_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLanguageChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetLanguageChangeTrackingEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetLanguageChangeTrackingEnabled(long this_addr, boolean enabled) {
+        try {
+            FFMHandles.internal_native_SetLanguageChangeTrackingEnabled__JZ.invokeExact(this_addr, enabled);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasPendingLanguageChange() {
+        return internal_native_HasPendingLanguageChange(native_address);
+    }
+
+    public static boolean internal_native_HasPendingLanguageChange(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasPendingLanguageChange__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearPendingLanguageChange() {
+        internal_native_ClearPendingLanguageChange(native_address);
+    }
+
+    public static void internal_native_ClearPendingLanguageChange(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearPendingLanguageChange__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void CollectIdentifiers() {
+        internal_native_CollectIdentifiers(native_address);
+    }
+
+    public static void internal_native_CollectIdentifiers(long this_addr) {
+        try {
+            FFMHandles.internal_native_CollectIdentifiers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetIdentifierCount() {
+        return internal_native_GetIdentifierCount(native_address);
+    }
+
+    public static long internal_native_GetIdentifierCount(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetIdentifierCount__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetIdentifier(long index) {
+        long addr = internal_native_GetIdentifier_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_7 == null)
+            NativeString_TEMP_GEN_7 = NativeString.native_new();
+        NativeString_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_7;
+    }
+
+    public static long internal_native_GetIdentifier_addr(long this_addr, long index) {
+        try {
+            return (long) FFMHandles.internal_native_GetIdentifier_addr__JJ.invokeExact(this_addr, index);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteEnabled(boolean enabled) {
+        internal_native_SetAutoCompleteEnabled(native_address, enabled);
+    }
+
+    public static void internal_native_SetAutoCompleteEnabled(long this_addr, boolean enabled) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteEnabled__JZ.invokeExact(this_addr, enabled);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteEnabled() {
+        return internal_native_IsAutoCompleteEnabled(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteEnabled(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteEnabled__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerOnTyping(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnTyping(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerOnTyping(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerOnTyping__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteTriggerOnTyping() {
+        return internal_native_IsAutoCompleteTriggerOnTyping(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerOnTyping(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteTriggerOnTyping__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerOnShortcut(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnShortcut(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerOnShortcut(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerOnShortcut__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteTriggerOnShortcut() {
+        return internal_native_IsAutoCompleteTriggerOnShortcut(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerOnShortcut(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteTriggerOnShortcut__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerInComments(boolean value) {
+        internal_native_SetAutoCompleteTriggerInComments(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerInComments(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerInComments__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteTriggerInComments() {
+        return internal_native_IsAutoCompleteTriggerInComments(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerInComments(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteTriggerInComments__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerInStrings(boolean value) {
+        internal_native_SetAutoCompleteTriggerInStrings(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerInStrings(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerInStrings__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteTriggerInStrings() {
+        return internal_native_IsAutoCompleteTriggerInStrings(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteTriggerInStrings(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteTriggerInStrings__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerShortcut(int value) {
+        internal_native_SetAutoCompleteTriggerShortcut(native_address, value);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerShortcut(long this_addr, int value) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerShortcut__JI.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int GetAutoCompleteTriggerShortcut() {
+        return internal_native_GetAutoCompleteTriggerShortcut(native_address);
+    }
+
+    public static int internal_native_GetAutoCompleteTriggerShortcut(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_GetAutoCompleteTriggerShortcut__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoInsertSingleSuggestions(boolean value) {
+        internal_native_SetAutoInsertSingleSuggestions(native_address, value);
+    }
+
+    public static void internal_native_SetAutoInsertSingleSuggestions(long this_addr, boolean value) {
+        try {
+            FFMHandles.internal_native_SetAutoInsertSingleSuggestions__JZ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoInsertSingleSuggestions() {
+        return internal_native_IsAutoInsertSingleSuggestions(native_address);
+    }
+
+    public static boolean internal_native_IsAutoInsertSingleSuggestions(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoInsertSingleSuggestions__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetAutoCompleteTriggerDelay(int milliseconds) {
+        internal_native_SetAutoCompleteTriggerDelay(native_address, milliseconds);
+    }
+
+    public static void internal_native_SetAutoCompleteTriggerDelay(long this_addr, int milliseconds) {
+        try {
+            FFMHandles.internal_native_SetAutoCompleteTriggerDelay__JI.invokeExact(this_addr, milliseconds);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int GetAutoCompleteTriggerDelay() {
+        return internal_native_GetAutoCompleteTriggerDelay(native_address);
+    }
+
+    public static int internal_native_GetAutoCompleteTriggerDelay(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_GetAutoCompleteTriggerDelay__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetNoSuggestionsLabel(String label) {
+        internal_native_SetNoSuggestionsLabel(native_address, label);
+    }
+
+    public static void internal_native_SetNoSuggestionsLabel(long this_addr, String label) {
+        try {
+            FFMHandles.internal_native_SetNoSuggestionsLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetNoSuggestionsLabel() {
+        long addr = internal_native_GetNoSuggestionsLabel_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_8 == null)
+            NativeString_TEMP_GEN_8 = NativeString.native_new();
+        NativeString_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_8;
+    }
+
+    public static long internal_native_GetNoSuggestionsLabel_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetNoSuggestionsLabel_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetSuggestionWidth(long value) {
+        internal_native_SetSuggestionWidth(native_address, value);
+    }
+
+    public static void internal_native_SetSuggestionWidth(long this_addr, long value) {
+        try {
+            FFMHandles.internal_native_SetSuggestionWidth__JJ.invokeExact(this_addr, value);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long GetSuggestionWidth() {
+        return internal_native_GetSuggestionWidth(native_address);
+    }
+
+    public static long internal_native_GetSuggestionWidth(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetSuggestionWidth__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasPendingAutoCompleteRequest() {
+        return internal_native_HasPendingAutoCompleteRequest(native_address);
+    }
+
+    public static boolean internal_native_HasPendingAutoCompleteRequest(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasPendingAutoCompleteRequest__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearPendingAutoCompleteRequest() {
+        internal_native_ClearPendingAutoCompleteRequest(native_address);
+    }
+
+    public static void internal_native_ClearPendingAutoCompleteRequest(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearPendingAutoCompleteRequest__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeString GetAutoCompleteSearchTerm() {
+        long addr = internal_native_GetAutoCompleteSearchTerm_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_9 == null)
+            NativeString_TEMP_GEN_9 = NativeString.native_new();
+        NativeString_TEMP_GEN_9.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_9;
+    }
+
+    public static long internal_native_GetAutoCompleteSearchTerm_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetAutoCompleteSearchTerm_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetAutoCompleteSearchTermStart(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermStart(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetAutoCompleteSearchTermStart(long this_addr, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetAutoCompleteSearchTermStart__JJJ.invokeExact(this_addr, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void GetAutoCompleteSearchTermEnd(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermEnd(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    public static void internal_native_GetAutoCompleteSearchTermEnd(long this_addr, long outLine_addr, long outIndex_addr) {
+        try {
+            FFMHandles.internal_native_GetAutoCompleteSearchTermEnd__JJJ.invokeExact(this_addr, outLine_addr, outIndex_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteInIdentifier() {
+        return internal_native_IsAutoCompleteInIdentifier(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInIdentifier(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteInIdentifier__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteInNumber() {
+        return internal_native_IsAutoCompleteInNumber(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInNumber(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteInNumber__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteInComment() {
+        return internal_native_IsAutoCompleteInComment(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInComment(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteInComment__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsAutoCompleteInString() {
+        return internal_native_IsAutoCompleteInString(native_address);
+    }
+
+    public static boolean internal_native_IsAutoCompleteInString(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsAutoCompleteInString__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public TextEditorLanguage GetAutoCompleteLanguage() {
+        int value = internal_native_GetAutoCompleteLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_GetAutoCompleteLanguage(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_GetAutoCompleteLanguage__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearAutoCompleteSuggestions() {
+        internal_native_ClearAutoCompleteSuggestions(native_address);
+    }
+
+    public static void internal_native_ClearAutoCompleteSuggestions(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearAutoCompleteSuggestions__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddAutoCompleteSuggestion(String suggestion) {
+        internal_native_AddAutoCompleteSuggestion(native_address, suggestion);
+    }
+
+    public static void internal_native_AddAutoCompleteSuggestion(long this_addr, String suggestion) {
+        try {
+            FFMHandles.internal_native_AddAutoCompleteSuggestion__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(suggestion));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SubmitAutoCompleteSuggestions() {
+        internal_native_SubmitAutoCompleteSuggestions(native_address);
+    }
+
+    public static void internal_native_SubmitAutoCompleteSuggestions(long this_addr) {
+        try {
+            FFMHandles.internal_native_SubmitAutoCompleteSuggestions__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetLineBreakConfig(TextEditorLineBreakConfig config) {
+        internal_native_SetLineBreakConfig(native_address, config.native_address);
+    }
+
+    public static void internal_native_SetLineBreakConfig(long this_addr, long config_addr) {
+        try {
+            FFMHandles.internal_native_SetLineBreakConfig__JJ.invokeExact(this_addr, config_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -752,9 +2669,29 @@ public final class TextEditor extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_SetTabSize__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_settabsize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTabSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettabsize", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetInsertSpacesOnTabs__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setinsertspacesontabs", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsInsertSpacesOnTabs__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isinsertspacesontabs", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetLineSpacing__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlinespacing", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLineSpacing__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlinespacing", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetWordWrapEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setwordwrapenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsWordWrapEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_iswordwrapenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_SetReadOnlyEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setreadonlyenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_IsReadOnlyEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isreadonlyenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetCaretsVisible__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setcaretsvisible", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsCaretsVisible__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_iscaretsvisible", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetAutoIndentEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautoindentenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
@@ -764,100 +2701,390 @@ public final class TextEditor extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_IsShowWhitespacesEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowwhitespacesenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_SetShowSpacesEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowspacesenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsShowSpacesEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowspacesenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetShowTabsEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowtabsenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsShowTabsEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowtabsenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_SetShowLineNumbersEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowlinenumbersenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_IsShowLineNumbersEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowlinenumbersenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetShortTabsEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshorttabsenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_SetShowMiniMapEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowminimapenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_IsShortTabsEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshorttabsenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_IsShowMiniMapEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowminimapenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLineCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlinecount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetMiniMapColumns__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setminimapcolumns", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetPalette__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setpalette", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetMiniMapColumns__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getminimapcolumns", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetPalette__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getpalette", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetShowScrollbarMiniMapEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowscrollbarminimapenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetLanguageDefinition__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlanguagedefinition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_IsShowScrollbarMiniMapEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowscrollbarminimapenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLanguageDefinition__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlanguagedefinition", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetShowPanScrollIndicatorEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowpanscrollindicatorenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLanguageDefinitionName_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getlanguagedefinitionname_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_IsShowPanScrollIndicatorEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowpanscrollindicatorenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetTabSize__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_settabsize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_SetShowMatchingBrackets__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setshowmatchingbrackets", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetTabSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettabsize", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_IsShowingMatchingBrackets__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isshowingmatchingbrackets", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetLineSpacing__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlinespacing", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_SetCompletePairedGlyphs__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setcompletepairedglyphs", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLineSpacing__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlinespacing", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_IsCompletingPairedGlyphs__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_iscompletingpairedglyphs", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetDefaultPalette__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setdefaultpalette", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_SetLineFoldingEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlinefoldingenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetDefaultPalette__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getdefaultpalette", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_IsLineFoldingEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_islinefoldingenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectAll__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectall", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetOverwriteEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setoverwriteenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectLine__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_IsOverwriteEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isoverwriteenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectRegion__JIIII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectregion", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_SetMiddleMousePanMode__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setmiddlemousepanmode", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2IZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_i_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_SetMiddleMouseScrollMode__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setmiddlemousescrollmode", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_IsMiddleMousePanMode__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_ismiddlemousepanmode", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2IZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_i_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_SetLineNumberLeftMargin__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlinenumberleftmargin", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetLineNumberLeftMargin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlinenumberleftmargin", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_AnyCursorHasSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_anycursorhasselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetDecorationLeftMargin__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setdecorationleftmargin", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_AllCursorsHaveSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_allcursorshaveselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetDecorationLeftMargin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getdecorationleftmargin", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_ClearExtraCursors__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearextracursors", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetTextLeftMargin__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_settextleftmargin", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_ClearSelections__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearselections", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_SetCursorPosition__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setcursorposition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle internal_native_GetCursorPosition__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getcursorposition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_GetFirstVisibleLine__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getfirstvisibleline", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_GetLastVisibleLine__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlastvisibleline", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_SetViewAtLine__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setviewatline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle internal_native_Copy__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_copy", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_Cut__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_cut", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_Paste__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_paste", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_Undo__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_undo_l_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle internal_native_Undo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_undo_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_Redo__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_redo_l_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle internal_native_Redo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_redo_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_CanUndo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_canundo", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_CanRedo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_canredo", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_GetUndoIndex__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getundoindex", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetTextLeftMargin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettextleftmargin", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetText__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_settext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
 
         static final java.lang.invoke.MethodHandle internal_native_GetText_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_gettext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2ZJZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_z_l_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_GetCursorText_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getcursortext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2ZJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_z_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetLineText_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getlinetext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_GetSectionText_addr__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getsectiontext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ReplaceSectionText__JJJJJLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_replacesectiontext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearText__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_cleartext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsEmpty__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isempty", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLineCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlinecount", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_Render__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_render_l_str", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetFocus__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setfocus", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Cut__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_cut", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Copy__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_copy", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Paste__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_paste", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Undo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_undo", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Redo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_redo", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CanUndo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_canundo", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CanRedo__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_canredo", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetUndoIndex__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getundoindex", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAll__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectall", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectLine__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectLines__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectlines", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectRegion__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectregion", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectToBrackets__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selecttobrackets_l_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectToBrackets__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selecttobrackets_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GrowSelections__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_growselections", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ShrinkSelections__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_shrinkselections", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddNextOccurrence__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_addnextoccurrence", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrences__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrences", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AnyCursorHasSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_anycursorhasselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AllCursorsHaveSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_allcursorshaveselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CurrentCursorHasSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_currentcursorhasselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearCursors__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearcursors", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetNumberOfCursors__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getnumberofcursors", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCursorPosition__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getcursorposition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetMainCursorPosition__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getmaincursorposition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCurrentCursorPosition__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getcurrentcursorposition", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCursorSelection__JJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getcursorselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetMainCursorSelection__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getmaincursorselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCurrentCursorSelection__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getcurrentcursorselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsMousePosOverGlyph__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_ismouseposoverglyph", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetDocPosAtMousePos__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getdocposatmousepos", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetWordAtMousePos_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getwordatmousepos_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ScrollToLine__JJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_scrolltoline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFirstVisibleRow__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getfirstvisiblerow", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLastVisibleRow__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlastvisiblerow", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFirstVisibleColumn__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getfirstvisiblecolumn", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLastVisibleColumn__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlastvisiblecolumn", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetCursor__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setcursor", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLineHeight__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlineheight", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetGlyphWidth__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getglyphwidth", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DocPos2VisPos__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_docpos2vispos", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_VisPos2DocPos__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_vispos2docpos", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsDocPosVisible__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isdocposvisible", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsVisPosOverGlyph__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isvisposoverglyph", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2ZZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str_z_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2ZZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_z_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2ZZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_z_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_ReplaceTextInCurrentCursor__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_replacetextincurrentcursor", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_ReplaceTextInAllCursors__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_replacetextinallcursors", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_OpenFindReplaceWindow__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_openfindreplacewindow", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CloseFindReplaceWindow__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_closefindreplacewindow", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetFindButtonLabel__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setfindbuttonlabel", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetFindAllButtonLabel__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setfindallbuttonlabel", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetReplaceButtonLabel__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setreplacebuttonlabel", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetReplaceAllButtonLabel__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setreplaceallbuttonlabel", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasFindString__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_hasfindstring", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_FindNext__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_findnext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_FindAll__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_findall", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddMarker__JJIILjava_lang_String_2Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_addmarker", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearMarkers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearmarkers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasMarkers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_hasmarkers", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetChangeTrackingEnabled__JZI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setchangetrackingenabled_l_z_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetChangeTrackingEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setchangetrackingenabled_l_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasPendingChange__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_haspendingchange", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearPendingChange__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearpendingchange", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetTransactionTrackingEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_settransactiontrackingenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTransactionChangeCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettransactionchangecount", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearTransactionChanges__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_cleartransactionchanges", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsTransactionChangeInsert__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_istransactionchangeinsert", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTransactionChangeStart__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettransactionchangestart", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTransactionChangeEnd__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_gettransactionchangeend", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTransactionChangeText_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_gettransactionchangetext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetUserData__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setuserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getuserdata", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_FoldAroundLine__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_foldaroundline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_UnfoldAroundLine__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_unfoldaroundline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ToggleAtLine__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_toggleatline", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_UnfoldAll__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_unfoldall", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsLineFoldable__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_islinefoldable", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsLineFolded__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_islinefolded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsLineVisible__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_islinevisible", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsLineHidden__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_islinehidden", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IndentLines__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_indentlines", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DeindentLines__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_deindentlines", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_MoveUpLines__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_moveuplines", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_MoveDownLines__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_movedownlines", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ToggleComments__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_togglecomments", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectionToLowerCase__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectiontolowercase", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectionToUpperCase__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_selectiontouppercase", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_StripTrailingWhitespaces__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_striptrailingwhitespaces", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_TabsToSpaces__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_tabstospaces", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SpacesToTabs__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_spacestotabs", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetPalette__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setpalette", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetPaletteColor__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setpalettecolor", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetPaletteColor__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getpalettecolor", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetDefaultPalette__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setdefaultpalette", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetDefaultPaletteColor__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setdefaultpalettecolor", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetDefaultPaletteColor__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getdefaultpalettecolor", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetLanguage__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlanguage", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLanguage__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getlanguage", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasLanguage__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_haslanguage", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLanguageName_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getlanguagename_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetLanguageChangeTrackingEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlanguagechangetrackingenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasPendingLanguageChange__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_haspendinglanguagechange", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearPendingLanguageChange__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearpendinglanguagechange", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CollectIdentifiers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_collectidentifiers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetIdentifierCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getidentifiercount", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetIdentifier_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getidentifier_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteEnabled__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompleteenabled", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteEnabled__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompleteenabled", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerOnTyping__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggerontyping", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteTriggerOnTyping__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompletetriggerontyping", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerOnShortcut__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggeronshortcut", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteTriggerOnShortcut__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompletetriggeronshortcut", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerInComments__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggerincomments", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteTriggerInComments__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompletetriggerincomments", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerInStrings__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggerinstrings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteTriggerInStrings__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompletetriggerinstrings", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerShortcut__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggershortcut", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteTriggerShortcut__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getautocompletetriggershortcut", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoInsertSingleSuggestions__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautoinsertsinglesuggestions", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoInsertSingleSuggestions__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautoinsertsinglesuggestions", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAutoCompleteTriggerDelay__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setautocompletetriggerdelay", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteTriggerDelay__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getautocompletetriggerdelay", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetNoSuggestionsLabel__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setnosuggestionslabel", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetNoSuggestionsLabel_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getnosuggestionslabel_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetSuggestionWidth__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setsuggestionwidth", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetSuggestionWidth__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getsuggestionwidth", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasPendingAutoCompleteRequest__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_haspendingautocompleterequest", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearPendingAutoCompleteRequest__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearpendingautocompleterequest", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteSearchTerm_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_extension_textedit_texteditor_getautocompletesearchterm_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteSearchTermStart__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getautocompletesearchtermstart", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteSearchTermEnd__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getautocompletesearchtermend", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteInIdentifier__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompleteinidentifier", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteInNumber__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompleteinnumber", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteInComment__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompleteincomment", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsAutoCompleteInString__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_isautocompleteinstring", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAutoCompleteLanguage__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_getautocompletelanguage", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearAutoCompleteSuggestions__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_clearautocompletesuggestions", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddAutoCompleteSuggestion__JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_addautocompletesuggestion", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SubmitAutoCompleteSuggestions__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_submitautocompletesuggestions", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetLineBreakConfig__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_extension_textedit_texteditor_setlinebreakconfig", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

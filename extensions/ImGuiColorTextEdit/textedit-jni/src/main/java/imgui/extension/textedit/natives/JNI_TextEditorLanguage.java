@@ -8,27 +8,29 @@ package imgui.extension.textedit.natives;
 
 import imgui.extension.textedit.*;
 
-final public class JNI_LanguageDefinitionId {
+final public class JNI_TextEditorLanguage {
 
     static native public int None_NATIVE();
 
-    static native public int Cpp_NATIVE();
-
     static native public int C_NATIVE();
+
+    static native public int Cpp_NATIVE();
 
     static native public int Cs_NATIVE();
 
-    static native public int Python_NATIVE();
+    static native public int AngelScript_NATIVE();
 
     static native public int Lua_NATIVE();
 
-    static native public int Json_NATIVE();
-
-    static native public int Sql_NATIVE();
-
-    static native public int AngelScript_NATIVE();
+    static native public int Python_NATIVE();
 
     static native public int Glsl_NATIVE();
 
     static native public int Hlsl_NATIVE();
+
+    static native public int Json_NATIVE();
+
+    static native public int Markdown_NATIVE();
+
+    static native public int Sql_NATIVE();
 }

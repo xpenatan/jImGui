@@ -4,17 +4,17 @@
  * Do not make changes to this file
  *-------------------------------------------------------*/
 
-package imgui.extension.textedit;
+package gen.web.imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum PaletteId implements NativeEnum<PaletteId> {
+public enum TextEditorPalette implements NativeEnum<TextEditorPalette> {
 
-    CUSTOM(0), Dark(Dark_NATIVE()), Light(Light_NATIVE()), Mariana(Mariana_NATIVE()), RetroBlue(RetroBlue_NATIVE());
+    CUSTOM(0), Dark(Dark_NATIVE()), Light(Light_NATIVE());
 
     private int value;
 
-    private PaletteId(int value) {
+    private TextEditorPalette(int value) {
         this.value = value;
     }
 
@@ -22,7 +22,7 @@ public enum PaletteId implements NativeEnum<PaletteId> {
         return value;
     }
 
-    public PaletteId setValue(int value) {
+    public TextEditorPalette setValue(int value) {
         if (this != CUSTOM) {
             throw new RuntimeException("Cannot change none CUSTOM value");
         }
@@ -30,15 +30,13 @@ public enum PaletteId implements NativeEnum<PaletteId> {
         return this;
     }
 
-    public PaletteId getCustom() {
+    public TextEditorPalette getCustom() {
         return CUSTOM;
     }
 
+    @org.teavm.jso.JSBody(script = "return textedit.Dark;")
     private static native int Dark_NATIVE();
 
+    @org.teavm.jso.JSBody(script = "return textedit.Light;")
     private static native int Light_NATIVE();
-
-    private static native int Mariana_NATIVE();
-
-    private static native int RetroBlue_NATIVE();
 }

@@ -8,11 +8,9 @@ package imgui.extension.textedit.natives;
 
 import imgui.extension.textedit.*;
 
-final public class JNI_SetViewAtLineMode {
+final public class JNI_TextEditorPalette {
 
-    static native public int FirstVisibleLine_NATIVE();
+    static native public int Dark_NATIVE();
 
-    static native public int Centered_NATIVE();
-
-    static native public int LastVisibleLine_NATIVE();
+    static native public int Light_NATIVE();
 }

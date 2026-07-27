@@ -8,13 +8,13 @@ package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum SetViewAtLineMode implements NativeEnum<SetViewAtLineMode> {
+public enum TextEditorScroll implements NativeEnum<TextEditorScroll> {
 
-    CUSTOM(0), FirstVisibleLine(FirstVisibleLine_NATIVE()), Centered(Centered_NATIVE()), LastVisibleLine(LastVisibleLine_NATIVE());
+    CUSTOM(0), AlignTop(AlignTop_NATIVE()), AlignMiddle(AlignMiddle_NATIVE()), AlignBottom(AlignBottom_NATIVE());
 
     private int value;
 
-    private SetViewAtLineMode(int value) {
+    private TextEditorScroll(int value) {
         this.value = value;
     }
 
@@ -22,7 +22,7 @@ public enum SetViewAtLineMode implements NativeEnum<SetViewAtLineMode> {
         return value;
     }
 
-    public SetViewAtLineMode setValue(int value) {
+    public TextEditorScroll setValue(int value) {
         if (this != CUSTOM) {
             throw new RuntimeException("Cannot change none CUSTOM value");
         }
@@ -30,13 +30,13 @@ public enum SetViewAtLineMode implements NativeEnum<SetViewAtLineMode> {
         return this;
     }
 
-    public SetViewAtLineMode getCustom() {
+    public TextEditorScroll getCustom() {
         return CUSTOM;
     }
 
-    private static native int FirstVisibleLine_NATIVE();
+    private static native int AlignTop_NATIVE();
 
-    private static native int Centered_NATIVE();
+    private static native int AlignMiddle_NATIVE();
 
-    private static native int LastVisibleLine_NATIVE();
+    private static native int AlignBottom_NATIVE();
 }

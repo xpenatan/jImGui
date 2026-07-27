@@ -8,13 +8,11 @@ package imgui.extension.textedit.natives;
 
 import imgui.extension.textedit.*;
 
-final public class JNI_PaletteId {
+final public class JNI_TextEditorScroll {
 
-    static native public int Dark_NATIVE();
+    static native public int AlignTop_NATIVE();
 
-    static native public int Light_NATIVE();
+    static native public int AlignMiddle_NATIVE();
 
-    static native public int Mariana_NATIVE();
-
-    static native public int RetroBlue_NATIVE();
+    static native public int AlignBottom_NATIVE();
 }

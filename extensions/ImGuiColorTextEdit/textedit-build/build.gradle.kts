@@ -13,22 +13,19 @@ val buildDir = layout.buildDirectory.get().asFile
 val zippedPath = "${buildDir}/text-edit.zip"
 val sourcePath = "${buildDir}/text-edit/"
 val sourceDestination = "${buildDir}/ImGuiColorTextEdit/"
-val zippedVendorPath = "${buildDir}/regex.zip"
-val sourceVendorPath = "${buildDir}/regex/"
-val sourceVendorDestination = "${buildDir}/ImGuiColorTextEdit/vendor/regex"
 val textEditCommit = libs.versions.textEditSourceCommit.get()
-val boostRegexCommit = libs.versions.boostRegexSourceCommit.get()
 
 tasks.register<Download>("download_textedit_source") {
     group = "textedit"
     description = "Download source"
-    src("https://github.com/santaclose/ImGuiColorTextEdit/archive/$textEditCommit.zip")
+    src("https://github.com/goossens/ImGuiColorTextEdit/archive/$textEditCommit.zip")
     dest(File(zippedPath))
     doLast {
         copy {
             from(zipTree(dest))
             into(sourcePath)
         }
+        delete(sourceDestination)
         copy {
             from("$sourcePath/ImGuiColorTextEdit-$textEditCommit")
             into(sourceDestination)
@@ -38,34 +35,13 @@ tasks.register<Download>("download_textedit_source") {
     }
 }
 
-tasks.register<Download>("download_vendor_source") {
-    group = "textedit"
-    description = "Download source"
-    src("https://github.com/boostorg/regex/archive/$boostRegexCommit.zip")
-    dest(File(zippedVendorPath))
-    doLast {
-        copy {
-            from(zipTree(dest))
-            into(sourceVendorPath)
-        }
-        copy {
-            from("$sourceVendorPath/regex-$boostRegexCommit/")
-            into(sourceVendorDestination)
-        }
-        delete(sourceVendorPath)
-        delete(zippedVendorPath)
-    }
-}
-
 tasks.register("download_source") {
     group = "textedit"
     description = "Download source"
-    dependsOn("download_textedit_source", "download_vendor_source")
-    tasks.findByName("download_vendor_source")?.mustRunAfter("download_textedit_source")
+    dependsOn("download_textedit_source")
 }
 
 val textEditSourceDir = file(sourceDestination)
-val regexIncludeDir = File(textEditSourceDir, "vendor/regex/include")
 val isWindowsHost = System.getProperty("os.name").startsWith("Windows", ignoreCase = true)
 val imguiNativeUserConfigFlag = if(isWindowsHost) {
     "-DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
@@ -89,7 +65,10 @@ val desktopTargets = listOf(
 )
 
 fun JParserTargetHooks.configureDesktopTarget(targetName: String) {
-    if(targetName.startsWith("linux64")) {
+    if(targetName.startsWith("windows64")) {
+        compileFlag("/EHsc")
+    }
+    else if(targetName.startsWith("linux64")) {
         linkerFlag("-Wl,-rpath,\$ORIGIN")
     }
     else if(targetName.startsWith("mac")) {
@@ -112,10 +91,10 @@ jParser {
     moduleCSuffix.set("c")
     packageName.set("imgui.extension.textedit")
     cppSourcePath(textEditSourceDir)
-    jniCppStandard.set("c++17")
-    ffmCppStandard.set("c++17")
-    webCppStandard.set("c++17")
-    teaVMCCppStandard.set("c++17")
+    jniCppStandard.set("c++20")
+    ffmCppStandard.set("c++20")
+    webCppStandard.set("c++20")
+    teaVMCCppStandard.set("c++20")
     webForcedInclude(file("src/main/cpp/custom/TextEditWebIncludes.h"))
 
     dependency("imgui") {
@@ -125,18 +104,8 @@ jParser {
     native {
         dependsOn("download_source")
         headerDir(textEditSourceDir)
-        headerDir(regexIncludeDir)
-        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/ImGuiDebugPanel.cpp")
-        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/LanguageDefinitions.cpp")
         cppInclude("${textEditSourceDir.invariantSeparatorsPath}/TextEditor.cpp")
-        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/UnitTests.cpp")
-        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/src/*.cpp")
-        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/build/**/*.cpp")
-        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/example/**/*.cpp")
-        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/performance/**/*.cpp")
-        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/test/**/*.cpp")
-        cppExclude("${textEditSourceDir.invariantSeparatorsPath}/vendor/regex/tools/**/*.cpp")
-        compileFlag("-includecmath")
+        cppInclude("${textEditSourceDir.invariantSeparatorsPath}/TextDiff.cpp")
         includeDefaultSources.set(false)
         includeCustomSources.set(true)
 

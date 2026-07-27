@@ -8,8 +8,8 @@ package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
-import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import imgui.ImVec2;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
 public final class TextEditor extends NativeObject {
 
@@ -32,152 +32,228 @@ public final class TextEditor extends NativeObject {
         return new TextEditor((byte) 0, (char) 0);
     }
 
-    public void SetReadOnlyEnabled(boolean aValue) {
+    public void SetTabSize(long value) {
     }
 
-    public boolean IsReadOnlyEnabled() {
-        return false;
-    }
-
-    public void SetAutoIndentEnabled(boolean aValue) {
-    }
-
-    public boolean IsAutoIndentEnabled() {
-        return false;
-    }
-
-    public void SetShowWhitespacesEnabled(boolean aValue) {
-    }
-
-    public boolean IsShowWhitespacesEnabled() {
-        return false;
-    }
-
-    public void SetShowLineNumbersEnabled(boolean aValue) {
-    }
-
-    public boolean IsShowLineNumbersEnabled() {
-        return false;
-    }
-
-    public void SetShortTabsEnabled(boolean aValue) {
-    }
-
-    public boolean IsShortTabsEnabled() {
-        return false;
-    }
-
-    public int GetLineCount() {
+    public long GetTabSize() {
         return 0;
     }
 
-    public void SetPalette(PaletteId aValue) {
+    public void SetInsertSpacesOnTabs(boolean value) {
     }
 
-    public PaletteId GetPalette() {
-        return null;
+    public boolean IsInsertSpacesOnTabs() {
+        return false;
     }
 
-    public void SetLanguageDefinition(LanguageDefinitionId aValue) {
-    }
-
-    public LanguageDefinitionId GetLanguageDefinition() {
-        return null;
-    }
-
-    public NativeString GetLanguageDefinitionName() {
-        return null;
-    }
-
-    public void SetTabSize(int aValue) {
-    }
-
-    public int GetTabSize() {
-        return 0;
-    }
-
-    public void SetLineSpacing(float aValue) {
+    public void SetLineSpacing(float value) {
     }
 
     public float GetLineSpacing() {
         return 0;
     }
 
-    public static void SetDefaultPalette(PaletteId aValue) {
+    public void SetWordWrapEnabled(boolean value) {
     }
 
-    public static PaletteId GetDefaultPalette() {
+    public boolean IsWordWrapEnabled() {
+        return false;
+    }
+
+    public void SetReadOnlyEnabled(boolean value) {
+    }
+
+    public boolean IsReadOnlyEnabled() {
+        return false;
+    }
+
+    public void SetCaretsVisible(boolean value) {
+    }
+
+    public boolean IsCaretsVisible() {
+        return false;
+    }
+
+    public void SetAutoIndentEnabled(boolean value) {
+    }
+
+    public boolean IsAutoIndentEnabled() {
+        return false;
+    }
+
+    public void SetShowWhitespacesEnabled(boolean value) {
+    }
+
+    public boolean IsShowWhitespacesEnabled() {
+        return false;
+    }
+
+    public void SetShowSpacesEnabled(boolean value) {
+    }
+
+    public boolean IsShowSpacesEnabled() {
+        return false;
+    }
+
+    public void SetShowTabsEnabled(boolean value) {
+    }
+
+    public boolean IsShowTabsEnabled() {
+        return false;
+    }
+
+    public void SetShowLineNumbersEnabled(boolean value) {
+    }
+
+    public boolean IsShowLineNumbersEnabled() {
+        return false;
+    }
+
+    public void SetShowMiniMapEnabled(boolean value) {
+    }
+
+    public boolean IsShowMiniMapEnabled() {
+        return false;
+    }
+
+    public void SetMiniMapColumns(long value) {
+    }
+
+    public long GetMiniMapColumns() {
+        return 0;
+    }
+
+    public void SetShowScrollbarMiniMapEnabled(boolean value) {
+    }
+
+    public boolean IsShowScrollbarMiniMapEnabled() {
+        return false;
+    }
+
+    public void SetShowPanScrollIndicatorEnabled(boolean value) {
+    }
+
+    public boolean IsShowPanScrollIndicatorEnabled() {
+        return false;
+    }
+
+    public void SetShowMatchingBrackets(boolean value) {
+    }
+
+    public boolean IsShowingMatchingBrackets() {
+        return false;
+    }
+
+    public void SetCompletePairedGlyphs(boolean value) {
+    }
+
+    public boolean IsCompletingPairedGlyphs() {
+        return false;
+    }
+
+    public void SetLineFoldingEnabled(boolean value) {
+    }
+
+    public boolean IsLineFoldingEnabled() {
+        return false;
+    }
+
+    public void SetOverwriteEnabled(boolean value) {
+    }
+
+    public boolean IsOverwriteEnabled() {
+        return false;
+    }
+
+    public void SetMiddleMousePanMode() {
+    }
+
+    public void SetMiddleMouseScrollMode() {
+    }
+
+    public boolean IsMiddleMousePanMode() {
+        return false;
+    }
+
+    public void SetLineNumberLeftMargin(long value) {
+    }
+
+    public long GetLineNumberLeftMargin() {
+        return 0;
+    }
+
+    public void SetDecorationLeftMargin(long value) {
+    }
+
+    public long GetDecorationLeftMargin() {
+        return 0;
+    }
+
+    public void SetTextLeftMargin(long value) {
+    }
+
+    public long GetTextLeftMargin() {
+        return 0;
+    }
+
+    public void SetText(String text) {
+    }
+
+    public NativeString GetText() {
         return null;
     }
 
-    public void SelectAll() {
+    public NativeString GetCursorText(long cursor) {
+        return null;
     }
 
-    public void SelectLine(int aLine) {
+    public NativeString GetLineText(long line) {
+        return null;
     }
 
-    public void SelectRegion(int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
+    public NativeString GetSectionText(long startLine, long startIndex, long endLine, long endIndex) {
+        return null;
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize, boolean aCaseSensitive) {
+    public void ReplaceSectionText(long startLine, long startIndex, long endLine, long endIndex, String text) {
     }
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize) {
+    public void ClearText() {
     }
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize, boolean aCaseSensitive) {
-    }
-
-    public void SelectAllOccurrencesOf(String aText, int aTextSize) {
-    }
-
-    public boolean AnyCursorHasSelection() {
+    public boolean IsEmpty() {
         return false;
     }
 
-    public boolean AllCursorsHaveSelection() {
-        return false;
-    }
-
-    public void ClearExtraCursors() {
-    }
-
-    public void ClearSelections() {
-    }
-
-    public void SetCursorPosition(int aLine, int aCharIndex) {
-    }
-
-    public void GetCursorPosition(NativeIntArray outLine, NativeIntArray outColumn) {
-    }
-
-    public int GetFirstVisibleLine() {
+    public long GetLineCount() {
         return 0;
     }
 
-    public int GetLastVisibleLine() {
-        return 0;
+    public void Render(String title, ImVec2 size, int childFlags, int windowFlags) {
     }
 
-    public void SetViewAtLine(int aLine, SetViewAtLineMode aMode) {
+    public void Render(String title, ImVec2 size, int childFlags) {
     }
 
-    public void Copy() {
+    public void Render(String title, ImVec2 size) {
+    }
+
+    public void Render(String title) {
+    }
+
+    public void SetFocus() {
     }
 
     public void Cut() {
     }
 
+    public void Copy() {
+    }
+
     public void Paste() {
     }
 
-    public void Undo(int aSteps) {
-    }
-
     public void Undo() {
-    }
-
-    public void Redo(int aSteps) {
     }
 
     public void Redo() {
@@ -191,26 +267,477 @@ public final class TextEditor extends NativeObject {
         return false;
     }
 
-    public int GetUndoIndex() {
+    public long GetUndoIndex() {
         return 0;
     }
 
-    public void SetText(String aText) {
+    public void SelectAll() {
     }
 
-    public NativeString GetText() {
+    public void SelectLine(long line) {
+    }
+
+    public void SelectLines(long start, long end) {
+    }
+
+    public void SelectRegion(long startLine, long startIndex, long endLine, long endIndex) {
+    }
+
+    public void SelectToBrackets(boolean includeBrackets) {
+    }
+
+    public void SelectToBrackets() {
+    }
+
+    public void GrowSelections() {
+    }
+
+    public void ShrinkSelections() {
+    }
+
+    public void AddNextOccurrence() {
+    }
+
+    public void SelectAllOccurrences() {
+    }
+
+    public boolean AnyCursorHasSelection() {
+        return false;
+    }
+
+    public boolean AllCursorsHaveSelection() {
+        return false;
+    }
+
+    public boolean CurrentCursorHasSelection() {
+        return false;
+    }
+
+    public void ClearCursors() {
+    }
+
+    public long GetNumberOfCursors() {
+        return 0;
+    }
+
+    public void GetCursorPosition(long cursor, NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public void GetMainCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public void GetCurrentCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public void GetCursorSelection(long cursor, NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+    }
+
+    public void GetMainCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+    }
+
+    public void GetCurrentCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+    }
+
+    public boolean IsMousePosOverGlyph(ImVec2 mousePos) {
+        return false;
+    }
+
+    public void GetDocPosAtMousePos(ImVec2 mousePos, NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public NativeString GetWordAtMousePos(ImVec2 mousePos) {
         return null;
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize, boolean aBorder) {
+    public void ScrollToLine(long line, TextEditorScroll alignment) {
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize) {
+    public long GetFirstVisibleRow() {
+        return 0;
     }
 
-    public void Render(String aTitle, boolean aParentIsFocused) {
+    public long GetLastVisibleRow() {
+        return 0;
     }
 
-    public void Render(String aTitle) {
+    public long GetFirstVisibleColumn() {
+        return 0;
+    }
+
+    public long GetLastVisibleColumn() {
+        return 0;
+    }
+
+    public void SetCursor(long line, long index) {
+    }
+
+    public float GetLineHeight() {
+        return 0;
+    }
+
+    public float GetGlyphWidth() {
+        return 0;
+    }
+
+    public void DocPos2VisPos(long line, long index, NativeLongArray outRow, NativeLongArray outColumn) {
+    }
+
+    public void VisPos2DocPos(long row, long column, NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public boolean IsDocPosVisible(long line, long index) {
+        return false;
+    }
+
+    public boolean IsVisPosOverGlyph(long row, long column) {
+        return false;
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+    }
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive) {
+    }
+
+    public void SelectFirstOccurrenceOf(String text) {
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+    }
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive) {
+    }
+
+    public void SelectNextOccurrenceOf(String text) {
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive, boolean wholeWord) {
+    }
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive) {
+    }
+
+    public void SelectAllOccurrencesOf(String text) {
+    }
+
+    public void ReplaceTextInCurrentCursor(String text) {
+    }
+
+    public void ReplaceTextInAllCursors(String text) {
+    }
+
+    public void OpenFindReplaceWindow() {
+    }
+
+    public void CloseFindReplaceWindow() {
+    }
+
+    public void SetFindButtonLabel(String label) {
+    }
+
+    public void SetFindAllButtonLabel(String label) {
+    }
+
+    public void SetReplaceButtonLabel(String label) {
+    }
+
+    public void SetReplaceAllButtonLabel(String label) {
+    }
+
+    public boolean HasFindString() {
+        return false;
+    }
+
+    public void FindNext() {
+    }
+
+    public void FindAll() {
+    }
+
+    public void AddMarker(long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+    }
+
+    public void ClearMarkers() {
+    }
+
+    public boolean HasMarkers() {
+        return false;
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled, int delay) {
+    }
+
+    public void SetChangeTrackingEnabled(boolean enabled) {
+    }
+
+    public boolean HasPendingChange() {
+        return false;
+    }
+
+    public void ClearPendingChange() {
+    }
+
+    public void SetTransactionTrackingEnabled(boolean enabled) {
+    }
+
+    public long GetTransactionChangeCount() {
+        return 0;
+    }
+
+    public void ClearTransactionChanges() {
+    }
+
+    public boolean IsTransactionChangeInsert(long index) {
+        return false;
+    }
+
+    public void GetTransactionChangeStart(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+    }
+
+    public void GetTransactionChangeEnd(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+    }
+
+    public NativeString GetTransactionChangeText(long index) {
+        return null;
+    }
+
+    public void SetUserData(long line, long data) {
+    }
+
+    public long GetUserData(long line) {
+        return 0;
+    }
+
+    public void FoldAroundLine(long line) {
+    }
+
+    public void UnfoldAroundLine(long line) {
+    }
+
+    public void ToggleAtLine(long line) {
+    }
+
+    public void UnfoldAll() {
+    }
+
+    public boolean IsLineFoldable(long line) {
+        return false;
+    }
+
+    public boolean IsLineFolded(long line) {
+        return false;
+    }
+
+    public boolean IsLineVisible(long line) {
+        return false;
+    }
+
+    public boolean IsLineHidden(long line) {
+        return false;
+    }
+
+    public void IndentLines() {
+    }
+
+    public void DeindentLines() {
+    }
+
+    public void MoveUpLines() {
+    }
+
+    public void MoveDownLines() {
+    }
+
+    public void ToggleComments() {
+    }
+
+    public void SelectionToLowerCase() {
+    }
+
+    public void SelectionToUpperCase() {
+    }
+
+    public void StripTrailingWhitespaces() {
+    }
+
+    public void TabsToSpaces() {
+    }
+
+    public void SpacesToTabs() {
+    }
+
+    public void SetPalette(TextEditorPalette palette) {
+    }
+
+    public void SetPaletteColor(TextEditorColor color, int value) {
+    }
+
+    public int GetPaletteColor(TextEditorColor color) {
+        return 0;
+    }
+
+    public static void SetDefaultPalette(TextEditorPalette palette) {
+    }
+
+    public static void SetDefaultPaletteColor(TextEditorColor color, int value) {
+    }
+
+    public static int GetDefaultPaletteColor(TextEditorColor color) {
+        return 0;
+    }
+
+    public void SetLanguage(TextEditorLanguage language) {
+    }
+
+    public TextEditorLanguage GetLanguage() {
+        return null;
+    }
+
+    public boolean HasLanguage() {
+        return false;
+    }
+
+    public NativeString GetLanguageName() {
+        return null;
+    }
+
+    public void SetLanguageChangeTrackingEnabled(boolean enabled) {
+    }
+
+    public boolean HasPendingLanguageChange() {
+        return false;
+    }
+
+    public void ClearPendingLanguageChange() {
+    }
+
+    public void CollectIdentifiers() {
+    }
+
+    public long GetIdentifierCount() {
+        return 0;
+    }
+
+    public NativeString GetIdentifier(long index) {
+        return null;
+    }
+
+    public void SetAutoCompleteEnabled(boolean enabled) {
+    }
+
+    public boolean IsAutoCompleteEnabled() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerOnTyping(boolean value) {
+    }
+
+    public boolean IsAutoCompleteTriggerOnTyping() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerOnShortcut(boolean value) {
+    }
+
+    public boolean IsAutoCompleteTriggerOnShortcut() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerInComments(boolean value) {
+    }
+
+    public boolean IsAutoCompleteTriggerInComments() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerInStrings(boolean value) {
+    }
+
+    public boolean IsAutoCompleteTriggerInStrings() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerShortcut(int value) {
+    }
+
+    public int GetAutoCompleteTriggerShortcut() {
+        return 0;
+    }
+
+    public void SetAutoInsertSingleSuggestions(boolean value) {
+    }
+
+    public boolean IsAutoInsertSingleSuggestions() {
+        return false;
+    }
+
+    public void SetAutoCompleteTriggerDelay(int milliseconds) {
+    }
+
+    public int GetAutoCompleteTriggerDelay() {
+        return 0;
+    }
+
+    public void SetNoSuggestionsLabel(String label) {
+    }
+
+    public NativeString GetNoSuggestionsLabel() {
+        return null;
+    }
+
+    public void SetSuggestionWidth(long value) {
+    }
+
+    public long GetSuggestionWidth() {
+        return 0;
+    }
+
+    public boolean HasPendingAutoCompleteRequest() {
+        return false;
+    }
+
+    public void ClearPendingAutoCompleteRequest() {
+    }
+
+    public NativeString GetAutoCompleteSearchTerm() {
+        return null;
+    }
+
+    public void GetAutoCompleteSearchTermStart(NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public void GetAutoCompleteSearchTermEnd(NativeLongArray outLine, NativeLongArray outIndex) {
+    }
+
+    public boolean IsAutoCompleteInIdentifier() {
+        return false;
+    }
+
+    public boolean IsAutoCompleteInNumber() {
+        return false;
+    }
+
+    public boolean IsAutoCompleteInComment() {
+        return false;
+    }
+
+    public boolean IsAutoCompleteInString() {
+        return false;
+    }
+
+    public TextEditorLanguage GetAutoCompleteLanguage() {
+        return null;
+    }
+
+    public void ClearAutoCompleteSuggestions() {
+    }
+
+    public void AddAutoCompleteSuggestion(String suggestion) {
+    }
+
+    public void SubmitAutoCompleteSuggestions() {
+    }
+
+    public void SetLineBreakConfig(TextEditorLineBreakConfig config) {
     }
 }

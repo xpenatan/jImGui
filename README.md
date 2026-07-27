@@ -13,7 +13,7 @@ It's meant to be small and 1-1 to C++. ImGui::Begin() is ImGui.Begin() and so on
 
 ## Supported extensions:
 [imgui-node-editor](https://github.com/thedmd/imgui-node-editor) <br>
-[ImGuiColorTextEdit](https://github.com/santaclose/ImGuiColorTextEdit/) <br>
+[ImGuiColorTextEdit](https://github.com/goossens/ImGuiColorTextEdit/) <br>
 [ImLayout](https://github.com/xpenatan/jImGui/tree/master/extensions/imlayout) <br>
 
 ### ImGui current state:

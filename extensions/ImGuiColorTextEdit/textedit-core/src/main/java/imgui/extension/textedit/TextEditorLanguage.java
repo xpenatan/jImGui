@@ -8,24 +8,25 @@ package imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum LanguageDefinitionId implements NativeEnum<LanguageDefinitionId> {
+public enum TextEditorLanguage implements NativeEnum<TextEditorLanguage> {
 
     CUSTOM(0),
     None(None_NATIVE()),
-    Cpp(Cpp_NATIVE()),
     C(C_NATIVE()),
+    Cpp(Cpp_NATIVE()),
     Cs(Cs_NATIVE()),
-    Python(Python_NATIVE()),
-    Lua(Lua_NATIVE()),
-    Json(Json_NATIVE()),
-    Sql(Sql_NATIVE()),
     AngelScript(AngelScript_NATIVE()),
+    Lua(Lua_NATIVE()),
+    Python(Python_NATIVE()),
     Glsl(Glsl_NATIVE()),
-    Hlsl(Hlsl_NATIVE());
+    Hlsl(Hlsl_NATIVE()),
+    Json(Json_NATIVE()),
+    Markdown(Markdown_NATIVE()),
+    Sql(Sql_NATIVE());
 
     private int value;
 
-    private LanguageDefinitionId(int value) {
+    private TextEditorLanguage(int value) {
         this.value = value;
     }
 
@@ -33,7 +34,7 @@ public enum LanguageDefinitionId implements NativeEnum<LanguageDefinitionId> {
         return value;
     }
 
-    public LanguageDefinitionId setValue(int value) {
+    public TextEditorLanguage setValue(int value) {
         if (this != CUSTOM) {
             throw new RuntimeException("Cannot change none CUSTOM value");
         }
@@ -41,29 +42,31 @@ public enum LanguageDefinitionId implements NativeEnum<LanguageDefinitionId> {
         return this;
     }
 
-    public LanguageDefinitionId getCustom() {
+    public TextEditorLanguage getCustom() {
         return CUSTOM;
     }
 
     private static native int None_NATIVE();
 
-    private static native int Cpp_NATIVE();
-
     private static native int C_NATIVE();
+
+    private static native int Cpp_NATIVE();
 
     private static native int Cs_NATIVE();
 
-    private static native int Python_NATIVE();
+    private static native int AngelScript_NATIVE();
 
     private static native int Lua_NATIVE();
 
-    private static native int Json_NATIVE();
-
-    private static native int Sql_NATIVE();
-
-    private static native int AngelScript_NATIVE();
+    private static native int Python_NATIVE();
 
     private static native int Glsl_NATIVE();
 
     private static native int Hlsl_NATIVE();
+
+    private static native int Json_NATIVE();
+
+    private static native int Markdown_NATIVE();
+
+    private static native int Sql_NATIVE();
 }

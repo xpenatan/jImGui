@@ -15,7 +15,7 @@ androidCompileSdk = "36"
 androidMinSdk = "29"
 androidTargetSdk = "36"
 
-jParser = "-SNAPSHOT"
+jParser = "1.2.8"
 libfdx = "-SNAPSHOT"
 libgdx = "1.14.2"
 gdxTeaVM = "-SNAPSHOT"
@@ -32,8 +32,7 @@ dearImguiTagObject = "719fe4f6438f5ace0218c9f4f061ddfec97e56bb"
 dearImguiSourceCommit = "9b4eb24cee2071e61dc1f9ef3e5228097cdde720"
 dearImguiVersionNumber = "19290"
 nodeEditorSourceCommit = "55a7dbf4b517b5e809b372ba39153fe20bad39ad"
-textEditSourceCommit = "264bee49ddc3c789b05d928d09c628649458da47"
-boostRegexSourceCommit = "4cbcd3078e6ae10d05124379623a1bf03fcb9350"
+textEditSourceCommit = "281be7cdc504ad789afa020dfae61844208addeb"
 
 [libraries]
 jParserApiCore = { module = "com.github.xpenatan.jParser:api-core", version.ref = "jParser" }

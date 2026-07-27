@@ -8,14 +8,30 @@ package gen.c.imgui.extension.textedit;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import com.github.xpenatan.jparser.runtime.helper.NativeString;
-import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import imgui.ImVec2;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
 public final class TextEditor extends NativeObject {
 
     private NativeString NativeString_TEMP_GEN_0;
 
     private NativeString NativeString_TEMP_GEN_1;
+
+    private NativeString NativeString_TEMP_GEN_2;
+
+    private NativeString NativeString_TEMP_GEN_3;
+
+    private NativeString NativeString_TEMP_GEN_4;
+
+    private NativeString NativeString_TEMP_GEN_5;
+
+    private NativeString NativeString_TEMP_GEN_6;
+
+    private NativeString NativeString_TEMP_GEN_7;
+
+    private NativeString NativeString_TEMP_GEN_8;
+
+    private NativeString NativeString_TEMP_GEN_9;
 
     static public final TextEditor NULL = TextEditor.native_new();
 
@@ -48,158 +64,40 @@ public final class TextEditor extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
-    public void SetReadOnlyEnabled(boolean aValue) {
-        internal_native_SetReadOnlyEnabled(native_address, aValue);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setreadonlyenabled")
-    public static native void internal_native_SetReadOnlyEnabled(long this_addr, boolean aValue);
-
-    public boolean IsReadOnlyEnabled() {
-        return internal_native_IsReadOnlyEnabled(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isreadonlyenabled")
-    public static native boolean internal_native_IsReadOnlyEnabled(long this_addr);
-
-    public void SetAutoIndentEnabled(boolean aValue) {
-        internal_native_SetAutoIndentEnabled(native_address, aValue);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautoindentenabled")
-    public static native void internal_native_SetAutoIndentEnabled(long this_addr, boolean aValue);
-
-    public boolean IsAutoIndentEnabled() {
-        return internal_native_IsAutoIndentEnabled(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautoindentenabled")
-    public static native boolean internal_native_IsAutoIndentEnabled(long this_addr);
-
-    public void SetShowWhitespacesEnabled(boolean aValue) {
-        internal_native_SetShowWhitespacesEnabled(native_address, aValue);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowwhitespacesenabled")
-    public static native void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean aValue);
-
-    public boolean IsShowWhitespacesEnabled() {
-        return internal_native_IsShowWhitespacesEnabled(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowwhitespacesenabled")
-    public static native boolean internal_native_IsShowWhitespacesEnabled(long this_addr);
-
-    public void SetShowLineNumbersEnabled(boolean aValue) {
-        internal_native_SetShowLineNumbersEnabled(native_address, aValue);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowlinenumbersenabled")
-    public static native void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean aValue);
-
-    public boolean IsShowLineNumbersEnabled() {
-        return internal_native_IsShowLineNumbersEnabled(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowlinenumbersenabled")
-    public static native boolean internal_native_IsShowLineNumbersEnabled(long this_addr);
-
-    public void SetShortTabsEnabled(boolean aValue) {
-        internal_native_SetShortTabsEnabled(native_address, aValue);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshorttabsenabled")
-    public static native void internal_native_SetShortTabsEnabled(long this_addr, boolean aValue);
-
-    public boolean IsShortTabsEnabled() {
-        return internal_native_IsShortTabsEnabled(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshorttabsenabled")
-    public static native boolean internal_native_IsShortTabsEnabled(long this_addr);
-
-    public int GetLineCount() {
-        return internal_native_GetLineCount(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlinecount")
-    public static native int internal_native_GetLineCount(long this_addr);
-
-    public void SetPalette(PaletteId aValue) {
-        internal_native_SetPalette(native_address, aValue.getValue());
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setpalette")
-    public static native void internal_native_SetPalette(long this_addr, int aValue);
-
-    public PaletteId GetPalette() {
-        int value = internal_native_GetPalette(native_address);
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getpalette")
-    public static native int internal_native_GetPalette(long this_addr);
-
-    public void SetLanguageDefinition(LanguageDefinitionId aValue) {
-        internal_native_SetLanguageDefinition(native_address, aValue.getValue());
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlanguagedefinition")
-    public static native void internal_native_SetLanguageDefinition(long this_addr, int aValue);
-
-    public LanguageDefinitionId GetLanguageDefinition() {
-        int value = internal_native_GetLanguageDefinition(native_address);
-        LanguageDefinitionId[] values = LanguageDefinitionId.values();
-        for (int i = 0; i < values.length; i++) {
-            LanguageDefinitionId enumVal = values[i];
-            if (enumVal != LanguageDefinitionId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return LanguageDefinitionId.CUSTOM.setValue(value);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlanguagedefinition")
-    public static native int internal_native_GetLanguageDefinition(long this_addr);
-
-    public NativeString GetLanguageDefinitionName() {
-        long addr = internal_native_GetLanguageDefinitionName_addr(native_address);
-        if (addr == 0)
-            return NativeString.NULL;
-        if (NativeString_TEMP_GEN_0 == null)
-            NativeString_TEMP_GEN_0 = NativeString.native_new();
-        NativeString_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_0;
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlanguagedefinitionname_addr")
-    public static native long internal_native_GetLanguageDefinitionName_addr(long this_addr);
-
-    public void SetTabSize(int aValue) {
-        internal_native_SetTabSize(native_address, aValue);
+    public void SetTabSize(long value) {
+        internal_native_SetTabSize(native_address, value);
     }
 
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_settabsize")
-    public static native void internal_native_SetTabSize(long this_addr, int aValue);
+    public static native void internal_native_SetTabSize(long this_addr, long value);
 
-    public int GetTabSize() {
+    public long GetTabSize() {
         return internal_native_GetTabSize(native_address);
     }
 
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettabsize")
-    public static native int internal_native_GetTabSize(long this_addr);
+    public static native long internal_native_GetTabSize(long this_addr);
 
-    public void SetLineSpacing(float aValue) {
-        internal_native_SetLineSpacing(native_address, aValue);
+    public void SetInsertSpacesOnTabs(boolean value) {
+        internal_native_SetInsertSpacesOnTabs(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setinsertspacesontabs")
+    public static native void internal_native_SetInsertSpacesOnTabs(long this_addr, boolean value);
+
+    public boolean IsInsertSpacesOnTabs() {
+        return internal_native_IsInsertSpacesOnTabs(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isinsertspacesontabs")
+    public static native boolean internal_native_IsInsertSpacesOnTabs(long this_addr);
+
+    public void SetLineSpacing(float value) {
+        internal_native_SetLineSpacing(native_address, value);
     }
 
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlinespacing")
-    public static native void internal_native_SetLineSpacing(long this_addr, float aValue);
+    public static native void internal_native_SetLineSpacing(long this_addr, float value);
 
     public float GetLineSpacing() {
         return internal_native_GetLineSpacing(native_address);
@@ -208,145 +106,414 @@ public final class TextEditor extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlinespacing")
     public static native float internal_native_GetLineSpacing(long this_addr);
 
-    public static void SetDefaultPalette(PaletteId aValue) {
-        internal_native_SetDefaultPalette(aValue.getValue());
+    public void SetWordWrapEnabled(boolean value) {
+        internal_native_SetWordWrapEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setdefaultpalette")
-    public static native void internal_native_SetDefaultPalette(int aValue);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setwordwrapenabled")
+    public static native void internal_native_SetWordWrapEnabled(long this_addr, boolean value);
 
-    public static PaletteId GetDefaultPalette() {
-        int value = internal_native_GetDefaultPalette();
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
+    public boolean IsWordWrapEnabled() {
+        return internal_native_IsWordWrapEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getdefaultpalette")
-    public static native int internal_native_GetDefaultPalette();
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_iswordwrapenabled")
+    public static native boolean internal_native_IsWordWrapEnabled(long this_addr);
 
-    public void SelectAll() {
-        internal_native_SelectAll(native_address);
+    public void SetReadOnlyEnabled(boolean value) {
+        internal_native_SetReadOnlyEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectall")
-    public static native void internal_native_SelectAll(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setreadonlyenabled")
+    public static native void internal_native_SetReadOnlyEnabled(long this_addr, boolean value);
 
-    public void SelectLine(int aLine) {
-        internal_native_SelectLine(native_address, aLine);
+    public boolean IsReadOnlyEnabled() {
+        return internal_native_IsReadOnlyEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectline")
-    public static native void internal_native_SelectLine(long this_addr, int aLine);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isreadonlyenabled")
+    public static native boolean internal_native_IsReadOnlyEnabled(long this_addr);
 
-    public void SelectRegion(int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
-        internal_native_SelectRegion(native_address, aStartLine, aStartChar, aEndLine, aEndChar);
+    public void SetCaretsVisible(boolean value) {
+        internal_native_SetCaretsVisible(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectregion")
-    public static native void internal_native_SelectRegion(long this_addr, int aStartLine, int aStartChar, int aEndLine, int aEndChar);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setcaretsvisible")
+    public static native void internal_native_SetCaretsVisible(long this_addr, boolean value);
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsCaretsVisible() {
+        return internal_native_IsCaretsVisible(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_i_z")
-    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_iscaretsvisible")
+    public static native boolean internal_native_IsCaretsVisible(long this_addr);
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize);
+    public void SetAutoIndentEnabled(boolean value) {
+        internal_native_SetAutoIndentEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_i")
-    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautoindentenabled")
+    public static native void internal_native_SetAutoIndentEnabled(long this_addr, boolean value);
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsAutoIndentEnabled() {
+        return internal_native_IsAutoIndentEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_i_z")
-    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautoindentenabled")
+    public static native boolean internal_native_IsAutoIndentEnabled(long this_addr);
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize);
+    public void SetShowWhitespacesEnabled(boolean value) {
+        internal_native_SetShowWhitespacesEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_i")
-    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowwhitespacesenabled")
+    public static native void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean value);
 
-    public boolean AnyCursorHasSelection() {
-        return internal_native_AnyCursorHasSelection(native_address);
+    public boolean IsShowWhitespacesEnabled() {
+        return internal_native_IsShowWhitespacesEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_anycursorhasselection")
-    public static native boolean internal_native_AnyCursorHasSelection(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowwhitespacesenabled")
+    public static native boolean internal_native_IsShowWhitespacesEnabled(long this_addr);
 
-    public boolean AllCursorsHaveSelection() {
-        return internal_native_AllCursorsHaveSelection(native_address);
+    public void SetShowSpacesEnabled(boolean value) {
+        internal_native_SetShowSpacesEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_allcursorshaveselection")
-    public static native boolean internal_native_AllCursorsHaveSelection(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowspacesenabled")
+    public static native void internal_native_SetShowSpacesEnabled(long this_addr, boolean value);
 
-    public void ClearExtraCursors() {
-        internal_native_ClearExtraCursors(native_address);
+    public boolean IsShowSpacesEnabled() {
+        return internal_native_IsShowSpacesEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearextracursors")
-    public static native void internal_native_ClearExtraCursors(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowspacesenabled")
+    public static native boolean internal_native_IsShowSpacesEnabled(long this_addr);
 
-    public void ClearSelections() {
-        internal_native_ClearSelections(native_address);
+    public void SetShowTabsEnabled(boolean value) {
+        internal_native_SetShowTabsEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearselections")
-    public static native void internal_native_ClearSelections(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowtabsenabled")
+    public static native void internal_native_SetShowTabsEnabled(long this_addr, boolean value);
 
-    public void SetCursorPosition(int aLine, int aCharIndex) {
-        internal_native_SetCursorPosition(native_address, aLine, aCharIndex);
+    public boolean IsShowTabsEnabled() {
+        return internal_native_IsShowTabsEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setcursorposition")
-    public static native void internal_native_SetCursorPosition(long this_addr, int aLine, int aCharIndex);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowtabsenabled")
+    public static native boolean internal_native_IsShowTabsEnabled(long this_addr);
 
-    public void GetCursorPosition(NativeIntArray outLine, NativeIntArray outColumn) {
-        internal_native_GetCursorPosition(native_address, outLine.native_void_address, outColumn.native_void_address);
+    public void SetShowLineNumbersEnabled(boolean value) {
+        internal_native_SetShowLineNumbersEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcursorposition")
-    public static native void internal_native_GetCursorPosition(long this_addr, long outLine_addr, long outColumn_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowlinenumbersenabled")
+    public static native void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean value);
 
-    public int GetFirstVisibleLine() {
-        return internal_native_GetFirstVisibleLine(native_address);
+    public boolean IsShowLineNumbersEnabled() {
+        return internal_native_IsShowLineNumbersEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getfirstvisibleline")
-    public static native int internal_native_GetFirstVisibleLine(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowlinenumbersenabled")
+    public static native boolean internal_native_IsShowLineNumbersEnabled(long this_addr);
 
-    public int GetLastVisibleLine() {
-        return internal_native_GetLastVisibleLine(native_address);
+    public void SetShowMiniMapEnabled(boolean value) {
+        internal_native_SetShowMiniMapEnabled(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlastvisibleline")
-    public static native int internal_native_GetLastVisibleLine(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowminimapenabled")
+    public static native void internal_native_SetShowMiniMapEnabled(long this_addr, boolean value);
 
-    public void SetViewAtLine(int aLine, SetViewAtLineMode aMode) {
-        internal_native_SetViewAtLine(native_address, aLine, aMode.getValue());
+    public boolean IsShowMiniMapEnabled() {
+        return internal_native_IsShowMiniMapEnabled(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setviewatline")
-    public static native void internal_native_SetViewAtLine(long this_addr, int aLine, int aMode);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowminimapenabled")
+    public static native boolean internal_native_IsShowMiniMapEnabled(long this_addr);
 
-    public void Copy() {
-        internal_native_Copy(native_address);
+    public void SetMiniMapColumns(long value) {
+        internal_native_SetMiniMapColumns(native_address, value);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_copy")
-    public static native void internal_native_Copy(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setminimapcolumns")
+    public static native void internal_native_SetMiniMapColumns(long this_addr, long value);
+
+    public long GetMiniMapColumns() {
+        return internal_native_GetMiniMapColumns(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getminimapcolumns")
+    public static native long internal_native_GetMiniMapColumns(long this_addr);
+
+    public void SetShowScrollbarMiniMapEnabled(boolean value) {
+        internal_native_SetShowScrollbarMiniMapEnabled(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowscrollbarminimapenabled")
+    public static native void internal_native_SetShowScrollbarMiniMapEnabled(long this_addr, boolean value);
+
+    public boolean IsShowScrollbarMiniMapEnabled() {
+        return internal_native_IsShowScrollbarMiniMapEnabled(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowscrollbarminimapenabled")
+    public static native boolean internal_native_IsShowScrollbarMiniMapEnabled(long this_addr);
+
+    public void SetShowPanScrollIndicatorEnabled(boolean value) {
+        internal_native_SetShowPanScrollIndicatorEnabled(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowpanscrollindicatorenabled")
+    public static native void internal_native_SetShowPanScrollIndicatorEnabled(long this_addr, boolean value);
+
+    public boolean IsShowPanScrollIndicatorEnabled() {
+        return internal_native_IsShowPanScrollIndicatorEnabled(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowpanscrollindicatorenabled")
+    public static native boolean internal_native_IsShowPanScrollIndicatorEnabled(long this_addr);
+
+    public void SetShowMatchingBrackets(boolean value) {
+        internal_native_SetShowMatchingBrackets(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setshowmatchingbrackets")
+    public static native void internal_native_SetShowMatchingBrackets(long this_addr, boolean value);
+
+    public boolean IsShowingMatchingBrackets() {
+        return internal_native_IsShowingMatchingBrackets(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isshowingmatchingbrackets")
+    public static native boolean internal_native_IsShowingMatchingBrackets(long this_addr);
+
+    public void SetCompletePairedGlyphs(boolean value) {
+        internal_native_SetCompletePairedGlyphs(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setcompletepairedglyphs")
+    public static native void internal_native_SetCompletePairedGlyphs(long this_addr, boolean value);
+
+    public boolean IsCompletingPairedGlyphs() {
+        return internal_native_IsCompletingPairedGlyphs(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_iscompletingpairedglyphs")
+    public static native boolean internal_native_IsCompletingPairedGlyphs(long this_addr);
+
+    public void SetLineFoldingEnabled(boolean value) {
+        internal_native_SetLineFoldingEnabled(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlinefoldingenabled")
+    public static native void internal_native_SetLineFoldingEnabled(long this_addr, boolean value);
+
+    public boolean IsLineFoldingEnabled() {
+        return internal_native_IsLineFoldingEnabled(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_islinefoldingenabled")
+    public static native boolean internal_native_IsLineFoldingEnabled(long this_addr);
+
+    public void SetOverwriteEnabled(boolean value) {
+        internal_native_SetOverwriteEnabled(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setoverwriteenabled")
+    public static native void internal_native_SetOverwriteEnabled(long this_addr, boolean value);
+
+    public boolean IsOverwriteEnabled() {
+        return internal_native_IsOverwriteEnabled(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isoverwriteenabled")
+    public static native boolean internal_native_IsOverwriteEnabled(long this_addr);
+
+    public void SetMiddleMousePanMode() {
+        internal_native_SetMiddleMousePanMode(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setmiddlemousepanmode")
+    public static native void internal_native_SetMiddleMousePanMode(long this_addr);
+
+    public void SetMiddleMouseScrollMode() {
+        internal_native_SetMiddleMouseScrollMode(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setmiddlemousescrollmode")
+    public static native void internal_native_SetMiddleMouseScrollMode(long this_addr);
+
+    public boolean IsMiddleMousePanMode() {
+        return internal_native_IsMiddleMousePanMode(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_ismiddlemousepanmode")
+    public static native boolean internal_native_IsMiddleMousePanMode(long this_addr);
+
+    public void SetLineNumberLeftMargin(long value) {
+        internal_native_SetLineNumberLeftMargin(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlinenumberleftmargin")
+    public static native void internal_native_SetLineNumberLeftMargin(long this_addr, long value);
+
+    public long GetLineNumberLeftMargin() {
+        return internal_native_GetLineNumberLeftMargin(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlinenumberleftmargin")
+    public static native long internal_native_GetLineNumberLeftMargin(long this_addr);
+
+    public void SetDecorationLeftMargin(long value) {
+        internal_native_SetDecorationLeftMargin(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setdecorationleftmargin")
+    public static native void internal_native_SetDecorationLeftMargin(long this_addr, long value);
+
+    public long GetDecorationLeftMargin() {
+        return internal_native_GetDecorationLeftMargin(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getdecorationleftmargin")
+    public static native long internal_native_GetDecorationLeftMargin(long this_addr);
+
+    public void SetTextLeftMargin(long value) {
+        internal_native_SetTextLeftMargin(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_settextleftmargin")
+    public static native void internal_native_SetTextLeftMargin(long this_addr, long value);
+
+    public long GetTextLeftMargin() {
+        return internal_native_GetTextLeftMargin(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettextleftmargin")
+    public static native long internal_native_GetTextLeftMargin(long this_addr);
+
+    public void SetText(String text) {
+        internal_native_SetText(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_settext")
+    public static native void internal_native_SetText(long this_addr, String text);
+
+    public NativeString GetText() {
+        long addr = internal_native_GetText_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettext_addr")
+    public static native long internal_native_GetText_addr(long this_addr);
+
+    public NativeString GetCursorText(long cursor) {
+        long addr = internal_native_GetCursorText_addr(native_address, cursor);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_1 == null)
+            NativeString_TEMP_GEN_1 = NativeString.native_new();
+        NativeString_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcursortext_addr")
+    public static native long internal_native_GetCursorText_addr(long this_addr, long cursor);
+
+    public NativeString GetLineText(long line) {
+        long addr = internal_native_GetLineText_addr(native_address, line);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_2 == null)
+            NativeString_TEMP_GEN_2 = NativeString.native_new();
+        NativeString_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlinetext_addr")
+    public static native long internal_native_GetLineText_addr(long this_addr, long line);
+
+    public NativeString GetSectionText(long startLine, long startIndex, long endLine, long endIndex) {
+        long addr = internal_native_GetSectionText_addr(native_address, startLine, startIndex, endLine, endIndex);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_3 == null)
+            NativeString_TEMP_GEN_3 = NativeString.native_new();
+        NativeString_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getsectiontext_addr")
+    public static native long internal_native_GetSectionText_addr(long this_addr, long startLine, long startIndex, long endLine, long endIndex);
+
+    public void ReplaceSectionText(long startLine, long startIndex, long endLine, long endIndex, String text) {
+        internal_native_ReplaceSectionText(native_address, startLine, startIndex, endLine, endIndex, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_replacesectiontext")
+    public static native void internal_native_ReplaceSectionText(long this_addr, long startLine, long startIndex, long endLine, long endIndex, String text);
+
+    public void ClearText() {
+        internal_native_ClearText(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_cleartext")
+    public static native void internal_native_ClearText(long this_addr);
+
+    public boolean IsEmpty() {
+        return internal_native_IsEmpty(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isempty")
+    public static native boolean internal_native_IsEmpty(long this_addr);
+
+    public long GetLineCount() {
+        return internal_native_GetLineCount(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlinecount")
+    public static native long internal_native_GetLineCount(long this_addr);
+
+    public void Render(String title, ImVec2 size, int childFlags, int windowFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags, windowFlags);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_l_i_i")
+    public static native void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags);
+
+    public void Render(String title, ImVec2 size, int childFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_l_i")
+    public static native void internal_native_Render(long this_addr, String title, long size_addr, int childFlags);
+
+    public void Render(String title, ImVec2 size) {
+        internal_native_Render(native_address, title, size.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_l")
+    public static native void internal_native_Render(long this_addr, String title, long size_addr);
+
+    public void Render(String title) {
+        internal_native_Render(native_address, title);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str")
+    public static native void internal_native_Render(long this_addr, String title);
+
+    public void SetFocus() {
+        internal_native_SetFocus(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setfocus")
+    public static native void internal_native_SetFocus(long this_addr);
 
     public void Cut() {
         internal_native_Cut(native_address);
@@ -355,6 +522,13 @@ public final class TextEditor extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_cut")
     public static native void internal_native_Cut(long this_addr);
 
+    public void Copy() {
+        internal_native_Copy(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_copy")
+    public static native void internal_native_Copy(long this_addr);
+
     public void Paste() {
         internal_native_Paste(native_address);
     }
@@ -362,32 +536,18 @@ public final class TextEditor extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_paste")
     public static native void internal_native_Paste(long this_addr);
 
-    public void Undo(int aSteps) {
-        internal_native_Undo(native_address, aSteps);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_undo_l_i")
-    public static native void internal_native_Undo(long this_addr, int aSteps);
-
     public void Undo() {
         internal_native_Undo(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_undo_l")
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_undo")
     public static native void internal_native_Undo(long this_addr);
-
-    public void Redo(int aSteps) {
-        internal_native_Redo(native_address, aSteps);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_redo_l_i")
-    public static native void internal_native_Redo(long this_addr, int aSteps);
 
     public void Redo() {
         internal_native_Redo(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_redo_l")
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_redo")
     public static native void internal_native_Redo(long this_addr);
 
     public boolean CanUndo() {
@@ -404,58 +564,1040 @@ public final class TextEditor extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_canredo")
     public static native boolean internal_native_CanRedo(long this_addr);
 
-    public int GetUndoIndex() {
+    public long GetUndoIndex() {
         return internal_native_GetUndoIndex(native_address);
     }
 
     @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getundoindex")
-    public static native int internal_native_GetUndoIndex(long this_addr);
+    public static native long internal_native_GetUndoIndex(long this_addr);
 
-    public void SetText(String aText) {
-        internal_native_SetText(native_address, aText);
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_settext")
-    public static native void internal_native_SetText(long this_addr, String aText);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectall")
+    public static native void internal_native_SelectAll(long this_addr);
 
-    public NativeString GetText() {
-        long addr = internal_native_GetText_addr(native_address);
+    public void SelectLine(long line) {
+        internal_native_SelectLine(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectline")
+    public static native void internal_native_SelectLine(long this_addr, long line);
+
+    public void SelectLines(long start, long end) {
+        internal_native_SelectLines(native_address, start, end);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectlines")
+    public static native void internal_native_SelectLines(long this_addr, long start, long end);
+
+    public void SelectRegion(long startLine, long startIndex, long endLine, long endIndex) {
+        internal_native_SelectRegion(native_address, startLine, startIndex, endLine, endIndex);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectregion")
+    public static native void internal_native_SelectRegion(long this_addr, long startLine, long startIndex, long endLine, long endIndex);
+
+    public void SelectToBrackets(boolean includeBrackets) {
+        internal_native_SelectToBrackets(native_address, includeBrackets);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selecttobrackets_l_z")
+    public static native void internal_native_SelectToBrackets(long this_addr, boolean includeBrackets);
+
+    public void SelectToBrackets() {
+        internal_native_SelectToBrackets(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selecttobrackets_l")
+    public static native void internal_native_SelectToBrackets(long this_addr);
+
+    public void GrowSelections() {
+        internal_native_GrowSelections(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_growselections")
+    public static native void internal_native_GrowSelections(long this_addr);
+
+    public void ShrinkSelections() {
+        internal_native_ShrinkSelections(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_shrinkselections")
+    public static native void internal_native_ShrinkSelections(long this_addr);
+
+    public void AddNextOccurrence() {
+        internal_native_AddNextOccurrence(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_addnextoccurrence")
+    public static native void internal_native_AddNextOccurrence(long this_addr);
+
+    public void SelectAllOccurrences() {
+        internal_native_SelectAllOccurrences(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrences")
+    public static native void internal_native_SelectAllOccurrences(long this_addr);
+
+    public boolean AnyCursorHasSelection() {
+        return internal_native_AnyCursorHasSelection(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_anycursorhasselection")
+    public static native boolean internal_native_AnyCursorHasSelection(long this_addr);
+
+    public boolean AllCursorsHaveSelection() {
+        return internal_native_AllCursorsHaveSelection(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_allcursorshaveselection")
+    public static native boolean internal_native_AllCursorsHaveSelection(long this_addr);
+
+    public boolean CurrentCursorHasSelection() {
+        return internal_native_CurrentCursorHasSelection(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_currentcursorhasselection")
+    public static native boolean internal_native_CurrentCursorHasSelection(long this_addr);
+
+    public void ClearCursors() {
+        internal_native_ClearCursors(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearcursors")
+    public static native void internal_native_ClearCursors(long this_addr);
+
+    public long GetNumberOfCursors() {
+        return internal_native_GetNumberOfCursors(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getnumberofcursors")
+    public static native long internal_native_GetNumberOfCursors(long this_addr);
+
+    public void GetCursorPosition(long cursor, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCursorPosition(native_address, cursor, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcursorposition")
+    public static native void internal_native_GetCursorPosition(long this_addr, long cursor, long outLine_addr, long outIndex_addr);
+
+    public void GetMainCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetMainCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getmaincursorposition")
+    public static native void internal_native_GetMainCursorPosition(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public void GetCurrentCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCurrentCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcurrentcursorposition")
+    public static native void internal_native_GetCurrentCursorPosition(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public void GetCursorSelection(long cursor, NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCursorSelection(native_address, cursor, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcursorselection")
+    public static native void internal_native_GetCursorSelection(long this_addr, long cursor, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public void GetMainCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetMainCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getmaincursorselection")
+    public static native void internal_native_GetMainCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public void GetCurrentCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCurrentCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getcurrentcursorselection")
+    public static native void internal_native_GetCurrentCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public boolean IsMousePosOverGlyph(ImVec2 mousePos) {
+        return internal_native_IsMousePosOverGlyph(native_address, mousePos.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_ismouseposoverglyph")
+    public static native boolean internal_native_IsMousePosOverGlyph(long this_addr, long mousePos_addr);
+
+    public void GetDocPosAtMousePos(ImVec2 mousePos, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetDocPosAtMousePos(native_address, mousePos.native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getdocposatmousepos")
+    public static native void internal_native_GetDocPosAtMousePos(long this_addr, long mousePos_addr, long outLine_addr, long outIndex_addr);
+
+    public NativeString GetWordAtMousePos(ImVec2 mousePos) {
+        long addr = internal_native_GetWordAtMousePos_addr(native_address, mousePos.native_address);
         if (addr == 0)
             return NativeString.NULL;
-        if (NativeString_TEMP_GEN_1 == null)
-            NativeString_TEMP_GEN_1 = NativeString.native_new();
-        NativeString_TEMP_GEN_1.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_1;
+        if (NativeString_TEMP_GEN_4 == null)
+            NativeString_TEMP_GEN_4 = NativeString.native_new();
+        NativeString_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_4;
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettext_addr")
-    public static native long internal_native_GetText_addr(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getwordatmousepos_addr")
+    public static native long internal_native_GetWordAtMousePos_addr(long this_addr, long mousePos_addr);
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize, boolean aBorder) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address, aBorder);
+    public void ScrollToLine(long line, TextEditorScroll alignment) {
+        internal_native_ScrollToLine(native_address, line, alignment.getValue());
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_z_l_z")
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr, boolean aBorder);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_scrolltoline")
+    public static native void internal_native_ScrollToLine(long this_addr, long line, int alignment);
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address);
+    public long GetFirstVisibleRow() {
+        return internal_native_GetFirstVisibleRow(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_z_l")
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getfirstvisiblerow")
+    public static native long internal_native_GetFirstVisibleRow(long this_addr);
 
-    public void Render(String aTitle, boolean aParentIsFocused) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused);
+    public long GetLastVisibleRow() {
+        return internal_native_GetLastVisibleRow(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str_z")
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlastvisiblerow")
+    public static native long internal_native_GetLastVisibleRow(long this_addr);
 
-    public void Render(String aTitle) {
-        internal_native_Render(native_address, aTitle);
+    public long GetFirstVisibleColumn() {
+        return internal_native_GetFirstVisibleColumn(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_render_l_str")
-    public static native void internal_native_Render(long this_addr, String aTitle);
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getfirstvisiblecolumn")
+    public static native long internal_native_GetFirstVisibleColumn(long this_addr);
+
+    public long GetLastVisibleColumn() {
+        return internal_native_GetLastVisibleColumn(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlastvisiblecolumn")
+    public static native long internal_native_GetLastVisibleColumn(long this_addr);
+
+    public void SetCursor(long line, long index) {
+        internal_native_SetCursor(native_address, line, index);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setcursor")
+    public static native void internal_native_SetCursor(long this_addr, long line, long index);
+
+    public float GetLineHeight() {
+        return internal_native_GetLineHeight(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlineheight")
+    public static native float internal_native_GetLineHeight(long this_addr);
+
+    public float GetGlyphWidth() {
+        return internal_native_GetGlyphWidth(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getglyphwidth")
+    public static native float internal_native_GetGlyphWidth(long this_addr);
+
+    public void DocPos2VisPos(long line, long index, NativeLongArray outRow, NativeLongArray outColumn) {
+        internal_native_DocPos2VisPos(native_address, line, index, outRow.native_void_address, outColumn.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_docpos2vispos")
+    public static native void internal_native_DocPos2VisPos(long this_addr, long line, long index, long outRow_addr, long outColumn_addr);
+
+    public void VisPos2DocPos(long row, long column, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_VisPos2DocPos(native_address, row, column, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_vispos2docpos")
+    public static native void internal_native_VisPos2DocPos(long this_addr, long row, long column, long outLine_addr, long outIndex_addr);
+
+    public boolean IsDocPosVisible(long line, long index) {
+        return internal_native_IsDocPosVisible(native_address, line, index);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isdocposvisible")
+    public static native boolean internal_native_IsDocPosVisible(long this_addr, long line, long index);
+
+    public boolean IsVisPosOverGlyph(long row, long column) {
+        return internal_native_IsVisPosOverGlyph(native_address, row, column);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isvisposoverglyph")
+    public static native boolean internal_native_IsVisPosOverGlyph(long this_addr, long row, long column);
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str_z_z")
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str_z")
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive);
+
+    public void SelectFirstOccurrenceOf(String text) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectfirstoccurrenceof_l_str")
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text);
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_z_z")
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str_z")
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive);
+
+    public void SelectNextOccurrenceOf(String text) {
+        internal_native_SelectNextOccurrenceOf(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectnextoccurrenceof_l_str")
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text);
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_z_z")
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str_z")
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive);
+
+    public void SelectAllOccurrencesOf(String text) {
+        internal_native_SelectAllOccurrencesOf(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectalloccurrencesof_l_str")
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text);
+
+    public void ReplaceTextInCurrentCursor(String text) {
+        internal_native_ReplaceTextInCurrentCursor(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_replacetextincurrentcursor")
+    public static native void internal_native_ReplaceTextInCurrentCursor(long this_addr, String text);
+
+    public void ReplaceTextInAllCursors(String text) {
+        internal_native_ReplaceTextInAllCursors(native_address, text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_replacetextinallcursors")
+    public static native void internal_native_ReplaceTextInAllCursors(long this_addr, String text);
+
+    public void OpenFindReplaceWindow() {
+        internal_native_OpenFindReplaceWindow(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_openfindreplacewindow")
+    public static native void internal_native_OpenFindReplaceWindow(long this_addr);
+
+    public void CloseFindReplaceWindow() {
+        internal_native_CloseFindReplaceWindow(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_closefindreplacewindow")
+    public static native void internal_native_CloseFindReplaceWindow(long this_addr);
+
+    public void SetFindButtonLabel(String label) {
+        internal_native_SetFindButtonLabel(native_address, label);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setfindbuttonlabel")
+    public static native void internal_native_SetFindButtonLabel(long this_addr, String label);
+
+    public void SetFindAllButtonLabel(String label) {
+        internal_native_SetFindAllButtonLabel(native_address, label);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setfindallbuttonlabel")
+    public static native void internal_native_SetFindAllButtonLabel(long this_addr, String label);
+
+    public void SetReplaceButtonLabel(String label) {
+        internal_native_SetReplaceButtonLabel(native_address, label);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setreplacebuttonlabel")
+    public static native void internal_native_SetReplaceButtonLabel(long this_addr, String label);
+
+    public void SetReplaceAllButtonLabel(String label) {
+        internal_native_SetReplaceAllButtonLabel(native_address, label);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setreplaceallbuttonlabel")
+    public static native void internal_native_SetReplaceAllButtonLabel(long this_addr, String label);
+
+    public boolean HasFindString() {
+        return internal_native_HasFindString(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_hasfindstring")
+    public static native boolean internal_native_HasFindString(long this_addr);
+
+    public void FindNext() {
+        internal_native_FindNext(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_findnext")
+    public static native void internal_native_FindNext(long this_addr);
+
+    public void FindAll() {
+        internal_native_FindAll(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_findall")
+    public static native void internal_native_FindAll(long this_addr);
+
+    public void AddMarker(long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        internal_native_AddMarker(native_address, line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_addmarker")
+    public static native void internal_native_AddMarker(long this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip);
+
+    public void ClearMarkers() {
+        internal_native_ClearMarkers(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearmarkers")
+    public static native void internal_native_ClearMarkers(long this_addr);
+
+    public boolean HasMarkers() {
+        return internal_native_HasMarkers(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_hasmarkers")
+    public static native boolean internal_native_HasMarkers(long this_addr);
+
+    public void SetChangeTrackingEnabled(boolean enabled, int delay) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled, delay);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setchangetrackingenabled_l_z_i")
+    public static native void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled, int delay);
+
+    public void SetChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setchangetrackingenabled_l_z")
+    public static native void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled);
+
+    public boolean HasPendingChange() {
+        return internal_native_HasPendingChange(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_haspendingchange")
+    public static native boolean internal_native_HasPendingChange(long this_addr);
+
+    public void ClearPendingChange() {
+        internal_native_ClearPendingChange(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearpendingchange")
+    public static native void internal_native_ClearPendingChange(long this_addr);
+
+    public void SetTransactionTrackingEnabled(boolean enabled) {
+        internal_native_SetTransactionTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_settransactiontrackingenabled")
+    public static native void internal_native_SetTransactionTrackingEnabled(long this_addr, boolean enabled);
+
+    public long GetTransactionChangeCount() {
+        return internal_native_GetTransactionChangeCount(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettransactionchangecount")
+    public static native long internal_native_GetTransactionChangeCount(long this_addr);
+
+    public void ClearTransactionChanges() {
+        internal_native_ClearTransactionChanges(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_cleartransactionchanges")
+    public static native void internal_native_ClearTransactionChanges(long this_addr);
+
+    public boolean IsTransactionChangeInsert(long index) {
+        return internal_native_IsTransactionChangeInsert(native_address, index);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_istransactionchangeinsert")
+    public static native boolean internal_native_IsTransactionChangeInsert(long this_addr, long index);
+
+    public void GetTransactionChangeStart(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeStart(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettransactionchangestart")
+    public static native void internal_native_GetTransactionChangeStart(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr);
+
+    public void GetTransactionChangeEnd(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeEnd(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettransactionchangeend")
+    public static native void internal_native_GetTransactionChangeEnd(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr);
+
+    public NativeString GetTransactionChangeText(long index) {
+        long addr = internal_native_GetTransactionChangeText_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_5 == null)
+            NativeString_TEMP_GEN_5 = NativeString.native_new();
+        NativeString_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_5;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_gettransactionchangetext_addr")
+    public static native long internal_native_GetTransactionChangeText_addr(long this_addr, long index);
+
+    public void SetUserData(long line, long data) {
+        internal_native_SetUserData(native_address, line, data);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setuserdata")
+    public static native void internal_native_SetUserData(long this_addr, long line, long data);
+
+    public long GetUserData(long line) {
+        return internal_native_GetUserData(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getuserdata")
+    public static native long internal_native_GetUserData(long this_addr, long line);
+
+    public void FoldAroundLine(long line) {
+        internal_native_FoldAroundLine(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_foldaroundline")
+    public static native void internal_native_FoldAroundLine(long this_addr, long line);
+
+    public void UnfoldAroundLine(long line) {
+        internal_native_UnfoldAroundLine(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_unfoldaroundline")
+    public static native void internal_native_UnfoldAroundLine(long this_addr, long line);
+
+    public void ToggleAtLine(long line) {
+        internal_native_ToggleAtLine(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_toggleatline")
+    public static native void internal_native_ToggleAtLine(long this_addr, long line);
+
+    public void UnfoldAll() {
+        internal_native_UnfoldAll(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_unfoldall")
+    public static native void internal_native_UnfoldAll(long this_addr);
+
+    public boolean IsLineFoldable(long line) {
+        return internal_native_IsLineFoldable(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_islinefoldable")
+    public static native boolean internal_native_IsLineFoldable(long this_addr, long line);
+
+    public boolean IsLineFolded(long line) {
+        return internal_native_IsLineFolded(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_islinefolded")
+    public static native boolean internal_native_IsLineFolded(long this_addr, long line);
+
+    public boolean IsLineVisible(long line) {
+        return internal_native_IsLineVisible(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_islinevisible")
+    public static native boolean internal_native_IsLineVisible(long this_addr, long line);
+
+    public boolean IsLineHidden(long line) {
+        return internal_native_IsLineHidden(native_address, line);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_islinehidden")
+    public static native boolean internal_native_IsLineHidden(long this_addr, long line);
+
+    public void IndentLines() {
+        internal_native_IndentLines(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_indentlines")
+    public static native void internal_native_IndentLines(long this_addr);
+
+    public void DeindentLines() {
+        internal_native_DeindentLines(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_deindentlines")
+    public static native void internal_native_DeindentLines(long this_addr);
+
+    public void MoveUpLines() {
+        internal_native_MoveUpLines(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_moveuplines")
+    public static native void internal_native_MoveUpLines(long this_addr);
+
+    public void MoveDownLines() {
+        internal_native_MoveDownLines(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_movedownlines")
+    public static native void internal_native_MoveDownLines(long this_addr);
+
+    public void ToggleComments() {
+        internal_native_ToggleComments(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_togglecomments")
+    public static native void internal_native_ToggleComments(long this_addr);
+
+    public void SelectionToLowerCase() {
+        internal_native_SelectionToLowerCase(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectiontolowercase")
+    public static native void internal_native_SelectionToLowerCase(long this_addr);
+
+    public void SelectionToUpperCase() {
+        internal_native_SelectionToUpperCase(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_selectiontouppercase")
+    public static native void internal_native_SelectionToUpperCase(long this_addr);
+
+    public void StripTrailingWhitespaces() {
+        internal_native_StripTrailingWhitespaces(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_striptrailingwhitespaces")
+    public static native void internal_native_StripTrailingWhitespaces(long this_addr);
+
+    public void TabsToSpaces() {
+        internal_native_TabsToSpaces(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_tabstospaces")
+    public static native void internal_native_TabsToSpaces(long this_addr);
+
+    public void SpacesToTabs() {
+        internal_native_SpacesToTabs(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_spacestotabs")
+    public static native void internal_native_SpacesToTabs(long this_addr);
+
+    public void SetPalette(TextEditorPalette palette) {
+        internal_native_SetPalette(native_address, palette.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setpalette")
+    public static native void internal_native_SetPalette(long this_addr, int palette);
+
+    public void SetPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetPaletteColor(native_address, color.getValue(), value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setpalettecolor")
+    public static native void internal_native_SetPaletteColor(long this_addr, int color, int value);
+
+    public int GetPaletteColor(TextEditorColor color) {
+        return internal_native_GetPaletteColor(native_address, color.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getpalettecolor")
+    public static native int internal_native_GetPaletteColor(long this_addr, int color);
+
+    public static void SetDefaultPalette(TextEditorPalette palette) {
+        internal_native_SetDefaultPalette(palette.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setdefaultpalette")
+    public static native void internal_native_SetDefaultPalette(int palette);
+
+    public static void SetDefaultPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetDefaultPaletteColor(color.getValue(), value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setdefaultpalettecolor")
+    public static native void internal_native_SetDefaultPaletteColor(int color, int value);
+
+    public static int GetDefaultPaletteColor(TextEditorColor color) {
+        return internal_native_GetDefaultPaletteColor(color.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getdefaultpalettecolor")
+    public static native int internal_native_GetDefaultPaletteColor(int color);
+
+    public void SetLanguage(TextEditorLanguage language) {
+        internal_native_SetLanguage(native_address, language.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlanguage")
+    public static native void internal_native_SetLanguage(long this_addr, int language);
+
+    public TextEditorLanguage GetLanguage() {
+        int value = internal_native_GetLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlanguage")
+    public static native int internal_native_GetLanguage(long this_addr);
+
+    public boolean HasLanguage() {
+        return internal_native_HasLanguage(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_haslanguage")
+    public static native boolean internal_native_HasLanguage(long this_addr);
+
+    public NativeString GetLanguageName() {
+        long addr = internal_native_GetLanguageName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_6 == null)
+            NativeString_TEMP_GEN_6 = NativeString.native_new();
+        NativeString_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_6;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getlanguagename_addr")
+    public static native long internal_native_GetLanguageName_addr(long this_addr);
+
+    public void SetLanguageChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetLanguageChangeTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlanguagechangetrackingenabled")
+    public static native void internal_native_SetLanguageChangeTrackingEnabled(long this_addr, boolean enabled);
+
+    public boolean HasPendingLanguageChange() {
+        return internal_native_HasPendingLanguageChange(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_haspendinglanguagechange")
+    public static native boolean internal_native_HasPendingLanguageChange(long this_addr);
+
+    public void ClearPendingLanguageChange() {
+        internal_native_ClearPendingLanguageChange(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearpendinglanguagechange")
+    public static native void internal_native_ClearPendingLanguageChange(long this_addr);
+
+    public void CollectIdentifiers() {
+        internal_native_CollectIdentifiers(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_collectidentifiers")
+    public static native void internal_native_CollectIdentifiers(long this_addr);
+
+    public long GetIdentifierCount() {
+        return internal_native_GetIdentifierCount(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getidentifiercount")
+    public static native long internal_native_GetIdentifierCount(long this_addr);
+
+    public NativeString GetIdentifier(long index) {
+        long addr = internal_native_GetIdentifier_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_7 == null)
+            NativeString_TEMP_GEN_7 = NativeString.native_new();
+        NativeString_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_7;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getidentifier_addr")
+    public static native long internal_native_GetIdentifier_addr(long this_addr, long index);
+
+    public void SetAutoCompleteEnabled(boolean enabled) {
+        internal_native_SetAutoCompleteEnabled(native_address, enabled);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompleteenabled")
+    public static native void internal_native_SetAutoCompleteEnabled(long this_addr, boolean enabled);
+
+    public boolean IsAutoCompleteEnabled() {
+        return internal_native_IsAutoCompleteEnabled(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompleteenabled")
+    public static native boolean internal_native_IsAutoCompleteEnabled(long this_addr);
+
+    public void SetAutoCompleteTriggerOnTyping(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnTyping(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggerontyping")
+    public static native void internal_native_SetAutoCompleteTriggerOnTyping(long this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerOnTyping() {
+        return internal_native_IsAutoCompleteTriggerOnTyping(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompletetriggerontyping")
+    public static native boolean internal_native_IsAutoCompleteTriggerOnTyping(long this_addr);
+
+    public void SetAutoCompleteTriggerOnShortcut(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnShortcut(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggeronshortcut")
+    public static native void internal_native_SetAutoCompleteTriggerOnShortcut(long this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerOnShortcut() {
+        return internal_native_IsAutoCompleteTriggerOnShortcut(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompletetriggeronshortcut")
+    public static native boolean internal_native_IsAutoCompleteTriggerOnShortcut(long this_addr);
+
+    public void SetAutoCompleteTriggerInComments(boolean value) {
+        internal_native_SetAutoCompleteTriggerInComments(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggerincomments")
+    public static native void internal_native_SetAutoCompleteTriggerInComments(long this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerInComments() {
+        return internal_native_IsAutoCompleteTriggerInComments(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompletetriggerincomments")
+    public static native boolean internal_native_IsAutoCompleteTriggerInComments(long this_addr);
+
+    public void SetAutoCompleteTriggerInStrings(boolean value) {
+        internal_native_SetAutoCompleteTriggerInStrings(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggerinstrings")
+    public static native void internal_native_SetAutoCompleteTriggerInStrings(long this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerInStrings() {
+        return internal_native_IsAutoCompleteTriggerInStrings(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompletetriggerinstrings")
+    public static native boolean internal_native_IsAutoCompleteTriggerInStrings(long this_addr);
+
+    public void SetAutoCompleteTriggerShortcut(int value) {
+        internal_native_SetAutoCompleteTriggerShortcut(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggershortcut")
+    public static native void internal_native_SetAutoCompleteTriggerShortcut(long this_addr, int value);
+
+    public int GetAutoCompleteTriggerShortcut() {
+        return internal_native_GetAutoCompleteTriggerShortcut(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletetriggershortcut")
+    public static native int internal_native_GetAutoCompleteTriggerShortcut(long this_addr);
+
+    public void SetAutoInsertSingleSuggestions(boolean value) {
+        internal_native_SetAutoInsertSingleSuggestions(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautoinsertsinglesuggestions")
+    public static native void internal_native_SetAutoInsertSingleSuggestions(long this_addr, boolean value);
+
+    public boolean IsAutoInsertSingleSuggestions() {
+        return internal_native_IsAutoInsertSingleSuggestions(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautoinsertsinglesuggestions")
+    public static native boolean internal_native_IsAutoInsertSingleSuggestions(long this_addr);
+
+    public void SetAutoCompleteTriggerDelay(int milliseconds) {
+        internal_native_SetAutoCompleteTriggerDelay(native_address, milliseconds);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setautocompletetriggerdelay")
+    public static native void internal_native_SetAutoCompleteTriggerDelay(long this_addr, int milliseconds);
+
+    public int GetAutoCompleteTriggerDelay() {
+        return internal_native_GetAutoCompleteTriggerDelay(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletetriggerdelay")
+    public static native int internal_native_GetAutoCompleteTriggerDelay(long this_addr);
+
+    public void SetNoSuggestionsLabel(String label) {
+        internal_native_SetNoSuggestionsLabel(native_address, label);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setnosuggestionslabel")
+    public static native void internal_native_SetNoSuggestionsLabel(long this_addr, String label);
+
+    public NativeString GetNoSuggestionsLabel() {
+        long addr = internal_native_GetNoSuggestionsLabel_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_8 == null)
+            NativeString_TEMP_GEN_8 = NativeString.native_new();
+        NativeString_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_8;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getnosuggestionslabel_addr")
+    public static native long internal_native_GetNoSuggestionsLabel_addr(long this_addr);
+
+    public void SetSuggestionWidth(long value) {
+        internal_native_SetSuggestionWidth(native_address, value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setsuggestionwidth")
+    public static native void internal_native_SetSuggestionWidth(long this_addr, long value);
+
+    public long GetSuggestionWidth() {
+        return internal_native_GetSuggestionWidth(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getsuggestionwidth")
+    public static native long internal_native_GetSuggestionWidth(long this_addr);
+
+    public boolean HasPendingAutoCompleteRequest() {
+        return internal_native_HasPendingAutoCompleteRequest(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_haspendingautocompleterequest")
+    public static native boolean internal_native_HasPendingAutoCompleteRequest(long this_addr);
+
+    public void ClearPendingAutoCompleteRequest() {
+        internal_native_ClearPendingAutoCompleteRequest(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearpendingautocompleterequest")
+    public static native void internal_native_ClearPendingAutoCompleteRequest(long this_addr);
+
+    public NativeString GetAutoCompleteSearchTerm() {
+        long addr = internal_native_GetAutoCompleteSearchTerm_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_9 == null)
+            NativeString_TEMP_GEN_9 = NativeString.native_new();
+        NativeString_TEMP_GEN_9.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_9;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletesearchterm_addr")
+    public static native long internal_native_GetAutoCompleteSearchTerm_addr(long this_addr);
+
+    public void GetAutoCompleteSearchTermStart(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermStart(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletesearchtermstart")
+    public static native void internal_native_GetAutoCompleteSearchTermStart(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public void GetAutoCompleteSearchTermEnd(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermEnd(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletesearchtermend")
+    public static native void internal_native_GetAutoCompleteSearchTermEnd(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public boolean IsAutoCompleteInIdentifier() {
+        return internal_native_IsAutoCompleteInIdentifier(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompleteinidentifier")
+    public static native boolean internal_native_IsAutoCompleteInIdentifier(long this_addr);
+
+    public boolean IsAutoCompleteInNumber() {
+        return internal_native_IsAutoCompleteInNumber(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompleteinnumber")
+    public static native boolean internal_native_IsAutoCompleteInNumber(long this_addr);
+
+    public boolean IsAutoCompleteInComment() {
+        return internal_native_IsAutoCompleteInComment(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompleteincomment")
+    public static native boolean internal_native_IsAutoCompleteInComment(long this_addr);
+
+    public boolean IsAutoCompleteInString() {
+        return internal_native_IsAutoCompleteInString(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_isautocompleteinstring")
+    public static native boolean internal_native_IsAutoCompleteInString(long this_addr);
+
+    public TextEditorLanguage GetAutoCompleteLanguage() {
+        int value = internal_native_GetAutoCompleteLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_getautocompletelanguage")
+    public static native int internal_native_GetAutoCompleteLanguage(long this_addr);
+
+    public void ClearAutoCompleteSuggestions() {
+        internal_native_ClearAutoCompleteSuggestions(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_clearautocompletesuggestions")
+    public static native void internal_native_ClearAutoCompleteSuggestions(long this_addr);
+
+    public void AddAutoCompleteSuggestion(String suggestion) {
+        internal_native_AddAutoCompleteSuggestion(native_address, suggestion);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_addautocompletesuggestion")
+    public static native void internal_native_AddAutoCompleteSuggestion(long this_addr, String suggestion);
+
+    public void SubmitAutoCompleteSuggestions() {
+        internal_native_SubmitAutoCompleteSuggestions(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_submitautocompletesuggestions")
+    public static native void internal_native_SubmitAutoCompleteSuggestions(long this_addr);
+
+    public void SetLineBreakConfig(TextEditorLineBreakConfig config) {
+        internal_native_SetLineBreakConfig(native_address, config.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_extension_textedit_texteditor_setlinebreakconfig")
+    public static native void internal_native_SetLineBreakConfig(long this_addr, long config_addr);
 }

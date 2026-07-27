@@ -8,14 +8,30 @@ package gen.web.imgui.extension.textedit;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
-import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import gen.web.imgui.ImVec2;
+import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 
 public final class TextEditor extends NativeObject {
 
     private NativeString NativeString_TEMP_GEN_0;
 
     private NativeString NativeString_TEMP_GEN_1;
+
+    private NativeString NativeString_TEMP_GEN_2;
+
+    private NativeString NativeString_TEMP_GEN_3;
+
+    private NativeString NativeString_TEMP_GEN_4;
+
+    private NativeString NativeString_TEMP_GEN_5;
+
+    private NativeString NativeString_TEMP_GEN_6;
+
+    private NativeString NativeString_TEMP_GEN_7;
+
+    private NativeString NativeString_TEMP_GEN_8;
+
+    private NativeString NativeString_TEMP_GEN_9;
 
     static public final TextEditor NULL = TextEditor.native_new();
 
@@ -48,158 +64,40 @@ public final class TextEditor extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);textedit.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
-    public void SetReadOnlyEnabled(boolean aValue) {
-        internal_native_SetReadOnlyEnabled(native_address, aValue);
+    public void SetTabSize(long value) {
+        internal_native_SetTabSize(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetReadOnlyEnabled(aValue);")
-    public static native void internal_native_SetReadOnlyEnabled(int this_addr, boolean aValue);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetTabSize(value);")
+    public static native void internal_native_SetTabSize(int this_addr, long value);
 
-    public boolean IsReadOnlyEnabled() {
-        return internal_native_IsReadOnlyEnabled(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsReadOnlyEnabled();return returnedJSObj;")
-    public static native boolean internal_native_IsReadOnlyEnabled(int this_addr);
-
-    public void SetAutoIndentEnabled(boolean aValue) {
-        internal_native_SetAutoIndentEnabled(native_address, aValue);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoIndentEnabled(aValue);")
-    public static native void internal_native_SetAutoIndentEnabled(int this_addr, boolean aValue);
-
-    public boolean IsAutoIndentEnabled() {
-        return internal_native_IsAutoIndentEnabled(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoIndentEnabled();return returnedJSObj;")
-    public static native boolean internal_native_IsAutoIndentEnabled(int this_addr);
-
-    public void SetShowWhitespacesEnabled(boolean aValue) {
-        internal_native_SetShowWhitespacesEnabled(native_address, aValue);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowWhitespacesEnabled(aValue);")
-    public static native void internal_native_SetShowWhitespacesEnabled(int this_addr, boolean aValue);
-
-    public boolean IsShowWhitespacesEnabled() {
-        return internal_native_IsShowWhitespacesEnabled(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowWhitespacesEnabled();return returnedJSObj;")
-    public static native boolean internal_native_IsShowWhitespacesEnabled(int this_addr);
-
-    public void SetShowLineNumbersEnabled(boolean aValue) {
-        internal_native_SetShowLineNumbersEnabled(native_address, aValue);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowLineNumbersEnabled(aValue);")
-    public static native void internal_native_SetShowLineNumbersEnabled(int this_addr, boolean aValue);
-
-    public boolean IsShowLineNumbersEnabled() {
-        return internal_native_IsShowLineNumbersEnabled(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowLineNumbersEnabled();return returnedJSObj;")
-    public static native boolean internal_native_IsShowLineNumbersEnabled(int this_addr);
-
-    public void SetShortTabsEnabled(boolean aValue) {
-        internal_native_SetShortTabsEnabled(native_address, aValue);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShortTabsEnabled(aValue);")
-    public static native void internal_native_SetShortTabsEnabled(int this_addr, boolean aValue);
-
-    public boolean IsShortTabsEnabled() {
-        return internal_native_IsShortTabsEnabled(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShortTabsEnabled();return returnedJSObj;")
-    public static native boolean internal_native_IsShortTabsEnabled(int this_addr);
-
-    public int GetLineCount() {
-        return internal_native_GetLineCount(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineCount();return returnedJSObj;")
-    public static native int internal_native_GetLineCount(int this_addr);
-
-    public void SetPalette(PaletteId aValue) {
-        internal_native_SetPalette(native_address, aValue.getValue());
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetPalette(aValue);")
-    public static native void internal_native_SetPalette(int this_addr, int aValue);
-
-    public PaletteId GetPalette() {
-        int value = internal_native_GetPalette(native_address);
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetPalette();return returnedJSObj;")
-    public static native int internal_native_GetPalette(int this_addr);
-
-    public void SetLanguageDefinition(LanguageDefinitionId aValue) {
-        internal_native_SetLanguageDefinition(native_address, aValue.getValue());
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLanguageDefinition(aValue);")
-    public static native void internal_native_SetLanguageDefinition(int this_addr, int aValue);
-
-    public LanguageDefinitionId GetLanguageDefinition() {
-        int value = internal_native_GetLanguageDefinition(native_address);
-        LanguageDefinitionId[] values = LanguageDefinitionId.values();
-        for (int i = 0; i < values.length; i++) {
-            LanguageDefinitionId enumVal = values[i];
-            if (enumVal != LanguageDefinitionId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return LanguageDefinitionId.CUSTOM.setValue(value);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLanguageDefinition();return returnedJSObj;")
-    public static native int internal_native_GetLanguageDefinition(int this_addr);
-
-    public NativeString GetLanguageDefinitionName() {
-        int addr = internal_native_GetLanguageDefinitionName_addr(native_address);
-        if (addr == 0)
-            return NativeString.NULL;
-        if (NativeString_TEMP_GEN_0 == null)
-            NativeString_TEMP_GEN_0 = NativeString.native_new();
-        NativeString_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_0;
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLanguageDefinitionName();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
-    public static native int internal_native_GetLanguageDefinitionName_addr(int this_addr);
-
-    public void SetTabSize(int aValue) {
-        internal_native_SetTabSize(native_address, aValue);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetTabSize(aValue);")
-    public static native void internal_native_SetTabSize(int this_addr, int aValue);
-
-    public int GetTabSize() {
+    public long GetTabSize() {
         return internal_native_GetTabSize(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetTabSize();return returnedJSObj;")
-    public static native int internal_native_GetTabSize(int this_addr);
+    public static native long internal_native_GetTabSize(int this_addr);
 
-    public void SetLineSpacing(float aValue) {
-        internal_native_SetLineSpacing(native_address, aValue);
+    public void SetInsertSpacesOnTabs(boolean value) {
+        internal_native_SetInsertSpacesOnTabs(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aValue"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLineSpacing(aValue);")
-    public static native void internal_native_SetLineSpacing(int this_addr, float aValue);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetInsertSpacesOnTabs(value);")
+    public static native void internal_native_SetInsertSpacesOnTabs(int this_addr, boolean value);
+
+    public boolean IsInsertSpacesOnTabs() {
+        return internal_native_IsInsertSpacesOnTabs(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsInsertSpacesOnTabs();return returnedJSObj;")
+    public static native boolean internal_native_IsInsertSpacesOnTabs(int this_addr);
+
+    public void SetLineSpacing(float value) {
+        internal_native_SetLineSpacing(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLineSpacing(value);")
+    public static native void internal_native_SetLineSpacing(int this_addr, float value);
 
     public float GetLineSpacing() {
         return internal_native_GetLineSpacing(native_address);
@@ -208,145 +106,414 @@ public final class TextEditor extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineSpacing();return returnedJSObj;")
     public static native float internal_native_GetLineSpacing(int this_addr);
 
-    public static void SetDefaultPalette(PaletteId aValue) {
-        internal_native_SetDefaultPalette(aValue.getValue());
+    public void SetWordWrapEnabled(boolean value) {
+        internal_native_SetWordWrapEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"aValue"}, script = "textedit.TextEditor.prototype.SetDefaultPalette(aValue);")
-    public static native void internal_native_SetDefaultPalette(int aValue);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetWordWrapEnabled(value);")
+    public static native void internal_native_SetWordWrapEnabled(int this_addr, boolean value);
 
-    public static PaletteId GetDefaultPalette() {
-        int value = internal_native_GetDefaultPalette();
-        PaletteId[] values = PaletteId.values();
-        for (int i = 0; i < values.length; i++) {
-            PaletteId enumVal = values[i];
-            if (enumVal != PaletteId.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return PaletteId.CUSTOM.setValue(value);
+    public boolean IsWordWrapEnabled() {
+        return internal_native_IsWordWrapEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(script = "var returnedJSObj = textedit.TextEditor.prototype.GetDefaultPalette();return returnedJSObj;")
-    public static native int internal_native_GetDefaultPalette();
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsWordWrapEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsWordWrapEnabled(int this_addr);
 
-    public void SelectAll() {
-        internal_native_SelectAll(native_address);
+    public void SetReadOnlyEnabled(boolean value) {
+        internal_native_SetReadOnlyEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAll();")
-    public static native void internal_native_SelectAll(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetReadOnlyEnabled(value);")
+    public static native void internal_native_SetReadOnlyEnabled(int this_addr, boolean value);
 
-    public void SelectLine(int aLine) {
-        internal_native_SelectLine(native_address, aLine);
+    public boolean IsReadOnlyEnabled() {
+        return internal_native_IsReadOnlyEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aLine"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectLine(aLine);")
-    public static native void internal_native_SelectLine(int this_addr, int aLine);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsReadOnlyEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsReadOnlyEnabled(int this_addr);
 
-    public void SelectRegion(int aStartLine, int aStartChar, int aEndLine, int aEndChar) {
-        internal_native_SelectRegion(native_address, aStartLine, aStartChar, aEndLine, aEndChar);
+    public void SetCaretsVisible(boolean value) {
+        internal_native_SetCaretsVisible(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aStartLine", "aStartChar", "aEndLine", "aEndChar"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectRegion(aStartLine, aStartChar, aEndLine, aEndChar);")
-    public static native void internal_native_SelectRegion(int this_addr, int aStartLine, int aStartChar, int aEndLine, int aEndChar);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetCaretsVisible(value);")
+    public static native void internal_native_SetCaretsVisible(int this_addr, boolean value);
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsCaretsVisible() {
+        return internal_native_IsCaretsVisible(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aText", "aTextSize", "aCaseSensitive"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectNextOccurrenceOf(aText, aTextSize, aCaseSensitive);")
-    public static native void internal_native_SelectNextOccurrenceOf(int this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsCaretsVisible();return returnedJSObj;")
+    public static native boolean internal_native_IsCaretsVisible(int this_addr);
 
-    public void SelectNextOccurrenceOf(String aText, int aTextSize) {
-        internal_native_SelectNextOccurrenceOf(native_address, aText, aTextSize);
+    public void SetAutoIndentEnabled(boolean value) {
+        internal_native_SetAutoIndentEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aText", "aTextSize"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectNextOccurrenceOf(aText, aTextSize);")
-    public static native void internal_native_SelectNextOccurrenceOf(int this_addr, String aText, int aTextSize);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoIndentEnabled(value);")
+    public static native void internal_native_SetAutoIndentEnabled(int this_addr, boolean value);
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize, boolean aCaseSensitive) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize, aCaseSensitive);
+    public boolean IsAutoIndentEnabled() {
+        return internal_native_IsAutoIndentEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aText", "aTextSize", "aCaseSensitive"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrencesOf(aText, aTextSize, aCaseSensitive);")
-    public static native void internal_native_SelectAllOccurrencesOf(int this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoIndentEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoIndentEnabled(int this_addr);
 
-    public void SelectAllOccurrencesOf(String aText, int aTextSize) {
-        internal_native_SelectAllOccurrencesOf(native_address, aText, aTextSize);
+    public void SetShowWhitespacesEnabled(boolean value) {
+        internal_native_SetShowWhitespacesEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aText", "aTextSize"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrencesOf(aText, aTextSize);")
-    public static native void internal_native_SelectAllOccurrencesOf(int this_addr, String aText, int aTextSize);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowWhitespacesEnabled(value);")
+    public static native void internal_native_SetShowWhitespacesEnabled(int this_addr, boolean value);
 
-    public boolean AnyCursorHasSelection() {
-        return internal_native_AnyCursorHasSelection(native_address);
+    public boolean IsShowWhitespacesEnabled() {
+        return internal_native_IsShowWhitespacesEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.AnyCursorHasSelection();return returnedJSObj;")
-    public static native boolean internal_native_AnyCursorHasSelection(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowWhitespacesEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowWhitespacesEnabled(int this_addr);
 
-    public boolean AllCursorsHaveSelection() {
-        return internal_native_AllCursorsHaveSelection(native_address);
+    public void SetShowSpacesEnabled(boolean value) {
+        internal_native_SetShowSpacesEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.AllCursorsHaveSelection();return returnedJSObj;")
-    public static native boolean internal_native_AllCursorsHaveSelection(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowSpacesEnabled(value);")
+    public static native void internal_native_SetShowSpacesEnabled(int this_addr, boolean value);
 
-    public void ClearExtraCursors() {
-        internal_native_ClearExtraCursors(native_address);
+    public boolean IsShowSpacesEnabled() {
+        return internal_native_IsShowSpacesEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearExtraCursors();")
-    public static native void internal_native_ClearExtraCursors(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowSpacesEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowSpacesEnabled(int this_addr);
 
-    public void ClearSelections() {
-        internal_native_ClearSelections(native_address);
+    public void SetShowTabsEnabled(boolean value) {
+        internal_native_SetShowTabsEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearSelections();")
-    public static native void internal_native_ClearSelections(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowTabsEnabled(value);")
+    public static native void internal_native_SetShowTabsEnabled(int this_addr, boolean value);
 
-    public void SetCursorPosition(int aLine, int aCharIndex) {
-        internal_native_SetCursorPosition(native_address, aLine, aCharIndex);
+    public boolean IsShowTabsEnabled() {
+        return internal_native_IsShowTabsEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aLine", "aCharIndex"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetCursorPosition(aLine, aCharIndex);")
-    public static native void internal_native_SetCursorPosition(int this_addr, int aLine, int aCharIndex);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowTabsEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowTabsEnabled(int this_addr);
 
-    public void GetCursorPosition(NativeIntArray outLine, NativeIntArray outColumn) {
-        internal_native_GetCursorPosition(native_address, outLine.native_void_address, outColumn.native_void_address);
+    public void SetShowLineNumbersEnabled(boolean value) {
+        internal_native_SetShowLineNumbersEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "outLine_addr", "outColumn_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetCursorPosition(outLine_addr, outColumn_addr);")
-    public static native void internal_native_GetCursorPosition(int this_addr, int outLine_addr, int outColumn_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowLineNumbersEnabled(value);")
+    public static native void internal_native_SetShowLineNumbersEnabled(int this_addr, boolean value);
 
-    public int GetFirstVisibleLine() {
-        return internal_native_GetFirstVisibleLine(native_address);
+    public boolean IsShowLineNumbersEnabled() {
+        return internal_native_IsShowLineNumbersEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetFirstVisibleLine();return returnedJSObj;")
-    public static native int internal_native_GetFirstVisibleLine(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowLineNumbersEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowLineNumbersEnabled(int this_addr);
 
-    public int GetLastVisibleLine() {
-        return internal_native_GetLastVisibleLine(native_address);
+    public void SetShowMiniMapEnabled(boolean value) {
+        internal_native_SetShowMiniMapEnabled(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLastVisibleLine();return returnedJSObj;")
-    public static native int internal_native_GetLastVisibleLine(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowMiniMapEnabled(value);")
+    public static native void internal_native_SetShowMiniMapEnabled(int this_addr, boolean value);
 
-    public void SetViewAtLine(int aLine, SetViewAtLineMode aMode) {
-        internal_native_SetViewAtLine(native_address, aLine, aMode.getValue());
+    public boolean IsShowMiniMapEnabled() {
+        return internal_native_IsShowMiniMapEnabled(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aLine", "aMode"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetViewAtLine(aLine, aMode);")
-    public static native void internal_native_SetViewAtLine(int this_addr, int aLine, int aMode);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowMiniMapEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowMiniMapEnabled(int this_addr);
 
-    public void Copy() {
-        internal_native_Copy(native_address);
+    public void SetMiniMapColumns(long value) {
+        internal_native_SetMiniMapColumns(native_address, value);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Copy();")
-    public static native void internal_native_Copy(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetMiniMapColumns(value);")
+    public static native void internal_native_SetMiniMapColumns(int this_addr, long value);
+
+    public long GetMiniMapColumns() {
+        return internal_native_GetMiniMapColumns(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetMiniMapColumns();return returnedJSObj;")
+    public static native long internal_native_GetMiniMapColumns(int this_addr);
+
+    public void SetShowScrollbarMiniMapEnabled(boolean value) {
+        internal_native_SetShowScrollbarMiniMapEnabled(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowScrollbarMiniMapEnabled(value);")
+    public static native void internal_native_SetShowScrollbarMiniMapEnabled(int this_addr, boolean value);
+
+    public boolean IsShowScrollbarMiniMapEnabled() {
+        return internal_native_IsShowScrollbarMiniMapEnabled(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowScrollbarMiniMapEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowScrollbarMiniMapEnabled(int this_addr);
+
+    public void SetShowPanScrollIndicatorEnabled(boolean value) {
+        internal_native_SetShowPanScrollIndicatorEnabled(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowPanScrollIndicatorEnabled(value);")
+    public static native void internal_native_SetShowPanScrollIndicatorEnabled(int this_addr, boolean value);
+
+    public boolean IsShowPanScrollIndicatorEnabled() {
+        return internal_native_IsShowPanScrollIndicatorEnabled(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowPanScrollIndicatorEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsShowPanScrollIndicatorEnabled(int this_addr);
+
+    public void SetShowMatchingBrackets(boolean value) {
+        internal_native_SetShowMatchingBrackets(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetShowMatchingBrackets(value);")
+    public static native void internal_native_SetShowMatchingBrackets(int this_addr, boolean value);
+
+    public boolean IsShowingMatchingBrackets() {
+        return internal_native_IsShowingMatchingBrackets(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsShowingMatchingBrackets();return returnedJSObj;")
+    public static native boolean internal_native_IsShowingMatchingBrackets(int this_addr);
+
+    public void SetCompletePairedGlyphs(boolean value) {
+        internal_native_SetCompletePairedGlyphs(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetCompletePairedGlyphs(value);")
+    public static native void internal_native_SetCompletePairedGlyphs(int this_addr, boolean value);
+
+    public boolean IsCompletingPairedGlyphs() {
+        return internal_native_IsCompletingPairedGlyphs(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsCompletingPairedGlyphs();return returnedJSObj;")
+    public static native boolean internal_native_IsCompletingPairedGlyphs(int this_addr);
+
+    public void SetLineFoldingEnabled(boolean value) {
+        internal_native_SetLineFoldingEnabled(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLineFoldingEnabled(value);")
+    public static native void internal_native_SetLineFoldingEnabled(int this_addr, boolean value);
+
+    public boolean IsLineFoldingEnabled() {
+        return internal_native_IsLineFoldingEnabled(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsLineFoldingEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsLineFoldingEnabled(int this_addr);
+
+    public void SetOverwriteEnabled(boolean value) {
+        internal_native_SetOverwriteEnabled(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetOverwriteEnabled(value);")
+    public static native void internal_native_SetOverwriteEnabled(int this_addr, boolean value);
+
+    public boolean IsOverwriteEnabled() {
+        return internal_native_IsOverwriteEnabled(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsOverwriteEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsOverwriteEnabled(int this_addr);
+
+    public void SetMiddleMousePanMode() {
+        internal_native_SetMiddleMousePanMode(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetMiddleMousePanMode();")
+    public static native void internal_native_SetMiddleMousePanMode(int this_addr);
+
+    public void SetMiddleMouseScrollMode() {
+        internal_native_SetMiddleMouseScrollMode(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetMiddleMouseScrollMode();")
+    public static native void internal_native_SetMiddleMouseScrollMode(int this_addr);
+
+    public boolean IsMiddleMousePanMode() {
+        return internal_native_IsMiddleMousePanMode(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsMiddleMousePanMode();return returnedJSObj;")
+    public static native boolean internal_native_IsMiddleMousePanMode(int this_addr);
+
+    public void SetLineNumberLeftMargin(long value) {
+        internal_native_SetLineNumberLeftMargin(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLineNumberLeftMargin(value);")
+    public static native void internal_native_SetLineNumberLeftMargin(int this_addr, long value);
+
+    public long GetLineNumberLeftMargin() {
+        return internal_native_GetLineNumberLeftMargin(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineNumberLeftMargin();return returnedJSObj;")
+    public static native long internal_native_GetLineNumberLeftMargin(int this_addr);
+
+    public void SetDecorationLeftMargin(long value) {
+        internal_native_SetDecorationLeftMargin(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetDecorationLeftMargin(value);")
+    public static native void internal_native_SetDecorationLeftMargin(int this_addr, long value);
+
+    public long GetDecorationLeftMargin() {
+        return internal_native_GetDecorationLeftMargin(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetDecorationLeftMargin();return returnedJSObj;")
+    public static native long internal_native_GetDecorationLeftMargin(int this_addr);
+
+    public void SetTextLeftMargin(long value) {
+        internal_native_SetTextLeftMargin(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetTextLeftMargin(value);")
+    public static native void internal_native_SetTextLeftMargin(int this_addr, long value);
+
+    public long GetTextLeftMargin() {
+        return internal_native_GetTextLeftMargin(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetTextLeftMargin();return returnedJSObj;")
+    public static native long internal_native_GetTextLeftMargin(int this_addr);
+
+    public void SetText(String text) {
+        internal_native_SetText(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetText(text);")
+    public static native void internal_native_SetText(int this_addr, String text);
+
+    public NativeString GetText() {
+        int addr = internal_native_GetText_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetText();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetText_addr(int this_addr);
+
+    public NativeString GetCursorText(long cursor) {
+        int addr = internal_native_GetCursorText_addr(native_address, cursor);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_1 == null)
+            NativeString_TEMP_GEN_1 = NativeString.native_new();
+        NativeString_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "cursor"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetCursorText(cursor);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetCursorText_addr(int this_addr, long cursor);
+
+    public NativeString GetLineText(long line) {
+        int addr = internal_native_GetLineText_addr(native_address, line);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_2 == null)
+            NativeString_TEMP_GEN_2 = NativeString.native_new();
+        NativeString_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_2;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineText(line);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLineText_addr(int this_addr, long line);
+
+    public NativeString GetSectionText(long startLine, long startIndex, long endLine, long endIndex) {
+        int addr = internal_native_GetSectionText_addr(native_address, startLine, startIndex, endLine, endIndex);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_3 == null)
+            NativeString_TEMP_GEN_3 = NativeString.native_new();
+        NativeString_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_3;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "startLine", "startIndex", "endLine", "endIndex"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetSectionText(startLine, startIndex, endLine, endIndex);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetSectionText_addr(int this_addr, long startLine, long startIndex, long endLine, long endIndex);
+
+    public void ReplaceSectionText(long startLine, long startIndex, long endLine, long endIndex, String text) {
+        internal_native_ReplaceSectionText(native_address, startLine, startIndex, endLine, endIndex, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "startLine", "startIndex", "endLine", "endIndex", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ReplaceSectionText(startLine, startIndex, endLine, endIndex, text);")
+    public static native void internal_native_ReplaceSectionText(int this_addr, long startLine, long startIndex, long endLine, long endIndex, String text);
+
+    public void ClearText() {
+        internal_native_ClearText(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearText();")
+    public static native void internal_native_ClearText(int this_addr);
+
+    public boolean IsEmpty() {
+        return internal_native_IsEmpty(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsEmpty();return returnedJSObj;")
+    public static native boolean internal_native_IsEmpty(int this_addr);
+
+    public long GetLineCount() {
+        return internal_native_GetLineCount(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineCount();return returnedJSObj;")
+    public static native long internal_native_GetLineCount(int this_addr);
+
+    public void Render(String title, ImVec2 size, int childFlags, int windowFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags, windowFlags);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "title", "size_addr", "childFlags", "windowFlags"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(title, size_addr, childFlags, windowFlags);")
+    public static native void internal_native_Render(int this_addr, String title, int size_addr, int childFlags, int windowFlags);
+
+    public void Render(String title, ImVec2 size, int childFlags) {
+        internal_native_Render(native_address, title, size.native_address, childFlags);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "title", "size_addr", "childFlags"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(title, size_addr, childFlags);")
+    public static native void internal_native_Render(int this_addr, String title, int size_addr, int childFlags);
+
+    public void Render(String title, ImVec2 size) {
+        internal_native_Render(native_address, title, size.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "title", "size_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(title, size_addr);")
+    public static native void internal_native_Render(int this_addr, String title, int size_addr);
+
+    public void Render(String title) {
+        internal_native_Render(native_address, title);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "title"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(title);")
+    public static native void internal_native_Render(int this_addr, String title);
+
+    public void SetFocus() {
+        internal_native_SetFocus(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetFocus();")
+    public static native void internal_native_SetFocus(int this_addr);
 
     public void Cut() {
         internal_native_Cut(native_address);
@@ -355,6 +522,13 @@ public final class TextEditor extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Cut();")
     public static native void internal_native_Cut(int this_addr);
 
+    public void Copy() {
+        internal_native_Copy(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Copy();")
+    public static native void internal_native_Copy(int this_addr);
+
     public void Paste() {
         internal_native_Paste(native_address);
     }
@@ -362,26 +536,12 @@ public final class TextEditor extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Paste();")
     public static native void internal_native_Paste(int this_addr);
 
-    public void Undo(int aSteps) {
-        internal_native_Undo(native_address, aSteps);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aSteps"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Undo(aSteps);")
-    public static native void internal_native_Undo(int this_addr, int aSteps);
-
     public void Undo() {
         internal_native_Undo(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Undo();")
     public static native void internal_native_Undo(int this_addr);
-
-    public void Redo(int aSteps) {
-        internal_native_Redo(native_address, aSteps);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "aSteps"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Redo(aSteps);")
-    public static native void internal_native_Redo(int this_addr, int aSteps);
 
     public void Redo() {
         internal_native_Redo(native_address);
@@ -404,58 +564,1040 @@ public final class TextEditor extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.CanRedo();return returnedJSObj;")
     public static native boolean internal_native_CanRedo(int this_addr);
 
-    public int GetUndoIndex() {
+    public long GetUndoIndex() {
         return internal_native_GetUndoIndex(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetUndoIndex();return returnedJSObj;")
-    public static native int internal_native_GetUndoIndex(int this_addr);
+    public static native long internal_native_GetUndoIndex(int this_addr);
 
-    public void SetText(String aText) {
-        internal_native_SetText(native_address, aText);
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aText"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetText(aText);")
-    public static native void internal_native_SetText(int this_addr, String aText);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAll();")
+    public static native void internal_native_SelectAll(int this_addr);
 
-    public NativeString GetText() {
-        int addr = internal_native_GetText_addr(native_address);
+    public void SelectLine(long line) {
+        internal_native_SelectLine(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectLine(line);")
+    public static native void internal_native_SelectLine(int this_addr, long line);
+
+    public void SelectLines(long start, long end) {
+        internal_native_SelectLines(native_address, start, end);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "start", "end"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectLines(start, end);")
+    public static native void internal_native_SelectLines(int this_addr, long start, long end);
+
+    public void SelectRegion(long startLine, long startIndex, long endLine, long endIndex) {
+        internal_native_SelectRegion(native_address, startLine, startIndex, endLine, endIndex);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "startLine", "startIndex", "endLine", "endIndex"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectRegion(startLine, startIndex, endLine, endIndex);")
+    public static native void internal_native_SelectRegion(int this_addr, long startLine, long startIndex, long endLine, long endIndex);
+
+    public void SelectToBrackets(boolean includeBrackets) {
+        internal_native_SelectToBrackets(native_address, includeBrackets);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "includeBrackets"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectToBrackets(includeBrackets);")
+    public static native void internal_native_SelectToBrackets(int this_addr, boolean includeBrackets);
+
+    public void SelectToBrackets() {
+        internal_native_SelectToBrackets(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectToBrackets();")
+    public static native void internal_native_SelectToBrackets(int this_addr);
+
+    public void GrowSelections() {
+        internal_native_GrowSelections(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GrowSelections();")
+    public static native void internal_native_GrowSelections(int this_addr);
+
+    public void ShrinkSelections() {
+        internal_native_ShrinkSelections(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ShrinkSelections();")
+    public static native void internal_native_ShrinkSelections(int this_addr);
+
+    public void AddNextOccurrence() {
+        internal_native_AddNextOccurrence(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.AddNextOccurrence();")
+    public static native void internal_native_AddNextOccurrence(int this_addr);
+
+    public void SelectAllOccurrences() {
+        internal_native_SelectAllOccurrences(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrences();")
+    public static native void internal_native_SelectAllOccurrences(int this_addr);
+
+    public boolean AnyCursorHasSelection() {
+        return internal_native_AnyCursorHasSelection(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.AnyCursorHasSelection();return returnedJSObj;")
+    public static native boolean internal_native_AnyCursorHasSelection(int this_addr);
+
+    public boolean AllCursorsHaveSelection() {
+        return internal_native_AllCursorsHaveSelection(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.AllCursorsHaveSelection();return returnedJSObj;")
+    public static native boolean internal_native_AllCursorsHaveSelection(int this_addr);
+
+    public boolean CurrentCursorHasSelection() {
+        return internal_native_CurrentCursorHasSelection(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.CurrentCursorHasSelection();return returnedJSObj;")
+    public static native boolean internal_native_CurrentCursorHasSelection(int this_addr);
+
+    public void ClearCursors() {
+        internal_native_ClearCursors(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearCursors();")
+    public static native void internal_native_ClearCursors(int this_addr);
+
+    public long GetNumberOfCursors() {
+        return internal_native_GetNumberOfCursors(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetNumberOfCursors();return returnedJSObj;")
+    public static native long internal_native_GetNumberOfCursors(int this_addr);
+
+    public void GetCursorPosition(long cursor, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCursorPosition(native_address, cursor, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "cursor", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetCursorPosition(cursor, outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetCursorPosition(int this_addr, long cursor, int outLine_addr, int outIndex_addr);
+
+    public void GetMainCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetMainCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetMainCursorPosition(outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetMainCursorPosition(int this_addr, int outLine_addr, int outIndex_addr);
+
+    public void GetCurrentCursorPosition(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetCurrentCursorPosition(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetCurrentCursorPosition(outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetCurrentCursorPosition(int this_addr, int outLine_addr, int outIndex_addr);
+
+    public void GetCursorSelection(long cursor, NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCursorSelection(native_address, cursor, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "cursor", "outStartLine_addr", "outStartIndex_addr", "outEndLine_addr", "outEndIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetCursorSelection(cursor, outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);")
+    public static native void internal_native_GetCursorSelection(int this_addr, long cursor, int outStartLine_addr, int outStartIndex_addr, int outEndLine_addr, int outEndIndex_addr);
+
+    public void GetMainCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetMainCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outStartLine_addr", "outStartIndex_addr", "outEndLine_addr", "outEndIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetMainCursorSelection(outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);")
+    public static native void internal_native_GetMainCursorSelection(int this_addr, int outStartLine_addr, int outStartIndex_addr, int outEndLine_addr, int outEndIndex_addr);
+
+    public void GetCurrentCursorSelection(NativeLongArray outStartLine, NativeLongArray outStartIndex, NativeLongArray outEndLine, NativeLongArray outEndIndex) {
+        internal_native_GetCurrentCursorSelection(native_address, outStartLine.native_void_address, outStartIndex.native_void_address, outEndLine.native_void_address, outEndIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outStartLine_addr", "outStartIndex_addr", "outEndLine_addr", "outEndIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetCurrentCursorSelection(outStartLine_addr, outStartIndex_addr, outEndLine_addr, outEndIndex_addr);")
+    public static native void internal_native_GetCurrentCursorSelection(int this_addr, int outStartLine_addr, int outStartIndex_addr, int outEndLine_addr, int outEndIndex_addr);
+
+    public boolean IsMousePosOverGlyph(ImVec2 mousePos) {
+        return internal_native_IsMousePosOverGlyph(native_address, mousePos.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mousePos_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsMousePosOverGlyph(mousePos_addr);return returnedJSObj;")
+    public static native boolean internal_native_IsMousePosOverGlyph(int this_addr, int mousePos_addr);
+
+    public void GetDocPosAtMousePos(ImVec2 mousePos, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetDocPosAtMousePos(native_address, mousePos.native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mousePos_addr", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetDocPosAtMousePos(mousePos_addr, outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetDocPosAtMousePos(int this_addr, int mousePos_addr, int outLine_addr, int outIndex_addr);
+
+    public NativeString GetWordAtMousePos(ImVec2 mousePos) {
+        int addr = internal_native_GetWordAtMousePos_addr(native_address, mousePos.native_address);
         if (addr == 0)
             return NativeString.NULL;
-        if (NativeString_TEMP_GEN_1 == null)
-            NativeString_TEMP_GEN_1 = NativeString.native_new();
-        NativeString_TEMP_GEN_1.internal_reset(addr, false);
-        return NativeString_TEMP_GEN_1;
+        if (NativeString_TEMP_GEN_4 == null)
+            NativeString_TEMP_GEN_4 = NativeString.native_new();
+        NativeString_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_4;
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetText();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
-    public static native int internal_native_GetText_addr(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "mousePos_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetWordAtMousePos(mousePos_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetWordAtMousePos_addr(int this_addr, int mousePos_addr);
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize, boolean aBorder) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address, aBorder);
+    public void ScrollToLine(long line, TextEditorScroll alignment) {
+        internal_native_ScrollToLine(native_address, line, alignment.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aTitle", "aParentIsFocused", "aSize_addr", "aBorder"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(aTitle, aParentIsFocused, aSize_addr, aBorder);")
-    public static native void internal_native_Render(int this_addr, String aTitle, boolean aParentIsFocused, int aSize_addr, boolean aBorder);
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "alignment"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ScrollToLine(line, alignment);")
+    public static native void internal_native_ScrollToLine(int this_addr, long line, int alignment);
 
-    public void Render(String aTitle, boolean aParentIsFocused, ImVec2 aSize) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused, aSize.native_address);
+    public long GetFirstVisibleRow() {
+        return internal_native_GetFirstVisibleRow(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aTitle", "aParentIsFocused", "aSize_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(aTitle, aParentIsFocused, aSize_addr);")
-    public static native void internal_native_Render(int this_addr, String aTitle, boolean aParentIsFocused, int aSize_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetFirstVisibleRow();return returnedJSObj;")
+    public static native long internal_native_GetFirstVisibleRow(int this_addr);
 
-    public void Render(String aTitle, boolean aParentIsFocused) {
-        internal_native_Render(native_address, aTitle, aParentIsFocused);
+    public long GetLastVisibleRow() {
+        return internal_native_GetLastVisibleRow(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aTitle", "aParentIsFocused"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(aTitle, aParentIsFocused);")
-    public static native void internal_native_Render(int this_addr, String aTitle, boolean aParentIsFocused);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLastVisibleRow();return returnedJSObj;")
+    public static native long internal_native_GetLastVisibleRow(int this_addr);
 
-    public void Render(String aTitle) {
-        internal_native_Render(native_address, aTitle);
+    public long GetFirstVisibleColumn() {
+        return internal_native_GetFirstVisibleColumn(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "aTitle"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.Render(aTitle);")
-    public static native void internal_native_Render(int this_addr, String aTitle);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetFirstVisibleColumn();return returnedJSObj;")
+    public static native long internal_native_GetFirstVisibleColumn(int this_addr);
+
+    public long GetLastVisibleColumn() {
+        return internal_native_GetLastVisibleColumn(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLastVisibleColumn();return returnedJSObj;")
+    public static native long internal_native_GetLastVisibleColumn(int this_addr);
+
+    public void SetCursor(long line, long index) {
+        internal_native_SetCursor(native_address, line, index);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "index"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetCursor(line, index);")
+    public static native void internal_native_SetCursor(int this_addr, long line, long index);
+
+    public float GetLineHeight() {
+        return internal_native_GetLineHeight(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLineHeight();return returnedJSObj;")
+    public static native float internal_native_GetLineHeight(int this_addr);
+
+    public float GetGlyphWidth() {
+        return internal_native_GetGlyphWidth(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetGlyphWidth();return returnedJSObj;")
+    public static native float internal_native_GetGlyphWidth(int this_addr);
+
+    public void DocPos2VisPos(long line, long index, NativeLongArray outRow, NativeLongArray outColumn) {
+        internal_native_DocPos2VisPos(native_address, line, index, outRow.native_void_address, outColumn.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "index", "outRow_addr", "outColumn_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.DocPos2VisPos(line, index, outRow_addr, outColumn_addr);")
+    public static native void internal_native_DocPos2VisPos(int this_addr, long line, long index, int outRow_addr, int outColumn_addr);
+
+    public void VisPos2DocPos(long row, long column, NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_VisPos2DocPos(native_address, row, column, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "row", "column", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.VisPos2DocPos(row, column, outLine_addr, outIndex_addr);")
+    public static native void internal_native_VisPos2DocPos(int this_addr, long row, long column, int outLine_addr, int outIndex_addr);
+
+    public boolean IsDocPosVisible(long line, long index) {
+        return internal_native_IsDocPosVisible(native_address, line, index);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "index"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsDocPosVisible(line, index);return returnedJSObj;")
+    public static native boolean internal_native_IsDocPosVisible(int this_addr, long line, long index);
+
+    public boolean IsVisPosOverGlyph(long row, long column) {
+        return internal_native_IsVisPosOverGlyph(native_address, row, column);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "row", "column"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsVisPosOverGlyph(row, column);return returnedJSObj;")
+    public static native boolean internal_native_IsVisPosOverGlyph(int this_addr, long row, long column);
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive", "wholeWord"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectFirstOccurrenceOf(text, caseSensitive, wholeWord);")
+    public static native void internal_native_SelectFirstOccurrenceOf(int this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectFirstOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectFirstOccurrenceOf(text, caseSensitive);")
+    public static native void internal_native_SelectFirstOccurrenceOf(int this_addr, String text, boolean caseSensitive);
+
+    public void SelectFirstOccurrenceOf(String text) {
+        internal_native_SelectFirstOccurrenceOf(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectFirstOccurrenceOf(text);")
+    public static native void internal_native_SelectFirstOccurrenceOf(int this_addr, String text);
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive", "wholeWord"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectNextOccurrenceOf(text, caseSensitive, wholeWord);")
+    public static native void internal_native_SelectNextOccurrenceOf(int this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectNextOccurrenceOf(String text, boolean caseSensitive) {
+        internal_native_SelectNextOccurrenceOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectNextOccurrenceOf(text, caseSensitive);")
+    public static native void internal_native_SelectNextOccurrenceOf(int this_addr, String text, boolean caseSensitive);
+
+    public void SelectNextOccurrenceOf(String text) {
+        internal_native_SelectNextOccurrenceOf(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectNextOccurrenceOf(text);")
+    public static native void internal_native_SelectNextOccurrenceOf(int this_addr, String text);
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive, boolean wholeWord) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive, wholeWord);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive", "wholeWord"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrencesOf(text, caseSensitive, wholeWord);")
+    public static native void internal_native_SelectAllOccurrencesOf(int this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public void SelectAllOccurrencesOf(String text, boolean caseSensitive) {
+        internal_native_SelectAllOccurrencesOf(native_address, text, caseSensitive);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text", "caseSensitive"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrencesOf(text, caseSensitive);")
+    public static native void internal_native_SelectAllOccurrencesOf(int this_addr, String text, boolean caseSensitive);
+
+    public void SelectAllOccurrencesOf(String text) {
+        internal_native_SelectAllOccurrencesOf(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectAllOccurrencesOf(text);")
+    public static native void internal_native_SelectAllOccurrencesOf(int this_addr, String text);
+
+    public void ReplaceTextInCurrentCursor(String text) {
+        internal_native_ReplaceTextInCurrentCursor(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ReplaceTextInCurrentCursor(text);")
+    public static native void internal_native_ReplaceTextInCurrentCursor(int this_addr, String text);
+
+    public void ReplaceTextInAllCursors(String text) {
+        internal_native_ReplaceTextInAllCursors(native_address, text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "text"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ReplaceTextInAllCursors(text);")
+    public static native void internal_native_ReplaceTextInAllCursors(int this_addr, String text);
+
+    public void OpenFindReplaceWindow() {
+        internal_native_OpenFindReplaceWindow(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.OpenFindReplaceWindow();")
+    public static native void internal_native_OpenFindReplaceWindow(int this_addr);
+
+    public void CloseFindReplaceWindow() {
+        internal_native_CloseFindReplaceWindow(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.CloseFindReplaceWindow();")
+    public static native void internal_native_CloseFindReplaceWindow(int this_addr);
+
+    public void SetFindButtonLabel(String label) {
+        internal_native_SetFindButtonLabel(native_address, label);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "label"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetFindButtonLabel(label);")
+    public static native void internal_native_SetFindButtonLabel(int this_addr, String label);
+
+    public void SetFindAllButtonLabel(String label) {
+        internal_native_SetFindAllButtonLabel(native_address, label);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "label"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetFindAllButtonLabel(label);")
+    public static native void internal_native_SetFindAllButtonLabel(int this_addr, String label);
+
+    public void SetReplaceButtonLabel(String label) {
+        internal_native_SetReplaceButtonLabel(native_address, label);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "label"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetReplaceButtonLabel(label);")
+    public static native void internal_native_SetReplaceButtonLabel(int this_addr, String label);
+
+    public void SetReplaceAllButtonLabel(String label) {
+        internal_native_SetReplaceAllButtonLabel(native_address, label);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "label"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetReplaceAllButtonLabel(label);")
+    public static native void internal_native_SetReplaceAllButtonLabel(int this_addr, String label);
+
+    public boolean HasFindString() {
+        return internal_native_HasFindString(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasFindString();return returnedJSObj;")
+    public static native boolean internal_native_HasFindString(int this_addr);
+
+    public void FindNext() {
+        internal_native_FindNext(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.FindNext();")
+    public static native void internal_native_FindNext(int this_addr);
+
+    public void FindAll() {
+        internal_native_FindAll(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.FindAll();")
+    public static native void internal_native_FindAll(int this_addr);
+
+    public void AddMarker(long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
+        internal_native_AddMarker(native_address, line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "lineNumberColor", "textColor", "lineNumberTooltip", "textTooltip"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.AddMarker(line, lineNumberColor, textColor, lineNumberTooltip, textTooltip);")
+    public static native void internal_native_AddMarker(int this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip);
+
+    public void ClearMarkers() {
+        internal_native_ClearMarkers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearMarkers();")
+    public static native void internal_native_ClearMarkers(int this_addr);
+
+    public boolean HasMarkers() {
+        return internal_native_HasMarkers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasMarkers();return returnedJSObj;")
+    public static native boolean internal_native_HasMarkers(int this_addr);
+
+    public void SetChangeTrackingEnabled(boolean enabled, int delay) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled, delay);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "enabled", "delay"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetChangeTrackingEnabled(enabled, delay);")
+    public static native void internal_native_SetChangeTrackingEnabled(int this_addr, boolean enabled, int delay);
+
+    public void SetChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetChangeTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "enabled"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetChangeTrackingEnabled(enabled);")
+    public static native void internal_native_SetChangeTrackingEnabled(int this_addr, boolean enabled);
+
+    public boolean HasPendingChange() {
+        return internal_native_HasPendingChange(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasPendingChange();return returnedJSObj;")
+    public static native boolean internal_native_HasPendingChange(int this_addr);
+
+    public void ClearPendingChange() {
+        internal_native_ClearPendingChange(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearPendingChange();")
+    public static native void internal_native_ClearPendingChange(int this_addr);
+
+    public void SetTransactionTrackingEnabled(boolean enabled) {
+        internal_native_SetTransactionTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "enabled"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetTransactionTrackingEnabled(enabled);")
+    public static native void internal_native_SetTransactionTrackingEnabled(int this_addr, boolean enabled);
+
+    public long GetTransactionChangeCount() {
+        return internal_native_GetTransactionChangeCount(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetTransactionChangeCount();return returnedJSObj;")
+    public static native long internal_native_GetTransactionChangeCount(int this_addr);
+
+    public void ClearTransactionChanges() {
+        internal_native_ClearTransactionChanges(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearTransactionChanges();")
+    public static native void internal_native_ClearTransactionChanges(int this_addr);
+
+    public boolean IsTransactionChangeInsert(long index) {
+        return internal_native_IsTransactionChangeInsert(native_address, index);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "index"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsTransactionChangeInsert(index);return returnedJSObj;")
+    public static native boolean internal_native_IsTransactionChangeInsert(int this_addr, long index);
+
+    public void GetTransactionChangeStart(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeStart(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "index", "outLine_addr", "outGlyphIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetTransactionChangeStart(index, outLine_addr, outGlyphIndex_addr);")
+    public static native void internal_native_GetTransactionChangeStart(int this_addr, long index, int outLine_addr, int outGlyphIndex_addr);
+
+    public void GetTransactionChangeEnd(long index, NativeLongArray outLine, NativeLongArray outGlyphIndex) {
+        internal_native_GetTransactionChangeEnd(native_address, index, outLine.native_void_address, outGlyphIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "index", "outLine_addr", "outGlyphIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetTransactionChangeEnd(index, outLine_addr, outGlyphIndex_addr);")
+    public static native void internal_native_GetTransactionChangeEnd(int this_addr, long index, int outLine_addr, int outGlyphIndex_addr);
+
+    public NativeString GetTransactionChangeText(long index) {
+        int addr = internal_native_GetTransactionChangeText_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_5 == null)
+            NativeString_TEMP_GEN_5 = NativeString.native_new();
+        NativeString_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_5;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "index"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetTransactionChangeText(index);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetTransactionChangeText_addr(int this_addr, long index);
+
+    public void SetUserData(long line, long data) {
+        internal_native_SetUserData(native_address, line, data);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line", "data"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetUserData(line, data);")
+    public static native void internal_native_SetUserData(int this_addr, long line, long data);
+
+    public long GetUserData(long line) {
+        return internal_native_GetUserData(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetUserData(line);return returnedJSObj;")
+    public static native long internal_native_GetUserData(int this_addr, long line);
+
+    public void FoldAroundLine(long line) {
+        internal_native_FoldAroundLine(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.FoldAroundLine(line);")
+    public static native void internal_native_FoldAroundLine(int this_addr, long line);
+
+    public void UnfoldAroundLine(long line) {
+        internal_native_UnfoldAroundLine(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.UnfoldAroundLine(line);")
+    public static native void internal_native_UnfoldAroundLine(int this_addr, long line);
+
+    public void ToggleAtLine(long line) {
+        internal_native_ToggleAtLine(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ToggleAtLine(line);")
+    public static native void internal_native_ToggleAtLine(int this_addr, long line);
+
+    public void UnfoldAll() {
+        internal_native_UnfoldAll(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.UnfoldAll();")
+    public static native void internal_native_UnfoldAll(int this_addr);
+
+    public boolean IsLineFoldable(long line) {
+        return internal_native_IsLineFoldable(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsLineFoldable(line);return returnedJSObj;")
+    public static native boolean internal_native_IsLineFoldable(int this_addr, long line);
+
+    public boolean IsLineFolded(long line) {
+        return internal_native_IsLineFolded(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsLineFolded(line);return returnedJSObj;")
+    public static native boolean internal_native_IsLineFolded(int this_addr, long line);
+
+    public boolean IsLineVisible(long line) {
+        return internal_native_IsLineVisible(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsLineVisible(line);return returnedJSObj;")
+    public static native boolean internal_native_IsLineVisible(int this_addr, long line);
+
+    public boolean IsLineHidden(long line) {
+        return internal_native_IsLineHidden(native_address, line);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "line"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsLineHidden(line);return returnedJSObj;")
+    public static native boolean internal_native_IsLineHidden(int this_addr, long line);
+
+    public void IndentLines() {
+        internal_native_IndentLines(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.IndentLines();")
+    public static native void internal_native_IndentLines(int this_addr);
+
+    public void DeindentLines() {
+        internal_native_DeindentLines(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.DeindentLines();")
+    public static native void internal_native_DeindentLines(int this_addr);
+
+    public void MoveUpLines() {
+        internal_native_MoveUpLines(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.MoveUpLines();")
+    public static native void internal_native_MoveUpLines(int this_addr);
+
+    public void MoveDownLines() {
+        internal_native_MoveDownLines(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.MoveDownLines();")
+    public static native void internal_native_MoveDownLines(int this_addr);
+
+    public void ToggleComments() {
+        internal_native_ToggleComments(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ToggleComments();")
+    public static native void internal_native_ToggleComments(int this_addr);
+
+    public void SelectionToLowerCase() {
+        internal_native_SelectionToLowerCase(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectionToLowerCase();")
+    public static native void internal_native_SelectionToLowerCase(int this_addr);
+
+    public void SelectionToUpperCase() {
+        internal_native_SelectionToUpperCase(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SelectionToUpperCase();")
+    public static native void internal_native_SelectionToUpperCase(int this_addr);
+
+    public void StripTrailingWhitespaces() {
+        internal_native_StripTrailingWhitespaces(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.StripTrailingWhitespaces();")
+    public static native void internal_native_StripTrailingWhitespaces(int this_addr);
+
+    public void TabsToSpaces() {
+        internal_native_TabsToSpaces(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.TabsToSpaces();")
+    public static native void internal_native_TabsToSpaces(int this_addr);
+
+    public void SpacesToTabs() {
+        internal_native_SpacesToTabs(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SpacesToTabs();")
+    public static native void internal_native_SpacesToTabs(int this_addr);
+
+    public void SetPalette(TextEditorPalette palette) {
+        internal_native_SetPalette(native_address, palette.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "palette"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetPalette(palette);")
+    public static native void internal_native_SetPalette(int this_addr, int palette);
+
+    public void SetPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetPaletteColor(native_address, color.getValue(), value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "color", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetPaletteColor(color, value);")
+    public static native void internal_native_SetPaletteColor(int this_addr, int color, int value);
+
+    public int GetPaletteColor(TextEditorColor color) {
+        return internal_native_GetPaletteColor(native_address, color.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "color"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetPaletteColor(color);return returnedJSObj;")
+    public static native int internal_native_GetPaletteColor(int this_addr, int color);
+
+    public static void SetDefaultPalette(TextEditorPalette palette) {
+        internal_native_SetDefaultPalette(palette.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"palette"}, script = "textedit.TextEditor.prototype.SetDefaultPalette(palette);")
+    public static native void internal_native_SetDefaultPalette(int palette);
+
+    public static void SetDefaultPaletteColor(TextEditorColor color, int value) {
+        internal_native_SetDefaultPaletteColor(color.getValue(), value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"color", "value"}, script = "textedit.TextEditor.prototype.SetDefaultPaletteColor(color, value);")
+    public static native void internal_native_SetDefaultPaletteColor(int color, int value);
+
+    public static int GetDefaultPaletteColor(TextEditorColor color) {
+        return internal_native_GetDefaultPaletteColor(color.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"color"}, script = "var returnedJSObj = textedit.TextEditor.prototype.GetDefaultPaletteColor(color);return returnedJSObj;")
+    public static native int internal_native_GetDefaultPaletteColor(int color);
+
+    public void SetLanguage(TextEditorLanguage language) {
+        internal_native_SetLanguage(native_address, language.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "language"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLanguage(language);")
+    public static native void internal_native_SetLanguage(int this_addr, int language);
+
+    public TextEditorLanguage GetLanguage() {
+        int value = internal_native_GetLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLanguage();return returnedJSObj;")
+    public static native int internal_native_GetLanguage(int this_addr);
+
+    public boolean HasLanguage() {
+        return internal_native_HasLanguage(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasLanguage();return returnedJSObj;")
+    public static native boolean internal_native_HasLanguage(int this_addr);
+
+    public NativeString GetLanguageName() {
+        int addr = internal_native_GetLanguageName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_6 == null)
+            NativeString_TEMP_GEN_6 = NativeString.native_new();
+        NativeString_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_6;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetLanguageName();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLanguageName_addr(int this_addr);
+
+    public void SetLanguageChangeTrackingEnabled(boolean enabled) {
+        internal_native_SetLanguageChangeTrackingEnabled(native_address, enabled);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "enabled"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLanguageChangeTrackingEnabled(enabled);")
+    public static native void internal_native_SetLanguageChangeTrackingEnabled(int this_addr, boolean enabled);
+
+    public boolean HasPendingLanguageChange() {
+        return internal_native_HasPendingLanguageChange(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasPendingLanguageChange();return returnedJSObj;")
+    public static native boolean internal_native_HasPendingLanguageChange(int this_addr);
+
+    public void ClearPendingLanguageChange() {
+        internal_native_ClearPendingLanguageChange(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearPendingLanguageChange();")
+    public static native void internal_native_ClearPendingLanguageChange(int this_addr);
+
+    public void CollectIdentifiers() {
+        internal_native_CollectIdentifiers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.CollectIdentifiers();")
+    public static native void internal_native_CollectIdentifiers(int this_addr);
+
+    public long GetIdentifierCount() {
+        return internal_native_GetIdentifierCount(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetIdentifierCount();return returnedJSObj;")
+    public static native long internal_native_GetIdentifierCount(int this_addr);
+
+    public NativeString GetIdentifier(long index) {
+        int addr = internal_native_GetIdentifier_addr(native_address, index);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_7 == null)
+            NativeString_TEMP_GEN_7 = NativeString.native_new();
+        NativeString_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_7;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "index"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetIdentifier(index);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetIdentifier_addr(int this_addr, long index);
+
+    public void SetAutoCompleteEnabled(boolean enabled) {
+        internal_native_SetAutoCompleteEnabled(native_address, enabled);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "enabled"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteEnabled(enabled);")
+    public static native void internal_native_SetAutoCompleteEnabled(int this_addr, boolean enabled);
+
+    public boolean IsAutoCompleteEnabled() {
+        return internal_native_IsAutoCompleteEnabled(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteEnabled();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteEnabled(int this_addr);
+
+    public void SetAutoCompleteTriggerOnTyping(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnTyping(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerOnTyping(value);")
+    public static native void internal_native_SetAutoCompleteTriggerOnTyping(int this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerOnTyping() {
+        return internal_native_IsAutoCompleteTriggerOnTyping(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteTriggerOnTyping();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteTriggerOnTyping(int this_addr);
+
+    public void SetAutoCompleteTriggerOnShortcut(boolean value) {
+        internal_native_SetAutoCompleteTriggerOnShortcut(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerOnShortcut(value);")
+    public static native void internal_native_SetAutoCompleteTriggerOnShortcut(int this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerOnShortcut() {
+        return internal_native_IsAutoCompleteTriggerOnShortcut(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteTriggerOnShortcut();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteTriggerOnShortcut(int this_addr);
+
+    public void SetAutoCompleteTriggerInComments(boolean value) {
+        internal_native_SetAutoCompleteTriggerInComments(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerInComments(value);")
+    public static native void internal_native_SetAutoCompleteTriggerInComments(int this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerInComments() {
+        return internal_native_IsAutoCompleteTriggerInComments(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteTriggerInComments();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteTriggerInComments(int this_addr);
+
+    public void SetAutoCompleteTriggerInStrings(boolean value) {
+        internal_native_SetAutoCompleteTriggerInStrings(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerInStrings(value);")
+    public static native void internal_native_SetAutoCompleteTriggerInStrings(int this_addr, boolean value);
+
+    public boolean IsAutoCompleteTriggerInStrings() {
+        return internal_native_IsAutoCompleteTriggerInStrings(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteTriggerInStrings();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteTriggerInStrings(int this_addr);
+
+    public void SetAutoCompleteTriggerShortcut(int value) {
+        internal_native_SetAutoCompleteTriggerShortcut(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerShortcut(value);")
+    public static native void internal_native_SetAutoCompleteTriggerShortcut(int this_addr, int value);
+
+    public int GetAutoCompleteTriggerShortcut() {
+        return internal_native_GetAutoCompleteTriggerShortcut(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetAutoCompleteTriggerShortcut();return returnedJSObj;")
+    public static native int internal_native_GetAutoCompleteTriggerShortcut(int this_addr);
+
+    public void SetAutoInsertSingleSuggestions(boolean value) {
+        internal_native_SetAutoInsertSingleSuggestions(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoInsertSingleSuggestions(value);")
+    public static native void internal_native_SetAutoInsertSingleSuggestions(int this_addr, boolean value);
+
+    public boolean IsAutoInsertSingleSuggestions() {
+        return internal_native_IsAutoInsertSingleSuggestions(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoInsertSingleSuggestions();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoInsertSingleSuggestions(int this_addr);
+
+    public void SetAutoCompleteTriggerDelay(int milliseconds) {
+        internal_native_SetAutoCompleteTriggerDelay(native_address, milliseconds);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "milliseconds"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetAutoCompleteTriggerDelay(milliseconds);")
+    public static native void internal_native_SetAutoCompleteTriggerDelay(int this_addr, int milliseconds);
+
+    public int GetAutoCompleteTriggerDelay() {
+        return internal_native_GetAutoCompleteTriggerDelay(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetAutoCompleteTriggerDelay();return returnedJSObj;")
+    public static native int internal_native_GetAutoCompleteTriggerDelay(int this_addr);
+
+    public void SetNoSuggestionsLabel(String label) {
+        internal_native_SetNoSuggestionsLabel(native_address, label);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "label"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetNoSuggestionsLabel(label);")
+    public static native void internal_native_SetNoSuggestionsLabel(int this_addr, String label);
+
+    public NativeString GetNoSuggestionsLabel() {
+        int addr = internal_native_GetNoSuggestionsLabel_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_8 == null)
+            NativeString_TEMP_GEN_8 = NativeString.native_new();
+        NativeString_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_8;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetNoSuggestionsLabel();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetNoSuggestionsLabel_addr(int this_addr);
+
+    public void SetSuggestionWidth(long value) {
+        internal_native_SetSuggestionWidth(native_address, value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "value"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetSuggestionWidth(value);")
+    public static native void internal_native_SetSuggestionWidth(int this_addr, long value);
+
+    public long GetSuggestionWidth() {
+        return internal_native_GetSuggestionWidth(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetSuggestionWidth();return returnedJSObj;")
+    public static native long internal_native_GetSuggestionWidth(int this_addr);
+
+    public boolean HasPendingAutoCompleteRequest() {
+        return internal_native_HasPendingAutoCompleteRequest(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.HasPendingAutoCompleteRequest();return returnedJSObj;")
+    public static native boolean internal_native_HasPendingAutoCompleteRequest(int this_addr);
+
+    public void ClearPendingAutoCompleteRequest() {
+        internal_native_ClearPendingAutoCompleteRequest(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearPendingAutoCompleteRequest();")
+    public static native void internal_native_ClearPendingAutoCompleteRequest(int this_addr);
+
+    public NativeString GetAutoCompleteSearchTerm() {
+        int addr = internal_native_GetAutoCompleteSearchTerm_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_9 == null)
+            NativeString_TEMP_GEN_9 = NativeString.native_new();
+        NativeString_TEMP_GEN_9.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_9;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetAutoCompleteSearchTerm();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return textedit.getPointer(returnedJSObj);")
+    public static native int internal_native_GetAutoCompleteSearchTerm_addr(int this_addr);
+
+    public void GetAutoCompleteSearchTermStart(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermStart(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetAutoCompleteSearchTermStart(outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetAutoCompleteSearchTermStart(int this_addr, int outLine_addr, int outIndex_addr);
+
+    public void GetAutoCompleteSearchTermEnd(NativeLongArray outLine, NativeLongArray outIndex) {
+        internal_native_GetAutoCompleteSearchTermEnd(native_address, outLine.native_void_address, outIndex.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "outLine_addr", "outIndex_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.GetAutoCompleteSearchTermEnd(outLine_addr, outIndex_addr);")
+    public static native void internal_native_GetAutoCompleteSearchTermEnd(int this_addr, int outLine_addr, int outIndex_addr);
+
+    public boolean IsAutoCompleteInIdentifier() {
+        return internal_native_IsAutoCompleteInIdentifier(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteInIdentifier();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteInIdentifier(int this_addr);
+
+    public boolean IsAutoCompleteInNumber() {
+        return internal_native_IsAutoCompleteInNumber(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteInNumber();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteInNumber(int this_addr);
+
+    public boolean IsAutoCompleteInComment() {
+        return internal_native_IsAutoCompleteInComment(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteInComment();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteInComment(int this_addr);
+
+    public boolean IsAutoCompleteInString() {
+        return internal_native_IsAutoCompleteInString(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.IsAutoCompleteInString();return returnedJSObj;")
+    public static native boolean internal_native_IsAutoCompleteInString(int this_addr);
+
+    public TextEditorLanguage GetAutoCompleteLanguage() {
+        int value = internal_native_GetAutoCompleteLanguage(native_address);
+        TextEditorLanguage[] values = TextEditorLanguage.values();
+        for (int i = 0; i < values.length; i++) {
+            TextEditorLanguage enumVal = values[i];
+            if (enumVal != TextEditorLanguage.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return TextEditorLanguage.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);var returnedJSObj = jsObj.GetAutoCompleteLanguage();return returnedJSObj;")
+    public static native int internal_native_GetAutoCompleteLanguage(int this_addr);
+
+    public void ClearAutoCompleteSuggestions() {
+        internal_native_ClearAutoCompleteSuggestions(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.ClearAutoCompleteSuggestions();")
+    public static native void internal_native_ClearAutoCompleteSuggestions(int this_addr);
+
+    public void AddAutoCompleteSuggestion(String suggestion) {
+        internal_native_AddAutoCompleteSuggestion(native_address, suggestion);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "suggestion"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.AddAutoCompleteSuggestion(suggestion);")
+    public static native void internal_native_AddAutoCompleteSuggestion(int this_addr, String suggestion);
+
+    public void SubmitAutoCompleteSuggestions() {
+        internal_native_SubmitAutoCompleteSuggestions(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SubmitAutoCompleteSuggestions();")
+    public static native void internal_native_SubmitAutoCompleteSuggestions(int this_addr);
+
+    public void SetLineBreakConfig(TextEditorLineBreakConfig config) {
+        internal_native_SetLineBreakConfig(native_address, config.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "config_addr"}, script = "var jsObj = textedit.wrapPointer(this_addr, textedit.TextEditor);jsObj.SetLineBreakConfig(config_addr);")
+    public static native void internal_native_SetLineBreakConfig(int this_addr, int config_addr);
 }

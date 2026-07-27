@@ -14,93 +14,135 @@ final public class JNI_TextEditor {
 
     public static native void internal_native_deleteNative(long this_addr);
 
-    public static native void internal_native_SetReadOnlyEnabled(long this_addr, boolean aValue);
+    public static native void internal_native_SetTabSize(long this_addr, long value);
 
-    public static native boolean internal_native_IsReadOnlyEnabled(long this_addr);
+    public static native long internal_native_GetTabSize(long this_addr);
 
-    public static native void internal_native_SetAutoIndentEnabled(long this_addr, boolean aValue);
+    public static native void internal_native_SetInsertSpacesOnTabs(long this_addr, boolean value);
 
-    public static native boolean internal_native_IsAutoIndentEnabled(long this_addr);
+    public static native boolean internal_native_IsInsertSpacesOnTabs(long this_addr);
 
-    public static native void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean aValue);
-
-    public static native boolean internal_native_IsShowWhitespacesEnabled(long this_addr);
-
-    public static native void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean aValue);
-
-    public static native boolean internal_native_IsShowLineNumbersEnabled(long this_addr);
-
-    public static native void internal_native_SetShortTabsEnabled(long this_addr, boolean aValue);
-
-    public static native boolean internal_native_IsShortTabsEnabled(long this_addr);
-
-    public static native int internal_native_GetLineCount(long this_addr);
-
-    public static native void internal_native_SetPalette(long this_addr, int aValue);
-
-    public static native int internal_native_GetPalette(long this_addr);
-
-    public static native void internal_native_SetLanguageDefinition(long this_addr, int aValue);
-
-    public static native int internal_native_GetLanguageDefinition(long this_addr);
-
-    public static native long internal_native_GetLanguageDefinitionName_addr(long this_addr);
-
-    public static native void internal_native_SetTabSize(long this_addr, int aValue);
-
-    public static native int internal_native_GetTabSize(long this_addr);
-
-    public static native void internal_native_SetLineSpacing(long this_addr, float aValue);
+    public static native void internal_native_SetLineSpacing(long this_addr, float value);
 
     public static native float internal_native_GetLineSpacing(long this_addr);
 
-    public static native void internal_native_SetDefaultPalette(int aValue);
+    public static native void internal_native_SetWordWrapEnabled(long this_addr, boolean value);
 
-    public static native int internal_native_GetDefaultPalette();
+    public static native boolean internal_native_IsWordWrapEnabled(long this_addr);
 
-    public static native void internal_native_SelectAll(long this_addr);
+    public static native void internal_native_SetReadOnlyEnabled(long this_addr, boolean value);
 
-    public static native void internal_native_SelectLine(long this_addr, int aLine);
+    public static native boolean internal_native_IsReadOnlyEnabled(long this_addr);
 
-    public static native void internal_native_SelectRegion(long this_addr, int aStartLine, int aStartChar, int aEndLine, int aEndChar);
+    public static native void internal_native_SetCaretsVisible(long this_addr, boolean value);
 
-    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    public static native boolean internal_native_IsCaretsVisible(long this_addr);
 
-    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String aText, int aTextSize);
+    public static native void internal_native_SetAutoIndentEnabled(long this_addr, boolean value);
 
-    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize, boolean aCaseSensitive);
+    public static native boolean internal_native_IsAutoIndentEnabled(long this_addr);
 
-    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String aText, int aTextSize);
+    public static native void internal_native_SetShowWhitespacesEnabled(long this_addr, boolean value);
 
-    public static native boolean internal_native_AnyCursorHasSelection(long this_addr);
+    public static native boolean internal_native_IsShowWhitespacesEnabled(long this_addr);
 
-    public static native boolean internal_native_AllCursorsHaveSelection(long this_addr);
+    public static native void internal_native_SetShowSpacesEnabled(long this_addr, boolean value);
 
-    public static native void internal_native_ClearExtraCursors(long this_addr);
+    public static native boolean internal_native_IsShowSpacesEnabled(long this_addr);
 
-    public static native void internal_native_ClearSelections(long this_addr);
+    public static native void internal_native_SetShowTabsEnabled(long this_addr, boolean value);
 
-    public static native void internal_native_SetCursorPosition(long this_addr, int aLine, int aCharIndex);
+    public static native boolean internal_native_IsShowTabsEnabled(long this_addr);
 
-    public static native void internal_native_GetCursorPosition(long this_addr, long outLine_addr, long outColumn_addr);
+    public static native void internal_native_SetShowLineNumbersEnabled(long this_addr, boolean value);
 
-    public static native int internal_native_GetFirstVisibleLine(long this_addr);
+    public static native boolean internal_native_IsShowLineNumbersEnabled(long this_addr);
 
-    public static native int internal_native_GetLastVisibleLine(long this_addr);
+    public static native void internal_native_SetShowMiniMapEnabled(long this_addr, boolean value);
 
-    public static native void internal_native_SetViewAtLine(long this_addr, int aLine, int aMode);
+    public static native boolean internal_native_IsShowMiniMapEnabled(long this_addr);
 
-    public static native void internal_native_Copy(long this_addr);
+    public static native void internal_native_SetMiniMapColumns(long this_addr, long value);
+
+    public static native long internal_native_GetMiniMapColumns(long this_addr);
+
+    public static native void internal_native_SetShowScrollbarMiniMapEnabled(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsShowScrollbarMiniMapEnabled(long this_addr);
+
+    public static native void internal_native_SetShowPanScrollIndicatorEnabled(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsShowPanScrollIndicatorEnabled(long this_addr);
+
+    public static native void internal_native_SetShowMatchingBrackets(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsShowingMatchingBrackets(long this_addr);
+
+    public static native void internal_native_SetCompletePairedGlyphs(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsCompletingPairedGlyphs(long this_addr);
+
+    public static native void internal_native_SetLineFoldingEnabled(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsLineFoldingEnabled(long this_addr);
+
+    public static native void internal_native_SetOverwriteEnabled(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsOverwriteEnabled(long this_addr);
+
+    public static native void internal_native_SetMiddleMousePanMode(long this_addr);
+
+    public static native void internal_native_SetMiddleMouseScrollMode(long this_addr);
+
+    public static native boolean internal_native_IsMiddleMousePanMode(long this_addr);
+
+    public static native void internal_native_SetLineNumberLeftMargin(long this_addr, long value);
+
+    public static native long internal_native_GetLineNumberLeftMargin(long this_addr);
+
+    public static native void internal_native_SetDecorationLeftMargin(long this_addr, long value);
+
+    public static native long internal_native_GetDecorationLeftMargin(long this_addr);
+
+    public static native void internal_native_SetTextLeftMargin(long this_addr, long value);
+
+    public static native long internal_native_GetTextLeftMargin(long this_addr);
+
+    public static native void internal_native_SetText(long this_addr, String text);
+
+    public static native long internal_native_GetText_addr(long this_addr);
+
+    public static native long internal_native_GetCursorText_addr(long this_addr, long cursor);
+
+    public static native long internal_native_GetLineText_addr(long this_addr, long line);
+
+    public static native long internal_native_GetSectionText_addr(long this_addr, long startLine, long startIndex, long endLine, long endIndex);
+
+    public static native void internal_native_ReplaceSectionText(long this_addr, long startLine, long startIndex, long endLine, long endIndex, String text);
+
+    public static native void internal_native_ClearText(long this_addr);
+
+    public static native boolean internal_native_IsEmpty(long this_addr);
+
+    public static native long internal_native_GetLineCount(long this_addr);
+
+    public static native void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags);
+
+    public static native void internal_native_Render(long this_addr, String title, long size_addr, int childFlags);
+
+    public static native void internal_native_Render(long this_addr, String title, long size_addr);
+
+    public static native void internal_native_Render(long this_addr, String title);
+
+    public static native void internal_native_SetFocus(long this_addr);
 
     public static native void internal_native_Cut(long this_addr);
 
+    public static native void internal_native_Copy(long this_addr);
+
     public static native void internal_native_Paste(long this_addr);
 
-    public static native void internal_native_Undo(long this_addr, int aSteps);
-
     public static native void internal_native_Undo(long this_addr);
-
-    public static native void internal_native_Redo(long this_addr, int aSteps);
 
     public static native void internal_native_Redo(long this_addr);
 
@@ -108,17 +150,285 @@ final public class JNI_TextEditor {
 
     public static native boolean internal_native_CanRedo(long this_addr);
 
-    public static native int internal_native_GetUndoIndex(long this_addr);
+    public static native long internal_native_GetUndoIndex(long this_addr);
 
-    public static native void internal_native_SetText(long this_addr, String aText);
+    public static native void internal_native_SelectAll(long this_addr);
 
-    public static native long internal_native_GetText_addr(long this_addr);
+    public static native void internal_native_SelectLine(long this_addr, long line);
 
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr, boolean aBorder);
+    public static native void internal_native_SelectLines(long this_addr, long start, long end);
 
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused, long aSize_addr);
+    public static native void internal_native_SelectRegion(long this_addr, long startLine, long startIndex, long endLine, long endIndex);
 
-    public static native void internal_native_Render(long this_addr, String aTitle, boolean aParentIsFocused);
+    public static native void internal_native_SelectToBrackets(long this_addr, boolean includeBrackets);
 
-    public static native void internal_native_Render(long this_addr, String aTitle);
+    public static native void internal_native_SelectToBrackets(long this_addr);
+
+    public static native void internal_native_GrowSelections(long this_addr);
+
+    public static native void internal_native_ShrinkSelections(long this_addr);
+
+    public static native void internal_native_AddNextOccurrence(long this_addr);
+
+    public static native void internal_native_SelectAllOccurrences(long this_addr);
+
+    public static native boolean internal_native_AnyCursorHasSelection(long this_addr);
+
+    public static native boolean internal_native_AllCursorsHaveSelection(long this_addr);
+
+    public static native boolean internal_native_CurrentCursorHasSelection(long this_addr);
+
+    public static native void internal_native_ClearCursors(long this_addr);
+
+    public static native long internal_native_GetNumberOfCursors(long this_addr);
+
+    public static native void internal_native_GetCursorPosition(long this_addr, long cursor, long outLine_addr, long outIndex_addr);
+
+    public static native void internal_native_GetMainCursorPosition(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public static native void internal_native_GetCurrentCursorPosition(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public static native void internal_native_GetCursorSelection(long this_addr, long cursor, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public static native void internal_native_GetMainCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public static native void internal_native_GetCurrentCursorSelection(long this_addr, long outStartLine_addr, long outStartIndex_addr, long outEndLine_addr, long outEndIndex_addr);
+
+    public static native boolean internal_native_IsMousePosOverGlyph(long this_addr, long mousePos_addr);
+
+    public static native void internal_native_GetDocPosAtMousePos(long this_addr, long mousePos_addr, long outLine_addr, long outIndex_addr);
+
+    public static native long internal_native_GetWordAtMousePos_addr(long this_addr, long mousePos_addr);
+
+    public static native void internal_native_ScrollToLine(long this_addr, long line, int alignment);
+
+    public static native long internal_native_GetFirstVisibleRow(long this_addr);
+
+    public static native long internal_native_GetLastVisibleRow(long this_addr);
+
+    public static native long internal_native_GetFirstVisibleColumn(long this_addr);
+
+    public static native long internal_native_GetLastVisibleColumn(long this_addr);
+
+    public static native void internal_native_SetCursor(long this_addr, long line, long index);
+
+    public static native float internal_native_GetLineHeight(long this_addr);
+
+    public static native float internal_native_GetGlyphWidth(long this_addr);
+
+    public static native void internal_native_DocPos2VisPos(long this_addr, long line, long index, long outRow_addr, long outColumn_addr);
+
+    public static native void internal_native_VisPos2DocPos(long this_addr, long row, long column, long outLine_addr, long outIndex_addr);
+
+    public static native boolean internal_native_IsDocPosVisible(long this_addr, long line, long index);
+
+    public static native boolean internal_native_IsVisPosOverGlyph(long this_addr, long row, long column);
+
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive);
+
+    public static native void internal_native_SelectFirstOccurrenceOf(long this_addr, String text);
+
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive);
+
+    public static native void internal_native_SelectNextOccurrenceOf(long this_addr, String text);
+
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord);
+
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive);
+
+    public static native void internal_native_SelectAllOccurrencesOf(long this_addr, String text);
+
+    public static native void internal_native_ReplaceTextInCurrentCursor(long this_addr, String text);
+
+    public static native void internal_native_ReplaceTextInAllCursors(long this_addr, String text);
+
+    public static native void internal_native_OpenFindReplaceWindow(long this_addr);
+
+    public static native void internal_native_CloseFindReplaceWindow(long this_addr);
+
+    public static native void internal_native_SetFindButtonLabel(long this_addr, String label);
+
+    public static native void internal_native_SetFindAllButtonLabel(long this_addr, String label);
+
+    public static native void internal_native_SetReplaceButtonLabel(long this_addr, String label);
+
+    public static native void internal_native_SetReplaceAllButtonLabel(long this_addr, String label);
+
+    public static native boolean internal_native_HasFindString(long this_addr);
+
+    public static native void internal_native_FindNext(long this_addr);
+
+    public static native void internal_native_FindAll(long this_addr);
+
+    public static native void internal_native_AddMarker(long this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip);
+
+    public static native void internal_native_ClearMarkers(long this_addr);
+
+    public static native boolean internal_native_HasMarkers(long this_addr);
+
+    public static native void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled, int delay);
+
+    public static native void internal_native_SetChangeTrackingEnabled(long this_addr, boolean enabled);
+
+    public static native boolean internal_native_HasPendingChange(long this_addr);
+
+    public static native void internal_native_ClearPendingChange(long this_addr);
+
+    public static native void internal_native_SetTransactionTrackingEnabled(long this_addr, boolean enabled);
+
+    public static native long internal_native_GetTransactionChangeCount(long this_addr);
+
+    public static native void internal_native_ClearTransactionChanges(long this_addr);
+
+    public static native boolean internal_native_IsTransactionChangeInsert(long this_addr, long index);
+
+    public static native void internal_native_GetTransactionChangeStart(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr);
+
+    public static native void internal_native_GetTransactionChangeEnd(long this_addr, long index, long outLine_addr, long outGlyphIndex_addr);
+
+    public static native long internal_native_GetTransactionChangeText_addr(long this_addr, long index);
+
+    public static native void internal_native_SetUserData(long this_addr, long line, long data);
+
+    public static native long internal_native_GetUserData(long this_addr, long line);
+
+    public static native void internal_native_FoldAroundLine(long this_addr, long line);
+
+    public static native void internal_native_UnfoldAroundLine(long this_addr, long line);
+
+    public static native void internal_native_ToggleAtLine(long this_addr, long line);
+
+    public static native void internal_native_UnfoldAll(long this_addr);
+
+    public static native boolean internal_native_IsLineFoldable(long this_addr, long line);
+
+    public static native boolean internal_native_IsLineFolded(long this_addr, long line);
+
+    public static native boolean internal_native_IsLineVisible(long this_addr, long line);
+
+    public static native boolean internal_native_IsLineHidden(long this_addr, long line);
+
+    public static native void internal_native_IndentLines(long this_addr);
+
+    public static native void internal_native_DeindentLines(long this_addr);
+
+    public static native void internal_native_MoveUpLines(long this_addr);
+
+    public static native void internal_native_MoveDownLines(long this_addr);
+
+    public static native void internal_native_ToggleComments(long this_addr);
+
+    public static native void internal_native_SelectionToLowerCase(long this_addr);
+
+    public static native void internal_native_SelectionToUpperCase(long this_addr);
+
+    public static native void internal_native_StripTrailingWhitespaces(long this_addr);
+
+    public static native void internal_native_TabsToSpaces(long this_addr);
+
+    public static native void internal_native_SpacesToTabs(long this_addr);
+
+    public static native void internal_native_SetPalette(long this_addr, int palette);
+
+    public static native void internal_native_SetPaletteColor(long this_addr, int color, int value);
+
+    public static native int internal_native_GetPaletteColor(long this_addr, int color);
+
+    public static native void internal_native_SetDefaultPalette(int palette);
+
+    public static native void internal_native_SetDefaultPaletteColor(int color, int value);
+
+    public static native int internal_native_GetDefaultPaletteColor(int color);
+
+    public static native void internal_native_SetLanguage(long this_addr, int language);
+
+    public static native int internal_native_GetLanguage(long this_addr);
+
+    public static native boolean internal_native_HasLanguage(long this_addr);
+
+    public static native long internal_native_GetLanguageName_addr(long this_addr);
+
+    public static native void internal_native_SetLanguageChangeTrackingEnabled(long this_addr, boolean enabled);
+
+    public static native boolean internal_native_HasPendingLanguageChange(long this_addr);
+
+    public static native void internal_native_ClearPendingLanguageChange(long this_addr);
+
+    public static native void internal_native_CollectIdentifiers(long this_addr);
+
+    public static native long internal_native_GetIdentifierCount(long this_addr);
+
+    public static native long internal_native_GetIdentifier_addr(long this_addr, long index);
+
+    public static native void internal_native_SetAutoCompleteEnabled(long this_addr, boolean enabled);
+
+    public static native boolean internal_native_IsAutoCompleteEnabled(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerOnTyping(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsAutoCompleteTriggerOnTyping(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerOnShortcut(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsAutoCompleteTriggerOnShortcut(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerInComments(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsAutoCompleteTriggerInComments(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerInStrings(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsAutoCompleteTriggerInStrings(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerShortcut(long this_addr, int value);
+
+    public static native int internal_native_GetAutoCompleteTriggerShortcut(long this_addr);
+
+    public static native void internal_native_SetAutoInsertSingleSuggestions(long this_addr, boolean value);
+
+    public static native boolean internal_native_IsAutoInsertSingleSuggestions(long this_addr);
+
+    public static native void internal_native_SetAutoCompleteTriggerDelay(long this_addr, int milliseconds);
+
+    public static native int internal_native_GetAutoCompleteTriggerDelay(long this_addr);
+
+    public static native void internal_native_SetNoSuggestionsLabel(long this_addr, String label);
+
+    public static native long internal_native_GetNoSuggestionsLabel_addr(long this_addr);
+
+    public static native void internal_native_SetSuggestionWidth(long this_addr, long value);
+
+    public static native long internal_native_GetSuggestionWidth(long this_addr);
+
+    public static native boolean internal_native_HasPendingAutoCompleteRequest(long this_addr);
+
+    public static native void internal_native_ClearPendingAutoCompleteRequest(long this_addr);
+
+    public static native long internal_native_GetAutoCompleteSearchTerm_addr(long this_addr);
+
+    public static native void internal_native_GetAutoCompleteSearchTermStart(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public static native void internal_native_GetAutoCompleteSearchTermEnd(long this_addr, long outLine_addr, long outIndex_addr);
+
+    public static native boolean internal_native_IsAutoCompleteInIdentifier(long this_addr);
+
+    public static native boolean internal_native_IsAutoCompleteInNumber(long this_addr);
+
+    public static native boolean internal_native_IsAutoCompleteInComment(long this_addr);
+
+    public static native boolean internal_native_IsAutoCompleteInString(long this_addr);
+
+    public static native int internal_native_GetAutoCompleteLanguage(long this_addr);
+
+    public static native void internal_native_ClearAutoCompleteSuggestions(long this_addr);
+
+    public static native void internal_native_AddAutoCompleteSuggestion(long this_addr, String suggestion);
+
+    public static native void internal_native_SubmitAutoCompleteSuggestions(long this_addr);
+
+    public static native void internal_native_SetLineBreakConfig(long this_addr, long config_addr);
 }

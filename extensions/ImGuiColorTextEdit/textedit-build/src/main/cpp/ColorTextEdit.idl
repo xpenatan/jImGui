@@ -1,89 +1,377 @@
+[Prefix="TextEditorWrapper::"]
+interface TextEditorLineBreakConfig {
+    void TextEditorLineBreakConfig();
+
+    void SetUseUnicodeAnnex14(boolean value);
+    [Const] boolean IsUsingUnicodeAnnex14();
+    void SetBreakAfter([Const] DOMString value);
+    [Const, Value] NativeString GetBreakAfter();
+    void SetBreakBefore([Const] DOMString value);
+    [Const, Value] NativeString GetBreakBefore();
+    void SetRuleEnabled(TextEditorLineBreakRule rule, boolean value);
+    boolean IsRuleEnabled(TextEditorLineBreakRule rule);
+};
 
 [Prefix="TextEditorWrapper::"]
 interface TextEditor {
     void TextEditor();
 
-    void SetReadOnlyEnabled(boolean aValue);
-    [Const] boolean IsReadOnlyEnabled();
-    void SetAutoIndentEnabled(boolean aValue);
-    [Const] boolean IsAutoIndentEnabled();
-    void SetShowWhitespacesEnabled(boolean aValue);
-    [Const] boolean IsShowWhitespacesEnabled();
-    void SetShowLineNumbersEnabled(boolean aValue);
-    [Const] boolean IsShowLineNumbersEnabled();
-    void SetShortTabsEnabled(boolean aValue);
-    [Const] boolean IsShortTabsEnabled();
-    [Const] long GetLineCount();
-    void SetPalette(PaletteId aValue);
-    [Const] PaletteId GetPalette();
-    void SetLanguageDefinition(LanguageDefinitionId aValue);
-    [Const] LanguageDefinitionId GetLanguageDefinition();
-    [Const, Value] NativeString GetLanguageDefinitionName();
-    void SetTabSize(long aValue);
-    [Const] long GetTabSize();
-    void SetLineSpacing(float aValue);
+    // Configuration
+    void SetTabSize(long long value);
+    [Const] long long GetTabSize();
+    void SetInsertSpacesOnTabs(boolean value);
+    [Const] boolean IsInsertSpacesOnTabs();
+    void SetLineSpacing(float value);
     [Const] float GetLineSpacing();
+    void SetWordWrapEnabled(boolean value);
+    [Const] boolean IsWordWrapEnabled();
+    void SetReadOnlyEnabled(boolean value);
+    [Const] boolean IsReadOnlyEnabled();
+    void SetCaretsVisible(boolean value);
+    [Const] boolean IsCaretsVisible();
+    void SetAutoIndentEnabled(boolean value);
+    [Const] boolean IsAutoIndentEnabled();
+    void SetShowWhitespacesEnabled(boolean value);
+    [Const] boolean IsShowWhitespacesEnabled();
+    void SetShowSpacesEnabled(boolean value);
+    [Const] boolean IsShowSpacesEnabled();
+    void SetShowTabsEnabled(boolean value);
+    [Const] boolean IsShowTabsEnabled();
+    void SetShowLineNumbersEnabled(boolean value);
+    [Const] boolean IsShowLineNumbersEnabled();
+    void SetShowMiniMapEnabled(boolean value);
+    [Const] boolean IsShowMiniMapEnabled();
+    void SetMiniMapColumns(long long value);
+    [Const] long long GetMiniMapColumns();
+    void SetShowScrollbarMiniMapEnabled(boolean value);
+    [Const] boolean IsShowScrollbarMiniMapEnabled();
+    void SetShowPanScrollIndicatorEnabled(boolean value);
+    [Const] boolean IsShowPanScrollIndicatorEnabled();
+    void SetShowMatchingBrackets(boolean value);
+    [Const] boolean IsShowingMatchingBrackets();
+    void SetCompletePairedGlyphs(boolean value);
+    [Const] boolean IsCompletingPairedGlyphs();
+    void SetLineFoldingEnabled(boolean value);
+    [Const] boolean IsLineFoldingEnabled();
+    void SetOverwriteEnabled(boolean value);
+    [Const] boolean IsOverwriteEnabled();
+    void SetMiddleMousePanMode();
+    void SetMiddleMouseScrollMode();
+    [Const] boolean IsMiddleMousePanMode();
+    void SetLineNumberLeftMargin(long long value);
+    [Const] long long GetLineNumberLeftMargin();
+    void SetDecorationLeftMargin(long long value);
+    [Const] long long GetDecorationLeftMargin();
+    void SetTextLeftMargin(long long value);
+    [Const] long long GetTextLeftMargin();
 
-    static void SetDefaultPalette(PaletteId aValue);
-    [Const] static PaletteId GetDefaultPalette();
+    // Text
+    void SetText([Const] DOMString text);
+    [Const, Value] NativeString GetText();
+    [Const, Value] NativeString GetCursorText(long long cursor);
+    [Const, Value] NativeString GetLineText(long long line);
+    [Const, Value] NativeString GetSectionText(long long startLine, long long startIndex, long long endLine, long long endIndex);
+    void ReplaceSectionText(long long startLine, long long startIndex, long long endLine, long long endIndex, [Const] DOMString text);
+    void ClearText();
+    [Const] boolean IsEmpty();
+    [Const] long long GetLineCount();
 
-    void SelectAll();
-    void SelectLine(long aLine);
-    void SelectRegion(long aStartLine, long aStartChar, long aEndLine, long aEndChar);
-    void SelectNextOccurrenceOf([Const] DOMString aText, long aTextSize, optional boolean aCaseSensitive);
-    void SelectAllOccurrencesOf([Const] DOMString aText, long aTextSize, optional boolean aCaseSensitive);
-    [Const] boolean AnyCursorHasSelection();
-    [Const] boolean AllCursorsHaveSelection();
-    void ClearExtraCursors();
-    void ClearSelections();
-    void SetCursorPosition(long aLine, long aCharIndex);
-    [Const] void GetCursorPosition(long[] outLine, long[] outColumn);
+    // Rendering and focus
+    void Render([Const] DOMString title, [Const, Ref] optional ImVec2 size, optional long childFlags, optional long windowFlags);
+    void SetFocus();
 
-    long GetFirstVisibleLine();
-    long GetLastVisibleLine();
-    void SetViewAtLine(long aLine, SetViewAtLineMode aMode);
-
-    void Copy();
+    // Clipboard and history
     void Cut();
+    [Const] void Copy();
     void Paste();
-    void Undo(optional long aSteps);
-    void Redo(optional long aSteps);
+    void Undo();
+    void Redo();
     [Const] boolean CanUndo();
     [Const] boolean CanRedo();
-    [Const] long GetUndoIndex();
+    [Const] long long GetUndoIndex();
 
-    void SetText([Const] DOMString aText);
-    [Const, Value] NativeString GetText();
+    // Cursors and selections
+    void SelectAll();
+    void SelectLine(long long line);
+    void SelectLines(long long start, long long end);
+    void SelectRegion(long long startLine, long long startIndex, long long endLine, long long endIndex);
+    void SelectToBrackets(optional boolean includeBrackets);
+    void GrowSelections();
+    void ShrinkSelections();
+    void AddNextOccurrence();
+    void SelectAllOccurrences();
+    [Const] boolean AnyCursorHasSelection();
+    [Const] boolean AllCursorsHaveSelection();
+    [Const] boolean CurrentCursorHasSelection();
+    void ClearCursors();
+    [Const] long long GetNumberOfCursors();
+    [Const] void GetCursorPosition(long long cursor, long long[] outLine, long long[] outIndex);
+    [Const] void GetMainCursorPosition(long long[] outLine, long long[] outIndex);
+    [Const] void GetCurrentCursorPosition(long long[] outLine, long long[] outIndex);
+    [Const] void GetCursorSelection(long long cursor, long long[] outStartLine, long long[] outStartIndex, long long[] outEndLine, long long[] outEndIndex);
+    [Const] void GetMainCursorSelection(long long[] outStartLine, long long[] outStartIndex, long long[] outEndLine, long long[] outEndIndex);
+    [Const] void GetCurrentCursorSelection(long long[] outStartLine, long long[] outStartIndex, long long[] outEndLine, long long[] outEndIndex);
 
-//    void SetTextLines(const std::vector<std::string>& aLines) { ed.SetTextLines(aLines); }
-//    [Const, Value] std::vector<std::string> GetTextLines() const { return ed.GetTextLines(); }
+    // Mouse position
+    [Const] boolean IsMousePosOverGlyph([Const, Ref] ImVec2 mousePos);
+    [Const] void GetDocPosAtMousePos([Const, Ref] ImVec2 mousePos, long long[] outLine, long long[] outIndex);
+    [Const, Value] NativeString GetWordAtMousePos([Const, Ref] ImVec2 mousePos);
 
-    void Render([Const] DOMString aTitle, optional boolean aParentIsFocused, [Const, Ref] optional ImVec2 aSize, optional boolean aBorder);
+    // Scrolling and coordinates
+    void ScrollToLine(long long line, TextEditorScroll alignment);
+    [Const] long long GetFirstVisibleRow();
+    [Const] long long GetLastVisibleRow();
+    [Const] long long GetFirstVisibleColumn();
+    [Const] long long GetLastVisibleColumn();
+    void SetCursor(long long line, long long index);
+    [Const] float GetLineHeight();
+    [Const] float GetGlyphWidth();
+    [Const] void DocPos2VisPos(long long line, long long index, long long[] outRow, long long[] outColumn);
+    [Const] void VisPos2DocPos(long long row, long long column, long long[] outLine, long long[] outIndex);
+    [Const] boolean IsDocPosVisible(long long line, long long index);
+    [Const] boolean IsVisPosOverGlyph(long long row, long long column);
+
+    // Find and replace
+    void SelectFirstOccurrenceOf([Const] DOMString text, optional boolean caseSensitive, optional boolean wholeWord);
+    void SelectNextOccurrenceOf([Const] DOMString text, optional boolean caseSensitive, optional boolean wholeWord);
+    void SelectAllOccurrencesOf([Const] DOMString text, optional boolean caseSensitive, optional boolean wholeWord);
+    void ReplaceTextInCurrentCursor([Const] DOMString text);
+    void ReplaceTextInAllCursors([Const] DOMString text);
+    void OpenFindReplaceWindow();
+    void CloseFindReplaceWindow();
+    void SetFindButtonLabel([Const] DOMString label);
+    void SetFindAllButtonLabel([Const] DOMString label);
+    void SetReplaceButtonLabel([Const] DOMString label);
+    void SetReplaceAllButtonLabel([Const] DOMString label);
+    [Const] boolean HasFindString();
+    void FindNext();
+    void FindAll();
+
+    // Markers
+    void AddMarker(long long line, unsigned long lineNumberColor, unsigned long textColor, [Const] DOMString lineNumberTooltip, [Const] DOMString textTooltip);
+    void ClearMarkers();
+    [Const] boolean HasMarkers();
+
+    // Change reporting
+    void SetChangeTrackingEnabled(boolean enabled, optional long delay);
+    [Const] boolean HasPendingChange();
+    void ClearPendingChange();
+    void SetTransactionTrackingEnabled(boolean enabled);
+    [Const] long long GetTransactionChangeCount();
+    void ClearTransactionChanges();
+    [Const] boolean IsTransactionChangeInsert(long long index);
+    [Const] void GetTransactionChangeStart(long long index, long long[] outLine, long long[] outGlyphIndex);
+    [Const] void GetTransactionChangeEnd(long long index, long long[] outLine, long long[] outGlyphIndex);
+    [Const, Value] NativeString GetTransactionChangeText(long long index);
+
+    // Opaque per-line user data
+    void SetUserData(long long line, long long data);
+    [Const] long long GetUserData(long long line);
+
+    // Folding
+    void FoldAroundLine(long long line);
+    void UnfoldAroundLine(long long line);
+    void ToggleAtLine(long long line);
+    void UnfoldAll();
+    [Const] boolean IsLineFoldable(long long line);
+    [Const] boolean IsLineFolded(long long line);
+    [Const] boolean IsLineVisible(long long line);
+    [Const] boolean IsLineHidden(long long line);
+
+    // Built-in text transformations
+    void IndentLines();
+    void DeindentLines();
+    void MoveUpLines();
+    void MoveDownLines();
+    void ToggleComments();
+    void SelectionToLowerCase();
+    void SelectionToUpperCase();
+    void StripTrailingWhitespaces();
+    void TabsToSpaces();
+    void SpacesToTabs();
+
+    // Palettes
+    void SetPalette(TextEditorPalette palette);
+    void SetPaletteColor(TextEditorColor color, unsigned long value);
+    [Const] unsigned long GetPaletteColor(TextEditorColor color);
+    static void SetDefaultPalette(TextEditorPalette palette);
+    static void SetDefaultPaletteColor(TextEditorColor color, unsigned long value);
+    static unsigned long GetDefaultPaletteColor(TextEditorColor color);
+
+    // Languages
+    void SetLanguage(TextEditorLanguage language);
+    [Const] TextEditorLanguage GetLanguage();
+    [Const] boolean HasLanguage();
+    [Const, Value] NativeString GetLanguageName();
+    void SetLanguageChangeTrackingEnabled(boolean enabled);
+    [Const] boolean HasPendingLanguageChange();
+    void ClearPendingLanguageChange();
+    void CollectIdentifiers();
+    [Const] long long GetIdentifierCount();
+    [Const, Value] NativeString GetIdentifier(long long index);
+
+    // Autocomplete
+    void SetAutoCompleteEnabled(boolean enabled);
+    [Const] boolean IsAutoCompleteEnabled();
+    void SetAutoCompleteTriggerOnTyping(boolean value);
+    [Const] boolean IsAutoCompleteTriggerOnTyping();
+    void SetAutoCompleteTriggerOnShortcut(boolean value);
+    [Const] boolean IsAutoCompleteTriggerOnShortcut();
+    void SetAutoCompleteTriggerInComments(boolean value);
+    [Const] boolean IsAutoCompleteTriggerInComments();
+    void SetAutoCompleteTriggerInStrings(boolean value);
+    [Const] boolean IsAutoCompleteTriggerInStrings();
+    void SetAutoCompleteTriggerShortcut(long value);
+    [Const] long GetAutoCompleteTriggerShortcut();
+    void SetAutoInsertSingleSuggestions(boolean value);
+    [Const] boolean IsAutoInsertSingleSuggestions();
+    void SetAutoCompleteTriggerDelay(long milliseconds);
+    [Const] long GetAutoCompleteTriggerDelay();
+    void SetNoSuggestionsLabel([Const] DOMString label);
+    [Const, Value] NativeString GetNoSuggestionsLabel();
+    void SetSuggestionWidth(long long value);
+    [Const] long long GetSuggestionWidth();
+    [Const] boolean HasPendingAutoCompleteRequest();
+    void ClearPendingAutoCompleteRequest();
+    [Const, Value] NativeString GetAutoCompleteSearchTerm();
+    [Const] void GetAutoCompleteSearchTermStart(long long[] outLine, long long[] outIndex);
+    [Const] void GetAutoCompleteSearchTermEnd(long long[] outLine, long long[] outIndex);
+    [Const] boolean IsAutoCompleteInIdentifier();
+    [Const] boolean IsAutoCompleteInNumber();
+    [Const] boolean IsAutoCompleteInComment();
+    [Const] boolean IsAutoCompleteInString();
+    [Const] TextEditorLanguage GetAutoCompleteLanguage();
+    void ClearAutoCompleteSuggestions();
+    void AddAutoCompleteSuggestion([Const] DOMString suggestion);
+    void SubmitAutoCompleteSuggestions();
+
+    // Unicode line breaking
+    void SetLineBreakConfig([Const] TextEditorLineBreakConfig config);
 };
 
-enum PaletteId {
-    "PaletteId::Dark",
-    "PaletteId::Light",
-    "PaletteId::Mariana",
-    "PaletteId::RetroBlue"
+[Prefix="TextEditorWrapper::"]
+interface TextDiff {
+    void TextDiff();
+
+    void SetSideBySideMode(boolean value);
+    [Const] boolean GetSideBySideMode();
+    void SetTabSize(long long value);
+    [Const] long long GetTabSize();
+    void SetLineSpacing(float value);
+    [Const] float GetLineSpacing();
+    void SetWordWrapEnabled(boolean value);
+    [Const] boolean IsWordWrapEnabled();
+    void SetShowWhitespacesEnabled(boolean value);
+    [Const] boolean IsShowWhitespacesEnabled();
+    void SetShowSpacesEnabled(boolean value);
+    [Const] boolean IsShowSpacesEnabled();
+    void SetShowTabsEnabled(boolean value);
+    [Const] boolean IsShowTabsEnabled();
+    void SetShowScrollbarMiniMapEnabled(boolean value);
+    [Const] boolean IsShowScrollbarMiniMapEnabled();
+    void SetLanguage(TextEditorLanguage language);
+    [Const] TextEditorLanguage GetLanguage();
+    void SetColors(unsigned long addedColor, unsigned long deletedColor);
+    void SetPalette(TextEditorPalette palette);
+    void SetPaletteColor(TextEditorColor color, unsigned long value);
+    [Const] unsigned long GetPaletteColor(TextEditorColor color);
+    void SetFocus();
+    void SetText([Const] DOMString left, [Const] DOMString right);
+    void Render([Const] DOMString title, [Const, Ref] optional ImVec2 size, optional long childFlags, optional long windowFlags);
 };
 
-enum LanguageDefinitionId {
-    "LanguageDefinitionId::None",
-    "LanguageDefinitionId::Cpp",
-    "LanguageDefinitionId::C",
-    "LanguageDefinitionId::Cs",
-    "LanguageDefinitionId::Python",
-    "LanguageDefinitionId::Lua",
-    "LanguageDefinitionId::Json",
-    "LanguageDefinitionId::Sql",
-    "LanguageDefinitionId::AngelScript",
-    "LanguageDefinitionId::Glsl",
-    "LanguageDefinitionId::Hlsl"
+enum TextEditorLanguage {
+    "TextEditorLanguage::None",
+    "TextEditorLanguage::C",
+    "TextEditorLanguage::Cpp",
+    "TextEditorLanguage::Cs",
+    "TextEditorLanguage::AngelScript",
+    "TextEditorLanguage::Lua",
+    "TextEditorLanguage::Python",
+    "TextEditorLanguage::Glsl",
+    "TextEditorLanguage::Hlsl",
+    "TextEditorLanguage::Json",
+    "TextEditorLanguage::Markdown",
+    "TextEditorLanguage::Sql"
 };
 
-enum SetViewAtLineMode {
-    "SetViewAtLineMode::FirstVisibleLine",
-    "SetViewAtLineMode::Centered",
-    "SetViewAtLineMode::LastVisibleLine"
+enum TextEditorPalette {
+    "TextEditorPalette::Dark",
+    "TextEditorPalette::Light"
+};
+
+enum TextEditorColor {
+    "TextEditorColor::Text",
+    "TextEditorColor::Keyword",
+    "TextEditorColor::Declaration",
+    "TextEditorColor::Number",
+    "TextEditorColor::String",
+    "TextEditorColor::Punctuation",
+    "TextEditorColor::Preprocessor",
+    "TextEditorColor::Identifier",
+    "TextEditorColor::KnownIdentifier",
+    "TextEditorColor::Comment",
+    "TextEditorColor::Background",
+    "TextEditorColor::Cursor",
+    "TextEditorColor::Selection",
+    "TextEditorColor::Whitespace",
+    "TextEditorColor::MatchingBracketBackground",
+    "TextEditorColor::MatchingBracketActive",
+    "TextEditorColor::MatchingBracketLevel1",
+    "TextEditorColor::MatchingBracketLevel2",
+    "TextEditorColor::MatchingBracketLevel3",
+    "TextEditorColor::MatchingBracketError",
+    "TextEditorColor::LineNumber",
+    "TextEditorColor::CurrentLineNumber"
+};
+
+enum TextEditorScroll {
+    "TextEditorScroll::AlignTop",
+    "TextEditorScroll::AlignMiddle",
+    "TextEditorScroll::AlignBottom"
+};
+
+enum TextEditorLineBreakRule {
+    "TextEditorLineBreakRule::LB2",
+    "TextEditorLineBreakRule::LB3",
+    "TextEditorLineBreakRule::LB4",
+    "TextEditorLineBreakRule::LB5",
+    "TextEditorLineBreakRule::LB6",
+    "TextEditorLineBreakRule::LB7",
+    "TextEditorLineBreakRule::LB8",
+    "TextEditorLineBreakRule::LB8A",
+    "TextEditorLineBreakRule::LB9",
+    "TextEditorLineBreakRule::LB10",
+    "TextEditorLineBreakRule::LB11",
+    "TextEditorLineBreakRule::LB12",
+    "TextEditorLineBreakRule::LB12A",
+    "TextEditorLineBreakRule::LB13",
+    "TextEditorLineBreakRule::LB14",
+    "TextEditorLineBreakRule::LB15A",
+    "TextEditorLineBreakRule::LB15B",
+    "TextEditorLineBreakRule::LB15C",
+    "TextEditorLineBreakRule::LB15D",
+    "TextEditorLineBreakRule::LB16",
+    "TextEditorLineBreakRule::LB17",
+    "TextEditorLineBreakRule::LB18",
+    "TextEditorLineBreakRule::LB19",
+    "TextEditorLineBreakRule::LB19A",
+    "TextEditorLineBreakRule::LB20",
+    "TextEditorLineBreakRule::LB20A",
+    "TextEditorLineBreakRule::LB21",
+    "TextEditorLineBreakRule::LB21A",
+    "TextEditorLineBreakRule::LB21B",
+    "TextEditorLineBreakRule::LB22",
+    "TextEditorLineBreakRule::LB23",
+    "TextEditorLineBreakRule::LB23A",
+    "TextEditorLineBreakRule::LB24",
+    "TextEditorLineBreakRule::LB25",
+    "TextEditorLineBreakRule::LB26",
+    "TextEditorLineBreakRule::LB27",
+    "TextEditorLineBreakRule::LB28",
+    "TextEditorLineBreakRule::LB28A",
+    "TextEditorLineBreakRule::LB29",
+    "TextEditorLineBreakRule::LB30",
+    "TextEditorLineBreakRule::LB30A",
+    "TextEditorLineBreakRule::LB30B"
 };
