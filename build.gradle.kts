@@ -64,10 +64,6 @@ allprojects  {
                 useVersion(libs.versions.jParser.get())
                 because("jImGui builds against one jParser version across runtime, generator, and plugin artifacts")
             }
-            else if(requested.group == "com.github.xpenatan.jWebGPU") {
-                useVersion(libs.versions.jWebGPU.get())
-                because("The FDX WebGPU backend must use one generated jWebGPU API")
-            }
             else if(usesExampleRepoLibs && examplesUseRepoLibs && requested.group == jImGuiGroup) {
                 useVersion(repoLibVersion)
                 because("The examples are configured to test published jImGui artifacts")

@@ -9,18 +9,6 @@ java {
     targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
-fun currentDesktopPlatform(): String {
-    val os = DefaultNativePlatform.getCurrentOperatingSystem()
-    val arch = System.getProperty("os.arch").lowercase()
-    return when {
-        os.isWindows -> "windows_x64"
-        os.isLinux -> "linux_x64"
-        os.isMacOsX && (arch.contains("aarch64") || arch.contains("arm64")) -> "mac_arm64"
-        os.isMacOsX -> "mac_x64"
-        else -> throw GradleException("Unsupported desktop platform: ${os.name} $arch")
-    }
-}
-
 dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:fdx:core"))
@@ -34,15 +22,6 @@ dependencies {
 
     implementation(libs.libFdxBackendDesktop)
     implementation(libs.libFdxWgpuDesktopJni)
-    runtimeOnly(
-        when(currentDesktopPlatform()) {
-            "windows_x64" -> libs.jWebGpuDesktopJniWgpuWindowsX64
-            "linux_x64" -> libs.jWebGpuDesktopJniWgpuLinuxX64
-            "mac_x64" -> libs.jWebGpuDesktopJniWgpuMacX64
-            "mac_arm64" -> libs.jWebGpuDesktopJniWgpuMacArm64
-            else -> throw GradleException("Unsupported desktop platform")
-        }
-    )
     runtimeOnly(libs.libFdxFdxDesktop)
     runtimeOnly(libs.libFdxGlDesktop)
     runtimeOnly(libs.libFdxVulkanDesktop)
