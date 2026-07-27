@@ -18,7 +18,7 @@ androidTargetSdk = "36"
 jParser = "1.2.8"
 libfdx = "-SNAPSHOT"
 libgdx = "1.14.2"
-gdxTeaVM = "-SNAPSHOT"
+gdxTeaVM = "1.6.1"
 jWebGPU = "0.3.3"
 easyPublishing = "0.1.2"
 
