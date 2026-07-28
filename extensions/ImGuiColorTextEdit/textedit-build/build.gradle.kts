@@ -66,6 +66,7 @@ val desktopTargets = listOf(
 
 fun JParserTargetHooks.configureDesktopTarget(targetName: String) {
     if(targetName.startsWith("windows64")) {
+        compileFlag("/FITextEditWindowsConfig.h")
         compileFlag("/EHsc")
     }
     else if(targetName.startsWith("linux64")) {

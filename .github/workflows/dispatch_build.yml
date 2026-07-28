@@ -9,6 +9,9 @@ on:
         type: boolean
 jobs:
   build-and-upload:
+    permissions:
+      actions: write
+      contents: write
     uses: ./.github/workflows/build_and_upload.yml
     with:
       isRelease: ${{ inputs.isRelease }}
