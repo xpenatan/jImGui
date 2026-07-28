@@ -1,47 +1,12 @@
 import com.github.xpenatan.jParser.gradle.JParserTargetHooks
 import com.github.xpenatan.jParser.gradle.JParserTargets
-import de.undercouch.gradle.tasks.download.Download
-import java.io.File
 
 plugins {
     id("java-library")
-    alias(libs.plugins.downloadPlugin)
     alias(libs.plugins.jParserPlugin)
 }
 
-val buildDir = layout.buildDirectory.get().asFile
-val zippedPath = "${buildDir}/text-edit.zip"
-val sourcePath = "${buildDir}/text-edit/"
-val sourceDestination = "${buildDir}/ImGuiColorTextEdit/"
-val textEditCommit = libs.versions.textEditSourceCommit.get()
-
-tasks.register<Download>("download_textedit_source") {
-    group = "textedit"
-    description = "Download source"
-    src("https://github.com/goossens/ImGuiColorTextEdit/archive/$textEditCommit.zip")
-    dest(File(zippedPath))
-    doLast {
-        copy {
-            from(zipTree(dest))
-            into(sourcePath)
-        }
-        delete(sourceDestination)
-        copy {
-            from("$sourcePath/ImGuiColorTextEdit-$textEditCommit")
-            into(sourceDestination)
-        }
-        delete(sourcePath)
-        delete(zippedPath)
-    }
-}
-
-tasks.register("download_source") {
-    group = "textedit"
-    description = "Download source"
-    dependsOn("download_textedit_source")
-}
-
-val textEditSourceDir = file(sourceDestination)
+val textEditSourceDir = file("../textedit-download/build/ImGuiColorTextEdit")
 val isWindowsHost = System.getProperty("os.name").startsWith("Windows", ignoreCase = true)
 val imguiNativeUserConfigFlag = if(isWindowsHost) {
     "-DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
@@ -103,7 +68,7 @@ jParser {
     }
 
     native {
-        dependsOn("download_source")
+        dependsOn(":extensions:ImGuiColorTextEdit:textedit-download:download_source")
         headerDir(textEditSourceDir)
         cppInclude("${textEditSourceDir.invariantSeparatorsPath}/TextEditor.cpp")
         cppInclude("${textEditSourceDir.invariantSeparatorsPath}/TextDiff.cpp")

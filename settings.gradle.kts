@@ -69,6 +69,7 @@ include(":extensions:imlayout:imlayout-web")
 include(":extensions:imlayout:imlayout-c")
 
 // Extension ImGuiColorTextEdit
+include(":extensions:ImGuiColorTextEdit:textedit-download")
 include(":extensions:ImGuiColorTextEdit:textedit-build")
 include(":extensions:ImGuiColorTextEdit:textedit-base")
 include(":extensions:ImGuiColorTextEdit:textedit-core")
@@ -78,6 +79,7 @@ include(":extensions:ImGuiColorTextEdit:textedit-web")
 include(":extensions:ImGuiColorTextEdit:textedit-c")
 
 // Extension imgui-node-editor
+include(":extensions:imgui-node-editor:nodeeditor-download")
 include(":extensions:imgui-node-editor:nodeeditor-build")
 include(":extensions:imgui-node-editor:nodeeditor-base")
 include(":extensions:imgui-node-editor:nodeeditor-core")

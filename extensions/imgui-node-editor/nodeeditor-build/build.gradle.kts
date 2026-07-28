@@ -1,41 +1,12 @@
 import com.github.xpenatan.jParser.gradle.JParserTargetHooks
 import com.github.xpenatan.jParser.gradle.JParserTargets
-import de.undercouch.gradle.tasks.download.Download
-import java.io.File
 
 plugins {
     id("java-library")
-    alias(libs.plugins.downloadPlugin)
     alias(libs.plugins.jParserPlugin)
 }
 
-val buildDir = layout.buildDirectory.get().asFile
-val zippedPath = "${buildDir}/nodeeditor.zip"
-val sourcePath = "${buildDir}/nodeeditor/"
-val sourceDestination = "${buildDir}/imgui-node-editor/"
-val nodeEditorCommit = libs.versions.nodeEditorSourceCommit.get()
-
-tasks.register<Download>("download_source") {
-    group = "node-editor"
-    description = "Download source"
-    src("https://github.com/NogginBops/imgui-node-editor/archive/$nodeEditorCommit.zip")
-    dest(File(zippedPath))
-    doLast {
-        copy {
-            from(zipTree(dest))
-            into(sourcePath)
-        }
-        delete(sourceDestination)
-        copy {
-            from("$sourcePath/imgui-node-editor-$nodeEditorCommit")
-            into(sourceDestination)
-        }
-        delete(sourcePath)
-        delete(zippedPath)
-    }
-}
-
-val nodeEditorSourceDir = file(sourceDestination)
+val nodeEditorSourceDir = file("../nodeeditor-download/build/imgui-node-editor")
 val isWindowsHost = System.getProperty("os.name").startsWith("Windows", ignoreCase = true)
 val imguiNativeUserConfigFlag = if(isWindowsHost) {
     "-DIMGUI_USER_CONFIG=\"\\\"ImGuiCustomConfig.h\\\"\""
@@ -99,7 +70,7 @@ jParser {
     }
 
     native {
-        dependsOn("download_source")
+        dependsOn(":extensions:imgui-node-editor:nodeeditor-download:download_source")
         cppInclude("${nodeEditorSourceDir.invariantSeparatorsPath}/*.cpp")
         cppExclude("${nodeEditorSourceDir.invariantSeparatorsPath}/examples/**/*.cpp")
         cppExclude("${nodeEditorSourceDir.invariantSeparatorsPath}/external/**/*.cpp")

@@ -120,8 +120,8 @@ tasks.register("download_all_sources") {
     description = "Download all sources"
 
     val source1 = ":imgui:download:imgui_download_source"
-    val source2 = ":extensions:ImGuiColorTextEdit:textedit-build:download_source"
-    val source3 = ":extensions:imgui-node-editor:nodeeditor-build:download_source"
+    val source2 = ":extensions:ImGuiColorTextEdit:textedit-download:download_source"
+    val source3 = ":extensions:imgui-node-editor:nodeeditor-download:download_source"
 
     val list = listOf(source1, source2, source3)
     dependsOn(list)
