@@ -3,7 +3,7 @@ jImGuiGroup = "com.github.xpenatan.jImGui"
 jImGuiName = "jImGui"
 jImGuiRelease = "1.92.9.0"
 jImGuiSnapshot = "-SNAPSHOT"
-useRepoLibs = "true"
+useRepoLibs = "false"
 repoLibVersion = "-SNAPSHOT"
 
 javaMain = "1.8"
@@ -98,7 +98,7 @@ gdxTeaVMBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", ver
 junit = { module = "junit:junit", version.ref = "junit" }
 androidDesugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 
-jImGuiFdxImpl = { module = "com.github.xpenatan.jImGui:fdx-impl", version.ref = "jImGuiSnapshot" }
+libFdxImguiExt = { module = "io.github.libfdx:imgui_ext", version.ref = "libfdx" }
 jImGuiImguiAndroid = { module = "com.github.xpenatan.jImGui:imgui-android", version.ref = "jImGuiSnapshot" }
 jImGuiImguiCore = { module = "com.github.xpenatan.jImGui:imgui-core", version.ref = "jImGuiSnapshot" }
 jImGuiImguiFFM = { module = "com.github.xpenatan.jImGui:imgui-ffm", version.ref = "jImGuiSnapshot" }

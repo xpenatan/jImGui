@@ -13,13 +13,12 @@ dependencies {
     if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
-        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
-        implementation(project(":backends:fdx:fdx-impl"))
     }
+    implementation(libs.libFdxImguiExt)
 
     implementation(libs.libFdxBackendWeb)
     implementation(libs.libFdxGlWeb)

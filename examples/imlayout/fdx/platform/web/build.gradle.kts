@@ -23,15 +23,14 @@ dependencies {
         wasmLibraries(libs.jImGuiImguiWebWasm)
         implementation(libs.jImGuiImlayoutWeb)
         wasmLibraries(libs.jImGuiImlayoutWebWasm)
-        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
         implementation(project(":extensions:imlayout:imlayout-web"))
         wasmLibraries(project(path = ":extensions:imlayout:imlayout-web", configuration = "wasmRuntimeElements"))
-        implementation(project(":backends:fdx:fdx-impl"))
     }
+    implementation(libs.libFdxImguiExt)
 
     implementation(libs.libFdxBackendWeb)
     implementation(libs.libFdxGlWeb)

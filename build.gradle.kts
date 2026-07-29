@@ -12,7 +12,6 @@ extra["examplesUseRepoLibs"] = examplesUseRepoLibs
 val publishingModules = linkedMapOf(
     ":backends:gdx:gdx-shared-impl" to "gdx-shared-impl",
     ":backends:gdx:gdx-gl-impl" to "gdx-gl-impl",
-    ":backends:fdx:fdx-impl" to "fdx-impl",
     ":imgui:core" to "imgui-core",
     ":imgui:shared:jni" to "imgui-shared-jni",
     ":imgui:shared:c" to "imgui-shared-c",

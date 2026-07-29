@@ -23,15 +23,14 @@ dependencies {
         wasmLibraries(libs.jImGuiImguiWebWasm)
         implementation(libs.jImGuiTextEditWeb)
         wasmLibraries(libs.jImGuiTextEditWebWasm)
-        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
         implementation(project(":extensions:ImGuiColorTextEdit:textedit-web"))
         wasmLibraries(project(path = ":extensions:ImGuiColorTextEdit:textedit-web", configuration = "wasmRuntimeElements"))
-        implementation(project(":backends:fdx:fdx-impl"))
     }
+    implementation(libs.libFdxImguiExt)
 
     implementation(libs.libFdxBackendWeb)
     implementation(libs.libFdxGlWeb)

@@ -13,10 +13,9 @@ dependencies {
 
     if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
         compileOnlyApi(libs.jImGuiImguiCore)
-        api(libs.jImGuiFdxImpl)
     }
     else {
         compileOnlyApi(project(":imgui:core"))
-        api(project(":backends:fdx:fdx-impl"))
     }
+    api(libs.libFdxImguiExt)
 }

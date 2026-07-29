@@ -55,7 +55,7 @@ dependencies {
     implementation(project(":examples:basic:fdx:core")) {
         exclude(module = "core")
     }
-    implementation(project(":backends:fdx:fdx-impl"))
+    implementation(libs.libFdxImguiExt)
     implementation(libs.libFdxBackendAndroid)
     implementation(libs.libFdxFdxAndroid)
     implementation(libs.libFdxVulkanAndroidJni)

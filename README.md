@@ -9,6 +9,9 @@ jImGui is a java binding for C++ [dear-imgui](https://github.com/ocornut/imgui).
 It uses webidl file to generate java methods with the help of [jParser](https://github.com/xpenatan/jParser). <br>
 It's meant to be small and 1-1 to C++. ImGui::Begin() is ImGui.Begin() and so on.
 
+The libFDX renderer and platform integration are owned and published by
+[libFDX](https://github.com/libfdx/libfdx) as `io.github.libfdx:imgui_ext`.
+
 <p align="center"><img src="https://i.imgur.com/rXk4Aq0.gif"/></p>
 
 ## Supported extensions:
@@ -35,6 +38,7 @@ Note:
 ## Setup
 
     jImGuiVersion = "-SNAPSHOT"
+    libFdxVersion = "-SNAPSHOT"
 
 ```groovy
 // Add repository to Root gradle
@@ -50,7 +54,7 @@ repositories {
 ```groovy
 dependencies {
     implementation("com.github.xpenatan.jImGui:imgui-core:$project.jImGuiVersion")
-    implementation("com.github.xpenatan.jImGui:fdx-impl:$project.jImGuiVersion")
+    implementation("io.github.libfdx:imgui_ext:$project.libFdxVersion")
 
     // Extensions
     implementation "com.github.xpenatan.jImGui:imlayout-core:$project.jImGuiVersion"

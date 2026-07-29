@@ -23,15 +23,14 @@ dependencies {
         wasmLibraries(libs.jImGuiImguiWebWasm)
         implementation(libs.jImGuiNodeEditorWeb)
         wasmLibraries(libs.jImGuiNodeEditorWebWasm)
-        implementation(libs.jImGuiFdxImpl)
     }
     else {
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
         implementation(project(":extensions:imgui-node-editor:nodeeditor-web"))
         wasmLibraries(project(path = ":extensions:imgui-node-editor:nodeeditor-web", configuration = "wasmRuntimeElements"))
-        implementation(project(":backends:fdx:fdx-impl"))
     }
+    implementation(libs.libFdxImguiExt)
 
     implementation(libs.libFdxBackendWeb)
     implementation(libs.libFdxGlWeb)

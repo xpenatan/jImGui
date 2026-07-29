@@ -24,7 +24,7 @@ dependencies {
         implementation(project(":extensions:imgui-node-editor:nodeeditor-jni"))
     }
 
-    implementation(project(":backends:fdx:fdx-impl"))
+    implementation(libs.libFdxImguiExt)
     implementation(libs.libFdxBackendDesktop)
     runtimeOnly(libs.libFdxFdxDesktop)
     runtimeOnly(libs.libFdxGlDesktop)

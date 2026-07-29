@@ -27,7 +27,6 @@ include(":imgui:android:c")
 include(":backends:gdx:gdx-shared-impl")
 include(":backends:gdx:gdx-gl-impl")
 include(":backends:gdx:gdx-gl-lwjgl3-impl")
-include(":backends:fdx:fdx-impl")
 
 // Examples
 include(":examples:shared")
