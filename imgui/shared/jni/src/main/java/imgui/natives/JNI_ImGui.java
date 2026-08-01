@@ -60,7 +60,7 @@ final public class JNI_ImGui {
 
     public static native void internal_native_ShowStyleEditor();
 
-    public static native void internal_native_ShowStyleSelector(String label);
+    public static native boolean internal_native_ShowStyleSelector(String label);
 
     public static native void internal_native_ShowFontSelector(String label);
 
@@ -398,9 +398,9 @@ final public class JNI_ImGui {
 
     public static native boolean internal_native_TextLink(String label);
 
-    public static native void internal_native_TextLinkOpenURL(String label, String url);
+    public static native boolean internal_native_TextLinkOpenURL(String label, String url);
 
-    public static native void internal_native_TextLinkOpenURL(String label);
+    public static native boolean internal_native_TextLinkOpenURL(String label);
 
     public static native void internal_native_Image(long tex_ref_addr, long image_size_addr, long uv0_addr, long uv1_addr);
 
@@ -1143,6 +1143,8 @@ final public class JNI_ImGui {
     public static native void internal_native_SetKeyboardFocusHere(int offset);
 
     public static native void internal_native_SetKeyboardFocusHere();
+
+    public static native void internal_native_SetNavCursorVisible(boolean visible);
 
     public static native void internal_native_SetNextItemAllowOverlap();
 

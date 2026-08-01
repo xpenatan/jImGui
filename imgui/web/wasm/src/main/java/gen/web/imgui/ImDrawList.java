@@ -73,19 +73,19 @@ public final class ImDrawList extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PopClipRect();")
     public static native void internal_native_PopClipRect(int this_addr);
 
-    public void PushTextureID(ImTextureRef tex_ref) {
-        internal_native_PushTextureID(native_address, tex_ref.native_address);
+    public void PushTexture(ImTextureRef tex_ref) {
+        internal_native_PushTexture(native_address, tex_ref.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "tex_ref_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PushTextureID(tex_ref_addr);")
-    public static native void internal_native_PushTextureID(int this_addr, int tex_ref_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "tex_ref_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PushTexture(tex_ref_addr);")
+    public static native void internal_native_PushTexture(int this_addr, int tex_ref_addr);
 
-    public void PopTextureID() {
-        internal_native_PopTextureID(native_address);
+    public void PopTexture() {
+        internal_native_PopTexture(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PopTextureID();")
-    public static native void internal_native_PopTextureID(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawList);jsObj.PopTexture();")
+    public static native void internal_native_PopTexture(int this_addr);
 
     public ImVec2 GetClipRectMin() {
         int addr = internal_native_GetClipRectMin_addr(native_address);

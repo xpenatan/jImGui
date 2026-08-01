@@ -15,6 +15,4 @@ final public class JNI_ImGuiNavRenderCursorFlags {
     static native public int ImGuiNavRenderCursorFlags_Compact_NATIVE();
 
     static native public int ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE();
-
-    static native public int ImGuiNavRenderCursorFlags_NoRounding_NATIVE();
 }

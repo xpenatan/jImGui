@@ -78,20 +78,20 @@ public final class ImDrawList extends NativeObject {
         imgui.natives.JNI_ImDrawList.internal_native_PopClipRect(this_addr);
     }
 
-    public void PushTextureID(ImTextureRef tex_ref) {
-        internal_native_PushTextureID(native_address, tex_ref.native_address);
+    public void PushTexture(ImTextureRef tex_ref) {
+        internal_native_PushTexture(native_address, tex_ref.native_address);
     }
 
-    public static void internal_native_PushTextureID(long this_addr, long tex_ref_addr) {
-        imgui.natives.JNI_ImDrawList.internal_native_PushTextureID(this_addr, tex_ref_addr);
+    public static void internal_native_PushTexture(long this_addr, long tex_ref_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_PushTexture(this_addr, tex_ref_addr);
     }
 
-    public void PopTextureID() {
-        internal_native_PopTextureID(native_address);
+    public void PopTexture() {
+        internal_native_PopTexture(native_address);
     }
 
-    public static void internal_native_PopTextureID(long this_addr) {
-        imgui.natives.JNI_ImDrawList.internal_native_PopTextureID(this_addr);
+    public static void internal_native_PopTexture(long this_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_PopTexture(this_addr);
     }
 
     public ImVec2 GetClipRectMin() {

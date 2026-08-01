@@ -142,7 +142,8 @@ public final class ImGui extends NativeObject {
     public static void ShowStyleEditor() {
     }
 
-    public static void ShowStyleSelector(String label) {
+    public static boolean ShowStyleSelector(String label) {
+        return false;
     }
 
     public static void ShowFontSelector(String label) {
@@ -714,10 +715,12 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
-    public static void TextLinkOpenURL(String label, String url) {
+    public static boolean TextLinkOpenURL(String label, String url) {
+        return false;
     }
 
-    public static void TextLinkOpenURL(String label) {
+    public static boolean TextLinkOpenURL(String label) {
+        return false;
     }
 
     public static void Image(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1) {
@@ -2118,6 +2121,9 @@ public final class ImGui extends NativeObject {
     }
 
     public static void SetKeyboardFocusHere() {
+    }
+
+    public static void SetNavCursorVisible(boolean visible) {
     }
 
     public static void SetNextItemAllowOverlap() {

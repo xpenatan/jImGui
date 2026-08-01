@@ -135,20 +135,6 @@ public final class ImFontConfig extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imfontconfig_set_pixelsnaph")
     public static native void internal_native_set_PixelSnapH(long this_addr, boolean PixelSnapH);
 
-    public boolean get_PixelSnapV() {
-        return internal_native_get_PixelSnapV(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_imfontconfig_get_pixelsnapv")
-    public static native boolean internal_native_get_PixelSnapV(long this_addr);
-
-    public void set_PixelSnapV(boolean PixelSnapV) {
-        internal_native_set_PixelSnapV(native_address, PixelSnapV);
-    }
-
-    @org.teavm.interop.Import(name = "imgui_imfontconfig_set_pixelsnapv")
-    public static native void internal_native_set_PixelSnapV(long this_addr, boolean PixelSnapV);
-
     public int get_OversampleH() {
         return internal_native_get_OversampleH(native_address);
     }

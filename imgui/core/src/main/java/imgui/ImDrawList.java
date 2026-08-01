@@ -40,10 +40,10 @@ public final class ImDrawList extends NativeObject {
     public void PopClipRect() {
     }
 
-    public void PushTextureID(ImTextureRef tex_ref) {
+    public void PushTexture(ImTextureRef tex_ref) {
     }
 
-    public void PopTextureID() {
+    public void PopTexture() {
     }
 
     public ImVec2 GetClipRectMin() {

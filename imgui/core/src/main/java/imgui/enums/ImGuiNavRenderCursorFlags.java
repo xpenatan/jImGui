@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum ImGuiNavRenderCursorFlags implements NativeEnum<ImGuiNavRenderCursorFlags> {
 
-    CUSTOM(0), None(ImGuiNavRenderCursorFlags_None_NATIVE()), Compact(ImGuiNavRenderCursorFlags_Compact_NATIVE()), AlwaysDraw(ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE()), NoRounding(ImGuiNavRenderCursorFlags_NoRounding_NATIVE());
+    CUSTOM(0), None(ImGuiNavRenderCursorFlags_None_NATIVE()), Compact(ImGuiNavRenderCursorFlags_Compact_NATIVE()), AlwaysDraw(ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE());
 
     private int value;
 
@@ -39,6 +39,4 @@ public enum ImGuiNavRenderCursorFlags implements NativeEnum<ImGuiNavRenderCursor
     private static native int ImGuiNavRenderCursorFlags_Compact_NATIVE();
 
     private static native int ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE();
-
-    private static native int ImGuiNavRenderCursorFlags_NoRounding_NATIVE();
 }

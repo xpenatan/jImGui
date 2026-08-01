@@ -212,30 +212,6 @@ public final class ImFontConfig extends NativeObject {
         }
     }
 
-    public boolean get_PixelSnapV() {
-        return internal_native_get_PixelSnapV(native_address);
-    }
-
-    public static boolean internal_native_get_PixelSnapV(long this_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_get_PixelSnapV__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void set_PixelSnapV(boolean PixelSnapV) {
-        internal_native_set_PixelSnapV(native_address, PixelSnapV);
-    }
-
-    public static void internal_native_set_PixelSnapV(long this_addr, boolean PixelSnapV) {
-        try {
-            FFMHandles.internal_native_set_PixelSnapV__JZ.invokeExact(this_addr, PixelSnapV);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     public int get_OversampleH() {
         return internal_native_get_OversampleH(native_address);
     }
@@ -583,10 +559,6 @@ public final class ImFontConfig extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_PixelSnapH__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_pixelsnaph", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_PixelSnapH__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_pixelsnaph", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
-
-        static final java.lang.invoke.MethodHandle internal_native_get_PixelSnapV__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_pixelsnapv", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_set_PixelSnapV__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_pixelsnapv", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_get_OversampleH__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_oversampleh", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 

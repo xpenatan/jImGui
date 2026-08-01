@@ -71,13 +71,6 @@ public final class ImFontConfig extends NativeObject {
     public void set_PixelSnapH(boolean PixelSnapH) {
     }
 
-    public boolean get_PixelSnapV() {
-        return false;
-    }
-
-    public void set_PixelSnapV(boolean PixelSnapV) {
-    }
-
     public int get_OversampleH() {
         return 0;
     }

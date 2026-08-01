@@ -391,12 +391,12 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(script = "imgui.ImGui.prototype.ShowStyleEditor();")
     public static native void internal_native_ShowStyleEditor();
 
-    public static void ShowStyleSelector(String label) {
-        internal_native_ShowStyleSelector(label);
+    public static boolean ShowStyleSelector(String label) {
+        return internal_native_ShowStyleSelector(label);
     }
 
-    @org.teavm.jso.JSBody(params = {"label"}, script = "imgui.ImGui.prototype.ShowStyleSelector(label);")
-    public static native void internal_native_ShowStyleSelector(String label);
+    @org.teavm.jso.JSBody(params = {"label"}, script = "var returnedJSObj = imgui.ImGui.prototype.ShowStyleSelector(label);return returnedJSObj;")
+    public static native boolean internal_native_ShowStyleSelector(String label);
 
     public static void ShowFontSelector(String label) {
         internal_native_ShowFontSelector(label);
@@ -1652,19 +1652,19 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(params = {"label"}, script = "var returnedJSObj = imgui.ImGui.prototype.TextLink(label);return returnedJSObj;")
     public static native boolean internal_native_TextLink(String label);
 
-    public static void TextLinkOpenURL(String label, String url) {
-        internal_native_TextLinkOpenURL(label, url);
+    public static boolean TextLinkOpenURL(String label, String url) {
+        return internal_native_TextLinkOpenURL(label, url);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "url"}, script = "imgui.ImGui.prototype.TextLinkOpenURL(label, url);")
-    public static native void internal_native_TextLinkOpenURL(String label, String url);
+    @org.teavm.jso.JSBody(params = {"label", "url"}, script = "var returnedJSObj = imgui.ImGui.prototype.TextLinkOpenURL(label, url);return returnedJSObj;")
+    public static native boolean internal_native_TextLinkOpenURL(String label, String url);
 
-    public static void TextLinkOpenURL(String label) {
-        internal_native_TextLinkOpenURL(label);
+    public static boolean TextLinkOpenURL(String label) {
+        return internal_native_TextLinkOpenURL(label);
     }
 
-    @org.teavm.jso.JSBody(params = {"label"}, script = "imgui.ImGui.prototype.TextLinkOpenURL(label);")
-    public static native void internal_native_TextLinkOpenURL(String label);
+    @org.teavm.jso.JSBody(params = {"label"}, script = "var returnedJSObj = imgui.ImGui.prototype.TextLinkOpenURL(label);return returnedJSObj;")
+    public static native boolean internal_native_TextLinkOpenURL(String label);
 
     public static void Image(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1) {
         internal_native_Image(tex_ref.native_address, image_size.native_address, uv0.native_address, uv1.native_address);
@@ -4322,6 +4322,13 @@ public final class ImGui extends NativeObject {
 
     @org.teavm.jso.JSBody(script = "imgui.ImGui.prototype.SetKeyboardFocusHere();")
     public static native void internal_native_SetKeyboardFocusHere();
+
+    public static void SetNavCursorVisible(boolean visible) {
+        internal_native_SetNavCursorVisible(visible);
+    }
+
+    @org.teavm.jso.JSBody(params = {"visible"}, script = "imgui.ImGui.prototype.SetNavCursorVisible(visible);")
+    public static native void internal_native_SetNavCursorVisible(boolean visible);
 
     public static void SetNextItemAllowOverlap() {
         internal_native_SetNextItemAllowOverlap();

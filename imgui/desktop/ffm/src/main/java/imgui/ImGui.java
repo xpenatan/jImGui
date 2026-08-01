@@ -523,13 +523,13 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void ShowStyleSelector(String label) {
-        internal_native_ShowStyleSelector(label);
+    public static boolean ShowStyleSelector(String label) {
+        return internal_native_ShowStyleSelector(label);
     }
 
-    public static void internal_native_ShowStyleSelector(String label) {
+    public static boolean internal_native_ShowStyleSelector(String label) {
         try {
-            FFMHandles.internal_native_ShowStyleSelector__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+            return (boolean) FFMHandles.internal_native_ShowStyleSelector__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2629,25 +2629,25 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void TextLinkOpenURL(String label, String url) {
-        internal_native_TextLinkOpenURL(label, url);
+    public static boolean TextLinkOpenURL(String label, String url) {
+        return internal_native_TextLinkOpenURL(label, url);
     }
 
-    public static void internal_native_TextLinkOpenURL(String label, String url) {
+    public static boolean internal_native_TextLinkOpenURL(String label, String url) {
         try {
-            FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(url));
+            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(url));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public static void TextLinkOpenURL(String label) {
-        internal_native_TextLinkOpenURL(label);
+    public static boolean TextLinkOpenURL(String label) {
+        return internal_native_TextLinkOpenURL(label);
     }
 
-    public static void internal_native_TextLinkOpenURL(String label) {
+    public static boolean internal_native_TextLinkOpenURL(String label) {
         try {
-            FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7165,6 +7165,18 @@ public final class ImGui extends NativeObject {
         }
     }
 
+    public static void SetNavCursorVisible(boolean visible) {
+        internal_native_SetNavCursorVisible(visible);
+    }
+
+    public static void internal_native_SetNavCursorVisible(boolean visible) {
+        try {
+            FFMHandles.internal_native_SetNavCursorVisible__Z.invokeExact(visible);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static void SetNextItemAllowOverlap() {
         internal_native_SetNextItemAllowOverlap();
     }
@@ -8622,7 +8634,7 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_ShowStyleEditor__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_showstyleeditor_v", FunctionDescriptor.ofVoid());
 
-        static final java.lang.invoke.MethodHandle internal_native_ShowStyleSelector__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_showstyleselector", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_ShowStyleSelector__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_showstyleselector", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
         static final java.lang.invoke.MethodHandle internal_native_ShowFontSelector__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_showfontselector", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
 
@@ -8960,9 +8972,9 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_TextLink__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_textlink", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
-        static final java.lang.invoke.MethodHandle internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_textlinkopenurl_str_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_textlinkopenurl_str_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS));
 
-        static final java.lang.invoke.MethodHandle internal_native_TextLinkOpenURL__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_textlinkopenurl_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_TextLinkOpenURL__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_textlinkopenurl_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS));
 
         static final java.lang.invoke.MethodHandle internal_native_Image__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_image_l_l_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
@@ -9705,6 +9717,8 @@ public final class ImGui extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_SetKeyboardFocusHere__I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setkeyboardfocushere_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_SetKeyboardFocusHere__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setkeyboardfocushere_v", FunctionDescriptor.ofVoid());
+
+        static final java.lang.invoke.MethodHandle internal_native_SetNavCursorVisible__Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnavcursorvisible", FunctionDescriptor.ofVoid(ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_SetNextItemAllowOverlap__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextitemallowoverlap", FunctionDescriptor.ofVoid());
 

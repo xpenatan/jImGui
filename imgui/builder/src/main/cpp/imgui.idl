@@ -417,18 +417,6 @@ interface ImGuiInternal {
 //    ImGuiBoxSelectState*     GetBoxSelectState(ImGuiID id)   { ImGuiContext& g = *GImGui; return (id != 0 && g.BoxSelectState.ID == id && g.BoxSelectState.IsActive) ? &g.BoxSelectState : NULL; }
 //    ImGuiMultiSelectState*   GetMultiSelectState(ImGuiID id) { ImGuiContext& g = *GImGui; return g.MultiSelectStorage.GetByKey(id); }
 //
-//    // Internal Columns API (this is not exposed because we will encourage transitioning to the Tables API)
-//    void          SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, const ImRect& clip_rect);
-//    void          BeginColumns(const char* str_id, int count, ImGuiOldColumnFlags flags = 0); // setup number of columns. use an identifier to distinguish multiple column sets. close with EndColumns().
-//    void          EndColumns();                                                               // close columns
-//    void          PushColumnClipRect(int column_index);
-//    void          PushColumnsBackground();
-//    void          PopColumnsBackground();
-//    ImGuiID       GetColumnsID(const char* str_id, int count);
-//    ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id);
-//    float         GetColumnOffsetFromNorm(const ImGuiOldColumns* columns, float offset_norm);
-//    float         GetColumnNormFromOffset(const ImGuiOldColumns* columns, float offset);
-//
 //    // Tables: Candidates for public API
 //    void          TableOpenContextMenu(int column_n = -1);
 //    void          TableSetColumnWidth(int column_n, float width);
@@ -687,7 +675,7 @@ interface ImGui {
     static void                      ShowIDStackToolWindow(optional boolean[] p_open);
     static void                      ShowAboutWindow(optional boolean[] p_open);
     static void                      ShowStyleEditor(optional ImGuiStyle ref);
-    static void                      ShowStyleSelector([Const] DOMString label);
+    static boolean                   ShowStyleSelector([Const] DOMString label);
     static void                      ShowFontSelector([Const] DOMString label);
     static void                      ShowUserGuide();
     [Const, Value] static NativeString  GetVersion();
@@ -851,7 +839,7 @@ interface ImGui {
     static void                    ProgressBar(float fraction, [Const, Ref] optional ImVec2 size_arg, [Const] optional DOMString overlay);
     static void                    Bullet();
     static boolean                 TextLink([Const] DOMString label);
-    static void                    TextLinkOpenURL([Const] DOMString label, [Const] optional DOMString url);
+    static boolean                 TextLinkOpenURL([Const] DOMString label, [Const] optional DOMString url);
 
     // Widgets: Images
     static void                    Image([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 image_size, [Const, Ref] optional ImVec2 uv0, [Const, Ref] optional ImVec2 uv1);
@@ -1063,6 +1051,9 @@ interface ImGui {
     // Focus, Activation
     static void                    SetItemDefaultFocus();
     static void                    SetKeyboardFocusHere(optional long offset);
+
+    // Keyboard/Gamepad Navigation
+    static void                    SetNavCursorVisible(boolean visible);
 
     // Overlapping mode
     static void                    SetNextItemAllowOverlap();
@@ -1467,8 +1458,8 @@ interface ImDrawList {
     void PushClipRect([Const, Ref] ImVec2 cr_min, [Const, Ref] ImVec2 cr_max, optional boolean intersect_with_current_clip_rect);
     void PushClipRectFullScreen();
     void PopClipRect();
-    void PushTextureID([Ref] ImTextureRef tex_ref);
-    void PopTextureID();
+    void PushTexture([Ref] ImTextureRef tex_ref);
+    void PopTexture();
     [Value] ImVec2 GetClipRectMin();
     [Value] ImVec2 GetClipRectMax();
 
@@ -1685,7 +1676,6 @@ interface ImFontConfig {
     // Options
     attribute boolean MergeMode;
     attribute boolean PixelSnapH;
-    attribute boolean PixelSnapV;
     attribute long OversampleH;
     attribute long OversampleV;
     attribute unsigned short EllipsisChar;
@@ -3269,8 +3259,7 @@ enum ImGuiScrollFlags { //[-SUB_PACKAGE=enums]
 enum ImGuiNavRenderCursorFlags { //[-SUB_PACKAGE=enums]
     "ImGuiNavRenderCursorFlags_None",
     "ImGuiNavRenderCursorFlags_Compact",
-    "ImGuiNavRenderCursorFlags_AlwaysDraw",
-    "ImGuiNavRenderCursorFlags_NoRounding"
+    "ImGuiNavRenderCursorFlags_AlwaysDraw"
 };
 
 enum ImGuiNavMoveFlags { //[-SUB_PACKAGE=enums]
@@ -3304,15 +3293,6 @@ enum ImGuiTypingSelectFlags { //[-SUB_PACKAGE=enums]
     "ImGuiTypingSelectFlags_None",
     "ImGuiTypingSelectFlags_AllowBackspace",
     "ImGuiTypingSelectFlags_AllowSingleCharMode"
-};
-
-enum ImGuiOldColumnFlags { //[-SUB_PACKAGE=enums]
-    "ImGuiOldColumnFlags_None",
-    "ImGuiOldColumnFlags_NoBorder",
-    "ImGuiOldColumnFlags_NoResize",
-    "ImGuiOldColumnFlags_NoPreserveWidths",
-    "ImGuiOldColumnFlags_NoForceWithinWindow",
-    "ImGuiOldColumnFlags_GrowParentContentsSize"
 };
 
 enum ImGuiDockNodeFlagsPrivate_ { //[-SUB_PACKAGE=enums]

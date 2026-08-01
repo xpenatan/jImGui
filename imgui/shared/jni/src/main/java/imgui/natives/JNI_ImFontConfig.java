@@ -38,10 +38,6 @@ final public class JNI_ImFontConfig {
 
     public static native void internal_native_set_PixelSnapH(long this_addr, boolean PixelSnapH);
 
-    public static native boolean internal_native_get_PixelSnapV(long this_addr);
-
-    public static native void internal_native_set_PixelSnapV(long this_addr, boolean PixelSnapV);
-
     public static native int internal_native_get_OversampleH(long this_addr);
 
     public static native void internal_native_set_OversampleH(long this_addr, int OversampleH);

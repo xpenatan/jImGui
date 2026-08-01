@@ -73,19 +73,19 @@ public final class ImDrawList extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawlist_popcliprect")
     public static native void internal_native_PopClipRect(long this_addr);
 
-    public void PushTextureID(ImTextureRef tex_ref) {
-        internal_native_PushTextureID(native_address, tex_ref.native_address);
+    public void PushTexture(ImTextureRef tex_ref) {
+        internal_native_PushTexture(native_address, tex_ref.native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_pushtextureid")
-    public static native void internal_native_PushTextureID(long this_addr, long tex_ref_addr);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pushtexture")
+    public static native void internal_native_PushTexture(long this_addr, long tex_ref_addr);
 
-    public void PopTextureID() {
-        internal_native_PopTextureID(native_address);
+    public void PopTexture() {
+        internal_native_PopTexture(native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imdrawlist_poptextureid")
-    public static native void internal_native_PopTextureID(long this_addr);
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_poptexture")
+    public static native void internal_native_PopTexture(long this_addr);
 
     public ImVec2 GetClipRectMin() {
         long addr = internal_native_GetClipRectMin_addr(native_address);

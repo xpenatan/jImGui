@@ -103,7 +103,7 @@ repoLibVersion = "-SNAPSHOT"
 ```
 
 `repoLibVersion` is used directly as the Maven artifact version. Set it to
-`-SNAPSHOT`, a release such as `1.92.9.0`, or any other published version.
+`-SNAPSHOT`, a release such as `1.92.9b.0`, or any other published version.
 
 ## Build source
 

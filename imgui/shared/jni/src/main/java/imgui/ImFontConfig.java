@@ -149,22 +149,6 @@ public final class ImFontConfig extends NativeObject {
         imgui.natives.JNI_ImFontConfig.internal_native_set_PixelSnapH(this_addr, PixelSnapH);
     }
 
-    public boolean get_PixelSnapV() {
-        return internal_native_get_PixelSnapV(native_address);
-    }
-
-    public static boolean internal_native_get_PixelSnapV(long this_addr) {
-        return imgui.natives.JNI_ImFontConfig.internal_native_get_PixelSnapV(this_addr);
-    }
-
-    public void set_PixelSnapV(boolean PixelSnapV) {
-        internal_native_set_PixelSnapV(native_address, PixelSnapV);
-    }
-
-    public static void internal_native_set_PixelSnapV(long this_addr, boolean PixelSnapV) {
-        imgui.natives.JNI_ImFontConfig.internal_native_set_PixelSnapV(this_addr, PixelSnapV);
-    }
-
     public int get_OversampleH() {
         return internal_native_get_OversampleH(native_address);
     }

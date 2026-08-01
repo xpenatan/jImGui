@@ -53,8 +53,8 @@ public:
     static bool          IsWindowWithinBeginStackOf(ImGuiWindow* window, ImGuiWindow* potential_parent) { return im::IsWindowWithinBeginStackOf(window, potential_parent); }
     static bool          IsWindowAbove(ImGuiWindow* potential_above, ImGuiWindow* potential_below) { return im::IsWindowAbove(potential_above, potential_below); }
     static bool          IsWindowNavFocusable(ImGuiWindow* window) { return im::IsWindowNavFocusable(window); }
-    static void          SetWindowPos(ImGuiWindow* window, const ImVec2& pos, ImGuiCond cond = 0) { im::SetWindowPos(pos, cond); }
-    static void          SetWindowSize(ImGuiWindow* window, const ImVec2& size, ImGuiCond cond = 0) { im::SetWindowSize(size, cond); }
+    static void          SetWindowPos(ImGuiWindow* window, const ImVec2& pos, ImGuiCond cond = 0) { im::SetWindowPos(window, pos, cond); }
+    static void          SetWindowSize(ImGuiWindow* window, const ImVec2& size, ImGuiCond cond = 0) { im::SetWindowSize(window, size, cond); }
     static void          SetWindowCollapsed(ImGuiWindow* window, bool collapsed, ImGuiCond cond = 0) { im::SetWindowCollapsed(window, collapsed, cond); }
     static void          SetWindowHitTestHole(ImGuiWindow* window, const ImVec2& pos, const ImVec2& size) { im::SetWindowHitTestHole(window, pos, size); }
     static void          SetWindowHiddenAndSkipItemsForCurrentFrame(ImGuiWindow* window) { im::SetWindowHiddenAndSkipItemsForCurrentFrame(window); }
@@ -371,18 +371,6 @@ public:
 //    void          MultiSelectAddSetRange(ImGuiMultiSelectTempData* ms, bool selected, int range_dir, ImGuiSelectionUserData first_item, ImGuiSelectionUserData last_item);
 //    ImGuiBoxSelectState*     GetBoxSelectState(ImGuiID id)   { ImGuiContext& g = *GImGui; return (id != 0 && g.BoxSelectState.ID == id && g.BoxSelectState.IsActive) ? &g.BoxSelectState : NULL; }
 //    ImGuiMultiSelectState*   GetMultiSelectState(ImGuiID id) { ImGuiContext& g = *GImGui; return g.MultiSelectStorage.GetByKey(id); }
-//
-//    // Internal Columns API (this is not exposed because we will encourage transitioning to the Tables API)
-//    void          SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, const ImRect& clip_rect);
-//    void          BeginColumns(const char* str_id, int count, ImGuiOldColumnFlags flags = 0); // setup number of columns. use an identifier to distinguish multiple column sets. close with EndColumns().
-//    void          EndColumns();                                                               // close columns
-//    void          PushColumnClipRect(int column_index);
-//    void          PushColumnsBackground();
-//    void          PopColumnsBackground();
-//    ImGuiID       GetColumnsID(const char* str_id, int count);
-//    ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id);
-//    float         GetColumnOffsetFromNorm(const ImGuiOldColumns* columns, float offset_norm);
-//    float         GetColumnNormFromOffset(const ImGuiOldColumns* columns, float offset);
 //
 //    // Tables: Candidates for public API
 //    void          TableOpenContextMenu(int column_n = -1);
@@ -878,8 +866,8 @@ public:
     static bool          ColorEdit3(const char* label, float col[3], ImGuiColorEditFlags flags = 0) { return im::ColorEdit3(label, col, flags); }
     static bool          ColorEdit4(const char* label, float col[4], ImGuiColorEditFlags flags = 0) { return im::ColorEdit4(label, col, flags); }
     static bool          ColorPicker3(const char* label, float col[3], ImGuiColorEditFlags flags = 0) { return im::ColorPicker3(label, col, flags); }
-    static bool          ColorPicker4(const char* label, float col[4], ImGuiColorEditFlags flags = 0, const float* ref_col = NULL) { return im::ColorPicker4(label, col, flags); }
-    static bool          ColorButton(const char* desc_id, const ImVec4& col, ImGuiColorEditFlags flags = 0, const ImVec2& size = ImVec2(0, 0)) { return im::ColorButton(desc_id, col, flags); }
+    static bool          ColorPicker4(const char* label, float col[4], ImGuiColorEditFlags flags = 0, const float* ref_col = NULL) { return im::ColorPicker4(label, col, flags, ref_col); }
+    static bool          ColorButton(const char* desc_id, const ImVec4& col, ImGuiColorEditFlags flags = 0, const ImVec2& size = ImVec2(0, 0)) { return im::ColorButton(desc_id, col, flags, size); }
     // Widgets: Trees
     static bool          TreeNode(const char* label) { return im::TreeNode(label); }
     static bool          TreeNode(const char* str_id, const char* fmt) { return im::TreeNode(str_id, fmt); }
@@ -997,16 +985,6 @@ public:
     static void                  TableSetColumnEnabled(int column_n, bool v) { return im::TableSetColumnEnabled(column_n, v); }
     static int                   TableGetHoveredColumn() { return im::TableGetHoveredColumn(); }
     static void                  TableSetBgColor(ImGuiTableBgTarget target, ImU32 color, int column_n = -1) { im::TableSetBgColor(target, color, column_n); }
-
-    // Legacy Columns API (prefer using Tables!)
-    static void          Columns(int count = 1, const char* id = NULL, bool borders = true) { im::Columns(count, id, borders); }
-    static void          NextColumn() { im::NextColumn(); }
-    static int           GetColumnIndex() { return im::GetColumnIndex(); }
-    static float         GetColumnWidth(int column_index = -1) { return im::GetColumnWidth(column_index); }
-    static void          SetColumnWidth(int column_index, float width) { im::SetColumnWidth(column_index, width); }
-    static float         GetColumnOffset(int column_index = -1) { return im::GetColumnOffset(column_index); }
-    static void          SetColumnOffset(int column_index, float offset_x) { im::SetColumnOffset(column_index, offset_x); }
-    static int           GetColumnsCount() { return im::GetColumnsCount(); }
 
     // Tab Bars, Tabs
     static bool          BeginTabBar(const char* str_id, ImGuiTabBarFlags flags = 0) { return im::BeginTabBar(str_id, flags); }
@@ -1272,6 +1250,11 @@ namespace {
     static void ImGuiDrawCallbackTestProbe(const ImDrawList*, const ImDrawCmd*) {
         ++ImGuiDrawCallbackTestCount;
     }
+}
+
+extern "C" JNIEXPORT jstring JNICALL Java_imgui_ImGuiBindingVersionTest_getNativeVersionString(
+        JNIEnv* env, jclass) {
+    return env->NewStringUTF(ImGui::GetVersion());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_imgui_DrawCallbackIntegrationTest_addNativeUserCallback(

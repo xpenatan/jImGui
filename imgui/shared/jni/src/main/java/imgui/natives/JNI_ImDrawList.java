@@ -20,9 +20,9 @@ final public class JNI_ImDrawList {
 
     public static native void internal_native_PopClipRect(long this_addr);
 
-    public static native void internal_native_PushTextureID(long this_addr, long tex_ref_addr);
+    public static native void internal_native_PushTexture(long this_addr, long tex_ref_addr);
 
-    public static native void internal_native_PopTextureID(long this_addr);
+    public static native void internal_native_PopTexture(long this_addr);
 
     public static native long internal_native_GetClipRectMin_addr(long this_addr);
 

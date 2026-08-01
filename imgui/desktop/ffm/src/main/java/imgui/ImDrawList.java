@@ -105,25 +105,25 @@ public final class ImDrawList extends NativeObject {
         }
     }
 
-    public void PushTextureID(ImTextureRef tex_ref) {
-        internal_native_PushTextureID(native_address, tex_ref.native_address);
+    public void PushTexture(ImTextureRef tex_ref) {
+        internal_native_PushTexture(native_address, tex_ref.native_address);
     }
 
-    public static void internal_native_PushTextureID(long this_addr, long tex_ref_addr) {
+    public static void internal_native_PushTexture(long this_addr, long tex_ref_addr) {
         try {
-            FFMHandles.internal_native_PushTextureID__JJ.invokeExact(this_addr, tex_ref_addr);
+            FFMHandles.internal_native_PushTexture__JJ.invokeExact(this_addr, tex_ref_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void PopTextureID() {
-        internal_native_PopTextureID(native_address);
+    public void PopTexture() {
+        internal_native_PopTexture(native_address);
     }
 
-    public static void internal_native_PopTextureID(long this_addr) {
+    public static void internal_native_PopTexture(long this_addr) {
         try {
-            FFMHandles.internal_native_PopTextureID__J.invokeExact(this_addr);
+            FFMHandles.internal_native_PopTexture__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1054,9 +1054,9 @@ public final class ImDrawList extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_PopClipRect__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_popcliprect", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_PushTextureID__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pushtextureid", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_PushTexture__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_pushtexture", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_PopTextureID__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_poptextureid", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_PopTexture__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawlist_poptexture", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetClipRectMin_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawlist_getcliprectmin_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

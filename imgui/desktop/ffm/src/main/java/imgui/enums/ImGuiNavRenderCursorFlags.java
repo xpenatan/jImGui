@@ -17,7 +17,7 @@ import java.lang.invoke.MethodHandle;
 
 public enum ImGuiNavRenderCursorFlags implements NativeEnum<ImGuiNavRenderCursorFlags> {
 
-    CUSTOM(0), None(ImGuiNavRenderCursorFlags_None_NATIVE()), Compact(ImGuiNavRenderCursorFlags_Compact_NATIVE()), AlwaysDraw(ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE()), NoRounding(ImGuiNavRenderCursorFlags_NoRounding_NATIVE());
+    CUSTOM(0), None(ImGuiNavRenderCursorFlags_None_NATIVE()), Compact(ImGuiNavRenderCursorFlags_Compact_NATIVE()), AlwaysDraw(ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE());
 
     private int value;
 
@@ -65,14 +65,6 @@ public enum ImGuiNavRenderCursorFlags implements NativeEnum<ImGuiNavRenderCursor
         }
     }
 
-    private static int ImGuiNavRenderCursorFlags_NoRounding_NATIVE() {
-        try {
-            return (int) FFMHandles.ImGuiNavRenderCursorFlags_NoRounding_NATIVE__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle ImGuiNavRenderCursorFlags_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinavrendercursorflags_imguinavrendercursorflags_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
@@ -80,7 +72,5 @@ public enum ImGuiNavRenderCursorFlags implements NativeEnum<ImGuiNavRenderCursor
         static final java.lang.invoke.MethodHandle ImGuiNavRenderCursorFlags_Compact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinavrendercursorflags_imguinavrendercursorflags_compact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle ImGuiNavRenderCursorFlags_AlwaysDraw_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinavrendercursorflags_imguinavrendercursorflags_alwaysdraw_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
-
-        static final java.lang.invoke.MethodHandle ImGuiNavRenderCursorFlags_NoRounding_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_enums_imguinavrendercursorflags_imguinavrendercursorflags_norounding_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -135,20 +135,6 @@ public final class ImFontConfig extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "PixelSnapH"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_PixelSnapH(PixelSnapH);")
     public static native void internal_native_set_PixelSnapH(int this_addr, boolean PixelSnapH);
 
-    public boolean get_PixelSnapV() {
-        return internal_native_get_PixelSnapV(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);return jsObj.get_PixelSnapV();")
-    public static native boolean internal_native_get_PixelSnapV(int this_addr);
-
-    public void set_PixelSnapV(boolean PixelSnapV) {
-        internal_native_set_PixelSnapV(native_address, PixelSnapV);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "PixelSnapV"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_PixelSnapV(PixelSnapV);")
-    public static native void internal_native_set_PixelSnapV(int this_addr, boolean PixelSnapV);
-
     public int get_OversampleH() {
         return internal_native_get_OversampleH(native_address);
     }
