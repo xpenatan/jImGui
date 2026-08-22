@@ -14,6 +14,14 @@ public final class ImGuiPayload extends NativeObject {
 
     static public final ImGuiPayload NULL = ImGuiPayload.native_new();
 
+    public ImGuiPayload() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImGuiPayload();return imgui.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

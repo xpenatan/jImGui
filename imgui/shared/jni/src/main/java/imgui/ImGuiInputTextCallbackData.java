@@ -8,10 +8,26 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiInputTextFlags;
+import imgui.enums.ImGuiKey;
 
 public final class ImGuiInputTextCallbackData extends NativeObject {
 
+    private ImGuiContext ImGuiContext_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_1;
+
     static public final ImGuiInputTextCallbackData NULL = ImGuiInputTextCallbackData.native_new();
+
+    public ImGuiInputTextCallbackData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -35,12 +51,110 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_deleteNative(this_addr);
     }
 
+    public void DeleteChars(int pos, int bytes_count) {
+        internal_native_DeleteChars(native_address, pos, bytes_count);
+    }
+
+    public static void internal_native_DeleteChars(long this_addr, int pos, int bytes_count) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_DeleteChars(this_addr, pos, bytes_count);
+    }
+
+    public void InsertChars(int pos, String text) {
+        internal_native_InsertChars(native_address, pos, text);
+    }
+
+    public static void internal_native_InsertChars(long this_addr, int pos, String text) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_InsertChars(this_addr, pos, text);
+    }
+
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
+    }
+
+    public static void internal_native_SelectAll(long this_addr) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_SelectAll(this_addr);
+    }
+
+    public void ClearSelection() {
+        internal_native_ClearSelection(native_address);
+    }
+
+    public static void internal_native_ClearSelection(long this_addr) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_ClearSelection(this_addr);
+    }
+
+    public boolean HasSelection() {
+        return internal_native_HasSelection(native_address);
+    }
+
+    public static boolean internal_native_HasSelection(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_HasSelection(this_addr);
+    }
+
     public void SetSelection(int selection_start, int selection_end) {
         internal_native_SetSelection(native_address, selection_start, selection_end);
     }
 
     public static void internal_native_SetSelection(long this_addr, int selection_start, int selection_end) {
         imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_SetSelection(this_addr, selection_start, selection_end);
+    }
+
+    public ImGuiContext get_Ctx() {
+        long addr = internal_native_get_Ctx_addr(native_address);
+        if (addr == 0)
+            return ImGuiContext.NULL;
+        if (ImGuiContext_TEMP_GEN_0 == null)
+            ImGuiContext_TEMP_GEN_0 = ImGuiContext.native_new();
+        ImGuiContext_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiContext_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Ctx_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_Ctx_addr(this_addr);
+    }
+
+    public ImGuiInputTextFlags get_EventFlag() {
+        int value = internal_native_get_EventFlag(native_address);
+        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiInputTextFlags enumVal = values[i];
+            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_EventFlag(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_EventFlag(this_addr);
+    }
+
+    public ImGuiInputTextFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiInputTextFlags enumVal = values[i];
+            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_Flags(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_Flags(this_addr);
+    }
+
+    public NativeObject get_UserData() {
+        long addr = internal_native_get_UserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_UserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_UserData_addr(this_addr);
     }
 
     public int get_ID() {
@@ -51,6 +165,37 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_ID(this_addr);
     }
 
+    public ImGuiKey get_EventKey() {
+        int value = internal_native_get_EventKey(native_address);
+        ImGuiKey[] values = ImGuiKey.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiKey enumVal = values[i];
+            if (enumVal != ImGuiKey.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiKey.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_EventKey(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_EventKey(this_addr);
+    }
+
+    public short get_EventChar() {
+        return internal_native_get_EventChar(native_address);
+    }
+
+    public static short internal_native_get_EventChar(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_EventChar(this_addr);
+    }
+
+    public void set_EventChar(short EventChar) {
+        internal_native_set_EventChar(native_address, EventChar);
+    }
+
+    public static void internal_native_set_EventChar(long this_addr, short EventChar) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_EventChar(this_addr, EventChar);
+    }
+
     public boolean get_EventActivated() {
         return internal_native_get_EventActivated(native_address);
     }
@@ -59,20 +204,26 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_EventActivated(this_addr);
     }
 
+    public NativeObject get_Buf() {
+        long addr = internal_native_get_Buf_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_Buf_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_Buf_addr(this_addr);
+    }
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }
 
     public static int internal_native_get_BufSize(long this_addr) {
         return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_BufSize(this_addr);
-    }
-
-    public void set_BufSize(int BufSize) {
-        internal_native_set_BufSize(native_address, BufSize);
-    }
-
-    public static void internal_native_set_BufSize(long this_addr, int BufSize) {
-        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_BufSize(this_addr, BufSize);
     }
 
     public boolean get_BufDirty() {
@@ -107,26 +258,51 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_BufTextLen(this_addr, BufTextLen);
     }
 
-    public ImGuiInputTextFlags get_Flags() {
-        int value = internal_native_get_Flags(native_address);
-        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
-        for (int i = 0; i < values.length; i++) {
-            ImGuiInputTextFlags enumVal = values[i];
-            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    public int get_CursorPos() {
+        return internal_native_get_CursorPos(native_address);
     }
 
-    public static int internal_native_get_Flags(long this_addr) {
-        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_Flags(this_addr);
+    public static int internal_native_get_CursorPos(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_CursorPos(this_addr);
     }
 
-    public void set_Flags(ImGuiInputTextFlags Flags) {
-        internal_native_set_Flags(native_address, Flags.getValue());
+    public void set_CursorPos(int CursorPos) {
+        internal_native_set_CursorPos(native_address, CursorPos);
     }
 
-    public static void internal_native_set_Flags(long this_addr, int Flags) {
-        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_Flags(this_addr, Flags);
+    public static void internal_native_set_CursorPos(long this_addr, int CursorPos) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_CursorPos(this_addr, CursorPos);
+    }
+
+    public int get_SelectionStart() {
+        return internal_native_get_SelectionStart(native_address);
+    }
+
+    public static int internal_native_get_SelectionStart(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_SelectionStart(this_addr);
+    }
+
+    public void set_SelectionStart(int SelectionStart) {
+        internal_native_set_SelectionStart(native_address, SelectionStart);
+    }
+
+    public static void internal_native_set_SelectionStart(long this_addr, int SelectionStart) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_SelectionStart(this_addr, SelectionStart);
+    }
+
+    public int get_SelectionEnd() {
+        return internal_native_get_SelectionEnd(native_address);
+    }
+
+    public static int internal_native_get_SelectionEnd(long this_addr) {
+        return imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_get_SelectionEnd(this_addr);
+    }
+
+    public void set_SelectionEnd(int SelectionEnd) {
+        internal_native_set_SelectionEnd(native_address, SelectionEnd);
+    }
+
+    public static void internal_native_set_SelectionEnd(long this_addr, int SelectionEnd) {
+        imgui.natives.JNI_ImGuiInputTextCallbackData.internal_native_set_SelectionEnd(this_addr, SelectionEnd);
     }
 }

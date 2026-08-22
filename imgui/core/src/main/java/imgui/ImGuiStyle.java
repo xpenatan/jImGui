@@ -8,11 +8,15 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiDir;
+import imgui.enums.ImGuiTreeNodeFlags;
 import imgui.enums.ImGuiHoveredFlags;
 
 public final class ImGuiStyle extends NativeObject {
 
     static public final ImGuiStyle NULL = ImGuiStyle.native_new();
+
+    public ImGuiStyle() {
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -29,6 +33,27 @@ public final class ImGuiStyle extends NativeObject {
     }
 
     public void ScaleAllSizes(float scale_factor) {
+    }
+
+    public float get_FontSizeBase() {
+        return 0;
+    }
+
+    public void set_FontSizeBase(float FontSizeBase) {
+    }
+
+    public float get_FontScaleMain() {
+        return 0;
+    }
+
+    public void set_FontScaleMain(float FontScaleMain) {
+    }
+
+    public float get_FontScaleDpi() {
+        return 0;
+    }
+
+    public void set_FontScaleDpi(float FontScaleDpi) {
     }
 
     public float get_Alpha() {
@@ -64,6 +89,13 @@ public final class ImGuiStyle extends NativeObject {
     }
 
     public void set_WindowBorderSize(float WindowBorderSize) {
+    }
+
+    public float get_WindowBorderHoverPadding() {
+        return 0;
+    }
+
+    public void set_WindowBorderHoverPadding(float WindowBorderHoverPadding) {
     }
 
     public ImVec2 get_WindowMinSize() {
@@ -192,6 +224,13 @@ public final class ImGuiStyle extends NativeObject {
     public void set_ScrollbarRounding(float ScrollbarRounding) {
     }
 
+    public float get_ScrollbarPadding() {
+        return 0;
+    }
+
+    public void set_ScrollbarPadding(float ScrollbarPadding) {
+    }
+
     public float get_GrabMinSize() {
         return 0;
     }
@@ -220,6 +259,13 @@ public final class ImGuiStyle extends NativeObject {
     public void set_ImageRounding(float ImageRounding) {
     }
 
+    public float get_ImageBorderSize() {
+        return 0;
+    }
+
+    public void set_ImageBorderSize(float ImageBorderSize) {
+    }
+
     public float get_TabRounding() {
         return 0;
     }
@@ -234,11 +280,81 @@ public final class ImGuiStyle extends NativeObject {
     public void set_TabBorderSize(float TabBorderSize) {
     }
 
+    public float get_TabMinWidthBase() {
+        return 0;
+    }
+
+    public void set_TabMinWidthBase(float TabMinWidthBase) {
+    }
+
+    public float get_TabMinWidthShrink() {
+        return 0;
+    }
+
+    public void set_TabMinWidthShrink(float TabMinWidthShrink) {
+    }
+
+    public float get_TabCloseButtonMinWidthSelected() {
+        return 0;
+    }
+
+    public void set_TabCloseButtonMinWidthSelected(float TabCloseButtonMinWidthSelected) {
+    }
+
+    public float get_TabCloseButtonMinWidthUnselected() {
+        return 0;
+    }
+
+    public void set_TabCloseButtonMinWidthUnselected(float TabCloseButtonMinWidthUnselected) {
+    }
+
     public float get_TabBarBorderSize() {
         return 0;
     }
 
     public void set_TabBarBorderSize(float TabBarBorderSize) {
+    }
+
+    public float get_TabBarOverlineSize() {
+        return 0;
+    }
+
+    public void set_TabBarOverlineSize(float TabBarOverlineSize) {
+    }
+
+    public float get_TableAngledHeadersAngle() {
+        return 0;
+    }
+
+    public void set_TableAngledHeadersAngle(float TableAngledHeadersAngle) {
+    }
+
+    public ImVec2 get_TableAngledHeadersTextAlign() {
+        return null;
+    }
+
+    public void set_TableAngledHeadersTextAlign(ImVec2 TableAngledHeadersTextAlign) {
+    }
+
+    public ImGuiTreeNodeFlags get_TreeLinesFlags() {
+        return null;
+    }
+
+    public void set_TreeLinesFlags(ImGuiTreeNodeFlags TreeLinesFlags) {
+    }
+
+    public float get_TreeLinesSize() {
+        return 0;
+    }
+
+    public void set_TreeLinesSize(float TreeLinesSize) {
+    }
+
+    public float get_TreeLinesRounding() {
+        return 0;
+    }
+
+    public void set_TreeLinesRounding(float TreeLinesRounding) {
     }
 
     public float get_MenuItemRounding() {
@@ -351,6 +467,13 @@ public final class ImGuiStyle extends NativeObject {
     }
 
     public void set_DisplaySafeAreaPadding(ImVec2 DisplaySafeAreaPadding) {
+    }
+
+    public boolean get_DockingNodeHasCloseButton() {
+        return false;
+    }
+
+    public void set_DockingNodeHasCloseButton(boolean DockingNodeHasCloseButton) {
     }
 
     public float get_DockingSeparatorSize() {

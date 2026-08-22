@@ -10,6 +10,8 @@ import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImGuiMultiSelectIO extends NativeObject {
 
+    private ImVectorImGuiSelectionRequest ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+
     static public final ImGuiMultiSelectIO NULL = ImGuiMultiSelectIO.native_new();
 
     /**
@@ -32,6 +34,33 @@ public final class ImGuiMultiSelectIO extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiMultiSelectIO);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
+
+    public ImVectorImGuiSelectionRequest get_Requests() {
+        int addr = internal_native_get_Requests_addr(native_address);
+        if (addr == 0)
+            return ImVectorImGuiSelectionRequest.NULL;
+        if (ImVectorImGuiSelectionRequest_TEMP_GEN_0 == null)
+            ImVectorImGuiSelectionRequest_TEMP_GEN_0 = ImVectorImGuiSelectionRequest.native_new();
+        ImVectorImGuiSelectionRequest_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiMultiSelectIO);var returnedJSObj = jsObj.get_Requests();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_Requests_addr(int this_addr);
+
+    public long get_RangeSrcItem() {
+        return internal_native_get_RangeSrcItem(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiMultiSelectIO);return jsObj.get_RangeSrcItem();")
+    public static native long internal_native_get_RangeSrcItem(int this_addr);
+
+    public long get_NavIdItem() {
+        return internal_native_get_NavIdItem(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiMultiSelectIO);return jsObj.get_NavIdItem();")
+    public static native long internal_native_get_NavIdItem(int this_addr);
 
     public boolean get_NavIdSelected() {
         return internal_native_get_NavIdSelected(native_address);

@@ -8,6 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiInputTextFlags;
+import imgui.enums.ImGuiKey;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -18,7 +19,26 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImGuiInputTextCallbackData extends NativeObject {
 
+    private ImGuiContext ImGuiContext_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_1;
+
     static public final ImGuiInputTextCallbackData NULL = ImGuiInputTextCallbackData.native_new();
+
+    public ImGuiInputTextCallbackData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -46,6 +66,66 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         }
     }
 
+    public void DeleteChars(int pos, int bytes_count) {
+        internal_native_DeleteChars(native_address, pos, bytes_count);
+    }
+
+    public static void internal_native_DeleteChars(long this_addr, int pos, int bytes_count) {
+        try {
+            FFMHandles.internal_native_DeleteChars__JII.invokeExact(this_addr, pos, bytes_count);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void InsertChars(int pos, String text) {
+        internal_native_InsertChars(native_address, pos, text);
+    }
+
+    public static void internal_native_InsertChars(long this_addr, int pos, String text) {
+        try {
+            FFMHandles.internal_native_InsertChars__JILjava_lang_String_2.invokeExact(this_addr, pos, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SelectAll() {
+        internal_native_SelectAll(native_address);
+    }
+
+    public static void internal_native_SelectAll(long this_addr) {
+        try {
+            FFMHandles.internal_native_SelectAll__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ClearSelection() {
+        internal_native_ClearSelection(native_address);
+    }
+
+    public static void internal_native_ClearSelection(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearSelection__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean HasSelection() {
+        return internal_native_HasSelection(native_address);
+    }
+
+    public static boolean internal_native_HasSelection(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_HasSelection__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void SetSelection(int selection_start, int selection_end) {
         internal_native_SetSelection(native_address, selection_start, selection_end);
     }
@@ -53,6 +133,80 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
     public static void internal_native_SetSelection(long this_addr, int selection_start, int selection_end) {
         try {
             FFMHandles.internal_native_SetSelection__JII.invokeExact(this_addr, selection_start, selection_end);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImGuiContext get_Ctx() {
+        long addr = internal_native_get_Ctx_addr(native_address);
+        if (addr == 0)
+            return ImGuiContext.NULL;
+        if (ImGuiContext_TEMP_GEN_0 == null)
+            ImGuiContext_TEMP_GEN_0 = ImGuiContext.native_new();
+        ImGuiContext_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiContext_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Ctx_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Ctx_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImGuiInputTextFlags get_EventFlag() {
+        int value = internal_native_get_EventFlag(native_address);
+        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiInputTextFlags enumVal = values[i];
+            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_EventFlag(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_EventFlag__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImGuiInputTextFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiInputTextFlags enumVal = values[i];
+            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_Flags(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_Flags__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_UserData() {
+        long addr = internal_native_get_UserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_UserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_UserData_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -70,6 +224,49 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         }
     }
 
+    public ImGuiKey get_EventKey() {
+        int value = internal_native_get_EventKey(native_address);
+        ImGuiKey[] values = ImGuiKey.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiKey enumVal = values[i];
+            if (enumVal != ImGuiKey.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiKey.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_EventKey(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_EventKey__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public short get_EventChar() {
+        return internal_native_get_EventChar(native_address);
+    }
+
+    public static short internal_native_get_EventChar(long this_addr) {
+        try {
+            return (short) FFMHandles.internal_native_get_EventChar__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_EventChar(short EventChar) {
+        internal_native_set_EventChar(native_address, EventChar);
+    }
+
+    public static void internal_native_set_EventChar(long this_addr, short EventChar) {
+        try {
+            FFMHandles.internal_native_set_EventChar__JS.invokeExact(this_addr, EventChar);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_EventActivated() {
         return internal_native_get_EventActivated(native_address);
     }
@@ -82,6 +279,24 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         }
     }
 
+    public NativeObject get_Buf() {
+        long addr = internal_native_get_Buf_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_Buf_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Buf_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public int get_BufSize() {
         return internal_native_get_BufSize(native_address);
     }
@@ -89,18 +304,6 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
     public static int internal_native_get_BufSize(long this_addr) {
         try {
             return (int) FFMHandles.internal_native_get_BufSize__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void set_BufSize(int BufSize) {
-        internal_native_set_BufSize(native_address, BufSize);
-    }
-
-    public static void internal_native_set_BufSize(long this_addr, int BufSize) {
-        try {
-            FFMHandles.internal_native_set_BufSize__JI.invokeExact(this_addr, BufSize);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -154,32 +357,73 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         }
     }
 
-    public ImGuiInputTextFlags get_Flags() {
-        int value = internal_native_get_Flags(native_address);
-        ImGuiInputTextFlags[] values = ImGuiInputTextFlags.values();
-        for (int i = 0; i < values.length; i++) {
-            ImGuiInputTextFlags enumVal = values[i];
-            if (enumVal != ImGuiInputTextFlags.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ImGuiInputTextFlags.CUSTOM.setValue(value);
+    public int get_CursorPos() {
+        return internal_native_get_CursorPos(native_address);
     }
 
-    public static int internal_native_get_Flags(long this_addr) {
+    public static int internal_native_get_CursorPos(long this_addr) {
         try {
-            return (int) FFMHandles.internal_native_get_Flags__J.invokeExact(this_addr);
+            return (int) FFMHandles.internal_native_get_CursorPos__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void set_Flags(ImGuiInputTextFlags Flags) {
-        internal_native_set_Flags(native_address, Flags.getValue());
+    public void set_CursorPos(int CursorPos) {
+        internal_native_set_CursorPos(native_address, CursorPos);
     }
 
-    public static void internal_native_set_Flags(long this_addr, int Flags) {
+    public static void internal_native_set_CursorPos(long this_addr, int CursorPos) {
         try {
-            FFMHandles.internal_native_set_Flags__JI.invokeExact(this_addr, Flags);
+            FFMHandles.internal_native_set_CursorPos__JI.invokeExact(this_addr, CursorPos);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_SelectionStart() {
+        return internal_native_get_SelectionStart(native_address);
+    }
+
+    public static int internal_native_get_SelectionStart(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_SelectionStart__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_SelectionStart(int SelectionStart) {
+        internal_native_set_SelectionStart(native_address, SelectionStart);
+    }
+
+    public static void internal_native_set_SelectionStart(long this_addr, int SelectionStart) {
+        try {
+            FFMHandles.internal_native_set_SelectionStart__JI.invokeExact(this_addr, SelectionStart);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_SelectionEnd() {
+        return internal_native_get_SelectionEnd(native_address);
+    }
+
+    public static int internal_native_get_SelectionEnd(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_SelectionEnd__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_SelectionEnd(int SelectionEnd) {
+        internal_native_set_SelectionEnd(native_address, SelectionEnd);
+    }
+
+    public static void internal_native_set_SelectionEnd(long this_addr, int SelectionEnd) {
+        try {
+            FFMHandles.internal_native_set_SelectionEnd__JI.invokeExact(this_addr, SelectionEnd);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -187,17 +431,43 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DeleteChars__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_deletechars", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_InsertChars__JILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_insertchars", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SelectAll__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_selectall", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_clearselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_HasSelection__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_hasselection", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetSelection__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiinputtextcallbackdata_setselection", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
+        static final java.lang.invoke.MethodHandle internal_native_get_Ctx_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_ctx_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_EventFlag__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_eventflag", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Flags__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_flags", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_UserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_userdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_get_ID__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_id", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_EventKey__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_eventkey", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_EventChar__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_eventchar", FunctionDescriptor.of(ValueLayout.JAVA_SHORT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_EventChar__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_eventchar", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
 
         static final java.lang.invoke.MethodHandle internal_native_get_EventActivated__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_eventactivated", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_BufSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_bufsize", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_Buf_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_buf_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_BufSize__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_bufsize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_get_BufSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_bufsize", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_BufDirty__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_bufdirty", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
@@ -207,8 +477,16 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_set_BufTextLen__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_buftextlen", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_Flags__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_flags", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_CursorPos__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_cursorpos", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_Flags__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_flags", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_set_CursorPos__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_cursorpos", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_SelectionStart__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_selectionstart", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_SelectionStart__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_selectionstart", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_SelectionEnd__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_get_selectionend", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_SelectionEnd__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiinputtextcallbackdata_set_selectionend", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
     }
 }

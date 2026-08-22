@@ -10,6 +10,8 @@ import imgui.*;
 
 final public class JNI_ImGuiIO {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_AddKeyEvent(long this_addr, int key, boolean down);
@@ -217,6 +219,62 @@ final public class JNI_ImGuiIO {
     public static native int internal_native_get_ConfigIniSettingsAutoDiscardMonths(long this_addr);
 
     public static native void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths);
+
+    public static native boolean internal_native_get_ConfigDebugIniSettings(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugIniSettings(long this_addr, boolean ConfigDebugIniSettings);
+
+    public static native boolean internal_native_get_ConfigErrorRecovery(long this_addr);
+
+    public static native void internal_native_set_ConfigErrorRecovery(long this_addr, boolean ConfigErrorRecovery);
+
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableAssert(long this_addr);
+
+    public static native void internal_native_set_ConfigErrorRecoveryEnableAssert(long this_addr, boolean ConfigErrorRecoveryEnableAssert);
+
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableDebugLog(long this_addr);
+
+    public static native void internal_native_set_ConfigErrorRecoveryEnableDebugLog(long this_addr, boolean ConfigErrorRecoveryEnableDebugLog);
+
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableTooltip(long this_addr);
+
+    public static native void internal_native_set_ConfigErrorRecoveryEnableTooltip(long this_addr, boolean ConfigErrorRecoveryEnableTooltip);
+
+    public static native boolean internal_native_get_ConfigDebugIsDebuggerPresent(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugIsDebuggerPresent(long this_addr, boolean ConfigDebugIsDebuggerPresent);
+
+    public static native boolean internal_native_get_ConfigDebugHighlightIdConflicts(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugHighlightIdConflicts(long this_addr, boolean ConfigDebugHighlightIdConflicts);
+
+    public static native boolean internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr, boolean ConfigDebugHighlightIdConflictsShowItemPicker);
+
+    public static native boolean internal_native_get_ConfigDebugBeginReturnValueOnce(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugBeginReturnValueOnce(long this_addr, boolean ConfigDebugBeginReturnValueOnce);
+
+    public static native boolean internal_native_get_ConfigDebugBeginReturnValueLoop(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugBeginReturnValueLoop(long this_addr, boolean ConfigDebugBeginReturnValueLoop);
+
+    public static native boolean internal_native_get_ConfigDebugIgnoreFocusLoss(long this_addr);
+
+    public static native void internal_native_set_ConfigDebugIgnoreFocusLoss(long this_addr, boolean ConfigDebugIgnoreFocusLoss);
+
+    public static native long internal_native_get_BackendPlatformUserData_addr(long this_addr);
+
+    public static native void internal_native_set_BackendPlatformUserData(long this_addr, long BackendPlatformUserData_addr);
+
+    public static native long internal_native_get_BackendRendererUserData_addr(long this_addr);
+
+    public static native void internal_native_set_BackendRendererUserData(long this_addr, long BackendRendererUserData_addr);
+
+    public static native long internal_native_get_BackendLanguageUserData_addr(long this_addr);
+
+    public static native void internal_native_set_BackendLanguageUserData(long this_addr, long BackendLanguageUserData_addr);
 
     public static native float internal_native_get_MouseDoubleClickTime(long this_addr);
 

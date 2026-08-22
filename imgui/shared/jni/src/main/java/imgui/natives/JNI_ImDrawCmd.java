@@ -10,6 +10,8 @@ import imgui.*;
 
 final public class JNI_ImDrawCmd {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native long internal_native_GetTexID_addr(long this_addr);
@@ -17,6 +19,10 @@ final public class JNI_ImDrawCmd {
     public static native long internal_native_get_ClipRect_addr(long this_addr);
 
     public static native void internal_native_set_ClipRect(long this_addr, long ClipRect_addr);
+
+    public static native long internal_native_get_TexRef_addr(long this_addr);
+
+    public static native void internal_native_set_TexRef(long this_addr, long TexRef_addr);
 
     public static native int internal_native_get_VtxOffset(long this_addr);
 
@@ -29,4 +35,8 @@ final public class JNI_ImDrawCmd {
     public static native int internal_native_get_ElemCount(long this_addr);
 
     public static native void internal_native_set_ElemCount(long this_addr, int ElemCount);
+
+    public static native long internal_native_get_UserCallbackData_addr(long this_addr);
+
+    public static native int internal_native_get_UserCallbackDataSize(long this_addr);
 }

@@ -13,6 +13,7 @@ import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeByteArray;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeDoubleArray;
+import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import gen.web.imgui.enums.ImGuiWindowFlags;
 import gen.web.imgui.enums.ImGuiChildFlags;
 import gen.web.imgui.enums.ImGuiFocusedFlags;
@@ -709,11 +710,18 @@ public final class ImGui extends NativeObject {
     public static native void internal_native_SetNextWindowSize(int size_addr);
 
     public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max) {
-        internal_native_SetNextWindowSizeConstraints(size_min.native_address, size_max.native_address);
+        internal_native_SetNextWindowSizeConstraints__0(size_min.native_address, size_max.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"size_min_addr", "size_max_addr"}, script = "imgui.ImGui.prototype.SetNextWindowSizeConstraints(size_min_addr, size_max_addr);")
-    public static native void internal_native_SetNextWindowSizeConstraints(int size_min_addr, int size_max_addr);
+    @org.teavm.jso.JSBody(params = {"size_min_addr", "size_max_addr"}, script = "imgui.ImGui.prototype.SetNextWindowSizeConstraints__0(size_min_addr, size_max_addr);")
+    public static native void internal_native_SetNextWindowSizeConstraints__0(int size_min_addr, int size_max_addr);
+
+    public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallbackFunction callback) {
+        internal_native_SetNextWindowSizeConstraints__1(size_min.native_address, size_max.native_address, callback.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"size_min_addr", "size_max_addr", "callback_addr"}, script = "imgui.ImGui.prototype.SetNextWindowSizeConstraints__1(size_min_addr, size_max_addr, callback_addr);")
+    public static native void internal_native_SetNextWindowSizeConstraints__1(int size_min_addr, int size_max_addr, int callback_addr);
 
     public static void SetNextWindowContentSize(ImVec2 size) {
         internal_native_SetNextWindowContentSize(size.native_address);
@@ -1779,18 +1787,46 @@ public final class ImGui extends NativeObject {
     public static native void internal_native_EndCombo();
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros, int popup_max_height_in_items) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_separated_by_zeros", "popup_max_height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo(label, current_item_addr, items_separated_by_zeros, popup_max_height_in_items);return returnedJSObj;")
-    public static native boolean internal_native_Combo(String label, int current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_separated_by_zeros", "popup_max_height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__0(label, current_item_addr, items_separated_by_zeros, popup_max_height_in_items);return returnedJSObj;")
+    public static native boolean internal_native_Combo__0(String label, int current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_separated_by_zeros"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo(label, current_item_addr, items_separated_by_zeros);return returnedJSObj;")
-    public static native boolean internal_native_Combo(String label, int current_item_addr, String items_separated_by_zeros);
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_separated_by_zeros"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__0(label, current_item_addr, items_separated_by_zeros);return returnedJSObj;")
+    public static native boolean internal_native_Combo__0(String label, int current_item_addr, String items_separated_by_zeros);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items, int popup_max_height_in_items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address, popup_max_height_in_items);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_addr", "popup_max_height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__1(label, current_item_addr, items_addr, popup_max_height_in_items);return returnedJSObj;")
+    public static native boolean internal_native_Combo__1(String label, int current_item_addr, int items_addr, int popup_max_height_in_items);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__1(label, current_item_addr, items_addr);return returnedJSObj;")
+    public static native boolean internal_native_Combo__1(String label, int current_item_addr, int items_addr);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int popup_max_height_in_items) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count, popup_max_height_in_items);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "getter_addr", "items_count", "popup_max_height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__2(label, current_item_addr, getter_addr, items_count, popup_max_height_in_items);return returnedJSObj;")
+    public static native boolean internal_native_Combo__2(String label, int current_item_addr, int getter_addr, int items_count, int popup_max_height_in_items);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "getter_addr", "items_count"}, script = "var returnedJSObj = imgui.ImGui.prototype.Combo__2(label, current_item_addr, getter_addr, items_count);return returnedJSObj;")
+    public static native boolean internal_native_Combo__2(String label, int current_item_addr, int getter_addr, int items_count);
 
     public static boolean DragFloat(String label, NativeFloatArray v, float v_speed, float v_min, float v_max, String format, ImGuiSliderFlags flags) {
         return internal_native_DragFloat(label, v.native_void_address, v_speed, v_min, v_max, format, flags.getValue());
@@ -2619,53 +2655,74 @@ public final class ImGui extends NativeObject {
     public static native boolean internal_native_VSliderScalar(String label, int size_addr, int data_type, int p_data_addr, int p_min_addr, int p_max_addr);
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputText(label, buf_addr, buf_size, flags);return returnedJSObj;")
-    public static native boolean internal_native_InputText(String label, int buf_addr, int buf_size, int flags);
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputText__0(label, buf_addr, buf_size, flags);return returnedJSObj;")
+    public static native boolean internal_native_InputText__0(String label, int buf_addr, int buf_size, int flags);
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size);
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputText(label, buf_addr, buf_size);return returnedJSObj;")
-    public static native boolean internal_native_InputText(String label, int buf_addr, int buf_size);
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputText__0(label, buf_addr, buf_size);return returnedJSObj;")
+    public static native boolean internal_native_InputText__0(String label, int buf_addr, int buf_size);
+
+    public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputText__1(label, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "flags", "callback_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputText__1(label, buf_addr, buf_size, flags, callback_addr);return returnedJSObj;")
+    public static native boolean internal_native_InputText__1(String label, int buf_addr, int buf_size, int flags, int callback_addr);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "size_addr", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline(label, buf_addr, buf_size, size_addr, flags);return returnedJSObj;")
-    public static native boolean internal_native_InputTextMultiline(String label, int buf_addr, int buf_size, int size_addr, int flags);
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "size_addr", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline__0(label, buf_addr, buf_size, size_addr, flags);return returnedJSObj;")
+    public static native boolean internal_native_InputTextMultiline__0(String label, int buf_addr, int buf_size, int size_addr, int flags);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "size_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline(label, buf_addr, buf_size, size_addr);return returnedJSObj;")
-    public static native boolean internal_native_InputTextMultiline(String label, int buf_addr, int buf_size, int size_addr);
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "size_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline__0(label, buf_addr, buf_size, size_addr);return returnedJSObj;")
+    public static native boolean internal_native_InputTextMultiline__0(String label, int buf_addr, int buf_size, int size_addr);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline(label, buf_addr, buf_size);return returnedJSObj;")
-    public static native boolean internal_native_InputTextMultiline(String label, int buf_addr, int buf_size);
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline__0(label, buf_addr, buf_size);return returnedJSObj;")
+    public static native boolean internal_native_InputTextMultiline__0(String label, int buf_addr, int buf_size);
+
+    public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextMultiline__1(label, buf.native_void_address, buf_size, size.native_address, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "buf_addr", "buf_size", "size_addr", "flags", "callback_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextMultiline__1(label, buf_addr, buf_size, size_addr, flags, callback_addr);return returnedJSObj;")
+    public static native boolean internal_native_InputTextMultiline__1(String label, int buf_addr, int buf_size, int size_addr, int flags, int callback_addr);
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "hint", "buf_addr", "buf_size", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextWithHint(label, hint, buf_addr, buf_size, flags);return returnedJSObj;")
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, int buf_addr, int buf_size, int flags);
+    @org.teavm.jso.JSBody(params = {"label", "hint", "buf_addr", "buf_size", "flags"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextWithHint__0(label, hint, buf_addr, buf_size, flags);return returnedJSObj;")
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, int buf_addr, int buf_size, int flags);
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size);
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "hint", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextWithHint(label, hint, buf_addr, buf_size);return returnedJSObj;")
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, int buf_addr, int buf_size);
+    @org.teavm.jso.JSBody(params = {"label", "hint", "buf_addr", "buf_size"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextWithHint__0(label, hint, buf_addr, buf_size);return returnedJSObj;")
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, int buf_addr, int buf_size);
+
+    public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextWithHint__1(label, hint, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "hint", "buf_addr", "buf_size", "flags", "callback_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.InputTextWithHint__1(label, hint, buf_addr, buf_size, flags, callback_addr);return returnedJSObj;")
+    public static native boolean internal_native_InputTextWithHint__1(String label, String hint, int buf_addr, int buf_size, int flags, int callback_addr);
 
     public static boolean InputFloat(String label, NativeFloatArray v, float step, float step_fast, String format, ImGuiInputTextFlags flags) {
         return internal_native_InputFloat(label, v.native_void_address, step, step_fast, format, flags.getValue());
@@ -3293,103 +3350,215 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(script = "imgui.ImGui.prototype.EndListBox();")
     public static native void internal_native_EndListBox();
 
-    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items, int height_in_items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address, height_in_items);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr", "stride"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr, int stride);
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_addr", "height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.ListBox__0(label, current_item_addr, items_addr, height_in_items);return returnedJSObj;")
+    public static native boolean internal_native_ListBox__0(String label, int current_item_addr, int items_addr, int height_in_items);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "items_addr"}, script = "var returnedJSObj = imgui.ImGui.prototype.ListBox__0(label, current_item_addr, items_addr);return returnedJSObj;")
+    public static native boolean internal_native_ListBox__0(String label, int current_item_addr, int items_addr);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int height_in_items) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count, height_in_items);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "getter_addr", "items_count", "height_in_items"}, script = "var returnedJSObj = imgui.ImGui.prototype.ListBox__1(label, current_item_addr, getter_addr, items_count, height_in_items);return returnedJSObj;")
+    public static native boolean internal_native_ListBox__1(String label, int current_item_addr, int getter_addr, int items_count, int height_in_items);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "current_item_addr", "getter_addr", "items_count"}, script = "var returnedJSObj = imgui.ImGui.prototype.ListBox__1(label, current_item_addr, getter_addr, items_count);return returnedJSObj;")
+    public static native boolean internal_native_ListBox__1(String label, int current_item_addr, int getter_addr, int items_count);
+
+    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr", "stride"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr, int stride);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset, overlay_text);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset, String overlay_text);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset, overlay_text);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset, String overlay_text);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count, values_offset);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count, int values_offset);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count, values_offset);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count, int values_offset);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotLines(label, values.native_void_address, values_count);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotLines(label, values_addr, values_count);")
-    public static native void internal_native_PlotLines(String label, int values_addr, int values_count);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotLines__0(label, values_addr, values_count);")
+    public static native void internal_native_PlotLines__0(String label, int values_addr, int values_count);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count, values_offset);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count, int values_offset);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotLines__1(label, getter_addr, values_count);")
+    public static native void internal_native_PlotLines__1(String label, int getter_addr, int values_count);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr", "stride"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr, int stride);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr", "stride"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr, int stride);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset, overlay_text);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset, String overlay_text);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset, String overlay_text);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count, values_offset);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count, int values_offset);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count, values_offset);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count, int values_offset);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count);
     }
 
-    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotHistogram(label, values_addr, values_count);")
-    public static native void internal_native_PlotHistogram(String label, int values_addr, int values_count);
+    @org.teavm.jso.JSBody(params = {"label", "values_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotHistogram__0(label, values_addr, values_count);")
+    public static native void internal_native_PlotHistogram__0(String label, int values_addr, int values_count);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max", "graph_size_addr"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, int graph_size_addr);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min", "scale_max"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text", "scale_min"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset", "overlay_text"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count", "values_offset"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count, values_offset);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count, int values_offset);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count);
+    }
+
+    @org.teavm.jso.JSBody(params = {"label", "getter_addr", "values_count"}, script = "imgui.ImGui.prototype.PlotHistogram__1(label, getter_addr, values_count);")
+    public static native void internal_native_PlotHistogram__1(String label, int getter_addr, int values_count);
 
     public static void Value(String prefix, boolean b) {
         internal_native_Value__0(prefix, b);
@@ -4929,13 +5098,6 @@ public final class ImGui extends NativeObject {
     @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGui.prototype.IsMousePosValid();return returnedJSObj;")
     public static native boolean internal_native_IsMousePosValid();
 
-    public static boolean IsAnyMouseDown() {
-        return internal_native_IsAnyMouseDown();
-    }
-
-    @org.teavm.jso.JSBody(script = "var returnedJSObj = imgui.ImGui.prototype.IsAnyMouseDown();return returnedJSObj;")
-    public static native boolean internal_native_IsAnyMouseDown();
-
     public static ImVec2 GetMousePos() {
         int addr = internal_native_GetMousePos_addr();
         if (addr == 0)
@@ -5138,6 +5300,34 @@ public final class ImGui extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"version_str", "sz_io", "sz_style", "sz_vec2", "sz_vec4", "sz_drawvert", "sz_drawidx"}, script = "var returnedJSObj = imgui.ImGui.prototype.DebugCheckVersionAndDataLayout(version_str, sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);return returnedJSObj;")
     public static native boolean internal_native_DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx);
+
+    public static void DebugLog(String text) {
+        internal_native_DebugLog(text);
+    }
+
+    @org.teavm.jso.JSBody(params = {"text"}, script = "imgui.ImGui.prototype.DebugLog(text);")
+    public static native void internal_native_DebugLog(String text);
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"alloc_func_address", "free_func_address", "user_data_address"}, script = "imgui.ImGui.prototype.SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);")
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address);
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"alloc_func_address", "free_func_address"}, script = "imgui.ImGui.prototype.SetAllocatorFunctions(alloc_func_address, free_func_address);")
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address);
+
+    public static void GetAllocatorFunctions(NativeLongArray alloc_func_address, NativeLongArray free_func_address, NativeLongArray user_data_address) {
+        internal_native_GetAllocatorFunctions(alloc_func_address.native_void_address, free_func_address.native_void_address, user_data_address.native_void_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"alloc_func_address_addr", "free_func_address_addr", "user_data_address_addr"}, script = "imgui.ImGui.prototype.GetAllocatorFunctions(alloc_func_address_addr, free_func_address_addr, user_data_address_addr);")
+    public static native void internal_native_GetAllocatorFunctions(int alloc_func_address_addr, int free_func_address_addr, int user_data_address_addr);
 
     public static NativeObject MemAlloc(long size) {
         int addr = internal_native_MemAlloc_addr(size);

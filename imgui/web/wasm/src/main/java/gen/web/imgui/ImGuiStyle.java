@@ -8,6 +8,7 @@ package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.imgui.enums.ImGuiDir;
+import gen.web.imgui.enums.ImGuiTreeNodeFlags;
 import gen.web.imgui.enums.ImGuiHoveredFlags;
 
 public final class ImGuiStyle extends NativeObject {
@@ -40,9 +41,19 @@ public final class ImGuiStyle extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_13;
 
+    private ImVec2 ImVec2_TEMP_GEN_14;
+
     private ImVec4 ImVec4_TEMP_GEN_0;
 
     static public final ImGuiStyle NULL = ImGuiStyle.native_new();
+
+    public ImGuiStyle() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImGuiStyle();return imgui.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -71,6 +82,48 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "scale_factor"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.ScaleAllSizes(scale_factor);")
     public static native void internal_native_ScaleAllSizes(int this_addr, float scale_factor);
+
+    public float get_FontSizeBase() {
+        return internal_native_get_FontSizeBase(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_FontSizeBase();")
+    public static native float internal_native_get_FontSizeBase(int this_addr);
+
+    public void set_FontSizeBase(float FontSizeBase) {
+        internal_native_set_FontSizeBase(native_address, FontSizeBase);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "FontSizeBase"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_FontSizeBase(FontSizeBase);")
+    public static native void internal_native_set_FontSizeBase(int this_addr, float FontSizeBase);
+
+    public float get_FontScaleMain() {
+        return internal_native_get_FontScaleMain(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_FontScaleMain();")
+    public static native float internal_native_get_FontScaleMain(int this_addr);
+
+    public void set_FontScaleMain(float FontScaleMain) {
+        internal_native_set_FontScaleMain(native_address, FontScaleMain);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "FontScaleMain"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_FontScaleMain(FontScaleMain);")
+    public static native void internal_native_set_FontScaleMain(int this_addr, float FontScaleMain);
+
+    public float get_FontScaleDpi() {
+        return internal_native_get_FontScaleDpi(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_FontScaleDpi();")
+    public static native float internal_native_get_FontScaleDpi(int this_addr);
+
+    public void set_FontScaleDpi(float FontScaleDpi) {
+        internal_native_set_FontScaleDpi(native_address, FontScaleDpi);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "FontScaleDpi"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_FontScaleDpi(FontScaleDpi);")
+    public static native void internal_native_set_FontScaleDpi(int this_addr, float FontScaleDpi);
 
     public float get_Alpha() {
         return internal_native_get_Alpha(native_address);
@@ -147,6 +200,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "WindowBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_WindowBorderSize(WindowBorderSize);")
     public static native void internal_native_set_WindowBorderSize(int this_addr, float WindowBorderSize);
+
+    public float get_WindowBorderHoverPadding() {
+        return internal_native_get_WindowBorderHoverPadding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_WindowBorderHoverPadding();")
+    public static native float internal_native_get_WindowBorderHoverPadding(int this_addr);
+
+    public void set_WindowBorderHoverPadding(float WindowBorderHoverPadding) {
+        internal_native_set_WindowBorderHoverPadding(native_address, WindowBorderHoverPadding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "WindowBorderHoverPadding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_WindowBorderHoverPadding(WindowBorderHoverPadding);")
+    public static native void internal_native_set_WindowBorderHoverPadding(int this_addr, float WindowBorderHoverPadding);
 
     public ImVec2 get_WindowMinSize() {
         int addr = internal_native_get_WindowMinSize_addr(native_address);
@@ -449,6 +516,20 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ScrollbarRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ScrollbarRounding(ScrollbarRounding);")
     public static native void internal_native_set_ScrollbarRounding(int this_addr, float ScrollbarRounding);
 
+    public float get_ScrollbarPadding() {
+        return internal_native_get_ScrollbarPadding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_ScrollbarPadding();")
+    public static native float internal_native_get_ScrollbarPadding(int this_addr);
+
+    public void set_ScrollbarPadding(float ScrollbarPadding) {
+        internal_native_set_ScrollbarPadding(native_address, ScrollbarPadding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ScrollbarPadding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ScrollbarPadding(ScrollbarPadding);")
+    public static native void internal_native_set_ScrollbarPadding(int this_addr, float ScrollbarPadding);
+
     public float get_GrabMinSize() {
         return internal_native_get_GrabMinSize(native_address);
     }
@@ -505,6 +586,20 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ImageRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ImageRounding(ImageRounding);")
     public static native void internal_native_set_ImageRounding(int this_addr, float ImageRounding);
 
+    public float get_ImageBorderSize() {
+        return internal_native_get_ImageBorderSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_ImageBorderSize();")
+    public static native float internal_native_get_ImageBorderSize(int this_addr);
+
+    public void set_ImageBorderSize(float ImageBorderSize) {
+        internal_native_set_ImageBorderSize(native_address, ImageBorderSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "ImageBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_ImageBorderSize(ImageBorderSize);")
+    public static native void internal_native_set_ImageBorderSize(int this_addr, float ImageBorderSize);
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -533,6 +628,62 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "TabBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabBorderSize(TabBorderSize);")
     public static native void internal_native_set_TabBorderSize(int this_addr, float TabBorderSize);
 
+    public float get_TabMinWidthBase() {
+        return internal_native_get_TabMinWidthBase(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TabMinWidthBase();")
+    public static native float internal_native_get_TabMinWidthBase(int this_addr);
+
+    public void set_TabMinWidthBase(float TabMinWidthBase) {
+        internal_native_set_TabMinWidthBase(native_address, TabMinWidthBase);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TabMinWidthBase"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabMinWidthBase(TabMinWidthBase);")
+    public static native void internal_native_set_TabMinWidthBase(int this_addr, float TabMinWidthBase);
+
+    public float get_TabMinWidthShrink() {
+        return internal_native_get_TabMinWidthShrink(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TabMinWidthShrink();")
+    public static native float internal_native_get_TabMinWidthShrink(int this_addr);
+
+    public void set_TabMinWidthShrink(float TabMinWidthShrink) {
+        internal_native_set_TabMinWidthShrink(native_address, TabMinWidthShrink);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TabMinWidthShrink"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabMinWidthShrink(TabMinWidthShrink);")
+    public static native void internal_native_set_TabMinWidthShrink(int this_addr, float TabMinWidthShrink);
+
+    public float get_TabCloseButtonMinWidthSelected() {
+        return internal_native_get_TabCloseButtonMinWidthSelected(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TabCloseButtonMinWidthSelected();")
+    public static native float internal_native_get_TabCloseButtonMinWidthSelected(int this_addr);
+
+    public void set_TabCloseButtonMinWidthSelected(float TabCloseButtonMinWidthSelected) {
+        internal_native_set_TabCloseButtonMinWidthSelected(native_address, TabCloseButtonMinWidthSelected);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TabCloseButtonMinWidthSelected"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabCloseButtonMinWidthSelected(TabCloseButtonMinWidthSelected);")
+    public static native void internal_native_set_TabCloseButtonMinWidthSelected(int this_addr, float TabCloseButtonMinWidthSelected);
+
+    public float get_TabCloseButtonMinWidthUnselected() {
+        return internal_native_get_TabCloseButtonMinWidthUnselected(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TabCloseButtonMinWidthUnselected();")
+    public static native float internal_native_get_TabCloseButtonMinWidthUnselected(int this_addr);
+
+    public void set_TabCloseButtonMinWidthUnselected(float TabCloseButtonMinWidthUnselected) {
+        internal_native_set_TabCloseButtonMinWidthUnselected(native_address, TabCloseButtonMinWidthUnselected);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TabCloseButtonMinWidthUnselected"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabCloseButtonMinWidthUnselected(TabCloseButtonMinWidthUnselected);")
+    public static native void internal_native_set_TabCloseButtonMinWidthUnselected(int this_addr, float TabCloseButtonMinWidthUnselected);
+
     public float get_TabBarBorderSize() {
         return internal_native_get_TabBarBorderSize(native_address);
     }
@@ -546,6 +697,103 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "TabBarBorderSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabBarBorderSize(TabBarBorderSize);")
     public static native void internal_native_set_TabBarBorderSize(int this_addr, float TabBarBorderSize);
+
+    public float get_TabBarOverlineSize() {
+        return internal_native_get_TabBarOverlineSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TabBarOverlineSize();")
+    public static native float internal_native_get_TabBarOverlineSize(int this_addr);
+
+    public void set_TabBarOverlineSize(float TabBarOverlineSize) {
+        internal_native_set_TabBarOverlineSize(native_address, TabBarOverlineSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TabBarOverlineSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TabBarOverlineSize(TabBarOverlineSize);")
+    public static native void internal_native_set_TabBarOverlineSize(int this_addr, float TabBarOverlineSize);
+
+    public float get_TableAngledHeadersAngle() {
+        return internal_native_get_TableAngledHeadersAngle(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TableAngledHeadersAngle();")
+    public static native float internal_native_get_TableAngledHeadersAngle(int this_addr);
+
+    public void set_TableAngledHeadersAngle(float TableAngledHeadersAngle) {
+        internal_native_set_TableAngledHeadersAngle(native_address, TableAngledHeadersAngle);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TableAngledHeadersAngle"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TableAngledHeadersAngle(TableAngledHeadersAngle);")
+    public static native void internal_native_set_TableAngledHeadersAngle(int this_addr, float TableAngledHeadersAngle);
+
+    public ImVec2 get_TableAngledHeadersTextAlign() {
+        int addr = internal_native_get_TableAngledHeadersTextAlign_addr(native_address);
+        if (addr == 0)
+            return ImVec2.NULL;
+        if (ImVec2_TEMP_GEN_8 == null)
+            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_8;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_TableAngledHeadersTextAlign();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_TableAngledHeadersTextAlign_addr(int this_addr);
+
+    public void set_TableAngledHeadersTextAlign(ImVec2 TableAngledHeadersTextAlign) {
+        internal_native_set_TableAngledHeadersTextAlign(native_address, TableAngledHeadersTextAlign.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TableAngledHeadersTextAlign_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TableAngledHeadersTextAlign(TableAngledHeadersTextAlign_addr);")
+    public static native void internal_native_set_TableAngledHeadersTextAlign(int this_addr, int TableAngledHeadersTextAlign_addr);
+
+    public ImGuiTreeNodeFlags get_TreeLinesFlags() {
+        int value = internal_native_get_TreeLinesFlags(native_address);
+        ImGuiTreeNodeFlags[] values = ImGuiTreeNodeFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiTreeNodeFlags enumVal = values[i];
+            if (enumVal != ImGuiTreeNodeFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiTreeNodeFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TreeLinesFlags();")
+    public static native int internal_native_get_TreeLinesFlags(int this_addr);
+
+    public void set_TreeLinesFlags(ImGuiTreeNodeFlags TreeLinesFlags) {
+        internal_native_set_TreeLinesFlags(native_address, TreeLinesFlags.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TreeLinesFlags"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TreeLinesFlags(TreeLinesFlags);")
+    public static native void internal_native_set_TreeLinesFlags(int this_addr, int TreeLinesFlags);
+
+    public float get_TreeLinesSize() {
+        return internal_native_get_TreeLinesSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TreeLinesSize();")
+    public static native float internal_native_get_TreeLinesSize(int this_addr);
+
+    public void set_TreeLinesSize(float TreeLinesSize) {
+        internal_native_set_TreeLinesSize(native_address, TreeLinesSize);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TreeLinesSize"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TreeLinesSize(TreeLinesSize);")
+    public static native void internal_native_set_TreeLinesSize(int this_addr, float TreeLinesSize);
+
+    public float get_TreeLinesRounding() {
+        return internal_native_get_TreeLinesRounding(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_TreeLinesRounding();")
+    public static native float internal_native_get_TreeLinesRounding(int this_addr);
+
+    public void set_TreeLinesRounding(float TreeLinesRounding) {
+        internal_native_set_TreeLinesRounding(native_address, TreeLinesRounding);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TreeLinesRounding"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_TreeLinesRounding(TreeLinesRounding);")
+    public static native void internal_native_set_TreeLinesRounding(int this_addr, float TreeLinesRounding);
 
     public float get_MenuItemRounding() {
         return internal_native_get_MenuItemRounding(native_address);
@@ -656,10 +904,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_ButtonTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_8 == null)
-            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_8;
+        if (ImVec2_TEMP_GEN_9 == null)
+            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_9;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_ButtonTextAlign();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -676,10 +924,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_SelectableTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_9 == null)
-            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_9;
+        if (ImVec2_TEMP_GEN_10 == null)
+            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_10;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_SelectableTextAlign();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -738,10 +986,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_SeparatorTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_10 == null)
-            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_10;
+        if (ImVec2_TEMP_GEN_11 == null)
+            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_11;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_SeparatorTextAlign();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -758,10 +1006,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_SeparatorTextPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_11 == null)
-            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_11;
+        if (ImVec2_TEMP_GEN_12 == null)
+            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_12;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_SeparatorTextPadding();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -778,10 +1026,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_DisplayWindowPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_12 == null)
-            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_12;
+        if (ImVec2_TEMP_GEN_13 == null)
+            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_13;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_DisplayWindowPadding();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -798,10 +1046,10 @@ public final class ImGuiStyle extends NativeObject {
         int addr = internal_native_get_DisplaySafeAreaPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_13 == null)
-            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_13;
+        if (ImVec2_TEMP_GEN_14 == null)
+            ImVec2_TEMP_GEN_14 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_14.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_14;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);var returnedJSObj = jsObj.get_DisplaySafeAreaPadding();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
@@ -813,6 +1061,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "DisplaySafeAreaPadding_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_DisplaySafeAreaPadding(DisplaySafeAreaPadding_addr);")
     public static native void internal_native_set_DisplaySafeAreaPadding(int this_addr, int DisplaySafeAreaPadding_addr);
+
+    public boolean get_DockingNodeHasCloseButton() {
+        return internal_native_get_DockingNodeHasCloseButton(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);return jsObj.get_DockingNodeHasCloseButton();")
+    public static native boolean internal_native_get_DockingNodeHasCloseButton(int this_addr);
+
+    public void set_DockingNodeHasCloseButton(boolean DockingNodeHasCloseButton) {
+        internal_native_set_DockingNodeHasCloseButton(native_address, DockingNodeHasCloseButton);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "DockingNodeHasCloseButton"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStyle);jsObj.set_DockingNodeHasCloseButton(DockingNodeHasCloseButton);")
+    public static native void internal_native_set_DockingNodeHasCloseButton(int this_addr, boolean DockingNodeHasCloseButton);
 
     public float get_DockingSeparatorSize() {
         return internal_native_get_DockingSeparatorSize(native_address);

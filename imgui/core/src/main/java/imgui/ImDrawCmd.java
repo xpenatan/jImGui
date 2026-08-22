@@ -12,6 +12,9 @@ public final class ImDrawCmd extends NativeObject {
 
     static public final ImDrawCmd NULL = ImDrawCmd.native_new();
 
+    public ImDrawCmd() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -37,6 +40,13 @@ public final class ImDrawCmd extends NativeObject {
     public void set_ClipRect(ImVec4 ClipRect) {
     }
 
+    public ImTextureRef get_TexRef() {
+        return null;
+    }
+
+    public void set_TexRef(ImTextureRef TexRef) {
+    }
+
     public int get_VtxOffset() {
         return 0;
     }
@@ -56,5 +66,13 @@ public final class ImDrawCmd extends NativeObject {
     }
 
     public void set_ElemCount(int ElemCount) {
+    }
+
+    public NativeObject get_UserCallbackData() {
+        return null;
+    }
+
+    public int get_UserCallbackDataSize() {
+        return 0;
     }
 }

@@ -99,6 +99,20 @@ public final class ImFontConfig extends NativeObject {
     public void set_SizePixels(float SizePixels) {
     }
 
+    public ImWcharPointer get_GlyphRanges() {
+        return null;
+    }
+
+    public void set_GlyphRanges(ImWcharPointer GlyphRanges) {
+    }
+
+    public ImWcharPointer get_GlyphExcludeRanges() {
+        return null;
+    }
+
+    public void set_GlyphExcludeRanges(ImWcharPointer GlyphExcludeRanges) {
+    }
+
     public ImVec2 get_GlyphOffset() {
         return null;
     }

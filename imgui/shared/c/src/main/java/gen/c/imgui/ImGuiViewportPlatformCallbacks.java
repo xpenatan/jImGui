@@ -65,6 +65,20 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_25;
 
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_26;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_27;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_28;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_29;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_30;
+
     private static final java.util.ArrayList<ImGuiViewportPlatformCallbacks> TEAVMC_CALLBACKS = new java.util.ArrayList<>();
 
     private int teavmcCallbackId = -1;
@@ -289,6 +303,56 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         TEAVMC_CALLBACKS.get(callbackId).internal_onChangedViewport(viewport_addr);
     }
 
+    private static abstract class TEAVMC_onGetWindowWorkAreaInsetX_Function extends org.teavm.interop.Function {
+
+        public abstract float call(int callbackId, long viewport_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetX")
+    private static float teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetX(int callbackId, long viewport_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_onGetWindowWorkAreaInsetX(viewport_addr);
+    }
+
+    private static abstract class TEAVMC_onGetWindowWorkAreaInsetY_Function extends org.teavm.interop.Function {
+
+        public abstract float call(int callbackId, long viewport_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetY")
+    private static float teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetY(int callbackId, long viewport_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_onGetWindowWorkAreaInsetY(viewport_addr);
+    }
+
+    private static abstract class TEAVMC_onGetWindowWorkAreaInsetZ_Function extends org.teavm.interop.Function {
+
+        public abstract float call(int callbackId, long viewport_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetZ")
+    private static float teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetZ(int callbackId, long viewport_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_onGetWindowWorkAreaInsetZ(viewport_addr);
+    }
+
+    private static abstract class TEAVMC_onGetWindowWorkAreaInsetW_Function extends org.teavm.interop.Function {
+
+        public abstract float call(int callbackId, long viewport_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetW")
+    private static float teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetW(int callbackId, long viewport_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_onGetWindowWorkAreaInsetW(viewport_addr);
+    }
+
+    private static abstract class TEAVMC_onCreateVkSurface_Function extends org.teavm.interop.Function {
+
+        public abstract int call(int callbackId, long viewport_addr, long vk_instance, long vk_allocators_addr, long out_vk_surface_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_ImGuiViewportPlatformCallbacks_onCreateVkSurface")
+    private static int teavmc_ImGuiViewportPlatformCallbacks_onCreateVkSurface(int callbackId, long viewport_addr, long vk_instance, long vk_allocators_addr, long out_vk_surface_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_onCreateVkSurface(viewport_addr, vk_instance, vk_allocators_addr, out_vk_surface_addr);
+    }
+
     private static abstract class TEAVMC_onRendererCreateWindow_Function extends org.teavm.interop.Function {
 
         public abstract void call(int callbackId, long viewport_addr);
@@ -340,7 +404,7 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
     }
 
     @org.teavm.interop.Import(name = "teavmc_ImGuiViewportPlatformCallbacks_setupCallback")
-    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_onCreateWindow_Function onCreateWindow_fp, TEAVMC_onDestroyWindow_Function onDestroyWindow_fp, TEAVMC_onShowWindow_Function onShowWindow_fp, TEAVMC_onSetWindowPos_Function onSetWindowPos_fp, TEAVMC_onGetWindowPosX_Function onGetWindowPosX_fp, TEAVMC_onGetWindowPosY_Function onGetWindowPosY_fp, TEAVMC_onSetWindowSize_Function onSetWindowSize_fp, TEAVMC_onGetWindowSizeX_Function onGetWindowSizeX_fp, TEAVMC_onGetWindowSizeY_Function onGetWindowSizeY_fp, TEAVMC_onGetWindowFramebufferScaleX_Function onGetWindowFramebufferScaleX_fp, TEAVMC_onGetWindowFramebufferScaleY_Function onGetWindowFramebufferScaleY_fp, TEAVMC_onSetWindowFocus_Function onSetWindowFocus_fp, TEAVMC_onGetWindowFocus_Function onGetWindowFocus_fp, TEAVMC_onGetWindowMinimized_Function onGetWindowMinimized_fp, TEAVMC_onSetWindowTitle_Function onSetWindowTitle_fp, TEAVMC_onSetWindowAlpha_Function onSetWindowAlpha_fp, TEAVMC_onUpdateWindow_Function onUpdateWindow_fp, TEAVMC_onRenderWindow_Function onRenderWindow_fp, TEAVMC_onSwapBuffers_Function onSwapBuffers_fp, TEAVMC_onGetWindowDpiScale_Function onGetWindowDpiScale_fp, TEAVMC_onChangedViewport_Function onChangedViewport_fp, TEAVMC_onRendererCreateWindow_Function onRendererCreateWindow_fp, TEAVMC_onRendererDestroyWindow_Function onRendererDestroyWindow_fp, TEAVMC_onRendererSetWindowSize_Function onRendererSetWindowSize_fp, TEAVMC_onRendererRenderWindow_Function onRendererRenderWindow_fp, TEAVMC_onRendererSwapBuffers_Function onRendererSwapBuffers_fp);
+    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_onCreateWindow_Function onCreateWindow_fp, TEAVMC_onDestroyWindow_Function onDestroyWindow_fp, TEAVMC_onShowWindow_Function onShowWindow_fp, TEAVMC_onSetWindowPos_Function onSetWindowPos_fp, TEAVMC_onGetWindowPosX_Function onGetWindowPosX_fp, TEAVMC_onGetWindowPosY_Function onGetWindowPosY_fp, TEAVMC_onSetWindowSize_Function onSetWindowSize_fp, TEAVMC_onGetWindowSizeX_Function onGetWindowSizeX_fp, TEAVMC_onGetWindowSizeY_Function onGetWindowSizeY_fp, TEAVMC_onGetWindowFramebufferScaleX_Function onGetWindowFramebufferScaleX_fp, TEAVMC_onGetWindowFramebufferScaleY_Function onGetWindowFramebufferScaleY_fp, TEAVMC_onSetWindowFocus_Function onSetWindowFocus_fp, TEAVMC_onGetWindowFocus_Function onGetWindowFocus_fp, TEAVMC_onGetWindowMinimized_Function onGetWindowMinimized_fp, TEAVMC_onSetWindowTitle_Function onSetWindowTitle_fp, TEAVMC_onSetWindowAlpha_Function onSetWindowAlpha_fp, TEAVMC_onUpdateWindow_Function onUpdateWindow_fp, TEAVMC_onRenderWindow_Function onRenderWindow_fp, TEAVMC_onSwapBuffers_Function onSwapBuffers_fp, TEAVMC_onGetWindowDpiScale_Function onGetWindowDpiScale_fp, TEAVMC_onChangedViewport_Function onChangedViewport_fp, TEAVMC_onGetWindowWorkAreaInsetX_Function onGetWindowWorkAreaInsetX_fp, TEAVMC_onGetWindowWorkAreaInsetY_Function onGetWindowWorkAreaInsetY_fp, TEAVMC_onGetWindowWorkAreaInsetZ_Function onGetWindowWorkAreaInsetZ_fp, TEAVMC_onGetWindowWorkAreaInsetW_Function onGetWindowWorkAreaInsetW_fp, TEAVMC_onCreateVkSurface_Function onCreateVkSurface_fp, TEAVMC_onRendererCreateWindow_Function onRendererCreateWindow_fp, TEAVMC_onRendererDestroyWindow_Function onRendererDestroyWindow_fp, TEAVMC_onRendererSetWindowSize_Function onRendererSetWindowSize_fp, TEAVMC_onRendererRenderWindow_Function onRendererRenderWindow_fp, TEAVMC_onRendererSwapBuffers_Function onRendererSwapBuffers_fp);
 
     static public final ImGuiViewportPlatformCallbacks NULL = ImGuiViewportPlatformCallbacks.native_new();
 
@@ -408,7 +472,7 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     private void setupCallback() {
         int callbackId = teavmcRegisterCallback();
-        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_onCreateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onCreateWindow"), org.teavm.interop.Function.get(TEAVMC_onDestroyWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onDestroyWindow"), org.teavm.interop.Function.get(TEAVMC_onShowWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onShowWindow"), org.teavm.interop.Function.get(TEAVMC_onSetWindowPos_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowPos"), org.teavm.interop.Function.get(TEAVMC_onGetWindowPosX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowPosX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowPosY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowPosY"), org.teavm.interop.Function.get(TEAVMC_onSetWindowSize_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowSize"), org.teavm.interop.Function.get(TEAVMC_onGetWindowSizeX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowSizeX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowSizeY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowSizeY"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFramebufferScaleX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFramebufferScaleX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFramebufferScaleY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFramebufferScaleY"), org.teavm.interop.Function.get(TEAVMC_onSetWindowFocus_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowFocus"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFocus_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFocus"), org.teavm.interop.Function.get(TEAVMC_onGetWindowMinimized_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowMinimized"), org.teavm.interop.Function.get(TEAVMC_onSetWindowTitle_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowTitle"), org.teavm.interop.Function.get(TEAVMC_onSetWindowAlpha_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowAlpha"), org.teavm.interop.Function.get(TEAVMC_onUpdateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onUpdateWindow"), org.teavm.interop.Function.get(TEAVMC_onRenderWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRenderWindow"), org.teavm.interop.Function.get(TEAVMC_onSwapBuffers_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSwapBuffers"), org.teavm.interop.Function.get(TEAVMC_onGetWindowDpiScale_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowDpiScale"), org.teavm.interop.Function.get(TEAVMC_onChangedViewport_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onChangedViewport"), org.teavm.interop.Function.get(TEAVMC_onRendererCreateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererCreateWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererDestroyWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererDestroyWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererSetWindowSize_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererSetWindowSize"), org.teavm.interop.Function.get(TEAVMC_onRendererRenderWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererRenderWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererSwapBuffers_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererSwapBuffers"));
+        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_onCreateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onCreateWindow"), org.teavm.interop.Function.get(TEAVMC_onDestroyWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onDestroyWindow"), org.teavm.interop.Function.get(TEAVMC_onShowWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onShowWindow"), org.teavm.interop.Function.get(TEAVMC_onSetWindowPos_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowPos"), org.teavm.interop.Function.get(TEAVMC_onGetWindowPosX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowPosX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowPosY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowPosY"), org.teavm.interop.Function.get(TEAVMC_onSetWindowSize_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowSize"), org.teavm.interop.Function.get(TEAVMC_onGetWindowSizeX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowSizeX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowSizeY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowSizeY"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFramebufferScaleX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFramebufferScaleX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFramebufferScaleY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFramebufferScaleY"), org.teavm.interop.Function.get(TEAVMC_onSetWindowFocus_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowFocus"), org.teavm.interop.Function.get(TEAVMC_onGetWindowFocus_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowFocus"), org.teavm.interop.Function.get(TEAVMC_onGetWindowMinimized_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowMinimized"), org.teavm.interop.Function.get(TEAVMC_onSetWindowTitle_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowTitle"), org.teavm.interop.Function.get(TEAVMC_onSetWindowAlpha_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSetWindowAlpha"), org.teavm.interop.Function.get(TEAVMC_onUpdateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onUpdateWindow"), org.teavm.interop.Function.get(TEAVMC_onRenderWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRenderWindow"), org.teavm.interop.Function.get(TEAVMC_onSwapBuffers_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onSwapBuffers"), org.teavm.interop.Function.get(TEAVMC_onGetWindowDpiScale_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowDpiScale"), org.teavm.interop.Function.get(TEAVMC_onChangedViewport_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onChangedViewport"), org.teavm.interop.Function.get(TEAVMC_onGetWindowWorkAreaInsetX_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetX"), org.teavm.interop.Function.get(TEAVMC_onGetWindowWorkAreaInsetY_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetY"), org.teavm.interop.Function.get(TEAVMC_onGetWindowWorkAreaInsetZ_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetZ"), org.teavm.interop.Function.get(TEAVMC_onGetWindowWorkAreaInsetW_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onGetWindowWorkAreaInsetW"), org.teavm.interop.Function.get(TEAVMC_onCreateVkSurface_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onCreateVkSurface"), org.teavm.interop.Function.get(TEAVMC_onRendererCreateWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererCreateWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererDestroyWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererDestroyWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererSetWindowSize_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererSetWindowSize"), org.teavm.interop.Function.get(TEAVMC_onRendererRenderWindow_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererRenderWindow"), org.teavm.interop.Function.get(TEAVMC_onRendererSwapBuffers_Function.class, ImGuiViewportPlatformCallbacks.class, "teavmc_ImGuiViewportPlatformCallbacks_onRendererSwapBuffers"));
     }
 
     protected void onCreateWindow(ImGuiViewport viewport) {
@@ -633,54 +697,115 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         onChangedViewport(ImGuiViewport_TEMP_STATIC_GEN_20);
     }
 
+    protected float onGetWindowWorkAreaInsetX(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetX(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetX(ImGuiViewport_TEMP_STATIC_GEN_21);
+    }
+
+    protected float onGetWindowWorkAreaInsetY(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetY(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetY(ImGuiViewport_TEMP_STATIC_GEN_22);
+    }
+
+    protected float onGetWindowWorkAreaInsetZ(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetZ(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetZ(ImGuiViewport_TEMP_STATIC_GEN_23);
+    }
+
+    protected float onGetWindowWorkAreaInsetW(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetW(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetW(ImGuiViewport_TEMP_STATIC_GEN_24);
+    }
+
+    protected int onCreateVkSurface(ImGuiViewport viewport, long vk_instance, NativeObject vk_allocators, NativeObject out_vk_surface) {
+        return 0;
+    }
+
+    private int internal_onCreateVkSurface(long viewport_addr, long vk_instance, long vk_allocators_addr, long out_vk_surface_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_0 == null)
+            NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_0.internal_reset(vk_allocators_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(out_vk_surface_addr, false);
+        return onCreateVkSurface(ImGuiViewport_TEMP_STATIC_GEN_25, vk_instance, NativeObject_TEMP_STATIC_GEN_0, NativeObject_TEMP_STATIC_GEN_1);
+    }
+
     protected void onRendererCreateWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererCreateWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
-        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_21);
+        if (ImGuiViewport_TEMP_STATIC_GEN_26 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_26 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_26.internal_reset(viewport_addr, false);
+        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_26);
     }
 
     protected void onRendererDestroyWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererDestroyWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
-        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_22);
+        if (ImGuiViewport_TEMP_STATIC_GEN_27 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_27 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_27.internal_reset(viewport_addr, false);
+        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_27);
     }
 
     protected void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height) {
     }
 
     private void internal_onRendererSetWindowSize(long viewport_addr, float width, float height) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
-        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_23, width, height);
+        if (ImGuiViewport_TEMP_STATIC_GEN_28 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_28 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_28.internal_reset(viewport_addr, false);
+        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_28, width, height);
     }
 
     protected void onRendererRenderWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererRenderWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
-        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_24);
+        if (ImGuiViewport_TEMP_STATIC_GEN_29 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_29 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_29.internal_reset(viewport_addr, false);
+        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_29);
     }
 
     protected void onRendererSwapBuffers(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererSwapBuffers(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
-        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_25);
+        if (ImGuiViewport_TEMP_STATIC_GEN_30 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_30 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_30.internal_reset(viewport_addr, false);
+        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_30);
     }
 
     @org.teavm.interop.Import(name = "imgui_imguiviewportplatformcallbacks_create_addr")

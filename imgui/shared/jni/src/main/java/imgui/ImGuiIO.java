@@ -25,9 +25,24 @@ public final class ImGuiIO extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImVec2 ImVec2_TEMP_GEN_2;
 
     static public final ImGuiIO NULL = ImGuiIO.native_new();
+
+    public ImGuiIO() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImGuiIO.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -924,6 +939,248 @@ public final class ImGuiIO extends NativeObject {
 
     public static void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths) {
         imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigIniSettingsAutoDiscardMonths(this_addr, ConfigIniSettingsAutoDiscardMonths);
+    }
+
+    public boolean get_ConfigDebugIniSettings() {
+        return internal_native_get_ConfigDebugIniSettings(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIniSettings(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugIniSettings(this_addr);
+    }
+
+    public void set_ConfigDebugIniSettings(boolean ConfigDebugIniSettings) {
+        internal_native_set_ConfigDebugIniSettings(native_address, ConfigDebugIniSettings);
+    }
+
+    public static void internal_native_set_ConfigDebugIniSettings(long this_addr, boolean ConfigDebugIniSettings) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugIniSettings(this_addr, ConfigDebugIniSettings);
+    }
+
+    public boolean get_ConfigErrorRecovery() {
+        return internal_native_get_ConfigErrorRecovery(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecovery(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigErrorRecovery(this_addr);
+    }
+
+    public void set_ConfigErrorRecovery(boolean ConfigErrorRecovery) {
+        internal_native_set_ConfigErrorRecovery(native_address, ConfigErrorRecovery);
+    }
+
+    public static void internal_native_set_ConfigErrorRecovery(long this_addr, boolean ConfigErrorRecovery) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigErrorRecovery(this_addr, ConfigErrorRecovery);
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableAssert() {
+        return internal_native_get_ConfigErrorRecoveryEnableAssert(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableAssert(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigErrorRecoveryEnableAssert(this_addr);
+    }
+
+    public void set_ConfigErrorRecoveryEnableAssert(boolean ConfigErrorRecoveryEnableAssert) {
+        internal_native_set_ConfigErrorRecoveryEnableAssert(native_address, ConfigErrorRecoveryEnableAssert);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableAssert(long this_addr, boolean ConfigErrorRecoveryEnableAssert) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigErrorRecoveryEnableAssert(this_addr, ConfigErrorRecoveryEnableAssert);
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableDebugLog() {
+        return internal_native_get_ConfigErrorRecoveryEnableDebugLog(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableDebugLog(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigErrorRecoveryEnableDebugLog(this_addr);
+    }
+
+    public void set_ConfigErrorRecoveryEnableDebugLog(boolean ConfigErrorRecoveryEnableDebugLog) {
+        internal_native_set_ConfigErrorRecoveryEnableDebugLog(native_address, ConfigErrorRecoveryEnableDebugLog);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableDebugLog(long this_addr, boolean ConfigErrorRecoveryEnableDebugLog) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigErrorRecoveryEnableDebugLog(this_addr, ConfigErrorRecoveryEnableDebugLog);
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableTooltip() {
+        return internal_native_get_ConfigErrorRecoveryEnableTooltip(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableTooltip(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigErrorRecoveryEnableTooltip(this_addr);
+    }
+
+    public void set_ConfigErrorRecoveryEnableTooltip(boolean ConfigErrorRecoveryEnableTooltip) {
+        internal_native_set_ConfigErrorRecoveryEnableTooltip(native_address, ConfigErrorRecoveryEnableTooltip);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableTooltip(long this_addr, boolean ConfigErrorRecoveryEnableTooltip) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigErrorRecoveryEnableTooltip(this_addr, ConfigErrorRecoveryEnableTooltip);
+    }
+
+    public boolean get_ConfigDebugIsDebuggerPresent() {
+        return internal_native_get_ConfigDebugIsDebuggerPresent(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIsDebuggerPresent(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugIsDebuggerPresent(this_addr);
+    }
+
+    public void set_ConfigDebugIsDebuggerPresent(boolean ConfigDebugIsDebuggerPresent) {
+        internal_native_set_ConfigDebugIsDebuggerPresent(native_address, ConfigDebugIsDebuggerPresent);
+    }
+
+    public static void internal_native_set_ConfigDebugIsDebuggerPresent(long this_addr, boolean ConfigDebugIsDebuggerPresent) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugIsDebuggerPresent(this_addr, ConfigDebugIsDebuggerPresent);
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflicts() {
+        return internal_native_get_ConfigDebugHighlightIdConflicts(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugHighlightIdConflicts(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugHighlightIdConflicts(this_addr);
+    }
+
+    public void set_ConfigDebugHighlightIdConflicts(boolean ConfigDebugHighlightIdConflicts) {
+        internal_native_set_ConfigDebugHighlightIdConflicts(native_address, ConfigDebugHighlightIdConflicts);
+    }
+
+    public static void internal_native_set_ConfigDebugHighlightIdConflicts(long this_addr, boolean ConfigDebugHighlightIdConflicts) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugHighlightIdConflicts(this_addr, ConfigDebugHighlightIdConflicts);
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflictsShowItemPicker() {
+        return internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(this_addr);
+    }
+
+    public void set_ConfigDebugHighlightIdConflictsShowItemPicker(boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+        internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(native_address, ConfigDebugHighlightIdConflictsShowItemPicker);
+    }
+
+    public static void internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr, boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(this_addr, ConfigDebugHighlightIdConflictsShowItemPicker);
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueOnce() {
+        return internal_native_get_ConfigDebugBeginReturnValueOnce(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugBeginReturnValueOnce(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugBeginReturnValueOnce(this_addr);
+    }
+
+    public void set_ConfigDebugBeginReturnValueOnce(boolean ConfigDebugBeginReturnValueOnce) {
+        internal_native_set_ConfigDebugBeginReturnValueOnce(native_address, ConfigDebugBeginReturnValueOnce);
+    }
+
+    public static void internal_native_set_ConfigDebugBeginReturnValueOnce(long this_addr, boolean ConfigDebugBeginReturnValueOnce) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugBeginReturnValueOnce(this_addr, ConfigDebugBeginReturnValueOnce);
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueLoop() {
+        return internal_native_get_ConfigDebugBeginReturnValueLoop(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugBeginReturnValueLoop(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugBeginReturnValueLoop(this_addr);
+    }
+
+    public void set_ConfigDebugBeginReturnValueLoop(boolean ConfigDebugBeginReturnValueLoop) {
+        internal_native_set_ConfigDebugBeginReturnValueLoop(native_address, ConfigDebugBeginReturnValueLoop);
+    }
+
+    public static void internal_native_set_ConfigDebugBeginReturnValueLoop(long this_addr, boolean ConfigDebugBeginReturnValueLoop) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugBeginReturnValueLoop(this_addr, ConfigDebugBeginReturnValueLoop);
+    }
+
+    public boolean get_ConfigDebugIgnoreFocusLoss() {
+        return internal_native_get_ConfigDebugIgnoreFocusLoss(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIgnoreFocusLoss(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_ConfigDebugIgnoreFocusLoss(this_addr);
+    }
+
+    public void set_ConfigDebugIgnoreFocusLoss(boolean ConfigDebugIgnoreFocusLoss) {
+        internal_native_set_ConfigDebugIgnoreFocusLoss(native_address, ConfigDebugIgnoreFocusLoss);
+    }
+
+    public static void internal_native_set_ConfigDebugIgnoreFocusLoss(long this_addr, boolean ConfigDebugIgnoreFocusLoss) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_ConfigDebugIgnoreFocusLoss(this_addr, ConfigDebugIgnoreFocusLoss);
+    }
+
+    public NativeObject get_BackendPlatformUserData() {
+        long addr = internal_native_get_BackendPlatformUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_BackendPlatformUserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_BackendPlatformUserData_addr(this_addr);
+    }
+
+    public void set_BackendPlatformUserData(NativeObject BackendPlatformUserData) {
+        internal_native_set_BackendPlatformUserData(native_address, BackendPlatformUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendPlatformUserData(long this_addr, long BackendPlatformUserData_addr) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_BackendPlatformUserData(this_addr, BackendPlatformUserData_addr);
+    }
+
+    public NativeObject get_BackendRendererUserData() {
+        long addr = internal_native_get_BackendRendererUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    public static long internal_native_get_BackendRendererUserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_BackendRendererUserData_addr(this_addr);
+    }
+
+    public void set_BackendRendererUserData(NativeObject BackendRendererUserData) {
+        internal_native_set_BackendRendererUserData(native_address, BackendRendererUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendRendererUserData(long this_addr, long BackendRendererUserData_addr) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_BackendRendererUserData(this_addr, BackendRendererUserData_addr);
+    }
+
+    public NativeObject get_BackendLanguageUserData() {
+        long addr = internal_native_get_BackendLanguageUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_get_BackendLanguageUserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiIO.internal_native_get_BackendLanguageUserData_addr(this_addr);
+    }
+
+    public void set_BackendLanguageUserData(NativeObject BackendLanguageUserData) {
+        internal_native_set_BackendLanguageUserData(native_address, BackendLanguageUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendLanguageUserData(long this_addr, long BackendLanguageUserData_addr) {
+        imgui.natives.JNI_ImGuiIO.internal_native_set_BackendLanguageUserData(this_addr, BackendLanguageUserData_addr);
     }
 
     public float get_MouseDoubleClickTime() {

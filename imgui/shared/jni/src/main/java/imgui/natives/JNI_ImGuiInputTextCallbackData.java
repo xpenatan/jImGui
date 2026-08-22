@@ -10,17 +10,43 @@ import imgui.*;
 
 final public class JNI_ImGuiInputTextCallbackData {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native void internal_native_DeleteChars(long this_addr, int pos, int bytes_count);
+
+    public static native void internal_native_InsertChars(long this_addr, int pos, String text);
+
+    public static native void internal_native_SelectAll(long this_addr);
+
+    public static native void internal_native_ClearSelection(long this_addr);
+
+    public static native boolean internal_native_HasSelection(long this_addr);
 
     public static native void internal_native_SetSelection(long this_addr, int selection_start, int selection_end);
 
+    public static native long internal_native_get_Ctx_addr(long this_addr);
+
+    public static native int internal_native_get_EventFlag(long this_addr);
+
+    public static native int internal_native_get_Flags(long this_addr);
+
+    public static native long internal_native_get_UserData_addr(long this_addr);
+
     public static native int internal_native_get_ID(long this_addr);
+
+    public static native int internal_native_get_EventKey(long this_addr);
+
+    public static native short internal_native_get_EventChar(long this_addr);
+
+    public static native void internal_native_set_EventChar(long this_addr, short EventChar);
 
     public static native boolean internal_native_get_EventActivated(long this_addr);
 
-    public static native int internal_native_get_BufSize(long this_addr);
+    public static native long internal_native_get_Buf_addr(long this_addr);
 
-    public static native void internal_native_set_BufSize(long this_addr, int BufSize);
+    public static native int internal_native_get_BufSize(long this_addr);
 
     public static native boolean internal_native_get_BufDirty(long this_addr);
 
@@ -30,7 +56,15 @@ final public class JNI_ImGuiInputTextCallbackData {
 
     public static native void internal_native_set_BufTextLen(long this_addr, int BufTextLen);
 
-    public static native int internal_native_get_Flags(long this_addr);
+    public static native int internal_native_get_CursorPos(long this_addr);
 
-    public static native void internal_native_set_Flags(long this_addr, int Flags);
+    public static native void internal_native_set_CursorPos(long this_addr, int CursorPos);
+
+    public static native int internal_native_get_SelectionStart(long this_addr);
+
+    public static native void internal_native_set_SelectionStart(long this_addr, int SelectionStart);
+
+    public static native int internal_native_get_SelectionEnd(long this_addr);
+
+    public static native void internal_native_set_SelectionEnd(long this_addr, int SelectionEnd);
 }

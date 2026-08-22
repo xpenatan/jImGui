@@ -13,6 +13,7 @@ import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeByteArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeDoubleArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import gen.c.imgui.enums.ImGuiWindowFlags;
 import gen.c.imgui.enums.ImGuiChildFlags;
 import gen.c.imgui.enums.ImGuiFocusedFlags;
@@ -709,11 +710,18 @@ public final class ImGui extends NativeObject {
     public static native void internal_native_SetNextWindowSize(long size_addr);
 
     public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max) {
-        internal_native_SetNextWindowSizeConstraints(size_min.native_address, size_max.native_address);
+        internal_native_SetNextWindowSizeConstraints__0(size_min.native_address, size_max.native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_setnextwindowsizeconstraints")
-    public static native void internal_native_SetNextWindowSizeConstraints(long size_min_addr, long size_max_addr);
+    @org.teavm.interop.Import(name = "imgui_imgui_setnextwindowsizeconstraints__0")
+    public static native void internal_native_SetNextWindowSizeConstraints__0(long size_min_addr, long size_max_addr);
+
+    public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallbackFunction callback) {
+        internal_native_SetNextWindowSizeConstraints__1(size_min.native_address, size_max.native_address, callback.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_setnextwindowsizeconstraints__1")
+    public static native void internal_native_SetNextWindowSizeConstraints__1(long size_min_addr, long size_max_addr, long callback_addr);
 
     public static void SetNextWindowContentSize(ImVec2 size) {
         internal_native_SetNextWindowContentSize(size.native_address);
@@ -1779,18 +1787,46 @@ public final class ImGui extends NativeObject {
     public static native void internal_native_EndCombo();
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros, int popup_max_height_in_items) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_combo_str_l_str_i")
-    public static native boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__0_str_l_str_i")
+    public static native boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_combo_str_l_str")
-    public static native boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros);
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__0_str_l_str")
+    public static native boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items, int popup_max_height_in_items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address, popup_max_height_in_items);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__1_str_l_l_i")
+    public static native boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr, int popup_max_height_in_items);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__1_str_l_l")
+    public static native boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int popup_max_height_in_items) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count, popup_max_height_in_items);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__2_str_l_l_i_i")
+    public static native boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count, int popup_max_height_in_items);
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_combo__2_str_l_l_i")
+    public static native boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count);
 
     public static boolean DragFloat(String label, NativeFloatArray v, float v_speed, float v_min, float v_max, String format, ImGuiSliderFlags flags) {
         return internal_native_DragFloat(label, v.native_void_address, v_speed, v_min, v_max, format, flags.getValue());
@@ -2619,53 +2655,74 @@ public final class ImGui extends NativeObject {
     public static native boolean internal_native_VSliderScalar(String label, long size_addr, int data_type, long p_data_addr, long p_min_addr, long p_max_addr);
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtext_str_l_i_i")
-    public static native boolean internal_native_InputText(String label, long buf_addr, int buf_size, int flags);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtext__0_str_l_i_i")
+    public static native boolean internal_native_InputText__0(String label, long buf_addr, int buf_size, int flags);
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size);
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtext_str_l_i")
-    public static native boolean internal_native_InputText(String label, long buf_addr, int buf_size);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtext__0_str_l_i")
+    public static native boolean internal_native_InputText__0(String label, long buf_addr, int buf_size);
+
+    public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputText__1(label, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtext__1")
+    public static native boolean internal_native_InputText__1(String label, long buf_addr, int buf_size, int flags, long callback_addr);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline_str_l_i_l_i")
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr, int flags);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline__0_str_l_i_l_i")
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr, int flags);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline_str_l_i_l")
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline__0_str_l_i_l")
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr);
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline_str_l_i")
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline__0_str_l_i")
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size);
+
+    public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextMultiline__1(label, buf.native_void_address, buf_size, size.native_address, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextmultiline__1")
+    public static native boolean internal_native_InputTextMultiline__1(String label, long buf_addr, int buf_size, long size_addr, int flags, long callback_addr);
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtextwithhint_str_str_l_i_i")
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size, int flags);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextwithhint__0_str_str_l_i_i")
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size, int flags);
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size);
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_inputtextwithhint_str_str_l_i")
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size);
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextwithhint__0_str_str_l_i")
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size);
+
+    public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextWithHint__1(label, hint, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_inputtextwithhint__1")
+    public static native boolean internal_native_InputTextWithHint__1(String label, String hint, long buf_addr, int buf_size, int flags, long callback_addr);
 
     public static boolean InputFloat(String label, NativeFloatArray v, float step, float step_fast, String format, ImGuiInputTextFlags flags) {
         return internal_native_InputFloat(label, v.native_void_address, step, step_fast, format, flags.getValue());
@@ -3293,103 +3350,215 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_endlistbox")
     public static native void internal_native_EndListBox();
 
-    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items, int height_in_items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address, height_in_items);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i_str_f_f_l_i")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
+    @org.teavm.interop.Import(name = "imgui_imgui_listbox__0_str_l_l_i")
+    public static native boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr, int height_in_items);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_listbox__0_str_l_l")
+    public static native boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int height_in_items) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count, height_in_items);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_listbox__1_str_l_l_i_i")
+    public static native boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count, int height_in_items);
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_listbox__1_str_l_l_i")
+    public static native boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count);
+
+    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i_str_f_f_l_i")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i_str_f_f_l")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i_str_f_f_l")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i_str_f_f")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i_str_f_f")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i_str_f")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i_str_f")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i_str")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i_str")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i_i")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i_i")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset);
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotLines(label, values.native_void_address, values_count);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plotlines_str_l_i")
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count);
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__0_str_l_i")
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i_i_str_f_f_l")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i_i_str_f_f")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i_i_str_f")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i_i_str")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i_i")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset);
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plotlines__1_str_l_i")
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i_str_f_f_l_i")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i_str_f_f_l_i")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i_str_f_f_l")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i_str_f_f_l")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i_str_f_f")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i_str_f_f")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i_str_f")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i_str_f")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i_str")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i_str")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i_i")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i_i")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset);
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count);
     }
 
-    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram_str_l_i")
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count);
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__0_str_l_i")
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i_i_str_f_f_l")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i_i_str_f_f")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i_i_str_f")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i_i_str")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i_i")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset);
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_plothistogram__1_str_l_i")
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count);
 
     public static void Value(String prefix, boolean b) {
         internal_native_Value__0(prefix, b);
@@ -4929,13 +5098,6 @@ public final class ImGui extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imgui_ismouseposvalid_v")
     public static native boolean internal_native_IsMousePosValid();
 
-    public static boolean IsAnyMouseDown() {
-        return internal_native_IsAnyMouseDown();
-    }
-
-    @org.teavm.interop.Import(name = "imgui_imgui_isanymousedown")
-    public static native boolean internal_native_IsAnyMouseDown();
-
     public static ImVec2 GetMousePos() {
         long addr = internal_native_GetMousePos_addr();
         if (addr == 0)
@@ -5138,6 +5300,34 @@ public final class ImGui extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imgui_debugcheckversionanddatalayout")
     public static native boolean internal_native_DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx);
+
+    public static void DebugLog(String text) {
+        internal_native_DebugLog(text);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_debuglog")
+    public static native void internal_native_DebugLog(String text);
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_setallocatorfunctions_l_l_l")
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address);
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_setallocatorfunctions_l_l")
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address);
+
+    public static void GetAllocatorFunctions(NativeLongArray alloc_func_address, NativeLongArray free_func_address, NativeLongArray user_data_address) {
+        internal_native_GetAllocatorFunctions(alloc_func_address.native_void_address, free_func_address.native_void_address, user_data_address.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imgui_getallocatorfunctions")
+    public static native void internal_native_GetAllocatorFunctions(long alloc_func_address_addr, long free_func_address_addr, long user_data_address_addr);
 
     public static NativeObject MemAlloc(long size) {
         long addr = internal_native_MemAlloc_addr(size);

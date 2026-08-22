@@ -21,7 +21,24 @@ public final class ImDrawCmd extends NativeObject {
 
     private ImVec4 ImVec4_TEMP_GEN_0;
 
+    private ImTextureRef ImTextureRef_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImDrawCmd NULL = ImDrawCmd.native_new();
+
+    public ImDrawCmd() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -92,6 +109,36 @@ public final class ImDrawCmd extends NativeObject {
     public static void internal_native_set_ClipRect(long this_addr, long ClipRect_addr) {
         try {
             FFMHandles.internal_native_set_ClipRect__JJ.invokeExact(this_addr, ClipRect_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImTextureRef get_TexRef() {
+        long addr = internal_native_get_TexRef_addr(native_address);
+        if (addr == 0)
+            return ImTextureRef.NULL;
+        if (ImTextureRef_TEMP_GEN_0 == null)
+            ImTextureRef_TEMP_GEN_0 = ImTextureRef.native_new();
+        ImTextureRef_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureRef_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_TexRef_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_TexRef_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_TexRef(ImTextureRef TexRef) {
+        internal_native_set_TexRef(native_address, TexRef.native_address);
+    }
+
+    public static void internal_native_set_TexRef(long this_addr, long TexRef_addr) {
+        try {
+            FFMHandles.internal_native_set_TexRef__JJ.invokeExact(this_addr, TexRef_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -169,7 +216,39 @@ public final class ImDrawCmd extends NativeObject {
         }
     }
 
+    public NativeObject get_UserCallbackData() {
+        long addr = internal_native_get_UserCallbackData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_UserCallbackData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_UserCallbackData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_UserCallbackDataSize() {
+        return internal_native_get_UserCallbackDataSize(native_address);
+    }
+
+    public static int internal_native_get_UserCallbackDataSize(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_UserCallbackDataSize__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawcmd_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -178,6 +257,10 @@ public final class ImDrawCmd extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_ClipRect_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_cliprect_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ClipRect__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_set_cliprect", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_TexRef_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_texref_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_TexRef__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_set_texref", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_VtxOffset__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_vtxoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
@@ -190,5 +273,9 @@ public final class ImDrawCmd extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_ElemCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_elemcount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ElemCount__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_set_elemcount", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_UserCallbackData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_usercallbackdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_UserCallbackDataSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawcmd_get_usercallbackdatasize", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
     }
 }

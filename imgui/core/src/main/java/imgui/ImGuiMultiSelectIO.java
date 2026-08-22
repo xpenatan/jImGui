@@ -26,6 +26,18 @@ public final class ImGuiMultiSelectIO extends NativeObject {
         return new ImGuiMultiSelectIO((byte) 0, (char) 0);
     }
 
+    public ImVectorImGuiSelectionRequest get_Requests() {
+        return null;
+    }
+
+    public long get_RangeSrcItem() {
+        return 0;
+    }
+
+    public long get_NavIdItem() {
+        return 0;
+    }
+
     public boolean get_NavIdSelected() {
         return false;
     }

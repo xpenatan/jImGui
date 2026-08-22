@@ -39,6 +39,19 @@ public final class ImTextureData extends NativeObject {
 
     static public final ImTextureData NULL = ImTextureData.native_new();
 
+    public ImTextureData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -578,6 +591,8 @@ public final class ImTextureData extends NativeObject {
     }
 
     private static final class FFMHandles {
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imtexturedata_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imtexturedata_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 

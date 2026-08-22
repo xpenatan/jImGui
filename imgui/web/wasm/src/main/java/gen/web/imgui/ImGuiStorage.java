@@ -12,6 +12,22 @@ public final class ImGuiStorage extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
+
+    private NativeObject NativeObject_TEMP_GEN_5;
+
+    private NativeObject NativeObject_TEMP_GEN_6;
+
+    private NativeObject NativeObject_TEMP_GEN_7;
+
+    private NativeObject NativeObject_TEMP_GEN_8;
+
     private ImVectorImGuiStoragePair ImVectorImGuiStoragePair_TEMP_GEN_0;
 
     static public final ImGuiStorage NULL = ImGuiStorage.native_new();
@@ -134,6 +150,117 @@ public final class ImGuiStorage extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "key", "val_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);jsObj.SetVoidPtr(key, val_addr);")
     public static native void internal_native_SetVoidPtr(int this_addr, int key, int val_addr);
+
+    public NativeObject GetIntRef(int key, int default_val) {
+        int addr = internal_native_GetIntRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key", "default_val"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetIntRef(key, default_val);return returnedJSObj;")
+    public static native int internal_native_GetIntRef_addr(int this_addr, int key, int default_val);
+
+    public NativeObject GetIntRef(int key) {
+        int addr = internal_native_GetIntRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetIntRef(key);return returnedJSObj;")
+    public static native int internal_native_GetIntRef_addr(int this_addr, int key);
+
+    public NativeObject GetBoolRef(int key, boolean default_val) {
+        int addr = internal_native_GetBoolRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key", "default_val"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetBoolRef(key, default_val);return returnedJSObj;")
+    public static native int internal_native_GetBoolRef_addr(int this_addr, int key, boolean default_val);
+
+    public NativeObject GetBoolRef(int key) {
+        int addr = internal_native_GetBoolRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetBoolRef(key);return returnedJSObj;")
+    public static native int internal_native_GetBoolRef_addr(int this_addr, int key);
+
+    public NativeObject GetFloatRef(int key, float default_val) {
+        int addr = internal_native_GetFloatRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_5 == null)
+            NativeObject_TEMP_GEN_5 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_5;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key", "default_val"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetFloatRef(key, default_val);return returnedJSObj;")
+    public static native int internal_native_GetFloatRef_addr(int this_addr, int key, float default_val);
+
+    public NativeObject GetFloatRef(int key) {
+        int addr = internal_native_GetFloatRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_6 == null)
+            NativeObject_TEMP_GEN_6 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_6;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetFloatRef(key);return returnedJSObj;")
+    public static native int internal_native_GetFloatRef_addr(int this_addr, int key);
+
+    public NativeObject GetVoidPtrRef(int key, NativeObject default_val) {
+        int addr = internal_native_GetVoidPtrRef_addr(native_address, key, default_val.native_void_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_7 == null)
+            NativeObject_TEMP_GEN_7 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_7;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key", "default_val_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetVoidPtrRef(key, default_val_addr);return returnedJSObj;")
+    public static native int internal_native_GetVoidPtrRef_addr(int this_addr, int key, int default_val_addr);
+
+    public NativeObject GetVoidPtrRef(int key) {
+        int addr = internal_native_GetVoidPtrRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_8 == null)
+            NativeObject_TEMP_GEN_8 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_8;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "key"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);var returnedJSObj = jsObj.GetVoidPtrRef(key);return returnedJSObj;")
+    public static native int internal_native_GetVoidPtrRef_addr(int this_addr, int key);
+
+    public void BuildSortByKey() {
+        internal_native_BuildSortByKey(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImGuiStorage);jsObj.BuildSortByKey();")
+    public static native void internal_native_BuildSortByKey(int this_addr);
 
     public ImVectorImGuiStoragePair get_Data() {
         int addr = internal_native_get_Data_addr(native_address);

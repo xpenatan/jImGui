@@ -10,6 +10,8 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImGuiMultiSelectIO extends NativeObject {
 
+    private ImVectorImGuiSelectionRequest ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+
     static public final ImGuiMultiSelectIO NULL = ImGuiMultiSelectIO.native_new();
 
     /**
@@ -32,6 +34,36 @@ public final class ImGuiMultiSelectIO extends NativeObject {
 
     public static void internal_native_deleteNative(long this_addr) {
         imgui.natives.JNI_ImGuiMultiSelectIO.internal_native_deleteNative(this_addr);
+    }
+
+    public ImVectorImGuiSelectionRequest get_Requests() {
+        long addr = internal_native_get_Requests_addr(native_address);
+        if (addr == 0)
+            return ImVectorImGuiSelectionRequest.NULL;
+        if (ImVectorImGuiSelectionRequest_TEMP_GEN_0 == null)
+            ImVectorImGuiSelectionRequest_TEMP_GEN_0 = ImVectorImGuiSelectionRequest.native_new();
+        ImVectorImGuiSelectionRequest_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Requests_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiMultiSelectIO.internal_native_get_Requests_addr(this_addr);
+    }
+
+    public long get_RangeSrcItem() {
+        return internal_native_get_RangeSrcItem(native_address);
+    }
+
+    public static long internal_native_get_RangeSrcItem(long this_addr) {
+        return imgui.natives.JNI_ImGuiMultiSelectIO.internal_native_get_RangeSrcItem(this_addr);
+    }
+
+    public long get_NavIdItem() {
+        return internal_native_get_NavIdItem(native_address);
+    }
+
+    public static long internal_native_get_NavIdItem(long this_addr) {
+        return imgui.natives.JNI_ImGuiMultiSelectIO.internal_native_get_NavIdItem(this_addr);
     }
 
     public boolean get_NavIdSelected() {

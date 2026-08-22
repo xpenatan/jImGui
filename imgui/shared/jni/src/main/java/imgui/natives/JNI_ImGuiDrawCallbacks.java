@@ -18,5 +18,7 @@ final public class JNI_ImGuiDrawCallbacks {
 
     public static native boolean internal_native_AddStandardCallback(long draw_list_addr, int type);
 
+    public static native boolean internal_native_AddCallback(long draw_list_addr, long callback_addr);
+
     public static native void internal_native_InvokeUserCallback(long parent_list_addr, long draw_cmd_addr);
 }

@@ -10,7 +10,13 @@ import imgui.*;
 
 final public class JNI_ImGuiViewport {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native long internal_native_GetCenter_addr(long this_addr);
+
+    public static native long internal_native_GetWorkCenter_addr(long this_addr);
 
     public static native long internal_native_GetDebugName_addr(long this_addr);
 
@@ -49,6 +55,8 @@ final public class JNI_ImGuiViewport {
     public static native int internal_native_get_ParentViewportId(long this_addr);
 
     public static native void internal_native_set_ParentViewportId(long this_addr, int ParentViewportId);
+
+    public static native long internal_native_get_ParentViewport_addr(long this_addr);
 
     public static native long internal_native_get_DrawData_addr(long this_addr);
 

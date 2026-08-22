@@ -72,6 +72,20 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_25;
 
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_26;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_27;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_28;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_29;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_30;
+
     private static final java.lang.invoke.MethodHandles.Lookup callbackLookup = java.lang.invoke.MethodHandles.lookup();
 
     private static final java.lang.foreign.Linker callbackLinker = java.lang.foreign.Linker.nativeLinker();
@@ -159,6 +173,26 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
     private static final java.lang.invoke.MethodType callbackMethodType_onChangedViewport = java.lang.invoke.MethodType.methodType(void.class, long.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onChangedViewport = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_onGetWindowWorkAreaInsetX = java.lang.invoke.MethodType.methodType(float.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onGetWindowWorkAreaInsetX = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_FLOAT, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_onGetWindowWorkAreaInsetY = java.lang.invoke.MethodType.methodType(float.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onGetWindowWorkAreaInsetY = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_FLOAT, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_onGetWindowWorkAreaInsetZ = java.lang.invoke.MethodType.methodType(float.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onGetWindowWorkAreaInsetZ = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_FLOAT, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_onGetWindowWorkAreaInsetW = java.lang.invoke.MethodType.methodType(float.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onGetWindowWorkAreaInsetW = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_FLOAT, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_onCreateVkSurface = java.lang.invoke.MethodType.methodType(int.class, long.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_onCreateVkSurface = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
     private static final java.lang.invoke.MethodType callbackMethodType_onRendererCreateWindow = java.lang.invoke.MethodType.methodType(void.class, long.class);
 
@@ -318,6 +352,16 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
             upcallStub_onGetWindowDpiScale = callbackLinker.upcallStub(mh_onGetWindowDpiScale, callbackDescriptor_onGetWindowDpiScale, upcallArena);
             java.lang.invoke.MethodHandle mh_onChangedViewport = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onChangedViewport", callbackMethodType_onChangedViewport).bindTo(this);
             upcallStub_onChangedViewport = callbackLinker.upcallStub(mh_onChangedViewport, callbackDescriptor_onChangedViewport, upcallArena);
+            java.lang.invoke.MethodHandle mh_onGetWindowWorkAreaInsetX = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onGetWindowWorkAreaInsetX", callbackMethodType_onGetWindowWorkAreaInsetX).bindTo(this);
+            upcallStub_onGetWindowWorkAreaInsetX = callbackLinker.upcallStub(mh_onGetWindowWorkAreaInsetX, callbackDescriptor_onGetWindowWorkAreaInsetX, upcallArena);
+            java.lang.invoke.MethodHandle mh_onGetWindowWorkAreaInsetY = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onGetWindowWorkAreaInsetY", callbackMethodType_onGetWindowWorkAreaInsetY).bindTo(this);
+            upcallStub_onGetWindowWorkAreaInsetY = callbackLinker.upcallStub(mh_onGetWindowWorkAreaInsetY, callbackDescriptor_onGetWindowWorkAreaInsetY, upcallArena);
+            java.lang.invoke.MethodHandle mh_onGetWindowWorkAreaInsetZ = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onGetWindowWorkAreaInsetZ", callbackMethodType_onGetWindowWorkAreaInsetZ).bindTo(this);
+            upcallStub_onGetWindowWorkAreaInsetZ = callbackLinker.upcallStub(mh_onGetWindowWorkAreaInsetZ, callbackDescriptor_onGetWindowWorkAreaInsetZ, upcallArena);
+            java.lang.invoke.MethodHandle mh_onGetWindowWorkAreaInsetW = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onGetWindowWorkAreaInsetW", callbackMethodType_onGetWindowWorkAreaInsetW).bindTo(this);
+            upcallStub_onGetWindowWorkAreaInsetW = callbackLinker.upcallStub(mh_onGetWindowWorkAreaInsetW, callbackDescriptor_onGetWindowWorkAreaInsetW, upcallArena);
+            java.lang.invoke.MethodHandle mh_onCreateVkSurface = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onCreateVkSurface", callbackMethodType_onCreateVkSurface).bindTo(this);
+            upcallStub_onCreateVkSurface = callbackLinker.upcallStub(mh_onCreateVkSurface, callbackDescriptor_onCreateVkSurface, upcallArena);
             java.lang.invoke.MethodHandle mh_onRendererCreateWindow = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onRendererCreateWindow", callbackMethodType_onRendererCreateWindow).bindTo(this);
             upcallStub_onRendererCreateWindow = callbackLinker.upcallStub(mh_onRendererCreateWindow, callbackDescriptor_onRendererCreateWindow, upcallArena);
             java.lang.invoke.MethodHandle mh_onRendererDestroyWindow = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onRendererDestroyWindow", callbackMethodType_onRendererDestroyWindow).bindTo(this);
@@ -328,7 +372,7 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
             upcallStub_onRendererRenderWindow = callbackLinker.upcallStub(mh_onRendererRenderWindow, callbackDescriptor_onRendererRenderWindow, upcallArena);
             java.lang.invoke.MethodHandle mh_onRendererSwapBuffers = callbackLookup.findVirtual(ImGuiViewportPlatformCallbacks.class, "internal_onRendererSwapBuffers", callbackMethodType_onRendererSwapBuffers).bindTo(this);
             upcallStub_onRendererSwapBuffers = callbackLinker.upcallStub(mh_onRendererSwapBuffers, callbackDescriptor_onRendererSwapBuffers, upcallArena);
-            internal_native_setupCallback(native_address, upcallStub_onCreateWindow.address(), upcallStub_onDestroyWindow.address(), upcallStub_onShowWindow.address(), upcallStub_onSetWindowPos.address(), upcallStub_onGetWindowPosX.address(), upcallStub_onGetWindowPosY.address(), upcallStub_onSetWindowSize.address(), upcallStub_onGetWindowSizeX.address(), upcallStub_onGetWindowSizeY.address(), upcallStub_onGetWindowFramebufferScaleX.address(), upcallStub_onGetWindowFramebufferScaleY.address(), upcallStub_onSetWindowFocus.address(), upcallStub_onGetWindowFocus.address(), upcallStub_onGetWindowMinimized.address(), upcallStub_onSetWindowTitle.address(), upcallStub_onSetWindowAlpha.address(), upcallStub_onUpdateWindow.address(), upcallStub_onRenderWindow.address(), upcallStub_onSwapBuffers.address(), upcallStub_onGetWindowDpiScale.address(), upcallStub_onChangedViewport.address(), upcallStub_onRendererCreateWindow.address(), upcallStub_onRendererDestroyWindow.address(), upcallStub_onRendererSetWindowSize.address(), upcallStub_onRendererRenderWindow.address(), upcallStub_onRendererSwapBuffers.address());
+            internal_native_setupCallback(native_address, upcallStub_onCreateWindow.address(), upcallStub_onDestroyWindow.address(), upcallStub_onShowWindow.address(), upcallStub_onSetWindowPos.address(), upcallStub_onGetWindowPosX.address(), upcallStub_onGetWindowPosY.address(), upcallStub_onSetWindowSize.address(), upcallStub_onGetWindowSizeX.address(), upcallStub_onGetWindowSizeY.address(), upcallStub_onGetWindowFramebufferScaleX.address(), upcallStub_onGetWindowFramebufferScaleY.address(), upcallStub_onSetWindowFocus.address(), upcallStub_onGetWindowFocus.address(), upcallStub_onGetWindowMinimized.address(), upcallStub_onSetWindowTitle.address(), upcallStub_onSetWindowAlpha.address(), upcallStub_onUpdateWindow.address(), upcallStub_onRenderWindow.address(), upcallStub_onSwapBuffers.address(), upcallStub_onGetWindowDpiScale.address(), upcallStub_onChangedViewport.address(), upcallStub_onGetWindowWorkAreaInsetX.address(), upcallStub_onGetWindowWorkAreaInsetY.address(), upcallStub_onGetWindowWorkAreaInsetZ.address(), upcallStub_onGetWindowWorkAreaInsetW.address(), upcallStub_onCreateVkSurface.address(), upcallStub_onRendererCreateWindow.address(), upcallStub_onRendererDestroyWindow.address(), upcallStub_onRendererSetWindowSize.address(), upcallStub_onRendererRenderWindow.address(), upcallStub_onRendererSwapBuffers.address());
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
@@ -556,54 +600,115 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         onChangedViewport(ImGuiViewport_TEMP_STATIC_GEN_20);
     }
 
+    protected float onGetWindowWorkAreaInsetX(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetX(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetX(ImGuiViewport_TEMP_STATIC_GEN_21);
+    }
+
+    protected float onGetWindowWorkAreaInsetY(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetY(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetY(ImGuiViewport_TEMP_STATIC_GEN_22);
+    }
+
+    protected float onGetWindowWorkAreaInsetZ(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetZ(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetZ(ImGuiViewport_TEMP_STATIC_GEN_23);
+    }
+
+    protected float onGetWindowWorkAreaInsetW(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetW(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetW(ImGuiViewport_TEMP_STATIC_GEN_24);
+    }
+
+    protected int onCreateVkSurface(ImGuiViewport viewport, long vk_instance, NativeObject vk_allocators, NativeObject out_vk_surface) {
+        return 0;
+    }
+
+    private int internal_onCreateVkSurface(long viewport_addr, long vk_instance, long vk_allocators_addr, long out_vk_surface_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_0 == null)
+            NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_0.internal_reset(vk_allocators_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(out_vk_surface_addr, false);
+        return onCreateVkSurface(ImGuiViewport_TEMP_STATIC_GEN_25, vk_instance, NativeObject_TEMP_STATIC_GEN_0, NativeObject_TEMP_STATIC_GEN_1);
+    }
+
     protected void onRendererCreateWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererCreateWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
-        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_21);
+        if (ImGuiViewport_TEMP_STATIC_GEN_26 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_26 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_26.internal_reset(viewport_addr, false);
+        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_26);
     }
 
     protected void onRendererDestroyWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererDestroyWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
-        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_22);
+        if (ImGuiViewport_TEMP_STATIC_GEN_27 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_27 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_27.internal_reset(viewport_addr, false);
+        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_27);
     }
 
     protected void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height) {
     }
 
     private void internal_onRendererSetWindowSize(long viewport_addr, float width, float height) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
-        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_23, width, height);
+        if (ImGuiViewport_TEMP_STATIC_GEN_28 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_28 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_28.internal_reset(viewport_addr, false);
+        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_28, width, height);
     }
 
     protected void onRendererRenderWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererRenderWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
-        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_24);
+        if (ImGuiViewport_TEMP_STATIC_GEN_29 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_29 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_29.internal_reset(viewport_addr, false);
+        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_29);
     }
 
     protected void onRendererSwapBuffers(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererSwapBuffers(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
-        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_25);
+        if (ImGuiViewport_TEMP_STATIC_GEN_30 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_30 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_30.internal_reset(viewport_addr, false);
+        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_30);
     }
 
     public static long internal_native_create_addr() {
@@ -658,6 +763,16 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     private MemorySegment upcallStub_onChangedViewport;
 
+    private MemorySegment upcallStub_onGetWindowWorkAreaInsetX;
+
+    private MemorySegment upcallStub_onGetWindowWorkAreaInsetY;
+
+    private MemorySegment upcallStub_onGetWindowWorkAreaInsetZ;
+
+    private MemorySegment upcallStub_onGetWindowWorkAreaInsetW;
+
+    private MemorySegment upcallStub_onCreateVkSurface;
+
     private MemorySegment upcallStub_onRendererCreateWindow;
 
     private MemorySegment upcallStub_onRendererDestroyWindow;
@@ -691,6 +806,11 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         upcallStub_onSwapBuffers = null;
         upcallStub_onGetWindowDpiScale = null;
         upcallStub_onChangedViewport = null;
+        upcallStub_onGetWindowWorkAreaInsetX = null;
+        upcallStub_onGetWindowWorkAreaInsetY = null;
+        upcallStub_onGetWindowWorkAreaInsetZ = null;
+        upcallStub_onGetWindowWorkAreaInsetW = null;
+        upcallStub_onCreateVkSurface = null;
         upcallStub_onRendererCreateWindow = null;
         upcallStub_onRendererDestroyWindow = null;
         upcallStub_onRendererSetWindowSize = null;
@@ -705,9 +825,9 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         }
     }
 
-    public static void internal_native_setupCallback(long this_addr, long onCreateWindow_fp, long onDestroyWindow_fp, long onShowWindow_fp, long onSetWindowPos_fp, long onGetWindowPosX_fp, long onGetWindowPosY_fp, long onSetWindowSize_fp, long onGetWindowSizeX_fp, long onGetWindowSizeY_fp, long onGetWindowFramebufferScaleX_fp, long onGetWindowFramebufferScaleY_fp, long onSetWindowFocus_fp, long onGetWindowFocus_fp, long onGetWindowMinimized_fp, long onSetWindowTitle_fp, long onSetWindowAlpha_fp, long onUpdateWindow_fp, long onRenderWindow_fp, long onSwapBuffers_fp, long onGetWindowDpiScale_fp, long onChangedViewport_fp, long onRendererCreateWindow_fp, long onRendererDestroyWindow_fp, long onRendererSetWindowSize_fp, long onRendererRenderWindow_fp, long onRendererSwapBuffers_fp) {
+    public static void internal_native_setupCallback(long this_addr, long onCreateWindow_fp, long onDestroyWindow_fp, long onShowWindow_fp, long onSetWindowPos_fp, long onGetWindowPosX_fp, long onGetWindowPosY_fp, long onSetWindowSize_fp, long onGetWindowSizeX_fp, long onGetWindowSizeY_fp, long onGetWindowFramebufferScaleX_fp, long onGetWindowFramebufferScaleY_fp, long onSetWindowFocus_fp, long onGetWindowFocus_fp, long onGetWindowMinimized_fp, long onSetWindowTitle_fp, long onSetWindowAlpha_fp, long onUpdateWindow_fp, long onRenderWindow_fp, long onSwapBuffers_fp, long onGetWindowDpiScale_fp, long onChangedViewport_fp, long onGetWindowWorkAreaInsetX_fp, long onGetWindowWorkAreaInsetY_fp, long onGetWindowWorkAreaInsetZ_fp, long onGetWindowWorkAreaInsetW_fp, long onCreateVkSurface_fp, long onRendererCreateWindow_fp, long onRendererDestroyWindow_fp, long onRendererSetWindowSize_fp, long onRendererRenderWindow_fp, long onRendererSwapBuffers_fp) {
         try {
-            FFMHandles.internal_native_setupCallback__JJJJJJJJJJJJJJJJJJJJJJJJJJJ.invokeExact(this_addr, onCreateWindow_fp, onDestroyWindow_fp, onShowWindow_fp, onSetWindowPos_fp, onGetWindowPosX_fp, onGetWindowPosY_fp, onSetWindowSize_fp, onGetWindowSizeX_fp, onGetWindowSizeY_fp, onGetWindowFramebufferScaleX_fp, onGetWindowFramebufferScaleY_fp, onSetWindowFocus_fp, onGetWindowFocus_fp, onGetWindowMinimized_fp, onSetWindowTitle_fp, onSetWindowAlpha_fp, onUpdateWindow_fp, onRenderWindow_fp, onSwapBuffers_fp, onGetWindowDpiScale_fp, onChangedViewport_fp, onRendererCreateWindow_fp, onRendererDestroyWindow_fp, onRendererSetWindowSize_fp, onRendererRenderWindow_fp, onRendererSwapBuffers_fp);
+            FFMHandles.internal_native_setupCallback__JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ.invokeExact(this_addr, onCreateWindow_fp, onDestroyWindow_fp, onShowWindow_fp, onSetWindowPos_fp, onGetWindowPosX_fp, onGetWindowPosY_fp, onSetWindowSize_fp, onGetWindowSizeX_fp, onGetWindowSizeY_fp, onGetWindowFramebufferScaleX_fp, onGetWindowFramebufferScaleY_fp, onSetWindowFocus_fp, onGetWindowFocus_fp, onGetWindowMinimized_fp, onSetWindowTitle_fp, onSetWindowAlpha_fp, onUpdateWindow_fp, onRenderWindow_fp, onSwapBuffers_fp, onGetWindowDpiScale_fp, onChangedViewport_fp, onGetWindowWorkAreaInsetX_fp, onGetWindowWorkAreaInsetY_fp, onGetWindowWorkAreaInsetZ_fp, onGetWindowWorkAreaInsetW_fp, onCreateVkSurface_fp, onRendererCreateWindow_fp, onRendererDestroyWindow_fp, onRendererSetWindowSize_fp, onRendererRenderWindow_fp, onRendererSwapBuffers_fp);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -729,6 +849,6 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewportplatformcallbacks_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJJJJJJJJJJJJJJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiviewportplatformcallbacks_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiviewportplatformcallbacks_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

@@ -10,6 +10,8 @@ import imgui.*;
 
 final public class JNI_ImDrawList {
 
+    public static native long internal_native_create_ImDrawListSharedData_addr(long shared_data_addr);
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_PushClipRect(long this_addr, long cr_min_addr, long cr_max_addr, boolean intersect_with_current_clip_rect);
@@ -110,6 +112,14 @@ final public class JNI_ImDrawList {
 
     public static native void internal_native_AddBezierQuadratic(long this_addr, long p1_addr, long p2_addr, long p3_addr, int col, float thickness);
 
+    public static native void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness, int flags);
+
+    public static native void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness);
+
+    public static native void internal_native_AddConvexPolyFilled(long this_addr, long points_addr, int num_points, int col);
+
+    public static native void internal_native_AddConcavePolyFilled(long this_addr, long points_addr, int num_points, int col);
+
     public static native void internal_native_AddImage(long this_addr, long tex_ref_addr, long p_min_addr, long p_max_addr, long uv_min_addr, long uv_max_addr, int col);
 
     public static native void internal_native_AddImage(long this_addr, long tex_ref_addr, long p_min_addr, long p_max_addr, long uv_min_addr, long uv_max_addr);
@@ -140,6 +150,30 @@ final public class JNI_ImDrawList {
 
     public static native void internal_native_PathLineToMergeDuplicate(long this_addr, long pos_addr);
 
+    public static native void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max, int num_segments);
+
+    public static native void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max);
+
+    public static native void internal_native_PathArcToFast(long this_addr, long center_addr, float radius, int a_min_of_12, int a_max_of_12);
+
+    public static native void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max, int num_segments);
+
+    public static native void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max);
+
+    public static native void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr, int num_segments);
+
+    public static native void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr);
+
+    public static native void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr, int num_segments);
+
+    public static native void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr);
+
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding, int flags);
+
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding);
+
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr);
+
     public static native void internal_native_PathFillConvex(long this_addr, int col);
 
     public static native void internal_native_PathStroke(long this_addr, int col, float thickness, int flags);
@@ -147,6 +181,20 @@ final public class JNI_ImDrawList {
     public static native void internal_native_PathStroke(long this_addr, int col, float thickness);
 
     public static native void internal_native_PathStroke(long this_addr, int col);
+
+    public static native void internal_native_AddDrawCmd(long this_addr);
+
+    public static native long internal_native_CloneOutput_addr(long this_addr);
+
+    public static native void internal_native_PrimReserve(long this_addr, int idx_count, int vtx_count);
+
+    public static native void internal_native_PrimUnreserve(long this_addr, int idx_count, int vtx_count);
+
+    public static native void internal_native_PrimRect(long this_addr, long a_addr, long b_addr, int col);
+
+    public static native void internal_native_PrimRectUV(long this_addr, long a_addr, long b_addr, long uv_a_addr, long uv_b_addr, int col);
+
+    public static native void internal_native_PrimQuadUV(long this_addr, long a_addr, long b_addr, long c_addr, long d_addr, long uv_a_addr, long uv_b_addr, long uv_c_addr, long uv_d_addr, int col);
 
     public static native void internal_native_ChannelsSplit(long this_addr, int count);
 

@@ -13,6 +13,7 @@ import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeByteArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeDoubleArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import imgui.enums.ImGuiWindowFlags;
 import imgui.enums.ImGuiChildFlags;
 import imgui.enums.ImGuiFocusedFlags;
@@ -1046,12 +1047,24 @@ public final class ImGui extends NativeObject {
     }
 
     public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max) {
-        internal_native_SetNextWindowSizeConstraints(size_min.native_address, size_max.native_address);
+        internal_native_SetNextWindowSizeConstraints__0(size_min.native_address, size_max.native_address);
     }
 
-    public static void internal_native_SetNextWindowSizeConstraints(long size_min_addr, long size_max_addr) {
+    public static void internal_native_SetNextWindowSizeConstraints__0(long size_min_addr, long size_max_addr) {
         try {
-            FFMHandles.internal_native_SetNextWindowSizeConstraints__JJ.invokeExact(size_min_addr, size_max_addr);
+            FFMHandles.internal_native_SetNextWindowSizeConstraints__0__JJ.invokeExact(size_min_addr, size_max_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallbackFunction callback) {
+        internal_native_SetNextWindowSizeConstraints__1(size_min.native_address, size_max.native_address, callback.native_address);
+    }
+
+    public static void internal_native_SetNextWindowSizeConstraints__1(long size_min_addr, long size_max_addr, long callback_addr) {
+        try {
+            FFMHandles.internal_native_SetNextWindowSizeConstraints__1__JJJ.invokeExact(size_min_addr, size_max_addr, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2846,24 +2859,72 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros, int popup_max_height_in_items) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
     }
 
-    public static boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items) {
+    public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items) {
         try {
-            return (boolean) FFMHandles.internal_native_Combo__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros), popup_max_height_in_items);
+            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros), popup_max_height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros);
     }
 
-    public static boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros) {
+    public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros) {
         try {
-            return (boolean) FFMHandles.internal_native_Combo__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros));
+            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items, int popup_max_height_in_items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address, popup_max_height_in_items);
+    }
+
+    public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr, int popup_max_height_in_items) {
+        try {
+            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr, popup_max_height_in_items);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address);
+    }
+
+    public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int popup_max_height_in_items) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count, popup_max_height_in_items);
+    }
+
+    public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count, int popup_max_height_in_items) {
+        try {
+            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count, popup_max_height_in_items);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count) {
+        try {
+            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4286,84 +4347,120 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    public static boolean internal_native_InputText(String label, long buf_addr, int buf_size, int flags) {
+    public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size, int flags) {
         try {
-            return (boolean) FFMHandles.internal_native_InputText__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, flags);
+            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size);
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputText(String label, long buf_addr, int buf_size) {
+    public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size) {
         try {
-            return (boolean) FFMHandles.internal_native_InputText__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputText__1(label, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputText__1(String label, long buf_addr, int buf_size, int flags, long callback_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_InputText__1__Ljava_lang_String_2JIIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr, int flags) {
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr, int flags) {
         try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__Ljava_lang_String_2JIJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr, flags);
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address);
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr) {
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr) {
         try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr);
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size) {
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size) {
         try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextMultiline__1(label, buf.native_void_address, buf_size, size.native_address, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputTextMultiline__1(String label, long buf_addr, int buf_size, long size_addr, int flags, long callback_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__1__Ljava_lang_String_2JIJIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    public static boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size, int flags) {
+    public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size, int flags) {
         try {
-            return (boolean) FFMHandles.internal_native_InputTextWithHint__Ljava_lang_String_2Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size, flags);
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size);
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size) {
+    public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size) {
         try {
-            return (boolean) FFMHandles.internal_native_InputTextWithHint__Ljava_lang_String_2Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size);
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextWithHint__1(label, hint, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputTextWithHint__1(String label, String hint, long buf_addr, int buf_size, int flags, long callback_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__1__Ljava_lang_String_2Ljava_lang_String_2JIIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5425,169 +5522,361 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items, int height_in_items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address, height_in_items);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
+    public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr, int height_in_items) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
+            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr, height_in_items);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address);
+    }
+
+    public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int height_in_items) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count, height_in_items);
+    }
+
+    public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count, int height_in_items) {
+        try {
+            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count, height_in_items);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count) {
+        try {
+            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    }
+
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
+        try {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotLines(label, values.native_void_address, values_count);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count) {
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count) {
         try {
-            FFMHandles.internal_native_PlotLines__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count) {
+        try {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count) {
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count) {
         try {
-            FFMHandles.internal_native_PlotHistogram__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count) {
+        try {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8126,18 +8415,6 @@ public final class ImGui extends NativeObject {
         }
     }
 
-    public static boolean IsAnyMouseDown() {
-        return internal_native_IsAnyMouseDown();
-    }
-
-    public static boolean internal_native_IsAnyMouseDown() {
-        try {
-            return (boolean) FFMHandles.internal_native_IsAnyMouseDown__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     public static ImVec2 GetMousePos() {
         long addr = internal_native_GetMousePos_addr();
         if (addr == 0)
@@ -8456,6 +8733,54 @@ public final class ImGui extends NativeObject {
         }
     }
 
+    public static void DebugLog(String text) {
+        internal_native_DebugLog(text);
+    }
+
+    public static void internal_native_DebugLog(String text) {
+        try {
+            FFMHandles.internal_native_DebugLog__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);
+    }
+
+    public static void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        try {
+            FFMHandles.internal_native_SetAllocatorFunctions__JJJ.invokeExact(alloc_func_address, free_func_address, user_data_address);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address);
+    }
+
+    public static void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        try {
+            FFMHandles.internal_native_SetAllocatorFunctions__JJ.invokeExact(alloc_func_address, free_func_address);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static void GetAllocatorFunctions(NativeLongArray alloc_func_address, NativeLongArray free_func_address, NativeLongArray user_data_address) {
+        internal_native_GetAllocatorFunctions(alloc_func_address.native_void_address, free_func_address.native_void_address, user_data_address.native_void_address);
+    }
+
+    public static void internal_native_GetAllocatorFunctions(long alloc_func_address_addr, long free_func_address_addr, long user_data_address_addr) {
+        try {
+            FFMHandles.internal_native_GetAllocatorFunctions__JJJ.invokeExact(alloc_func_address_addr, free_func_address_addr, user_data_address_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static NativeObject MemAlloc(long size) {
         long addr = internal_native_MemAlloc_addr(size);
         if (addr == 0)
@@ -8716,7 +9041,9 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_SetNextWindowSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextwindowsize_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_SetNextWindowSizeConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextwindowsizeconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetNextWindowSizeConstraints__0__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextwindowsizeconstraints__0", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetNextWindowSizeConstraints__1__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextwindowsizeconstraints__1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetNextWindowContentSize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setnextwindowcontentsize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -9008,9 +9335,17 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_EndCombo__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_endcombo", FunctionDescriptor.ofVoid());
 
-        static final java.lang.invoke.MethodHandle internal_native_Combo__Ljava_lang_String_2JLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo_str_l_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__0_str_l_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_Combo__Ljava_lang_String_2JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo_str_l_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__0_str_l_str", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_Combo__1__Ljava_lang_String_2JJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__1_str_l_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Combo__1__Ljava_lang_String_2JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__1_str_l_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Combo__2__Ljava_lang_String_2JJII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__2_str_l_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Combo__2__Ljava_lang_String_2JJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_combo__2_str_l_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_DragFloat__Ljava_lang_String_2JFFFLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_dragfloat_str_l_f_f_f_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
@@ -9248,19 +9583,25 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_VSliderScalar__Ljava_lang_String_2JIJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_vsliderscalar_str_l_i_l_l_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputText__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtext_str_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputText__0__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtext__0_str_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputText__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtext_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputText__0__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtext__0_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__Ljava_lang_String_2JIJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline_str_l_i_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputText__1__Ljava_lang_String_2JIIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtext__1", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__Ljava_lang_String_2JIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline_str_l_i_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline__0_str_l_i_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline__0_str_l_i_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputTextWithHint__Ljava_lang_String_2Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextwithhint_str_str_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__0__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline__0_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_InputTextWithHint__Ljava_lang_String_2Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextwithhint_str_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_InputTextMultiline__1__Ljava_lang_String_2JIJIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextmultiline__1", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextwithhint__0_str_str_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextwithhint__0_str_str_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_InputTextWithHint__1__Ljava_lang_String_2Ljava_lang_String_2JIIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputtextwithhint__1", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_InputFloat__Ljava_lang_String_2JFFLjava_lang_String_2I = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_inputfloat_str_l_f_f_str_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.ADDRESS, ValueLayout.JAVA_INT));
 
@@ -9434,33 +9775,65 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_EndListBox__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_endlistbox", FunctionDescriptor.ofVoid());
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FFJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i_str_f_f_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_ListBox__0__Ljava_lang_String_2JJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_listbox__0_str_l_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_ListBox__0__Ljava_lang_String_2JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_listbox__0_str_l_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_ListBox__1__Ljava_lang_String_2JJII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_listbox__1_str_l_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_ListBox__1__Ljava_lang_String_2JJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_listbox__1_str_l_l_i", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i_str_f_f_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotLines__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FFJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i_str_f_f_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__0__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__0_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotLines__1__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plotlines__1_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i_str_f_f_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__0__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__0_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i_i_str_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i_i_str_f_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2F = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i_i_str_f", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i_i_str", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_PlotHistogram__1__Ljava_lang_String_2JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_plothistogram__1_str_l_i", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_Value__0__Ljava_lang_String_2Z = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_value__0", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS, ValueLayout.JAVA_BOOLEAN));
 
@@ -9860,8 +10233,6 @@ public final class ImGui extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_IsMousePosValid__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_ismouseposvalid_v", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_IsAnyMouseDown__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_isanymousedown", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN));
-
         static final java.lang.invoke.MethodHandle internal_native_GetMousePos_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getmousepos_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetMousePosOnOpeningCurrentPopup_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_getmouseposonopeningcurrentpopup_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
@@ -9907,6 +10278,14 @@ public final class ImGui extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_DebugStartItemPicker__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_debugstartitempicker", FunctionDescriptor.ofVoid());
 
         static final java.lang.invoke.MethodHandle internal_native_DebugCheckVersionAndDataLayout__Ljava_lang_String_2JJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_debugcheckversionanddatalayout", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.ADDRESS, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DebugLog__Ljava_lang_String_2 = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_debuglog", FunctionDescriptor.ofVoid(ValueLayout.ADDRESS));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAllocatorFunctions__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setallocatorfunctions_l_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetAllocatorFunctions__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_setallocatorfunctions_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetAllocatorFunctions__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imgui_getallocatorfunctions", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_MemAlloc_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imgui_memalloc_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

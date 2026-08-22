@@ -8,6 +8,7 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiDir;
+import imgui.enums.ImGuiTreeNodeFlags;
 import imgui.enums.ImGuiHoveredFlags;
 
 public final class ImGuiStyle extends NativeObject {
@@ -40,9 +41,20 @@ public final class ImGuiStyle extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_13;
 
+    private ImVec2 ImVec2_TEMP_GEN_14;
+
     private ImVec4 ImVec4_TEMP_GEN_0;
 
     static public final ImGuiStyle NULL = ImGuiStyle.native_new();
+
+    public ImGuiStyle() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -72,6 +84,54 @@ public final class ImGuiStyle extends NativeObject {
 
     public static void internal_native_ScaleAllSizes(long this_addr, float scale_factor) {
         imgui.natives.JNI_ImGuiStyle.internal_native_ScaleAllSizes(this_addr, scale_factor);
+    }
+
+    public float get_FontSizeBase() {
+        return internal_native_get_FontSizeBase(native_address);
+    }
+
+    public static float internal_native_get_FontSizeBase(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_FontSizeBase(this_addr);
+    }
+
+    public void set_FontSizeBase(float FontSizeBase) {
+        internal_native_set_FontSizeBase(native_address, FontSizeBase);
+    }
+
+    public static void internal_native_set_FontSizeBase(long this_addr, float FontSizeBase) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_FontSizeBase(this_addr, FontSizeBase);
+    }
+
+    public float get_FontScaleMain() {
+        return internal_native_get_FontScaleMain(native_address);
+    }
+
+    public static float internal_native_get_FontScaleMain(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_FontScaleMain(this_addr);
+    }
+
+    public void set_FontScaleMain(float FontScaleMain) {
+        internal_native_set_FontScaleMain(native_address, FontScaleMain);
+    }
+
+    public static void internal_native_set_FontScaleMain(long this_addr, float FontScaleMain) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_FontScaleMain(this_addr, FontScaleMain);
+    }
+
+    public float get_FontScaleDpi() {
+        return internal_native_get_FontScaleDpi(native_address);
+    }
+
+    public static float internal_native_get_FontScaleDpi(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_FontScaleDpi(this_addr);
+    }
+
+    public void set_FontScaleDpi(float FontScaleDpi) {
+        internal_native_set_FontScaleDpi(native_address, FontScaleDpi);
+    }
+
+    public static void internal_native_set_FontScaleDpi(long this_addr, float FontScaleDpi) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_FontScaleDpi(this_addr, FontScaleDpi);
     }
 
     public float get_Alpha() {
@@ -158,6 +218,22 @@ public final class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_WindowBorderSize(long this_addr, float WindowBorderSize) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_WindowBorderSize(this_addr, WindowBorderSize);
+    }
+
+    public float get_WindowBorderHoverPadding() {
+        return internal_native_get_WindowBorderHoverPadding(native_address);
+    }
+
+    public static float internal_native_get_WindowBorderHoverPadding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_WindowBorderHoverPadding(this_addr);
+    }
+
+    public void set_WindowBorderHoverPadding(float WindowBorderHoverPadding) {
+        internal_native_set_WindowBorderHoverPadding(native_address, WindowBorderHoverPadding);
+    }
+
+    public static void internal_native_set_WindowBorderHoverPadding(long this_addr, float WindowBorderHoverPadding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_WindowBorderHoverPadding(this_addr, WindowBorderHoverPadding);
     }
 
     public ImVec2 get_WindowMinSize() {
@@ -497,6 +573,22 @@ public final class ImGuiStyle extends NativeObject {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_ScrollbarRounding(this_addr, ScrollbarRounding);
     }
 
+    public float get_ScrollbarPadding() {
+        return internal_native_get_ScrollbarPadding(native_address);
+    }
+
+    public static float internal_native_get_ScrollbarPadding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_ScrollbarPadding(this_addr);
+    }
+
+    public void set_ScrollbarPadding(float ScrollbarPadding) {
+        internal_native_set_ScrollbarPadding(native_address, ScrollbarPadding);
+    }
+
+    public static void internal_native_set_ScrollbarPadding(long this_addr, float ScrollbarPadding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_ScrollbarPadding(this_addr, ScrollbarPadding);
+    }
+
     public float get_GrabMinSize() {
         return internal_native_get_GrabMinSize(native_address);
     }
@@ -561,6 +653,22 @@ public final class ImGuiStyle extends NativeObject {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_ImageRounding(this_addr, ImageRounding);
     }
 
+    public float get_ImageBorderSize() {
+        return internal_native_get_ImageBorderSize(native_address);
+    }
+
+    public static float internal_native_get_ImageBorderSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_ImageBorderSize(this_addr);
+    }
+
+    public void set_ImageBorderSize(float ImageBorderSize) {
+        internal_native_set_ImageBorderSize(native_address, ImageBorderSize);
+    }
+
+    public static void internal_native_set_ImageBorderSize(long this_addr, float ImageBorderSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_ImageBorderSize(this_addr, ImageBorderSize);
+    }
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -593,6 +701,70 @@ public final class ImGuiStyle extends NativeObject {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_TabBorderSize(this_addr, TabBorderSize);
     }
 
+    public float get_TabMinWidthBase() {
+        return internal_native_get_TabMinWidthBase(native_address);
+    }
+
+    public static float internal_native_get_TabMinWidthBase(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TabMinWidthBase(this_addr);
+    }
+
+    public void set_TabMinWidthBase(float TabMinWidthBase) {
+        internal_native_set_TabMinWidthBase(native_address, TabMinWidthBase);
+    }
+
+    public static void internal_native_set_TabMinWidthBase(long this_addr, float TabMinWidthBase) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TabMinWidthBase(this_addr, TabMinWidthBase);
+    }
+
+    public float get_TabMinWidthShrink() {
+        return internal_native_get_TabMinWidthShrink(native_address);
+    }
+
+    public static float internal_native_get_TabMinWidthShrink(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TabMinWidthShrink(this_addr);
+    }
+
+    public void set_TabMinWidthShrink(float TabMinWidthShrink) {
+        internal_native_set_TabMinWidthShrink(native_address, TabMinWidthShrink);
+    }
+
+    public static void internal_native_set_TabMinWidthShrink(long this_addr, float TabMinWidthShrink) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TabMinWidthShrink(this_addr, TabMinWidthShrink);
+    }
+
+    public float get_TabCloseButtonMinWidthSelected() {
+        return internal_native_get_TabCloseButtonMinWidthSelected(native_address);
+    }
+
+    public static float internal_native_get_TabCloseButtonMinWidthSelected(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TabCloseButtonMinWidthSelected(this_addr);
+    }
+
+    public void set_TabCloseButtonMinWidthSelected(float TabCloseButtonMinWidthSelected) {
+        internal_native_set_TabCloseButtonMinWidthSelected(native_address, TabCloseButtonMinWidthSelected);
+    }
+
+    public static void internal_native_set_TabCloseButtonMinWidthSelected(long this_addr, float TabCloseButtonMinWidthSelected) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TabCloseButtonMinWidthSelected(this_addr, TabCloseButtonMinWidthSelected);
+    }
+
+    public float get_TabCloseButtonMinWidthUnselected() {
+        return internal_native_get_TabCloseButtonMinWidthUnselected(native_address);
+    }
+
+    public static float internal_native_get_TabCloseButtonMinWidthUnselected(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TabCloseButtonMinWidthUnselected(this_addr);
+    }
+
+    public void set_TabCloseButtonMinWidthUnselected(float TabCloseButtonMinWidthUnselected) {
+        internal_native_set_TabCloseButtonMinWidthUnselected(native_address, TabCloseButtonMinWidthUnselected);
+    }
+
+    public static void internal_native_set_TabCloseButtonMinWidthUnselected(long this_addr, float TabCloseButtonMinWidthUnselected) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TabCloseButtonMinWidthUnselected(this_addr, TabCloseButtonMinWidthUnselected);
+    }
+
     public float get_TabBarBorderSize() {
         return internal_native_get_TabBarBorderSize(native_address);
     }
@@ -607,6 +779,115 @@ public final class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_TabBarBorderSize(this_addr, TabBarBorderSize);
+    }
+
+    public float get_TabBarOverlineSize() {
+        return internal_native_get_TabBarOverlineSize(native_address);
+    }
+
+    public static float internal_native_get_TabBarOverlineSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TabBarOverlineSize(this_addr);
+    }
+
+    public void set_TabBarOverlineSize(float TabBarOverlineSize) {
+        internal_native_set_TabBarOverlineSize(native_address, TabBarOverlineSize);
+    }
+
+    public static void internal_native_set_TabBarOverlineSize(long this_addr, float TabBarOverlineSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TabBarOverlineSize(this_addr, TabBarOverlineSize);
+    }
+
+    public float get_TableAngledHeadersAngle() {
+        return internal_native_get_TableAngledHeadersAngle(native_address);
+    }
+
+    public static float internal_native_get_TableAngledHeadersAngle(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TableAngledHeadersAngle(this_addr);
+    }
+
+    public void set_TableAngledHeadersAngle(float TableAngledHeadersAngle) {
+        internal_native_set_TableAngledHeadersAngle(native_address, TableAngledHeadersAngle);
+    }
+
+    public static void internal_native_set_TableAngledHeadersAngle(long this_addr, float TableAngledHeadersAngle) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TableAngledHeadersAngle(this_addr, TableAngledHeadersAngle);
+    }
+
+    public ImVec2 get_TableAngledHeadersTextAlign() {
+        long addr = internal_native_get_TableAngledHeadersTextAlign_addr(native_address);
+        if (addr == 0)
+            return ImVec2.NULL;
+        if (ImVec2_TEMP_GEN_8 == null)
+            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_8;
+    }
+
+    public static long internal_native_get_TableAngledHeadersTextAlign_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TableAngledHeadersTextAlign_addr(this_addr);
+    }
+
+    public void set_TableAngledHeadersTextAlign(ImVec2 TableAngledHeadersTextAlign) {
+        internal_native_set_TableAngledHeadersTextAlign(native_address, TableAngledHeadersTextAlign.native_address);
+    }
+
+    public static void internal_native_set_TableAngledHeadersTextAlign(long this_addr, long TableAngledHeadersTextAlign_addr) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TableAngledHeadersTextAlign(this_addr, TableAngledHeadersTextAlign_addr);
+    }
+
+    public ImGuiTreeNodeFlags get_TreeLinesFlags() {
+        int value = internal_native_get_TreeLinesFlags(native_address);
+        ImGuiTreeNodeFlags[] values = ImGuiTreeNodeFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiTreeNodeFlags enumVal = values[i];
+            if (enumVal != ImGuiTreeNodeFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiTreeNodeFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_TreeLinesFlags(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TreeLinesFlags(this_addr);
+    }
+
+    public void set_TreeLinesFlags(ImGuiTreeNodeFlags TreeLinesFlags) {
+        internal_native_set_TreeLinesFlags(native_address, TreeLinesFlags.getValue());
+    }
+
+    public static void internal_native_set_TreeLinesFlags(long this_addr, int TreeLinesFlags) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TreeLinesFlags(this_addr, TreeLinesFlags);
+    }
+
+    public float get_TreeLinesSize() {
+        return internal_native_get_TreeLinesSize(native_address);
+    }
+
+    public static float internal_native_get_TreeLinesSize(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TreeLinesSize(this_addr);
+    }
+
+    public void set_TreeLinesSize(float TreeLinesSize) {
+        internal_native_set_TreeLinesSize(native_address, TreeLinesSize);
+    }
+
+    public static void internal_native_set_TreeLinesSize(long this_addr, float TreeLinesSize) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TreeLinesSize(this_addr, TreeLinesSize);
+    }
+
+    public float get_TreeLinesRounding() {
+        return internal_native_get_TreeLinesRounding(native_address);
+    }
+
+    public static float internal_native_get_TreeLinesRounding(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_TreeLinesRounding(this_addr);
+    }
+
+    public void set_TreeLinesRounding(float TreeLinesRounding) {
+        internal_native_set_TreeLinesRounding(native_address, TreeLinesRounding);
+    }
+
+    public static void internal_native_set_TreeLinesRounding(long this_addr, float TreeLinesRounding) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_TreeLinesRounding(this_addr, TreeLinesRounding);
     }
 
     public float get_MenuItemRounding() {
@@ -732,10 +1013,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_ButtonTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_8 == null)
-            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_8;
+        if (ImVec2_TEMP_GEN_9 == null)
+            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_9;
     }
 
     public static long internal_native_get_ButtonTextAlign_addr(long this_addr) {
@@ -754,10 +1035,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SelectableTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_9 == null)
-            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_9;
+        if (ImVec2_TEMP_GEN_10 == null)
+            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_10;
     }
 
     public static long internal_native_get_SelectableTextAlign_addr(long this_addr) {
@@ -824,10 +1105,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SeparatorTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_10 == null)
-            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_10;
+        if (ImVec2_TEMP_GEN_11 == null)
+            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_11;
     }
 
     public static long internal_native_get_SeparatorTextAlign_addr(long this_addr) {
@@ -846,10 +1127,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SeparatorTextPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_11 == null)
-            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_11;
+        if (ImVec2_TEMP_GEN_12 == null)
+            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_12;
     }
 
     public static long internal_native_get_SeparatorTextPadding_addr(long this_addr) {
@@ -868,10 +1149,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_DisplayWindowPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_12 == null)
-            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_12;
+        if (ImVec2_TEMP_GEN_13 == null)
+            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_13;
     }
 
     public static long internal_native_get_DisplayWindowPadding_addr(long this_addr) {
@@ -890,10 +1171,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_DisplaySafeAreaPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_13 == null)
-            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_13;
+        if (ImVec2_TEMP_GEN_14 == null)
+            ImVec2_TEMP_GEN_14 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_14.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_14;
     }
 
     public static long internal_native_get_DisplaySafeAreaPadding_addr(long this_addr) {
@@ -906,6 +1187,22 @@ public final class ImGuiStyle extends NativeObject {
 
     public static void internal_native_set_DisplaySafeAreaPadding(long this_addr, long DisplaySafeAreaPadding_addr) {
         imgui.natives.JNI_ImGuiStyle.internal_native_set_DisplaySafeAreaPadding(this_addr, DisplaySafeAreaPadding_addr);
+    }
+
+    public boolean get_DockingNodeHasCloseButton() {
+        return internal_native_get_DockingNodeHasCloseButton(native_address);
+    }
+
+    public static boolean internal_native_get_DockingNodeHasCloseButton(long this_addr) {
+        return imgui.natives.JNI_ImGuiStyle.internal_native_get_DockingNodeHasCloseButton(this_addr);
+    }
+
+    public void set_DockingNodeHasCloseButton(boolean DockingNodeHasCloseButton) {
+        internal_native_set_DockingNodeHasCloseButton(native_address, DockingNodeHasCloseButton);
+    }
+
+    public static void internal_native_set_DockingNodeHasCloseButton(long this_addr, boolean DockingNodeHasCloseButton) {
+        imgui.natives.JNI_ImGuiStyle.internal_native_set_DockingNodeHasCloseButton(this_addr, DockingNodeHasCloseButton);
     }
 
     public float get_DockingSeparatorSize() {

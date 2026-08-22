@@ -31,12 +31,48 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
+    public ImDrawData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_create_addr")
+    public static native long internal_native_create_addr();
+
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
     }
 
     @org.teavm.interop.Import(name = "imgui_imdrawdata_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
+
+    public void Clear() {
+        internal_native_Clear(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_clear")
+    public static native void internal_native_Clear(long this_addr);
+
+    public void AddDrawList(ImDrawList draw_list) {
+        internal_native_AddDrawList(native_address, draw_list.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_adddrawlist")
+    public static native void internal_native_AddDrawList(long this_addr, long draw_list_addr);
+
+    public void DeIndexAllBuffers() {
+        internal_native_DeIndexAllBuffers(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_deindexallbuffers")
+    public static native void internal_native_DeIndexAllBuffers(long this_addr);
+
+    public void ScaleClipRects(ImVec2 fb_scale) {
+        internal_native_ScaleClipRects(native_address, fb_scale.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawdata_scalecliprects")
+    public static native void internal_native_ScaleClipRects(long this_addr, long fb_scale_addr);
 
     public int get_FrameCount() {
         return internal_native_get_FrameCount(native_address);

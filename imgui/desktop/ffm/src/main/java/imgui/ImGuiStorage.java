@@ -19,6 +19,22 @@ public final class ImGuiStorage extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
+
+    private NativeObject NativeObject_TEMP_GEN_5;
+
+    private NativeObject NativeObject_TEMP_GEN_6;
+
+    private NativeObject NativeObject_TEMP_GEN_7;
+
+    private NativeObject NativeObject_TEMP_GEN_8;
+
     private ImVectorImGuiStoragePair ImVectorImGuiStoragePair_TEMP_GEN_0;
 
     static public final ImGuiStorage NULL = ImGuiStorage.native_new();
@@ -212,6 +228,162 @@ public final class ImGuiStorage extends NativeObject {
         }
     }
 
+    public NativeObject GetIntRef(int key, int default_val) {
+        long addr = internal_native_GetIntRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetIntRef_addr(long this_addr, int key, int default_val) {
+        try {
+            return (long) FFMHandles.internal_native_GetIntRef_addr__JII.invokeExact(this_addr, key, default_val);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetIntRef(int key) {
+        long addr = internal_native_GetIntRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    public static long internal_native_GetIntRef_addr(long this_addr, int key) {
+        try {
+            return (long) FFMHandles.internal_native_GetIntRef_addr__JI.invokeExact(this_addr, key);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetBoolRef(int key, boolean default_val) {
+        long addr = internal_native_GetBoolRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_GetBoolRef_addr(long this_addr, int key, boolean default_val) {
+        try {
+            return (long) FFMHandles.internal_native_GetBoolRef_addr__JIZ.invokeExact(this_addr, key, default_val);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetBoolRef(int key) {
+        long addr = internal_native_GetBoolRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
+    }
+
+    public static long internal_native_GetBoolRef_addr(long this_addr, int key) {
+        try {
+            return (long) FFMHandles.internal_native_GetBoolRef_addr__JI.invokeExact(this_addr, key);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetFloatRef(int key, float default_val) {
+        long addr = internal_native_GetFloatRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_5 == null)
+            NativeObject_TEMP_GEN_5 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_5;
+    }
+
+    public static long internal_native_GetFloatRef_addr(long this_addr, int key, float default_val) {
+        try {
+            return (long) FFMHandles.internal_native_GetFloatRef_addr__JIF.invokeExact(this_addr, key, default_val);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetFloatRef(int key) {
+        long addr = internal_native_GetFloatRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_6 == null)
+            NativeObject_TEMP_GEN_6 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_6;
+    }
+
+    public static long internal_native_GetFloatRef_addr(long this_addr, int key) {
+        try {
+            return (long) FFMHandles.internal_native_GetFloatRef_addr__JI.invokeExact(this_addr, key);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetVoidPtrRef(int key, NativeObject default_val) {
+        long addr = internal_native_GetVoidPtrRef_addr(native_address, key, default_val.native_void_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_7 == null)
+            NativeObject_TEMP_GEN_7 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_7;
+    }
+
+    public static long internal_native_GetVoidPtrRef_addr(long this_addr, int key, long default_val_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetVoidPtrRef_addr__JIJ.invokeExact(this_addr, key, default_val_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject GetVoidPtrRef(int key) {
+        long addr = internal_native_GetVoidPtrRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_8 == null)
+            NativeObject_TEMP_GEN_8 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_8;
+    }
+
+    public static long internal_native_GetVoidPtrRef_addr(long this_addr, int key) {
+        try {
+            return (long) FFMHandles.internal_native_GetVoidPtrRef_addr__JI.invokeExact(this_addr, key);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void BuildSortByKey() {
+        internal_native_BuildSortByKey(native_address);
+    }
+
+    public static void internal_native_BuildSortByKey(long this_addr) {
+        try {
+            FFMHandles.internal_native_BuildSortByKey__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public ImVectorImGuiStoragePair get_Data() {
         long addr = internal_native_get_Data_addr(native_address);
         if (addr == 0)
@@ -259,6 +431,24 @@ public final class ImGuiStorage extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_GetVoidPtr_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getvoidptr_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_SetVoidPtr__JIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguistorage_setvoidptr", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetIntRef_addr__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getintref_addr_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetIntRef_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getintref_addr_l_i", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetBoolRef_addr__JIZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getboolref_addr_l_i_z", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetBoolRef_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getboolref_addr_l_i", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFloatRef_addr__JIF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getfloatref_addr_l_i_f", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFloatRef_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getfloatref_addr_l_i", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetVoidPtrRef_addr__JIJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getvoidptrref_addr_l_i_l", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetVoidPtrRef_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_getvoidptrref_addr_l_i", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_BuildSortByKey__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguistorage_buildsortbykey", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_Data_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguistorage_get_data_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

@@ -7,6 +7,8 @@
 package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import imgui.enums.ImFontAtlasFlags;
+import imgui.enums.ImTextureFormat;
 
 public final class ImFontAtlas extends NativeObject {
 
@@ -28,7 +30,52 @@ public final class ImFontAtlas extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_8;
 
+    private ImFont ImFont_TEMP_GEN_9;
+
+    private ImFont ImFont_TEMP_GEN_10;
+
+    private ImFont ImFont_TEMP_GEN_11;
+
+    private ImFont ImFont_TEMP_GEN_12;
+
+    private ImFont ImFont_TEMP_GEN_13;
+
+    private ImFont ImFont_TEMP_GEN_14;
+
+    private ImFont ImFont_TEMP_GEN_15;
+
+    private ImFont ImFont_TEMP_GEN_16;
+
+    private ImFont ImFont_TEMP_GEN_17;
+
+    private ImFont ImFont_TEMP_GEN_18;
+
+    private ImFont ImFont_TEMP_GEN_19;
+
+    private ImFont ImFont_TEMP_GEN_20;
+
+    private ImFont ImFont_TEMP_GEN_21;
+
+    private ImFont ImFont_TEMP_GEN_22;
+
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
+    private ImTextureRef ImTextureRef_TEMP_GEN_0;
+
+    private ImTextureData ImTextureData_TEMP_GEN_0;
+
     static public final ImFontAtlas NULL = ImFontAtlas.native_new();
+
+    public ImFontAtlas() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -150,8 +197,8 @@ public final class ImFontAtlas extends NativeObject {
         return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontDefaultBitmap_addr(this_addr);
     }
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
-        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        long addr = internal_native_AddFontFromFileTTF_addr(native_address, filename, size_pixels, font_cfg.native_address, glyph_ranges.native_address);
         if (addr == 0)
             return ImFont.NULL;
         if (ImFont_TEMP_GEN_7 == null)
@@ -160,12 +207,12 @@ public final class ImFontAtlas extends NativeObject {
         return ImFont_TEMP_GEN_7;
     }
 
-    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels, long font_cfg_addr) {
-        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryTTF_addr(this_addr, font_data_addr, font_data_size, size_pixels, font_cfg_addr);
+    public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromFileTTF_addr(this_addr, filename, size_pixels, font_cfg_addr, glyph_ranges_addr);
     }
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels) {
-        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels);
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels, ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontFromFileTTF_addr(native_address, filename, size_pixels, font_cfg.native_address);
         if (addr == 0)
             return ImFont.NULL;
         if (ImFont_TEMP_GEN_8 == null)
@@ -174,8 +221,236 @@ public final class ImFontAtlas extends NativeObject {
         return ImFont_TEMP_GEN_8;
     }
 
-    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels) {
+    public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromFileTTF_addr(this_addr, filename, size_pixels, font_cfg_addr);
+    }
+
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels) {
+        long addr = internal_native_AddFontFromFileTTF_addr(native_address, filename, size_pixels);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_9 == null)
+            ImFont_TEMP_GEN_9 = ImFont.native_new();
+        ImFont_TEMP_GEN_9.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_9;
+    }
+
+    public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromFileTTF_addr(this_addr, filename, size_pixels);
+    }
+
+    public ImFont AddFontFromFileTTF(String filename) {
+        long addr = internal_native_AddFontFromFileTTF_addr(native_address, filename);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_10 == null)
+            ImFont_TEMP_GEN_10 = ImFont.native_new();
+        ImFont_TEMP_GEN_10.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_10;
+    }
+
+    public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromFileTTF_addr(this_addr, filename);
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address, glyph_ranges.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_11 == null)
+            ImFont_TEMP_GEN_11 = ImFont.native_new();
+        ImFont_TEMP_GEN_11.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_11;
+    }
+
+    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryTTF_addr(this_addr, font_data_addr, font_data_size, size_pixels, font_cfg_addr, glyph_ranges_addr);
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels, ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_12 == null)
+            ImFont_TEMP_GEN_12 = ImFont.native_new();
+        ImFont_TEMP_GEN_12.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_12;
+    }
+
+    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels, long font_cfg_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryTTF_addr(this_addr, font_data_addr, font_data_size, size_pixels, font_cfg_addr);
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels) {
+        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size, size_pixels);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_13 == null)
+            ImFont_TEMP_GEN_13 = ImFont.native_new();
+        ImFont_TEMP_GEN_13.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_13;
+    }
+
+    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels) {
         return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryTTF_addr(this_addr, font_data_addr, font_data_size, size_pixels);
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size) {
+        long addr = internal_native_AddFontFromMemoryTTF_addr(native_address, font_data.native_void_address, font_data_size);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_14 == null)
+            ImFont_TEMP_GEN_14 = ImFont.native_new();
+        ImFont_TEMP_GEN_14.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_14;
+    }
+
+    public static long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryTTF_addr(this_addr, font_data_addr, font_data_size);
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        long addr = internal_native_AddFontFromMemoryCompressedTTF_addr(native_address, compressed_font_data.native_void_address, compressed_font_data_size, size_pixels, font_cfg.native_address, glyph_ranges.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_15 == null)
+            ImFont_TEMP_GEN_15 = ImFont.native_new();
+        ImFont_TEMP_GEN_15.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_15;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedTTF_addr(this_addr, compressed_font_data_addr, compressed_font_data_size, size_pixels, font_cfg_addr, glyph_ranges_addr);
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels, ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontFromMemoryCompressedTTF_addr(native_address, compressed_font_data.native_void_address, compressed_font_data_size, size_pixels, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_16 == null)
+            ImFont_TEMP_GEN_16 = ImFont.native_new();
+        ImFont_TEMP_GEN_16.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_16;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels, long font_cfg_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedTTF_addr(this_addr, compressed_font_data_addr, compressed_font_data_size, size_pixels, font_cfg_addr);
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels) {
+        long addr = internal_native_AddFontFromMemoryCompressedTTF_addr(native_address, compressed_font_data.native_void_address, compressed_font_data_size, size_pixels);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_17 == null)
+            ImFont_TEMP_GEN_17 = ImFont.native_new();
+        ImFont_TEMP_GEN_17.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_17;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedTTF_addr(this_addr, compressed_font_data_addr, compressed_font_data_size, size_pixels);
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size) {
+        long addr = internal_native_AddFontFromMemoryCompressedTTF_addr(native_address, compressed_font_data.native_void_address, compressed_font_data_size);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_18 == null)
+            ImFont_TEMP_GEN_18 = ImFont.native_new();
+        ImFont_TEMP_GEN_18.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_18;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedTTF_addr(this_addr, compressed_font_data_addr, compressed_font_data_size);
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        long addr = internal_native_AddFontFromMemoryCompressedBase85TTF_addr(native_address, compressed_font_data_base85, size_pixels, font_cfg.native_address, glyph_ranges.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_19 == null)
+            ImFont_TEMP_GEN_19 = ImFont.native_new();
+        ImFont_TEMP_GEN_19.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_19;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedBase85TTF_addr(this_addr, compressed_font_data_base85, size_pixels, font_cfg_addr, glyph_ranges_addr);
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels, ImFontConfig font_cfg) {
+        long addr = internal_native_AddFontFromMemoryCompressedBase85TTF_addr(native_address, compressed_font_data_base85, size_pixels, font_cfg.native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_20 == null)
+            ImFont_TEMP_GEN_20 = ImFont.native_new();
+        ImFont_TEMP_GEN_20.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_20;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedBase85TTF_addr(this_addr, compressed_font_data_base85, size_pixels, font_cfg_addr);
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels) {
+        long addr = internal_native_AddFontFromMemoryCompressedBase85TTF_addr(native_address, compressed_font_data_base85, size_pixels);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_21 == null)
+            ImFont_TEMP_GEN_21 = ImFont.native_new();
+        ImFont_TEMP_GEN_21.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_21;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedBase85TTF_addr(this_addr, compressed_font_data_base85, size_pixels);
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85) {
+        long addr = internal_native_AddFontFromMemoryCompressedBase85TTF_addr(native_address, compressed_font_data_base85);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_22 == null)
+            ImFont_TEMP_GEN_22 = ImFont.native_new();
+        ImFont_TEMP_GEN_22.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_22;
+    }
+
+    public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddFontFromMemoryCompressedBase85TTF_addr(this_addr, compressed_font_data_base85);
+    }
+
+    public void RemoveFont(ImFont font) {
+        internal_native_RemoveFont(native_address, font.native_address);
+    }
+
+    public static void internal_native_RemoveFont(long this_addr, long font_addr) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_RemoveFont(this_addr, font_addr);
+    }
+
+    public void CompactCache() {
+        internal_native_CompactCache(native_address);
+    }
+
+    public static void internal_native_CompactCache(long this_addr) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_CompactCache(this_addr);
+    }
+
+    public void SetFontLoader(ImFontLoader font_loader) {
+        internal_native_SetFontLoader(native_address, font_loader.native_address);
+    }
+
+    public static void internal_native_SetFontLoader(long this_addr, long font_loader_addr) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_SetFontLoader(this_addr, font_loader_addr);
+    }
+
+    public void Clear() {
+        internal_native_Clear(native_address);
+    }
+
+    public static void internal_native_Clear(long this_addr) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_Clear(this_addr);
     }
 
     public void ClearFonts() {
@@ -184,5 +459,227 @@ public final class ImFontAtlas extends NativeObject {
 
     public static void internal_native_ClearFonts(long this_addr) {
         imgui.natives.JNI_ImFontAtlas.internal_native_ClearFonts(this_addr);
+    }
+
+    public ImWcharPointer GetGlyphRangesDefault() {
+        long addr = internal_native_GetGlyphRangesDefault_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_0 == null)
+            ImWcharPointer_TEMP_GEN_0 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_0.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetGlyphRangesDefault_addr(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_GetGlyphRangesDefault_addr(this_addr);
+    }
+
+    public int AddCustomRect(int width, int height, ImFontAtlasRect out_rect) {
+        return internal_native_AddCustomRect(native_address, width, height, out_rect.native_address);
+    }
+
+    public static int internal_native_AddCustomRect(long this_addr, int width, int height, long out_rect_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddCustomRect(this_addr, width, height, out_rect_addr);
+    }
+
+    public int AddCustomRect(int width, int height) {
+        return internal_native_AddCustomRect(native_address, width, height);
+    }
+
+    public static int internal_native_AddCustomRect(long this_addr, int width, int height) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_AddCustomRect(this_addr, width, height);
+    }
+
+    public void RemoveCustomRect(int id) {
+        internal_native_RemoveCustomRect(native_address, id);
+    }
+
+    public static void internal_native_RemoveCustomRect(long this_addr, int id) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_RemoveCustomRect(this_addr, id);
+    }
+
+    public boolean GetCustomRect(int id, ImFontAtlasRect out_rect) {
+        return internal_native_GetCustomRect(native_address, id, out_rect.native_address);
+    }
+
+    public static boolean internal_native_GetCustomRect(long this_addr, int id, long out_rect_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_GetCustomRect(this_addr, id, out_rect_addr);
+    }
+
+    public ImFontAtlasFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImFontAtlasFlags[] values = ImFontAtlasFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImFontAtlasFlags enumVal = values[i];
+            if (enumVal != ImFontAtlasFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImFontAtlasFlags.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_Flags(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_Flags(this_addr);
+    }
+
+    public void set_Flags(ImFontAtlasFlags Flags) {
+        internal_native_set_Flags(native_address, Flags.getValue());
+    }
+
+    public static void internal_native_set_Flags(long this_addr, int Flags) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_Flags(this_addr, Flags);
+    }
+
+    public ImTextureFormat get_TexDesiredFormat() {
+        int value = internal_native_get_TexDesiredFormat(native_address);
+        ImTextureFormat[] values = ImTextureFormat.values();
+        for (int i = 0; i < values.length; i++) {
+            ImTextureFormat enumVal = values[i];
+            if (enumVal != ImTextureFormat.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImTextureFormat.CUSTOM.setValue(value);
+    }
+
+    public static int internal_native_get_TexDesiredFormat(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexDesiredFormat(this_addr);
+    }
+
+    public void set_TexDesiredFormat(ImTextureFormat TexDesiredFormat) {
+        internal_native_set_TexDesiredFormat(native_address, TexDesiredFormat.getValue());
+    }
+
+    public static void internal_native_set_TexDesiredFormat(long this_addr, int TexDesiredFormat) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexDesiredFormat(this_addr, TexDesiredFormat);
+    }
+
+    public int get_TexGlyphPadding() {
+        return internal_native_get_TexGlyphPadding(native_address);
+    }
+
+    public static int internal_native_get_TexGlyphPadding(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexGlyphPadding(this_addr);
+    }
+
+    public void set_TexGlyphPadding(int TexGlyphPadding) {
+        internal_native_set_TexGlyphPadding(native_address, TexGlyphPadding);
+    }
+
+    public static void internal_native_set_TexGlyphPadding(long this_addr, int TexGlyphPadding) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexGlyphPadding(this_addr, TexGlyphPadding);
+    }
+
+    public int get_TexMinWidth() {
+        return internal_native_get_TexMinWidth(native_address);
+    }
+
+    public static int internal_native_get_TexMinWidth(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexMinWidth(this_addr);
+    }
+
+    public void set_TexMinWidth(int TexMinWidth) {
+        internal_native_set_TexMinWidth(native_address, TexMinWidth);
+    }
+
+    public static void internal_native_set_TexMinWidth(long this_addr, int TexMinWidth) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexMinWidth(this_addr, TexMinWidth);
+    }
+
+    public int get_TexMinHeight() {
+        return internal_native_get_TexMinHeight(native_address);
+    }
+
+    public static int internal_native_get_TexMinHeight(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexMinHeight(this_addr);
+    }
+
+    public void set_TexMinHeight(int TexMinHeight) {
+        internal_native_set_TexMinHeight(native_address, TexMinHeight);
+    }
+
+    public static void internal_native_set_TexMinHeight(long this_addr, int TexMinHeight) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexMinHeight(this_addr, TexMinHeight);
+    }
+
+    public int get_TexMaxWidth() {
+        return internal_native_get_TexMaxWidth(native_address);
+    }
+
+    public static int internal_native_get_TexMaxWidth(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexMaxWidth(this_addr);
+    }
+
+    public void set_TexMaxWidth(int TexMaxWidth) {
+        internal_native_set_TexMaxWidth(native_address, TexMaxWidth);
+    }
+
+    public static void internal_native_set_TexMaxWidth(long this_addr, int TexMaxWidth) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexMaxWidth(this_addr, TexMaxWidth);
+    }
+
+    public int get_TexMaxHeight() {
+        return internal_native_get_TexMaxHeight(native_address);
+    }
+
+    public static int internal_native_get_TexMaxHeight(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexMaxHeight(this_addr);
+    }
+
+    public void set_TexMaxHeight(int TexMaxHeight) {
+        internal_native_set_TexMaxHeight(native_address, TexMaxHeight);
+    }
+
+    public static void internal_native_set_TexMaxHeight(long this_addr, int TexMaxHeight) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_TexMaxHeight(this_addr, TexMaxHeight);
+    }
+
+    public NativeObject get_UserData() {
+        long addr = internal_native_get_UserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_UserData_addr(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_UserData_addr(this_addr);
+    }
+
+    public void set_UserData(NativeObject UserData) {
+        internal_native_set_UserData(native_address, UserData.native_void_address);
+    }
+
+    public static void internal_native_set_UserData(long this_addr, long UserData_addr) {
+        imgui.natives.JNI_ImFontAtlas.internal_native_set_UserData(this_addr, UserData_addr);
+    }
+
+    public ImTextureRef get_TexRef() {
+        long addr = internal_native_get_TexRef_addr(native_address);
+        if (addr == 0)
+            return ImTextureRef.NULL;
+        if (ImTextureRef_TEMP_GEN_0 == null)
+            ImTextureRef_TEMP_GEN_0 = ImTextureRef.native_new();
+        ImTextureRef_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureRef_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_TexRef_addr(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexRef_addr(this_addr);
+    }
+
+    public ImTextureData get_TexData() {
+        long addr = internal_native_get_TexData_addr(native_address);
+        if (addr == 0)
+            return ImTextureData.NULL;
+        if (ImTextureData_TEMP_GEN_0 == null)
+            ImTextureData_TEMP_GEN_0 = ImTextureData.native_new();
+        ImTextureData_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureData_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_TexData_addr(long this_addr) {
+        return imgui.natives.JNI_ImFontAtlas.internal_native_get_TexData_addr(this_addr);
     }
 }

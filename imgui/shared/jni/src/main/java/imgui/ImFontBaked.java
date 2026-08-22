@@ -10,7 +10,22 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImFontBaked extends NativeObject {
 
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_0;
+
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_1;
+
+    private ImFont ImFont_TEMP_GEN_0;
+
     static public final ImFontBaked NULL = ImFontBaked.native_new();
+
+    public ImFontBaked() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImFontBaked.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -32,5 +47,127 @@ public final class ImFontBaked extends NativeObject {
 
     public static void internal_native_deleteNative(long this_addr) {
         imgui.natives.JNI_ImFontBaked.internal_native_deleteNative(this_addr);
+    }
+
+    public void ClearOutputData() {
+        internal_native_ClearOutputData(native_address);
+    }
+
+    public static void internal_native_ClearOutputData(long this_addr) {
+        imgui.natives.JNI_ImFontBaked.internal_native_ClearOutputData(this_addr);
+    }
+
+    public ImFontGlyph FindGlyph(short c) {
+        long addr = internal_native_FindGlyph_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_0 == null)
+            ImFontGlyph_TEMP_GEN_0 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_0;
+    }
+
+    public static long internal_native_FindGlyph_addr(long this_addr, short c) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_FindGlyph_addr(this_addr, c);
+    }
+
+    public ImFontGlyph FindGlyphNoFallback(short c) {
+        long addr = internal_native_FindGlyphNoFallback_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_1 == null)
+            ImFontGlyph_TEMP_GEN_1 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_1.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_1;
+    }
+
+    public static long internal_native_FindGlyphNoFallback_addr(long this_addr, short c) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_FindGlyphNoFallback_addr(this_addr, c);
+    }
+
+    public float GetCharAdvance(short c) {
+        return internal_native_GetCharAdvance(native_address, c);
+    }
+
+    public static float internal_native_GetCharAdvance(long this_addr, short c) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_GetCharAdvance(this_addr, c);
+    }
+
+    public boolean IsGlyphLoaded(short c) {
+        return internal_native_IsGlyphLoaded(native_address, c);
+    }
+
+    public static boolean internal_native_IsGlyphLoaded(long this_addr, short c) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_IsGlyphLoaded(this_addr, c);
+    }
+
+    public float get_FallbackAdvanceX() {
+        return internal_native_get_FallbackAdvanceX(native_address);
+    }
+
+    public static float internal_native_get_FallbackAdvanceX(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_FallbackAdvanceX(this_addr);
+    }
+
+    public float get_Size() {
+        return internal_native_get_Size(native_address);
+    }
+
+    public static float internal_native_get_Size(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_Size(this_addr);
+    }
+
+    public float get_RasterizerDensity() {
+        return internal_native_get_RasterizerDensity(native_address);
+    }
+
+    public static float internal_native_get_RasterizerDensity(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_RasterizerDensity(this_addr);
+    }
+
+    public float get_Ascent() {
+        return internal_native_get_Ascent(native_address);
+    }
+
+    public static float internal_native_get_Ascent(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_Ascent(this_addr);
+    }
+
+    public float get_Descent() {
+        return internal_native_get_Descent(native_address);
+    }
+
+    public static float internal_native_get_Descent(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_Descent(this_addr);
+    }
+
+    public int get_LastUsedFrame() {
+        return internal_native_get_LastUsedFrame(native_address);
+    }
+
+    public static int internal_native_get_LastUsedFrame(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_LastUsedFrame(this_addr);
+    }
+
+    public int get_BakedId() {
+        return internal_native_get_BakedId(native_address);
+    }
+
+    public static int internal_native_get_BakedId(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_BakedId(this_addr);
+    }
+
+    public ImFont get_OwnerFont() {
+        long addr = internal_native_get_OwnerFont_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_0 == null)
+            ImFont_TEMP_GEN_0 = ImFont.native_new();
+        ImFont_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_OwnerFont_addr(long this_addr) {
+        return imgui.natives.JNI_ImFontBaked.internal_native_get_OwnerFont_addr(this_addr);
     }
 }

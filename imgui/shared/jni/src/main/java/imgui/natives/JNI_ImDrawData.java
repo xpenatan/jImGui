@@ -10,7 +10,17 @@ import imgui.*;
 
 final public class JNI_ImDrawData {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native void internal_native_Clear(long this_addr);
+
+    public static native void internal_native_AddDrawList(long this_addr, long draw_list_addr);
+
+    public static native void internal_native_DeIndexAllBuffers(long this_addr);
+
+    public static native void internal_native_ScaleClipRects(long this_addr, long fb_scale_addr);
 
     public static native int internal_native_get_FrameCount(long this_addr);
 

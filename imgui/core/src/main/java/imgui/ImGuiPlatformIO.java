@@ -12,6 +12,9 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     static public final ImGuiPlatformIO NULL = ImGuiPlatformIO.native_new();
 
+    public ImGuiPlatformIO() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -32,6 +35,34 @@ public final class ImGuiPlatformIO extends NativeObject {
     public void ClearRendererHandlers() {
     }
 
+    public NativeObject get_Platform_ClipboardUserData() {
+        return null;
+    }
+
+    public void set_Platform_ClipboardUserData(NativeObject Platform_ClipboardUserData) {
+    }
+
+    public NativeObject get_Platform_OpenInShellUserData() {
+        return null;
+    }
+
+    public void set_Platform_OpenInShellUserData(NativeObject Platform_OpenInShellUserData) {
+    }
+
+    public NativeObject get_Platform_ImeUserData() {
+        return null;
+    }
+
+    public void set_Platform_ImeUserData(NativeObject Platform_ImeUserData) {
+    }
+
+    public short get_Platform_LocaleDecimalPoint() {
+        return 0;
+    }
+
+    public void set_Platform_LocaleDecimalPoint(short Platform_LocaleDecimalPoint) {
+    }
+
     public ImVectorImTextureDataPtr get_Textures() {
         return null;
     }
@@ -46,10 +77,38 @@ public final class ImGuiPlatformIO extends NativeObject {
     public void set_Viewports(ImVectorImGuiViewportPtr Viewports) {
     }
 
+    public ImVectorImGuiPlatformMonitor get_Monitors() {
+        return null;
+    }
+
+    public void set_Monitors(ImVectorImGuiPlatformMonitor Monitors) {
+    }
+
     public int get_Platform_SessionDate() {
         return 0;
     }
 
     public void set_Platform_SessionDate(int Platform_SessionDate) {
+    }
+
+    public int get_Renderer_TextureMaxWidth() {
+        return 0;
+    }
+
+    public void set_Renderer_TextureMaxWidth(int Renderer_TextureMaxWidth) {
+    }
+
+    public int get_Renderer_TextureMaxHeight() {
+        return 0;
+    }
+
+    public void set_Renderer_TextureMaxHeight(int Renderer_TextureMaxHeight) {
+    }
+
+    public NativeObject get_Renderer_RenderState() {
+        return null;
+    }
+
+    public void set_Renderer_RenderState(NativeObject Renderer_RenderState) {
     }
 }

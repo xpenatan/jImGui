@@ -10,9 +10,23 @@ import imgui.*;
 
 final public class JNI_ImGuiStyle {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_ScaleAllSizes(long this_addr, float scale_factor);
+
+    public static native float internal_native_get_FontSizeBase(long this_addr);
+
+    public static native void internal_native_set_FontSizeBase(long this_addr, float FontSizeBase);
+
+    public static native float internal_native_get_FontScaleMain(long this_addr);
+
+    public static native void internal_native_set_FontScaleMain(long this_addr, float FontScaleMain);
+
+    public static native float internal_native_get_FontScaleDpi(long this_addr);
+
+    public static native void internal_native_set_FontScaleDpi(long this_addr, float FontScaleDpi);
 
     public static native float internal_native_get_Alpha(long this_addr);
 
@@ -33,6 +47,10 @@ final public class JNI_ImGuiStyle {
     public static native float internal_native_get_WindowBorderSize(long this_addr);
 
     public static native void internal_native_set_WindowBorderSize(long this_addr, float WindowBorderSize);
+
+    public static native float internal_native_get_WindowBorderHoverPadding(long this_addr);
+
+    public static native void internal_native_set_WindowBorderHoverPadding(long this_addr, float WindowBorderHoverPadding);
 
     public static native long internal_native_get_WindowMinSize_addr(long this_addr);
 
@@ -106,6 +124,10 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_ScrollbarRounding(long this_addr, float ScrollbarRounding);
 
+    public static native float internal_native_get_ScrollbarPadding(long this_addr);
+
+    public static native void internal_native_set_ScrollbarPadding(long this_addr, float ScrollbarPadding);
+
     public static native float internal_native_get_GrabMinSize(long this_addr);
 
     public static native void internal_native_set_GrabMinSize(long this_addr, float GrabMinSize);
@@ -122,6 +144,10 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_ImageRounding(long this_addr, float ImageRounding);
 
+    public static native float internal_native_get_ImageBorderSize(long this_addr);
+
+    public static native void internal_native_set_ImageBorderSize(long this_addr, float ImageBorderSize);
+
     public static native float internal_native_get_TabRounding(long this_addr);
 
     public static native void internal_native_set_TabRounding(long this_addr, float TabRounding);
@@ -130,9 +156,49 @@ final public class JNI_ImGuiStyle {
 
     public static native void internal_native_set_TabBorderSize(long this_addr, float TabBorderSize);
 
+    public static native float internal_native_get_TabMinWidthBase(long this_addr);
+
+    public static native void internal_native_set_TabMinWidthBase(long this_addr, float TabMinWidthBase);
+
+    public static native float internal_native_get_TabMinWidthShrink(long this_addr);
+
+    public static native void internal_native_set_TabMinWidthShrink(long this_addr, float TabMinWidthShrink);
+
+    public static native float internal_native_get_TabCloseButtonMinWidthSelected(long this_addr);
+
+    public static native void internal_native_set_TabCloseButtonMinWidthSelected(long this_addr, float TabCloseButtonMinWidthSelected);
+
+    public static native float internal_native_get_TabCloseButtonMinWidthUnselected(long this_addr);
+
+    public static native void internal_native_set_TabCloseButtonMinWidthUnselected(long this_addr, float TabCloseButtonMinWidthUnselected);
+
     public static native float internal_native_get_TabBarBorderSize(long this_addr);
 
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
+
+    public static native float internal_native_get_TabBarOverlineSize(long this_addr);
+
+    public static native void internal_native_set_TabBarOverlineSize(long this_addr, float TabBarOverlineSize);
+
+    public static native float internal_native_get_TableAngledHeadersAngle(long this_addr);
+
+    public static native void internal_native_set_TableAngledHeadersAngle(long this_addr, float TableAngledHeadersAngle);
+
+    public static native long internal_native_get_TableAngledHeadersTextAlign_addr(long this_addr);
+
+    public static native void internal_native_set_TableAngledHeadersTextAlign(long this_addr, long TableAngledHeadersTextAlign_addr);
+
+    public static native int internal_native_get_TreeLinesFlags(long this_addr);
+
+    public static native void internal_native_set_TreeLinesFlags(long this_addr, int TreeLinesFlags);
+
+    public static native float internal_native_get_TreeLinesSize(long this_addr);
+
+    public static native void internal_native_set_TreeLinesSize(long this_addr, float TreeLinesSize);
+
+    public static native float internal_native_get_TreeLinesRounding(long this_addr);
+
+    public static native void internal_native_set_TreeLinesRounding(long this_addr, float TreeLinesRounding);
 
     public static native float internal_native_get_MenuItemRounding(long this_addr);
 
@@ -197,6 +263,10 @@ final public class JNI_ImGuiStyle {
     public static native long internal_native_get_DisplaySafeAreaPadding_addr(long this_addr);
 
     public static native void internal_native_set_DisplaySafeAreaPadding(long this_addr, long DisplaySafeAreaPadding_addr);
+
+    public static native boolean internal_native_get_DockingNodeHasCloseButton(long this_addr);
+
+    public static native void internal_native_set_DockingNodeHasCloseButton(long this_addr, boolean DockingNodeHasCloseButton);
 
     public static native float internal_native_get_DockingSeparatorSize(long this_addr);
 

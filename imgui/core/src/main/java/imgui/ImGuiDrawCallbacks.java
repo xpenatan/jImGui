@@ -41,6 +41,10 @@ public final class ImGuiDrawCallbacks extends NativeObject {
         return false;
     }
 
+    public static boolean AddCallback(ImDrawList draw_list, ImDrawCallbackFunction callback) {
+        return false;
+    }
+
     public static void InvokeUserCallback(ImDrawList parent_list, ImDrawCmd draw_cmd) {
     }
 }

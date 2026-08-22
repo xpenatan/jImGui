@@ -16,6 +16,8 @@ public final class ImDrawList extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_1;
 
+    private ImDrawList ImDrawList_TEMP_GEN_0;
+
     private ImVectorImDrawCmd ImVectorImDrawCmd_TEMP_GEN_0;
 
     private ImVectorImDrawIdx ImVectorImDrawIdx_TEMP_GEN_0;
@@ -23,6 +25,14 @@ public final class ImDrawList extends NativeObject {
     private ImVectorImDrawVert ImVectorImDrawVert_TEMP_GEN_0;
 
     static public final ImDrawList NULL = ImDrawList.native_new();
+
+    public ImDrawList(ImDrawListSharedData shared_data) {
+        long addr = internal_native_create_ImDrawListSharedData_addr(shared_data.native_address);
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_create_imdrawlistshareddata_addr")
+    public static native long internal_native_create_ImDrawListSharedData_addr(long shared_data_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -400,6 +410,34 @@ public final class ImDrawList extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawlist_addbezierquadratic_l_l_l_l_i_f")
     public static native void internal_native_AddBezierQuadratic(long this_addr, long p1_addr, long p2_addr, long p3_addr, int col, float thickness);
 
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness, ImDrawFlags flags) {
+        internal_native_AddPolyline(native_address, points.native_address, num_points, col, thickness, flags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addpolyline_l_l_i_i_f_i")
+    public static native void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness, int flags);
+
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness) {
+        internal_native_AddPolyline(native_address, points.native_address, num_points, col, thickness);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addpolyline_l_l_i_i_f")
+    public static native void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness);
+
+    public void AddConvexPolyFilled(ImVec2 points, int num_points, int col) {
+        internal_native_AddConvexPolyFilled(native_address, points.native_address, num_points, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addconvexpolyfilled")
+    public static native void internal_native_AddConvexPolyFilled(long this_addr, long points_addr, int num_points, int col);
+
+    public void AddConcavePolyFilled(ImVec2 points, int num_points, int col) {
+        internal_native_AddConcavePolyFilled(native_address, points.native_address, num_points, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_addconcavepolyfilled")
+    public static native void internal_native_AddConcavePolyFilled(long this_addr, long points_addr, int num_points, int col);
+
     public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, int col) {
         internal_native_AddImage(native_address, tex_ref.native_address, p_min.native_address, p_max.native_address, uv_min.native_address, uv_max.native_address, col);
     }
@@ -505,6 +543,90 @@ public final class ImDrawList extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawlist_pathlinetomergeduplicate")
     public static native void internal_native_PathLineToMergeDuplicate(long this_addr, long pos_addr);
 
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max, int num_segments) {
+        internal_native_PathArcTo(native_address, center.native_address, radius, a_min, a_max, num_segments);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_patharcto_l_l_f_f_f_i")
+    public static native void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max, int num_segments);
+
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max) {
+        internal_native_PathArcTo(native_address, center.native_address, radius, a_min, a_max);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_patharcto_l_l_f_f_f")
+    public static native void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max);
+
+    public void PathArcToFast(ImVec2 center, float radius, int a_min_of_12, int a_max_of_12) {
+        internal_native_PathArcToFast(native_address, center.native_address, radius, a_min_of_12, a_max_of_12);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_patharctofast")
+    public static native void internal_native_PathArcToFast(long this_addr, long center_addr, float radius, int a_min_of_12, int a_max_of_12);
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max, int num_segments) {
+        internal_native_PathEllipticalArcTo(native_address, center.native_address, radius.native_address, rot, a_min, a_max, num_segments);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathellipticalarcto_l_l_l_f_f_f_i")
+    public static native void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max, int num_segments);
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max) {
+        internal_native_PathEllipticalArcTo(native_address, center.native_address, radius.native_address, rot, a_min, a_max);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathellipticalarcto_l_l_l_f_f_f")
+    public static native void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max);
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments) {
+        internal_native_PathBezierCubicCurveTo(native_address, p2.native_address, p3.native_address, p4.native_address, num_segments);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathbeziercubiccurveto_l_l_l_l_i")
+    public static native void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr, int num_segments);
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4) {
+        internal_native_PathBezierCubicCurveTo(native_address, p2.native_address, p3.native_address, p4.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathbeziercubiccurveto_l_l_l_l")
+    public static native void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr);
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments) {
+        internal_native_PathBezierQuadraticCurveTo(native_address, p2.native_address, p3.native_address, num_segments);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathbezierquadraticcurveto_l_l_l_i")
+    public static native void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr, int num_segments);
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3) {
+        internal_native_PathBezierQuadraticCurveTo(native_address, p2.native_address, p3.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathbezierquadraticcurveto_l_l_l")
+    public static native void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr);
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address, rounding, flags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathrect_l_l_l_f_i")
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding, int flags);
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address, rounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathrect_l_l_l_f")
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding);
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_pathrect_l_l_l")
+    public static native void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr);
+
     public void PathFillConvex(int col) {
         internal_native_PathFillConvex(native_address, col);
     }
@@ -532,6 +654,61 @@ public final class ImDrawList extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imdrawlist_pathstroke_l_i")
     public static native void internal_native_PathStroke(long this_addr, int col);
+
+    public void AddDrawCmd() {
+        internal_native_AddDrawCmd(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_adddrawcmd")
+    public static native void internal_native_AddDrawCmd(long this_addr);
+
+    public ImDrawList CloneOutput() {
+        long addr = internal_native_CloneOutput_addr(native_address);
+        if (addr == 0)
+            return ImDrawList.NULL;
+        if (ImDrawList_TEMP_GEN_0 == null)
+            ImDrawList_TEMP_GEN_0 = ImDrawList.native_new();
+        ImDrawList_TEMP_GEN_0.internal_reset(addr, false);
+        return ImDrawList_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_cloneoutput_addr")
+    public static native long internal_native_CloneOutput_addr(long this_addr);
+
+    public void PrimReserve(int idx_count, int vtx_count) {
+        internal_native_PrimReserve(native_address, idx_count, vtx_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_primreserve")
+    public static native void internal_native_PrimReserve(long this_addr, int idx_count, int vtx_count);
+
+    public void PrimUnreserve(int idx_count, int vtx_count) {
+        internal_native_PrimUnreserve(native_address, idx_count, vtx_count);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_primunreserve")
+    public static native void internal_native_PrimUnreserve(long this_addr, int idx_count, int vtx_count);
+
+    public void PrimRect(ImVec2 a, ImVec2 b, int col) {
+        internal_native_PrimRect(native_address, a.native_address, b.native_address, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_primrect")
+    public static native void internal_native_PrimRect(long this_addr, long a_addr, long b_addr, int col);
+
+    public void PrimRectUV(ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, int col) {
+        internal_native_PrimRectUV(native_address, a.native_address, b.native_address, uv_a.native_address, uv_b.native_address, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_primrectuv")
+    public static native void internal_native_PrimRectUV(long this_addr, long a_addr, long b_addr, long uv_a_addr, long uv_b_addr, int col);
+
+    public void PrimQuadUV(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, int col) {
+        internal_native_PrimQuadUV(native_address, a.native_address, b.native_address, c.native_address, d.native_address, uv_a.native_address, uv_b.native_address, uv_c.native_address, uv_d.native_address, col);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawlist_primquaduv")
+    public static native void internal_native_PrimQuadUV(long this_addr, long a_addr, long b_addr, long c_addr, long d_addr, long uv_a_addr, long uv_b_addr, long uv_c_addr, long uv_d_addr, int col);
 
     public void ChannelsSplit(int count) {
         internal_native_ChannelsSplit(native_address, count);

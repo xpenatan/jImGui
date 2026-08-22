@@ -12,6 +12,10 @@ public final class ImFontConfig extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_0;
+
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_1;
+
     private ImVec2 ImVec2_TEMP_GEN_0;
 
     static public final ImFontConfig NULL = ImFontConfig.native_new();
@@ -190,6 +194,46 @@ public final class ImFontConfig extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "SizePixels"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_SizePixels(SizePixels);")
     public static native void internal_native_set_SizePixels(int this_addr, float SizePixels);
+
+    public ImWcharPointer get_GlyphRanges() {
+        int addr = internal_native_get_GlyphRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_0 == null)
+            ImWcharPointer_TEMP_GEN_0 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_0.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);var returnedJSObj = jsObj.get_GlyphRanges();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_GlyphRanges_addr(int this_addr);
+
+    public void set_GlyphRanges(ImWcharPointer GlyphRanges) {
+        internal_native_set_GlyphRanges(native_address, GlyphRanges.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "GlyphRanges_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_GlyphRanges(GlyphRanges_addr);")
+    public static native void internal_native_set_GlyphRanges(int this_addr, int GlyphRanges_addr);
+
+    public ImWcharPointer get_GlyphExcludeRanges() {
+        int addr = internal_native_get_GlyphExcludeRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_1 == null)
+            ImWcharPointer_TEMP_GEN_1 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_1.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);var returnedJSObj = jsObj.get_GlyphExcludeRanges();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_GlyphExcludeRanges_addr(int this_addr);
+
+    public void set_GlyphExcludeRanges(ImWcharPointer GlyphExcludeRanges) {
+        internal_native_set_GlyphExcludeRanges(native_address, GlyphExcludeRanges.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "GlyphExcludeRanges_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFontConfig);jsObj.set_GlyphExcludeRanges(GlyphExcludeRanges_addr);")
+    public static native void internal_native_set_GlyphExcludeRanges(int this_addr, int GlyphExcludeRanges_addr);
 
     public ImVec2 get_GlyphOffset() {
         int addr = internal_native_get_GlyphOffset_addr(native_address);

@@ -14,6 +14,9 @@ public final class ImGuiViewport extends NativeObject {
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
 
+    public ImGuiViewport() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -26,6 +29,14 @@ public final class ImGuiViewport extends NativeObject {
      */
     public static ImGuiViewport native_new() {
         return new ImGuiViewport((byte) 0, (char) 0);
+    }
+
+    public ImVec2 GetCenter() {
+        return null;
+    }
+
+    public ImVec2 GetWorkCenter() {
+        return null;
     }
 
     public NativeString GetDebugName() {
@@ -93,6 +104,10 @@ public final class ImGuiViewport extends NativeObject {
     }
 
     public void set_ParentViewportId(int ParentViewportId) {
+    }
+
+    public ImGuiViewport get_ParentViewport() {
+        return null;
     }
 
     public ImDrawData get_DrawData() {

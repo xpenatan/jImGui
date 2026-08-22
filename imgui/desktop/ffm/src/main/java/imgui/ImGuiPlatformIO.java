@@ -17,11 +17,34 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImGuiPlatformIO extends NativeObject {
 
+    private NativeObject NativeObject_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
     private ImVectorImTextureDataPtr ImVectorImTextureDataPtr_TEMP_GEN_0;
 
     private ImVectorImGuiViewportPtr ImVectorImGuiViewportPtr_TEMP_GEN_0;
 
+    private ImVectorImGuiPlatformMonitor ImVectorImGuiPlatformMonitor_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     static public final ImGuiPlatformIO NULL = ImGuiPlatformIO.native_new();
+
+    public ImGuiPlatformIO() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -68,6 +91,120 @@ public final class ImGuiPlatformIO extends NativeObject {
     public static void internal_native_ClearRendererHandlers(long this_addr) {
         try {
             FFMHandles.internal_native_ClearRendererHandlers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_Platform_ClipboardUserData() {
+        long addr = internal_native_get_Platform_ClipboardUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Platform_ClipboardUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Platform_ClipboardUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Platform_ClipboardUserData(NativeObject Platform_ClipboardUserData) {
+        internal_native_set_Platform_ClipboardUserData(native_address, Platform_ClipboardUserData.native_void_address);
+    }
+
+    public static void internal_native_set_Platform_ClipboardUserData(long this_addr, long Platform_ClipboardUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_Platform_ClipboardUserData__JJ.invokeExact(this_addr, Platform_ClipboardUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_Platform_OpenInShellUserData() {
+        long addr = internal_native_get_Platform_OpenInShellUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_Platform_OpenInShellUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Platform_OpenInShellUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Platform_OpenInShellUserData(NativeObject Platform_OpenInShellUserData) {
+        internal_native_set_Platform_OpenInShellUserData(native_address, Platform_OpenInShellUserData.native_void_address);
+    }
+
+    public static void internal_native_set_Platform_OpenInShellUserData(long this_addr, long Platform_OpenInShellUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_Platform_OpenInShellUserData__JJ.invokeExact(this_addr, Platform_OpenInShellUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_Platform_ImeUserData() {
+        long addr = internal_native_get_Platform_ImeUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    public static long internal_native_get_Platform_ImeUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Platform_ImeUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Platform_ImeUserData(NativeObject Platform_ImeUserData) {
+        internal_native_set_Platform_ImeUserData(native_address, Platform_ImeUserData.native_void_address);
+    }
+
+    public static void internal_native_set_Platform_ImeUserData(long this_addr, long Platform_ImeUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_Platform_ImeUserData__JJ.invokeExact(this_addr, Platform_ImeUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public short get_Platform_LocaleDecimalPoint() {
+        return internal_native_get_Platform_LocaleDecimalPoint(native_address);
+    }
+
+    public static short internal_native_get_Platform_LocaleDecimalPoint(long this_addr) {
+        try {
+            return (short) FFMHandles.internal_native_get_Platform_LocaleDecimalPoint__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Platform_LocaleDecimalPoint(short Platform_LocaleDecimalPoint) {
+        internal_native_set_Platform_LocaleDecimalPoint(native_address, Platform_LocaleDecimalPoint);
+    }
+
+    public static void internal_native_set_Platform_LocaleDecimalPoint(long this_addr, short Platform_LocaleDecimalPoint) {
+        try {
+            FFMHandles.internal_native_set_Platform_LocaleDecimalPoint__JS.invokeExact(this_addr, Platform_LocaleDecimalPoint);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -133,6 +270,36 @@ public final class ImGuiPlatformIO extends NativeObject {
         }
     }
 
+    public ImVectorImGuiPlatformMonitor get_Monitors() {
+        long addr = internal_native_get_Monitors_addr(native_address);
+        if (addr == 0)
+            return ImVectorImGuiPlatformMonitor.NULL;
+        if (ImVectorImGuiPlatformMonitor_TEMP_GEN_0 == null)
+            ImVectorImGuiPlatformMonitor_TEMP_GEN_0 = ImVectorImGuiPlatformMonitor.native_new();
+        ImVectorImGuiPlatformMonitor_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVectorImGuiPlatformMonitor_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Monitors_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Monitors_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Monitors(ImVectorImGuiPlatformMonitor Monitors) {
+        internal_native_set_Monitors(native_address, Monitors.native_address);
+    }
+
+    public static void internal_native_set_Monitors(long this_addr, long Monitors_addr) {
+        try {
+            FFMHandles.internal_native_set_Monitors__JJ.invokeExact(this_addr, Monitors_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public int get_Platform_SessionDate() {
         return internal_native_get_Platform_SessionDate(native_address);
     }
@@ -157,13 +324,109 @@ public final class ImGuiPlatformIO extends NativeObject {
         }
     }
 
+    public int get_Renderer_TextureMaxWidth() {
+        return internal_native_get_Renderer_TextureMaxWidth(native_address);
+    }
+
+    public static int internal_native_get_Renderer_TextureMaxWidth(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_Renderer_TextureMaxWidth__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Renderer_TextureMaxWidth(int Renderer_TextureMaxWidth) {
+        internal_native_set_Renderer_TextureMaxWidth(native_address, Renderer_TextureMaxWidth);
+    }
+
+    public static void internal_native_set_Renderer_TextureMaxWidth(long this_addr, int Renderer_TextureMaxWidth) {
+        try {
+            FFMHandles.internal_native_set_Renderer_TextureMaxWidth__JI.invokeExact(this_addr, Renderer_TextureMaxWidth);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_Renderer_TextureMaxHeight() {
+        return internal_native_get_Renderer_TextureMaxHeight(native_address);
+    }
+
+    public static int internal_native_get_Renderer_TextureMaxHeight(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_Renderer_TextureMaxHeight__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Renderer_TextureMaxHeight(int Renderer_TextureMaxHeight) {
+        internal_native_set_Renderer_TextureMaxHeight(native_address, Renderer_TextureMaxHeight);
+    }
+
+    public static void internal_native_set_Renderer_TextureMaxHeight(long this_addr, int Renderer_TextureMaxHeight) {
+        try {
+            FFMHandles.internal_native_set_Renderer_TextureMaxHeight__JI.invokeExact(this_addr, Renderer_TextureMaxHeight);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_Renderer_RenderState() {
+        long addr = internal_native_get_Renderer_RenderState_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_get_Renderer_RenderState_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Renderer_RenderState_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_Renderer_RenderState(NativeObject Renderer_RenderState) {
+        internal_native_set_Renderer_RenderState(native_address, Renderer_RenderState.native_void_address);
+    }
+
+    public static void internal_native_set_Renderer_RenderState(long this_addr, long Renderer_RenderState_addr) {
+        try {
+            FFMHandles.internal_native_set_Renderer_RenderState__JJ.invokeExact(this_addr, Renderer_RenderState_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_ClearPlatformHandlers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_clearplatformhandlers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_ClearRendererHandlers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiplatformio_clearrendererhandlers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Platform_ClipboardUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_clipboarduserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Platform_ClipboardUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_clipboarduserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Platform_OpenInShellUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_openinshelluserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Platform_OpenInShellUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_openinshelluserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Platform_ImeUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_imeuserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Platform_ImeUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_imeuserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Platform_LocaleDecimalPoint__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_localedecimalpoint", FunctionDescriptor.of(ValueLayout.JAVA_SHORT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Platform_LocaleDecimalPoint__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_localedecimalpoint", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
 
         static final java.lang.invoke.MethodHandle internal_native_get_Textures_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_textures_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
@@ -173,8 +436,24 @@ public final class ImGuiPlatformIO extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_set_Viewports__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_viewports", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_get_Monitors_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_monitors_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Monitors__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_monitors", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_get_Platform_SessionDate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_platform_sessiondate", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_Platform_SessionDate__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_platform_sessiondate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Renderer_TextureMaxWidth__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_renderer_texturemaxwidth", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Renderer_TextureMaxWidth__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_renderer_texturemaxwidth", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Renderer_TextureMaxHeight__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_renderer_texturemaxheight", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Renderer_TextureMaxHeight__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_renderer_texturemaxheight", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Renderer_RenderState_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_get_renderer_renderstate_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_Renderer_RenderState__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiplatformio_set_renderer_renderstate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

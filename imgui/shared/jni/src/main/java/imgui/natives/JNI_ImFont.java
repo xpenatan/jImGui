@@ -10,5 +10,35 @@ import imgui.*;
 
 final public class JNI_ImFont {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native boolean internal_native_IsGlyphInFont(long this_addr, short c);
+
+    public static native boolean internal_native_IsLoaded(long this_addr);
+
+    public static native long internal_native_GetDebugName_addr(long this_addr);
+
+    public static native long internal_native_GetFontBaked_addr(long this_addr, float font_size, float density);
+
+    public static native long internal_native_GetFontBaked_addr(long this_addr, float font_size);
+
+    public static native long internal_native_get_OwnerAtlas_addr(long this_addr);
+
+    public static native int internal_native_get_Flags(long this_addr);
+
+    public static native float internal_native_get_CurrentRasterizerDensity(long this_addr);
+
+    public static native int internal_native_get_FontId(long this_addr);
+
+    public static native float internal_native_get_LegacySize(long this_addr);
+
+    public static native short internal_native_get_EllipsisChar(long this_addr);
+
+    public static native void internal_native_set_EllipsisChar(long this_addr, short EllipsisChar);
+
+    public static native short internal_native_get_FallbackChar(long this_addr);
+
+    public static native void internal_native_set_FallbackChar(long this_addr, short FallbackChar);
 }

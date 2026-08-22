@@ -12,6 +12,9 @@ public final class ImFontBaked extends NativeObject {
 
     static public final ImFontBaked NULL = ImFontBaked.native_new();
 
+    public ImFontBaked() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -24,5 +27,56 @@ public final class ImFontBaked extends NativeObject {
      */
     public static ImFontBaked native_new() {
         return new ImFontBaked((byte) 0, (char) 0);
+    }
+
+    public void ClearOutputData() {
+    }
+
+    public ImFontGlyph FindGlyph(short c) {
+        return null;
+    }
+
+    public ImFontGlyph FindGlyphNoFallback(short c) {
+        return null;
+    }
+
+    public float GetCharAdvance(short c) {
+        return 0;
+    }
+
+    public boolean IsGlyphLoaded(short c) {
+        return false;
+    }
+
+    public float get_FallbackAdvanceX() {
+        return 0;
+    }
+
+    public float get_Size() {
+        return 0;
+    }
+
+    public float get_RasterizerDensity() {
+        return 0;
+    }
+
+    public float get_Ascent() {
+        return 0;
+    }
+
+    public float get_Descent() {
+        return 0;
+    }
+
+    public int get_LastUsedFrame() {
+        return 0;
+    }
+
+    public int get_BakedId() {
+        return 0;
+    }
+
+    public ImFont get_OwnerFont() {
+        return null;
     }
 }

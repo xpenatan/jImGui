@@ -32,6 +32,15 @@ public final class ImTextureData extends NativeObject {
 
     static public final ImTextureData NULL = ImTextureData.native_new();
 
+    public ImTextureData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImTextureData.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

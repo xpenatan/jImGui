@@ -32,9 +32,28 @@ public final class ImGuiIO extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImVec2 ImVec2_TEMP_GEN_2;
 
     static public final ImGuiIO NULL = ImGuiIO.native_new();
+
+    public ImGuiIO() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -1349,6 +1368,360 @@ public final class ImGuiIO extends NativeObject {
         }
     }
 
+    public boolean get_ConfigDebugIniSettings() {
+        return internal_native_get_ConfigDebugIniSettings(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIniSettings(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugIniSettings__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugIniSettings(boolean ConfigDebugIniSettings) {
+        internal_native_set_ConfigDebugIniSettings(native_address, ConfigDebugIniSettings);
+    }
+
+    public static void internal_native_set_ConfigDebugIniSettings(long this_addr, boolean ConfigDebugIniSettings) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugIniSettings__JZ.invokeExact(this_addr, ConfigDebugIniSettings);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigErrorRecovery() {
+        return internal_native_get_ConfigErrorRecovery(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecovery(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigErrorRecovery__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigErrorRecovery(boolean ConfigErrorRecovery) {
+        internal_native_set_ConfigErrorRecovery(native_address, ConfigErrorRecovery);
+    }
+
+    public static void internal_native_set_ConfigErrorRecovery(long this_addr, boolean ConfigErrorRecovery) {
+        try {
+            FFMHandles.internal_native_set_ConfigErrorRecovery__JZ.invokeExact(this_addr, ConfigErrorRecovery);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableAssert() {
+        return internal_native_get_ConfigErrorRecoveryEnableAssert(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableAssert(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigErrorRecoveryEnableAssert__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigErrorRecoveryEnableAssert(boolean ConfigErrorRecoveryEnableAssert) {
+        internal_native_set_ConfigErrorRecoveryEnableAssert(native_address, ConfigErrorRecoveryEnableAssert);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableAssert(long this_addr, boolean ConfigErrorRecoveryEnableAssert) {
+        try {
+            FFMHandles.internal_native_set_ConfigErrorRecoveryEnableAssert__JZ.invokeExact(this_addr, ConfigErrorRecoveryEnableAssert);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableDebugLog() {
+        return internal_native_get_ConfigErrorRecoveryEnableDebugLog(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableDebugLog(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigErrorRecoveryEnableDebugLog__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigErrorRecoveryEnableDebugLog(boolean ConfigErrorRecoveryEnableDebugLog) {
+        internal_native_set_ConfigErrorRecoveryEnableDebugLog(native_address, ConfigErrorRecoveryEnableDebugLog);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableDebugLog(long this_addr, boolean ConfigErrorRecoveryEnableDebugLog) {
+        try {
+            FFMHandles.internal_native_set_ConfigErrorRecoveryEnableDebugLog__JZ.invokeExact(this_addr, ConfigErrorRecoveryEnableDebugLog);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableTooltip() {
+        return internal_native_get_ConfigErrorRecoveryEnableTooltip(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigErrorRecoveryEnableTooltip(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigErrorRecoveryEnableTooltip__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigErrorRecoveryEnableTooltip(boolean ConfigErrorRecoveryEnableTooltip) {
+        internal_native_set_ConfigErrorRecoveryEnableTooltip(native_address, ConfigErrorRecoveryEnableTooltip);
+    }
+
+    public static void internal_native_set_ConfigErrorRecoveryEnableTooltip(long this_addr, boolean ConfigErrorRecoveryEnableTooltip) {
+        try {
+            FFMHandles.internal_native_set_ConfigErrorRecoveryEnableTooltip__JZ.invokeExact(this_addr, ConfigErrorRecoveryEnableTooltip);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugIsDebuggerPresent() {
+        return internal_native_get_ConfigDebugIsDebuggerPresent(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIsDebuggerPresent(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugIsDebuggerPresent__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugIsDebuggerPresent(boolean ConfigDebugIsDebuggerPresent) {
+        internal_native_set_ConfigDebugIsDebuggerPresent(native_address, ConfigDebugIsDebuggerPresent);
+    }
+
+    public static void internal_native_set_ConfigDebugIsDebuggerPresent(long this_addr, boolean ConfigDebugIsDebuggerPresent) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugIsDebuggerPresent__JZ.invokeExact(this_addr, ConfigDebugIsDebuggerPresent);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflicts() {
+        return internal_native_get_ConfigDebugHighlightIdConflicts(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugHighlightIdConflicts(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugHighlightIdConflicts__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugHighlightIdConflicts(boolean ConfigDebugHighlightIdConflicts) {
+        internal_native_set_ConfigDebugHighlightIdConflicts(native_address, ConfigDebugHighlightIdConflicts);
+    }
+
+    public static void internal_native_set_ConfigDebugHighlightIdConflicts(long this_addr, boolean ConfigDebugHighlightIdConflicts) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugHighlightIdConflicts__JZ.invokeExact(this_addr, ConfigDebugHighlightIdConflicts);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflictsShowItemPicker() {
+        return internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugHighlightIdConflictsShowItemPicker(boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+        internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(native_address, ConfigDebugHighlightIdConflictsShowItemPicker);
+    }
+
+    public static void internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr, boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker__JZ.invokeExact(this_addr, ConfigDebugHighlightIdConflictsShowItemPicker);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueOnce() {
+        return internal_native_get_ConfigDebugBeginReturnValueOnce(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugBeginReturnValueOnce(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugBeginReturnValueOnce__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugBeginReturnValueOnce(boolean ConfigDebugBeginReturnValueOnce) {
+        internal_native_set_ConfigDebugBeginReturnValueOnce(native_address, ConfigDebugBeginReturnValueOnce);
+    }
+
+    public static void internal_native_set_ConfigDebugBeginReturnValueOnce(long this_addr, boolean ConfigDebugBeginReturnValueOnce) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugBeginReturnValueOnce__JZ.invokeExact(this_addr, ConfigDebugBeginReturnValueOnce);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueLoop() {
+        return internal_native_get_ConfigDebugBeginReturnValueLoop(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugBeginReturnValueLoop(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugBeginReturnValueLoop__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugBeginReturnValueLoop(boolean ConfigDebugBeginReturnValueLoop) {
+        internal_native_set_ConfigDebugBeginReturnValueLoop(native_address, ConfigDebugBeginReturnValueLoop);
+    }
+
+    public static void internal_native_set_ConfigDebugBeginReturnValueLoop(long this_addr, boolean ConfigDebugBeginReturnValueLoop) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugBeginReturnValueLoop__JZ.invokeExact(this_addr, ConfigDebugBeginReturnValueLoop);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_ConfigDebugIgnoreFocusLoss() {
+        return internal_native_get_ConfigDebugIgnoreFocusLoss(native_address);
+    }
+
+    public static boolean internal_native_get_ConfigDebugIgnoreFocusLoss(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_ConfigDebugIgnoreFocusLoss__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_ConfigDebugIgnoreFocusLoss(boolean ConfigDebugIgnoreFocusLoss) {
+        internal_native_set_ConfigDebugIgnoreFocusLoss(native_address, ConfigDebugIgnoreFocusLoss);
+    }
+
+    public static void internal_native_set_ConfigDebugIgnoreFocusLoss(long this_addr, boolean ConfigDebugIgnoreFocusLoss) {
+        try {
+            FFMHandles.internal_native_set_ConfigDebugIgnoreFocusLoss__JZ.invokeExact(this_addr, ConfigDebugIgnoreFocusLoss);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_BackendPlatformUserData() {
+        long addr = internal_native_get_BackendPlatformUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_BackendPlatformUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_BackendPlatformUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_BackendPlatformUserData(NativeObject BackendPlatformUserData) {
+        internal_native_set_BackendPlatformUserData(native_address, BackendPlatformUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendPlatformUserData(long this_addr, long BackendPlatformUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_BackendPlatformUserData__JJ.invokeExact(this_addr, BackendPlatformUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_BackendRendererUserData() {
+        long addr = internal_native_get_BackendRendererUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    public static long internal_native_get_BackendRendererUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_BackendRendererUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_BackendRendererUserData(NativeObject BackendRendererUserData) {
+        internal_native_set_BackendRendererUserData(native_address, BackendRendererUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendRendererUserData(long this_addr, long BackendRendererUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_BackendRendererUserData__JJ.invokeExact(this_addr, BackendRendererUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public NativeObject get_BackendLanguageUserData() {
+        long addr = internal_native_get_BackendLanguageUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    public static long internal_native_get_BackendLanguageUserData_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_BackendLanguageUserData_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_BackendLanguageUserData(NativeObject BackendLanguageUserData) {
+        internal_native_set_BackendLanguageUserData(native_address, BackendLanguageUserData.native_void_address);
+    }
+
+    public static void internal_native_set_BackendLanguageUserData(long this_addr, long BackendLanguageUserData_addr) {
+        try {
+            FFMHandles.internal_native_set_BackendLanguageUserData__JJ.invokeExact(this_addr, BackendLanguageUserData_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);
     }
@@ -1813,6 +2186,8 @@ public final class ImGuiIO extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiio_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_AddKeyEvent__JIZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiio_addkeyevent", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_BOOLEAN));
@@ -2020,6 +2395,62 @@ public final class ImGuiIO extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_ConfigIniSettingsAutoDiscardMonths__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configinisettingsautodiscardmonths", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ConfigIniSettingsAutoDiscardMonths__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configinisettingsautodiscardmonths", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugIniSettings__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebuginisettings", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugIniSettings__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebuginisettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigErrorRecovery__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configerrorrecovery", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigErrorRecovery__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configerrorrecovery", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigErrorRecoveryEnableAssert__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configerrorrecoveryenableassert", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigErrorRecoveryEnableAssert__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configerrorrecoveryenableassert", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigErrorRecoveryEnableDebugLog__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configerrorrecoveryenabledebuglog", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigErrorRecoveryEnableDebugLog__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configerrorrecoveryenabledebuglog", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigErrorRecoveryEnableTooltip__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configerrorrecoveryenabletooltip", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigErrorRecoveryEnableTooltip__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configerrorrecoveryenabletooltip", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugIsDebuggerPresent__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebugisdebuggerpresent", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugIsDebuggerPresent__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebugisdebuggerpresent", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugHighlightIdConflicts__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebughighlightidconflicts", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugHighlightIdConflicts__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebughighlightidconflicts", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebughighlightidconflictsshowitempicker", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebughighlightidconflictsshowitempicker", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugBeginReturnValueOnce__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebugbeginreturnvalueonce", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugBeginReturnValueOnce__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebugbeginreturnvalueonce", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugBeginReturnValueLoop__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebugbeginreturnvalueloop", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugBeginReturnValueLoop__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebugbeginreturnvalueloop", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ConfigDebugIgnoreFocusLoss__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_configdebugignorefocusloss", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_ConfigDebugIgnoreFocusLoss__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_configdebugignorefocusloss", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_BackendPlatformUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_backendplatformuserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_BackendPlatformUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_backendplatformuserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_BackendRendererUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_backendrendereruserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_BackendRendererUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_backendrendereruserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_BackendLanguageUserData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_backendlanguageuserdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_BackendLanguageUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_set_backendlanguageuserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_MouseDoubleClickTime__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiio_get_mousedoubleclicktime", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 

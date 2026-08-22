@@ -25,9 +25,23 @@ public final class ImGuiIO extends NativeObject {
 
     private ImFont ImFont_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     private ImVec2 ImVec2_TEMP_GEN_2;
 
     static public final ImGuiIO NULL = ImGuiIO.native_new();
+
+    public ImGuiIO() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -821,6 +835,220 @@ public final class ImGuiIO extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiio_set_configinisettingsautodiscardmonths")
     public static native void internal_native_set_ConfigIniSettingsAutoDiscardMonths(long this_addr, int ConfigIniSettingsAutoDiscardMonths);
+
+    public boolean get_ConfigDebugIniSettings() {
+        return internal_native_get_ConfigDebugIniSettings(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebuginisettings")
+    public static native boolean internal_native_get_ConfigDebugIniSettings(long this_addr);
+
+    public void set_ConfigDebugIniSettings(boolean ConfigDebugIniSettings) {
+        internal_native_set_ConfigDebugIniSettings(native_address, ConfigDebugIniSettings);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebuginisettings")
+    public static native void internal_native_set_ConfigDebugIniSettings(long this_addr, boolean ConfigDebugIniSettings);
+
+    public boolean get_ConfigErrorRecovery() {
+        return internal_native_get_ConfigErrorRecovery(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configerrorrecovery")
+    public static native boolean internal_native_get_ConfigErrorRecovery(long this_addr);
+
+    public void set_ConfigErrorRecovery(boolean ConfigErrorRecovery) {
+        internal_native_set_ConfigErrorRecovery(native_address, ConfigErrorRecovery);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configerrorrecovery")
+    public static native void internal_native_set_ConfigErrorRecovery(long this_addr, boolean ConfigErrorRecovery);
+
+    public boolean get_ConfigErrorRecoveryEnableAssert() {
+        return internal_native_get_ConfigErrorRecoveryEnableAssert(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configerrorrecoveryenableassert")
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableAssert(long this_addr);
+
+    public void set_ConfigErrorRecoveryEnableAssert(boolean ConfigErrorRecoveryEnableAssert) {
+        internal_native_set_ConfigErrorRecoveryEnableAssert(native_address, ConfigErrorRecoveryEnableAssert);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configerrorrecoveryenableassert")
+    public static native void internal_native_set_ConfigErrorRecoveryEnableAssert(long this_addr, boolean ConfigErrorRecoveryEnableAssert);
+
+    public boolean get_ConfigErrorRecoveryEnableDebugLog() {
+        return internal_native_get_ConfigErrorRecoveryEnableDebugLog(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configerrorrecoveryenabledebuglog")
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableDebugLog(long this_addr);
+
+    public void set_ConfigErrorRecoveryEnableDebugLog(boolean ConfigErrorRecoveryEnableDebugLog) {
+        internal_native_set_ConfigErrorRecoveryEnableDebugLog(native_address, ConfigErrorRecoveryEnableDebugLog);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configerrorrecoveryenabledebuglog")
+    public static native void internal_native_set_ConfigErrorRecoveryEnableDebugLog(long this_addr, boolean ConfigErrorRecoveryEnableDebugLog);
+
+    public boolean get_ConfigErrorRecoveryEnableTooltip() {
+        return internal_native_get_ConfigErrorRecoveryEnableTooltip(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configerrorrecoveryenabletooltip")
+    public static native boolean internal_native_get_ConfigErrorRecoveryEnableTooltip(long this_addr);
+
+    public void set_ConfigErrorRecoveryEnableTooltip(boolean ConfigErrorRecoveryEnableTooltip) {
+        internal_native_set_ConfigErrorRecoveryEnableTooltip(native_address, ConfigErrorRecoveryEnableTooltip);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configerrorrecoveryenabletooltip")
+    public static native void internal_native_set_ConfigErrorRecoveryEnableTooltip(long this_addr, boolean ConfigErrorRecoveryEnableTooltip);
+
+    public boolean get_ConfigDebugIsDebuggerPresent() {
+        return internal_native_get_ConfigDebugIsDebuggerPresent(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebugisdebuggerpresent")
+    public static native boolean internal_native_get_ConfigDebugIsDebuggerPresent(long this_addr);
+
+    public void set_ConfigDebugIsDebuggerPresent(boolean ConfigDebugIsDebuggerPresent) {
+        internal_native_set_ConfigDebugIsDebuggerPresent(native_address, ConfigDebugIsDebuggerPresent);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebugisdebuggerpresent")
+    public static native void internal_native_set_ConfigDebugIsDebuggerPresent(long this_addr, boolean ConfigDebugIsDebuggerPresent);
+
+    public boolean get_ConfigDebugHighlightIdConflicts() {
+        return internal_native_get_ConfigDebugHighlightIdConflicts(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebughighlightidconflicts")
+    public static native boolean internal_native_get_ConfigDebugHighlightIdConflicts(long this_addr);
+
+    public void set_ConfigDebugHighlightIdConflicts(boolean ConfigDebugHighlightIdConflicts) {
+        internal_native_set_ConfigDebugHighlightIdConflicts(native_address, ConfigDebugHighlightIdConflicts);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebughighlightidconflicts")
+    public static native void internal_native_set_ConfigDebugHighlightIdConflicts(long this_addr, boolean ConfigDebugHighlightIdConflicts);
+
+    public boolean get_ConfigDebugHighlightIdConflictsShowItemPicker() {
+        return internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebughighlightidconflictsshowitempicker")
+    public static native boolean internal_native_get_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr);
+
+    public void set_ConfigDebugHighlightIdConflictsShowItemPicker(boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+        internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(native_address, ConfigDebugHighlightIdConflictsShowItemPicker);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebughighlightidconflictsshowitempicker")
+    public static native void internal_native_set_ConfigDebugHighlightIdConflictsShowItemPicker(long this_addr, boolean ConfigDebugHighlightIdConflictsShowItemPicker);
+
+    public boolean get_ConfigDebugBeginReturnValueOnce() {
+        return internal_native_get_ConfigDebugBeginReturnValueOnce(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebugbeginreturnvalueonce")
+    public static native boolean internal_native_get_ConfigDebugBeginReturnValueOnce(long this_addr);
+
+    public void set_ConfigDebugBeginReturnValueOnce(boolean ConfigDebugBeginReturnValueOnce) {
+        internal_native_set_ConfigDebugBeginReturnValueOnce(native_address, ConfigDebugBeginReturnValueOnce);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebugbeginreturnvalueonce")
+    public static native void internal_native_set_ConfigDebugBeginReturnValueOnce(long this_addr, boolean ConfigDebugBeginReturnValueOnce);
+
+    public boolean get_ConfigDebugBeginReturnValueLoop() {
+        return internal_native_get_ConfigDebugBeginReturnValueLoop(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebugbeginreturnvalueloop")
+    public static native boolean internal_native_get_ConfigDebugBeginReturnValueLoop(long this_addr);
+
+    public void set_ConfigDebugBeginReturnValueLoop(boolean ConfigDebugBeginReturnValueLoop) {
+        internal_native_set_ConfigDebugBeginReturnValueLoop(native_address, ConfigDebugBeginReturnValueLoop);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebugbeginreturnvalueloop")
+    public static native void internal_native_set_ConfigDebugBeginReturnValueLoop(long this_addr, boolean ConfigDebugBeginReturnValueLoop);
+
+    public boolean get_ConfigDebugIgnoreFocusLoss() {
+        return internal_native_get_ConfigDebugIgnoreFocusLoss(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_configdebugignorefocusloss")
+    public static native boolean internal_native_get_ConfigDebugIgnoreFocusLoss(long this_addr);
+
+    public void set_ConfigDebugIgnoreFocusLoss(boolean ConfigDebugIgnoreFocusLoss) {
+        internal_native_set_ConfigDebugIgnoreFocusLoss(native_address, ConfigDebugIgnoreFocusLoss);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_configdebugignorefocusloss")
+    public static native void internal_native_set_ConfigDebugIgnoreFocusLoss(long this_addr, boolean ConfigDebugIgnoreFocusLoss);
+
+    public NativeObject get_BackendPlatformUserData() {
+        long addr = internal_native_get_BackendPlatformUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_backendplatformuserdata_addr")
+    public static native long internal_native_get_BackendPlatformUserData_addr(long this_addr);
+
+    public void set_BackendPlatformUserData(NativeObject BackendPlatformUserData) {
+        internal_native_set_BackendPlatformUserData(native_address, BackendPlatformUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_backendplatformuserdata")
+    public static native void internal_native_set_BackendPlatformUserData(long this_addr, long BackendPlatformUserData_addr);
+
+    public NativeObject get_BackendRendererUserData() {
+        long addr = internal_native_get_BackendRendererUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_backendrendereruserdata_addr")
+    public static native long internal_native_get_BackendRendererUserData_addr(long this_addr);
+
+    public void set_BackendRendererUserData(NativeObject BackendRendererUserData) {
+        internal_native_set_BackendRendererUserData(native_address, BackendRendererUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_backendrendereruserdata")
+    public static native void internal_native_set_BackendRendererUserData(long this_addr, long BackendRendererUserData_addr);
+
+    public NativeObject get_BackendLanguageUserData() {
+        long addr = internal_native_get_BackendLanguageUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_get_backendlanguageuserdata_addr")
+    public static native long internal_native_get_BackendLanguageUserData_addr(long this_addr);
+
+    public void set_BackendLanguageUserData(NativeObject BackendLanguageUserData) {
+        internal_native_set_BackendLanguageUserData(native_address, BackendLanguageUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiio_set_backendlanguageuserdata")
+    public static native void internal_native_set_BackendLanguageUserData(long this_addr, long BackendLanguageUserData_addr);
 
     public float get_MouseDoubleClickTime() {
         return internal_native_get_MouseDoubleClickTime(native_address);

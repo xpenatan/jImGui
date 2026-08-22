@@ -14,7 +14,19 @@ public final class ImDrawCmd extends NativeObject {
 
     private ImVec4 ImVec4_TEMP_GEN_0;
 
+    private ImTextureRef ImTextureRef_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImDrawCmd NULL = ImDrawCmd.native_new();
+
+    public ImDrawCmd() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImDrawCmd();return imgui.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -70,6 +82,26 @@ public final class ImDrawCmd extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "ClipRect_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);jsObj.set_ClipRect(ClipRect_addr);")
     public static native void internal_native_set_ClipRect(int this_addr, int ClipRect_addr);
 
+    public ImTextureRef get_TexRef() {
+        int addr = internal_native_get_TexRef_addr(native_address);
+        if (addr == 0)
+            return ImTextureRef.NULL;
+        if (ImTextureRef_TEMP_GEN_0 == null)
+            ImTextureRef_TEMP_GEN_0 = ImTextureRef.native_new();
+        ImTextureRef_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureRef_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);var returnedJSObj = jsObj.get_TexRef();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_TexRef_addr(int this_addr);
+
+    public void set_TexRef(ImTextureRef TexRef) {
+        internal_native_set_TexRef(native_address, TexRef.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "TexRef_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);jsObj.set_TexRef(TexRef_addr);")
+    public static native void internal_native_set_TexRef(int this_addr, int TexRef_addr);
+
     public int get_VtxOffset() {
         return internal_native_get_VtxOffset(native_address);
     }
@@ -111,4 +143,24 @@ public final class ImDrawCmd extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "ElemCount"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);jsObj.set_ElemCount(ElemCount);")
     public static native void internal_native_set_ElemCount(int this_addr, int ElemCount);
+
+    public NativeObject get_UserCallbackData() {
+        int addr = internal_native_get_UserCallbackData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);return jsObj.get_UserCallbackData();")
+    public static native int internal_native_get_UserCallbackData_addr(int this_addr);
+
+    public int get_UserCallbackDataSize() {
+        return internal_native_get_UserCallbackDataSize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawCmd);return jsObj.get_UserCallbackDataSize();")
+    public static native int internal_native_get_UserCallbackDataSize(int this_addr);
 }

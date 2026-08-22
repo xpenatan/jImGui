@@ -17,6 +17,8 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImGuiMultiSelectIO extends NativeObject {
 
+    private ImVectorImGuiSelectionRequest ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+
     static public final ImGuiMultiSelectIO NULL = ImGuiMultiSelectIO.native_new();
 
     /**
@@ -40,6 +42,48 @@ public final class ImGuiMultiSelectIO extends NativeObject {
     public static void internal_native_deleteNative(long this_addr) {
         try {
             FFMHandles.internal_native_deleteNative__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImVectorImGuiSelectionRequest get_Requests() {
+        long addr = internal_native_get_Requests_addr(native_address);
+        if (addr == 0)
+            return ImVectorImGuiSelectionRequest.NULL;
+        if (ImVectorImGuiSelectionRequest_TEMP_GEN_0 == null)
+            ImVectorImGuiSelectionRequest_TEMP_GEN_0 = ImVectorImGuiSelectionRequest.native_new();
+        ImVectorImGuiSelectionRequest_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVectorImGuiSelectionRequest_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Requests_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Requests_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long get_RangeSrcItem() {
+        return internal_native_get_RangeSrcItem(native_address);
+    }
+
+    public static long internal_native_get_RangeSrcItem(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_RangeSrcItem__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public long get_NavIdItem() {
+        return internal_native_get_NavIdItem(native_address);
+    }
+
+    public static long internal_native_get_NavIdItem(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_NavIdItem__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -120,6 +164,12 @@ public final class ImGuiMultiSelectIO extends NativeObject {
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguimultiselectio_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Requests_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguimultiselectio_get_requests_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_RangeSrcItem__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguimultiselectio_get_rangesrcitem", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_NavIdItem__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguimultiselectio_get_naviditem", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_NavIdSelected__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguimultiselectio_get_navidselected", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 

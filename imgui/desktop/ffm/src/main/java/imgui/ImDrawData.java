@@ -38,6 +38,19 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
+    public ImDrawData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
     }
@@ -45,6 +58,54 @@ public final class ImDrawData extends NativeObject {
     public static void internal_native_deleteNative(long this_addr) {
         try {
             FFMHandles.internal_native_deleteNative__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void Clear() {
+        internal_native_Clear(native_address);
+    }
+
+    public static void internal_native_Clear(long this_addr) {
+        try {
+            FFMHandles.internal_native_Clear__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void AddDrawList(ImDrawList draw_list) {
+        internal_native_AddDrawList(native_address, draw_list.native_address);
+    }
+
+    public static void internal_native_AddDrawList(long this_addr, long draw_list_addr) {
+        try {
+            FFMHandles.internal_native_AddDrawList__JJ.invokeExact(this_addr, draw_list_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DeIndexAllBuffers() {
+        internal_native_DeIndexAllBuffers(native_address);
+    }
+
+    public static void internal_native_DeIndexAllBuffers(long this_addr) {
+        try {
+            FFMHandles.internal_native_DeIndexAllBuffers__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void ScaleClipRects(ImVec2 fb_scale) {
+        internal_native_ScaleClipRects(native_address, fb_scale.native_address);
+    }
+
+    public static void internal_native_ScaleClipRects(long this_addr, long fb_scale_addr) {
+        try {
+            FFMHandles.internal_native_ScaleClipRects__JJ.invokeExact(this_addr, fb_scale_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -208,7 +269,17 @@ public final class ImDrawData extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawdata_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Clear__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_clear", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddDrawList__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_adddrawlist", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DeIndexAllBuffers__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_deindexallbuffers", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ScaleClipRects__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imdrawdata_scalecliprects", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_FrameCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imdrawdata_get_framecount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 

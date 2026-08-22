@@ -12,7 +12,74 @@ interface ImGuiDrawCallbacks {
     static void ClearStandardCallbacks(ImGuiPlatformIO platform_io);
     static ImGuiDrawCallbackType GetType([Const] ImDrawCmd draw_cmd);
     static boolean AddStandardCallback(ImDrawList draw_list, ImGuiDrawCallbackType type);
+    static boolean AddCallback(ImDrawList draw_list, ImDrawCallbackFunction callback);
     static void InvokeUserCallback([Const] ImDrawList parent_list, [Const] ImDrawCmd draw_cmd);
+};
+
+interface ImGuiStringList {
+    void ImGuiStringList();
+    long Size();
+    boolean Empty();
+    void Clear();
+    void Add([Const] DOMString value);
+    void Set(long index, [Const] DOMString value);
+    [Const, Value] NativeString Get(long index);
+};
+
+interface ImGuiSizeCallbackFunction {
+};
+
+interface ImGuiInputTextCallbackFunction {
+};
+
+interface ImGuiItemGetter {
+};
+
+interface ImGuiPlotGetter {
+};
+
+interface ImDrawCallbackFunction {
+};
+
+interface ImGuiSelectionBasicStorageIterator {
+    void ImGuiSelectionBasicStorageIterator();
+    void Reset();
+    boolean Next(ImGuiSelectionBasicStorage storage);
+    long GetID();
+};
+
+interface ImGuiSelectionBasicStorageAdapter {
+    static void Install(ImGuiSelectionBasicStorage storage, ImGuiSelectionBasicStorageAdapter adapter);
+    static void Clear(ImGuiSelectionBasicStorage storage);
+};
+
+interface ImGuiSelectionExternalStorageAdapter {
+    static void Install(ImGuiSelectionExternalStorage storage, ImGuiSelectionExternalStorageAdapter adapter);
+    static void Clear(ImGuiSelectionExternalStorage storage);
+};
+
+[NoDelete]
+interface ImGuiOnceUponAFrameHelpers {
+    static boolean Test(ImGuiOnceUponAFrame value);
+};
+
+[NoDelete]
+interface ImGuiIOStringFields {
+    // The NativeByteArray/ImGuiString must remain alive while ImGuiIO stores its pointer.
+    static void SetIniFilename(ImGuiIO io, byte[] value);
+    static void ClearIniFilename(ImGuiIO io);
+    [Const, Value] static NativeString GetIniFilename(ImGuiIO io);
+    static boolean HasIniFilename(ImGuiIO io);
+    static void SetLogFilename(ImGuiIO io, byte[] value);
+    static void ClearLogFilename(ImGuiIO io);
+    [Const, Value] static NativeString GetLogFilename(ImGuiIO io);
+    static boolean HasLogFilename(ImGuiIO io);
+    static void SetBackendPlatformName(ImGuiIO io, byte[] value);
+    static void ClearBackendPlatformName(ImGuiIO io);
+    [Const, Value] static NativeString GetBackendPlatformName(ImGuiIO io);
+    static void SetBackendRendererName(ImGuiIO io, byte[] value);
+    static void ClearBackendRendererName(ImGuiIO io);
+    [Const, Value] static NativeString GetBackendRendererName(ImGuiIO io);
 };
 
 //interface ImHelper {
@@ -710,7 +777,8 @@ interface ImGui {
     // Window manipulation
     static void                    SetNextWindowPos([Const, Ref]ImVec2 pos, optional ImGuiCond ImGuiCond, [Const, Ref] optional ImVec2 pivot);
     static void                    SetNextWindowSize([Const, Ref]ImVec2 size, optional ImGuiCond ImGuiCond);
-    static void                    SetNextWindowSizeConstraints([Const, Ref]ImVec2 size_min, [Const, Ref]ImVec2 size_max); //, optional CustomImGuiSizeCallback custom_callback, any custom_callback_data);
+    [BindTo="SetNextWindowSizeConstraints"] static void SetNextWindowSizeConstraints__0([Const, Ref] ImVec2 size_min, [Const, Ref] ImVec2 size_max);
+    [BindTo="SetNextWindowSizeConstraints"] static void SetNextWindowSizeConstraints__1([Const, Ref] ImVec2 size_min, [Const, Ref] ImVec2 size_max, ImGuiSizeCallbackFunction callback);
     static void                    SetNextWindowContentSize([Const, Ref]ImVec2 size);
     static void                    SetNextWindowCollapsed(boolean collapsed, optional ImGuiCond ImGuiCond);
     static void                    SetNextWindowFocus();
@@ -849,7 +917,9 @@ interface ImGui {
     // Widgets: Combo Box (Dropdown)
     static boolean                 BeginCombo([Const] DOMString label, [Const] DOMString preview_value, optional ImGuiComboFlags flags);
     static void                    EndCombo();
-    static boolean                 Combo([Const] DOMString label, long[] current_item, [Const] DOMString items_separated_by_zeros, optional long popup_max_height_in_items);
+    [BindTo="Combo"] static boolean Combo__0([Const] DOMString label, long[] current_item, [Const] DOMString items_separated_by_zeros, optional long popup_max_height_in_items);
+    [BindTo="Combo"] static boolean Combo__1([Const] DOMString label, long[] current_item, ImGuiStringList items, optional long popup_max_height_in_items);
+    [BindTo="Combo"] static boolean Combo__2([Const] DOMString label, long[] current_item, ImGuiItemGetter getter, long items_count, optional long popup_max_height_in_items);
 
     // Widgets: Drag Sliders
     static boolean                 DragFloat([Const] DOMString label, float[] v, optional float v_speed, optional float v_min, optional float v_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
@@ -882,9 +952,12 @@ interface ImGui {
     static boolean                 VSliderScalar([Const] DOMString label, [Const, Ref] ImVec2 size, ImGuiDataType data_type, any p_data, any p_min, any p_max, [Const] optional DOMString format, optional ImGuiSliderFlags flags);
 
     // Widgets: Input with Keyboard
-    static boolean                 InputText([Const] DOMString label, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional ImGuiInputTextFlags flags);
-    static boolean                 InputTextMultiline([Const] DOMString label, byte[] buf, long buf_size, [Const, Ref] optional ImVec2 size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional any user_data);
-    static boolean                 InputTextWithHint([Const] DOMString label, [Const] DOMString hint, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags); //, optional ImGuiInputTextCallback callback, optional any user_data);
+    [BindTo="InputText"] static boolean InputText__0([Const] DOMString label, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags);
+    [BindTo="InputText"] static boolean InputText__1([Const] DOMString label, byte[] buf, long buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback);
+    [BindTo="InputTextMultiline"] static boolean InputTextMultiline__0([Const] DOMString label, byte[] buf, long buf_size, [Const, Ref] optional ImVec2 size, optional ImGuiInputTextFlags flags);
+    [BindTo="InputTextMultiline"] static boolean InputTextMultiline__1([Const] DOMString label, byte[] buf, long buf_size, [Const, Ref] ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback);
+    [BindTo="InputTextWithHint"] static boolean InputTextWithHint__0([Const] DOMString label, [Const] DOMString hint, byte[] buf, long buf_size, optional ImGuiInputTextFlags flags);
+    [BindTo="InputTextWithHint"] static boolean InputTextWithHint__1([Const] DOMString label, [Const] DOMString hint, byte[] buf, long buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback);
     static boolean                 InputFloat([Const] DOMString label, float[] v, optional float step, optional float step_fast, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
     static boolean                 InputFloat2([Const] DOMString label, float[] v, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
     static boolean                 InputFloat3([Const] DOMString label, float[] v, [Const] optional DOMString format, optional ImGuiInputTextFlags flags);
@@ -933,10 +1006,14 @@ interface ImGui {
     // Widgets: List Boxes
     static boolean                 BeginListBox([Const] DOMString label, [Const, Ref] optional ImVec2 size);
     static void                    EndListBox();
+    [BindTo="ListBox"] static boolean ListBox__0([Const] DOMString label, long[] current_item, ImGuiStringList items, optional long height_in_items);
+    [BindTo="ListBox"] static boolean ListBox__1([Const] DOMString label, long[] current_item, ImGuiItemGetter getter, long items_count, optional long height_in_items);
 
     // Widgets: Data Plotting
-    static void                    PlotLines([Const] DOMString label, [Const]float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
-    static void                    PlotHistogram([Const] DOMString label, [Const]float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
+    [BindTo="PlotLines"] static void PlotLines__0([Const] DOMString label, [Const] float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
+    [BindTo="PlotLines"] static void PlotLines__1([Const] DOMString label, ImGuiPlotGetter getter, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size);
+    [BindTo="PlotHistogram"] static void PlotHistogram__0([Const] DOMString label, [Const] float[] values, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size, optional long stride);
+    [BindTo="PlotHistogram"] static void PlotHistogram__1([Const] DOMString label, ImGuiPlotGetter getter, long values_count, optional long values_offset, [Const] optional DOMString overlay_text, optional float scale_min, optional float scale_max, [Ref] optional ImVec2 graph_size);
 
     // Widgets: Value() Helpers.
     [BindTo="Value"] static void Value__0([Const] DOMString prefix, boolean b);
@@ -1130,7 +1207,6 @@ interface ImGui {
     static long                    GetMouseClickedCount(ImGuiMouseButton ImGuiMouseButton);
     static boolean                 IsMouseHoveringRect([Const, Ref]ImVec2 r_min, [Const, Ref]ImVec2 r_max, optional boolean clip);
     static boolean                 IsMousePosValid([Const] optional ImVec2 mouse_pos);
-    static boolean                 IsAnyMouseDown();
     [Value] static ImVec2          GetMousePos();
     [Value] static ImVec2          GetMousePosOnOpeningCurrentPopup();
     static boolean                 IsMouseDragging(ImGuiMouseButton ImGuiMouseButton, optional float lock_threshold);
@@ -1155,10 +1231,11 @@ interface ImGui {
     static void                    DebugFlashStyleColor(long idx);
     static void                    DebugStartItemPicker();
     static boolean                 DebugCheckVersionAndDataLayout([Const] DOMString version_str, long long sz_io, long long sz_style, long long sz_vec2, long long sz_vec4, long long sz_drawvert, long long sz_drawidx); // This is called by IMGUI_CHECKVERSION() macro.
+    static void                    DebugLog([Const] DOMString text);
 
     // Memory Allocators
-//    static void                    SetAllocatorFunctions(ImGuiMemAllocFunc alloc_func, ImGuiMemFreeFunc free_func, optional any user_data); // TODO not supported
-//    static void                    GetAllocatorFunctions(ImGuiMemAllocFunc* p_alloc_func, ImGuiMemFreeFunc* p_free_func, any* p_user_data);  // TODO not supported
+    static void                    SetAllocatorFunctions(long long alloc_func_address, long long free_func_address, optional long long user_data_address);
+    static void                    GetAllocatorFunctions(long long[] alloc_func_address, long long[] free_func_address, long long[] user_data_address);
     static any                     MemAlloc(long long size);
     static void                    MemFree(any ptr);
 
@@ -1181,14 +1258,75 @@ interface ImGui {
 //};
 
 interface ImGuiInputTextCallbackData {
-//    attribute byte[] Buf;
+    readonly attribute ImGuiContext Ctx;
+    readonly attribute ImGuiInputTextFlags EventFlag;
+    readonly attribute ImGuiInputTextFlags Flags;
+    readonly attribute any UserData;
     readonly attribute long ID;
+    readonly attribute ImGuiKey EventKey;
+    attribute unsigned short EventChar;
     readonly attribute boolean EventActivated;
-    attribute long BufSize;
+    readonly attribute any Buf;
+    readonly attribute long BufSize;
     attribute boolean BufDirty;
     attribute long BufTextLen;
-    attribute ImGuiInputTextFlags Flags;
+    attribute long CursorPos;
+    attribute long SelectionStart;
+    attribute long SelectionEnd;
+    void ImGuiInputTextCallbackData();
+    void DeleteChars(long pos, long bytes_count);
+    void InsertChars(long pos, [Const] DOMString text);
+    void SelectAll();
+    void ClearSelection();
+    boolean HasSelection();
     void SetSelection(long selection_start, long selection_end);
+};
+
+[NoDelete]
+interface ImGuiSizeCallbackData {
+    readonly attribute any UserData;
+    [Value] readonly attribute ImVec2 Pos;
+    [Value] readonly attribute ImVec2 CurrentSize;
+    [Value] attribute ImVec2 DesiredSize;
+};
+
+interface ImGuiListClipper {
+    attribute long DisplayStart;
+    attribute long DisplayEnd;
+    attribute long UserIndex;
+
+    void ImGuiListClipper();
+    void Begin(long items_count, optional float items_height);
+    void End();
+    boolean Step();
+    void IncludeItemByIndex(long item_index);
+    void IncludeItemsByIndex(long item_begin, long item_end);
+    void SeekCursorForItem(long item_index);
+};
+
+interface ImGuiTextFilter {
+    void ImGuiTextFilter([Const] optional DOMString default_filter);
+    boolean Draw([Const] optional DOMString label, optional float width);
+    boolean PassFilter([Const] DOMString text);
+    void Build();
+    void Clear();
+    boolean IsActive();
+};
+
+interface ImGuiTextBuffer {
+    void ImGuiTextBuffer();
+    long size();
+    boolean empty();
+    void clear();
+    void resize(long size);
+    void reserve(long capacity);
+    [Const, Value] NativeString c_str();
+    void append([Const] DOMString text);
+};
+
+interface ImGuiOnceUponAFrame {
+    void ImGuiOnceUponAFrame();
+    attribute long RefFrame;
 };
 
 // ############################################ ImVector ############################################
@@ -1213,6 +1351,32 @@ interface ImVectorImDrawVert {
     long size();
     [Operator="[]", Ref] ImDrawVert getData(long index);
     readonly attribute any Data;
+};
+
+interface ImVectorImVec2 {
+    void ImVectorImVec2();
+    long size();
+    [Operator="[]", Ref] ImVec2 getData(long index);
+    readonly attribute ImVec2 Data;
+    void push_back([Const, Ref] ImVec2 value);
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
+};
+
+[NoDelete]
+interface ImWcharPointer {
+};
+
+interface ImVectorImWchar {
+    void ImVectorImWchar();
+    long size();
+    [Operator="[]"] unsigned short getData(long index);
+    readonly attribute ImWcharPointer Data;
+    void push_back(unsigned short value);
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
 };
 
 interface ImVectorUnsignedInt {
@@ -1256,6 +1420,23 @@ interface ImVectorImGuiStoragePair {
     long size();
     [Operator="[]", Ref] ImGuiStoragePair getData(long index);
     readonly attribute any Data;
+    void reserve(long new_capacity);
+    void resize(long new_size);
+    void clear();
+};
+
+interface ImVectorImGuiSelectionRequest {
+    long size();
+    [Operator="[]", Ref] ImGuiSelectionRequest getData(long index);
+    readonly attribute any Data;
+};
+
+interface ImVectorImGuiPlatformMonitor {
+    void ImVectorImGuiPlatformMonitor();
+    long size();
+    [Operator="[]", Ref] ImGuiPlatformMonitor getData(long index);
+    readonly attribute any Data;
+    void push_back([Const, Ref] ImGuiPlatformMonitor value);
     void reserve(long new_capacity);
     void resize(long new_size);
     void clear();
@@ -1423,10 +1604,14 @@ interface ImRect {
 };
 
 interface ImDrawCmd {
+    void ImDrawCmd();
     [Value] attribute ImVec4 ClipRect;
+    [Value] attribute ImTextureRef TexRef;
     attribute long VtxOffset;
     attribute long IdxOffset;
     attribute long ElemCount;
+    readonly attribute any UserCallbackData;
+    readonly attribute long UserCallbackDataSize;
     [Value] ImTextureIDRef GetTexID();
 };
 
@@ -1437,6 +1622,7 @@ interface ImDrawVert {
 };
 
 interface ImDrawData {
+    void ImDrawData();
     readonly attribute long FrameCount;
     readonly attribute long TotalIdxCount;
     readonly attribute long TotalVtxCount;
@@ -1447,9 +1633,25 @@ interface ImDrawData {
     [Value] readonly attribute ImVec2 DisplaySize;
     [Value] readonly attribute ImVec2 FramebufferScale;
     readonly attribute ImGuiViewport OwnerViewport;
+
+    void Clear();
+    void AddDrawList(ImDrawList draw_list);
+    void DeIndexAllBuffers();
+    void ScaleClipRects([Const, Ref] ImVec2 fb_scale);
+};
+
+interface ImDrawListSplitter {
+    void ImDrawListSplitter();
+    void Clear();
+    void ClearFreeMemory();
+    void Split(ImDrawList draw_list, long count);
+    void Merge(ImDrawList draw_list);
+    void SetCurrentChannel(ImDrawList draw_list, long channel_idx);
 };
 
 interface ImDrawList {
+    void ImDrawList(ImDrawListSharedData shared_data);
+
     [Value] attribute ImVectorImDrawCmd CmdBuffer;
     [Value] attribute ImVectorImDrawIdx IdxBuffer;
     [Value] attribute ImVectorImDrawVert VtxBuffer;
@@ -1486,9 +1688,9 @@ interface ImDrawList {
     void AddBezierQuadratic([Const, Ref] ImVec2 p1, [Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, long col, float thickness, optional long num_segments);
 
     // General polygon
-//    void  AddPolyline([Const] ImVec2[] points, long num_points, long col, ImDrawFlags flags, float thickness);
-//    void  AddConvexPolyFilled([Const] ImVec2[] points, long num_points, long col);
-//    void  AddConcavePolyFilled([Const] ImVec2[] points, long num_points, long col);
+    void AddPolyline([Const] ImVec2 points, long num_points, long col, float thickness, optional ImDrawFlags flags);
+    void AddConvexPolyFilled([Const] ImVec2 points, long num_points, long col);
+    void AddConcavePolyFilled([Const] ImVec2 points, long num_points, long col);
 
     // Image primitives
     void AddImage([Ref] ImTextureRef tex_ref, [Const, Ref] ImVec2 p_min, [Const, Ref] ImVec2 p_max, [Const, Ref] optional ImVec2 uv_min, [Const, Ref] optional ImVec2 uv_max, optional long col);
@@ -1498,8 +1700,23 @@ interface ImDrawList {
     void PathClear();
     void PathLineTo([Const, Ref] ImVec2 pos);
     void PathLineToMergeDuplicate([Const, Ref] ImVec2 pos);
+    void PathArcTo([Const, Ref] ImVec2 center, float radius, float a_min, float a_max, optional long num_segments);
+    void PathArcToFast([Const, Ref] ImVec2 center, float radius, long a_min_of_12, long a_max_of_12);
+    void PathEllipticalArcTo([Const, Ref] ImVec2 center, [Const, Ref] ImVec2 radius, float rot, float a_min, float a_max, optional long num_segments);
+    void PathBezierCubicCurveTo([Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, [Const, Ref] ImVec2 p4, optional long num_segments);
+    void PathBezierQuadraticCurveTo([Const, Ref] ImVec2 p2, [Const, Ref] ImVec2 p3, optional long num_segments);
+    void PathRect([Const, Ref] ImVec2 rect_min, [Const, Ref] ImVec2 rect_max, optional float rounding, optional ImDrawFlags flags);
     void PathFillConvex(long col);
     void PathStroke(long col, optional float thickness, optional ImDrawFlags flags);
+
+    void AddDrawCmd();
+    ImDrawList CloneOutput();
+
+    void PrimReserve(long idx_count, long vtx_count);
+    void PrimUnreserve(long idx_count, long vtx_count);
+    void PrimRect([Const, Ref] ImVec2 a, [Const, Ref] ImVec2 b, long col);
+    void PrimRectUV([Const, Ref] ImVec2 a, [Const, Ref] ImVec2 b, [Const, Ref] ImVec2 uv_a, [Const, Ref] ImVec2 uv_b, long col);
+    void PrimQuadUV([Const, Ref] ImVec2 a, [Const, Ref] ImVec2 b, [Const, Ref] ImVec2 c, [Const, Ref] ImVec2 d, [Const, Ref] ImVec2 uv_a, [Const, Ref] ImVec2 uv_b, [Const, Ref] ImVec2 uv_c, [Const, Ref] ImVec2 uv_d, long col);
 
     void ChannelsSplit(long count);
     void ChannelsMerge();
@@ -1514,6 +1731,7 @@ interface ImTextureRect {
 };
 
 interface ImTextureData {
+    void ImTextureData();
     readonly attribute long UniqueID;
     readonly attribute ImTextureStatus Status;
     attribute any BackendUserData;
@@ -1548,11 +1766,70 @@ interface ImTextureRef {
     unsigned long long GetTexID();
 };
 
+interface ImFontGlyph {
+    void ImFontGlyph();
+    readonly attribute boolean Colored;
+    readonly attribute boolean Visible;
+    readonly attribute unsigned long SourceIdx;
+    readonly attribute unsigned long Codepoint;
+    readonly attribute float AdvanceX;
+    readonly attribute float X0;
+    readonly attribute float Y0;
+    readonly attribute float X1;
+    readonly attribute float Y1;
+    readonly attribute float U0;
+    readonly attribute float V0;
+    readonly attribute float U1;
+    readonly attribute float V1;
+};
+
+interface ImFontAtlasRect {
+    void ImFontAtlasRect();
+    readonly attribute unsigned short x;
+    readonly attribute unsigned short y;
+    readonly attribute unsigned short w;
+    readonly attribute unsigned short h;
+    [Value] readonly attribute ImVec2 uv0;
+    [Value] readonly attribute ImVec2 uv1;
+};
+
+[NoDelete]
+interface ImFontLoader {
+};
+
 interface ImFontBaked {
-//TODO add data
+    readonly attribute float FallbackAdvanceX;
+    readonly attribute float Size;
+    readonly attribute float RasterizerDensity;
+    readonly attribute float Ascent;
+    readonly attribute float Descent;
+    readonly attribute long LastUsedFrame;
+    readonly attribute long BakedId;
+    readonly attribute ImFont OwnerFont;
+
+    void ImFontBaked();
+    void ClearOutputData();
+    ImFontGlyph FindGlyph(unsigned short c);
+    ImFontGlyph FindGlyphNoFallback(unsigned short c);
+    float GetCharAdvance(unsigned short c);
+    boolean IsGlyphLoaded(unsigned short c);
+};
+
+interface ImFontGlyphRangesBuilder {
+    [Value] readonly attribute ImVectorUnsignedInt UsedChars;
+    void ImFontGlyphRangesBuilder();
+    void Clear();
+    boolean GetBit(long long n);
+    void SetBit(long long n);
+    void AddChar(unsigned short c);
+    void AddText([Const] DOMString text);
+    void AddRanges([Const] ImWcharPointer ranges);
+    void BuildRanges(ImVectorImWchar out_ranges);
 };
 
 interface ImGuiIO {
+    void ImGuiIO();
+
     // Configuration
     attribute ImGuiConfigFlags ConfigFlags;
     attribute ImGuiBackendFlags BackendFlags;
@@ -1609,6 +1886,24 @@ interface ImGuiIO {
     attribute float ConfigMemoryCompactTimer;
     attribute boolean ConfigIniSettingsSaveLastUsedDate;
     attribute long ConfigIniSettingsAutoDiscardMonths;
+    attribute boolean ConfigDebugIniSettings;
+
+    // Debug options
+    attribute boolean ConfigErrorRecovery;
+    attribute boolean ConfigErrorRecoveryEnableAssert;
+    attribute boolean ConfigErrorRecoveryEnableDebugLog;
+    attribute boolean ConfigErrorRecoveryEnableTooltip;
+    attribute boolean ConfigDebugIsDebuggerPresent;
+    attribute boolean ConfigDebugHighlightIdConflicts;
+    attribute boolean ConfigDebugHighlightIdConflictsShowItemPicker;
+    attribute boolean ConfigDebugBeginReturnValueOnce;
+    attribute boolean ConfigDebugBeginReturnValueLoop;
+    attribute boolean ConfigDebugIgnoreFocusLoss;
+
+    // Platform identifiers
+    attribute any BackendPlatformUserData;
+    attribute any BackendRendererUserData;
+    attribute any BackendLanguageUserData;
 
     // Inputs Behaviors
     attribute float MouseDoubleClickTime;
@@ -1654,14 +1949,35 @@ interface ImGuiIO {
 };
 
 interface ImFontAtlas {
-//    attribute any TexID;
-//
+    attribute ImFontAtlasFlags Flags;
+    attribute ImTextureFormat TexDesiredFormat;
+    attribute long TexGlyphPadding;
+    attribute long TexMinWidth;
+    attribute long TexMinHeight;
+    attribute long TexMaxWidth;
+    attribute long TexMaxHeight;
+    attribute any UserData;
+    [Value] readonly attribute ImTextureRef TexRef;
+    readonly attribute ImTextureData TexData;
+
+    void ImFontAtlas();
     ImFont AddFont([Const] ImFontConfig font_cfg);
     ImFont AddFontDefault([Const] optional ImFontConfig font_cfg);
     ImFont AddFontDefaultVector([Const] optional ImFontConfig font_cfg);
     ImFont AddFontDefaultBitmap([Const] optional ImFontConfig font_cfg);
-    ImFont AddFontFromMemoryTTF(any font_data, long font_data_size, long size_pixels, [Const] optional ImFontConfig font_cfg);
+    ImFont AddFontFromFileTTF([Const] DOMString filename, optional float size_pixels, [Const] optional ImFontConfig font_cfg, [Const] optional ImWcharPointer glyph_ranges);
+    ImFont AddFontFromMemoryTTF(any font_data, long font_data_size, optional float size_pixels, [Const] optional ImFontConfig font_cfg, [Const] optional ImWcharPointer glyph_ranges);
+    ImFont AddFontFromMemoryCompressedTTF([Const] any compressed_font_data, long compressed_font_data_size, optional float size_pixels, [Const] optional ImFontConfig font_cfg, [Const] optional ImWcharPointer glyph_ranges);
+    ImFont AddFontFromMemoryCompressedBase85TTF([Const] DOMString compressed_font_data_base85, optional float size_pixels, [Const] optional ImFontConfig font_cfg, [Const] optional ImWcharPointer glyph_ranges);
+    void RemoveFont(ImFont font);
+    void CompactCache();
+    void SetFontLoader([Const] ImFontLoader font_loader);
+    void Clear();
     void ClearFonts();
+    [Const] ImWcharPointer GetGlyphRangesDefault();
+    long AddCustomRect(long width, long height, optional ImFontAtlasRect out_rect);
+    void RemoveCustomRect(long id);
+    boolean GetCustomRect(long id, ImFontAtlasRect out_rect);
 };
 
 interface ImFontConfig {
@@ -1680,8 +1996,8 @@ interface ImFontConfig {
     attribute long OversampleV;
     attribute unsigned short EllipsisChar;
     attribute float SizePixels;
-//    attribute const ImWchar*  GlyphRanges;
-//    attribute const ImWchar*  GlyphExcludeRanges;
+    [Const] attribute ImWcharPointer GlyphRanges;
+    [Const] attribute ImWcharPointer GlyphExcludeRanges;
     [Value] attribute ImVec2 GlyphOffset;
     attribute float GlyphMinAdvanceX;
     attribute float GlyphMaxAdvanceX;
@@ -1694,15 +2010,33 @@ interface ImFontConfig {
 };
 
 interface ImFont {
-//    [Const] readonly attribute ImFontConfig ConfigData; // Dont exist
+    readonly attribute ImFontAtlas OwnerAtlas;
+    readonly attribute ImFontFlags Flags;
+    readonly attribute float CurrentRasterizerDensity;
+    readonly attribute long FontId;
+    readonly attribute float LegacySize;
+    attribute unsigned short EllipsisChar;
+    attribute unsigned short FallbackChar;
+
+    void ImFont();
+    boolean IsGlyphInFont(unsigned short c);
+    boolean IsLoaded();
+    [Const, Value] NativeString GetDebugName();
+    ImFontBaked GetFontBaked(float font_size, optional float density);
 };
 
 interface ImGuiStyle {
+    void ImGuiStyle();
+
+    attribute float             FontSizeBase;
+    attribute float             FontScaleMain;
+    attribute float             FontScaleDpi;
     attribute float             Alpha;
     attribute float             DisabledAlpha;
     [Value] attribute ImVec2    WindowPadding;
     attribute float             WindowRounding;
     attribute float             WindowBorderSize;
+    attribute float             WindowBorderHoverPadding;
     [Value] attribute ImVec2    WindowMinSize;
     [Value] attribute ImVec2    WindowTitleAlign;
     attribute ImGuiDir          WindowMenuButtonPosition;
@@ -1721,13 +2055,25 @@ interface ImGuiStyle {
     attribute float             ColumnsMinSpacing;
     attribute float             ScrollbarSize;
     attribute float             ScrollbarRounding;
+    attribute float             ScrollbarPadding;
     attribute float             GrabMinSize;
     attribute float             GrabRounding;
     attribute float             LogSliderDeadzone;
     attribute float             ImageRounding;
+    attribute float             ImageBorderSize;
     attribute float             TabRounding;
     attribute float             TabBorderSize;
+    attribute float             TabMinWidthBase;
+    attribute float             TabMinWidthShrink;
+    attribute float             TabCloseButtonMinWidthSelected;
+    attribute float             TabCloseButtonMinWidthUnselected;
     attribute float             TabBarBorderSize;
+    attribute float             TabBarOverlineSize;
+    attribute float             TableAngledHeadersAngle;
+    [Value] attribute ImVec2    TableAngledHeadersTextAlign;
+    attribute ImGuiTreeNodeFlags TreeLinesFlags;
+    attribute float             TreeLinesSize;
+    attribute float             TreeLinesRounding;
     attribute float             MenuItemRounding;
     attribute float             SelectableRounding;
     attribute float             DragDropTargetRounding;
@@ -1744,6 +2090,7 @@ interface ImGuiStyle {
     [Value] attribute ImVec2    SeparatorTextPadding;
     [Value] attribute ImVec2    DisplayWindowPadding;
     [Value] attribute ImVec2    DisplaySafeAreaPadding;
+    attribute boolean           DockingNodeHasCloseButton;
     attribute float             DockingSeparatorSize;
     attribute float             MouseCursorScale;
     attribute boolean           AntiAliasedLines;
@@ -1763,6 +2110,7 @@ interface ImGuiStyle {
 };
 
 interface ImGuiViewport {
+    void ImGuiViewport();
     attribute long ID;
     attribute ImGuiViewportFlags Flags;
     [Value] attribute ImVec2 Pos;
@@ -1772,6 +2120,7 @@ interface ImGuiViewport {
     [Value] attribute ImVec2 WorkSize;
     attribute float DpiScale;
     attribute long ParentViewportId;
+    readonly attribute ImGuiViewport ParentViewport;
     attribute ImDrawData DrawData;
     attribute any RendererUserData;
     attribute any PlatformUserData;
@@ -1782,10 +2131,29 @@ interface ImGuiViewport {
     attribute boolean PlatformRequestMove;
     attribute boolean PlatformRequestResize;
     attribute boolean PlatformRequestClose;
+    [Value] ImVec2 GetCenter();
+    [Value] ImVec2 GetWorkCenter();
     [Const, Value] NativeString GetDebugName();
 };
 
+interface ImGuiTableColumnSortSpecs {
+    void ImGuiTableColumnSortSpecs();
+    readonly attribute long ColumnUserID;
+    readonly attribute short ColumnIndex;
+    readonly attribute short SortOrder;
+    readonly attribute ImGuiSortDirection SortDirection;
+};
+
 interface ImGuiTableSortSpecs {
+    void ImGuiTableSortSpecs();
+    [Const] readonly attribute ImGuiTableColumnSortSpecs Specs;
+    readonly attribute long SpecsCount;
+    attribute boolean SpecsDirty;
+};
+
+[NoDelete]
+interface ImGuiTableSortSpecsHelpers {
+    [Const] static ImGuiTableColumnSortSpecs GetSpec([Const] ImGuiTableSortSpecs sort_specs, long index);
 };
 
 interface ImGuiWindowClass {
@@ -1877,6 +2245,7 @@ interface ImGuiWindow {
 };
 
 interface ImGuiPayload {
+    void ImGuiPayload();
     readonly attribute any Data;
     readonly attribute long DataSize;
 
@@ -1902,17 +2271,49 @@ interface ImGuiStorage {
     void SetFloat(long key, float val);
     any GetVoidPtr(long key);
     void SetVoidPtr(long key, any val);
+    any GetIntRef(long key, optional long default_val);
+    any GetBoolRef(long key, optional boolean default_val);
+    any GetFloatRef(long key, optional float default_val);
+    any GetVoidPtrRef(long key, optional any default_val);
+    void BuildSortByKey();
+};
+
+interface ImGuiPlatformMonitor {
+    void ImGuiPlatformMonitor();
+    [Value] attribute ImVec2 MainPos;
+    [Value] attribute ImVec2 MainSize;
+    [Value] attribute ImVec2 WorkPos;
+    [Value] attribute ImVec2 WorkSize;
+    attribute float DpiScale;
+    attribute any PlatformHandle;
+};
+
+interface ImGuiPlatformImeData {
+    void ImGuiPlatformImeData();
+    attribute boolean WantVisible;
+    attribute boolean WantTextInput;
+    [Value] attribute ImVec2 InputPos;
+    attribute float InputLineHeight;
+    attribute long ViewportId;
 };
 
 interface ImGuiPlatformIO {
+    void ImGuiPlatformIO();
+
+    attribute any Platform_ClipboardUserData;
+    attribute any Platform_OpenInShellUserData;
+    attribute any Platform_ImeUserData;
+    attribute unsigned short Platform_LocaleDecimalPoint;
     [Value] attribute ImVectorImTextureDataPtr Textures;
     [Value] attribute ImVectorImGuiViewportPtr Viewports;
+    [Value] attribute ImVectorImGuiPlatformMonitor Monitors;
     attribute long Platform_SessionDate;
+    attribute long Renderer_TextureMaxWidth;
+    attribute long Renderer_TextureMaxHeight;
+    attribute any Renderer_RenderState;
 
     void ClearPlatformHandlers();
     void ClearRendererHandlers();
-
-    // TODO impl
 };
 
 interface ClipboardTextFunction {
@@ -1924,6 +2325,70 @@ interface ClipboardTextFunctionImpl {
     void ClipboardTextFunctionImpl();
     void onGetClipboardText(NativeString strOut);
     void onSetClipboardText(NativeString text);
+};
+
+interface ImGuiPlatformOpenInShellCallback {
+    static void Install(ImGuiPlatformIO platform_io, ImGuiPlatformOpenInShellCallback callback);
+    static void Clear(ImGuiPlatformIO platform_io);
+};
+
+[JSImplementation="ImGuiPlatformOpenInShellCallback"]
+interface ImGuiPlatformOpenInShellCallbackImpl {
+    void ImGuiPlatformOpenInShellCallbackImpl();
+    boolean onOpenInShell(NativeString path);
+};
+
+interface ImGuiPlatformImeCallback {
+    static void Install(ImGuiPlatformIO platform_io, ImGuiPlatformImeCallback callback);
+    static void Clear(ImGuiPlatformIO platform_io);
+};
+
+[JSImplementation="ImGuiPlatformImeCallback"]
+interface ImGuiPlatformImeCallbackImpl {
+    void ImGuiPlatformImeCallbackImpl();
+    void onSetImeData(ImGuiViewport viewport, ImGuiPlatformImeData data);
+};
+
+[JSImplementation="ImGuiSizeCallbackFunction"]
+interface ImGuiSizeCallbackFunctionImpl {
+    void ImGuiSizeCallbackFunctionImpl();
+    void onSizeConstraint(ImGuiSizeCallbackData data);
+};
+
+[JSImplementation="ImGuiInputTextCallbackFunction"]
+interface ImGuiInputTextCallbackFunctionImpl {
+    void ImGuiInputTextCallbackFunctionImpl();
+    long onInputText(ImGuiInputTextCallbackData data);
+};
+
+[JSImplementation="ImGuiItemGetter"]
+interface ImGuiItemGetterImpl {
+    void ImGuiItemGetterImpl();
+    void onGetItem(long index, NativeString value_out);
+};
+
+[JSImplementation="ImGuiPlotGetter"]
+interface ImGuiPlotGetterImpl {
+    void ImGuiPlotGetterImpl();
+    float onGetValue(long index);
+};
+
+[JSImplementation="ImDrawCallbackFunction"]
+interface ImDrawCallbackFunctionImpl {
+    void ImDrawCallbackFunctionImpl();
+    void onDraw([Const] ImDrawList parent_list, [Const] ImDrawCmd draw_cmd);
+};
+
+[JSImplementation="ImGuiSelectionBasicStorageAdapter"]
+interface ImGuiSelectionBasicStorageAdapterImpl {
+    void ImGuiSelectionBasicStorageAdapterImpl();
+    long onIndexToStorageID(long index);
+};
+
+[JSImplementation="ImGuiSelectionExternalStorageAdapter"]
+interface ImGuiSelectionExternalStorageAdapterImpl {
+    void ImGuiSelectionExternalStorageAdapterImpl();
+    void onSetItemSelected(long index, boolean selected);
 };
 
 interface ImGuiViewportPlatformCallbacks {
@@ -1958,6 +2423,11 @@ interface ImGuiViewportPlatformCallbacksImpl {
     void onSwapBuffers(ImGuiViewport viewport);
     float onGetWindowDpiScale(ImGuiViewport viewport);
     void onChangedViewport(ImGuiViewport viewport);
+    float onGetWindowWorkAreaInsetX(ImGuiViewport viewport);
+    float onGetWindowWorkAreaInsetY(ImGuiViewport viewport);
+    float onGetWindowWorkAreaInsetZ(ImGuiViewport viewport);
+    float onGetWindowWorkAreaInsetW(ImGuiViewport viewport);
+    long onCreateVkSurface(ImGuiViewport viewport, unsigned long long vk_instance, any vk_allocators, any out_vk_surface);
     void onRendererCreateWindow(ImGuiViewport viewport);
     void onRendererDestroyWindow(ImGuiViewport viewport);
     void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height);
@@ -1965,10 +2435,42 @@ interface ImGuiViewportPlatformCallbacksImpl {
     void onRendererSwapBuffers(ImGuiViewport viewport);
 };
 
+interface ImGuiSelectionRequest {
+    readonly attribute ImGuiSelectionRequestType Type;
+    readonly attribute boolean Selected;
+    readonly attribute byte RangeDirection;
+    readonly attribute long long RangeFirstItem;
+    readonly attribute long long RangeLastItem;
+};
+
 interface ImGuiMultiSelectIO {
+    [Value] readonly attribute ImVectorImGuiSelectionRequest Requests;
+    readonly attribute long long RangeSrcItem;
+    readonly attribute long long NavIdItem;
     attribute boolean NavIdSelected;
     attribute boolean RangeSrcReset;
     attribute long ItemsCount;
+};
+
+interface ImGuiSelectionBasicStorage {
+    readonly attribute long Size;
+    attribute boolean PreserveOrder;
+    attribute any UserData;
+
+    void ImGuiSelectionBasicStorage();
+    void ApplyRequests(ImGuiMultiSelectIO ms_io);
+    boolean Contains(long id);
+    void Clear();
+    void Swap([Ref] ImGuiSelectionBasicStorage other);
+    void SetItemSelected(long id, boolean selected);
+    long GetStorageIdFromIndex(long index);
+};
+
+interface ImGuiSelectionExternalStorage {
+    attribute any UserData;
+
+    void ImGuiSelectionExternalStorage();
+    void ApplyRequests(ImGuiMultiSelectIO ms_io);
 };
 
 // ############################################ ImGui Enums ############################################
@@ -2041,6 +2543,11 @@ enum ImGuiItemFlags { //[-SUB_PACKAGE=enums]
     "ImGuiItemFlags_LiveEditOnInputScalar",
     "ImGuiItemFlags_LiveEditOnInput",
     "ImGuiItemFlags_Disabled"
+};
+
+enum ImGuiListClipperFlags { //[-SUB_PACKAGE=enums]
+    "ImGuiListClipperFlags_None",
+    "ImGuiListClipperFlags_NoSetTableRowCounters"
 };
 
 enum ImGuiInputTextFlags { //[-SUB_PACKAGE=enums]

@@ -16,6 +16,8 @@ public final class ImDrawList extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_1;
 
+    private ImDrawList ImDrawList_TEMP_GEN_0;
+
     private ImVectorImDrawCmd ImVectorImDrawCmd_TEMP_GEN_0;
 
     private ImVectorImDrawIdx ImVectorImDrawIdx_TEMP_GEN_0;
@@ -23,6 +25,15 @@ public final class ImDrawList extends NativeObject {
     private ImVectorImDrawVert ImVectorImDrawVert_TEMP_GEN_0;
 
     static public final ImDrawList NULL = ImDrawList.native_new();
+
+    public ImDrawList(ImDrawListSharedData shared_data) {
+        long addr = internal_native_create_ImDrawListSharedData_addr(shared_data.native_address);
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_ImDrawListSharedData_addr(long shared_data_addr) {
+        return imgui.natives.JNI_ImDrawList.internal_native_create_ImDrawListSharedData_addr(shared_data_addr);
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -450,6 +461,38 @@ public final class ImDrawList extends NativeObject {
         imgui.natives.JNI_ImDrawList.internal_native_AddBezierQuadratic(this_addr, p1_addr, p2_addr, p3_addr, col, thickness);
     }
 
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness, ImDrawFlags flags) {
+        internal_native_AddPolyline(native_address, points.native_address, num_points, col, thickness, flags.getValue());
+    }
+
+    public static void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness, int flags) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddPolyline(this_addr, points_addr, num_points, col, thickness, flags);
+    }
+
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness) {
+        internal_native_AddPolyline(native_address, points.native_address, num_points, col, thickness);
+    }
+
+    public static void internal_native_AddPolyline(long this_addr, long points_addr, int num_points, int col, float thickness) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddPolyline(this_addr, points_addr, num_points, col, thickness);
+    }
+
+    public void AddConvexPolyFilled(ImVec2 points, int num_points, int col) {
+        internal_native_AddConvexPolyFilled(native_address, points.native_address, num_points, col);
+    }
+
+    public static void internal_native_AddConvexPolyFilled(long this_addr, long points_addr, int num_points, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddConvexPolyFilled(this_addr, points_addr, num_points, col);
+    }
+
+    public void AddConcavePolyFilled(ImVec2 points, int num_points, int col) {
+        internal_native_AddConcavePolyFilled(native_address, points.native_address, num_points, col);
+    }
+
+    public static void internal_native_AddConcavePolyFilled(long this_addr, long points_addr, int num_points, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddConcavePolyFilled(this_addr, points_addr, num_points, col);
+    }
+
     public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, int col) {
         internal_native_AddImage(native_address, tex_ref.native_address, p_min.native_address, p_max.native_address, uv_min.native_address, uv_max.native_address, col);
     }
@@ -570,6 +613,102 @@ public final class ImDrawList extends NativeObject {
         imgui.natives.JNI_ImDrawList.internal_native_PathLineToMergeDuplicate(this_addr, pos_addr);
     }
 
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max, int num_segments) {
+        internal_native_PathArcTo(native_address, center.native_address, radius, a_min, a_max, num_segments);
+    }
+
+    public static void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max, int num_segments) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathArcTo(this_addr, center_addr, radius, a_min, a_max, num_segments);
+    }
+
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max) {
+        internal_native_PathArcTo(native_address, center.native_address, radius, a_min, a_max);
+    }
+
+    public static void internal_native_PathArcTo(long this_addr, long center_addr, float radius, float a_min, float a_max) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathArcTo(this_addr, center_addr, radius, a_min, a_max);
+    }
+
+    public void PathArcToFast(ImVec2 center, float radius, int a_min_of_12, int a_max_of_12) {
+        internal_native_PathArcToFast(native_address, center.native_address, radius, a_min_of_12, a_max_of_12);
+    }
+
+    public static void internal_native_PathArcToFast(long this_addr, long center_addr, float radius, int a_min_of_12, int a_max_of_12) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathArcToFast(this_addr, center_addr, radius, a_min_of_12, a_max_of_12);
+    }
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max, int num_segments) {
+        internal_native_PathEllipticalArcTo(native_address, center.native_address, radius.native_address, rot, a_min, a_max, num_segments);
+    }
+
+    public static void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max, int num_segments) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathEllipticalArcTo(this_addr, center_addr, radius_addr, rot, a_min, a_max, num_segments);
+    }
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max) {
+        internal_native_PathEllipticalArcTo(native_address, center.native_address, radius.native_address, rot, a_min, a_max);
+    }
+
+    public static void internal_native_PathEllipticalArcTo(long this_addr, long center_addr, long radius_addr, float rot, float a_min, float a_max) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathEllipticalArcTo(this_addr, center_addr, radius_addr, rot, a_min, a_max);
+    }
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments) {
+        internal_native_PathBezierCubicCurveTo(native_address, p2.native_address, p3.native_address, p4.native_address, num_segments);
+    }
+
+    public static void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr, int num_segments) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathBezierCubicCurveTo(this_addr, p2_addr, p3_addr, p4_addr, num_segments);
+    }
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4) {
+        internal_native_PathBezierCubicCurveTo(native_address, p2.native_address, p3.native_address, p4.native_address);
+    }
+
+    public static void internal_native_PathBezierCubicCurveTo(long this_addr, long p2_addr, long p3_addr, long p4_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathBezierCubicCurveTo(this_addr, p2_addr, p3_addr, p4_addr);
+    }
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments) {
+        internal_native_PathBezierQuadraticCurveTo(native_address, p2.native_address, p3.native_address, num_segments);
+    }
+
+    public static void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr, int num_segments) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathBezierQuadraticCurveTo(this_addr, p2_addr, p3_addr, num_segments);
+    }
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3) {
+        internal_native_PathBezierQuadraticCurveTo(native_address, p2.native_address, p3.native_address);
+    }
+
+    public static void internal_native_PathBezierQuadraticCurveTo(long this_addr, long p2_addr, long p3_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathBezierQuadraticCurveTo(this_addr, p2_addr, p3_addr);
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address, rounding, flags.getValue());
+    }
+
+    public static void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding, int flags) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathRect(this_addr, rect_min_addr, rect_max_addr, rounding, flags);
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address, rounding);
+    }
+
+    public static void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr, float rounding) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathRect(this_addr, rect_min_addr, rect_max_addr, rounding);
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max) {
+        internal_native_PathRect(native_address, rect_min.native_address, rect_max.native_address);
+    }
+
+    public static void internal_native_PathRect(long this_addr, long rect_min_addr, long rect_max_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_PathRect(this_addr, rect_min_addr, rect_max_addr);
+    }
+
     public void PathFillConvex(int col) {
         internal_native_PathFillConvex(native_address, col);
     }
@@ -600,6 +739,68 @@ public final class ImDrawList extends NativeObject {
 
     public static void internal_native_PathStroke(long this_addr, int col) {
         imgui.natives.JNI_ImDrawList.internal_native_PathStroke(this_addr, col);
+    }
+
+    public void AddDrawCmd() {
+        internal_native_AddDrawCmd(native_address);
+    }
+
+    public static void internal_native_AddDrawCmd(long this_addr) {
+        imgui.natives.JNI_ImDrawList.internal_native_AddDrawCmd(this_addr);
+    }
+
+    public ImDrawList CloneOutput() {
+        long addr = internal_native_CloneOutput_addr(native_address);
+        if (addr == 0)
+            return ImDrawList.NULL;
+        if (ImDrawList_TEMP_GEN_0 == null)
+            ImDrawList_TEMP_GEN_0 = ImDrawList.native_new();
+        ImDrawList_TEMP_GEN_0.internal_reset(addr, false);
+        return ImDrawList_TEMP_GEN_0;
+    }
+
+    public static long internal_native_CloneOutput_addr(long this_addr) {
+        return imgui.natives.JNI_ImDrawList.internal_native_CloneOutput_addr(this_addr);
+    }
+
+    public void PrimReserve(int idx_count, int vtx_count) {
+        internal_native_PrimReserve(native_address, idx_count, vtx_count);
+    }
+
+    public static void internal_native_PrimReserve(long this_addr, int idx_count, int vtx_count) {
+        imgui.natives.JNI_ImDrawList.internal_native_PrimReserve(this_addr, idx_count, vtx_count);
+    }
+
+    public void PrimUnreserve(int idx_count, int vtx_count) {
+        internal_native_PrimUnreserve(native_address, idx_count, vtx_count);
+    }
+
+    public static void internal_native_PrimUnreserve(long this_addr, int idx_count, int vtx_count) {
+        imgui.natives.JNI_ImDrawList.internal_native_PrimUnreserve(this_addr, idx_count, vtx_count);
+    }
+
+    public void PrimRect(ImVec2 a, ImVec2 b, int col) {
+        internal_native_PrimRect(native_address, a.native_address, b.native_address, col);
+    }
+
+    public static void internal_native_PrimRect(long this_addr, long a_addr, long b_addr, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_PrimRect(this_addr, a_addr, b_addr, col);
+    }
+
+    public void PrimRectUV(ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, int col) {
+        internal_native_PrimRectUV(native_address, a.native_address, b.native_address, uv_a.native_address, uv_b.native_address, col);
+    }
+
+    public static void internal_native_PrimRectUV(long this_addr, long a_addr, long b_addr, long uv_a_addr, long uv_b_addr, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_PrimRectUV(this_addr, a_addr, b_addr, uv_a_addr, uv_b_addr, col);
+    }
+
+    public void PrimQuadUV(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, int col) {
+        internal_native_PrimQuadUV(native_address, a.native_address, b.native_address, c.native_address, d.native_address, uv_a.native_address, uv_b.native_address, uv_c.native_address, uv_d.native_address, col);
+    }
+
+    public static void internal_native_PrimQuadUV(long this_addr, long a_addr, long b_addr, long c_addr, long d_addr, long uv_a_addr, long uv_b_addr, long uv_c_addr, long uv_d_addr, int col) {
+        imgui.natives.JNI_ImDrawList.internal_native_PrimQuadUV(this_addr, a_addr, b_addr, c_addr, d_addr, uv_a_addr, uv_b_addr, uv_c_addr, uv_d_addr, col);
     }
 
     public void ChannelsSplit(int count) {

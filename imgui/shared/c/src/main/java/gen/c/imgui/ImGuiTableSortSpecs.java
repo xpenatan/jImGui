@@ -10,7 +10,17 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImGuiTableSortSpecs extends NativeObject {
 
+    private ImGuiTableColumnSortSpecs ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
+
+    public ImGuiTableSortSpecs() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -32,4 +42,38 @@ public final class ImGuiTableSortSpecs extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
+
+    public ImGuiTableColumnSortSpecs get_Specs() {
+        long addr = internal_native_get_Specs_addr(native_address);
+        if (addr == 0)
+            return ImGuiTableColumnSortSpecs.NULL;
+        if (ImGuiTableColumnSortSpecs_TEMP_GEN_0 == null)
+            ImGuiTableColumnSortSpecs_TEMP_GEN_0 = ImGuiTableColumnSortSpecs.native_new();
+        ImGuiTableColumnSortSpecs_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_get_specs_addr")
+    public static native long internal_native_get_Specs_addr(long this_addr);
+
+    public int get_SpecsCount() {
+        return internal_native_get_SpecsCount(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_get_specscount")
+    public static native int internal_native_get_SpecsCount(long this_addr);
+
+    public boolean get_SpecsDirty() {
+        return internal_native_get_SpecsDirty(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_get_specsdirty")
+    public static native boolean internal_native_get_SpecsDirty(long this_addr);
+
+    public void set_SpecsDirty(boolean SpecsDirty) {
+        internal_native_set_SpecsDirty(native_address, SpecsDirty);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguitablesortspecs_set_specsdirty")
+    public static native void internal_native_set_SpecsDirty(long this_addr, boolean SpecsDirty);
 }

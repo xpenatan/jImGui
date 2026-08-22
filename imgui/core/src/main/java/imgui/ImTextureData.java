@@ -14,6 +14,9 @@ public final class ImTextureData extends NativeObject {
 
     static public final ImTextureData NULL = ImTextureData.native_new();
 
+    public ImTextureData() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

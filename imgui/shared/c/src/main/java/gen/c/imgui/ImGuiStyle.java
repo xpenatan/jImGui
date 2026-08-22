@@ -8,6 +8,7 @@ package gen.c.imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.imgui.enums.ImGuiDir;
+import gen.c.imgui.enums.ImGuiTreeNodeFlags;
 import gen.c.imgui.enums.ImGuiHoveredFlags;
 
 public final class ImGuiStyle extends NativeObject {
@@ -40,9 +41,19 @@ public final class ImGuiStyle extends NativeObject {
 
     private ImVec2 ImVec2_TEMP_GEN_13;
 
+    private ImVec2 ImVec2_TEMP_GEN_14;
+
     private ImVec4 ImVec4_TEMP_GEN_0;
 
     static public final ImGuiStyle NULL = ImGuiStyle.native_new();
+
+    public ImGuiStyle() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -71,6 +82,48 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_scaleallsizes")
     public static native void internal_native_ScaleAllSizes(long this_addr, float scale_factor);
+
+    public float get_FontSizeBase() {
+        return internal_native_get_FontSizeBase(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_fontsizebase")
+    public static native float internal_native_get_FontSizeBase(long this_addr);
+
+    public void set_FontSizeBase(float FontSizeBase) {
+        internal_native_set_FontSizeBase(native_address, FontSizeBase);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_fontsizebase")
+    public static native void internal_native_set_FontSizeBase(long this_addr, float FontSizeBase);
+
+    public float get_FontScaleMain() {
+        return internal_native_get_FontScaleMain(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_fontscalemain")
+    public static native float internal_native_get_FontScaleMain(long this_addr);
+
+    public void set_FontScaleMain(float FontScaleMain) {
+        internal_native_set_FontScaleMain(native_address, FontScaleMain);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_fontscalemain")
+    public static native void internal_native_set_FontScaleMain(long this_addr, float FontScaleMain);
+
+    public float get_FontScaleDpi() {
+        return internal_native_get_FontScaleDpi(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_fontscaledpi")
+    public static native float internal_native_get_FontScaleDpi(long this_addr);
+
+    public void set_FontScaleDpi(float FontScaleDpi) {
+        internal_native_set_FontScaleDpi(native_address, FontScaleDpi);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_fontscaledpi")
+    public static native void internal_native_set_FontScaleDpi(long this_addr, float FontScaleDpi);
 
     public float get_Alpha() {
         return internal_native_get_Alpha(native_address);
@@ -147,6 +200,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_windowbordersize")
     public static native void internal_native_set_WindowBorderSize(long this_addr, float WindowBorderSize);
+
+    public float get_WindowBorderHoverPadding() {
+        return internal_native_get_WindowBorderHoverPadding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_windowborderhoverpadding")
+    public static native float internal_native_get_WindowBorderHoverPadding(long this_addr);
+
+    public void set_WindowBorderHoverPadding(float WindowBorderHoverPadding) {
+        internal_native_set_WindowBorderHoverPadding(native_address, WindowBorderHoverPadding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_windowborderhoverpadding")
+    public static native void internal_native_set_WindowBorderHoverPadding(long this_addr, float WindowBorderHoverPadding);
 
     public ImVec2 get_WindowMinSize() {
         long addr = internal_native_get_WindowMinSize_addr(native_address);
@@ -449,6 +516,20 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_scrollbarrounding")
     public static native void internal_native_set_ScrollbarRounding(long this_addr, float ScrollbarRounding);
 
+    public float get_ScrollbarPadding() {
+        return internal_native_get_ScrollbarPadding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_scrollbarpadding")
+    public static native float internal_native_get_ScrollbarPadding(long this_addr);
+
+    public void set_ScrollbarPadding(float ScrollbarPadding) {
+        internal_native_set_ScrollbarPadding(native_address, ScrollbarPadding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_scrollbarpadding")
+    public static native void internal_native_set_ScrollbarPadding(long this_addr, float ScrollbarPadding);
+
     public float get_GrabMinSize() {
         return internal_native_get_GrabMinSize(native_address);
     }
@@ -505,6 +586,20 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_imagerounding")
     public static native void internal_native_set_ImageRounding(long this_addr, float ImageRounding);
 
+    public float get_ImageBorderSize() {
+        return internal_native_get_ImageBorderSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_imagebordersize")
+    public static native float internal_native_get_ImageBorderSize(long this_addr);
+
+    public void set_ImageBorderSize(float ImageBorderSize) {
+        internal_native_set_ImageBorderSize(native_address, ImageBorderSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_imagebordersize")
+    public static native void internal_native_set_ImageBorderSize(long this_addr, float ImageBorderSize);
+
     public float get_TabRounding() {
         return internal_native_get_TabRounding(native_address);
     }
@@ -533,6 +628,62 @@ public final class ImGuiStyle extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabbordersize")
     public static native void internal_native_set_TabBorderSize(long this_addr, float TabBorderSize);
 
+    public float get_TabMinWidthBase() {
+        return internal_native_get_TabMinWidthBase(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tabminwidthbase")
+    public static native float internal_native_get_TabMinWidthBase(long this_addr);
+
+    public void set_TabMinWidthBase(float TabMinWidthBase) {
+        internal_native_set_TabMinWidthBase(native_address, TabMinWidthBase);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabminwidthbase")
+    public static native void internal_native_set_TabMinWidthBase(long this_addr, float TabMinWidthBase);
+
+    public float get_TabMinWidthShrink() {
+        return internal_native_get_TabMinWidthShrink(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tabminwidthshrink")
+    public static native float internal_native_get_TabMinWidthShrink(long this_addr);
+
+    public void set_TabMinWidthShrink(float TabMinWidthShrink) {
+        internal_native_set_TabMinWidthShrink(native_address, TabMinWidthShrink);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabminwidthshrink")
+    public static native void internal_native_set_TabMinWidthShrink(long this_addr, float TabMinWidthShrink);
+
+    public float get_TabCloseButtonMinWidthSelected() {
+        return internal_native_get_TabCloseButtonMinWidthSelected(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tabclosebuttonminwidthselected")
+    public static native float internal_native_get_TabCloseButtonMinWidthSelected(long this_addr);
+
+    public void set_TabCloseButtonMinWidthSelected(float TabCloseButtonMinWidthSelected) {
+        internal_native_set_TabCloseButtonMinWidthSelected(native_address, TabCloseButtonMinWidthSelected);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabclosebuttonminwidthselected")
+    public static native void internal_native_set_TabCloseButtonMinWidthSelected(long this_addr, float TabCloseButtonMinWidthSelected);
+
+    public float get_TabCloseButtonMinWidthUnselected() {
+        return internal_native_get_TabCloseButtonMinWidthUnselected(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tabclosebuttonminwidthunselected")
+    public static native float internal_native_get_TabCloseButtonMinWidthUnselected(long this_addr);
+
+    public void set_TabCloseButtonMinWidthUnselected(float TabCloseButtonMinWidthUnselected) {
+        internal_native_set_TabCloseButtonMinWidthUnselected(native_address, TabCloseButtonMinWidthUnselected);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabclosebuttonminwidthunselected")
+    public static native void internal_native_set_TabCloseButtonMinWidthUnselected(long this_addr, float TabCloseButtonMinWidthUnselected);
+
     public float get_TabBarBorderSize() {
         return internal_native_get_TabBarBorderSize(native_address);
     }
@@ -546,6 +697,103 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabbarbordersize")
     public static native void internal_native_set_TabBarBorderSize(long this_addr, float TabBarBorderSize);
+
+    public float get_TabBarOverlineSize() {
+        return internal_native_get_TabBarOverlineSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tabbaroverlinesize")
+    public static native float internal_native_get_TabBarOverlineSize(long this_addr);
+
+    public void set_TabBarOverlineSize(float TabBarOverlineSize) {
+        internal_native_set_TabBarOverlineSize(native_address, TabBarOverlineSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tabbaroverlinesize")
+    public static native void internal_native_set_TabBarOverlineSize(long this_addr, float TabBarOverlineSize);
+
+    public float get_TableAngledHeadersAngle() {
+        return internal_native_get_TableAngledHeadersAngle(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tableangledheadersangle")
+    public static native float internal_native_get_TableAngledHeadersAngle(long this_addr);
+
+    public void set_TableAngledHeadersAngle(float TableAngledHeadersAngle) {
+        internal_native_set_TableAngledHeadersAngle(native_address, TableAngledHeadersAngle);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tableangledheadersangle")
+    public static native void internal_native_set_TableAngledHeadersAngle(long this_addr, float TableAngledHeadersAngle);
+
+    public ImVec2 get_TableAngledHeadersTextAlign() {
+        long addr = internal_native_get_TableAngledHeadersTextAlign_addr(native_address);
+        if (addr == 0)
+            return ImVec2.NULL;
+        if (ImVec2_TEMP_GEN_8 == null)
+            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_8;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_tableangledheaderstextalign_addr")
+    public static native long internal_native_get_TableAngledHeadersTextAlign_addr(long this_addr);
+
+    public void set_TableAngledHeadersTextAlign(ImVec2 TableAngledHeadersTextAlign) {
+        internal_native_set_TableAngledHeadersTextAlign(native_address, TableAngledHeadersTextAlign.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_tableangledheaderstextalign")
+    public static native void internal_native_set_TableAngledHeadersTextAlign(long this_addr, long TableAngledHeadersTextAlign_addr);
+
+    public ImGuiTreeNodeFlags get_TreeLinesFlags() {
+        int value = internal_native_get_TreeLinesFlags(native_address);
+        ImGuiTreeNodeFlags[] values = ImGuiTreeNodeFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImGuiTreeNodeFlags enumVal = values[i];
+            if (enumVal != ImGuiTreeNodeFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImGuiTreeNodeFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_treelinesflags")
+    public static native int internal_native_get_TreeLinesFlags(long this_addr);
+
+    public void set_TreeLinesFlags(ImGuiTreeNodeFlags TreeLinesFlags) {
+        internal_native_set_TreeLinesFlags(native_address, TreeLinesFlags.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_treelinesflags")
+    public static native void internal_native_set_TreeLinesFlags(long this_addr, int TreeLinesFlags);
+
+    public float get_TreeLinesSize() {
+        return internal_native_get_TreeLinesSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_treelinessize")
+    public static native float internal_native_get_TreeLinesSize(long this_addr);
+
+    public void set_TreeLinesSize(float TreeLinesSize) {
+        internal_native_set_TreeLinesSize(native_address, TreeLinesSize);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_treelinessize")
+    public static native void internal_native_set_TreeLinesSize(long this_addr, float TreeLinesSize);
+
+    public float get_TreeLinesRounding() {
+        return internal_native_get_TreeLinesRounding(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_treelinesrounding")
+    public static native float internal_native_get_TreeLinesRounding(long this_addr);
+
+    public void set_TreeLinesRounding(float TreeLinesRounding) {
+        internal_native_set_TreeLinesRounding(native_address, TreeLinesRounding);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_treelinesrounding")
+    public static native void internal_native_set_TreeLinesRounding(long this_addr, float TreeLinesRounding);
 
     public float get_MenuItemRounding() {
         return internal_native_get_MenuItemRounding(native_address);
@@ -656,10 +904,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_ButtonTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_8 == null)
-            ImVec2_TEMP_GEN_8 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_8.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_8;
+        if (ImVec2_TEMP_GEN_9 == null)
+            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_9;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_buttontextalign_addr")
@@ -676,10 +924,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SelectableTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_9 == null)
-            ImVec2_TEMP_GEN_9 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_9.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_9;
+        if (ImVec2_TEMP_GEN_10 == null)
+            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_10;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_selectabletextalign_addr")
@@ -738,10 +986,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SeparatorTextAlign_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_10 == null)
-            ImVec2_TEMP_GEN_10 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_10.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_10;
+        if (ImVec2_TEMP_GEN_11 == null)
+            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_11;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_separatortextalign_addr")
@@ -758,10 +1006,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_SeparatorTextPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_11 == null)
-            ImVec2_TEMP_GEN_11 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_11.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_11;
+        if (ImVec2_TEMP_GEN_12 == null)
+            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_12;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_separatortextpadding_addr")
@@ -778,10 +1026,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_DisplayWindowPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_12 == null)
-            ImVec2_TEMP_GEN_12 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_12.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_12;
+        if (ImVec2_TEMP_GEN_13 == null)
+            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_13;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_displaywindowpadding_addr")
@@ -798,10 +1046,10 @@ public final class ImGuiStyle extends NativeObject {
         long addr = internal_native_get_DisplaySafeAreaPadding_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_13 == null)
-            ImVec2_TEMP_GEN_13 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_13.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_13;
+        if (ImVec2_TEMP_GEN_14 == null)
+            ImVec2_TEMP_GEN_14 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_14.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_14;
     }
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_get_displaysafeareapadding_addr")
@@ -813,6 +1061,20 @@ public final class ImGuiStyle extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistyle_set_displaysafeareapadding")
     public static native void internal_native_set_DisplaySafeAreaPadding(long this_addr, long DisplaySafeAreaPadding_addr);
+
+    public boolean get_DockingNodeHasCloseButton() {
+        return internal_native_get_DockingNodeHasCloseButton(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_get_dockingnodehasclosebutton")
+    public static native boolean internal_native_get_DockingNodeHasCloseButton(long this_addr);
+
+    public void set_DockingNodeHasCloseButton(boolean DockingNodeHasCloseButton) {
+        internal_native_set_DockingNodeHasCloseButton(native_address, DockingNodeHasCloseButton);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistyle_set_dockingnodehasclosebutton")
+    public static native void internal_native_set_DockingNodeHasCloseButton(long this_addr, boolean DockingNodeHasCloseButton);
 
     public float get_DockingSeparatorSize() {
         return internal_native_get_DockingSeparatorSize(native_address);

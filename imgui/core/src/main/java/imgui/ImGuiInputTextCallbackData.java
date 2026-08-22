@@ -8,10 +8,14 @@ package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import imgui.enums.ImGuiInputTextFlags;
+import imgui.enums.ImGuiKey;
 
 public final class ImGuiInputTextCallbackData extends NativeObject {
 
     static public final ImGuiInputTextCallbackData NULL = ImGuiInputTextCallbackData.native_new();
+
+    public ImGuiInputTextCallbackData() {
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -27,22 +31,66 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
         return new ImGuiInputTextCallbackData((byte) 0, (char) 0);
     }
 
+    public void DeleteChars(int pos, int bytes_count) {
+    }
+
+    public void InsertChars(int pos, String text) {
+    }
+
+    public void SelectAll() {
+    }
+
+    public void ClearSelection() {
+    }
+
+    public boolean HasSelection() {
+        return false;
+    }
+
     public void SetSelection(int selection_start, int selection_end) {
+    }
+
+    public ImGuiContext get_Ctx() {
+        return null;
+    }
+
+    public ImGuiInputTextFlags get_EventFlag() {
+        return null;
+    }
+
+    public ImGuiInputTextFlags get_Flags() {
+        return null;
+    }
+
+    public NativeObject get_UserData() {
+        return null;
     }
 
     public int get_ID() {
         return 0;
     }
 
+    public ImGuiKey get_EventKey() {
+        return null;
+    }
+
+    public short get_EventChar() {
+        return 0;
+    }
+
+    public void set_EventChar(short EventChar) {
+    }
+
     public boolean get_EventActivated() {
         return false;
     }
 
-    public int get_BufSize() {
-        return 0;
+    public NativeObject get_Buf() {
+        return null;
     }
 
-    public void set_BufSize(int BufSize) {
+    public int get_BufSize() {
+        return 0;
     }
 
     public boolean get_BufDirty() {
@@ -59,10 +107,24 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
     public void set_BufTextLen(int BufTextLen) {
     }
 
-    public ImGuiInputTextFlags get_Flags() {
-        return null;
+    public int get_CursorPos() {
+        return 0;
     }
 
-    public void set_Flags(ImGuiInputTextFlags Flags) {
+    public void set_CursorPos(int CursorPos) {
+    }
+
+    public int get_SelectionStart() {
+        return 0;
+    }
+
+    public void set_SelectionStart(int SelectionStart) {
+    }
+
+    public int get_SelectionEnd() {
+        return 0;
+    }
+
+    public void set_SelectionEnd(int SelectionEnd) {
     }
 }

@@ -17,6 +17,9 @@ public final class ImGuiIO extends NativeObject {
 
     static public final ImGuiIO NULL = ImGuiIO.native_new();
 
+    public ImGuiIO() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -381,6 +384,104 @@ public final class ImGuiIO extends NativeObject {
     }
 
     public void set_ConfigIniSettingsAutoDiscardMonths(int ConfigIniSettingsAutoDiscardMonths) {
+    }
+
+    public boolean get_ConfigDebugIniSettings() {
+        return false;
+    }
+
+    public void set_ConfigDebugIniSettings(boolean ConfigDebugIniSettings) {
+    }
+
+    public boolean get_ConfigErrorRecovery() {
+        return false;
+    }
+
+    public void set_ConfigErrorRecovery(boolean ConfigErrorRecovery) {
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableAssert() {
+        return false;
+    }
+
+    public void set_ConfigErrorRecoveryEnableAssert(boolean ConfigErrorRecoveryEnableAssert) {
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableDebugLog() {
+        return false;
+    }
+
+    public void set_ConfigErrorRecoveryEnableDebugLog(boolean ConfigErrorRecoveryEnableDebugLog) {
+    }
+
+    public boolean get_ConfigErrorRecoveryEnableTooltip() {
+        return false;
+    }
+
+    public void set_ConfigErrorRecoveryEnableTooltip(boolean ConfigErrorRecoveryEnableTooltip) {
+    }
+
+    public boolean get_ConfigDebugIsDebuggerPresent() {
+        return false;
+    }
+
+    public void set_ConfigDebugIsDebuggerPresent(boolean ConfigDebugIsDebuggerPresent) {
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflicts() {
+        return false;
+    }
+
+    public void set_ConfigDebugHighlightIdConflicts(boolean ConfigDebugHighlightIdConflicts) {
+    }
+
+    public boolean get_ConfigDebugHighlightIdConflictsShowItemPicker() {
+        return false;
+    }
+
+    public void set_ConfigDebugHighlightIdConflictsShowItemPicker(boolean ConfigDebugHighlightIdConflictsShowItemPicker) {
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueOnce() {
+        return false;
+    }
+
+    public void set_ConfigDebugBeginReturnValueOnce(boolean ConfigDebugBeginReturnValueOnce) {
+    }
+
+    public boolean get_ConfigDebugBeginReturnValueLoop() {
+        return false;
+    }
+
+    public void set_ConfigDebugBeginReturnValueLoop(boolean ConfigDebugBeginReturnValueLoop) {
+    }
+
+    public boolean get_ConfigDebugIgnoreFocusLoss() {
+        return false;
+    }
+
+    public void set_ConfigDebugIgnoreFocusLoss(boolean ConfigDebugIgnoreFocusLoss) {
+    }
+
+    public NativeObject get_BackendPlatformUserData() {
+        return null;
+    }
+
+    public void set_BackendPlatformUserData(NativeObject BackendPlatformUserData) {
+    }
+
+    public NativeObject get_BackendRendererUserData() {
+        return null;
+    }
+
+    public void set_BackendRendererUserData(NativeObject BackendRendererUserData) {
+    }
+
+    public NativeObject get_BackendLanguageUserData() {
+        return null;
+    }
+
+    public void set_BackendLanguageUserData(NativeObject BackendLanguageUserData) {
     }
 
     public float get_MouseDoubleClickTime() {

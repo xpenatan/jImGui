@@ -12,6 +12,22 @@ public final class ImGuiStorage extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
+    private NativeObject NativeObject_TEMP_GEN_4;
+
+    private NativeObject NativeObject_TEMP_GEN_5;
+
+    private NativeObject NativeObject_TEMP_GEN_6;
+
+    private NativeObject NativeObject_TEMP_GEN_7;
+
+    private NativeObject NativeObject_TEMP_GEN_8;
+
     private ImVectorImGuiStoragePair ImVectorImGuiStoragePair_TEMP_GEN_0;
 
     static public final ImGuiStorage NULL = ImGuiStorage.native_new();
@@ -134,6 +150,117 @@ public final class ImGuiStorage extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguistorage_setvoidptr")
     public static native void internal_native_SetVoidPtr(long this_addr, int key, long val_addr);
+
+    public NativeObject GetIntRef(int key, int default_val) {
+        long addr = internal_native_GetIntRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getintref_addr_l_i_i")
+    public static native long internal_native_GetIntRef_addr(long this_addr, int key, int default_val);
+
+    public NativeObject GetIntRef(int key) {
+        long addr = internal_native_GetIntRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getintref_addr_l_i")
+    public static native long internal_native_GetIntRef_addr(long this_addr, int key);
+
+    public NativeObject GetBoolRef(int key, boolean default_val) {
+        long addr = internal_native_GetBoolRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getboolref_addr_l_i_z")
+    public static native long internal_native_GetBoolRef_addr(long this_addr, int key, boolean default_val);
+
+    public NativeObject GetBoolRef(int key) {
+        long addr = internal_native_GetBoolRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_4 == null)
+            NativeObject_TEMP_GEN_4 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_4.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_4;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getboolref_addr_l_i")
+    public static native long internal_native_GetBoolRef_addr(long this_addr, int key);
+
+    public NativeObject GetFloatRef(int key, float default_val) {
+        long addr = internal_native_GetFloatRef_addr(native_address, key, default_val);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_5 == null)
+            NativeObject_TEMP_GEN_5 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_5.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_5;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getfloatref_addr_l_i_f")
+    public static native long internal_native_GetFloatRef_addr(long this_addr, int key, float default_val);
+
+    public NativeObject GetFloatRef(int key) {
+        long addr = internal_native_GetFloatRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_6 == null)
+            NativeObject_TEMP_GEN_6 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_6.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_6;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getfloatref_addr_l_i")
+    public static native long internal_native_GetFloatRef_addr(long this_addr, int key);
+
+    public NativeObject GetVoidPtrRef(int key, NativeObject default_val) {
+        long addr = internal_native_GetVoidPtrRef_addr(native_address, key, default_val.native_void_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_7 == null)
+            NativeObject_TEMP_GEN_7 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_7.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_7;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getvoidptrref_addr_l_i_l")
+    public static native long internal_native_GetVoidPtrRef_addr(long this_addr, int key, long default_val_addr);
+
+    public NativeObject GetVoidPtrRef(int key) {
+        long addr = internal_native_GetVoidPtrRef_addr(native_address, key);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_8 == null)
+            NativeObject_TEMP_GEN_8 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_8.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_8;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_getvoidptrref_addr_l_i")
+    public static native long internal_native_GetVoidPtrRef_addr(long this_addr, int key);
+
+    public void BuildSortByKey() {
+        internal_native_BuildSortByKey(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguistorage_buildsortbykey")
+    public static native void internal_native_BuildSortByKey(long this_addr);
 
     public ImVectorImGuiStoragePair get_Data() {
         long addr = internal_native_get_Data_addr(native_address);

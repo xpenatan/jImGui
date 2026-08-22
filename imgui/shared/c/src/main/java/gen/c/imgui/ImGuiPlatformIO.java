@@ -10,11 +10,29 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImGuiPlatformIO extends NativeObject {
 
+    private NativeObject NativeObject_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_1;
+
+    private NativeObject NativeObject_TEMP_GEN_2;
+
     private ImVectorImTextureDataPtr ImVectorImTextureDataPtr_TEMP_GEN_0;
 
     private ImVectorImGuiViewportPtr ImVectorImGuiViewportPtr_TEMP_GEN_0;
 
+    private ImVectorImGuiPlatformMonitor ImVectorImGuiPlatformMonitor_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_3;
+
     static public final ImGuiPlatformIO NULL = ImGuiPlatformIO.native_new();
+
+    public ImGuiPlatformIO() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -50,6 +68,80 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiplatformio_clearrendererhandlers")
     public static native void internal_native_ClearRendererHandlers(long this_addr);
+
+    public NativeObject get_Platform_ClipboardUserData() {
+        long addr = internal_native_get_Platform_ClipboardUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_platform_clipboarduserdata_addr")
+    public static native long internal_native_get_Platform_ClipboardUserData_addr(long this_addr);
+
+    public void set_Platform_ClipboardUserData(NativeObject Platform_ClipboardUserData) {
+        internal_native_set_Platform_ClipboardUserData(native_address, Platform_ClipboardUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_clipboarduserdata")
+    public static native void internal_native_set_Platform_ClipboardUserData(long this_addr, long Platform_ClipboardUserData_addr);
+
+    public NativeObject get_Platform_OpenInShellUserData() {
+        long addr = internal_native_get_Platform_OpenInShellUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_1 == null)
+            NativeObject_TEMP_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_1.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_platform_openinshelluserdata_addr")
+    public static native long internal_native_get_Platform_OpenInShellUserData_addr(long this_addr);
+
+    public void set_Platform_OpenInShellUserData(NativeObject Platform_OpenInShellUserData) {
+        internal_native_set_Platform_OpenInShellUserData(native_address, Platform_OpenInShellUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_openinshelluserdata")
+    public static native void internal_native_set_Platform_OpenInShellUserData(long this_addr, long Platform_OpenInShellUserData_addr);
+
+    public NativeObject get_Platform_ImeUserData() {
+        long addr = internal_native_get_Platform_ImeUserData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_2 == null)
+            NativeObject_TEMP_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_2.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_platform_imeuserdata_addr")
+    public static native long internal_native_get_Platform_ImeUserData_addr(long this_addr);
+
+    public void set_Platform_ImeUserData(NativeObject Platform_ImeUserData) {
+        internal_native_set_Platform_ImeUserData(native_address, Platform_ImeUserData.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_imeuserdata")
+    public static native void internal_native_set_Platform_ImeUserData(long this_addr, long Platform_ImeUserData_addr);
+
+    public short get_Platform_LocaleDecimalPoint() {
+        return internal_native_get_Platform_LocaleDecimalPoint(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_platform_localedecimalpoint")
+    public static native short internal_native_get_Platform_LocaleDecimalPoint(long this_addr);
+
+    public void set_Platform_LocaleDecimalPoint(short Platform_LocaleDecimalPoint) {
+        internal_native_set_Platform_LocaleDecimalPoint(native_address, Platform_LocaleDecimalPoint);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_localedecimalpoint")
+    public static native void internal_native_set_Platform_LocaleDecimalPoint(long this_addr, short Platform_LocaleDecimalPoint);
 
     public ImVectorImTextureDataPtr get_Textures() {
         long addr = internal_native_get_Textures_addr(native_address);
@@ -91,6 +183,26 @@ public final class ImGuiPlatformIO extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_viewports")
     public static native void internal_native_set_Viewports(long this_addr, long Viewports_addr);
 
+    public ImVectorImGuiPlatformMonitor get_Monitors() {
+        long addr = internal_native_get_Monitors_addr(native_address);
+        if (addr == 0)
+            return ImVectorImGuiPlatformMonitor.NULL;
+        if (ImVectorImGuiPlatformMonitor_TEMP_GEN_0 == null)
+            ImVectorImGuiPlatformMonitor_TEMP_GEN_0 = ImVectorImGuiPlatformMonitor.native_new();
+        ImVectorImGuiPlatformMonitor_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVectorImGuiPlatformMonitor_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_monitors_addr")
+    public static native long internal_native_get_Monitors_addr(long this_addr);
+
+    public void set_Monitors(ImVectorImGuiPlatformMonitor Monitors) {
+        internal_native_set_Monitors(native_address, Monitors.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_monitors")
+    public static native void internal_native_set_Monitors(long this_addr, long Monitors_addr);
+
     public int get_Platform_SessionDate() {
         return internal_native_get_Platform_SessionDate(native_address);
     }
@@ -104,4 +216,52 @@ public final class ImGuiPlatformIO extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_platform_sessiondate")
     public static native void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate);
+
+    public int get_Renderer_TextureMaxWidth() {
+        return internal_native_get_Renderer_TextureMaxWidth(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_renderer_texturemaxwidth")
+    public static native int internal_native_get_Renderer_TextureMaxWidth(long this_addr);
+
+    public void set_Renderer_TextureMaxWidth(int Renderer_TextureMaxWidth) {
+        internal_native_set_Renderer_TextureMaxWidth(native_address, Renderer_TextureMaxWidth);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_renderer_texturemaxwidth")
+    public static native void internal_native_set_Renderer_TextureMaxWidth(long this_addr, int Renderer_TextureMaxWidth);
+
+    public int get_Renderer_TextureMaxHeight() {
+        return internal_native_get_Renderer_TextureMaxHeight(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_renderer_texturemaxheight")
+    public static native int internal_native_get_Renderer_TextureMaxHeight(long this_addr);
+
+    public void set_Renderer_TextureMaxHeight(int Renderer_TextureMaxHeight) {
+        internal_native_set_Renderer_TextureMaxHeight(native_address, Renderer_TextureMaxHeight);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_renderer_texturemaxheight")
+    public static native void internal_native_set_Renderer_TextureMaxHeight(long this_addr, int Renderer_TextureMaxHeight);
+
+    public NativeObject get_Renderer_RenderState() {
+        long addr = internal_native_get_Renderer_RenderState_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_3 == null)
+            NativeObject_TEMP_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_3.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_get_renderer_renderstate_addr")
+    public static native long internal_native_get_Renderer_RenderState_addr(long this_addr);
+
+    public void set_Renderer_RenderState(NativeObject Renderer_RenderState) {
+        internal_native_set_Renderer_RenderState(native_address, Renderer_RenderState.native_void_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imguiplatformio_set_renderer_renderstate")
+    public static native void internal_native_set_Renderer_RenderState(long this_addr, long Renderer_RenderState_addr);
 }

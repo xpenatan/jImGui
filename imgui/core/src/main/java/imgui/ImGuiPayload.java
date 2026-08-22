@@ -12,6 +12,9 @@ public final class ImGuiPayload extends NativeObject {
 
     static public final ImGuiPayload NULL = ImGuiPayload.native_new();
 
+    public ImGuiPayload() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

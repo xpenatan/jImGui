@@ -14,7 +14,20 @@ public final class ImDrawCmd extends NativeObject {
 
     private ImVec4 ImVec4_TEMP_GEN_0;
 
+    private ImTextureRef ImTextureRef_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImDrawCmd NULL = ImDrawCmd.native_new();
+
+    public ImDrawCmd() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImDrawCmd.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -74,6 +87,28 @@ public final class ImDrawCmd extends NativeObject {
         imgui.natives.JNI_ImDrawCmd.internal_native_set_ClipRect(this_addr, ClipRect_addr);
     }
 
+    public ImTextureRef get_TexRef() {
+        long addr = internal_native_get_TexRef_addr(native_address);
+        if (addr == 0)
+            return ImTextureRef.NULL;
+        if (ImTextureRef_TEMP_GEN_0 == null)
+            ImTextureRef_TEMP_GEN_0 = ImTextureRef.native_new();
+        ImTextureRef_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureRef_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_TexRef_addr(long this_addr) {
+        return imgui.natives.JNI_ImDrawCmd.internal_native_get_TexRef_addr(this_addr);
+    }
+
+    public void set_TexRef(ImTextureRef TexRef) {
+        internal_native_set_TexRef(native_address, TexRef.native_address);
+    }
+
+    public static void internal_native_set_TexRef(long this_addr, long TexRef_addr) {
+        imgui.natives.JNI_ImDrawCmd.internal_native_set_TexRef(this_addr, TexRef_addr);
+    }
+
     public int get_VtxOffset() {
         return internal_native_get_VtxOffset(native_address);
     }
@@ -120,5 +155,27 @@ public final class ImDrawCmd extends NativeObject {
 
     public static void internal_native_set_ElemCount(long this_addr, int ElemCount) {
         imgui.natives.JNI_ImDrawCmd.internal_native_set_ElemCount(this_addr, ElemCount);
+    }
+
+    public NativeObject get_UserCallbackData() {
+        long addr = internal_native_get_UserCallbackData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_UserCallbackData_addr(long this_addr) {
+        return imgui.natives.JNI_ImDrawCmd.internal_native_get_UserCallbackData_addr(this_addr);
+    }
+
+    public int get_UserCallbackDataSize() {
+        return internal_native_get_UserCallbackDataSize(native_address);
+    }
+
+    public static int internal_native_get_UserCallbackDataSize(long this_addr) {
+        return imgui.natives.JNI_ImDrawCmd.internal_native_get_UserCallbackDataSize(this_addr);
     }
 }

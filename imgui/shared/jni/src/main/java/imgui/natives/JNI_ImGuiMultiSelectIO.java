@@ -12,6 +12,12 @@ final public class JNI_ImGuiMultiSelectIO {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native long internal_native_get_Requests_addr(long this_addr);
+
+    public static native long internal_native_get_RangeSrcItem(long this_addr);
+
+    public static native long internal_native_get_NavIdItem(long this_addr);
+
     public static native boolean internal_native_get_NavIdSelected(long this_addr);
 
     public static native void internal_native_set_NavIdSelected(long this_addr, boolean NavIdSelected);

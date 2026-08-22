@@ -7,10 +7,15 @@
 package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import imgui.enums.ImFontAtlasFlags;
+import imgui.enums.ImTextureFormat;
 
 public final class ImFontAtlas extends NativeObject {
 
     static public final ImFontAtlas NULL = ImFontAtlas.native_new();
+
+    public ImFontAtlas() {
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -54,14 +59,165 @@ public final class ImFontAtlas extends NativeObject {
         return null;
     }
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels, ImFontConfig font_cfg) {
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
         return null;
     }
 
-    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, int size_pixels) {
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels, ImFontConfig font_cfg) {
         return null;
+    }
+
+    public ImFont AddFontFromFileTTF(String filename, float size_pixels) {
+        return null;
+    }
+
+    public ImFont AddFontFromFileTTF(String filename) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels, ImFontConfig font_cfg) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size, float size_pixels) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryTTF(NativeObject font_data, int font_data_size) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels, ImFontConfig font_cfg) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size, float size_pixels) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedTTF(NativeObject compressed_font_data, int compressed_font_data_size) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels, ImFontConfig font_cfg, ImWcharPointer glyph_ranges) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels, ImFontConfig font_cfg) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85, float size_pixels) {
+        return null;
+    }
+
+    public ImFont AddFontFromMemoryCompressedBase85TTF(String compressed_font_data_base85) {
+        return null;
+    }
+
+    public void RemoveFont(ImFont font) {
+    }
+
+    public void CompactCache() {
+    }
+
+    public void SetFontLoader(ImFontLoader font_loader) {
+    }
+
+    public void Clear() {
     }
 
     public void ClearFonts() {
+    }
+
+    public ImWcharPointer GetGlyphRangesDefault() {
+        return null;
+    }
+
+    public int AddCustomRect(int width, int height, ImFontAtlasRect out_rect) {
+        return 0;
+    }
+
+    public int AddCustomRect(int width, int height) {
+        return 0;
+    }
+
+    public void RemoveCustomRect(int id) {
+    }
+
+    public boolean GetCustomRect(int id, ImFontAtlasRect out_rect) {
+        return false;
+    }
+
+    public ImFontAtlasFlags get_Flags() {
+        return null;
+    }
+
+    public void set_Flags(ImFontAtlasFlags Flags) {
+    }
+
+    public ImTextureFormat get_TexDesiredFormat() {
+        return null;
+    }
+
+    public void set_TexDesiredFormat(ImTextureFormat TexDesiredFormat) {
+    }
+
+    public int get_TexGlyphPadding() {
+        return 0;
+    }
+
+    public void set_TexGlyphPadding(int TexGlyphPadding) {
+    }
+
+    public int get_TexMinWidth() {
+        return 0;
+    }
+
+    public void set_TexMinWidth(int TexMinWidth) {
+    }
+
+    public int get_TexMinHeight() {
+        return 0;
+    }
+
+    public void set_TexMinHeight(int TexMinHeight) {
+    }
+
+    public int get_TexMaxWidth() {
+        return 0;
+    }
+
+    public void set_TexMaxWidth(int TexMaxWidth) {
+    }
+
+    public int get_TexMaxHeight() {
+        return 0;
+    }
+
+    public void set_TexMaxHeight(int TexMaxHeight) {
+    }
+
+    public NativeObject get_UserData() {
+        return null;
+    }
+
+    public void set_UserData(NativeObject UserData) {
+    }
+
+    public ImTextureRef get_TexRef() {
+        return null;
+    }
+
+    public ImTextureData get_TexData() {
+        return null;
     }
 }

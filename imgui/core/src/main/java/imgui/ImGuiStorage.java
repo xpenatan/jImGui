@@ -72,6 +72,41 @@ public final class ImGuiStorage extends NativeObject {
     public void SetVoidPtr(int key, NativeObject val) {
     }
 
+    public NativeObject GetIntRef(int key, int default_val) {
+        return null;
+    }
+
+    public NativeObject GetIntRef(int key) {
+        return null;
+    }
+
+    public NativeObject GetBoolRef(int key, boolean default_val) {
+        return null;
+    }
+
+    public NativeObject GetBoolRef(int key) {
+        return null;
+    }
+
+    public NativeObject GetFloatRef(int key, float default_val) {
+        return null;
+    }
+
+    public NativeObject GetFloatRef(int key) {
+        return null;
+    }
+
+    public NativeObject GetVoidPtrRef(int key, NativeObject default_val) {
+        return null;
+    }
+
+    public NativeObject GetVoidPtrRef(int key) {
+        return null;
+    }
+
+    public void BuildSortByKey() {
+    }
+
     public ImVectorImGuiStoragePair get_Data() {
         return null;
     }

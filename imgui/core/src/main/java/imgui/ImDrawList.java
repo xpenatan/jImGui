@@ -14,6 +14,9 @@ public final class ImDrawList extends NativeObject {
 
     static public final ImDrawList NULL = ImDrawList.native_new();
 
+    public ImDrawList(ImDrawListSharedData shared_data) {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -177,6 +180,18 @@ public final class ImDrawList extends NativeObject {
     public void AddBezierQuadratic(ImVec2 p1, ImVec2 p2, ImVec2 p3, int col, float thickness) {
     }
 
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness, ImDrawFlags flags) {
+    }
+
+    public void AddPolyline(ImVec2 points, int num_points, int col, float thickness) {
+    }
+
+    public void AddConvexPolyFilled(ImVec2 points, int num_points, int col) {
+    }
+
+    public void AddConcavePolyFilled(ImVec2 points, int num_points, int col) {
+    }
+
     public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, int col) {
     }
 
@@ -222,6 +237,42 @@ public final class ImDrawList extends NativeObject {
     public void PathLineToMergeDuplicate(ImVec2 pos) {
     }
 
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max, int num_segments) {
+    }
+
+    public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max) {
+    }
+
+    public void PathArcToFast(ImVec2 center, float radius, int a_min_of_12, int a_max_of_12) {
+    }
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max, int num_segments) {
+    }
+
+    public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max) {
+    }
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments) {
+    }
+
+    public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4) {
+    }
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments) {
+    }
+
+    public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3) {
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags) {
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding) {
+    }
+
+    public void PathRect(ImVec2 rect_min, ImVec2 rect_max) {
+    }
+
     public void PathFillConvex(int col) {
     }
 
@@ -232,6 +283,28 @@ public final class ImDrawList extends NativeObject {
     }
 
     public void PathStroke(int col) {
+    }
+
+    public void AddDrawCmd() {
+    }
+
+    public ImDrawList CloneOutput() {
+        return null;
+    }
+
+    public void PrimReserve(int idx_count, int vtx_count) {
+    }
+
+    public void PrimUnreserve(int idx_count, int vtx_count) {
+    }
+
+    public void PrimRect(ImVec2 a, ImVec2 b, int col) {
+    }
+
+    public void PrimRectUV(ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, int col) {
+    }
+
+    public void PrimQuadUV(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, int col) {
     }
 
     public void ChannelsSplit(int count) {

@@ -10,7 +10,21 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImFontBaked extends NativeObject {
 
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_0;
+
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_1;
+
+    private ImFont ImFont_TEMP_GEN_0;
+
     static public final ImFontBaked NULL = ImFontBaked.native_new();
+
+    public ImFontBaked() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -32,4 +46,113 @@ public final class ImFontBaked extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imfontbaked_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
+
+    public void ClearOutputData() {
+        internal_native_ClearOutputData(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_clearoutputdata")
+    public static native void internal_native_ClearOutputData(long this_addr);
+
+    public ImFontGlyph FindGlyph(short c) {
+        long addr = internal_native_FindGlyph_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_0 == null)
+            ImFontGlyph_TEMP_GEN_0 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_findglyph_addr")
+    public static native long internal_native_FindGlyph_addr(long this_addr, short c);
+
+    public ImFontGlyph FindGlyphNoFallback(short c) {
+        long addr = internal_native_FindGlyphNoFallback_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_1 == null)
+            ImFontGlyph_TEMP_GEN_1 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_1.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_findglyphnofallback_addr")
+    public static native long internal_native_FindGlyphNoFallback_addr(long this_addr, short c);
+
+    public float GetCharAdvance(short c) {
+        return internal_native_GetCharAdvance(native_address, c);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_getcharadvance")
+    public static native float internal_native_GetCharAdvance(long this_addr, short c);
+
+    public boolean IsGlyphLoaded(short c) {
+        return internal_native_IsGlyphLoaded(native_address, c);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_isglyphloaded")
+    public static native boolean internal_native_IsGlyphLoaded(long this_addr, short c);
+
+    public float get_FallbackAdvanceX() {
+        return internal_native_get_FallbackAdvanceX(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_fallbackadvancex")
+    public static native float internal_native_get_FallbackAdvanceX(long this_addr);
+
+    public float get_Size() {
+        return internal_native_get_Size(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_size")
+    public static native float internal_native_get_Size(long this_addr);
+
+    public float get_RasterizerDensity() {
+        return internal_native_get_RasterizerDensity(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_rasterizerdensity")
+    public static native float internal_native_get_RasterizerDensity(long this_addr);
+
+    public float get_Ascent() {
+        return internal_native_get_Ascent(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_ascent")
+    public static native float internal_native_get_Ascent(long this_addr);
+
+    public float get_Descent() {
+        return internal_native_get_Descent(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_descent")
+    public static native float internal_native_get_Descent(long this_addr);
+
+    public int get_LastUsedFrame() {
+        return internal_native_get_LastUsedFrame(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_lastusedframe")
+    public static native int internal_native_get_LastUsedFrame(long this_addr);
+
+    public int get_BakedId() {
+        return internal_native_get_BakedId(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_bakedid")
+    public static native int internal_native_get_BakedId(long this_addr);
+
+    public ImFont get_OwnerFont() {
+        long addr = internal_native_get_OwnerFont_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_0 == null)
+            ImFont_TEMP_GEN_0 = ImFont.native_new();
+        ImFont_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontbaked_get_ownerfont_addr")
+    public static native long internal_native_get_OwnerFont_addr(long this_addr);
 }

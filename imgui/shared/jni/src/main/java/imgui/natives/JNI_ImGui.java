@@ -142,7 +142,9 @@ final public class JNI_ImGui {
 
     public static native void internal_native_SetNextWindowSize(long size_addr);
 
-    public static native void internal_native_SetNextWindowSizeConstraints(long size_min_addr, long size_max_addr);
+    public static native void internal_native_SetNextWindowSizeConstraints__0(long size_min_addr, long size_max_addr);
+
+    public static native void internal_native_SetNextWindowSizeConstraints__1(long size_min_addr, long size_max_addr, long callback_addr);
 
     public static native void internal_native_SetNextWindowContentSize(long size_addr);
 
@@ -434,9 +436,17 @@ final public class JNI_ImGui {
 
     public static native void internal_native_EndCombo();
 
-    public static native boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
+    public static native boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items);
 
-    public static native boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros);
+    public static native boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros);
+
+    public static native boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr, int popup_max_height_in_items);
+
+    public static native boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr);
+
+    public static native boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count, int popup_max_height_in_items);
+
+    public static native boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count);
 
     public static native boolean internal_native_DragFloat(String label, long v_addr, float v_speed, float v_min, float v_max, String format, int flags);
 
@@ -674,19 +684,25 @@ final public class JNI_ImGui {
 
     public static native boolean internal_native_VSliderScalar(String label, long size_addr, int data_type, long p_data_addr, long p_min_addr, long p_max_addr);
 
-    public static native boolean internal_native_InputText(String label, long buf_addr, int buf_size, int flags);
+    public static native boolean internal_native_InputText__0(String label, long buf_addr, int buf_size, int flags);
 
-    public static native boolean internal_native_InputText(String label, long buf_addr, int buf_size);
+    public static native boolean internal_native_InputText__0(String label, long buf_addr, int buf_size);
 
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr, int flags);
+    public static native boolean internal_native_InputText__1(String label, long buf_addr, int buf_size, int flags, long callback_addr);
 
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr);
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr, int flags);
 
-    public static native boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size);
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr);
 
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size, int flags);
+    public static native boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size);
 
-    public static native boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size);
+    public static native boolean internal_native_InputTextMultiline__1(String label, long buf_addr, int buf_size, long size_addr, int flags, long callback_addr);
+
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size, int flags);
+
+    public static native boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size);
+
+    public static native boolean internal_native_InputTextWithHint__1(String label, String hint, long buf_addr, int buf_size, int flags, long callback_addr);
 
     public static native boolean internal_native_InputFloat(String label, long v_addr, float step, float step_fast, String format, int flags);
 
@@ -860,33 +876,65 @@ final public class JNI_ImGui {
 
     public static native void internal_native_EndListBox();
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
+    public static native boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr, int height_in_items);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+    public static native boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    public static native boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count, int height_in_items);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    public static native boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
 
-    public static native void internal_native_PlotLines(String label, long values_addr, int values_count);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+    public static native void internal_native_PlotLines__0(String label, long values_addr, int values_count);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text);
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset);
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
 
-    public static native void internal_native_PlotHistogram(String label, long values_addr, int values_count);
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset);
+
+    public static native void internal_native_PlotLines__1(String label, long getter_addr, int values_count);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset);
+
+    public static native void internal_native_PlotHistogram__0(String label, long values_addr, int values_count);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset);
+
+    public static native void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count);
 
     public static native void internal_native_Value__0(String prefix, boolean b);
 
@@ -1286,8 +1334,6 @@ final public class JNI_ImGui {
 
     public static native boolean internal_native_IsMousePosValid();
 
-    public static native boolean internal_native_IsAnyMouseDown();
-
     public static native long internal_native_GetMousePos_addr();
 
     public static native long internal_native_GetMousePosOnOpeningCurrentPopup_addr();
@@ -1333,6 +1379,14 @@ final public class JNI_ImGui {
     public static native void internal_native_DebugStartItemPicker();
 
     public static native boolean internal_native_DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx);
+
+    public static native void internal_native_DebugLog(String text);
+
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address);
+
+    public static native void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address);
+
+    public static native void internal_native_GetAllocatorFunctions(long alloc_func_address_addr, long free_func_address_addr, long user_data_address_addr);
 
     public static native long internal_native_MemAlloc_addr(long size);
 

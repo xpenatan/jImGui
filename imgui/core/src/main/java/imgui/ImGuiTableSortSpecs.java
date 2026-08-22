@@ -12,6 +12,9 @@ public final class ImGuiTableSortSpecs extends NativeObject {
 
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
 
+    public ImGuiTableSortSpecs() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -24,5 +27,20 @@ public final class ImGuiTableSortSpecs extends NativeObject {
      */
     public static ImGuiTableSortSpecs native_new() {
         return new ImGuiTableSortSpecs((byte) 0, (char) 0);
+    }
+
+    public ImGuiTableColumnSortSpecs get_Specs() {
+        return null;
+    }
+
+    public int get_SpecsCount() {
+        return 0;
+    }
+
+    public boolean get_SpecsDirty() {
+        return false;
+    }
+
+    public void set_SpecsDirty(boolean SpecsDirty) {
     }
 }

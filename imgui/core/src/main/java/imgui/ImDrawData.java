@@ -19,6 +19,21 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
+    public ImDrawData() {
+    }
+
+    public void Clear() {
+    }
+
+    public void AddDrawList(ImDrawList draw_list) {
+    }
+
+    public void DeIndexAllBuffers() {
+    }
+
+    public void ScaleClipRects(ImVec2 fb_scale) {
+    }
+
     public int get_FrameCount() {
         return 0;
     }

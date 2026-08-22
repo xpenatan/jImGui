@@ -38,5 +38,23 @@ final public class JNI_ImGuiStorage {
 
     public static native void internal_native_SetVoidPtr(long this_addr, int key, long val_addr);
 
+    public static native long internal_native_GetIntRef_addr(long this_addr, int key, int default_val);
+
+    public static native long internal_native_GetIntRef_addr(long this_addr, int key);
+
+    public static native long internal_native_GetBoolRef_addr(long this_addr, int key, boolean default_val);
+
+    public static native long internal_native_GetBoolRef_addr(long this_addr, int key);
+
+    public static native long internal_native_GetFloatRef_addr(long this_addr, int key, float default_val);
+
+    public static native long internal_native_GetFloatRef_addr(long this_addr, int key);
+
+    public static native long internal_native_GetVoidPtrRef_addr(long this_addr, int key, long default_val_addr);
+
+    public static native long internal_native_GetVoidPtrRef_addr(long this_addr, int key);
+
+    public static native void internal_native_BuildSortByKey(long this_addr);
+
     public static native long internal_native_get_Data_addr(long this_addr);
 }

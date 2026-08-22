@@ -17,7 +17,26 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImFontBaked extends NativeObject {
 
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_0;
+
+    private ImFontGlyph ImFontGlyph_TEMP_GEN_1;
+
+    private ImFont ImFont_TEMP_GEN_0;
+
     static public final ImFontBaked NULL = ImFontBaked.native_new();
+
+    public ImFontBaked() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -45,8 +64,210 @@ public final class ImFontBaked extends NativeObject {
         }
     }
 
+    public void ClearOutputData() {
+        internal_native_ClearOutputData(native_address);
+    }
+
+    public static void internal_native_ClearOutputData(long this_addr) {
+        try {
+            FFMHandles.internal_native_ClearOutputData__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImFontGlyph FindGlyph(short c) {
+        long addr = internal_native_FindGlyph_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_0 == null)
+            ImFontGlyph_TEMP_GEN_0 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_0;
+    }
+
+    public static long internal_native_FindGlyph_addr(long this_addr, short c) {
+        try {
+            return (long) FFMHandles.internal_native_FindGlyph_addr__JS.invokeExact(this_addr, c);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImFontGlyph FindGlyphNoFallback(short c) {
+        long addr = internal_native_FindGlyphNoFallback_addr(native_address, c);
+        if (addr == 0)
+            return ImFontGlyph.NULL;
+        if (ImFontGlyph_TEMP_GEN_1 == null)
+            ImFontGlyph_TEMP_GEN_1 = ImFontGlyph.native_new();
+        ImFontGlyph_TEMP_GEN_1.internal_reset(addr, false);
+        return ImFontGlyph_TEMP_GEN_1;
+    }
+
+    public static long internal_native_FindGlyphNoFallback_addr(long this_addr, short c) {
+        try {
+            return (long) FFMHandles.internal_native_FindGlyphNoFallback_addr__JS.invokeExact(this_addr, c);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float GetCharAdvance(short c) {
+        return internal_native_GetCharAdvance(native_address, c);
+    }
+
+    public static float internal_native_GetCharAdvance(long this_addr, short c) {
+        try {
+            return (float) FFMHandles.internal_native_GetCharAdvance__JS.invokeExact(this_addr, c);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsGlyphLoaded(short c) {
+        return internal_native_IsGlyphLoaded(native_address, c);
+    }
+
+    public static boolean internal_native_IsGlyphLoaded(long this_addr, short c) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsGlyphLoaded__JS.invokeExact(this_addr, c);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_FallbackAdvanceX() {
+        return internal_native_get_FallbackAdvanceX(native_address);
+    }
+
+    public static float internal_native_get_FallbackAdvanceX(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_FallbackAdvanceX__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_Size() {
+        return internal_native_get_Size(native_address);
+    }
+
+    public static float internal_native_get_Size(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_Size__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_RasterizerDensity() {
+        return internal_native_get_RasterizerDensity(native_address);
+    }
+
+    public static float internal_native_get_RasterizerDensity(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_RasterizerDensity__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_Ascent() {
+        return internal_native_get_Ascent(native_address);
+    }
+
+    public static float internal_native_get_Ascent(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_Ascent__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float get_Descent() {
+        return internal_native_get_Descent(native_address);
+    }
+
+    public static float internal_native_get_Descent(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_get_Descent__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_LastUsedFrame() {
+        return internal_native_get_LastUsedFrame(native_address);
+    }
+
+    public static int internal_native_get_LastUsedFrame(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_LastUsedFrame__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_BakedId() {
+        return internal_native_get_BakedId(native_address);
+    }
+
+    public static int internal_native_get_BakedId(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_BakedId__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImFont get_OwnerFont() {
+        long addr = internal_native_get_OwnerFont_addr(native_address);
+        if (addr == 0)
+            return ImFont.NULL;
+        if (ImFont_TEMP_GEN_0 == null)
+            ImFont_TEMP_GEN_0 = ImFont.native_new();
+        ImFont_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFont_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_OwnerFont_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_OwnerFont_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imfontbaked_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ClearOutputData__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imfontbaked_clearoutputdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_FindGlyph_addr__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_findglyph_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
+
+        static final java.lang.invoke.MethodHandle internal_native_FindGlyphNoFallback_addr__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_findglyphnofallback_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCharAdvance__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imfontbaked_getcharadvance", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsGlyphLoaded__JS = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imfontbaked_isglyphloaded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_FallbackAdvanceX__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_fallbackadvancex", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Size__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_size", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_RasterizerDensity__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_rasterizerdensity", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Ascent__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_ascent", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Descent__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_descent", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_LastUsedFrame__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_lastusedframe", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_BakedId__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_bakedid", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OwnerFont_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontbaked_get_ownerfont_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

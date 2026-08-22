@@ -7,10 +7,15 @@
 package imgui;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
+import imgui.enums.ImFontFlags;
 
 public final class ImFont extends NativeObject {
 
     static public final ImFont NULL = ImFont.native_new();
+
+    public ImFont() {
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -24,5 +29,59 @@ public final class ImFont extends NativeObject {
      */
     public static ImFont native_new() {
         return new ImFont((byte) 0, (char) 0);
+    }
+
+    public boolean IsGlyphInFont(short c) {
+        return false;
+    }
+
+    public boolean IsLoaded() {
+        return false;
+    }
+
+    public NativeString GetDebugName() {
+        return null;
+    }
+
+    public ImFontBaked GetFontBaked(float font_size, float density) {
+        return null;
+    }
+
+    public ImFontBaked GetFontBaked(float font_size) {
+        return null;
+    }
+
+    public ImFontAtlas get_OwnerAtlas() {
+        return null;
+    }
+
+    public ImFontFlags get_Flags() {
+        return null;
+    }
+
+    public float get_CurrentRasterizerDensity() {
+        return 0;
+    }
+
+    public int get_FontId() {
+        return 0;
+    }
+
+    public float get_LegacySize() {
+        return 0;
+    }
+
+    public short get_EllipsisChar() {
+        return 0;
+    }
+
+    public void set_EllipsisChar(short EllipsisChar) {
+    }
+
+    public short get_FallbackChar() {
+        return 0;
+    }
+
+    public void set_FallbackChar(short FallbackChar) {
     }
 }

@@ -13,6 +13,7 @@ import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeByteArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeDoubleArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import imgui.enums.ImGuiWindowFlags;
 import imgui.enums.ImGuiChildFlags;
 import imgui.enums.ImGuiFocusedFlags;
@@ -292,6 +293,9 @@ public final class ImGui extends NativeObject {
     }
 
     public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max) {
+    }
+
+    public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallbackFunction callback) {
     }
 
     public static void SetNextWindowContentSize(ImVec2 size) {
@@ -786,6 +790,22 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items, int popup_max_height_in_items) {
+        return false;
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return false;
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int popup_max_height_in_items) {
+        return false;
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return false;
+    }
+
     public static boolean DragFloat(String label, NativeFloatArray v, float v_speed, float v_min, float v_max, String format, ImGuiSliderFlags flags) {
         return false;
     }
@@ -1266,6 +1286,10 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
+    public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return false;
+    }
+
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags) {
         return false;
     }
@@ -1278,11 +1302,19 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
+    public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return false;
+    }
+
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
         return false;
     }
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size) {
+        return false;
+    }
+
+    public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
         return false;
     }
 
@@ -1622,6 +1654,22 @@ public final class ImGui extends NativeObject {
     public static void EndListBox() {
     }
 
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items, int height_in_items) {
+        return false;
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return false;
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int height_in_items) {
+        return false;
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return false;
+    }
+
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
     }
 
@@ -1643,6 +1691,24 @@ public final class ImGui extends NativeObject {
     public static void PlotLines(String label, NativeFloatArray values, int values_count) {
     }
 
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count) {
+    }
+
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
     }
 
@@ -1662,6 +1728,24 @@ public final class ImGui extends NativeObject {
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count) {
     }
 
     public static void Value(String prefix, boolean b) {
@@ -2399,10 +2483,6 @@ public final class ImGui extends NativeObject {
         return false;
     }
 
-    public static boolean IsAnyMouseDown() {
-        return false;
-    }
-
     public static ImVec2 GetMousePos() {
         return null;
     }
@@ -2481,6 +2561,18 @@ public final class ImGui extends NativeObject {
 
     public static boolean DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx) {
         return false;
+    }
+
+    public static void DebugLog(String text) {
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+    }
+
+    public static void GetAllocatorFunctions(NativeLongArray alloc_func_address, NativeLongArray free_func_address, NativeLongArray user_data_address) {
     }
 
     public static NativeObject MemAlloc(long size) {

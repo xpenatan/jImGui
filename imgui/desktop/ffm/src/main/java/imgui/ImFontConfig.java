@@ -19,6 +19,10 @@ public final class ImFontConfig extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_0;
+
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_1;
+
     private ImVec2 ImVec2_TEMP_GEN_0;
 
     static public final ImFontConfig NULL = ImFontConfig.native_new();
@@ -308,6 +312,66 @@ public final class ImFontConfig extends NativeObject {
         }
     }
 
+    public ImWcharPointer get_GlyphRanges() {
+        long addr = internal_native_get_GlyphRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_0 == null)
+            ImWcharPointer_TEMP_GEN_0 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_0.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_GlyphRanges_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_GlyphRanges_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_GlyphRanges(ImWcharPointer GlyphRanges) {
+        internal_native_set_GlyphRanges(native_address, GlyphRanges.native_address);
+    }
+
+    public static void internal_native_set_GlyphRanges(long this_addr, long GlyphRanges_addr) {
+        try {
+            FFMHandles.internal_native_set_GlyphRanges__JJ.invokeExact(this_addr, GlyphRanges_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImWcharPointer get_GlyphExcludeRanges() {
+        long addr = internal_native_get_GlyphExcludeRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_1 == null)
+            ImWcharPointer_TEMP_GEN_1 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_1.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_GlyphExcludeRanges_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_GlyphExcludeRanges_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_GlyphExcludeRanges(ImWcharPointer GlyphExcludeRanges) {
+        internal_native_set_GlyphExcludeRanges(native_address, GlyphExcludeRanges.native_address);
+    }
+
+    public static void internal_native_set_GlyphExcludeRanges(long this_addr, long GlyphExcludeRanges_addr) {
+        try {
+            FFMHandles.internal_native_set_GlyphExcludeRanges__JJ.invokeExact(this_addr, GlyphExcludeRanges_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public ImVec2 get_GlyphOffset() {
         long addr = internal_native_get_GlyphOffset_addr(native_address);
         if (addr == 0)
@@ -575,6 +639,14 @@ public final class ImFontConfig extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_SizePixels__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_sizepixels", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_SizePixels__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_sizepixels", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_GlyphRanges_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_glyphranges_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_GlyphRanges__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_glyphranges", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_GlyphExcludeRanges_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_glyphexcluderanges_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_GlyphExcludeRanges__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_set_glyphexcluderanges", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_GlyphOffset_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imfontconfig_get_glyphoffset_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

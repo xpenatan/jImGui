@@ -10,7 +10,18 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public final class ImGuiTableSortSpecs extends NativeObject {
 
+    private ImGuiTableColumnSortSpecs ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
+
+    public ImGuiTableSortSpecs() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_create_addr();
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -32,5 +43,43 @@ public final class ImGuiTableSortSpecs extends NativeObject {
 
     public static void internal_native_deleteNative(long this_addr) {
         imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_deleteNative(this_addr);
+    }
+
+    public ImGuiTableColumnSortSpecs get_Specs() {
+        long addr = internal_native_get_Specs_addr(native_address);
+        if (addr == 0)
+            return ImGuiTableColumnSortSpecs.NULL;
+        if (ImGuiTableColumnSortSpecs_TEMP_GEN_0 == null)
+            ImGuiTableColumnSortSpecs_TEMP_GEN_0 = ImGuiTableColumnSortSpecs.native_new();
+        ImGuiTableColumnSortSpecs_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Specs_addr(long this_addr) {
+        return imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_get_Specs_addr(this_addr);
+    }
+
+    public int get_SpecsCount() {
+        return internal_native_get_SpecsCount(native_address);
+    }
+
+    public static int internal_native_get_SpecsCount(long this_addr) {
+        return imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_get_SpecsCount(this_addr);
+    }
+
+    public boolean get_SpecsDirty() {
+        return internal_native_get_SpecsDirty(native_address);
+    }
+
+    public static boolean internal_native_get_SpecsDirty(long this_addr) {
+        return imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_get_SpecsDirty(this_addr);
+    }
+
+    public void set_SpecsDirty(boolean SpecsDirty) {
+        internal_native_set_SpecsDirty(native_address, SpecsDirty);
+    }
+
+    public static void internal_native_set_SpecsDirty(long this_addr, boolean SpecsDirty) {
+        imgui.natives.JNI_ImGuiTableSortSpecs.internal_native_set_SpecsDirty(this_addr, SpecsDirty);
     }
 }

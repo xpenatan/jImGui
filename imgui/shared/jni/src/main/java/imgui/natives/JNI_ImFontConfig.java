@@ -54,6 +54,14 @@ final public class JNI_ImFontConfig {
 
     public static native void internal_native_set_SizePixels(long this_addr, float SizePixels);
 
+    public static native long internal_native_get_GlyphRanges_addr(long this_addr);
+
+    public static native void internal_native_set_GlyphRanges(long this_addr, long GlyphRanges_addr);
+
+    public static native long internal_native_get_GlyphExcludeRanges_addr(long this_addr);
+
+    public static native void internal_native_set_GlyphExcludeRanges(long this_addr, long GlyphExcludeRanges_addr);
+
     public static native long internal_native_get_GlyphOffset_addr(long this_addr);
 
     public static native void internal_native_set_GlyphOffset(long this_addr, long GlyphOffset_addr);

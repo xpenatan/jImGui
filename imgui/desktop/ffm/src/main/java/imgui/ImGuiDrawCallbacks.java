@@ -89,6 +89,18 @@ public final class ImGuiDrawCallbacks extends NativeObject {
         }
     }
 
+    public static boolean AddCallback(ImDrawList draw_list, ImDrawCallbackFunction callback) {
+        return internal_native_AddCallback(draw_list.native_address, callback.native_address);
+    }
+
+    public static boolean internal_native_AddCallback(long draw_list_addr, long callback_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_AddCallback__JJ.invokeExact(draw_list_addr, callback_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static void InvokeUserCallback(ImDrawList parent_list, ImDrawCmd draw_cmd) {
         internal_native_InvokeUserCallback(parent_list.native_address, draw_cmd.native_address);
     }
@@ -110,6 +122,8 @@ public final class ImGuiDrawCallbacks extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_GetType__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguidrawcallbacks_gettype", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_AddStandardCallback__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguidrawcallbacks_addstandardcallback", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddCallback__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguidrawcallbacks_addcallback", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_InvokeUserCallback__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguidrawcallbacks_invokeusercallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

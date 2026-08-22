@@ -13,6 +13,7 @@ import com.github.xpenatan.jparser.runtime.helper.NativeIntArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeByteArray;
 import com.github.xpenatan.jparser.runtime.helper.NativeDoubleArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeLongArray;
 import imgui.enums.ImGuiWindowFlags;
 import imgui.enums.ImGuiChildFlags;
 import imgui.enums.ImGuiFocusedFlags;
@@ -775,11 +776,19 @@ public final class ImGui extends NativeObject {
     }
 
     public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max) {
-        internal_native_SetNextWindowSizeConstraints(size_min.native_address, size_max.native_address);
+        internal_native_SetNextWindowSizeConstraints__0(size_min.native_address, size_max.native_address);
     }
 
-    public static void internal_native_SetNextWindowSizeConstraints(long size_min_addr, long size_max_addr) {
-        imgui.natives.JNI_ImGui.internal_native_SetNextWindowSizeConstraints(size_min_addr, size_max_addr);
+    public static void internal_native_SetNextWindowSizeConstraints__0(long size_min_addr, long size_max_addr) {
+        imgui.natives.JNI_ImGui.internal_native_SetNextWindowSizeConstraints__0(size_min_addr, size_max_addr);
+    }
+
+    public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallbackFunction callback) {
+        internal_native_SetNextWindowSizeConstraints__1(size_min.native_address, size_max.native_address, callback.native_address);
+    }
+
+    public static void internal_native_SetNextWindowSizeConstraints__1(long size_min_addr, long size_max_addr, long callback_addr) {
+        imgui.natives.JNI_ImGui.internal_native_SetNextWindowSizeConstraints__1(size_min_addr, size_max_addr, callback_addr);
     }
 
     public static void SetNextWindowContentSize(ImVec2 size) {
@@ -1991,19 +2000,51 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros, int popup_max_height_in_items) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros, popup_max_height_in_items);
     }
 
-    public static boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items) {
-        return imgui.natives.JNI_ImGui.internal_native_Combo(label, current_item_addr, items_separated_by_zeros, popup_max_height_in_items);
+    public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__0(label, current_item_addr, items_separated_by_zeros, popup_max_height_in_items);
     }
 
     public static boolean Combo(String label, NativeIntArray current_item, String items_separated_by_zeros) {
-        return internal_native_Combo(label, current_item.native_void_address, items_separated_by_zeros);
+        return internal_native_Combo__0(label, current_item.native_void_address, items_separated_by_zeros);
     }
 
-    public static boolean internal_native_Combo(String label, long current_item_addr, String items_separated_by_zeros) {
-        return imgui.natives.JNI_ImGui.internal_native_Combo(label, current_item_addr, items_separated_by_zeros);
+    public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__0(label, current_item_addr, items_separated_by_zeros);
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items, int popup_max_height_in_items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address, popup_max_height_in_items);
+    }
+
+    public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr, int popup_max_height_in_items) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__1(label, current_item_addr, items_addr, popup_max_height_in_items);
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_Combo__1(label, current_item.native_void_address, items.native_address);
+    }
+
+    public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__1(label, current_item_addr, items_addr);
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int popup_max_height_in_items) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count, popup_max_height_in_items);
+    }
+
+    public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count, int popup_max_height_in_items) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__2(label, current_item_addr, getter_addr, items_count, popup_max_height_in_items);
+    }
+
+    public static boolean Combo(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_Combo__2(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count) {
+        return imgui.natives.JNI_ImGui.internal_native_Combo__2(label, current_item_addr, getter_addr, items_count);
     }
 
     public static boolean DragFloat(String label, NativeFloatArray v, float v_speed, float v_min, float v_max, String format, ImGuiSliderFlags flags) {
@@ -2951,59 +2992,83 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    public static boolean internal_native_InputText(String label, long buf_addr, int buf_size, int flags) {
-        return imgui.natives.JNI_ImGui.internal_native_InputText(label, buf_addr, buf_size, flags);
+    public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size, int flags) {
+        return imgui.natives.JNI_ImGui.internal_native_InputText__0(label, buf_addr, buf_size, flags);
     }
 
     public static boolean InputText(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputText(label, buf.native_void_address, buf_size);
+        return internal_native_InputText__0(label, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputText(String label, long buf_addr, int buf_size) {
-        return imgui.natives.JNI_ImGui.internal_native_InputText(label, buf_addr, buf_size);
+    public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size) {
+        return imgui.natives.JNI_ImGui.internal_native_InputText__0(label, buf_addr, buf_size);
+    }
+
+    public static boolean InputText(String label, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputText__1(label, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputText__1(String label, long buf_addr, int buf_size, int flags, long callback_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_InputText__1(label, buf_addr, buf_size, flags, callback_addr);
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address, flags.getValue());
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr, int flags) {
-        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline(label, buf_addr, buf_size, size_addr, flags);
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr, int flags) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline__0(label, buf_addr, buf_size, size_addr, flags);
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size, size.native_address);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size, size.native_address);
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size, long size_addr) {
-        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline(label, buf_addr, buf_size, size_addr);
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline__0(label, buf_addr, buf_size, size_addr);
     }
 
     public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextMultiline(label, buf.native_void_address, buf_size);
+        return internal_native_InputTextMultiline__0(label, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputTextMultiline(String label, long buf_addr, int buf_size) {
-        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline(label, buf_addr, buf_size);
+    public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline__0(label, buf_addr, buf_size);
+    }
+
+    public static boolean InputTextMultiline(String label, NativeByteArray buf, int buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextMultiline__1(label, buf.native_void_address, buf_size, size.native_address, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputTextMultiline__1(String label, long buf_addr, int buf_size, long size_addr, int flags, long callback_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextMultiline__1(label, buf_addr, buf_size, size_addr, flags, callback_addr);
     }
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size, flags.getValue());
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size, flags.getValue());
     }
 
-    public static boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size, int flags) {
-        return imgui.natives.JNI_ImGui.internal_native_InputTextWithHint(label, hint, buf_addr, buf_size, flags);
+    public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size, int flags) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextWithHint__0(label, hint, buf_addr, buf_size, flags);
     }
 
     public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size) {
-        return internal_native_InputTextWithHint(label, hint, buf.native_void_address, buf_size);
+        return internal_native_InputTextWithHint__0(label, hint, buf.native_void_address, buf_size);
     }
 
-    public static boolean internal_native_InputTextWithHint(String label, String hint, long buf_addr, int buf_size) {
-        return imgui.natives.JNI_ImGui.internal_native_InputTextWithHint(label, hint, buf_addr, buf_size);
+    public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextWithHint__0(label, hint, buf_addr, buf_size);
+    }
+
+    public static boolean InputTextWithHint(String label, String hint, NativeByteArray buf, int buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction callback) {
+        return internal_native_InputTextWithHint__1(label, hint, buf.native_void_address, buf_size, flags.getValue(), callback.native_address);
+    }
+
+    public static boolean internal_native_InputTextWithHint__1(String label, String hint, long buf_addr, int buf_size, int flags, long callback_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_InputTextWithHint__1(label, hint, buf_addr, buf_size, flags, callback_addr);
     }
 
     public static boolean InputFloat(String label, NativeFloatArray v, float step, float step_fast, String format, ImGuiInputTextFlags flags) {
@@ -3718,116 +3783,244 @@ public final class ImGui extends NativeObject {
         imgui.natives.JNI_ImGui.internal_native_EndListBox();
     }
 
-    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items, int height_in_items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address, height_in_items);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);
+    public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr, int height_in_items) {
+        return imgui.natives.JNI_ImGui.internal_native_ListBox__0(label, current_item_addr, items_addr, height_in_items);
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiStringList items) {
+        return internal_native_ListBox__0(label, current_item.native_void_address, items.native_address);
+    }
+
+    public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr) {
+        return imgui.natives.JNI_ImGui.internal_native_ListBox__0(label, current_item_addr, items_addr);
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count, int height_in_items) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count, height_in_items);
+    }
+
+    public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count, int height_in_items) {
+        return imgui.natives.JNI_ImGui.internal_native_ListBox__1(label, current_item_addr, getter_addr, items_count, height_in_items);
+    }
+
+    public static boolean ListBox(String label, NativeIntArray current_item, ImGuiItemGetter getter, int items_count) {
+        return internal_native_ListBox__1(label, current_item.native_void_address, getter.native_address, items_count);
+    }
+
+    public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count) {
+        return imgui.natives.JNI_ImGui.internal_native_ListBox__1(label, current_item_addr, getter_addr, items_count);
+    }
+
+    public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+    }
+
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset, overlay_text, scale_min);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset, overlay_text, scale_min);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset, overlay_text);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset, overlay_text);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotLines(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count, int values_offset) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count, values_offset);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count, values_offset);
     }
 
     public static void PlotLines(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotLines(label, values.native_void_address, values_count);
+        internal_native_PlotLines__0(label, values.native_void_address, values_count);
     }
 
-    public static void internal_native_PlotLines(String label, long values_addr, int values_count) {
-        imgui.natives.JNI_ImGui.internal_native_PlotLines(label, values_addr, values_count);
+    public static void internal_native_PlotLines__0(String label, long values_addr, int values_count) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__0(label, values_addr, values_count);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count, values_offset, overlay_text);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count, values_offset);
+    }
+
+    public static void PlotLines(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotLines__1(label, getter.native_address, values_count);
+    }
+
+    public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count) {
+        imgui.natives.JNI_ImGui.internal_native_PlotLines__1(label, getter_addr, values_count);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address, stride);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr, stride);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text, float scale_min) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text, scale_min);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset, overlay_text, scale_min);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text, scale_min);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset, String overlay_text) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset, overlay_text);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset, overlay_text);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset, overlay_text);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset, overlay_text);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count, int values_offset) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count, values_offset);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count, values_offset);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count, int values_offset) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count, values_offset);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count, values_offset);
     }
 
     public static void PlotHistogram(String label, NativeFloatArray values, int values_count) {
-        internal_native_PlotHistogram(label, values.native_void_address, values_count);
+        internal_native_PlotHistogram__0(label, values.native_void_address, values_count);
     }
 
-    public static void internal_native_PlotHistogram(String label, long values_addr, int values_count) {
-        imgui.natives.JNI_ImGui.internal_native_PlotHistogram(label, values_addr, values_count);
+    public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__0(label, values_addr, values_count);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, ImVec2 graph_size) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size.native_address);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size_addr);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min, scale_max);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text, float scale_min) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text, scale_min);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset, String overlay_text) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset, overlay_text);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count, values_offset, overlay_text);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count, int values_offset) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count, values_offset);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count, values_offset);
+    }
+
+    public static void PlotHistogram(String label, ImGuiPlotGetter getter, int values_count) {
+        internal_native_PlotHistogram__1(label, getter.native_address, values_count);
+    }
+
+    public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count) {
+        imgui.natives.JNI_ImGui.internal_native_PlotHistogram__1(label, getter_addr, values_count);
     }
 
     public static void Value(String prefix, boolean b) {
@@ -5567,14 +5760,6 @@ public final class ImGui extends NativeObject {
         return imgui.natives.JNI_ImGui.internal_native_IsMousePosValid();
     }
 
-    public static boolean IsAnyMouseDown() {
-        return internal_native_IsAnyMouseDown();
-    }
-
-    public static boolean internal_native_IsAnyMouseDown() {
-        return imgui.natives.JNI_ImGui.internal_native_IsAnyMouseDown();
-    }
-
     public static ImVec2 GetMousePos() {
         long addr = internal_native_GetMousePos_addr();
         if (addr == 0)
@@ -5799,6 +5984,38 @@ public final class ImGui extends NativeObject {
 
     public static boolean internal_native_DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx) {
         return imgui.natives.JNI_ImGui.internal_native_DebugCheckVersionAndDataLayout(version_str, sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);
+    }
+
+    public static void DebugLog(String text) {
+        internal_native_DebugLog(text);
+    }
+
+    public static void internal_native_DebugLog(String text) {
+        imgui.natives.JNI_ImGui.internal_native_DebugLog(text);
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);
+    }
+
+    public static void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address, long user_data_address) {
+        imgui.natives.JNI_ImGui.internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address, user_data_address);
+    }
+
+    public static void SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address);
+    }
+
+    public static void internal_native_SetAllocatorFunctions(long alloc_func_address, long free_func_address) {
+        imgui.natives.JNI_ImGui.internal_native_SetAllocatorFunctions(alloc_func_address, free_func_address);
+    }
+
+    public static void GetAllocatorFunctions(NativeLongArray alloc_func_address, NativeLongArray free_func_address, NativeLongArray user_data_address) {
+        internal_native_GetAllocatorFunctions(alloc_func_address.native_void_address, free_func_address.native_void_address, user_data_address.native_void_address);
+    }
+
+    public static void internal_native_GetAllocatorFunctions(long alloc_func_address_addr, long free_func_address_addr, long user_data_address_addr) {
+        imgui.natives.JNI_ImGui.internal_native_GetAllocatorFunctions(alloc_func_address_addr, free_func_address_addr, user_data_address_addr);
     }
 
     public static NativeObject MemAlloc(long size) {

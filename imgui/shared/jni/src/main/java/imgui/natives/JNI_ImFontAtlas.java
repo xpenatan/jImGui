@@ -10,6 +10,8 @@ import imgui.*;
 
 final public class JNI_ImFontAtlas {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native long internal_native_AddFont_addr(long this_addr, long font_cfg_addr);
@@ -26,9 +28,91 @@ final public class JNI_ImFontAtlas {
 
     public static native long internal_native_AddFontDefaultBitmap_addr(long this_addr);
 
-    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels, long font_cfg_addr);
+    public static native long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr, long glyph_ranges_addr);
 
-    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, int size_pixels);
+    public static native long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr);
+
+    public static native long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels);
+
+    public static native long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename);
+
+    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels, long font_cfg_addr, long glyph_ranges_addr);
+
+    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels, long font_cfg_addr);
+
+    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size, float size_pixels);
+
+    public static native long internal_native_AddFontFromMemoryTTF_addr(long this_addr, long font_data_addr, int font_data_size);
+
+    public static native long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels, long font_cfg_addr, long glyph_ranges_addr);
+
+    public static native long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels, long font_cfg_addr);
+
+    public static native long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size, float size_pixels);
+
+    public static native long internal_native_AddFontFromMemoryCompressedTTF_addr(long this_addr, long compressed_font_data_addr, int compressed_font_data_size);
+
+    public static native long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr, long glyph_ranges_addr);
+
+    public static native long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr);
+
+    public static native long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels);
+
+    public static native long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85);
+
+    public static native void internal_native_RemoveFont(long this_addr, long font_addr);
+
+    public static native void internal_native_CompactCache(long this_addr);
+
+    public static native void internal_native_SetFontLoader(long this_addr, long font_loader_addr);
+
+    public static native void internal_native_Clear(long this_addr);
 
     public static native void internal_native_ClearFonts(long this_addr);
+
+    public static native long internal_native_GetGlyphRangesDefault_addr(long this_addr);
+
+    public static native int internal_native_AddCustomRect(long this_addr, int width, int height, long out_rect_addr);
+
+    public static native int internal_native_AddCustomRect(long this_addr, int width, int height);
+
+    public static native void internal_native_RemoveCustomRect(long this_addr, int id);
+
+    public static native boolean internal_native_GetCustomRect(long this_addr, int id, long out_rect_addr);
+
+    public static native int internal_native_get_Flags(long this_addr);
+
+    public static native void internal_native_set_Flags(long this_addr, int Flags);
+
+    public static native int internal_native_get_TexDesiredFormat(long this_addr);
+
+    public static native void internal_native_set_TexDesiredFormat(long this_addr, int TexDesiredFormat);
+
+    public static native int internal_native_get_TexGlyphPadding(long this_addr);
+
+    public static native void internal_native_set_TexGlyphPadding(long this_addr, int TexGlyphPadding);
+
+    public static native int internal_native_get_TexMinWidth(long this_addr);
+
+    public static native void internal_native_set_TexMinWidth(long this_addr, int TexMinWidth);
+
+    public static native int internal_native_get_TexMinHeight(long this_addr);
+
+    public static native void internal_native_set_TexMinHeight(long this_addr, int TexMinHeight);
+
+    public static native int internal_native_get_TexMaxWidth(long this_addr);
+
+    public static native void internal_native_set_TexMaxWidth(long this_addr, int TexMaxWidth);
+
+    public static native int internal_native_get_TexMaxHeight(long this_addr);
+
+    public static native void internal_native_set_TexMaxHeight(long this_addr, int TexMaxHeight);
+
+    public static native long internal_native_get_UserData_addr(long this_addr);
+
+    public static native void internal_native_set_UserData(long this_addr, long UserData_addr);
+
+    public static native long internal_native_get_TexRef_addr(long this_addr);
+
+    public static native long internal_native_get_TexData_addr(long this_addr);
 }

@@ -14,7 +14,19 @@ public final class ImDrawCmd extends NativeObject {
 
     private ImVec4 ImVec4_TEMP_GEN_0;
 
+    private ImTextureRef ImTextureRef_TEMP_GEN_0;
+
+    private NativeObject NativeObject_TEMP_GEN_0;
+
     static public final ImDrawCmd NULL = ImDrawCmd.native_new();
+
+    public ImDrawCmd() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawcmd_create_addr")
+    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -70,6 +82,26 @@ public final class ImDrawCmd extends NativeObject {
     @org.teavm.interop.Import(name = "imgui_imdrawcmd_set_cliprect")
     public static native void internal_native_set_ClipRect(long this_addr, long ClipRect_addr);
 
+    public ImTextureRef get_TexRef() {
+        long addr = internal_native_get_TexRef_addr(native_address);
+        if (addr == 0)
+            return ImTextureRef.NULL;
+        if (ImTextureRef_TEMP_GEN_0 == null)
+            ImTextureRef_TEMP_GEN_0 = ImTextureRef.native_new();
+        ImTextureRef_TEMP_GEN_0.internal_reset(addr, false);
+        return ImTextureRef_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawcmd_get_texref_addr")
+    public static native long internal_native_get_TexRef_addr(long this_addr);
+
+    public void set_TexRef(ImTextureRef TexRef) {
+        internal_native_set_TexRef(native_address, TexRef.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawcmd_set_texref")
+    public static native void internal_native_set_TexRef(long this_addr, long TexRef_addr);
+
     public int get_VtxOffset() {
         return internal_native_get_VtxOffset(native_address);
     }
@@ -111,4 +143,24 @@ public final class ImDrawCmd extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imdrawcmd_set_elemcount")
     public static native void internal_native_set_ElemCount(long this_addr, int ElemCount);
+
+    public NativeObject get_UserCallbackData() {
+        long addr = internal_native_get_UserCallbackData_addr(native_address);
+        if (addr == 0)
+            return NativeObject.NULL;
+        if (NativeObject_TEMP_GEN_0 == null)
+            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeObject_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawcmd_get_usercallbackdata_addr")
+    public static native long internal_native_get_UserCallbackData_addr(long this_addr);
+
+    public int get_UserCallbackDataSize() {
+        return internal_native_get_UserCallbackDataSize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imdrawcmd_get_usercallbackdatasize")
+    public static native int internal_native_get_UserCallbackDataSize(long this_addr);
 }

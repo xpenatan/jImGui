@@ -65,6 +65,20 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_25;
 
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_26;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_27;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_28;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_29;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_30;
+
     static public final ImGuiViewportPlatformCallbacks NULL = ImGuiViewportPlatformCallbacks.native_new();
 
     /**
@@ -256,6 +270,36 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
                 internal_onChangedViewport(viewport_addr);
             }
         };
+        onGetWindowWorkAreaInsetX onGetWindowWorkAreaInsetX = new onGetWindowWorkAreaInsetX() {
+
+            public float onGetWindowWorkAreaInsetX(int viewport_addr) {
+                return internal_onGetWindowWorkAreaInsetX(viewport_addr);
+            }
+        };
+        onGetWindowWorkAreaInsetY onGetWindowWorkAreaInsetY = new onGetWindowWorkAreaInsetY() {
+
+            public float onGetWindowWorkAreaInsetY(int viewport_addr) {
+                return internal_onGetWindowWorkAreaInsetY(viewport_addr);
+            }
+        };
+        onGetWindowWorkAreaInsetZ onGetWindowWorkAreaInsetZ = new onGetWindowWorkAreaInsetZ() {
+
+            public float onGetWindowWorkAreaInsetZ(int viewport_addr) {
+                return internal_onGetWindowWorkAreaInsetZ(viewport_addr);
+            }
+        };
+        onGetWindowWorkAreaInsetW onGetWindowWorkAreaInsetW = new onGetWindowWorkAreaInsetW() {
+
+            public float onGetWindowWorkAreaInsetW(int viewport_addr) {
+                return internal_onGetWindowWorkAreaInsetW(viewport_addr);
+            }
+        };
+        onCreateVkSurface onCreateVkSurface = new onCreateVkSurface() {
+
+            public int onCreateVkSurface(int viewport_addr, int vk_instance, int vk_allocators_addr, int out_vk_surface_addr) {
+                return internal_onCreateVkSurface(viewport_addr, vk_instance, vk_allocators_addr, out_vk_surface_addr);
+            }
+        };
         onRendererCreateWindow onRendererCreateWindow = new onRendererCreateWindow() {
 
             public void onRendererCreateWindow(int viewport_addr) {
@@ -286,7 +330,7 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
                 internal_onRendererSwapBuffers(viewport_addr);
             }
         };
-        internal_native_setupCallback(native_address, onCreateWindow, onDestroyWindow, onShowWindow, onSetWindowPos, onGetWindowPosX, onGetWindowPosY, onSetWindowSize, onGetWindowSizeX, onGetWindowSizeY, onGetWindowFramebufferScaleX, onGetWindowFramebufferScaleY, onSetWindowFocus, onGetWindowFocus, onGetWindowMinimized, onSetWindowTitle, onSetWindowAlpha, onUpdateWindow, onRenderWindow, onSwapBuffers, onGetWindowDpiScale, onChangedViewport, onRendererCreateWindow, onRendererDestroyWindow, onRendererSetWindowSize, onRendererRenderWindow, onRendererSwapBuffers);
+        internal_native_setupCallback(native_address, onCreateWindow, onDestroyWindow, onShowWindow, onSetWindowPos, onGetWindowPosX, onGetWindowPosY, onSetWindowSize, onGetWindowSizeX, onGetWindowSizeY, onGetWindowFramebufferScaleX, onGetWindowFramebufferScaleY, onSetWindowFocus, onGetWindowFocus, onGetWindowMinimized, onSetWindowTitle, onSetWindowAlpha, onUpdateWindow, onRenderWindow, onSwapBuffers, onGetWindowDpiScale, onChangedViewport, onGetWindowWorkAreaInsetX, onGetWindowWorkAreaInsetY, onGetWindowWorkAreaInsetZ, onGetWindowWorkAreaInsetW, onCreateVkSurface, onRendererCreateWindow, onRendererDestroyWindow, onRendererSetWindowSize, onRendererRenderWindow, onRendererSwapBuffers);
     }
 
     protected void onCreateWindow(ImGuiViewport viewport) {
@@ -511,61 +555,122 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         onChangedViewport(ImGuiViewport_TEMP_STATIC_GEN_20);
     }
 
+    protected float onGetWindowWorkAreaInsetX(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetX(int viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetX(ImGuiViewport_TEMP_STATIC_GEN_21);
+    }
+
+    protected float onGetWindowWorkAreaInsetY(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetY(int viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetY(ImGuiViewport_TEMP_STATIC_GEN_22);
+    }
+
+    protected float onGetWindowWorkAreaInsetZ(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetZ(int viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetZ(ImGuiViewport_TEMP_STATIC_GEN_23);
+    }
+
+    protected float onGetWindowWorkAreaInsetW(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetW(int viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetW(ImGuiViewport_TEMP_STATIC_GEN_24);
+    }
+
+    protected int onCreateVkSurface(ImGuiViewport viewport, long vk_instance, NativeObject vk_allocators, NativeObject out_vk_surface) {
+        return 0;
+    }
+
+    private int internal_onCreateVkSurface(int viewport_addr, long vk_instance, int vk_allocators_addr, int out_vk_surface_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_0 == null)
+            NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_0.internal_reset(vk_allocators_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(out_vk_surface_addr, false);
+        return onCreateVkSurface(ImGuiViewport_TEMP_STATIC_GEN_25, vk_instance, NativeObject_TEMP_STATIC_GEN_0, NativeObject_TEMP_STATIC_GEN_1);
+    }
+
     protected void onRendererCreateWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererCreateWindow(int viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
-        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_21);
+        if (ImGuiViewport_TEMP_STATIC_GEN_26 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_26 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_26.internal_reset(viewport_addr, false);
+        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_26);
     }
 
     protected void onRendererDestroyWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererDestroyWindow(int viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
-        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_22);
+        if (ImGuiViewport_TEMP_STATIC_GEN_27 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_27 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_27.internal_reset(viewport_addr, false);
+        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_27);
     }
 
     protected void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height) {
     }
 
     private void internal_onRendererSetWindowSize(int viewport_addr, float width, float height) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
-        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_23, width, height);
+        if (ImGuiViewport_TEMP_STATIC_GEN_28 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_28 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_28.internal_reset(viewport_addr, false);
+        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_28, width, height);
     }
 
     protected void onRendererRenderWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererRenderWindow(int viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
-        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_24);
+        if (ImGuiViewport_TEMP_STATIC_GEN_29 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_29 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_29.internal_reset(viewport_addr, false);
+        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_29);
     }
 
     protected void onRendererSwapBuffers(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererSwapBuffers(int viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
-        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_25);
+        if (ImGuiViewport_TEMP_STATIC_GEN_30 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_30 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_30.internal_reset(viewport_addr, false);
+        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_30);
     }
 
     @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImGuiViewportPlatformCallbacksImpl();return imgui.getPointer(jsObj);")
     public static native int internal_native_create_addr();
 
-    @org.teavm.jso.JSBody(params = { "this_addr", "onCreateWindow", "onDestroyWindow", "onShowWindow", "onSetWindowPos", "onGetWindowPosX", "onGetWindowPosY", "onSetWindowSize", "onGetWindowSizeX", "onGetWindowSizeY", "onGetWindowFramebufferScaleX", "onGetWindowFramebufferScaleY", "onSetWindowFocus", "onGetWindowFocus", "onGetWindowMinimized", "onSetWindowTitle", "onSetWindowAlpha", "onUpdateWindow", "onRenderWindow", "onSwapBuffers", "onGetWindowDpiScale", "onChangedViewport", "onRendererCreateWindow", "onRendererDestroyWindow", "onRendererSetWindowSize", "onRendererRenderWindow", "onRendererSwapBuffers" }, script = "var ImGuiViewportPlatformCallbacksImpl = imgui.wrapPointer(this_addr, imgui.ImGuiViewportPlatformCallbacksImpl); ImGuiViewportPlatformCallbacksImpl.onCreateWindow = onCreateWindow; ImGuiViewportPlatformCallbacksImpl.onDestroyWindow = onDestroyWindow; ImGuiViewportPlatformCallbacksImpl.onShowWindow = onShowWindow; ImGuiViewportPlatformCallbacksImpl.onSetWindowPos = onSetWindowPos; ImGuiViewportPlatformCallbacksImpl.onGetWindowPosX = onGetWindowPosX; ImGuiViewportPlatformCallbacksImpl.onGetWindowPosY = onGetWindowPosY; ImGuiViewportPlatformCallbacksImpl.onSetWindowSize = onSetWindowSize; ImGuiViewportPlatformCallbacksImpl.onGetWindowSizeX = onGetWindowSizeX; ImGuiViewportPlatformCallbacksImpl.onGetWindowSizeY = onGetWindowSizeY; ImGuiViewportPlatformCallbacksImpl.onGetWindowFramebufferScaleX = onGetWindowFramebufferScaleX; ImGuiViewportPlatformCallbacksImpl.onGetWindowFramebufferScaleY = onGetWindowFramebufferScaleY; ImGuiViewportPlatformCallbacksImpl.onSetWindowFocus = onSetWindowFocus; ImGuiViewportPlatformCallbacksImpl.onGetWindowFocus = onGetWindowFocus; ImGuiViewportPlatformCallbacksImpl.onGetWindowMinimized = onGetWindowMinimized; ImGuiViewportPlatformCallbacksImpl.onSetWindowTitle = onSetWindowTitle; ImGuiViewportPlatformCallbacksImpl.onSetWindowAlpha = onSetWindowAlpha; ImGuiViewportPlatformCallbacksImpl.onUpdateWindow = onUpdateWindow; ImGuiViewportPlatformCallbacksImpl.onRenderWindow = onRenderWindow; ImGuiViewportPlatformCallbacksImpl.onSwapBuffers = onSwapBuffers; ImGuiViewportPlatformCallbacksImpl.onGetWindowDpiScale = onGetWindowDpiScale; ImGuiViewportPlatformCallbacksImpl.onChangedViewport = onChangedViewport; ImGuiViewportPlatformCallbacksImpl.onRendererCreateWindow = onRendererCreateWindow; ImGuiViewportPlatformCallbacksImpl.onRendererDestroyWindow = onRendererDestroyWindow; ImGuiViewportPlatformCallbacksImpl.onRendererSetWindowSize = onRendererSetWindowSize; ImGuiViewportPlatformCallbacksImpl.onRendererRenderWindow = onRendererRenderWindow; ImGuiViewportPlatformCallbacksImpl.onRendererSwapBuffers = onRendererSwapBuffers;")
-    public static native void internal_native_setupCallback(int this_addr, onCreateWindow onCreateWindow, onDestroyWindow onDestroyWindow, onShowWindow onShowWindow, onSetWindowPos onSetWindowPos, onGetWindowPosX onGetWindowPosX, onGetWindowPosY onGetWindowPosY, onSetWindowSize onSetWindowSize, onGetWindowSizeX onGetWindowSizeX, onGetWindowSizeY onGetWindowSizeY, onGetWindowFramebufferScaleX onGetWindowFramebufferScaleX, onGetWindowFramebufferScaleY onGetWindowFramebufferScaleY, onSetWindowFocus onSetWindowFocus, onGetWindowFocus onGetWindowFocus, onGetWindowMinimized onGetWindowMinimized, onSetWindowTitle onSetWindowTitle, onSetWindowAlpha onSetWindowAlpha, onUpdateWindow onUpdateWindow, onRenderWindow onRenderWindow, onSwapBuffers onSwapBuffers, onGetWindowDpiScale onGetWindowDpiScale, onChangedViewport onChangedViewport, onRendererCreateWindow onRendererCreateWindow, onRendererDestroyWindow onRendererDestroyWindow, onRendererSetWindowSize onRendererSetWindowSize, onRendererRenderWindow onRendererRenderWindow, onRendererSwapBuffers onRendererSwapBuffers);
+    @org.teavm.jso.JSBody(params = { "this_addr", "onCreateWindow", "onDestroyWindow", "onShowWindow", "onSetWindowPos", "onGetWindowPosX", "onGetWindowPosY", "onSetWindowSize", "onGetWindowSizeX", "onGetWindowSizeY", "onGetWindowFramebufferScaleX", "onGetWindowFramebufferScaleY", "onSetWindowFocus", "onGetWindowFocus", "onGetWindowMinimized", "onSetWindowTitle", "onSetWindowAlpha", "onUpdateWindow", "onRenderWindow", "onSwapBuffers", "onGetWindowDpiScale", "onChangedViewport", "onGetWindowWorkAreaInsetX", "onGetWindowWorkAreaInsetY", "onGetWindowWorkAreaInsetZ", "onGetWindowWorkAreaInsetW", "onCreateVkSurface", "onRendererCreateWindow", "onRendererDestroyWindow", "onRendererSetWindowSize", "onRendererRenderWindow", "onRendererSwapBuffers" }, script = "var ImGuiViewportPlatformCallbacksImpl = imgui.wrapPointer(this_addr, imgui.ImGuiViewportPlatformCallbacksImpl); ImGuiViewportPlatformCallbacksImpl.onCreateWindow = onCreateWindow; ImGuiViewportPlatformCallbacksImpl.onDestroyWindow = onDestroyWindow; ImGuiViewportPlatformCallbacksImpl.onShowWindow = onShowWindow; ImGuiViewportPlatformCallbacksImpl.onSetWindowPos = onSetWindowPos; ImGuiViewportPlatformCallbacksImpl.onGetWindowPosX = onGetWindowPosX; ImGuiViewportPlatformCallbacksImpl.onGetWindowPosY = onGetWindowPosY; ImGuiViewportPlatformCallbacksImpl.onSetWindowSize = onSetWindowSize; ImGuiViewportPlatformCallbacksImpl.onGetWindowSizeX = onGetWindowSizeX; ImGuiViewportPlatformCallbacksImpl.onGetWindowSizeY = onGetWindowSizeY; ImGuiViewportPlatformCallbacksImpl.onGetWindowFramebufferScaleX = onGetWindowFramebufferScaleX; ImGuiViewportPlatformCallbacksImpl.onGetWindowFramebufferScaleY = onGetWindowFramebufferScaleY; ImGuiViewportPlatformCallbacksImpl.onSetWindowFocus = onSetWindowFocus; ImGuiViewportPlatformCallbacksImpl.onGetWindowFocus = onGetWindowFocus; ImGuiViewportPlatformCallbacksImpl.onGetWindowMinimized = onGetWindowMinimized; ImGuiViewportPlatformCallbacksImpl.onSetWindowTitle = onSetWindowTitle; ImGuiViewportPlatformCallbacksImpl.onSetWindowAlpha = onSetWindowAlpha; ImGuiViewportPlatformCallbacksImpl.onUpdateWindow = onUpdateWindow; ImGuiViewportPlatformCallbacksImpl.onRenderWindow = onRenderWindow; ImGuiViewportPlatformCallbacksImpl.onSwapBuffers = onSwapBuffers; ImGuiViewportPlatformCallbacksImpl.onGetWindowDpiScale = onGetWindowDpiScale; ImGuiViewportPlatformCallbacksImpl.onChangedViewport = onChangedViewport; ImGuiViewportPlatformCallbacksImpl.onGetWindowWorkAreaInsetX = onGetWindowWorkAreaInsetX; ImGuiViewportPlatformCallbacksImpl.onGetWindowWorkAreaInsetY = onGetWindowWorkAreaInsetY; ImGuiViewportPlatformCallbacksImpl.onGetWindowWorkAreaInsetZ = onGetWindowWorkAreaInsetZ; ImGuiViewportPlatformCallbacksImpl.onGetWindowWorkAreaInsetW = onGetWindowWorkAreaInsetW; ImGuiViewportPlatformCallbacksImpl.onCreateVkSurface = onCreateVkSurface; ImGuiViewportPlatformCallbacksImpl.onRendererCreateWindow = onRendererCreateWindow; ImGuiViewportPlatformCallbacksImpl.onRendererDestroyWindow = onRendererDestroyWindow; ImGuiViewportPlatformCallbacksImpl.onRendererSetWindowSize = onRendererSetWindowSize; ImGuiViewportPlatformCallbacksImpl.onRendererRenderWindow = onRendererRenderWindow; ImGuiViewportPlatformCallbacksImpl.onRendererSwapBuffers = onRendererSwapBuffers;")
+    public static native void internal_native_setupCallback(int this_addr, onCreateWindow onCreateWindow, onDestroyWindow onDestroyWindow, onShowWindow onShowWindow, onSetWindowPos onSetWindowPos, onGetWindowPosX onGetWindowPosX, onGetWindowPosY onGetWindowPosY, onSetWindowSize onSetWindowSize, onGetWindowSizeX onGetWindowSizeX, onGetWindowSizeY onGetWindowSizeY, onGetWindowFramebufferScaleX onGetWindowFramebufferScaleX, onGetWindowFramebufferScaleY onGetWindowFramebufferScaleY, onSetWindowFocus onSetWindowFocus, onGetWindowFocus onGetWindowFocus, onGetWindowMinimized onGetWindowMinimized, onSetWindowTitle onSetWindowTitle, onSetWindowAlpha onSetWindowAlpha, onUpdateWindow onUpdateWindow, onRenderWindow onRenderWindow, onSwapBuffers onSwapBuffers, onGetWindowDpiScale onGetWindowDpiScale, onChangedViewport onChangedViewport, onGetWindowWorkAreaInsetX onGetWindowWorkAreaInsetX, onGetWindowWorkAreaInsetY onGetWindowWorkAreaInsetY, onGetWindowWorkAreaInsetZ onGetWindowWorkAreaInsetZ, onGetWindowWorkAreaInsetW onGetWindowWorkAreaInsetW, onCreateVkSurface onCreateVkSurface, onRendererCreateWindow onRendererCreateWindow, onRendererDestroyWindow onRendererDestroyWindow, onRendererSetWindowSize onRendererSetWindowSize, onRendererRenderWindow onRendererRenderWindow, onRendererSwapBuffers onRendererSwapBuffers);
 
     @org.teavm.jso.JSFunctor()
     public interface onCreateWindow extends org.teavm.jso.JSObject {
@@ -691,6 +796,36 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
     public interface onChangedViewport extends org.teavm.jso.JSObject {
 
         void onChangedViewport(int viewport_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface onGetWindowWorkAreaInsetX extends org.teavm.jso.JSObject {
+
+        float onGetWindowWorkAreaInsetX(int viewport_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface onGetWindowWorkAreaInsetY extends org.teavm.jso.JSObject {
+
+        float onGetWindowWorkAreaInsetY(int viewport_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface onGetWindowWorkAreaInsetZ extends org.teavm.jso.JSObject {
+
+        float onGetWindowWorkAreaInsetZ(int viewport_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface onGetWindowWorkAreaInsetW extends org.teavm.jso.JSObject {
+
+        float onGetWindowWorkAreaInsetW(int viewport_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface onCreateVkSurface extends org.teavm.jso.JSObject {
+
+        int onCreateVkSurface(int viewport_addr, int vk_instance, int vk_allocators_addr, int out_vk_surface_addr);
     }
 
     @org.teavm.jso.JSFunctor()

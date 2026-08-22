@@ -31,12 +31,48 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
+    public ImDrawData() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImDrawData();return imgui.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
+
+    public void Clear() {
+        internal_native_Clear(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);jsObj.Clear();")
+    public static native void internal_native_Clear(int this_addr);
+
+    public void AddDrawList(ImDrawList draw_list) {
+        internal_native_AddDrawList(native_address, draw_list.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "draw_list_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);jsObj.AddDrawList(draw_list_addr);")
+    public static native void internal_native_AddDrawList(int this_addr, int draw_list_addr);
+
+    public void DeIndexAllBuffers() {
+        internal_native_DeIndexAllBuffers(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);jsObj.DeIndexAllBuffers();")
+    public static native void internal_native_DeIndexAllBuffers(int this_addr);
+
+    public void ScaleClipRects(ImVec2 fb_scale) {
+        internal_native_ScaleClipRects(native_address, fb_scale.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "fb_scale_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImDrawData);jsObj.ScaleClipRects(fb_scale_addr);")
+    public static native void internal_native_ScaleClipRects(int this_addr, int fb_scale_addr);
 
     public int get_FrameCount() {
         return internal_native_get_FrameCount(native_address);

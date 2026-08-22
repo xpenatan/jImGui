@@ -31,12 +31,53 @@ public final class ImDrawData extends NativeObject {
     private ImDrawData(byte b, char c) {
     }
 
+    public ImDrawData() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return imgui.natives.JNI_ImDrawData.internal_native_create_addr();
+    }
+
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
     }
 
     public static void internal_native_deleteNative(long this_addr) {
         imgui.natives.JNI_ImDrawData.internal_native_deleteNative(this_addr);
+    }
+
+    public void Clear() {
+        internal_native_Clear(native_address);
+    }
+
+    public static void internal_native_Clear(long this_addr) {
+        imgui.natives.JNI_ImDrawData.internal_native_Clear(this_addr);
+    }
+
+    public void AddDrawList(ImDrawList draw_list) {
+        internal_native_AddDrawList(native_address, draw_list.native_address);
+    }
+
+    public static void internal_native_AddDrawList(long this_addr, long draw_list_addr) {
+        imgui.natives.JNI_ImDrawData.internal_native_AddDrawList(this_addr, draw_list_addr);
+    }
+
+    public void DeIndexAllBuffers() {
+        internal_native_DeIndexAllBuffers(native_address);
+    }
+
+    public static void internal_native_DeIndexAllBuffers(long this_addr) {
+        imgui.natives.JNI_ImDrawData.internal_native_DeIndexAllBuffers(this_addr);
+    }
+
+    public void ScaleClipRects(ImVec2 fb_scale) {
+        internal_native_ScaleClipRects(native_address, fb_scale.native_address);
+    }
+
+    public static void internal_native_ScaleClipRects(long this_addr, long fb_scale_addr) {
+        imgui.natives.JNI_ImDrawData.internal_native_ScaleClipRects(this_addr, fb_scale_addr);
     }
 
     public int get_FrameCount() {

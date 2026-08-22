@@ -10,5 +10,15 @@ import imgui.*;
 
 final public class JNI_ImGuiTableSortSpecs {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native long internal_native_get_Specs_addr(long this_addr);
+
+    public static native int internal_native_get_SpecsCount(long this_addr);
+
+    public static native boolean internal_native_get_SpecsDirty(long this_addr);
+
+    public static native void internal_native_set_SpecsDirty(long this_addr, boolean SpecsDirty);
 }

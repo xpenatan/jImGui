@@ -10,11 +10,29 @@ import imgui.*;
 
 final public class JNI_ImGuiPlatformIO {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_ClearPlatformHandlers(long this_addr);
 
     public static native void internal_native_ClearRendererHandlers(long this_addr);
+
+    public static native long internal_native_get_Platform_ClipboardUserData_addr(long this_addr);
+
+    public static native void internal_native_set_Platform_ClipboardUserData(long this_addr, long Platform_ClipboardUserData_addr);
+
+    public static native long internal_native_get_Platform_OpenInShellUserData_addr(long this_addr);
+
+    public static native void internal_native_set_Platform_OpenInShellUserData(long this_addr, long Platform_OpenInShellUserData_addr);
+
+    public static native long internal_native_get_Platform_ImeUserData_addr(long this_addr);
+
+    public static native void internal_native_set_Platform_ImeUserData(long this_addr, long Platform_ImeUserData_addr);
+
+    public static native short internal_native_get_Platform_LocaleDecimalPoint(long this_addr);
+
+    public static native void internal_native_set_Platform_LocaleDecimalPoint(long this_addr, short Platform_LocaleDecimalPoint);
 
     public static native long internal_native_get_Textures_addr(long this_addr);
 
@@ -24,7 +42,23 @@ final public class JNI_ImGuiPlatformIO {
 
     public static native void internal_native_set_Viewports(long this_addr, long Viewports_addr);
 
+    public static native long internal_native_get_Monitors_addr(long this_addr);
+
+    public static native void internal_native_set_Monitors(long this_addr, long Monitors_addr);
+
     public static native int internal_native_get_Platform_SessionDate(long this_addr);
 
     public static native void internal_native_set_Platform_SessionDate(long this_addr, int Platform_SessionDate);
+
+    public static native int internal_native_get_Renderer_TextureMaxWidth(long this_addr);
+
+    public static native void internal_native_set_Renderer_TextureMaxWidth(long this_addr, int Renderer_TextureMaxWidth);
+
+    public static native int internal_native_get_Renderer_TextureMaxHeight(long this_addr);
+
+    public static native void internal_native_set_Renderer_TextureMaxHeight(long this_addr, int Renderer_TextureMaxHeight);
+
+    public static native long internal_native_get_Renderer_RenderState_addr(long this_addr);
+
+    public static native void internal_native_set_Renderer_RenderState(long this_addr, long Renderer_RenderState_addr);
 }

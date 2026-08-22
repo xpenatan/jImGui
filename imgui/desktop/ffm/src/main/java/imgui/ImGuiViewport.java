@@ -19,17 +19,23 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImGuiViewport extends NativeObject {
 
-    private NativeString NativeString_TEMP_GEN_0;
-
     private ImVec2 ImVec2_TEMP_GEN_0;
 
     private ImVec2 ImVec2_TEMP_GEN_1;
+
+    private NativeString NativeString_TEMP_GEN_0;
 
     private ImVec2 ImVec2_TEMP_GEN_2;
 
     private ImVec2 ImVec2_TEMP_GEN_3;
 
     private ImVec2 ImVec2_TEMP_GEN_4;
+
+    private ImVec2 ImVec2_TEMP_GEN_5;
+
+    private ImVec2 ImVec2_TEMP_GEN_6;
+
+    private ImGuiViewport ImGuiViewport_TEMP_GEN_0;
 
     private ImDrawData ImDrawData_TEMP_GEN_0;
 
@@ -44,6 +50,19 @@ public final class ImGuiViewport extends NativeObject {
     private NativeObject NativeObject_TEMP_GEN_4;
 
     static public final ImGuiViewport NULL = ImGuiViewport.native_new();
+
+    public ImGuiViewport() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -66,6 +85,42 @@ public final class ImGuiViewport extends NativeObject {
     public static void internal_native_deleteNative(long this_addr) {
         try {
             FFMHandles.internal_native_deleteNative__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImVec2 GetCenter() {
+        long addr = internal_native_GetCenter_addr(native_address);
+        if (addr == 0)
+            return ImVec2.NULL;
+        if (ImVec2_TEMP_GEN_0 == null)
+            ImVec2_TEMP_GEN_0 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_0.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetCenter_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetCenter_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImVec2 GetWorkCenter() {
+        long addr = internal_native_GetWorkCenter_addr(native_address);
+        if (addr == 0)
+            return ImVec2.NULL;
+        if (ImVec2_TEMP_GEN_1 == null)
+            ImVec2_TEMP_GEN_1 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_1.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetWorkCenter_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetWorkCenter_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -148,10 +203,10 @@ public final class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_Pos_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_0 == null)
-            ImVec2_TEMP_GEN_0 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_0.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_0;
+        if (ImVec2_TEMP_GEN_2 == null)
+            ImVec2_TEMP_GEN_2 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_2.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_2;
     }
 
     public static long internal_native_get_Pos_addr(long this_addr) {
@@ -178,10 +233,10 @@ public final class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_Size_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_1 == null)
-            ImVec2_TEMP_GEN_1 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_1.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_1;
+        if (ImVec2_TEMP_GEN_3 == null)
+            ImVec2_TEMP_GEN_3 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_3.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_3;
     }
 
     public static long internal_native_get_Size_addr(long this_addr) {
@@ -208,10 +263,10 @@ public final class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_FramebufferScale_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_2 == null)
-            ImVec2_TEMP_GEN_2 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_2.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_2;
+        if (ImVec2_TEMP_GEN_4 == null)
+            ImVec2_TEMP_GEN_4 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_4.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_4;
     }
 
     public static long internal_native_get_FramebufferScale_addr(long this_addr) {
@@ -238,10 +293,10 @@ public final class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_WorkPos_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_3 == null)
-            ImVec2_TEMP_GEN_3 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_3.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_3;
+        if (ImVec2_TEMP_GEN_5 == null)
+            ImVec2_TEMP_GEN_5 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_5.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_5;
     }
 
     public static long internal_native_get_WorkPos_addr(long this_addr) {
@@ -268,10 +323,10 @@ public final class ImGuiViewport extends NativeObject {
         long addr = internal_native_get_WorkSize_addr(native_address);
         if (addr == 0)
             return ImVec2.NULL;
-        if (ImVec2_TEMP_GEN_4 == null)
-            ImVec2_TEMP_GEN_4 = ImVec2.native_new();
-        ImVec2_TEMP_GEN_4.internal_reset(addr, false);
-        return ImVec2_TEMP_GEN_4;
+        if (ImVec2_TEMP_GEN_6 == null)
+            ImVec2_TEMP_GEN_6 = ImVec2.native_new();
+        ImVec2_TEMP_GEN_6.internal_reset(addr, false);
+        return ImVec2_TEMP_GEN_6;
     }
 
     public static long internal_native_get_WorkSize_addr(long this_addr) {
@@ -337,6 +392,24 @@ public final class ImGuiViewport extends NativeObject {
     public static void internal_native_set_ParentViewportId(long this_addr, int ParentViewportId) {
         try {
             FFMHandles.internal_native_set_ParentViewportId__JI.invokeExact(this_addr, ParentViewportId);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ImGuiViewport get_ParentViewport() {
+        long addr = internal_native_get_ParentViewport_addr(native_address);
+        if (addr == 0)
+            return ImGuiViewport.NULL;
+        if (ImGuiViewport_TEMP_GEN_0 == null)
+            ImGuiViewport_TEMP_GEN_0 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiViewport_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_ParentViewport_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_ParentViewport_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -620,7 +693,13 @@ public final class ImGuiViewport extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguiviewport_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCenter_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_getcenter_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetWorkCenter_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_getworkcenter_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetDebugName_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_getdebugname_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
@@ -659,6 +738,8 @@ public final class ImGuiViewport extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_get_ParentViewportId__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_parentviewportid", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_set_ParentViewportId__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_set_parentviewportid", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_ParentViewport_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_parentviewport_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_get_DrawData_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguiviewport_get_drawdata_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

@@ -10,6 +10,8 @@ import imgui.*;
 
 final public class JNI_ImTextureData {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_Create(long this_addr, int format, int w, int h);

@@ -65,6 +65,20 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
 
     static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_25;
 
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_26;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_27;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_28;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_29;
+
+    static private ImGuiViewport ImGuiViewport_TEMP_STATIC_GEN_30;
+
     static public final ImGuiViewportPlatformCallbacks NULL = ImGuiViewportPlatformCallbacks.native_new();
 
     @Deprecated()
@@ -358,54 +372,115 @@ public class ImGuiViewportPlatformCallbacks extends NativeObject {
         onChangedViewport(ImGuiViewport_TEMP_STATIC_GEN_20);
     }
 
+    protected float onGetWindowWorkAreaInsetX(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetX(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetX(ImGuiViewport_TEMP_STATIC_GEN_21);
+    }
+
+    protected float onGetWindowWorkAreaInsetY(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetY(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetY(ImGuiViewport_TEMP_STATIC_GEN_22);
+    }
+
+    protected float onGetWindowWorkAreaInsetZ(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetZ(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetZ(ImGuiViewport_TEMP_STATIC_GEN_23);
+    }
+
+    protected float onGetWindowWorkAreaInsetW(ImGuiViewport viewport) {
+        return 0;
+    }
+
+    private float internal_onGetWindowWorkAreaInsetW(long viewport_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
+        return onGetWindowWorkAreaInsetW(ImGuiViewport_TEMP_STATIC_GEN_24);
+    }
+
+    protected int onCreateVkSurface(ImGuiViewport viewport, long vk_instance, NativeObject vk_allocators, NativeObject out_vk_surface) {
+        return 0;
+    }
+
+    private int internal_onCreateVkSurface(long viewport_addr, long vk_instance, long vk_allocators_addr, long out_vk_surface_addr) {
+        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_0 == null)
+            NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_0.internal_reset(vk_allocators_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(out_vk_surface_addr, false);
+        return onCreateVkSurface(ImGuiViewport_TEMP_STATIC_GEN_25, vk_instance, NativeObject_TEMP_STATIC_GEN_0, NativeObject_TEMP_STATIC_GEN_1);
+    }
+
     protected void onRendererCreateWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererCreateWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_21 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_21 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_21.internal_reset(viewport_addr, false);
-        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_21);
+        if (ImGuiViewport_TEMP_STATIC_GEN_26 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_26 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_26.internal_reset(viewport_addr, false);
+        onRendererCreateWindow(ImGuiViewport_TEMP_STATIC_GEN_26);
     }
 
     protected void onRendererDestroyWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererDestroyWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_22 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_22 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_22.internal_reset(viewport_addr, false);
-        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_22);
+        if (ImGuiViewport_TEMP_STATIC_GEN_27 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_27 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_27.internal_reset(viewport_addr, false);
+        onRendererDestroyWindow(ImGuiViewport_TEMP_STATIC_GEN_27);
     }
 
     protected void onRendererSetWindowSize(ImGuiViewport viewport, float width, float height) {
     }
 
     private void internal_onRendererSetWindowSize(long viewport_addr, float width, float height) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_23 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_23 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_23.internal_reset(viewport_addr, false);
-        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_23, width, height);
+        if (ImGuiViewport_TEMP_STATIC_GEN_28 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_28 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_28.internal_reset(viewport_addr, false);
+        onRendererSetWindowSize(ImGuiViewport_TEMP_STATIC_GEN_28, width, height);
     }
 
     protected void onRendererRenderWindow(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererRenderWindow(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_24 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_24 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_24.internal_reset(viewport_addr, false);
-        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_24);
+        if (ImGuiViewport_TEMP_STATIC_GEN_29 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_29 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_29.internal_reset(viewport_addr, false);
+        onRendererRenderWindow(ImGuiViewport_TEMP_STATIC_GEN_29);
     }
 
     protected void onRendererSwapBuffers(ImGuiViewport viewport) {
     }
 
     private void internal_onRendererSwapBuffers(long viewport_addr) {
-        if (ImGuiViewport_TEMP_STATIC_GEN_25 == null)
-            ImGuiViewport_TEMP_STATIC_GEN_25 = ImGuiViewport.native_new();
-        ImGuiViewport_TEMP_STATIC_GEN_25.internal_reset(viewport_addr, false);
-        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_25);
+        if (ImGuiViewport_TEMP_STATIC_GEN_30 == null)
+            ImGuiViewport_TEMP_STATIC_GEN_30 = ImGuiViewport.native_new();
+        ImGuiViewport_TEMP_STATIC_GEN_30.internal_reset(viewport_addr, false);
+        onRendererSwapBuffers(ImGuiViewport_TEMP_STATIC_GEN_30);
     }
 
     public static long internal_native_create_addr() {

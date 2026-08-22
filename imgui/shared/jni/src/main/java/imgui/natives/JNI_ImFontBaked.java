@@ -10,5 +10,33 @@ import imgui.*;
 
 final public class JNI_ImFontBaked {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
+
+    public static native void internal_native_ClearOutputData(long this_addr);
+
+    public static native long internal_native_FindGlyph_addr(long this_addr, short c);
+
+    public static native long internal_native_FindGlyphNoFallback_addr(long this_addr, short c);
+
+    public static native float internal_native_GetCharAdvance(long this_addr, short c);
+
+    public static native boolean internal_native_IsGlyphLoaded(long this_addr, short c);
+
+    public static native float internal_native_get_FallbackAdvanceX(long this_addr);
+
+    public static native float internal_native_get_Size(long this_addr);
+
+    public static native float internal_native_get_RasterizerDensity(long this_addr);
+
+    public static native float internal_native_get_Ascent(long this_addr);
+
+    public static native float internal_native_get_Descent(long this_addr);
+
+    public static native int internal_native_get_LastUsedFrame(long this_addr);
+
+    public static native int internal_native_get_BakedId(long this_addr);
+
+    public static native long internal_native_get_OwnerFont_addr(long this_addr);
 }

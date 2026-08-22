@@ -7,10 +7,28 @@
 package gen.web.imgui;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
+import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeString;
+import gen.web.imgui.enums.ImFontFlags;
 
 public final class ImFont extends NativeObject {
 
+    private NativeString NativeString_TEMP_GEN_0;
+
+    private ImFontBaked ImFontBaked_TEMP_GEN_0;
+
+    private ImFontBaked ImFontBaked_TEMP_GEN_1;
+
+    private ImFontAtlas ImFontAtlas_TEMP_GEN_0;
+
     static public final ImFont NULL = ImFont.native_new();
+
+    public ImFont() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new imgui.ImFont();return imgui.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -32,4 +50,133 @@ public final class ImFont extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);imgui.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
+
+    public boolean IsGlyphInFont(short c) {
+        return internal_native_IsGlyphInFont(native_address, c);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "c"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.IsGlyphInFont(c);return returnedJSObj;")
+    public static native boolean internal_native_IsGlyphInFont(int this_addr, short c);
+
+    public boolean IsLoaded() {
+        return internal_native_IsLoaded(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.IsLoaded();return returnedJSObj;")
+    public static native boolean internal_native_IsLoaded(int this_addr);
+
+    public NativeString GetDebugName() {
+        int addr = internal_native_GetDebugName_addr(native_address);
+        if (addr == 0)
+            return NativeString.NULL;
+        if (NativeString_TEMP_GEN_0 == null)
+            NativeString_TEMP_GEN_0 = NativeString.native_new();
+        NativeString_TEMP_GEN_0.internal_reset(addr, false);
+        return NativeString_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.GetDebugName();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_GetDebugName_addr(int this_addr);
+
+    public ImFontBaked GetFontBaked(float font_size, float density) {
+        int addr = internal_native_GetFontBaked_addr(native_address, font_size, density);
+        if (addr == 0)
+            return ImFontBaked.NULL;
+        if (ImFontBaked_TEMP_GEN_0 == null)
+            ImFontBaked_TEMP_GEN_0 = ImFontBaked.native_new();
+        ImFontBaked_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFontBaked_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "font_size", "density"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.GetFontBaked(font_size, density);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_GetFontBaked_addr(int this_addr, float font_size, float density);
+
+    public ImFontBaked GetFontBaked(float font_size) {
+        int addr = internal_native_GetFontBaked_addr(native_address, font_size);
+        if (addr == 0)
+            return ImFontBaked.NULL;
+        if (ImFontBaked_TEMP_GEN_1 == null)
+            ImFontBaked_TEMP_GEN_1 = ImFontBaked.native_new();
+        ImFontBaked_TEMP_GEN_1.internal_reset(addr, false);
+        return ImFontBaked_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "font_size"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.GetFontBaked(font_size);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_GetFontBaked_addr(int this_addr, float font_size);
+
+    public ImFontAtlas get_OwnerAtlas() {
+        int addr = internal_native_get_OwnerAtlas_addr(native_address);
+        if (addr == 0)
+            return ImFontAtlas.NULL;
+        if (ImFontAtlas_TEMP_GEN_0 == null)
+            ImFontAtlas_TEMP_GEN_0 = ImFontAtlas.native_new();
+        ImFontAtlas_TEMP_GEN_0.internal_reset(addr, false);
+        return ImFontAtlas_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);var returnedJSObj = jsObj.get_OwnerAtlas();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return imgui.getPointer(returnedJSObj);")
+    public static native int internal_native_get_OwnerAtlas_addr(int this_addr);
+
+    public ImFontFlags get_Flags() {
+        int value = internal_native_get_Flags(native_address);
+        ImFontFlags[] values = ImFontFlags.values();
+        for (int i = 0; i < values.length; i++) {
+            ImFontFlags enumVal = values[i];
+            if (enumVal != ImFontFlags.CUSTOM && enumVal.getValue() == value)
+                return enumVal;
+        }
+        return ImFontFlags.CUSTOM.setValue(value);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_Flags();")
+    public static native int internal_native_get_Flags(int this_addr);
+
+    public float get_CurrentRasterizerDensity() {
+        return internal_native_get_CurrentRasterizerDensity(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_CurrentRasterizerDensity();")
+    public static native float internal_native_get_CurrentRasterizerDensity(int this_addr);
+
+    public int get_FontId() {
+        return internal_native_get_FontId(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_FontId();")
+    public static native int internal_native_get_FontId(int this_addr);
+
+    public float get_LegacySize() {
+        return internal_native_get_LegacySize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_LegacySize();")
+    public static native float internal_native_get_LegacySize(int this_addr);
+
+    public short get_EllipsisChar() {
+        return internal_native_get_EllipsisChar(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_EllipsisChar();")
+    public static native short internal_native_get_EllipsisChar(int this_addr);
+
+    public void set_EllipsisChar(short EllipsisChar) {
+        internal_native_set_EllipsisChar(native_address, EllipsisChar);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "EllipsisChar"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);jsObj.set_EllipsisChar(EllipsisChar);")
+    public static native void internal_native_set_EllipsisChar(int this_addr, short EllipsisChar);
+
+    public short get_FallbackChar() {
+        return internal_native_get_FallbackChar(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);return jsObj.get_FallbackChar();")
+    public static native short internal_native_get_FallbackChar(int this_addr);
+
+    public void set_FallbackChar(short FallbackChar) {
+        internal_native_set_FallbackChar(native_address, FallbackChar);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "FallbackChar"}, script = "var jsObj = imgui.wrapPointer(this_addr, imgui.ImFont);jsObj.set_FallbackChar(FallbackChar);")
+    public static native void internal_native_set_FallbackChar(int this_addr, short FallbackChar);
 }

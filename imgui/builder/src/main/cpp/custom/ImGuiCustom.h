@@ -12,10 +12,12 @@
 #include <string>
 #include <cstdint>
 #include <iostream>
+#include <vector>
 
 using ImVectorImDrawCmd = ImVector<ImDrawCmd>;
 using ImVectorImDrawIdx = ImVector<ImDrawIdx>;
 using ImVectorImDrawVert = ImVector<ImDrawVert>;
+using ImVectorImVec2 = ImVector<ImVec2>;
 using ImVectorUnsignedInt = ImVector<unsigned int>;
 using ImVectorImDrawListPtr = ImVector<ImDrawList*>;
 using ImVectorImGuiViewportPtr = ImVector<ImGuiViewport*>;
@@ -25,7 +27,231 @@ using ImVectorImTextureDataPtr = ImVector<ImTextureData*>;
 using ImVectorImTextureRect = ImVector<ImTextureRect>;
 using ImVectorImGuiStoragePair = ImVector<ImGuiStoragePair>;
 using ImVectorImGuiID = ImVector<ImGuiID>;
+using ImVectorImGuiSelectionRequest = ImVector<ImGuiSelectionRequest>;
+using ImVectorImGuiPlatformMonitor = ImVector<ImGuiPlatformMonitor>;
+using ImVectorImWchar = ImVector<ImWchar>;
 using ImVectorDOMString = ImVector<const char*>;
+using ImWcharPointer = ImWchar;
+
+// Java-safe adapters for public Dear ImGui APIs whose native signatures use
+// callback function pointers, va_list, or caller-owned C string arrays.
+class ImGuiStringList {
+private:
+    std::vector<std::string> items;
+    std::vector<const char*> pointers;
+
+    void rebuildPointers() {
+        pointers.clear();
+        pointers.reserve(items.size());
+        for (const std::string& item : items)
+            pointers.push_back(item.c_str());
+    }
+
+public:
+    int Size() const { return static_cast<int>(items.size()); }
+    bool Empty() const { return items.empty(); }
+    void Clear() { items.clear(); pointers.clear(); }
+    void Add(const char* value) { items.emplace_back(value != nullptr ? value : ""); rebuildPointers(); }
+    void Set(int index, const char* value) {
+        if (index < 0 || index >= Size())
+            return;
+        items[static_cast<size_t>(index)] = value != nullptr ? value : "";
+        rebuildPointers();
+    }
+    const char* Get(int index) const {
+        return index >= 0 && index < Size() ? items[static_cast<size_t>(index)].c_str() : nullptr;
+    }
+    const char* const* Data() {
+        rebuildPointers();
+        return pointers.empty() ? nullptr : pointers.data();
+    }
+};
+
+class ImGuiSizeCallbackFunction {
+public:
+    virtual ~ImGuiSizeCallbackFunction() = default;
+    virtual void onSizeConstraint(ImGuiSizeCallbackData* data) = 0;
+
+    static void Dispatch(ImGuiSizeCallbackData* data) {
+        if (data == nullptr)
+            return;
+        ImGuiSizeCallbackFunction* callback = static_cast<ImGuiSizeCallbackFunction*>(data->UserData);
+        if (callback != nullptr)
+            callback->onSizeConstraint(data);
+    }
+};
+
+class ImGuiInputTextCallbackFunction {
+public:
+    virtual ~ImGuiInputTextCallbackFunction() = default;
+    virtual int onInputText(ImGuiInputTextCallbackData* data) = 0;
+
+    static int Dispatch(ImGuiInputTextCallbackData* data) {
+        if (data == nullptr)
+            return 0;
+        ImGuiInputTextCallbackFunction* callback = static_cast<ImGuiInputTextCallbackFunction*>(data->UserData);
+        return callback != nullptr ? callback->onInputText(data) : 0;
+    }
+};
+
+class ImGuiItemGetter {
+private:
+    std::string value;
+
+public:
+    virtual ~ImGuiItemGetter() = default;
+    virtual void onGetItem(int index, std::string* value_out) = 0;
+
+    static const char* Dispatch(void* user_data, int index) {
+        ImGuiItemGetter* getter = static_cast<ImGuiItemGetter*>(user_data);
+        if (getter == nullptr)
+            return nullptr;
+        getter->value.clear();
+        getter->onGetItem(index, &getter->value);
+        return getter->value.c_str();
+    }
+};
+
+class ImGuiPlotGetter {
+public:
+    virtual ~ImGuiPlotGetter() = default;
+    virtual float onGetValue(int index) = 0;
+
+    static float Dispatch(void* user_data, int index) {
+        ImGuiPlotGetter* getter = static_cast<ImGuiPlotGetter*>(user_data);
+        return getter != nullptr ? getter->onGetValue(index) : 0.0f;
+    }
+};
+
+class ImDrawCallbackFunction {
+public:
+    virtual ~ImDrawCallbackFunction() = default;
+    virtual void onDraw(const ImDrawList* parent_list, const ImDrawCmd* draw_cmd) = 0;
+
+    static void Dispatch(const ImDrawList* parent_list, const ImDrawCmd* draw_cmd) {
+        if (draw_cmd == nullptr)
+            return;
+        ImDrawCallbackFunction* callback = static_cast<ImDrawCallbackFunction*>(draw_cmd->UserCallbackData);
+        if (callback != nullptr)
+            callback->onDraw(parent_list, draw_cmd);
+    }
+};
+
+class ImGuiSelectionBasicStorageIterator {
+private:
+    void* opaque_it = nullptr;
+    ImGuiID current_id = 0;
+
+public:
+    void Reset() { opaque_it = nullptr; current_id = 0; }
+    bool Next(ImGuiSelectionBasicStorage* storage) {
+        return storage != nullptr && storage->GetNextSelectedItem(&opaque_it, &current_id);
+    }
+    ImGuiID GetID() const { return current_id; }
+};
+
+class ImGuiSelectionBasicStorageAdapter {
+public:
+    virtual ~ImGuiSelectionBasicStorageAdapter() = default;
+    virtual int onIndexToStorageID(int index) = 0;
+
+    static ImGuiID Dispatch(ImGuiSelectionBasicStorage* storage, int index) {
+        ImGuiSelectionBasicStorageAdapter* adapter = storage != nullptr
+                ? static_cast<ImGuiSelectionBasicStorageAdapter*>(storage->UserData)
+                : nullptr;
+        return adapter != nullptr ? static_cast<ImGuiID>(adapter->onIndexToStorageID(index)) : static_cast<ImGuiID>(index);
+    }
+
+    static ImGuiID Identity(ImGuiSelectionBasicStorage*, int index) {
+        return static_cast<ImGuiID>(index);
+    }
+
+    static void Install(ImGuiSelectionBasicStorage* storage, ImGuiSelectionBasicStorageAdapter* adapter) {
+        if (storage == nullptr)
+            return;
+        storage->UserData = adapter;
+        storage->AdapterIndexToStorageId = adapter != nullptr ? Dispatch : Identity;
+    }
+
+    static void Clear(ImGuiSelectionBasicStorage* storage) {
+        if (storage == nullptr)
+            return;
+        if (storage->AdapterIndexToStorageId == Dispatch) {
+            storage->AdapterIndexToStorageId = Identity;
+            storage->UserData = nullptr;
+        }
+    }
+};
+
+class ImGuiSelectionExternalStorageAdapter {
+public:
+    virtual ~ImGuiSelectionExternalStorageAdapter() = default;
+    virtual void onSetItemSelected(int index, bool selected) = 0;
+
+    static void Dispatch(ImGuiSelectionExternalStorage* storage, int index, bool selected) {
+        ImGuiSelectionExternalStorageAdapter* adapter = storage != nullptr
+                ? static_cast<ImGuiSelectionExternalStorageAdapter*>(storage->UserData)
+                : nullptr;
+        if (adapter != nullptr)
+            adapter->onSetItemSelected(index, selected);
+    }
+
+    static void Install(ImGuiSelectionExternalStorage* storage, ImGuiSelectionExternalStorageAdapter* adapter) {
+        if (storage == nullptr)
+            return;
+        storage->UserData = adapter;
+        storage->AdapterSetItemSelected = adapter != nullptr ? Dispatch : nullptr;
+    }
+
+    static void Clear(ImGuiSelectionExternalStorage* storage) {
+        if (storage == nullptr)
+            return;
+        if (storage->AdapterSetItemSelected == Dispatch) {
+            storage->AdapterSetItemSelected = nullptr;
+            storage->UserData = nullptr;
+        }
+    }
+};
+
+class ImGuiOnceUponAFrameHelpers {
+public:
+    static bool Test(ImGuiOnceUponAFrame* value) {
+        return value != nullptr && static_cast<bool>(*value);
+    }
+};
+
+class ImGuiIOStringFields {
+private:
+    static const char* EmptyIfNull(const char* value) { return value != nullptr ? value : ""; }
+
+public:
+    static void SetIniFilename(ImGuiIO* io, const char* value) { if (io != nullptr) io->IniFilename = value; }
+    static void ClearIniFilename(ImGuiIO* io) { if (io != nullptr) io->IniFilename = nullptr; }
+    static const char* GetIniFilename(ImGuiIO* io) { return EmptyIfNull(io != nullptr ? io->IniFilename : nullptr); }
+    static bool HasIniFilename(ImGuiIO* io) { return io != nullptr && io->IniFilename != nullptr; }
+
+    static void SetLogFilename(ImGuiIO* io, const char* value) { if (io != nullptr) io->LogFilename = value; }
+    static void ClearLogFilename(ImGuiIO* io) { if (io != nullptr) io->LogFilename = nullptr; }
+    static const char* GetLogFilename(ImGuiIO* io) { return EmptyIfNull(io != nullptr ? io->LogFilename : nullptr); }
+    static bool HasLogFilename(ImGuiIO* io) { return io != nullptr && io->LogFilename != nullptr; }
+
+    static void SetBackendPlatformName(ImGuiIO* io, const char* value) { if (io != nullptr) io->BackendPlatformName = value; }
+    static void ClearBackendPlatformName(ImGuiIO* io) { if (io != nullptr) io->BackendPlatformName = nullptr; }
+    static const char* GetBackendPlatformName(ImGuiIO* io) { return EmptyIfNull(io != nullptr ? io->BackendPlatformName : nullptr); }
+
+    static void SetBackendRendererName(ImGuiIO* io, const char* value) { if (io != nullptr) io->BackendRendererName = value; }
+    static void ClearBackendRendererName(ImGuiIO* io) { if (io != nullptr) io->BackendRendererName = nullptr; }
+    static const char* GetBackendRendererName(ImGuiIO* io) { return EmptyIfNull(io != nullptr ? io->BackendRendererName : nullptr); }
+};
+
+class ImGuiTableSortSpecsHelpers {
+public:
+    static const ImGuiTableColumnSortSpecs* GetSpec(const ImGuiTableSortSpecs* sort_specs, int index) {
+        if (sort_specs == nullptr || sort_specs->Specs == nullptr || index < 0 || index >= sort_specs->SpecsCount)
+            return nullptr;
+        return &sort_specs->Specs[index];
+    }
+};
 
 
 namespace im = ImGui;
@@ -672,6 +898,7 @@ public:
     static void          SetNextWindowPos(const ImVec2& pos, ImGuiCond cond = 0, const ImVec2& pivot = ImVec2(0, 0)) { im::SetNextWindowPos(pos, cond, pivot); }
     static void          SetNextWindowSize(const ImVec2& size, ImGuiCond cond = 0) { im::SetNextWindowSize(size, cond); }
     static void          SetNextWindowSizeConstraints(const ImVec2& size_min, const ImVec2& size_max, ImGuiSizeCallback custom_callback = NULL, void* custom_callback_data = NULL) { im::SetNextWindowSizeConstraints(size_min, size_max, custom_callback, custom_callback_data); }
+    static void          SetNextWindowSizeConstraints(const ImVec2& size_min, const ImVec2& size_max, ImGuiSizeCallbackFunction* callback) { im::SetNextWindowSizeConstraints(size_min, size_max, callback != nullptr ? ImGuiSizeCallbackFunction::Dispatch : nullptr, callback); }
     static void          SetNextWindowContentSize(const ImVec2& size) { im::SetNextWindowContentSize(size); }
     static void          SetNextWindowCollapsed(bool collapsed, ImGuiCond cond = 0) { im::SetNextWindowCollapsed(collapsed, cond); }
     static void          SetNextWindowFocus() { im::SetNextWindowFocus(); }
@@ -775,17 +1002,17 @@ public:
 
     // Widgets: Text
     static void          TextUnformatted(const char* text, const char* text_end = NULL) { im::TextUnformatted(text, text_end); }
-    static void          Text(const char* fmt) { im::Text(fmt); }
+    static void          Text(const char* text) { im::TextUnformatted(text); }
     static void          TextV(const char* fmt, va_list args) { im::TextV(fmt, args); }
-    static void          TextColored(const ImVec4& col, const char* fmt) { im::TextColored(col, fmt); }
+    static void          TextColored(const ImVec4& col, const char* text) { im::TextColored(col, "%s", text); }
     static void          TextColoredV(const ImVec4& col, const char* fmt, va_list args) { im::TextColoredV(col, fmt, args); }
-    static void          TextDisabled(const char* fmt) { im::TextDisabled(fmt); }
+    static void          TextDisabled(const char* text) { im::TextDisabled("%s", text); }
     static void          TextDisabledV(const char* fmt, va_list args) { im::TextDisabledV(fmt, args); }
-    static void          TextWrapped(const char* fmt) { im::TextWrapped(fmt); }
+    static void          TextWrapped(const char* text) { im::TextWrapped("%s", text); }
     static void          TextWrappedV(const char* fmt, va_list args) { im::TextWrappedV(fmt, args); }
-    static void          LabelText(const char* label, const char* fmt) { im::LabelText(label, fmt); }
+    static void          LabelText(const char* label, const char* text) { im::LabelText(label, "%s", text); }
     static void          LabelTextV(const char* label, const char* fmt, va_list args) { im::LabelTextV(label, fmt, args); }
-    static void          BulletText(const char* fmt) { im::BulletText(fmt); }
+    static void          BulletText(const char* text) { im::BulletText("%s", text); }
     static void          BulletTextV(const char* fmt, va_list args) { im::BulletTextV(fmt, args); }
     static void          SeparatorText(const char* label) { im::SeparatorText(label); }
 
@@ -814,7 +1041,8 @@ public:
     static void          EndCombo() { im::EndCombo(); }
     static bool          Combo(const char* label, int* current_item, const char* const items[], int items_count, int popup_max_height_in_items = -1) { return im::Combo(label, current_item, items, items_count, popup_max_height_in_items); }
     static bool          Combo(const char* label, int* current_item, const char* items_separated_by_zeros, int popup_max_height_in_items = -1) { return im::Combo(label, current_item, items_separated_by_zeros, popup_max_height_in_items); }
-//    bool          Combo(const char* label, int* current_item, const char* (*getter)(void* user_data, int idx), void* user_data, int items_count, int popup_max_height_in_items = -1);
+    static bool          Combo(const char* label, int* current_item, ImGuiStringList* items, int popup_max_height_in_items = -1) { return items != nullptr && im::Combo(label, current_item, items->Data(), items->Size(), popup_max_height_in_items); }
+    static bool          Combo(const char* label, int* current_item, ImGuiItemGetter* getter, int items_count, int popup_max_height_in_items = -1) { return getter != nullptr && im::Combo(label, current_item, ImGuiItemGetter::Dispatch, getter, items_count, popup_max_height_in_items); }
 
     // Widgets: Drag Sliders
     static bool          DragFloat(const char* label, float* v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, const char* format = "%.3f", ImGuiSliderFlags flags = 0) { return im::DragFloat(label, v, v_speed, v_min, v_max, format, flags); }
@@ -848,8 +1076,11 @@ public:
 
     // Widgets: Input with Keyboard
     static bool          InputText(const char* label, char* buf, size_t buf_size, ImGuiInputTextFlags flags = 0, ImGuiInputTextCallback callback = NULL, void* user_data = NULL) { return im::InputText(label, buf, buf_size, flags, callback, user_data); }
+    static bool          InputText(const char* label, char* buf, size_t buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction* callback) { return im::InputText(label, buf, buf_size, flags, callback != nullptr ? ImGuiInputTextCallbackFunction::Dispatch : nullptr, callback); }
     static bool          InputTextMultiline(const char* label, char* buf, size_t buf_size, const ImVec2& size = ImVec2(0, 0), ImGuiInputTextFlags flags = 0, ImGuiInputTextCallback callback = NULL, void* user_data = NULL) { return im::InputTextMultiline(label, buf, buf_size, size, flags, callback, user_data); }
+    static bool          InputTextMultiline(const char* label, char* buf, size_t buf_size, const ImVec2& size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction* callback) { return im::InputTextMultiline(label, buf, buf_size, size, flags, callback != nullptr ? ImGuiInputTextCallbackFunction::Dispatch : nullptr, callback); }
     static bool          InputTextWithHint(const char* label, const char* hint, char* buf, size_t buf_size, ImGuiInputTextFlags flags = 0, ImGuiInputTextCallback callback = NULL, void* user_data = NULL) { return im::InputTextWithHint(label, hint, buf, buf_size, flags, callback, user_data); }
+    static bool          InputTextWithHint(const char* label, const char* hint, char* buf, size_t buf_size, ImGuiInputTextFlags flags, ImGuiInputTextCallbackFunction* callback) { return im::InputTextWithHint(label, hint, buf, buf_size, flags, callback != nullptr ? ImGuiInputTextCallbackFunction::Dispatch : nullptr, callback); }
     static bool          InputFloat(const char* label, float* v, float step = 0.0f, float step_fast = 0.0f, const char* format = "%.3f", ImGuiInputTextFlags flags = 0) { return im::InputFloat(label, v, step, step_fast, format, flags); }
     static bool          InputFloat2(const char* label, float v[2], const char* format = "%.3f", ImGuiInputTextFlags flags = 0) { return im::InputFloat2(label, v, format, flags); }
     static bool          InputFloat3(const char* label, float v[3], const char* format = "%.3f", ImGuiInputTextFlags flags = 0) { return im::InputFloat3(label, v, format, flags); }
@@ -870,13 +1101,13 @@ public:
     static bool          ColorButton(const char* desc_id, const ImVec4& col, ImGuiColorEditFlags flags = 0, const ImVec2& size = ImVec2(0, 0)) { return im::ColorButton(desc_id, col, flags, size); }
     // Widgets: Trees
     static bool          TreeNode(const char* label) { return im::TreeNode(label); }
-    static bool          TreeNode(const char* str_id, const char* fmt) { return im::TreeNode(str_id, fmt); }
-    static bool          TreeNode(const void* ptr_id, const char* fmt) { return im::TreeNode(ptr_id, fmt); }
+    static bool          TreeNode(const char* str_id, const char* text) { return im::TreeNode(str_id, "%s", text); }
+    static bool          TreeNode(const void* ptr_id, const char* text) { return im::TreeNode(ptr_id, "%s", text); }
     static bool          TreeNodeV(const char* str_id, const char* fmt, va_list args) { return im::TreeNodeV(str_id, fmt, args); }
     static bool          TreeNodeV(const void* ptr_id, const char* fmt, va_list args) { return im::TreeNodeV(ptr_id, fmt, args); }
     static bool          TreeNodeEx(const char* label, ImGuiTreeNodeFlags flags = 0) { return im::TreeNodeEx(label, flags); }
-    static bool          TreeNodeEx(const char* str_id, ImGuiTreeNodeFlags flags, const char* fmt) { return im::TreeNodeEx(str_id, flags, fmt); }
-    static bool          TreeNodeEx(const void* ptr_id, ImGuiTreeNodeFlags flags, const char* fmt) { return im::TreeNodeEx(ptr_id, flags, fmt); }
+    static bool          TreeNodeEx(const char* str_id, ImGuiTreeNodeFlags flags, const char* text) { return im::TreeNodeEx(str_id, flags, "%s", text); }
+    static bool          TreeNodeEx(const void* ptr_id, ImGuiTreeNodeFlags flags, const char* text) { return im::TreeNodeEx(ptr_id, flags, "%s", text); }
     static bool          TreeNodeExV(const char* str_id, ImGuiTreeNodeFlags flags, const char* fmt, va_list args) { return im::TreeNodeExV(str_id, flags, fmt, args); }
     static bool          TreeNodeExV(const void* ptr_id, ImGuiTreeNodeFlags flags, const char* fmt, va_list args) { return im::TreeNodeExV(ptr_id, flags, fmt, args); }
     static void          TreePush(const char* str_id) { im::TreePush(str_id); }
@@ -903,17 +1134,18 @@ public:
     static bool          BeginListBox(const char* label, const ImVec2& size = ImVec2(0, 0)) { return im::BeginListBox(label, size); }
     static void          EndListBox() { im::EndListBox(); }
     static bool          ListBox(const char* label, int* current_item, const char* const items[], int items_count, int height_in_items = -1) { return im::ListBox(label, current_item, items, items_count, height_in_items); }
-//    bool          ListBox(const char* label, int* current_item, const char* (*getter)(void* user_data, int idx), void* user_data, int items_count, int height_in_items = -1);
+    static bool          ListBox(const char* label, int* current_item, ImGuiStringList* items, int height_in_items = -1) { return items != nullptr && im::ListBox(label, current_item, items->Data(), items->Size(), height_in_items); }
+    static bool          ListBox(const char* label, int* current_item, ImGuiItemGetter* getter, int items_count, int height_in_items = -1) { return getter != nullptr && im::ListBox(label, current_item, ImGuiItemGetter::Dispatch, getter, items_count, height_in_items); }
 
     // Widgets: Data Plotting
     static void          PlotLines(const char* label, const float* values, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0), int stride = sizeof(float)) {
         return im::PlotLines(label, values, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size, stride);
     }
-//    void          PlotLines(const char* label, float(*values_getter)(void* data, int idx), void* data, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0));
+    static void          PlotLines(const char* label, ImGuiPlotGetter* getter, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0)) { im::PlotLines(label, ImGuiPlotGetter::Dispatch, getter, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size); }
     static void          PlotHistogram(const char* label, const float* values, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0), int stride = sizeof(float)) {
        return im::PlotHistogram(label, values, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size, stride);
     }
-//    void          PlotHistogram(const char* label, float (*values_getter)(void* data, int idx), void* data, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0));
+    static void          PlotHistogram(const char* label, ImGuiPlotGetter* getter, int values_count, int values_offset = 0, const char* overlay_text = NULL, float scale_min = FLT_MAX, float scale_max = FLT_MAX, ImVec2 graph_size = ImVec2(0, 0)) { im::PlotHistogram(label, ImGuiPlotGetter::Dispatch, getter, values_count, values_offset, overlay_text, scale_min, scale_max, graph_size); }
 
     // Widgets: Value() Helpers.
     static void          Value(const char* prefix, bool b) { return im::Value(prefix, b); }
@@ -934,12 +1166,12 @@ public:
     // Tooltips
     static bool          BeginTooltip() { return im::BeginTooltip(); }
     static void          EndTooltip() { im::EndTooltip(); }
-    static void          SetTooltip(const char* fmt) { im::SetTooltip(fmt); }
+    static void          SetTooltip(const char* text) { im::SetTooltip("%s", text); }
     static void          SetTooltipV(const char* fmt, va_list args) { im::SetTooltipV(fmt, args); }
 
     // Tooltips: helpers for showing a tooltip when hovering an item
     static bool          BeginItemTooltip() { return im::BeginItemTooltip(); }
-    static void          SetItemTooltip(const char* fmt) { im::SetItemTooltip(fmt); }
+    static void          SetItemTooltip(const char* text) { im::SetItemTooltip("%s", text); }
     static void          SetItemTooltipV(const char* fmt, va_list args) { im::SetItemTooltipV(fmt, args); }
 
     // Popups, Modals
@@ -1008,7 +1240,7 @@ public:
     static void          LogToClipboard(int auto_open_depth = -1) { im::LogToClipboard(auto_open_depth); }
     static void          LogFinish() { im::LogFinish(); }
     static void          LogButtons() { im::LogButtons(); }
-    static void          LogText(const char* fmt) { im::LogText(fmt); }
+    static void          LogText(const char* text) { im::LogText("%s", text); }
     static void          LogTextV(const char* fmt, va_list args) { im::LogTextV(fmt, args); }
 
     // Drag and Drop
@@ -1110,7 +1342,6 @@ public:
     static int           GetMouseClickedCount(ImGuiMouseButton button) { return im::GetMouseClickedCount(button); }
     static bool          IsMouseHoveringRect(const ImVec2& r_min, const ImVec2& r_max, bool clip = true) { return im::IsMouseHoveringRect(r_min, r_max, clip); }
     static bool          IsMousePosValid(const ImVec2* mouse_pos = NULL) { return im::IsMousePosValid(mouse_pos); }
-    static bool          IsAnyMouseDown() { return im::IsAnyMouseDown(); }
     static ImVec2        GetMousePos() { return im::GetMousePos(); }
     static ImVec2        GetMousePosOnOpeningCurrentPopup() { return im::GetMousePosOnOpeningCurrentPopup(); }
     static bool          IsMouseDragging(ImGuiMouseButton button, float lock_threshold = -1.0f) { return im::IsMouseDragging(button, lock_threshold); }
@@ -1135,10 +1366,31 @@ public:
     static void          DebugFlashStyleColor(ImGuiCol idx) { im::DebugFlashStyleColor(idx); }
     static void          DebugStartItemPicker() { im::DebugStartItemPicker(); }
     static bool          DebugCheckVersionAndDataLayout(const char* version_str, size_t sz_io, size_t sz_style, size_t sz_vec2, size_t sz_vec4, size_t sz_drawvert, size_t sz_drawidx) { return im::DebugCheckVersionAndDataLayout(version_str, sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx); }
+#ifndef IMGUI_DISABLE_DEBUG_TOOLS
+    static void          DebugLog(const char* text) { im::DebugLog("%s", text); }
+#endif
 
     // Memory Allocators
     static void          SetAllocatorFunctions(ImGuiMemAllocFunc alloc_func, ImGuiMemFreeFunc free_func, void* user_data = NULL) { im::SetAllocatorFunctions(alloc_func, free_func, user_data); }
     static void          GetAllocatorFunctions(ImGuiMemAllocFunc* p_alloc_func, ImGuiMemFreeFunc* p_free_func, void** p_user_data) { im::GetAllocatorFunctions(p_alloc_func, p_free_func, p_user_data); }
+    static void          SetAllocatorFunctions(long long alloc_func, long long free_func, long long user_data = 0) {
+        im::SetAllocatorFunctions(
+                reinterpret_cast<ImGuiMemAllocFunc>(static_cast<uintptr_t>(alloc_func)),
+                reinterpret_cast<ImGuiMemFreeFunc>(static_cast<uintptr_t>(free_func)),
+                reinterpret_cast<void*>(static_cast<uintptr_t>(user_data)));
+    }
+    static void          GetAllocatorFunctions(long long* p_alloc_func, long long* p_free_func, long long* p_user_data) {
+        ImGuiMemAllocFunc alloc_func = nullptr;
+        ImGuiMemFreeFunc free_func = nullptr;
+        void* user_data = nullptr;
+        im::GetAllocatorFunctions(&alloc_func, &free_func, &user_data);
+        if (p_alloc_func != nullptr)
+            *p_alloc_func = static_cast<long long>(reinterpret_cast<uintptr_t>(alloc_func));
+        if (p_free_func != nullptr)
+            *p_free_func = static_cast<long long>(reinterpret_cast<uintptr_t>(free_func));
+        if (p_user_data != nullptr)
+            *p_user_data = static_cast<long long>(reinterpret_cast<uintptr_t>(user_data));
+    }
     static void*         MemAlloc(size_t size) { return im::MemAlloc(size); }
     static void          MemFree(void* ptr) { im::MemFree( ptr); }
 
@@ -1236,6 +1488,13 @@ class ImGuiDrawCallbacks
             return true;
         }
 
+        static bool AddCallback(ImDrawList* draw_list, ImDrawCallbackFunction* callback) {
+            if (draw_list == nullptr || callback == nullptr)
+                return false;
+            draw_list->AddCallback(ImDrawCallbackFunction::Dispatch, callback);
+            return true;
+        }
+
         static void InvokeUserCallback(const ImDrawList* parent_list, const ImDrawCmd* draw_cmd) {
             if (parent_list == nullptr || draw_cmd == nullptr || GetType(draw_cmd) != ImGuiDrawCallbackType_User)
                 return;
@@ -1309,6 +1568,70 @@ class ClipboardTextFunction
                 return str.c_str();
             };
         }
+};
+
+class ImGuiPlatformOpenInShellCallback {
+public:
+    virtual ~ImGuiPlatformOpenInShellCallback() = default;
+    virtual bool onOpenInShell(std::string* path) = 0;
+
+    static void Install(ImGuiPlatformIO* platform_io, ImGuiPlatformOpenInShellCallback* callback) {
+        if (platform_io == nullptr)
+            return;
+        platform_io->Platform_OpenInShellUserData = callback;
+        platform_io->Platform_OpenInShellFn = callback != nullptr ? Dispatch : nullptr;
+    }
+
+    static void Clear(ImGuiPlatformIO* platform_io) {
+        if (platform_io == nullptr)
+            return;
+        if (platform_io->Platform_OpenInShellFn == Dispatch) {
+            platform_io->Platform_OpenInShellFn = nullptr;
+            platform_io->Platform_OpenInShellUserData = nullptr;
+        }
+    }
+
+private:
+    static bool Dispatch(ImGuiContext* context, const char* path) {
+        if (context == nullptr)
+            return false;
+        ImGuiPlatformOpenInShellCallback* callback = static_cast<ImGuiPlatformOpenInShellCallback*>(context->PlatformIO.Platform_OpenInShellUserData);
+        if (callback == nullptr)
+            return false;
+        std::string path_string = path != nullptr ? path : "";
+        return callback->onOpenInShell(&path_string);
+    }
+};
+
+class ImGuiPlatformImeCallback {
+public:
+    virtual ~ImGuiPlatformImeCallback() = default;
+    virtual void onSetImeData(ImGuiViewport* viewport, ImGuiPlatformImeData* data) = 0;
+
+    static void Install(ImGuiPlatformIO* platform_io, ImGuiPlatformImeCallback* callback) {
+        if (platform_io == nullptr)
+            return;
+        platform_io->Platform_ImeUserData = callback;
+        platform_io->Platform_SetImeDataFn = callback != nullptr ? Dispatch : nullptr;
+    }
+
+    static void Clear(ImGuiPlatformIO* platform_io) {
+        if (platform_io == nullptr)
+            return;
+        if (platform_io->Platform_SetImeDataFn == Dispatch) {
+            platform_io->Platform_SetImeDataFn = nullptr;
+            platform_io->Platform_ImeUserData = nullptr;
+        }
+    }
+
+private:
+    static void Dispatch(ImGuiContext* context, ImGuiViewport* viewport, ImGuiPlatformImeData* data) {
+        if (context == nullptr)
+            return;
+        ImGuiPlatformImeCallback* callback = static_cast<ImGuiPlatformImeCallback*>(context->PlatformIO.Platform_ImeUserData);
+        if (callback != nullptr)
+            callback->onSetImeData(viewport, data);
+    }
 };
 
 class ImGuiViewportPlatformCallbacks
@@ -1394,6 +1717,11 @@ class ImGuiViewportPlatformCallbacks
         virtual void onSwapBuffers(ImGuiViewport* viewport) = 0;
         virtual float onGetWindowDpiScale(ImGuiViewport* viewport) = 0;
         virtual void onChangedViewport(ImGuiViewport* viewport) = 0;
+        virtual float onGetWindowWorkAreaInsetX(ImGuiViewport* viewport) = 0;
+        virtual float onGetWindowWorkAreaInsetY(ImGuiViewport* viewport) = 0;
+        virtual float onGetWindowWorkAreaInsetZ(ImGuiViewport* viewport) = 0;
+        virtual float onGetWindowWorkAreaInsetW(ImGuiViewport* viewport) = 0;
+        virtual int onCreateVkSurface(ImGuiViewport* viewport, unsigned long long vk_instance, void* vk_allocators, void* out_vk_surface) = 0;
         virtual void onRendererCreateWindow(ImGuiViewport* viewport) = 0;
         virtual void onRendererDestroyWindow(ImGuiViewport* viewport) = 0;
         virtual void onRendererSetWindowSize(ImGuiViewport* viewport, float width, float height) = 0;
@@ -1510,6 +1838,22 @@ class ImGuiViewportPlatformCallbacks
                 if (callbacks != nullptr) {
                     callbacks->onChangedViewport(viewport);
                 }
+            };
+            platform_io->Platform_GetWindowWorkAreaInsets = [](ImGuiViewport* viewport) {
+                ImGuiViewportPlatformCallbacks* callbacks = callbackFromViewport(viewport);
+                if (callbacks == nullptr)
+                    return ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                return ImVec4(
+                        callbacks->onGetWindowWorkAreaInsetX(viewport),
+                        callbacks->onGetWindowWorkAreaInsetY(viewport),
+                        callbacks->onGetWindowWorkAreaInsetZ(viewport),
+                        callbacks->onGetWindowWorkAreaInsetW(viewport));
+            };
+            platform_io->Platform_CreateVkSurface = [](ImGuiViewport* viewport, ImU64 vk_instance, const void* vk_allocators, ImU64* out_vk_surface) {
+                ImGuiViewportPlatformCallbacks* callbacks = callbackFromViewport(viewport);
+                return callbacks != nullptr
+                        ? callbacks->onCreateVkSurface(viewport, vk_instance, const_cast<void*>(vk_allocators), out_vk_surface)
+                        : -1;
             };
             platform_io->Renderer_CreateWindow = [](ImGuiViewport* viewport) {
                 ImGuiViewportPlatformCallbacks* callbacks = callbackFromViewport(viewport);

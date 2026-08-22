@@ -17,7 +17,22 @@ import java.lang.invoke.MethodHandle;
 
 public final class ImGuiTableSortSpecs extends NativeObject {
 
+    private ImGuiTableColumnSortSpecs ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+
     static public final ImGuiTableSortSpecs NULL = ImGuiTableSortSpecs.native_new();
+
+    public ImGuiTableSortSpecs() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -45,8 +60,72 @@ public final class ImGuiTableSortSpecs extends NativeObject {
         }
     }
 
+    public ImGuiTableColumnSortSpecs get_Specs() {
+        long addr = internal_native_get_Specs_addr(native_address);
+        if (addr == 0)
+            return ImGuiTableColumnSortSpecs.NULL;
+        if (ImGuiTableColumnSortSpecs_TEMP_GEN_0 == null)
+            ImGuiTableColumnSortSpecs_TEMP_GEN_0 = ImGuiTableColumnSortSpecs.native_new();
+        ImGuiTableColumnSortSpecs_TEMP_GEN_0.internal_reset(addr, false);
+        return ImGuiTableColumnSortSpecs_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_Specs_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_Specs_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public int get_SpecsCount() {
+        return internal_native_get_SpecsCount(native_address);
+    }
+
+    public static int internal_native_get_SpecsCount(long this_addr) {
+        try {
+            return (int) FFMHandles.internal_native_get_SpecsCount__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_SpecsDirty() {
+        return internal_native_get_SpecsDirty(native_address);
+    }
+
+    public static boolean internal_native_get_SpecsDirty(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_SpecsDirty__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_SpecsDirty(boolean SpecsDirty) {
+        internal_native_set_SpecsDirty(native_address, SpecsDirty);
+    }
+
+    public static void internal_native_set_SpecsDirty(long this_addr, boolean SpecsDirty) {
+        try {
+            FFMHandles.internal_native_set_SpecsDirty__JZ.invokeExact(this_addr, SpecsDirty);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguitablesortspecs_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("imgui_imguitablesortspecs_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_Specs_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguitablesortspecs_get_specs_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_SpecsCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguitablesortspecs_get_specscount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_SpecsDirty__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguitablesortspecs_get_specsdirty", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_SpecsDirty__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("imgui_imguitablesortspecs_set_specsdirty", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
     }
 }

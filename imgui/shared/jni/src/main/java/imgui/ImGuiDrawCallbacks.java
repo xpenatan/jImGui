@@ -66,6 +66,14 @@ public final class ImGuiDrawCallbacks extends NativeObject {
         return imgui.natives.JNI_ImGuiDrawCallbacks.internal_native_AddStandardCallback(draw_list_addr, type);
     }
 
+    public static boolean AddCallback(ImDrawList draw_list, ImDrawCallbackFunction callback) {
+        return internal_native_AddCallback(draw_list.native_address, callback.native_address);
+    }
+
+    public static boolean internal_native_AddCallback(long draw_list_addr, long callback_addr) {
+        return imgui.natives.JNI_ImGuiDrawCallbacks.internal_native_AddCallback(draw_list_addr, callback_addr);
+    }
+
     public static void InvokeUserCallback(ImDrawList parent_list, ImDrawCmd draw_cmd) {
         internal_native_InvokeUserCallback(parent_list.native_address, draw_cmd.native_address);
     }

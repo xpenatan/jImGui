@@ -12,6 +12,10 @@ public final class ImFontConfig extends NativeObject {
 
     private NativeObject NativeObject_TEMP_GEN_0;
 
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_0;
+
+    private ImWcharPointer ImWcharPointer_TEMP_GEN_1;
+
     private ImVec2 ImVec2_TEMP_GEN_0;
 
     static public final ImFontConfig NULL = ImFontConfig.native_new();
@@ -190,6 +194,46 @@ public final class ImFontConfig extends NativeObject {
 
     @org.teavm.interop.Import(name = "imgui_imfontconfig_set_sizepixels")
     public static native void internal_native_set_SizePixels(long this_addr, float SizePixels);
+
+    public ImWcharPointer get_GlyphRanges() {
+        long addr = internal_native_get_GlyphRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_0 == null)
+            ImWcharPointer_TEMP_GEN_0 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_0.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_get_glyphranges_addr")
+    public static native long internal_native_get_GlyphRanges_addr(long this_addr);
+
+    public void set_GlyphRanges(ImWcharPointer GlyphRanges) {
+        internal_native_set_GlyphRanges(native_address, GlyphRanges.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_set_glyphranges")
+    public static native void internal_native_set_GlyphRanges(long this_addr, long GlyphRanges_addr);
+
+    public ImWcharPointer get_GlyphExcludeRanges() {
+        long addr = internal_native_get_GlyphExcludeRanges_addr(native_address);
+        if (addr == 0)
+            return ImWcharPointer.NULL;
+        if (ImWcharPointer_TEMP_GEN_1 == null)
+            ImWcharPointer_TEMP_GEN_1 = ImWcharPointer.native_new();
+        ImWcharPointer_TEMP_GEN_1.internal_reset(addr, false);
+        return ImWcharPointer_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_get_glyphexcluderanges_addr")
+    public static native long internal_native_get_GlyphExcludeRanges_addr(long this_addr);
+
+    public void set_GlyphExcludeRanges(ImWcharPointer GlyphExcludeRanges) {
+        internal_native_set_GlyphExcludeRanges(native_address, GlyphExcludeRanges.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "imgui_imfontconfig_set_glyphexcluderanges")
+    public static native void internal_native_set_GlyphExcludeRanges(long this_addr, long GlyphExcludeRanges_addr);
 
     public ImVec2 get_GlyphOffset() {
         long addr = internal_native_get_GlyphOffset_addr(native_address);
