@@ -39,7 +39,7 @@ dependencies {
         exclude(group = "com.github.xpenatan.jParser", module = "runtime-core")
     }
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         implementation(libs.jImGuiImguiAndroid)
     }
     else {

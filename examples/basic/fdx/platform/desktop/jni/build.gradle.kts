@@ -13,7 +13,7 @@ dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:fdx:core"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         implementation(libs.bundles.jImGuiJniArtifacts)
     }
     else {

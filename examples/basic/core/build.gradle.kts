@@ -10,7 +10,7 @@ java {
 dependencies {
     implementation(project(":examples:shared"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         compileOnly(libs.jImGuiImguiCore)
     }
     else {

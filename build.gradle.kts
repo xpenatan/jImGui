@@ -1,10 +1,15 @@
+import java.util.Properties
+
 plugins {
     id("java")
     alias(libs.plugins.easyPublishing)
 }
 
 val jImGuiGroup = libs.versions.jImGuiGroup.get()
-val examplesUseRepoLibs = libs.versions.useRepoLibs.get().toBoolean()
+val examplesUseRepoLibs = Properties()
+    .apply { rootProject.file("local.properties").takeIf { it.isFile }?.inputStream()?.use(::load) }
+    .getProperty("useRepoLibs", libs.versions.useRepoLibs.get())
+    .toBooleanStrict()
 val repoLibVersion = libs.versions.repoLibVersion.get()
 
 extra["examplesUseRepoLibs"] = examplesUseRepoLibs

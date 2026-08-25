@@ -17,7 +17,7 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-impl"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
     }

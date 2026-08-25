@@ -10,7 +10,7 @@ val wasmLibraries by configurations.creating {
 dependencies {
     implementation(project(":examples:basic:fdx:core"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
     }

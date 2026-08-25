@@ -11,7 +11,7 @@ dependencies {
     api(project(":examples:shared"))
     api(project(":examples:basic:core"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         compileOnlyApi(libs.jImGuiImguiCore)
     }
     else {

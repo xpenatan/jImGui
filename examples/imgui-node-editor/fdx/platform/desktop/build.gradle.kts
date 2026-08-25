@@ -13,7 +13,7 @@ dependencies {
     implementation(project(":examples:shared"))
     implementation(project(":examples:imgui-node-editor:fdx:core"))
 
-    if(providers.gradleProperty("useRepoLibs").map(String::toBoolean).getOrElse(false)) {
+    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
         implementation(libs.jImGuiImguiJni)
         implementation(libs.jImGuiImguiJniDesktop)
         implementation(libs.jImGuiNodeEditorJni)
