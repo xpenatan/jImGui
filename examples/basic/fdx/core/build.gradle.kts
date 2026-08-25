@@ -11,7 +11,7 @@ dependencies {
     api(project(":examples:shared"))
     api(project(":examples:basic:core"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         compileOnlyApi(libs.jImGuiImguiCore)
     }
     else {

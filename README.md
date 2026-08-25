@@ -98,7 +98,7 @@ artifacts instead, update these entries in `gradle/libs.versions.toml`:
 
 ```toml
 [versions]
-useRepoLibs = "true"
+examplesUseMavenArtifacts = "true"
 repoLibVersion = "-SNAPSHOT"
 ```
 

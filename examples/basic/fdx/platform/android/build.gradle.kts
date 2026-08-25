@@ -39,7 +39,7 @@ dependencies {
         exclude(group = "com.github.xpenatan.jParser", module = "runtime-core")
     }
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         implementation(libs.jImGuiImguiAndroid)
     }
     else {

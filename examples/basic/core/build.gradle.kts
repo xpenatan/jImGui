@@ -10,7 +10,7 @@ java {
 dependencies {
     implementation(project(":examples:shared"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         compileOnly(libs.jImGuiImguiCore)
     }
     else {

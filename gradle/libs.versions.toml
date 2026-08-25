@@ -3,7 +3,7 @@ jImGuiGroup = "com.github.xpenatan.jImGui"
 jImGuiName = "jImGui"
 jImGuiRelease = "1.92.9b.0"
 jImGuiSnapshot = "-SNAPSHOT"
-useRepoLibs = "true"
+examplesUseMavenArtifacts = "true"
 repoLibVersion = "-SNAPSHOT"
 
 javaMain = "1.8"

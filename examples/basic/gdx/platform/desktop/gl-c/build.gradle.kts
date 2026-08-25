@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-val useRepoLibs = rootProject.extra["examplesUseRepoLibs"] as Boolean
+val examplesUseMavenArtifacts = rootProject.extra["examplesUseMavenArtifacts"] as Boolean
 val imguiRuntimeProject = ":imgui:desktop:c"
 val imguiSharedProject = ":imgui:shared:c"
 val teaVMBuilderMainClass = "imgui.example.basic.gdx.c.ImGuiBasicTeaVMCBuilder"
@@ -56,7 +56,7 @@ val prepareTeaVMCBuildRoot = tasks.register("prepareTeaVMCBuildRoot") {
 
 fun Task.configureRuntimeInputs() {
     dependsOn("classes", prepareTeaVMCBuildRoot)
-    if(!useRepoLibs) {
+    if(!examplesUseMavenArtifacts) {
         currentHostImGuiCBuildTask()?.let { nativeBuildTask ->
             dependsOn(nativeBuildTask)
             project(imguiSharedProject).tasks.named("processResources") {

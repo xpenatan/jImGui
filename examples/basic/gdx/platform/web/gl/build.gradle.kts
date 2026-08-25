@@ -17,7 +17,7 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-impl"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
     }

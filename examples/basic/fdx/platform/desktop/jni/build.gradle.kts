@@ -13,7 +13,7 @@ dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:fdx:core"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         implementation(libs.bundles.jImGuiJniArtifacts)
     }
     else {

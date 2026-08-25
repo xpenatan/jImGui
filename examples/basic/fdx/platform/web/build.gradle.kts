@@ -10,7 +10,7 @@ val wasmLibraries by configurations.creating {
 dependencies {
     implementation(project(":examples:basic:fdx:core"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
     }

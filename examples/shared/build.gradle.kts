@@ -8,7 +8,7 @@ java {
 }
 
 dependencies {
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         compileOnlyApi(libs.jImGuiImguiCore)
     }
     else {

@@ -6,13 +6,13 @@ plugins {
 }
 
 val jImGuiGroup = libs.versions.jImGuiGroup.get()
-val examplesUseRepoLibs = Properties()
+val examplesUseMavenArtifacts = Properties()
     .apply { rootProject.file("local.properties").takeIf { it.isFile }?.inputStream()?.use(::load) }
-    .getProperty("useRepoLibs", libs.versions.useRepoLibs.get())
+    .getProperty("examplesUseMavenArtifacts", libs.versions.examplesUseMavenArtifacts.get())
     .toBooleanStrict()
 val repoLibVersion = libs.versions.repoLibVersion.get()
 
-extra["examplesUseRepoLibs"] = examplesUseRepoLibs
+extra["examplesUseMavenArtifacts"] = examplesUseMavenArtifacts
 
 val publishingModules = linkedMapOf(
     ":backends:gdx:gdx-shared-impl" to "gdx-shared-impl",
@@ -44,7 +44,7 @@ val publishingModules = linkedMapOf(
 )
 
 allprojects  {
-    val usesExampleRepoLibs = path.startsWith(":examples:") ||
+    val isExampleArtifactConsumer = path.startsWith(":examples:") ||
             path == ":backends:gdx:gdx-gl-lwjgl3-impl"
 
     repositories {
@@ -68,7 +68,7 @@ allprojects  {
                 useVersion(libs.versions.jParser.get())
                 because("jImGui builds against one jParser version across runtime, generator, and plugin artifacts")
             }
-            else if(usesExampleRepoLibs && examplesUseRepoLibs && requested.group == jImGuiGroup) {
+            else if(isExampleArtifactConsumer && examplesUseMavenArtifacts && requested.group == jImGuiGroup) {
                 useVersion(repoLibVersion)
                 because("The examples are configured to test published jImGui artifacts")
             }
@@ -76,7 +76,7 @@ allprojects  {
     }
 }
 
-if(examplesUseRepoLibs) {
+if(examplesUseMavenArtifacts) {
     logger.lifecycle("jImGui examples: using Maven artifacts version $repoLibVersion")
     subprojects {
         if(path.startsWith(":examples:") || path == ":backends:gdx:gdx-gl-lwjgl3-impl") {
@@ -85,7 +85,7 @@ if(examplesUseRepoLibs) {
                     publishingModules.forEach { (projectPath, artifactId) ->
                         substitute(project(projectPath))
                             .using(module("$jImGuiGroup:$artifactId:$repoLibVersion"))
-                            .because("useRepoLibs is enabled")
+                            .because("examplesUseMavenArtifacts is enabled")
                     }
                 }
             }

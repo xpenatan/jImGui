@@ -14,7 +14,7 @@ dependencies {
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":backends:gdx:gdx-gl-lwjgl3-impl"))
 
-    if(rootProject.extra["examplesUseRepoLibs"] as Boolean) {
+    if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
         implementation(libs.bundles.jImGuiFFMArtifacts)
     }
     else {
