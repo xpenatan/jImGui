@@ -9,12 +9,13 @@ java {
 
 dependencies {
     api(project(":examples:shared"))
-    api(project(":backends:gdx:gdx-shared-impl"))
 
     if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
+        api(libs.jImGuiGdxShared)
         compileOnlyApi(libs.jImGuiImguiCore)
     }
     else {
+        api(project(":backends:gdx:gdx-shared-impl"))
         compileOnlyApi(project(":imgui:core"))
     }
 }

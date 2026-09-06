@@ -15,6 +15,7 @@ val gdxNativeConfigurations = gdxNativeClassifiers.keys.associateWith { abi ->
     }
 }
 val stagedGdxJniLibsDir = layout.buildDirectory.dir("generated/gdxJniLibs")
+val examplesUseMavenArtifacts = rootProject.extra["examplesUseMavenArtifacts"] as Boolean
 
 val stageGdxJniLibs by tasks.registering(Copy::class) {
     gdxNativeConfigurations.forEach { (abi, configuration) ->
@@ -66,8 +67,14 @@ android {
 dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:gdx:core"))
-    implementation(project(":backends:gdx:gdx-gl-impl"))
-    implementation(project(":imgui:android:jni"))
+    if(examplesUseMavenArtifacts) {
+        implementation(libs.jImGuiGdxGl)
+        implementation(libs.jImGuiImguiAndroid)
+    }
+    else {
+        implementation(project(":backends:gdx:gdx-gl-impl"))
+        implementation(project(":imgui:android:jni"))
+    }
     implementation(libs.gdxBackendAndroid)
 
     gdxNativeClassifiers.forEach { (abi, nativeClassifier) ->

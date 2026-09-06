@@ -19,14 +19,24 @@ dependencies {
     implementation(libs.gdxCore)
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":examples:imlayout:core"))
-    implementation(project(":backends:gdx:gdx-gl-impl"))
-    implementation(project(imguiRuntimeProject))
-    implementation(project(extensionRuntimeProject))
     implementation(libs.gdxTeaVMBackendGlfw)
 
-    compileOnly(project(":imgui:core"))
-    compileOnly(project(":extensions:imlayout:imlayout-core"))
-    nativeRuntimeClasspath(project(extensionRuntimeProject))
+    if(examplesUseMavenArtifacts) {
+        implementation(libs.jImGuiGdxGl)
+        implementation(libs.jImGuiImguiC)
+        implementation(libs.jImGuiImlayoutC)
+        compileOnly(libs.jImGuiImguiCore)
+        compileOnly(libs.jImGuiImlayoutCore)
+        nativeRuntimeClasspath(libs.jImGuiImlayoutC)
+    }
+    else {
+        implementation(project(":backends:gdx:gdx-gl-impl"))
+        implementation(project(imguiRuntimeProject))
+        implementation(project(extensionRuntimeProject))
+        compileOnly(project(":imgui:core"))
+        compileOnly(project(":extensions:imlayout:imlayout-core"))
+        nativeRuntimeClasspath(project(extensionRuntimeProject))
+    }
 }
 
 java {

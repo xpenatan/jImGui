@@ -17,11 +17,18 @@ dependencies {
     implementation(libs.gdxCore)
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:gdx:core"))
-    implementation(project(":backends:gdx:gdx-gl-impl"))
-    implementation(project(imguiRuntimeProject))
     implementation(libs.gdxTeaVMBackendGlfw)
 
-    imguiRuntimeClasspath(project(imguiRuntimeProject))
+    if(examplesUseMavenArtifacts) {
+        implementation(libs.jImGuiGdxGl)
+        implementation(libs.jImGuiImguiC)
+        imguiRuntimeClasspath(libs.jImGuiImguiC)
+    }
+    else {
+        implementation(project(":backends:gdx:gdx-gl-impl"))
+        implementation(project(imguiRuntimeProject))
+        imguiRuntimeClasspath(project(imguiRuntimeProject))
+    }
 }
 
 java {

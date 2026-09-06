@@ -19,14 +19,24 @@ dependencies {
     implementation(libs.gdxCore)
     implementation(project(":examples:basic:gdx:core"))
     implementation(project(":examples:imgui-node-editor:core"))
-    implementation(project(":backends:gdx:gdx-gl-impl"))
-    implementation(project(imguiRuntimeProject))
-    implementation(project(extensionRuntimeProject))
     implementation(libs.gdxTeaVMBackendGlfw)
 
-    compileOnly(project(":imgui:core"))
-    compileOnly(project(":extensions:imgui-node-editor:nodeeditor-core"))
-    nativeRuntimeClasspath(project(extensionRuntimeProject))
+    if(examplesUseMavenArtifacts) {
+        implementation(libs.jImGuiGdxGl)
+        implementation(libs.jImGuiImguiC)
+        implementation(libs.jImGuiNodeEditorC)
+        compileOnly(libs.jImGuiImguiCore)
+        compileOnly(libs.jImGuiNodeEditorCore)
+        nativeRuntimeClasspath(libs.jImGuiNodeEditorC)
+    }
+    else {
+        implementation(project(":backends:gdx:gdx-gl-impl"))
+        implementation(project(imguiRuntimeProject))
+        implementation(project(extensionRuntimeProject))
+        compileOnly(project(":imgui:core"))
+        compileOnly(project(":extensions:imgui-node-editor:nodeeditor-core"))
+        nativeRuntimeClasspath(project(extensionRuntimeProject))
+    }
 }
 
 java {

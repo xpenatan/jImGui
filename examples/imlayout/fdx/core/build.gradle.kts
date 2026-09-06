@@ -7,8 +7,15 @@ java {
     targetCompatibility = JavaVersion.toVersion(libs.versions.javaFFM.get())
 }
 
+val examplesUseMavenArtifacts = rootProject.extra["examplesUseMavenArtifacts"] as Boolean
+
 dependencies {
     api(project(":examples:basic:fdx:core"))
     api(project(":examples:imlayout:core"))
-    compileOnlyApi(project(":extensions:imlayout:imlayout-core"))
+    if(examplesUseMavenArtifacts) {
+        compileOnlyApi(libs.jImGuiImlayoutCore)
+    }
+    else {
+        compileOnlyApi(project(":extensions:imlayout:imlayout-core"))
+    }
 }

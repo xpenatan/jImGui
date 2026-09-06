@@ -15,13 +15,14 @@ java {
 dependencies {
     implementation(project(":examples:basic:core"))
     implementation(project(":examples:basic:gdx:core"))
-    implementation(project(":backends:gdx:gdx-gl-impl"))
 
     if(rootProject.extra["examplesUseMavenArtifacts"] as Boolean) {
+        implementation(libs.jImGuiGdxGl)
         implementation(libs.jImGuiImguiWeb)
         wasmLibraries(libs.jImGuiImguiWebWasm)
     }
     else {
+        implementation(project(":backends:gdx:gdx-gl-impl"))
         implementation(project(":imgui:web:wasm"))
         wasmLibraries(project(path = ":imgui:web:wasm", configuration = "wasmRuntimeElements"))
     }

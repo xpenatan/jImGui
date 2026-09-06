@@ -5,13 +5,10 @@ plugins {
     alias(libs.plugins.easyPublishing)
 }
 
-val jImGuiGroup = libs.versions.jImGuiGroup.get()
 val examplesUseMavenArtifacts = Properties()
     .apply { rootProject.file("local.properties").takeIf { it.isFile }?.inputStream()?.use(::load) }
     .getProperty("examplesUseMavenArtifacts", libs.versions.examplesUseMavenArtifacts.get())
     .toBooleanStrict()
-val repoLibVersion = libs.versions.repoLibVersion.get()
-
 extra["examplesUseMavenArtifacts"] = examplesUseMavenArtifacts
 
 val publishingModules = linkedMapOf(
@@ -44,9 +41,6 @@ val publishingModules = linkedMapOf(
 )
 
 allprojects  {
-    val isExampleArtifactConsumer = path.startsWith(":examples:") ||
-            path == ":backends:gdx:gdx-gl-lwjgl3-impl"
-
     repositories {
         mavenLocal()
         google()
@@ -67,27 +61,6 @@ allprojects  {
             if(requested.group == "com.github.xpenatan.jParser") {
                 useVersion(libs.versions.jParser.get())
                 because("jImGui builds against one jParser version across runtime, generator, and plugin artifacts")
-            }
-            else if(isExampleArtifactConsumer && examplesUseMavenArtifacts && requested.group == jImGuiGroup) {
-                useVersion(repoLibVersion)
-                because("The examples are configured to test published jImGui artifacts")
-            }
-        }
-    }
-}
-
-if(examplesUseMavenArtifacts) {
-    logger.lifecycle("jImGui examples: using Maven artifacts version $repoLibVersion")
-    subprojects {
-        if(path.startsWith(":examples:") || path == ":backends:gdx:gdx-gl-lwjgl3-impl") {
-            configurations.configureEach {
-                resolutionStrategy.dependencySubstitution {
-                    publishingModules.forEach { (projectPath, artifactId) ->
-                        substitute(project(projectPath))
-                            .using(module("$jImGuiGroup:$artifactId:$repoLibVersion"))
-                            .because("examplesUseMavenArtifacts is enabled")
-                    }
-                }
             }
         }
     }
