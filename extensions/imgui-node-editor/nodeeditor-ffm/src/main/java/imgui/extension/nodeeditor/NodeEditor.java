@@ -335,8 +335,8 @@ public final class NodeEditor extends NativeObject {
     }
 
     public static void internal_native_Begin(String id, long size_addr) {
-        try {
-            FFMHandles.internal_native_Begin__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Begin__Ljava_lang_String_2J.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -347,8 +347,8 @@ public final class NodeEditor extends NativeObject {
     }
 
     public static void internal_native_Begin(String id) {
-        try {
-            FFMHandles.internal_native_Begin__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Begin__Ljava_lang_String_2.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

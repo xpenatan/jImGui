@@ -650,8 +650,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetText(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_SetText__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetText__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -734,8 +734,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_ReplaceSectionText(long this_addr, long startLine, long startIndex, long endLine, long endIndex, String text) {
-        try {
-            FFMHandles.internal_native_ReplaceSectionText__JJJJJLjava_lang_String_2.invokeExact(this_addr, startLine, startIndex, endLine, endIndex, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_ReplaceSectionText__JJJJJLjava_lang_String_2.invokeExact(this_addr, startLine, startIndex, endLine, endIndex, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -782,8 +782,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2JII.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags, windowFlags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JII.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr, childFlags, windowFlags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -794,8 +794,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2JI.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JI.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr, childFlags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -806,8 +806,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2J.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2J.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -818,8 +818,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1376,8 +1376,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
-        try {
-            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive, wholeWord);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1388,8 +1388,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
-        try {
-            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1400,8 +1400,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectFirstOccurrenceOf(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectFirstOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1412,8 +1412,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
-        try {
-            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive, wholeWord);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1424,8 +1424,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text, boolean caseSensitive) {
-        try {
-            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2Z.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1436,8 +1436,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectNextOccurrenceOf(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectNextOccurrenceOf__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1448,8 +1448,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive, boolean wholeWord) {
-        try {
-            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive, wholeWord);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2ZZ.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive, wholeWord);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1460,8 +1460,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text, boolean caseSensitive) {
-        try {
-            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2Z.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), caseSensitive);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2Z.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), caseSensitive);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1472,8 +1472,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SelectAllOccurrencesOf(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SelectAllOccurrencesOf__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1484,8 +1484,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_ReplaceTextInCurrentCursor(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_ReplaceTextInCurrentCursor__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_ReplaceTextInCurrentCursor__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1496,8 +1496,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_ReplaceTextInAllCursors(long this_addr, String text) {
-        try {
-            FFMHandles.internal_native_ReplaceTextInAllCursors__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_ReplaceTextInAllCursors__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1532,8 +1532,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetFindButtonLabel(long this_addr, String label) {
-        try {
-            FFMHandles.internal_native_SetFindButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetFindButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1544,8 +1544,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetFindAllButtonLabel(long this_addr, String label) {
-        try {
-            FFMHandles.internal_native_SetFindAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetFindAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1556,8 +1556,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetReplaceButtonLabel(long this_addr, String label) {
-        try {
-            FFMHandles.internal_native_SetReplaceButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetReplaceButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1568,8 +1568,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetReplaceAllButtonLabel(long this_addr, String label) {
-        try {
-            FFMHandles.internal_native_SetReplaceAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetReplaceAllButtonLabel__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1616,8 +1616,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_AddMarker(long this_addr, long line, int lineNumberColor, int textColor, String lineNumberTooltip, String textTooltip) {
-        try {
-            FFMHandles.internal_native_AddMarker__JJIILjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, line, lineNumberColor, textColor, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(lineNumberTooltip), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(textTooltip));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_AddMarker__JJIILjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, line, lineNumberColor, textColor, (MemorySegment) (lineNumberTooltip == null ? MemorySegment.NULL : stringArena.allocateFrom(lineNumberTooltip)), (MemorySegment) (textTooltip == null ? MemorySegment.NULL : stringArena.allocateFrom(textTooltip)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2433,8 +2433,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_SetNoSuggestionsLabel(long this_addr, String label) {
-        try {
-            FFMHandles.internal_native_SetNoSuggestionsLabel__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetNoSuggestionsLabel__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2632,8 +2632,8 @@ public final class TextEditor extends NativeObject {
     }
 
     public static void internal_native_AddAutoCompleteSuggestion(long this_addr, String suggestion) {
-        try {
-            FFMHandles.internal_native_AddAutoCompleteSuggestion__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(suggestion));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_AddAutoCompleteSuggestion__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (suggestion == null ? MemorySegment.NULL : stringArena.allocateFrom(suggestion)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

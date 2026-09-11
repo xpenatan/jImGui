@@ -92,8 +92,8 @@ public final class TextEditorLineBreakConfig extends NativeObject {
     }
 
     public static void internal_native_SetBreakAfter(long this_addr, String value) {
-        try {
-            FFMHandles.internal_native_SetBreakAfter__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(value));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetBreakAfter__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (value == null ? MemorySegment.NULL : stringArena.allocateFrom(value)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -122,8 +122,8 @@ public final class TextEditorLineBreakConfig extends NativeObject {
     }
 
     public static void internal_native_SetBreakBefore(long this_addr, String value) {
-        try {
-            FFMHandles.internal_native_SetBreakBefore__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(value));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetBreakBefore__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (value == null ? MemorySegment.NULL : stringArena.allocateFrom(value)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

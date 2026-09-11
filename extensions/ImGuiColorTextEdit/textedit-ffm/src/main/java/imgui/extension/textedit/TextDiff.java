@@ -347,8 +347,8 @@ public final class TextDiff extends NativeObject {
     }
 
     public static void internal_native_SetText(long this_addr, String left, String right) {
-        try {
-            FFMHandles.internal_native_SetText__JLjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(left), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(right));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetText__JLjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, (MemorySegment) (left == null ? MemorySegment.NULL : stringArena.allocateFrom(left)), (MemorySegment) (right == null ? MemorySegment.NULL : stringArena.allocateFrom(right)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -359,8 +359,8 @@ public final class TextDiff extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags, int windowFlags) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2JII.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags, windowFlags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JII.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr, childFlags, windowFlags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -371,8 +371,8 @@ public final class TextDiff extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr, int childFlags) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2JI.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr, childFlags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2JI.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr, childFlags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -383,8 +383,8 @@ public final class TextDiff extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title, long size_addr) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2J.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2J.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -395,8 +395,8 @@ public final class TextDiff extends NativeObject {
     }
 
     public static void internal_native_Render(long this_addr, String title) {
-        try {
-            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Render__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
