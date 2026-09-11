@@ -206,8 +206,8 @@ public final class ImGuiIO extends NativeObject {
     }
 
     public static void internal_native_AddInputCharactersUTF8(long this_addr, String str) {
-        try {
-            FFMHandles.internal_native_AddInputCharactersUTF8__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_AddInputCharactersUTF8__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (str == null ? MemorySegment.NULL : stringArena.allocateFrom(str)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

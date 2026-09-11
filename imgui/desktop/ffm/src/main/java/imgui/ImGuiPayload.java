@@ -77,8 +77,8 @@ public final class ImGuiPayload extends NativeObject {
     }
 
     public static boolean internal_native_IsDataType(long this_addr, String type) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsDataType__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(type));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_IsDataType__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (type == null ? MemorySegment.NULL : stringArena.allocateFrom(type)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

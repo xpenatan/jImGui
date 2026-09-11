@@ -251,8 +251,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2FJJ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(filename), size_pixels, font_cfg_addr, glyph_ranges_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2FJJ.invokeExact(this_addr, (MemorySegment) (filename == null ? MemorySegment.NULL : stringArena.allocateFrom(filename)), size_pixels, font_cfg_addr, glyph_ranges_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -269,8 +269,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels, long font_cfg_addr) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2FJ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(filename), size_pixels, font_cfg_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2FJ.invokeExact(this_addr, (MemorySegment) (filename == null ? MemorySegment.NULL : stringArena.allocateFrom(filename)), size_pixels, font_cfg_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -287,8 +287,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename, float size_pixels) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2F.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(filename), size_pixels);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2F.invokeExact(this_addr, (MemorySegment) (filename == null ? MemorySegment.NULL : stringArena.allocateFrom(filename)), size_pixels);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -305,8 +305,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromFileTTF_addr(long this_addr, String filename) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(filename));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromFileTTF_addr__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (filename == null ? MemorySegment.NULL : stringArena.allocateFrom(filename)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -467,8 +467,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr, long glyph_ranges_addr) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2FJJ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(compressed_font_data_base85), size_pixels, font_cfg_addr, glyph_ranges_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2FJJ.invokeExact(this_addr, (MemorySegment) (compressed_font_data_base85 == null ? MemorySegment.NULL : stringArena.allocateFrom(compressed_font_data_base85)), size_pixels, font_cfg_addr, glyph_ranges_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -485,8 +485,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels, long font_cfg_addr) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2FJ.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(compressed_font_data_base85), size_pixels, font_cfg_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2FJ.invokeExact(this_addr, (MemorySegment) (compressed_font_data_base85 == null ? MemorySegment.NULL : stringArena.allocateFrom(compressed_font_data_base85)), size_pixels, font_cfg_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -503,8 +503,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85, float size_pixels) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2F.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(compressed_font_data_base85), size_pixels);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2F.invokeExact(this_addr, (MemorySegment) (compressed_font_data_base85 == null ? MemorySegment.NULL : stringArena.allocateFrom(compressed_font_data_base85)), size_pixels);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -521,8 +521,8 @@ public final class ImFontAtlas extends NativeObject {
     }
 
     public static long internal_native_AddFontFromMemoryCompressedBase85TTF_addr(long this_addr, String compressed_font_data_base85) {
-        try {
-            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(compressed_font_data_base85));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AddFontFromMemoryCompressedBase85TTF_addr__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (compressed_font_data_base85 == null ? MemorySegment.NULL : stringArena.allocateFrom(compressed_font_data_base85)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

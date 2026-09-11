@@ -529,8 +529,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ShowStyleSelector(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_ShowStyleSelector__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ShowStyleSelector__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -541,8 +541,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_ShowFontSelector(String label) {
-        try {
-            FFMHandles.internal_native_ShowFontSelector__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_ShowFontSelector__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -655,8 +655,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Begin(String name, long p_open_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), p_open_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2JI.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), p_open_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -667,8 +667,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Begin(String name, long p_open_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), p_open_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2J.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), p_open_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -679,8 +679,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Begin(String name) {
-        try {
-            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Begin__Ljava_lang_String_2.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -703,8 +703,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginChild__0(String str_id, long size_addr, int child_flags, int window_flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), size_addr, child_flags, window_flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2JII.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), size_addr, child_flags, window_flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -715,8 +715,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginChild__0(String str_id, long size_addr, int child_flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), size_addr, child_flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2JI.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), size_addr, child_flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -727,8 +727,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginChild__0(String str_id, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2J.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -739,8 +739,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginChild__0(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginChild__0__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1183,8 +1183,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowPos__1(String name, long pos_addr, int ImGuiCond) {
-        try {
-            FFMHandles.internal_native_SetWindowPos__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), pos_addr, ImGuiCond);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowPos__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), pos_addr, ImGuiCond);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1195,8 +1195,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowPos__1(String name, long pos_addr) {
-        try {
-            FFMHandles.internal_native_SetWindowPos__1__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), pos_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowPos__1__Ljava_lang_String_2J.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), pos_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1231,8 +1231,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowSize__1(String name, long size_addr, int ImGuiCond) {
-        try {
-            FFMHandles.internal_native_SetWindowSize__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), size_addr, ImGuiCond);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowSize__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), size_addr, ImGuiCond);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1243,8 +1243,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowSize__1(String name, long size_addr) {
-        try {
-            FFMHandles.internal_native_SetWindowSize__1__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowSize__1__Ljava_lang_String_2J.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1279,8 +1279,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowCollapsed__1(String name, boolean collapsed, int ImGuiCond) {
-        try {
-            FFMHandles.internal_native_SetWindowCollapsed__1__Ljava_lang_String_2ZI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), collapsed, ImGuiCond);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowCollapsed__1__Ljava_lang_String_2ZI.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), collapsed, ImGuiCond);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1291,8 +1291,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowCollapsed__1(String name, boolean collapsed) {
-        try {
-            FFMHandles.internal_native_SetWindowCollapsed__1__Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), collapsed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowCollapsed__1__Ljava_lang_String_2Z.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), collapsed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -1315,8 +1315,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetWindowFocus(String name) {
-        try {
-            FFMHandles.internal_native_SetWindowFocus__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetWindowFocus__Ljava_lang_String_2.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2251,8 +2251,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PushID__0(String str_id) {
-        try {
-            FFMHandles.internal_native_PushID__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PushID__0__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2263,8 +2263,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PushID__1(String str_id_begin, String str_id_end) {
-        try {
-            FFMHandles.internal_native_PushID__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id_begin), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id_end));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PushID__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (str_id_begin == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id_begin)), (MemorySegment) (str_id_end == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id_end)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2311,8 +2311,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static int internal_native_GetID__0(String str_id) {
-        try {
-            return (int) FFMHandles.internal_native_GetID__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (int) FFMHandles.internal_native_GetID__0__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2323,8 +2323,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static int internal_native_GetID__1(String str_id_begin, String str_id_end) {
-        try {
-            return (int) FFMHandles.internal_native_GetID__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id_begin), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id_end));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (int) FFMHandles.internal_native_GetID__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (str_id_begin == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id_begin)), (MemorySegment) (str_id_end == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id_end)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2359,8 +2359,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TextUnformatted(String text, String text_end) {
-        try {
-            FFMHandles.internal_native_TextUnformatted__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_end));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TextUnformatted__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), (MemorySegment) (text_end == null ? MemorySegment.NULL : stringArena.allocateFrom(text_end)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2371,8 +2371,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TextUnformatted(String text) {
-        try {
-            FFMHandles.internal_native_TextUnformatted__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TextUnformatted__Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2383,8 +2383,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_Text(String fmt) {
-        try {
-            FFMHandles.internal_native_Text__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Text__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2395,8 +2395,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TextColored(long col_addr, String fmt) {
-        try {
-            FFMHandles.internal_native_TextColored__JLjava_lang_String_2.invokeExact(col_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TextColored__JLjava_lang_String_2.invokeExact(col_addr, (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2407,8 +2407,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TextDisabled(String fmt) {
-        try {
-            FFMHandles.internal_native_TextDisabled__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TextDisabled__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2419,8 +2419,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TextWrapped(String fmt) {
-        try {
-            FFMHandles.internal_native_TextWrapped__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TextWrapped__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2431,8 +2431,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LabelText(String label, String fmt) {
-        try {
-            FFMHandles.internal_native_LabelText__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LabelText__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2443,8 +2443,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_BulletText(String fmt) {
-        try {
-            FFMHandles.internal_native_BulletText__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BulletText__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2455,8 +2455,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SeparatorText(String label) {
-        try {
-            FFMHandles.internal_native_SeparatorText__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SeparatorText__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2467,8 +2467,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Button(String label, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Button__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Button__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2479,8 +2479,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Button(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_Button__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Button__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2491,8 +2491,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SmallButton(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_SmallButton__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SmallButton__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2503,8 +2503,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InvisibleButton(String str_id, long size_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InvisibleButton__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), size_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InvisibleButton__Ljava_lang_String_2JI.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), size_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2515,8 +2515,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InvisibleButton(String str_id, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InvisibleButton__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InvisibleButton__Ljava_lang_String_2J.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2527,8 +2527,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ArrowButton(String str_id, int dir) {
-        try {
-            return (boolean) FFMHandles.internal_native_ArrowButton__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), dir);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ArrowButton__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), dir);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2539,8 +2539,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Checkbox(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Checkbox__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Checkbox__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2551,8 +2551,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_CheckboxFlags(String label, long flags_addr, int flags_value) {
-        try {
-            return (boolean) FFMHandles.internal_native_CheckboxFlags__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags_addr, flags_value);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_CheckboxFlags__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags_addr, flags_value);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2563,8 +2563,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_RadioButton__0(String label, boolean active) {
-        try {
-            return (boolean) FFMHandles.internal_native_RadioButton__0__Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), active);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_RadioButton__0__Ljava_lang_String_2Z.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), active);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2575,8 +2575,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_RadioButton__1(String label, long v_addr, int v_button) {
-        try {
-            return (boolean) FFMHandles.internal_native_RadioButton__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_button);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_RadioButton__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_button);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2587,8 +2587,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_ProgressBar(float fraction, long size_arg_addr, String overlay) {
-        try {
-            FFMHandles.internal_native_ProgressBar__FJLjava_lang_String_2.invokeExact(fraction, size_arg_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_ProgressBar__FJLjava_lang_String_2.invokeExact(fraction, size_arg_addr, (MemorySegment) (overlay == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2635,8 +2635,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TextLink(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_TextLink__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TextLink__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2647,8 +2647,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TextLinkOpenURL(String label, String url) {
-        try {
-            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(url));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (url == null ? MemorySegment.NULL : stringArena.allocateFrom(url)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2659,8 +2659,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TextLinkOpenURL(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TextLinkOpenURL__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2767,8 +2767,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ImageButton(String str_id, long tex_ref_addr, long image_size_addr, long uv0_addr, long uv1_addr, long bg_col_addr, long tint_col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr, bg_col_addr, tint_col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJJJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr, bg_col_addr, tint_col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2779,8 +2779,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ImageButton(String str_id, long tex_ref_addr, long image_size_addr, long uv0_addr, long uv1_addr, long bg_col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr, bg_col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr, bg_col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2791,8 +2791,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ImageButton(String str_id, long tex_ref_addr, long image_size_addr, long uv0_addr, long uv1_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), tex_ref_addr, image_size_addr, uv0_addr, uv1_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2803,8 +2803,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ImageButton(String str_id, long tex_ref_addr, long image_size_addr, long uv0_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), tex_ref_addr, image_size_addr, uv0_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), tex_ref_addr, image_size_addr, uv0_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2815,8 +2815,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ImageButton(String str_id, long tex_ref_addr, long image_size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), tex_ref_addr, image_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ImageButton__Ljava_lang_String_2JJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), tex_ref_addr, image_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2827,8 +2827,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginCombo(String label, String preview_value, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCombo__Ljava_lang_String_2Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(preview_value), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCombo__Ljava_lang_String_2Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (preview_value == null ? MemorySegment.NULL : stringArena.allocateFrom(preview_value)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2839,8 +2839,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginCombo(String label, String preview_value) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCombo__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(preview_value));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCombo__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (preview_value == null ? MemorySegment.NULL : stringArena.allocateFrom(preview_value)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2863,8 +2863,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros, int popup_max_height_in_items) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros), popup_max_height_in_items);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, (MemorySegment) (items_separated_by_zeros == null ? MemorySegment.NULL : stringArena.allocateFrom(items_separated_by_zeros)), popup_max_height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2875,8 +2875,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__0(String label, long current_item_addr, String items_separated_by_zeros) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(items_separated_by_zeros));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__0__Ljava_lang_String_2JLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, (MemorySegment) (items_separated_by_zeros == null ? MemorySegment.NULL : stringArena.allocateFrom(items_separated_by_zeros)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2887,8 +2887,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr, int popup_max_height_in_items) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr, popup_max_height_in_items);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, items_addr, popup_max_height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2899,8 +2899,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__1(String label, long current_item_addr, long items_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__1__Ljava_lang_String_2JJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, items_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2911,8 +2911,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count, int popup_max_height_in_items) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count, popup_max_height_in_items);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, getter_addr, items_count, popup_max_height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2923,8 +2923,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Combo__2(String label, long current_item_addr, long getter_addr, int items_count) {
-        try {
-            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Combo__2__Ljava_lang_String_2JJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, getter_addr, items_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2935,8 +2935,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr, float v_speed, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2947,8 +2947,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr, float v_speed, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2959,8 +2959,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr, float v_speed, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2971,8 +2971,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr, float v_speed, float v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2983,8 +2983,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -2995,8 +2995,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3007,8 +3007,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr, float v_speed, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3019,8 +3019,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr, float v_speed, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3031,8 +3031,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr, float v_speed, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3043,8 +3043,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr, float v_speed, float v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3055,8 +3055,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3067,8 +3067,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat2(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat2__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3079,8 +3079,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr, float v_speed, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3091,8 +3091,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr, float v_speed, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3103,8 +3103,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr, float v_speed, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3115,8 +3115,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr, float v_speed, float v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3127,8 +3127,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3139,8 +3139,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat3(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3151,8 +3151,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr, float v_speed, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3163,8 +3163,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr, float v_speed, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3175,8 +3175,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr, float v_speed, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3187,8 +3187,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr, float v_speed, float v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3199,8 +3199,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3211,8 +3211,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloat4(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloat4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3223,8 +3223,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, float v_min, float v_max, String format, String format_max, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format_max), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), (MemorySegment) (format_max == null ? MemorySegment.NULL : stringArena.allocateFrom(format_max)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3235,8 +3235,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, float v_min, float v_max, String format, String format_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format_max));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), (MemorySegment) (format_max == null ? MemorySegment.NULL : stringArena.allocateFrom(format_max)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3247,8 +3247,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3259,8 +3259,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3271,8 +3271,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, float v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3283,8 +3283,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3295,8 +3295,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragFloatRange2(String label, long v_current_min_addr, long v_current_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragFloatRange2__Ljava_lang_String_2JJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3307,8 +3307,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr, float v_speed, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3319,8 +3319,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr, float v_speed, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3331,8 +3331,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr, float v_speed, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3343,8 +3343,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr, float v_speed, int v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3355,8 +3355,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3367,8 +3367,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3379,8 +3379,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr, float v_speed, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3391,8 +3391,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr, float v_speed, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3403,8 +3403,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr, float v_speed, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3415,8 +3415,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr, float v_speed, int v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3427,8 +3427,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3439,8 +3439,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt2(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt2__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3451,8 +3451,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr, float v_speed, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3463,8 +3463,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr, float v_speed, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3475,8 +3475,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr, float v_speed, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3487,8 +3487,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr, float v_speed, int v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3499,8 +3499,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3511,8 +3511,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt3(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3523,8 +3523,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr, float v_speed, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3535,8 +3535,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr, float v_speed, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3547,8 +3547,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr, float v_speed, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3559,8 +3559,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr, float v_speed, int v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3571,8 +3571,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3583,8 +3583,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragInt4(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragInt4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3595,8 +3595,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, int v_min, int v_max, String format, String format_max, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format_max), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), (MemorySegment) (format_max == null ? MemorySegment.NULL : stringArena.allocateFrom(format_max)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3607,8 +3607,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, int v_min, int v_max, String format, String format_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format_max));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), (MemorySegment) (format_max == null ? MemorySegment.NULL : stringArena.allocateFrom(format_max)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3619,8 +3619,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3631,8 +3631,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3643,8 +3643,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed, int v_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed, v_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed, v_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3655,8 +3655,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3667,8 +3667,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragIntRange2(String label, long v_current_min_addr, long v_current_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_current_min_addr, v_current_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragIntRange2__Ljava_lang_String_2JJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_current_min_addr, v_current_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3679,8 +3679,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr, float v_speed, long p_min_addr, long p_max_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3691,8 +3691,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr, float v_speed, long p_min_addr, long p_max_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3703,8 +3703,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr, float v_speed, long p_min_addr, long p_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, v_speed, p_min_addr, p_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3715,8 +3715,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr, float v_speed, long p_min_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, v_speed, p_min_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, v_speed, p_min_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3727,8 +3727,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3739,8 +3739,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalar(String label, int data_type, long p_data_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalar__Ljava_lang_String_2IJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3751,8 +3751,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components, float v_speed, long p_min_addr, long p_max_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3763,8 +3763,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components, float v_speed, long p_min_addr, long p_max_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3775,8 +3775,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components, float v_speed, long p_min_addr, long p_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, v_speed, p_min_addr, p_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3787,8 +3787,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components, float v_speed, long p_min_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, v_speed, p_min_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, v_speed, p_min_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3799,8 +3799,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components, float v_speed) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, v_speed);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJIF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, v_speed);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3811,8 +3811,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DragScalarN(String label, int data_type, long p_data_addr, int components) {
-        try {
-            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DragScalarN__Ljava_lang_String_2IJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3823,8 +3823,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat(String label, long v_addr, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3835,8 +3835,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat(String label, long v_addr, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3847,8 +3847,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat(String label, long v_addr, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3859,8 +3859,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat2(String label, long v_addr, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3871,8 +3871,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat2(String label, long v_addr, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3883,8 +3883,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat2(String label, long v_addr, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat2__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3895,8 +3895,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat3(String label, long v_addr, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3907,8 +3907,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat3(String label, long v_addr, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3919,8 +3919,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat3(String label, long v_addr, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat3__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3931,8 +3931,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat4(String label, long v_addr, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3943,8 +3943,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat4(String label, long v_addr, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3955,8 +3955,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderFloat4(String label, long v_addr, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderFloat4__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3967,8 +3967,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderAngle(String label, long v_rad_addr, float v_degrees_min, float v_degrees_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_rad_addr, v_degrees_min, v_degrees_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_rad_addr, v_degrees_min, v_degrees_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3979,8 +3979,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderAngle(String label, long v_rad_addr, float v_degrees_min, float v_degrees_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_rad_addr, v_degrees_min, v_degrees_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_rad_addr, v_degrees_min, v_degrees_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -3991,8 +3991,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderAngle(String label, long v_rad_addr, float v_degrees_min, float v_degrees_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_rad_addr, v_degrees_min, v_degrees_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_rad_addr, v_degrees_min, v_degrees_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4003,8 +4003,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderAngle(String label, long v_rad_addr, float v_degrees_min) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_rad_addr, v_degrees_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_rad_addr, v_degrees_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4015,8 +4015,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderAngle(String label, long v_rad_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_rad_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderAngle__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_rad_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4027,8 +4027,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt(String label, long v_addr, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4039,8 +4039,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt(String label, long v_addr, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4051,8 +4051,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt(String label, long v_addr, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4063,8 +4063,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt2(String label, long v_addr, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4075,8 +4075,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt2(String label, long v_addr, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4087,8 +4087,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt2(String label, long v_addr, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt2__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4099,8 +4099,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt3(String label, long v_addr, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4111,8 +4111,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt3(String label, long v_addr, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4123,8 +4123,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt3(String label, long v_addr, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt3__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4135,8 +4135,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt4(String label, long v_addr, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4147,8 +4147,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt4(String label, long v_addr, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4159,8 +4159,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderInt4(String label, long v_addr, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderInt4__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4171,8 +4171,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalar(String label, int data_type, long p_data_addr, long p_min_addr, long p_max_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4183,8 +4183,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalar(String label, int data_type, long p_data_addr, long p_min_addr, long p_max_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4195,8 +4195,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalar(String label, int data_type, long p_data_addr, long p_min_addr, long p_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_min_addr, p_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalar__Ljava_lang_String_2IJJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_min_addr, p_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4207,8 +4207,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalarN(String label, int data_type, long p_data_addr, int components, long p_min_addr, long p_max_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4219,8 +4219,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalarN(String label, int data_type, long p_data_addr, int components, long p_min_addr, long p_max_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4231,8 +4231,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SliderScalarN(String label, int data_type, long p_data_addr, int components, long p_min_addr, long p_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_min_addr, p_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SliderScalarN__Ljava_lang_String_2IJIJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_min_addr, p_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4243,8 +4243,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderFloat(String label, long size_addr, long v_addr, float v_min, float v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4255,8 +4255,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderFloat(String label, long size_addr, long v_addr, float v_min, float v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4267,8 +4267,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderFloat(String label, long size_addr, long v_addr, float v_min, float v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderFloat__Ljava_lang_String_2JJFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4279,8 +4279,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderInt(String label, long size_addr, long v_addr, int v_min, int v_max, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJIILjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJIILjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4291,8 +4291,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderInt(String label, long size_addr, long v_addr, int v_min, int v_max, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4303,8 +4303,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderInt(String label, long size_addr, long v_addr, int v_min, int v_max) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, v_addr, v_min, v_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderInt__Ljava_lang_String_2JJII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, v_addr, v_min, v_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4315,8 +4315,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderScalar(String label, long size_addr, int data_type, long p_data_addr, long p_min_addr, long p_max_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4327,8 +4327,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderScalar(String label, long size_addr, int data_type, long p_data_addr, long p_min_addr, long p_max_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4339,8 +4339,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_VSliderScalar(String label, long size_addr, int data_type, long p_data_addr, long p_min_addr, long p_max_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_VSliderScalar__Ljava_lang_String_2JIJJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr, data_type, p_data_addr, p_min_addr, p_max_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4351,8 +4351,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4363,8 +4363,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputText__0(String label, long buf_addr, int buf_size) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputText__0__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4375,8 +4375,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputText__1(String label, long buf_addr, int buf_size, int flags, long callback_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputText__1__Ljava_lang_String_2JIIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, flags, callback_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputText__1__Ljava_lang_String_2JIIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4387,8 +4387,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size, size_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4399,8 +4399,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size, size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4411,8 +4411,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextMultiline__0(String label, long buf_addr, int buf_size) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__0__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4423,8 +4423,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextMultiline__1(String label, long buf_addr, int buf_size, long size_addr, int flags, long callback_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextMultiline__1__Ljava_lang_String_2JIJIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), buf_addr, buf_size, size_addr, flags, callback_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextMultiline__1__Ljava_lang_String_2JIJIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), buf_addr, buf_size, size_addr, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4435,8 +4435,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (hint == null ? MemorySegment.NULL : stringArena.allocateFrom(hint)), buf_addr, buf_size, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4447,8 +4447,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextWithHint__0(String label, String hint, long buf_addr, int buf_size) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__0__Ljava_lang_String_2Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (hint == null ? MemorySegment.NULL : stringArena.allocateFrom(hint)), buf_addr, buf_size);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4459,8 +4459,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputTextWithHint__1(String label, String hint, long buf_addr, int buf_size, int flags, long callback_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputTextWithHint__1__Ljava_lang_String_2Ljava_lang_String_2JIIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(hint), buf_addr, buf_size, flags, callback_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputTextWithHint__1__Ljava_lang_String_2Ljava_lang_String_2JIIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (hint == null ? MemorySegment.NULL : stringArena.allocateFrom(hint)), buf_addr, buf_size, flags, callback_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4471,8 +4471,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat(String label, long v_addr, float step, float step_fast, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFFLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4483,8 +4483,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat(String label, long v_addr, float step, float step_fast, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFFLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4495,8 +4495,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat(String label, long v_addr, float step, float step_fast) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JFF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4507,8 +4507,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat(String label, long v_addr, float step) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2JF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4519,8 +4519,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4531,8 +4531,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat2(String label, long v_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4543,8 +4543,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat2(String label, long v_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2JLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4555,8 +4555,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat2(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat2__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4567,8 +4567,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat3(String label, long v_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4579,8 +4579,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat3(String label, long v_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2JLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4591,8 +4591,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat3(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4603,8 +4603,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat4(String label, long v_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2JLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4615,8 +4615,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat4(String label, long v_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2JLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2JLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4627,8 +4627,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputFloat4(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputFloat4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4639,8 +4639,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt(String label, long v_addr, int step, int step_fast, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JIII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JIII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4651,8 +4651,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt(String label, long v_addr, int step, int step_fast) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4663,8 +4663,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt(String label, long v_addr, int step) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4675,8 +4675,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4687,8 +4687,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt2(String label, long v_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt2__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt2__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4699,8 +4699,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt2(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt2__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt2__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4711,8 +4711,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt3(String label, long v_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt3__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt3__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4723,8 +4723,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt3(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4735,8 +4735,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt4(String label, long v_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt4__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt4__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4747,8 +4747,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputInt4(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputInt4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputInt4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4759,8 +4759,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputDouble(String label, long v_addr, double step, double step_fast, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDDLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDDLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4771,8 +4771,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputDouble(String label, long v_addr, double step, double step_fast, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDDLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDDLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4783,8 +4783,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputDouble(String label, long v_addr, double step, double step_fast) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDD.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step, step_fast);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JDD.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step, step_fast);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4795,8 +4795,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputDouble(String label, long v_addr, double step) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JD.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr, step);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2JD.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr, step);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4807,8 +4807,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputDouble(String label, long v_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), v_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputDouble__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), v_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4819,8 +4819,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalar(String label, int data_type, long p_data_addr, long p_step_addr, long p_step_fast_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_step_addr, p_step_fast_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_step_addr, p_step_fast_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4831,8 +4831,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalar(String label, int data_type, long p_data_addr, long p_step_addr, long p_step_fast_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_step_addr, p_step_fast_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_step_addr, p_step_fast_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4843,8 +4843,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalar(String label, int data_type, long p_data_addr, long p_step_addr, long p_step_fast_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_step_addr, p_step_fast_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_step_addr, p_step_fast_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4855,8 +4855,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalar(String label, int data_type, long p_data_addr, long p_step_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, p_step_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, p_step_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4867,8 +4867,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalar(String label, int data_type, long p_data_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalar__Ljava_lang_String_2IJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4879,8 +4879,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalarN(String label, int data_type, long p_data_addr, int components, long p_step_addr, long p_step_fast_addr, String format, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4891,8 +4891,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalarN(String label, int data_type, long p_data_addr, int components, long p_step_addr, long p_step_fast_addr, String format) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJLjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr, (MemorySegment) (format == null ? MemorySegment.NULL : stringArena.allocateFrom(format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4903,8 +4903,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalarN(String label, int data_type, long p_data_addr, int components, long p_step_addr, long p_step_fast_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_step_addr, p_step_fast_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4915,8 +4915,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalarN(String label, int data_type, long p_data_addr, int components, long p_step_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components, p_step_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components, p_step_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4927,8 +4927,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_InputScalarN(String label, int data_type, long p_data_addr, int components) {
-        try {
-            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), data_type, p_data_addr, components);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_InputScalarN__Ljava_lang_String_2IJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), data_type, p_data_addr, components);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4939,8 +4939,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorEdit3(String label, long col_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorEdit3__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorEdit3__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4951,8 +4951,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorEdit3(String label, long col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorEdit3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorEdit3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4963,8 +4963,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorEdit4(String label, long col_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorEdit4__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorEdit4__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4975,8 +4975,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorEdit4(String label, long col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorEdit4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorEdit4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4987,8 +4987,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorPicker3(String label, long col_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorPicker3__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorPicker3__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -4999,8 +4999,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorPicker3(String label, long col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorPicker3__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorPicker3__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5011,8 +5011,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorPicker4(String label, long col_addr, int flags, long ref_col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr, flags, ref_col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2JIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr, flags, ref_col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5023,8 +5023,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorPicker4(String label, long col_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5035,8 +5035,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorPicker4(String label, long col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorPicker4__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5047,8 +5047,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorButton(String desc_id, long col_addr, int flags, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(desc_id), col_addr, flags, size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2JIJ.invokeExact((MemorySegment) (desc_id == null ? MemorySegment.NULL : stringArena.allocateFrom(desc_id)), col_addr, flags, size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5059,8 +5059,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorButton(String desc_id, long col_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(desc_id), col_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2JI.invokeExact((MemorySegment) (desc_id == null ? MemorySegment.NULL : stringArena.allocateFrom(desc_id)), col_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5071,8 +5071,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ColorButton(String desc_id, long col_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(desc_id), col_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ColorButton__Ljava_lang_String_2J.invokeExact((MemorySegment) (desc_id == null ? MemorySegment.NULL : stringArena.allocateFrom(desc_id)), col_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5083,8 +5083,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNode__0(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNode__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNode__0__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5095,8 +5095,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNode__1(String str_id, String fmt) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNode__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNode__1__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5107,8 +5107,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNode__2(long ptr_id_addr, String fmt) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNode__2__JLjava_lang_String_2.invokeExact(ptr_id_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNode__2__JLjava_lang_String_2.invokeExact(ptr_id_addr, (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5119,8 +5119,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNodeEx__0(String label, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNodeEx__0__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNodeEx__0__Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5131,8 +5131,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNodeEx__0(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNodeEx__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNodeEx__0__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5143,8 +5143,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNodeEx__1(String str_id, int flags, String fmt) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNodeEx__1__Ljava_lang_String_2ILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNodeEx__1__Ljava_lang_String_2ILjava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags, (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5155,8 +5155,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TreeNodeEx__2(long ptr_id_addr, int flags, String fmt) {
-        try {
-            return (boolean) FFMHandles.internal_native_TreeNodeEx__2__JILjava_lang_String_2.invokeExact(ptr_id_addr, flags, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TreeNodeEx__2__JILjava_lang_String_2.invokeExact(ptr_id_addr, flags, (MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5167,8 +5167,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TreePush__0(String str_id) {
-        try {
-            FFMHandles.internal_native_TreePush__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TreePush__0__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5227,8 +5227,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_CollapsingHeader__0(String label, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_CollapsingHeader__0__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_CollapsingHeader__0__Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5239,8 +5239,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_CollapsingHeader__0(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_CollapsingHeader__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_CollapsingHeader__0__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5251,8 +5251,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_CollapsingHeader__1(String label, long p_visible_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_CollapsingHeader__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_visible_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_CollapsingHeader__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_visible_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5263,8 +5263,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_CollapsingHeader__1(String label, long p_visible_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_CollapsingHeader__1__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_visible_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_CollapsingHeader__1__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_visible_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5311,8 +5311,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__0(String label, boolean selected, int flags, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2ZIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), selected, flags, size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2ZIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), selected, flags, size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5323,8 +5323,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__0(String label, boolean selected, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2ZI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), selected, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2ZI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), selected, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5335,8 +5335,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__0(String label, boolean selected) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), selected);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2Z.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), selected);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5347,8 +5347,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__0(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__0__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5359,8 +5359,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__1(String label, long p_selected_addr, int flags, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2JIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_selected_addr, flags, size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2JIJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_selected_addr, flags, size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5371,8 +5371,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__1(String label, long p_selected_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_selected_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_selected_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5383,8 +5383,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_Selectable__1(String label, long p_selected_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_selected_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Selectable__1__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_selected_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5491,8 +5491,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginListBox(String label, long size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginListBox__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginListBox__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5503,8 +5503,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginListBox(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginListBox__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginListBox__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5527,8 +5527,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr, int height_in_items) {
-        try {
-            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr, height_in_items);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, items_addr, height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5539,8 +5539,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ListBox__0(String label, long current_item_addr, long items_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, items_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ListBox__0__Ljava_lang_String_2JJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, items_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5551,8 +5551,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count, int height_in_items) {
-        try {
-            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count, height_in_items);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, getter_addr, items_count, height_in_items);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5563,8 +5563,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_ListBox__1(String label, long current_item_addr, long getter_addr, int items_count) {
-        try {
-            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), current_item_addr, getter_addr, items_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_ListBox__1__Ljava_lang_String_2JJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), current_item_addr, getter_addr, items_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5575,8 +5575,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr, stride);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5587,8 +5587,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5599,8 +5599,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5611,8 +5611,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5623,8 +5623,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5635,8 +5635,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count, int values_offset) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5647,8 +5647,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__0(String label, long values_addr, int values_count) {
-        try {
-            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__0__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5659,8 +5659,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5671,8 +5671,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5683,8 +5683,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5695,8 +5695,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5707,8 +5707,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count, int values_offset) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5719,8 +5719,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotLines__1(String label, long getter_addr, int values_count) {
-        try {
-            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotLines__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5731,8 +5731,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr, int stride) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr, stride);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr, stride);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5743,8 +5743,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5755,8 +5755,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5767,8 +5767,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5779,8 +5779,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset, String overlay_text) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5791,8 +5791,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count, int values_offset) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count, values_offset);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5803,8 +5803,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__0(String label, long values_addr, int values_count) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), values_addr, values_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__0__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), values_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5815,8 +5815,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max, long graph_size_addr) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max, graph_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FFJ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max, graph_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5827,8 +5827,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min, float scale_max) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min, scale_max);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2FF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min, scale_max);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5839,8 +5839,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text, float scale_min) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text), scale_min);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2F.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)), scale_min);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5851,8 +5851,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset, String overlay_text) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(overlay_text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JIILjava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset, (MemorySegment) (overlay_text == null ? MemorySegment.NULL : stringArena.allocateFrom(overlay_text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5863,8 +5863,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count, int values_offset) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count, values_offset);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JII.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count, values_offset);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5875,8 +5875,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_PlotHistogram__1(String label, long getter_addr, int values_count) {
-        try {
-            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), getter_addr, values_count);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_PlotHistogram__1__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), getter_addr, values_count);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5887,8 +5887,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_Value__0(String prefix, boolean b) {
-        try {
-            FFMHandles.internal_native_Value__0__Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(prefix), b);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Value__0__Ljava_lang_String_2Z.invokeExact((MemorySegment) (prefix == null ? MemorySegment.NULL : stringArena.allocateFrom(prefix)), b);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5899,8 +5899,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_Value__1(String prefix, int v) {
-        try {
-            FFMHandles.internal_native_Value__1__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(prefix), v);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Value__1__Ljava_lang_String_2I.invokeExact((MemorySegment) (prefix == null ? MemorySegment.NULL : stringArena.allocateFrom(prefix)), v);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5911,8 +5911,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_Value__2(String prefix, float v, String float_format) {
-        try {
-            FFMHandles.internal_native_Value__2__Ljava_lang_String_2FLjava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(prefix), v, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(float_format));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Value__2__Ljava_lang_String_2FLjava_lang_String_2.invokeExact((MemorySegment) (prefix == null ? MemorySegment.NULL : stringArena.allocateFrom(prefix)), v, (MemorySegment) (float_format == null ? MemorySegment.NULL : stringArena.allocateFrom(float_format)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5923,8 +5923,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_Value__2(String prefix, float v) {
-        try {
-            FFMHandles.internal_native_Value__2__Ljava_lang_String_2F.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(prefix), v);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Value__2__Ljava_lang_String_2F.invokeExact((MemorySegment) (prefix == null ? MemorySegment.NULL : stringArena.allocateFrom(prefix)), v);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5983,8 +5983,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginMenu(String label, boolean enabled) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginMenu__Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), enabled);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginMenu__Ljava_lang_String_2Z.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), enabled);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -5995,8 +5995,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginMenu(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginMenu__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginMenu__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6019,8 +6019,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__0(String label, String shortcut, boolean selected, boolean enabled) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2ZZ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(shortcut), selected, enabled);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2ZZ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (shortcut == null ? MemorySegment.NULL : stringArena.allocateFrom(shortcut)), selected, enabled);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6031,8 +6031,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__0(String label, String shortcut, boolean selected) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(shortcut), selected);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2Z.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (shortcut == null ? MemorySegment.NULL : stringArena.allocateFrom(shortcut)), selected);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6043,8 +6043,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__0(String label, String shortcut) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(shortcut));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (shortcut == null ? MemorySegment.NULL : stringArena.allocateFrom(shortcut)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6055,8 +6055,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__0(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__0__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6067,8 +6067,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__1(String label, String shortcut, long p_selected_addr, boolean enabled) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__1__Ljava_lang_String_2Ljava_lang_String_2JZ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(shortcut), p_selected_addr, enabled);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__1__Ljava_lang_String_2Ljava_lang_String_2JZ.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (shortcut == null ? MemorySegment.NULL : stringArena.allocateFrom(shortcut)), p_selected_addr, enabled);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6079,8 +6079,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_MenuItem__1(String label, String shortcut, long p_selected_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_MenuItem__1__Ljava_lang_String_2Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(shortcut), p_selected_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_MenuItem__1__Ljava_lang_String_2Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), (MemorySegment) (shortcut == null ? MemorySegment.NULL : stringArena.allocateFrom(shortcut)), p_selected_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6115,8 +6115,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetTooltip(String fmt) {
-        try {
-            FFMHandles.internal_native_SetTooltip__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetTooltip__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6139,8 +6139,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetItemTooltip(String fmt) {
-        try {
-            FFMHandles.internal_native_SetItemTooltip__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetItemTooltip__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6151,8 +6151,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopup(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopup__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopup__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6163,8 +6163,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopup(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopup__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopup__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6175,8 +6175,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupModal(String name, long p_open_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), p_open_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2JI.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), p_open_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6187,8 +6187,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupModal(String name, long p_open_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name), p_open_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2J.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)), p_open_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6199,8 +6199,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupModal(String name) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(name));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupModal__Ljava_lang_String_2.invokeExact((MemorySegment) (name == null ? MemorySegment.NULL : stringArena.allocateFrom(name)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6223,8 +6223,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_OpenPopup__0(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6235,8 +6235,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_OpenPopup__0(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_OpenPopup__0__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6271,8 +6271,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_OpenPopupOnItemClick(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6283,8 +6283,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_OpenPopupOnItemClick(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_OpenPopupOnItemClick__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6319,8 +6319,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextItem(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextItem__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextItem__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6331,8 +6331,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextItem(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextItem__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextItem__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6355,8 +6355,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextWindow(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextWindow__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextWindow__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6367,8 +6367,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextWindow(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextWindow__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextWindow__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6391,8 +6391,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextVoid(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextVoid__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextVoid__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6403,8 +6403,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginPopupContextVoid(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginPopupContextVoid__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginPopupContextVoid__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6427,8 +6427,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_IsPopupOpen(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsPopupOpen__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_IsPopupOpen__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6439,8 +6439,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_IsPopupOpen(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_IsPopupOpen__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_IsPopupOpen__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6451,8 +6451,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTable(String str_id, int column, int flags, long outer_size_addr, float inner_width) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2IIJF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), column, flags, outer_size_addr, inner_width);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2IIJF.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), column, flags, outer_size_addr, inner_width);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6463,8 +6463,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTable(String str_id, int column, int flags, long outer_size_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2IIJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), column, flags, outer_size_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2IIJ.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), column, flags, outer_size_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6475,8 +6475,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTable(String str_id, int column, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2II.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), column, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2II.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), column, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6487,8 +6487,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTable(String str_id, int column) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), column);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTable__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), column);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6571,8 +6571,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight, int user_data) {
-        try {
-            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IFI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags, init_width_or_weight, user_data);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IFI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags, init_width_or_weight, user_data);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6583,8 +6583,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TableSetupColumn(String label, int flags, float init_width_or_weight) {
-        try {
-            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags, init_width_or_weight);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2IF.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags, init_width_or_weight);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6595,8 +6595,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TableSetupColumn(String label, int flags) {
-        try {
-            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6607,8 +6607,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TableSetupColumn(String label) {
-        try {
-            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TableSetupColumn__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6631,8 +6631,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_TableHeader(String label) {
-        try {
-            FFMHandles.internal_native_TableHeader__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_TableHeader__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6829,8 +6829,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTabBar(String str_id, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTabBar__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTabBar__Ljava_lang_String_2I.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6841,8 +6841,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTabBar(String str_id) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTabBar__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str_id));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTabBar__Ljava_lang_String_2.invokeExact((MemorySegment) (str_id == null ? MemorySegment.NULL : stringArena.allocateFrom(str_id)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6865,8 +6865,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTabItem(String label, long p_open_addr, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_open_addr, flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2JI.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_open_addr, flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6877,8 +6877,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTabItem(String label, long p_open_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), p_open_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2J.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), p_open_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6889,8 +6889,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_BeginTabItem(String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginTabItem__Ljava_lang_String_2.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6913,8 +6913,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_TabItemButton(String label, int flags) {
-        try {
-            return (boolean) FFMHandles.internal_native_TabItemButton__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_TabItemButton__Ljava_lang_String_2I.invokeExact((MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -6925,8 +6925,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetTabItemClosed(String tab_or_docked_window_label) {
-        try {
-            FFMHandles.internal_native_SetTabItemClosed__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(tab_or_docked_window_label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetTabItemClosed__Ljava_lang_String_2.invokeExact((MemorySegment) (tab_or_docked_window_label == null ? MemorySegment.NULL : stringArena.allocateFrom(tab_or_docked_window_label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7129,8 +7129,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LogToFile(int auto_open_depth, String filename) {
-        try {
-            FFMHandles.internal_native_LogToFile__ILjava_lang_String_2.invokeExact(auto_open_depth, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(filename));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LogToFile__ILjava_lang_String_2.invokeExact(auto_open_depth, (MemorySegment) (filename == null ? MemorySegment.NULL : stringArena.allocateFrom(filename)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7213,8 +7213,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LogText(String fmt) {
-        try {
-            FFMHandles.internal_native_LogText__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(fmt));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LogText__Ljava_lang_String_2.invokeExact((MemorySegment) (fmt == null ? MemorySegment.NULL : stringArena.allocateFrom(fmt)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7249,8 +7249,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SetDragDropPayload(String type, long data_addr, int size_t, int ImGuiCond) {
-        try {
-            return (boolean) FFMHandles.internal_native_SetDragDropPayload__Ljava_lang_String_2JII.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(type), data_addr, size_t, ImGuiCond);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SetDragDropPayload__Ljava_lang_String_2JII.invokeExact((MemorySegment) (type == null ? MemorySegment.NULL : stringArena.allocateFrom(type)), data_addr, size_t, ImGuiCond);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7261,8 +7261,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_SetDragDropPayload(String type, long data_addr, int size_t) {
-        try {
-            return (boolean) FFMHandles.internal_native_SetDragDropPayload__Ljava_lang_String_2JI.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(type), data_addr, size_t);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_SetDragDropPayload__Ljava_lang_String_2JI.invokeExact((MemorySegment) (type == null ? MemorySegment.NULL : stringArena.allocateFrom(type)), data_addr, size_t);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7303,8 +7303,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_AcceptDragDropPayload_addr(String type, int flags) {
-        try {
-            return (long) FFMHandles.internal_native_AcceptDragDropPayload_addr__Ljava_lang_String_2I.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(type), flags);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AcceptDragDropPayload_addr__Ljava_lang_String_2I.invokeExact((MemorySegment) (type == null ? MemorySegment.NULL : stringArena.allocateFrom(type)), flags);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7321,8 +7321,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_AcceptDragDropPayload_addr(String type) {
-        try {
-            return (long) FFMHandles.internal_native_AcceptDragDropPayload_addr__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(type));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_AcceptDragDropPayload_addr__Ljava_lang_String_2.invokeExact((MemorySegment) (type == null ? MemorySegment.NULL : stringArena.allocateFrom(type)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -7994,8 +7994,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_CalcTextSize_addr(String text, String text_end, boolean hide_text_after_double_hash, float wrap_width) {
-        try {
-            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2ZF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_end), hide_text_after_double_hash, wrap_width);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2ZF.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), (MemorySegment) (text_end == null ? MemorySegment.NULL : stringArena.allocateFrom(text_end)), hide_text_after_double_hash, wrap_width);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8012,8 +8012,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_CalcTextSize_addr(String text, String text_end, boolean hide_text_after_double_hash) {
-        try {
-            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2Z.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_end), hide_text_after_double_hash);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2Z.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), (MemorySegment) (text_end == null ? MemorySegment.NULL : stringArena.allocateFrom(text_end)), hide_text_after_double_hash);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8030,8 +8030,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_CalcTextSize_addr(String text, String text_end) {
-        try {
-            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_end));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)), (MemorySegment) (text_end == null ? MemorySegment.NULL : stringArena.allocateFrom(text_end)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8048,8 +8048,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static long internal_native_CalcTextSize_addr(String text) {
-        try {
-            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_CalcTextSize_addr__Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8612,8 +8612,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SetClipboardText(String text) {
-        try {
-            FFMHandles.internal_native_SetClipboardText__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SetClipboardText__Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8624,8 +8624,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LoadIniSettingsFromDisk(String ini_filename) {
-        try {
-            FFMHandles.internal_native_LoadIniSettingsFromDisk__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(ini_filename));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LoadIniSettingsFromDisk__Ljava_lang_String_2.invokeExact((MemorySegment) (ini_filename == null ? MemorySegment.NULL : stringArena.allocateFrom(ini_filename)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8636,8 +8636,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LoadIniSettingsFromMemory(String ini_data, long ini_size) {
-        try {
-            FFMHandles.internal_native_LoadIniSettingsFromMemory__Ljava_lang_String_2J.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(ini_data), ini_size);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LoadIniSettingsFromMemory__Ljava_lang_String_2J.invokeExact((MemorySegment) (ini_data == null ? MemorySegment.NULL : stringArena.allocateFrom(ini_data)), ini_size);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8648,8 +8648,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_LoadIniSettingsFromMemory(String ini_data) {
-        try {
-            FFMHandles.internal_native_LoadIniSettingsFromMemory__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(ini_data));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_LoadIniSettingsFromMemory__Ljava_lang_String_2.invokeExact((MemorySegment) (ini_data == null ? MemorySegment.NULL : stringArena.allocateFrom(ini_data)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8660,8 +8660,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_SaveIniSettingsToDisk(String ini_filename) {
-        try {
-            FFMHandles.internal_native_SaveIniSettingsToDisk__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(ini_filename));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_SaveIniSettingsToDisk__Ljava_lang_String_2.invokeExact((MemorySegment) (ini_filename == null ? MemorySegment.NULL : stringArena.allocateFrom(ini_filename)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8690,8 +8690,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_DebugTextEncoding(String text) {
-        try {
-            FFMHandles.internal_native_DebugTextEncoding__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_DebugTextEncoding__Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8726,8 +8726,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static boolean internal_native_DebugCheckVersionAndDataLayout(String version_str, long sz_io, long sz_style, long sz_vec2, long sz_vec4, long sz_drawvert, long sz_drawidx) {
-        try {
-            return (boolean) FFMHandles.internal_native_DebugCheckVersionAndDataLayout__Ljava_lang_String_2JJJJJJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(version_str), sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_DebugCheckVersionAndDataLayout__Ljava_lang_String_2JJJJJJ.invokeExact((MemorySegment) (version_str == null ? MemorySegment.NULL : stringArena.allocateFrom(version_str)), sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -8738,8 +8738,8 @@ public final class ImGui extends NativeObject {
     }
 
     public static void internal_native_DebugLog(String text) {
-        try {
-            FFMHandles.internal_native_DebugLog__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_DebugLog__Ljava_lang_String_2.invokeExact((MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

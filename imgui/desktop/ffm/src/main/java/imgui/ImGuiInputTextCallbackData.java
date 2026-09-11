@@ -83,8 +83,8 @@ public final class ImGuiInputTextCallbackData extends NativeObject {
     }
 
     public static void internal_native_InsertChars(long this_addr, int pos, String text) {
-        try {
-            FFMHandles.internal_native_InsertChars__JILjava_lang_String_2.invokeExact(this_addr, pos, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_InsertChars__JILjava_lang_String_2.invokeExact(this_addr, pos, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

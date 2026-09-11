@@ -98,8 +98,8 @@ public final class ImVectorDOMString extends NativeObject {
     }
 
     public static void internal_native_push_back(long this_addr, String v) {
-        try {
-            FFMHandles.internal_native_push_back__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(v));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_push_back__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (v == null ? MemorySegment.NULL : stringArena.allocateFrom(v)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

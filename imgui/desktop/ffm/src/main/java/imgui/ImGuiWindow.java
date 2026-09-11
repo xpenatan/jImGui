@@ -85,8 +85,8 @@ public final class ImGuiWindow extends NativeObject {
     }
 
     public static int internal_native_GetID(long this_addr, String str) {
-        try {
-            return (int) FFMHandles.internal_native_GetID__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(str));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (int) FFMHandles.internal_native_GetID__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (str == null ? MemorySegment.NULL : stringArena.allocateFrom(str)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

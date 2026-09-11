@@ -102,8 +102,8 @@ public final class ImGuiStringList extends NativeObject {
     }
 
     public static void internal_native_Add(long this_addr, String value) {
-        try {
-            FFMHandles.internal_native_Add__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(value));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Add__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (value == null ? MemorySegment.NULL : stringArena.allocateFrom(value)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -114,8 +114,8 @@ public final class ImGuiStringList extends NativeObject {
     }
 
     public static void internal_native_Set(long this_addr, int index, String value) {
-        try {
-            FFMHandles.internal_native_Set__JILjava_lang_String_2.invokeExact(this_addr, index, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(value));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_Set__JILjava_lang_String_2.invokeExact(this_addr, index, (MemorySegment) (value == null ? MemorySegment.NULL : stringArena.allocateFrom(value)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

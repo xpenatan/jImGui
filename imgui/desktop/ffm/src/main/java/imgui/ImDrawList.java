@@ -605,8 +605,8 @@ public final class ImDrawList extends NativeObject {
     }
 
     public static void internal_native_AddText(long this_addr, long pos_addr, int col, String text_begin, String text_end) {
-        try {
-            FFMHandles.internal_native_AddText__JJILjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, pos_addr, col, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_begin), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_end));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_AddText__JJILjava_lang_String_2Ljava_lang_String_2.invokeExact(this_addr, pos_addr, col, (MemorySegment) (text_begin == null ? MemorySegment.NULL : stringArena.allocateFrom(text_begin)), (MemorySegment) (text_end == null ? MemorySegment.NULL : stringArena.allocateFrom(text_end)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -617,8 +617,8 @@ public final class ImDrawList extends NativeObject {
     }
 
     public static void internal_native_AddText(long this_addr, long pos_addr, int col, String text_begin) {
-        try {
-            FFMHandles.internal_native_AddText__JJILjava_lang_String_2.invokeExact(this_addr, pos_addr, col, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text_begin));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_AddText__JJILjava_lang_String_2.invokeExact(this_addr, pos_addr, col, (MemorySegment) (text_begin == null ? MemorySegment.NULL : stringArena.allocateFrom(text_begin)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

@@ -25,8 +25,8 @@ public final class ImGuiTextFilter extends NativeObject {
     }
 
     public static long internal_native_create_String_addr(String default_filter) {
-        try {
-            return (long) FFMHandles.internal_native_create_String_addr__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(default_filter));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (long) FFMHandles.internal_native_create_String_addr__Ljava_lang_String_2.invokeExact((MemorySegment) (default_filter == null ? MemorySegment.NULL : stringArena.allocateFrom(default_filter)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -76,8 +76,8 @@ public final class ImGuiTextFilter extends NativeObject {
     }
 
     public static boolean internal_native_Draw(long this_addr, String label, float width) {
-        try {
-            return (boolean) FFMHandles.internal_native_Draw__JLjava_lang_String_2F.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label), width);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Draw__JLjava_lang_String_2F.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)), width);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -88,8 +88,8 @@ public final class ImGuiTextFilter extends NativeObject {
     }
 
     public static boolean internal_native_Draw(long this_addr, String label) {
-        try {
-            return (boolean) FFMHandles.internal_native_Draw__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(label));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_Draw__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (label == null ? MemorySegment.NULL : stringArena.allocateFrom(label)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -112,8 +112,8 @@ public final class ImGuiTextFilter extends NativeObject {
     }
 
     public static boolean internal_native_PassFilter(long this_addr, String text) {
-        try {
-            return (boolean) FFMHandles.internal_native_PassFilter__JLjava_lang_String_2.invokeExact(this_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(text));
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_PassFilter__JLjava_lang_String_2.invokeExact(this_addr, (MemorySegment) (text == null ? MemorySegment.NULL : stringArena.allocateFrom(text)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
