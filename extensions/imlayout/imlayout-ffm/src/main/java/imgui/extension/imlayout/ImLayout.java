@@ -218,8 +218,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginLayout__2(String id, float sizeX, float sizeY, long options_addr) {
-        try {
-            FFMHandles.internal_native_BeginLayout__2__Ljava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, options_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginLayout__2__Ljava_lang_String_2FFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, options_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -230,8 +230,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginLayout__2(String id, float sizeX, float sizeY) {
-        try {
-            FFMHandles.internal_native_BeginLayout__2__Ljava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginLayout__2__Ljava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -356,8 +356,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY, float alignX, float alignY, float offsetX, float offsetY, long options_addr) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFFFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, alignX, alignY, offsetX, offsetY, options_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFFFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, alignX, alignY, offsetX, offsetY, options_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -368,8 +368,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY, float alignX, float alignY, float offsetX, float offsetY) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, alignX, alignY, offsetX, offsetY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFFF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, alignX, alignY, offsetX, offsetY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -380,8 +380,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY, float alignX, float alignY, float offsetX) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, alignX, alignY, offsetX);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFFF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, alignX, alignY, offsetX);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -392,8 +392,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY, float alignX, float alignY) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, alignX, alignY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFFF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, alignX, alignY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -404,8 +404,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY, float alignX) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY, alignX);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FFF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY, alignX);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -416,8 +416,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginAlign__2(String id, float sizeX, float sizeY) {
-        try {
-            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginAlign__2__Ljava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -476,8 +476,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayout(String id, String title, float sizeX, float sizeY) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayout__Ljava_lang_String_2Ljava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayout__Ljava_lang_String_2Ljava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -488,8 +488,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayout(String id, String title, float sizeX, float sizeY, long option_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayout__Ljava_lang_String_2Ljava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY, option_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayout__Ljava_lang_String_2Ljava_lang_String_2FFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY, option_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -500,8 +500,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginCollapseLayout__2(String id, long isOpen_addr, String title, float sizeX, float sizeY) {
-        try {
-            FFMHandles.internal_native_BeginCollapseLayout__2__Ljava_lang_String_2JLjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), isOpen_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginCollapseLayout__2__Ljava_lang_String_2JLjava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), isOpen_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -512,8 +512,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginCollapseLayout__2(String id, long isOpen_addr, String title, float sizeX, float sizeY, long option_addr) {
-        try {
-            FFMHandles.internal_native_BeginCollapseLayout__2__Ljava_lang_String_2JLjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), isOpen_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY, option_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginCollapseLayout__2__Ljava_lang_String_2JLjava_lang_String_2FFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), isOpen_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY, option_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -548,8 +548,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayoutEx(String id, String title, float sizeX, float sizeY) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__Ljava_lang_String_2Ljava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__Ljava_lang_String_2Ljava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -560,8 +560,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayoutEx(String id, String title, float sizeX, float sizeY, long option_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__Ljava_lang_String_2Ljava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY, option_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__Ljava_lang_String_2Ljava_lang_String_2FFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY, option_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -572,8 +572,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayoutEx__2(int id, String title, float sizeX, float sizeY) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__2__ILjava_lang_String_2FF.invokeExact(id, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__2__ILjava_lang_String_2FF.invokeExact(id, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -584,8 +584,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static boolean internal_native_BeginCollapseLayoutEx__2(int id, String title, float sizeX, float sizeY, long option_addr) {
-        try {
-            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__2__ILjava_lang_String_2FFJ.invokeExact(id, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY, option_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            return (boolean) FFMHandles.internal_native_BeginCollapseLayoutEx__2__ILjava_lang_String_2FFJ.invokeExact(id, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY, option_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -596,8 +596,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginCollapseLayoutEx__3(String id, long isOpen_addr, String title, float sizeX, float sizeY) {
-        try {
-            FFMHandles.internal_native_BeginCollapseLayoutEx__3__Ljava_lang_String_2JLjava_lang_String_2FF.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), isOpen_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginCollapseLayoutEx__3__Ljava_lang_String_2JLjava_lang_String_2FF.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), isOpen_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -608,8 +608,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginCollapseLayoutEx__3(String id, long isOpen_addr, String title, float sizeX, float sizeY, long option_addr) {
-        try {
-            FFMHandles.internal_native_BeginCollapseLayoutEx__3__Ljava_lang_String_2JLjava_lang_String_2FFJ.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(id), isOpen_addr, com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(title), sizeX, sizeY, option_addr);
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginCollapseLayoutEx__3__Ljava_lang_String_2JLjava_lang_String_2FFJ.invokeExact((MemorySegment) (id == null ? MemorySegment.NULL : stringArena.allocateFrom(id)), isOpen_addr, (MemorySegment) (title == null ? MemorySegment.NULL : stringArena.allocateFrom(title)), sizeX, sizeY, option_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -686,8 +686,8 @@ public final class ImLayout extends NativeObject {
     }
 
     public static void internal_native_BeginTree__1(String treeIdStr) {
-        try {
-            FFMHandles.internal_native_BeginTree__1__Ljava_lang_String_2.invokeExact(com.github.xpenatan.jparser.runtime.helper.NativeUtils.toCString(treeIdStr));
+        try (Arena stringArena = Arena.ofConfined()) {
+            FFMHandles.internal_native_BeginTree__1__Ljava_lang_String_2.invokeExact((MemorySegment) (treeIdStr == null ? MemorySegment.NULL : stringArena.allocateFrom(treeIdStr)));
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
