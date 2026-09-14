@@ -107,6 +107,7 @@ jParser {
         }
 
         target(JParserTargets.ANDROID_JNI) {
+            compileFlag("-fPIC")
             compileFlag("-Wno-error=format-security")
             compileFlag("-DIMGUI_DISABLE_FILE_FUNCTIONS")
             compileFlag("-DIMGUI_DEFINE_MATH_OPERATORS")
@@ -114,6 +115,7 @@ jParser {
         }
 
         target(JParserTargets.ANDROID_TEAVM_C) {
+            compileFlag("-fPIC")
             compileFlag("-Wno-error=format-security")
             compileFlag("-DIMGUI_DISABLE_FILE_FUNCTIONS")
             compileFlag("-DIMGUI_DEFINE_MATH_OPERATORS")
